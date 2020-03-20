@@ -1,0 +1,61 @@
+.btn-flat{
+    margin-right: -10px !important;
+    transition: 0.2s;
+}
+
+.btnDefault{
+    text-transform: inherit;
+    border: 0.5px solid #fff;
+    color: #fff;
+}
+
+.btnDefault:hover{
+    background: #fff;
+    color: #29b6f6;
+}
+
+.btnLight{
+    text-transform: inherit;
+    border: 0.5px solid #29b6f6;
+    color: #29b6f6;
+}
+
+.btnLight:hover{
+    background: #29b6f6;
+    color: #fff;
+}
+
+.btnText{
+    text-transform: inherit;
+    color: #fff;
+}
+
+.btnText:hover{
+    background: #fff;
+    color: #29b6f6;
+}
+
+.btnDark{
+    text-transform: inherit;
+    border: 0.5px solid #212121;
+    color: #212121;
+    margin: 20px 20px 0 0 !important;
+}
+
+.btnDark:hover{
+    background: #212121;
+    color: #fff;
+}
+
+.btnDarkFill{
+    text-transform: inherit;
+    background: #212121;
+    border: 0.5px solid #212121;
+    color: #fff;
+    margin: 20px 20px 0 0 !important;
+}
+
+.btnDarkFill:hover{
+    background: transparent;
+    color: #212121;
+}

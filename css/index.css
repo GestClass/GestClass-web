@@ -1,0 +1,139 @@
+body{
+    overflow-x: hidden;
+}
+.secao{
+    padding: 40px 0;
+}
+.slider .slides {
+    background-color: transparent;
+}
+.slider .slides {
+    background-color: transparent;
+}
+.slides{
+    padding: 10vh 0;
+}
+.btn-flat{
+    margin-right: -10px !important;
+    transition: 0.2s;
+}
+.btnHome{
+    margin: 20px 20px 0 0 !important;
+}
+
+.btnLogin:hover{
+    background: #212121;
+    color: #fff;
+}
+.slides{
+    padding: 10vh 0;
+}
+blockquote{
+    border-color: #212121;
+    font-size: 18px;
+}
+.textSlide{
+  color:#FFFFFF;
+}
+.cardHover{
+    margin: 45px 0 20px 0;
+}
+.iconSocial {
+  transition: 0.2s;
+  margin: 5px 25px;
+  color: #212121;
+}
+.fa-facebook:hover {
+  transform: scale(1.09);
+  color: #3C5A99;
+}
+.fa-twitter:hover {
+  transform: scale(1.09);
+  color: #1DA1F2;
+}
+.fa-instagram:hover {
+  transform: scale(1.09);
+  color: #405DE6;
+}
+.collection-item, .collection{
+    background-color: transparent !important;
+    border: none !important;
+}
+.collection-item{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+.iconDescPlano{
+    margin: 0 10px 0 0;
+}
+.textoSobre{
+    text-align: justify;
+}
+.cardPlano{
+    border: 2px solid #212121;
+}
+.collapsible-header{
+    display: flex;
+    align-items: center;
+}
+.titleCollapsible{
+    margin-left: 20px;
+}
+.iconVerSenha {
+    margin-right: 15px;
+    position: relative;
+    margin-top: -40px !important;
+    z-index: 5;
+    cursor: pointer;
+}
+
+
+/* css for gear svg animation */
+.machine {
+  width: 60vmin;
+  fill: #212121; }
+
+.small-shadow, .medium-shadow, .large-shadow {
+  fill: rgba(0, 0, 0, 0.2); }
+
+.small {
+	animation: counter-rotation 4.5s infinite linear;
+    transform-origin: 100.136px 225.345px;
+}
+.small-shadow {
+	animation: counter-rotation 4.5s infinite linear;
+    transform-origin: 110.136px 235.345px;
+}
+.medium {
+	animation: rotation 6.75s infinite linear;
+    transform-origin: 254.675px 379.447px;
+}
+.medium-shadow {
+	animation: rotation 6.75s infinite linear;
+    transform-origin: 264.675px 389.447px;
+}
+.large {
+    animation: counter-rotation 9s infinite linear;
+    transform-origin: 461.37px 173.694px;
+}
+.large-shadow {
+	animation: counter-rotation 9s infinite linear;
+    transform-origin: 471.37px 183.694px;
+}
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to   {
+        transform: rotate(359deg);
+    }
+}
+@keyframes counter-rotation {
+    from {
+        transform: rotate(359deg);
+    }
+    to   {
+        transform: rotate(0deg);
+    }
+}

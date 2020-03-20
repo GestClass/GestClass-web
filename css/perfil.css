@@ -1,0 +1,15 @@
+.descFoto{
+    visibility: hidden;
+    width: 0;
+}
+.formPerfil{
+    padding: 40px !important;
+}
+.iconVerSenha {
+    margin-right: 15px;
+    position: relative;
+    margin-top: -40px !important;
+    z-index: 5;
+    cursor: pointer;
+}
+
