@@ -98,7 +98,7 @@
                 </dl>
                 <div class="row">
                     <span id="msg-cad"></span>
-                    <form id="adicionarEscola" class="col s12" method="POST">
+                    <form id="adicionarEscola" class="col s12" method="POST" action="php/cadastroAdm.php">
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">account_balance</i>
@@ -115,7 +115,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                            <i class="material-icons prefix">alternate_email</i>
+                                <i class="material-icons prefix">alternate_email</i>
                                 <input placeholder="gestclass@enterprise.com" name="email" id="email" type="email"
                                     class="validate">
                                 <label for="email">Email</label>
@@ -129,38 +129,80 @@
                             </div> -->
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">call</i>
-                                <input placeholder="+55 (11) 95945-7809" name="end" id="end" type="text"
+                                <input placeholder="+55 (11) 95945-7809" name="telefone" id="telefone" type="text"
                                     class="validate">
                                 <label for="first_name">Telefone</label>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">location_on</i>
-                                <input placeholder="Endereço" name="end" id="end" type="text" class="validate">
+                                <input placeholder="Endereço" name="logradouro" id="logradouro" type="text"
+                                    class="validate">
                                 <label for="first_name">Logradouro</label>
                             </div>
-                            <div class="input-field col s8">
+                            <div class="input-field col s6">
                                 <i class="material-icons prefix">location_on</i>
-                                <input placeholder="Bairro" name="end" id="end" type="text" class="validate">
+                                <input placeholder="Bairro" name="bairro" id="bairro" type="text" class="validate">
                                 <label for="first_name">Bairro</label>
                             </div>
                             <div class="input-field col s2">
                                 <!-- <i class="material-icons prefix">location_on</i> -->
-                                <input placeholder="Número" name="end" id="end" type="text" class="validate">
+                                <input placeholder="Número" name="numero" id="numero" type="text" class="validate">
                                 <label for="first_name">Nº</label>
                             </div>
-                            <div class="input-field col s2">
+                            <div class="input-field col s4">
                                 <!-- <i class="material-icons prefix">location_on</i> -->
-                                <input placeholder="Estado" name="end" id="end" type="text" class="validate">
+                                <select name="estado" id="estado" class="validate">
+                                    <option value="" disabled selected>Selecione o Estado</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                    <option value="EX">Estrangeiro</option>
+                                </select>
                                 <label for="first_name">Estado</label>
+                                <!-- <input placeholder="Estado" name="end" id="end" type="text" class="validate"> -->
+                                <!-- <label for="first_name">Estado</label> -->
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">attach_money</i>
-                                <input placeholder="Bairro" name="end" id="end" type="text" class="validate">
+                                <select name="data_pagamento" id="data_pagamento">
+                                    <option value="" disabled selected>Escolha uma data de vencimento</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="5">5</option>
+                                    <option value="8">8</option>
+                                    <option value="15">15</option>
+                                    <option value="25">25</option>
+                                </select>
+                                <!-- <input name="data_pagamento" id="data_pagamento" type="text" class="validate"> -->
                                 <label for="first_name">Data de pagamento</label>
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">wc</i>
-                                <input placeholder="Bairro" name="end" id="end" type="text" class="validate">
+                                <input placeholder="Digite a quantidade de alunos" name="quantidade_alunos" id="quantidade_alunos" type="number" data-mask="0.000" class="validate">
                                 <label for="first_name">Quantidade de alunos</label>
                             </div>
                         </div>
@@ -201,6 +243,7 @@
 
 
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
     <script src="js/homeAdmGest.js"></script>
     <script src="js/default.js"></script>
