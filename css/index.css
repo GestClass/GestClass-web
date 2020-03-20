@@ -1,18 +1,27 @@
 body{
     overflow-x: hidden;
 }
-.secao{
-    padding: 40px 0;
+
+.sectionHome{
+    display: block;
+    position: relative;
+    padding: 70px 0;
 }
-.slider .slides {
-    background-color: transparent;
+
+.sectionHome::after{
+    background: url(../assets/img/s.png);
+    background-position: center top;
+    background-size: cover;
+    opacity: 0.4;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
 }
-.slider .slides {
-    background-color: transparent;
-}
-.slides{
-    padding: 10vh 0;
-}
+
 .btn-flat{
     margin-right: -10px !important;
     transition: 0.2s;
@@ -21,10 +30,6 @@ body{
     margin: 20px 20px 0 0 !important;
 }
 
-.btnLogin:hover{
-    background: #212121;
-    color: #fff;
-}
 .slides{
     padding: 10vh 0;
 }
@@ -88,52 +93,3 @@ blockquote{
     cursor: pointer;
 }
 
-
-/* css for gear svg animation */
-.machine {
-  width: 60vmin;
-  fill: #212121; }
-
-.small-shadow, .medium-shadow, .large-shadow {
-  fill: rgba(0, 0, 0, 0.2); }
-
-.small {
-	animation: counter-rotation 4.5s infinite linear;
-    transform-origin: 100.136px 225.345px;
-}
-.small-shadow {
-	animation: counter-rotation 4.5s infinite linear;
-    transform-origin: 110.136px 235.345px;
-}
-.medium {
-	animation: rotation 6.75s infinite linear;
-    transform-origin: 254.675px 379.447px;
-}
-.medium-shadow {
-	animation: rotation 6.75s infinite linear;
-    transform-origin: 264.675px 389.447px;
-}
-.large {
-    animation: counter-rotation 9s infinite linear;
-    transform-origin: 461.37px 173.694px;
-}
-.large-shadow {
-	animation: counter-rotation 9s infinite linear;
-    transform-origin: 471.37px 183.694px;
-}
-@keyframes rotation {
-    from {
-        transform: rotate(0deg);
-    }
-    to   {
-        transform: rotate(359deg);
-    }
-}
-@keyframes counter-rotation {
-    from {
-        transform: rotate(359deg);
-    }
-    to   {
-        transform: rotate(0deg);
-    }
-}
