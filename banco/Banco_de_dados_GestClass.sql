@@ -38,7 +38,7 @@ CREATE TABLE escola (
     turma_bercario BOOLEAN, 
     turma_pre_escola BOOLEAN,
     turma_fundamental_I BOOLEAN,
-    fundamental_II BOOLEAN,
+    turma_fundamental_II BOOLEAN,
     turma_medio BOOLEAN 
 );
 
@@ -189,15 +189,6 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 
-/*	-	FOREIGN KEYs TABLE ESCOLA	-	*/
-
-ALTER TABLE escola ADD CONSTRAINT fk_id_tipos_turma_bercario FOREIGN KEY (fk_id_tipos_turma_bercario) REFERENCES tipo_turma (ID_tipo_turmas);
-ALTER TABLE escola ADD CONSTRAINT fk_id_tipos_turma_pre_escola FOREIGN KEY (fk_id_tipos_turma_pre_escola) REFERENCES tipo_turma (ID_tipo_turmas);
-ALTER TABLE escola ADD CONSTRAINT fk_id_tipos_turma_fundamental_I FOREIGN KEY (fk_id_tipos_turma_fundamental_I) REFERENCES tipo_turma (ID_tipo_turmas);
-ALTER TABLE escola ADD CONSTRAINT fk_id_tipos_turma_fundamental_II FOREIGN KEY (fk_id_tipos_turma_fundamental_II) REFERENCES tipo_turma (ID_tipo_turmas);
-ALTER TABLE escola ADD CONSTRAINT fk_id_tipos_turma_medio FOREIGN KEY (fk_id_tipos_turma_medio) REFERENCES tipo_turma (ID_tipo_turmas);
-
-
 /*	-	FOREIGN KEYs TABLE PROFESSOR	-	*/
 
 ALTER TABLE professor ADD CONSTRAINT fk_id_tipo_usuario_professor FOREIGN KEY (fk_id_tipo_usuario_professor) REFERENCES tipo_usuario (ID_tipo_usuario);
@@ -314,7 +305,7 @@ INSERT INTO disciplina (nome_disciplina) VALUES ('biologia');
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
-INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, quantidade_alunos, fk_id_tipos_turma_bercario, fk_id_tipos_turma_pre_escola, fk_id_tipos_turma_fundamental_I, fk_id_tipos_turma_fundamental_II, fk_id_tipos_turma_medio) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11)0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', 500, 1, 1, 1, 1, 1);
+INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, quantidade_alunos, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11)0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', 500, true, true, true, true, true);
 
 
 /*	-	INSERTS INTO TABLE PROFESSOR	-	*/
@@ -393,7 +384,6 @@ SELECT * FROM responsavel;
 SELECT * FROM `admin`;
 
 SELECT * FROM contato;
-
 
 
 
