@@ -27,25 +27,25 @@
 }
 
 #aluno {
-    width: 1260px;
+    width: auto;
     margin-top: 15px;
     margin-left: 10px;
 }
 
 #responsavel {
-    width: 1260px;
+    width: auto;
     margin-top: 15px;
     margin-left: 10px;
 }
 
 #professor {
-    width: 1260px;
+    width: auto;
     margin-top: 15px;
     margin-left: 10px;
 }
 
 #secretaria {
-    width: 1260px;
+    width: auto;
     margin-top: 15px;
     margin-left: 10px;
 }

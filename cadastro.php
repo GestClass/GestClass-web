@@ -26,7 +26,7 @@
         <form method="POST" action="./controller/cadastro.controller.php">
             <h4>Selecione o tipo de conta</h4><br>
             <div class="row">
-                <div class="col s12 m12 l8">
+                <div class="col s12 m12 l12">
                     <ul id="tabs-swipe-demo" class="tabs blue lighten-5">
                         <li class="tab col s1 m2 l3 "><a class="active" href="#aluno">Aluno</a></li>
                         <li class="tab col s1 m2 l3 "><a href="#responsavel">Responsável</a></li>

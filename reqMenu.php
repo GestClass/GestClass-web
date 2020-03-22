@@ -41,7 +41,7 @@
                 <div class="dividerVert"></div>
               </li>
               <li>
-                <a href="#" data-izimodal-open="#modalLogin" class="btn-flat btnLight">Sair</a>
+                <a href="index.php" data-izimodal-open="#modalLogin" class="btn-flat btnLight">Sair</a>
               </li>
             </ul>
           </div>

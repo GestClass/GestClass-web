@@ -28,7 +28,9 @@
       $dados = $query->fetch(PDO::FETCH_ASSOC);
 
       if($query->rowCount()>0){
-        echo "Login secretario efetuado";
+        echo "<script>alert('Secretario logado com sucesso :)');
+                  window.location = '../homeSecretaria.php'
+                  </script>";
       }
       else {
         $query = $conn->prepare("select email,senha from professor where email=:email and senha=:senha");
