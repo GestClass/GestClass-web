@@ -43,3 +43,7 @@ h3{
 button#cadEscola{
   margin-top: -35px;
 }
+
+.fixed-action-btn.floating-right{
+  bottom: 90px;
+}

@@ -20,71 +20,23 @@
 <body>
 
     <?php require_once 'reqMenuAdm.php' ?>
+    
+    <!-- <button class="btn btn-flat waves-effect btnDarkFill left modal-trigger" type="submit" name="cadEscola" id="cadEscola"
+        value="cadEscola"  href="#CadastarEscolas">Consultar
+        <i class="material-icons right">pageview</i>
+    </button> -->
 
-    <section class="section center">
-        <div class="container">
-            <div class="row">
-                <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="far fa-user fa-6x blue-icon"></i>
-                            <h5>Admins</h5>
-                            <p>Acesso aos dados dos admins, efetuação e remoção de cadastros</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a class="modal-trigger" href="cadastroEscola.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-school fa-6x blue-icon"></i>
-                            <h5>Cadastro Escolas</h5>
-                            <p>Cadastro de novos acessos de escolas ao aplicativo e remoção das mesmas</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-bell fa-6x blue-icon"></i>
-                            <h5>Notificações</h5>
-                            <p>Envio de notificações para as escolas, avisos sobre atraso de mensalidade ou manutenção
-                                no sistema</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-compass fa-6x blue-icon"></i>
-                            <h5>Visão geral</h5>
-                            <p>Visão geral do sistema para testes</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-idea fa-6x blue-icon"></i>
-                            <h5>ALGUMA IDEIA PLEASE IDEIA</h5>
-                            <p>Acesso total a dados dos professores, atribuição de classes, alterações de dados, etc</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a href="perfil.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-cog fa-6x blue-icon"></i>
-                            <h5>Configurações</h5>
-                            <p>Configurações da conta</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+    <section class="floating-buttons">
+        <div class="fixed-action-btn floating-right">
+            <a class="btn-floating btn  blue accent-4 modal-trigger" href="#CadastarEscolas">
+                <i class="large material-icons">create</i>
+            </a>
         </div>
     </section>
 
+
     <!-- CADASTRO DAS ESCOLAS SENDO MODIFICADO "USANDO EXEMPLO DO CADASTRO DO CALENDARIO" -->
-    <!-- <section>
+    <section>
         <div id="CadastarEscolas" class="modal">
             <div class="modal-content">
                 <dl class="row">
@@ -202,7 +154,8 @@
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">wc</i>
-                                <input placeholder="Digite a quantidade de alunos" name="quantidade_alunos" id="quantidade_alunos" type="number" data-mask="0.000" class="validate">
+                                <input placeholder="Digite a quantidade de alunos" name="quantidade_alunos"
+                                    id="quantidade_alunos" type="number" data-mask="0.000" class="validate">
                                 <label for="first_name">Quantidade de alunos</label>
                             </div>
                         </div>
@@ -221,7 +174,7 @@
             </div>
         </div>
         </div>
-    </section> -->
+    </section>
 
     <section class="floating-buttons">
         <div class="fixed-action-btn">
