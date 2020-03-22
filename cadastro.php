@@ -21,106 +21,253 @@
 <body>
 
     <?php require_once 'reqMenu.php' ?>
-   
-    <div class="container">
-    <form method="POST" action="./controller/cadastro.controller.php">
-        <h3>Cadatro do Geral</h3><br>
-        <h4>Responsável</h4>
-        <div class="scroll">
-            <div class="container">
-                <div class="input-field col s6">
-                    <input id="icon_prefix" type="text" class="validate inputDark">
-                    <label for="icon_prefix">Nome</label>
+
+    <div class="container ">
+        <form method="POST" action="./controller/cadastro.controller.php">
+            <h4>Selecione o tipo de conta</h4><br>
+            <div class="row">
+                <div class="col s12 m12 l8">
+                    <ul id="tabs-swipe-demo" class="tabs blue lighten-5">
+                        <li class="tab col s1 m2 l3 "><a class="active" href="#aluno">Aluno</a></li>
+                        <li class="tab col s1 m2 l3 "><a href="#responsavel">Responsável</a></li>
+                        <li class="tab col s1 m2 l3 "><a href="#professor">Professor</a></li>
+                        <li class="tab col s1 m2 l3 "><a href="#secretaria">Secretaria</a></li>
+                    </ul>
+                </div><br>
+
+
+                <div id="aluno" class="col s12 m12 l12 blue lighten-5">
+                    <h4>Aluno</h4>
+                    <div class="scroll">
+                        <div class="container">
+                            <div class="input-field col s12 m8 l6">
+                                <input id="icon_prefix" type="text" class="validate inputDark">
+                                <label for="icon_prefix">Nome</label>
+                            </div>
+                            <div class="input-field col s12 m8 l6">
+                                <input id="icon_telephone" type="tel" class="validate inputDark">
+                                <label for="icon_telephone">Telefone</label>
+                            </div>
+                            <div class="input-field col s12 m8 l6">
+                                <input id="icon_telephone" type="tel" class="validate inputDark">
+                                <label for="icon_telephone">Email</label>
+                            </div>
+                            <div class="input-field col s12 m8 l6">
+                                <input id="icon_telephone" type="tel" class="validate inputDark">
+                                <label for="icon_telephone">RG</label>
+                            </div>
+                            <div class="input-field col s12 m8 l6">
+                                <input id="icon_telephone" type="tel" class="validate inputDark">
+                                <label for="icon_telephone">CPF</label>
+                            </div>
+                            <div class="input-field col s12 m8 l6">
+                                <input id="icon_telephone" type="tel" class="validate inputDark">
+                                <label for="icon_telephone">CEP</label>
+                            </div>
+                            <div class="input-field col s12 m8 l6">
+                                <input id="icon_telephone" type="tel" class="validate inputDark">
+                                <label for="icon_telephone">Bairro</label>
+                            </div>
+                            <div class="input-field col s12 m8 l6">
+                                <input id="icon_telephone" type="tel" class="validate inputDark">
+                                <label for="icon_telephone">Rua</label>
+                            </div>
+                            <div class="input-field col s12 m8 l6">
+                                <input id="icon_telephone" type="tel" class="validate inputDark">
+                                <label for="icon_telephone">Numero</label>
+                            </div>
+                            <div class="input-field col s12 m8 l6">
+                                <input id="icon_telephone" type="tel" class="validate inputDark">
+                                <label for="icon_telephone">Complemento</label>
+                            </div>
+                            <div class="input-field right">
+                                <button id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas">
+                                    <i class="material-icons left">send</i> Cadastrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input id="icon_telephone" type="tel" class="validate inputDark">
-                    <label for="icon_telephone">Telefone</label>
+
+                <div id="responsavel" class="col s12 m12 l12 blue lighten-5">
+                    <div id="aluno/resp">
+                        <h4>Responsável</h4>
+                        <div class="scroll">
+                            <div class="container">
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_prefix" type="text" class="validate inputDark">
+                                    <label for="icon_prefix">Nome</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark">
+                                    <label for="icon_telephone">Telefone</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark">
+                                    <label for="icon_telephone">Email</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark">
+                                    <label for="icon_telephone">RG</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark">
+                                    <label for="icon_telephone">CPF</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark">
+                                    <label for="icon_telephone">CEP</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark  ">
+                                    <label for="icon_telephone">Bairro</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark">
+                                    <label for="icon_telephone">Rua</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark  ">
+                                    <label for="icon_telephone">Numero</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark">
+                                    <label for="icon_telephone">Complemento</label>
+                                </div>
+                                <div class="input-field right">
+                                    <button id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas">
+                                        <i class="material-icons left">send</i> Cadastrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input id="icon_telephone" type="tel" class="validate inputDark">
-                    <label for="icon_telephone">Email</label>
+
+                <div id="professor" class="col s12 m12 l12 blue lighten-5">
+                    <div id="professor">
+                        <h4>Professor</h4>
+                        <div class="scroll">
+                            <div class="container">
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_prefix" type="text" class="validate">
+                                    <label for="icon_prefix">Nome</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Telefone</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Email</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">RG</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">CPF</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Titulo Eleitoral</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Carteira de Trabalho</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">CEP</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Bairro</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Rua</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Numero</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Complemento</label>
+                                </div>
+                                <div class="input-field right">
+                                    <button id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas">
+                                        <i class="material-icons left">send</i> Cadastrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input id="icon_telephone" type="tel" class="validate inputDark">
-                    <label for="icon_telephone">RG</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="icon_telephone" type="tel" class="validate inputDark">
-                    <label for="icon_telephone">CPF</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="icon_telephone" type="tel" class="validate inputDark">
-                    <label for="icon_telephone">CEP</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="icon_telephone" type="tel" class="validate inputDark">
-                    <label for="icon_telephone">Rua</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="icon_telephone" type="tel" class="validate inputDark  ">
-                    <label for="icon_telephone">Bairro</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="icon_telephone" type="tel" class="validate inputDark  ">
-                    <label for="icon_telephone">Numero</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="icon_telephone" type="tel" class="validate inputDark">
-                    <label for="icon_telephone">Complemento</label>
-                </div>
-                <div class="input-field right">
-                    <button type="submit" class="btn-flat btnDefaultFormContas">Cadastrar</button>
+
+                <div id="secretaria" class="col s12 m12 l12 blue lighten-5">
+                    <div id="secretaria">
+                        <h4>Secretaria</h4>
+                        <div class="scroll">
+                            <div class="container">
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_prefix" type="text" class="validate">
+                                    <label for="icon_prefix">Nome</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Telefone</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Email</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">RG</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">CPF</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Título Eleitoral</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Carteira de Trabalho</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">CEP</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Bairro</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark">
+                                    <label for="icon_telephone">Rua</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark  ">
+                                    <label for="icon_telephone">Numero</label>
+                                </div>
+                                <div class="input-field col s12 m8 l6">
+                                    <input id="icon_telephone" type="tel" class="validate inputDark">
+                                    <label for="icon_telephone">Complemento</label>
+                                </div>
+                                <div class="input-field right">
+                                    <button id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas">
+                                        <i class="material-icons left">send</i> Cadastrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <h3>Aluno</h3>
-            <div class="scroll">
-                <div class="container">
-                    <div class="input-field col s6">
-                        <input id="icon_prefix" type="text" class="validate inputDark">
-                        <label for="icon_prefix">Nome</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="icon_telephone" type="tel" class="validate inputDark">
-                        <label for="icon_telephone">Telefone</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="icon_telephone" type="tel" class="validate inputDark">
-                        <label for="icon_telephone">Email</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="icon_telephone" type="tel" class="validate inputDark">
-                        <label for="icon_telephone">RG</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="icon_telephone" type="tel" class="validate inputDark">
-                        <label for="icon_telephone">CPF</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="icon_telephone" type="tel" class="validate inputDark">
-                        <label for="icon_telephone">CEP</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="icon_telephone" type="tel" class="validate inputDark">
-                        <label for="icon_telephone">Rua</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="icon_telephone" type="tel" class="validate inputDark">
-                        <label for="icon_telephone">Bairro</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="icon_telephone" type="tel" class="validate inputDark">
-                        <label for="icon_telephone">Numero</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="icon_telephone" type="tel" class="validate inputDark">
-                        <label for="icon_telephone">Complemento</label>
-                    </div>
-                    <div class="input-field right">
-                        <button type="submit" class="btn-flat btnDefaultFormContas">Cadastrar</button>
-                    </div>
 
-    </form>
-
+        </form>
 
     </div>
 
