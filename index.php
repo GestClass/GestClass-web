@@ -87,7 +87,7 @@
                 </div>
                 <div class="col l6 m8 s12 offset-m2">
                     <div class="card-panel z-depth-5">
-                        <form class="" action="" method="post">
+                        <form class="" action="php/login.php" method="post">
                             <h4>Faça seu logon</h4>
                             <div class="input-field">
                                 <input name="emailLogin" type="email" placeholder="Email" class="inputDark">

@@ -14,8 +14,9 @@
 define('HOST', 'localhost');
 define('USER', 'root');
 define('PASS', '');
-define('DBNAME', 'gestclass');
+define('DBNAME', 'gestclass1');
 
-$conn = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME . ';', USER, PASS);
+$conn = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME . ';', USER, PASS)
+or die('Erro ao estabelecer a conexão!!!');
 
 ?>
