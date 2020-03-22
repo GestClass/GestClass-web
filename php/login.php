@@ -68,7 +68,9 @@
                 $dados = $query->fetch(PDO::FETCH_ASSOC);
     
                 if($query->rowCount()>0){
-                  echo "Login admin efetuado";
+                  echo "<script>alert('Admin logado com sucesso :)');
+                  window.location = '../homeAdmGest.php'
+                  </script>";
                 }else if (($dados["email"] == $email) || ($dados["senha"] != $senha)) {
                   echo "<script>alert('Email ou senha está incorreto');
                   history.back();
