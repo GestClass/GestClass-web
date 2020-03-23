@@ -33,3 +33,11 @@ function verSenha() {
         $('.senhaLogin').attr("type", "password");
     }
 }
+
+
+
+/* ==== JS PAGINA DE LOGIN E RECUPERAR SENHA ===== */
+function toggleLoginRecupera() {
+    $('.formRecuperarSenha').toggleClass('hide') 
+    $('.formLogin').toggleClass('hide') 
+}
