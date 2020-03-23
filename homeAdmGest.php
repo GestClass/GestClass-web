@@ -65,8 +65,8 @@
                     <a href="paginaManutencao.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="fas fa-idea fa-6x blue-icon"></i>
-                            <h5>ALGUMA IDEIA PLEASE IDEIA</h5>
-                            <p>Acesso total a dados dos professores, atribuição de classes, alterações de dados, etc</p>
+                            <h5>Intermedio Escola e ADMINS</h5>
+                            <p>Intermediario entre as escolas e os administradores do sistema</p>
                         </div>
                     </a>
                 </div>
