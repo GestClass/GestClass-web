@@ -41,7 +41,8 @@
                     <div class="scroll">
                         <div class="container">
                             <div id="RA" class="input-field col s12 m8 l6">
-                                <input id="icon_prefix" type="text" class="validate inputDark">
+                                <input placeholder="7755449 1" id="icon_prefix" type="text"
+                                 class="validate inputDark" data-mask="7755449 1">
                                 <label for="icon_prefix">RA</label>
                             </div>
                             <div id="foto" class="input-field col s12 m8 l6">
@@ -283,6 +284,7 @@
 
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <script src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
     <script src="js/homeSecretaria.js"></script>
     <script src="js/cadastro.js"></script>
 

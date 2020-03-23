@@ -46,10 +46,10 @@
             <div class="container">
                 <ul class="collection">
                     <li class="collection-item avatar">
-                        <img src="images/yuna.jpg" alt="" class="circle">
-                        <span class="title">Title</span>
-                        <p><?php echo $dados["nome_escola"] ?> <br>
-                            Second Line
+                        <img src="assets/img/atheneu.jpeg" alt="" class="circle">
+                        <span class="title"><?php echo $dados["nome_escola"] ?></span>
+                        <p><?php echo $dados["email"] ?> <br>
+                            <?php echo $dados["cnpj"] ?>
                         </p>
                         <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                     </li>
@@ -83,8 +83,8 @@
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">business</i>
-                                <input placeholder="000.0000.0000/00-0" name="cnpj" id="cnpj" type="text"
-                                    class="validate">
+                                <input placeholder="00.000.000/0000-00" name="cnpj" id="cnpj" type="text"
+                                    class="validate" data-mask="00.000.000/0000-00">
                                 <label for="first_name">CNPJ</label>
                             </div>
                         </div>
@@ -98,8 +98,8 @@
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">call</i>
-                                <input placeholder="+55 (11) 95945-7809" name="telefone" id="telefone" type="text"
-                                    class="validate">
+                                <input placeholder="(11) 95945-7809" name="telefone" id="telefone" type="text"
+                                    class="validate" data-mask="(00) 00000-0000">
                                 <label for="first_name">Telefone</label>
                             </div>
                             <div class="input-field col s12">
