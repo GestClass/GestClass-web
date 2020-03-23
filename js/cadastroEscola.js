@@ -1,10 +1,3 @@
-$(document).ready(function() {
-    $('.tabs').tabs({
-        swipeable: false,
-        responsiveThreshold: 700
-    });
-});
-
 $('.datepicker').datepicker({
     i18n: {
         months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
@@ -21,8 +14,9 @@ $('.datepicker').datepicker({
         labelMonthSelect: 'Selecione um mês',
         labelYearSelect: 'Selecione um ano',
         selectMonths: true,
-        selectYears: 15
+        selectYears: 15,
     },
     format: 'dd mmmm, yyyy',
     container: 'body',
+    minDate: new Date(),
 });

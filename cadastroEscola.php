@@ -21,70 +21,45 @@
 
     <?php require_once 'reqMenuAdm.php' ?>
 
-    <section class="section center">
-        <div class="container">
-            <div class="row">
-                <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="far fa-user fa-6x blue-icon"></i>
-                            <h5>Admins</h5>
-                            <p>Acesso aos dados dos admins, efetuação e remoção de cadastros</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a class="modal-trigger" href="cadastroEscola.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-school fa-6x blue-icon"></i>
-                            <h5>Cadastro Escolas</h5>
-                            <p>Cadastro de novos acessos de escolas ao aplicativo e remoção das mesmas</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-bell fa-6x blue-icon"></i>
-                            <h5>Notificações</h5>
-                            <p>Envio de notificações para as escolas, avisos sobre atraso de mensalidade ou manutenção
-                                no sistema</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-compass fa-6x blue-icon"></i>
-                            <h5>Visão geral</h5>
-                            <p>Visão geral do sistema para testes</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-idea fa-6x blue-icon"></i>
-                            <h5>Intermedio Escola e ADMINS</h5>
-                            <p>Intermediario entre as escolas e os administradores do sistema</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a href="perfil.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-cog fa-6x blue-icon"></i>
-                            <h5>Configurações</h5>
-                            <p>Configurações da conta</p>
-                        </div>
-                    </a>
-                </div>
+    <section class="floating-buttons">
+        <div class="fixed-action-btn floating-right">
+            <a class="btn-floating btn blue accent-4 modal-trigger" href="#CadastarEscolas">
+                <i class="large material-icons">create</i>
+            </a>
+        </div>
+    </section>
+
+    <h4 class="center-align">Escolas Cadastradas</h4>
+
+    <?php
+        include_once 'php/conexao.php';
+
+        $query = $conn->prepare("select nome_escola,cnpj,email from escola");
+        // $query->bindValue(":email",$email);
+        // $query->bindValue(":senha",$senha);
+        $query->execute();
+        $dados = $query->fetch(PDO::FETCH_ASSOC);
+    ?>
+
+    <section class="escolas">
+        <div class="col s12">
+            <div class="container">
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                        <img src="assets/img/atheneu.jpeg" alt="" class="circle">
+                        <span class="title"><?php echo $dados["nome_escola"] ?></span>
+                        <p><?php echo $dados["email"] ?> <br>
+                            <?php echo $dados["cnpj"] ?>
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- CADASTRO DAS ESCOLAS SENDO MODIFICADO "USANDO EXEMPLO DO CADASTRO DO CALENDARIO" -->
-    <!-- <section>
+    <section>
         <div id="CadastarEscolas" class="modal">
             <div class="modal-content">
                 <dl class="row">
@@ -108,8 +83,8 @@
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">business</i>
-                                <input placeholder="000.0000.0000/00-0" name="cnpj" id="cnpj" type="text"
-                                    class="validate">
+                                <input placeholder="00.000.000/0000-00" name="cnpj" id="cnpj" type="text"
+                                    class="validate" data-mask="00.000.000/0000-00">
                                 <label for="first_name">CNPJ</label>
                             </div>
                         </div>
@@ -123,8 +98,8 @@
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">call</i>
-                                <input placeholder="+55 (11) 95945-7809" name="telefone" id="telefone" type="text"
-                                    class="validate">
+                                <input placeholder="(11) 95945-7809" name="telefone" id="telefone" type="text"
+                                    class="validate" data-mask="(00) 00000-0000">
                                 <label for="first_name">Telefone</label>
                             </div>
                             <div class="input-field col s12">
@@ -191,7 +166,8 @@
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">wc</i>
-                                <input placeholder="Digite a quantidade de alunos" name="quantidade_alunos" id="quantidade_alunos" type="number" data-mask="0.000" class="validate">
+                                <input placeholder="Digite a quantidade de alunos" name="quantidade_alunos"
+                                    id="quantidade_alunos" type="number" data-mask="0.000" class="validate">
                                 <label for="first_name">Quantidade de alunos</label>
                             </div>
                         </div>
@@ -210,7 +186,7 @@
             </div>
         </div>
         </div>
-    </section> -->
+    </section>
 
     <section class="floating-buttons">
         <div class="fixed-action-btn">

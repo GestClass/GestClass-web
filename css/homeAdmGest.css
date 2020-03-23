@@ -5,7 +5,7 @@
 }
 
 .blue-icon{
-    color:#42a5f5;
+    color:#1a237e;
 }
 
 
@@ -42,4 +42,8 @@ h3{
 
 button#cadEscola{
   margin-top: -35px;
+}
+
+.fixed-action-btn.floating-right{
+  bottom: 90px;
 }
