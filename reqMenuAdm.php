@@ -21,12 +21,12 @@
 
     <header>
         <div class="navbar-fixed">
-            <nav class="light-blue lighten-1">
+            <nav class="indigo darken-4">
                 <div class="container">
                     <div class="nav-wrapper">
                         <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
                                 class="material-icons">menu</i></a>
-                        <a href="paginaManutencao.php" class="brand-logo"><i class="fas fa-drafting-compass"></i>
+                        <a href="homeAdmGest.php" class="brand-logo"><i class="fas fa-drafting-compass"></i>
                             GestClass</a>
 
                         <ul class="right">

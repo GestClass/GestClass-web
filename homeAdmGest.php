@@ -121,12 +121,6 @@
                                 <label for="email">Email</label>
                                 <span class="helper-text" data-error="wrong" data-success="right"></span>
                             </div>
-                            <!-- <div class="input-field col s6">
-                                <i class="material-icons prefix">alternate_email</i>
-                                <input placeholder="gestclass@enterprise.com" name="email" id="email" type="text"
-                                    class="validate">
-                                <label for="first_name">Email</label>
-                            </div> -->
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">call</i>
                                 <input placeholder="+55 (11) 95945-7809" name="telefone" id="telefone" type="text"
@@ -145,12 +139,10 @@
                                 <label for="first_name">Bairro</label>
                             </div>
                             <div class="input-field col s2">
-                                <!-- <i class="material-icons prefix">location_on</i> -->
                                 <input placeholder="Número" name="numero" id="numero" type="text" class="validate">
                                 <label for="first_name">Nº</label>
                             </div>
                             <div class="input-field col s4">
-                                <!-- <i class="material-icons prefix">location_on</i> -->
                                 <select name="estado" id="estado" class="validate">
                                     <option value="" disabled selected>Selecione o Estado</option>
                                     <option value="AC">Acre</option>
@@ -183,8 +175,6 @@
                                     <option value="EX">Estrangeiro</option>
                                 </select>
                                 <label for="first_name">Estado</label>
-                                <!-- <input placeholder="Estado" name="end" id="end" type="text" class="validate"> -->
-                                <!-- <label for="first_name">Estado</label> -->
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">attach_money</i>
@@ -197,7 +187,6 @@
                                     <option value="15">15</option>
                                     <option value="25">25</option>
                                 </select>
-                                <!-- <input name="data_pagamento" id="data_pagamento" type="text" class="validate"> -->
                                 <label for="first_name">Data de pagamento</label>
                             </div>
                             <div class="input-field col s6">
@@ -225,7 +214,7 @@
 
     <section class="floating-buttons">
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large light-blue lighten-1">
+            <a class="btn-floating btn-large indigo darken-4">
                 <i class="large material-icons">add</i>
             </a>
             <ul>
