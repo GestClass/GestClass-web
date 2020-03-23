@@ -1,14 +1,17 @@
-$(document).ready(function () {
-    $('.fixed-action-btn').floatingActionButton();
-  });
+// Sidenav
+const sideNav = document.querySelector('.sidenav')
+M.Sidenav.init(sideNav, {})
 
-  $(document).ready(function () {
-    $('.tooltipped').tooltip();
-  });
+$(document).ready(() => {
+  $('.fixed-action-btn').floatingActionButton();
+});
 
-  $(document).ready(function(){
-    $('select').formSelect();
-  });
+$(document).ready(() => {
+  $('.tooltipped').tooltip();
+});
 
-  
-  
+$(document).ready(() => {
+  $('select').formSelect();
+});
+
+

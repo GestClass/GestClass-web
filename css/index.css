@@ -1,13 +1,11 @@
 body{
     overflow-x: hidden;
 }
-
 .sectionHome{
     display: block;
     position: relative;
     padding: 70px 0;
 }
-
 .sectionHome::after{
     background: url(../assets/img/s.png);
     background-position: center top;
@@ -21,24 +19,20 @@ body{
     position: absolute;
     z-index: -1;   
 }
-
-.btn-flat{
-    margin-right: -10px !important;
-    transition: 0.2s;
+.btnIndexMenu{
+    color: #fff;
+    margin-left: -5px !important;
+}
+.btnIndexMenu:hover{
+    color: #212121;
+    background-color: transparent;
 }
 .btnHome{
     margin: 20px 20px 0 0 !important;
 }
-
-.slides{
-    padding: 10vh 0;
-}
 blockquote{
     border-color: #212121;
     font-size: 18px;
-}
-.textSlide{
-  color:#FFFFFF;
 }
 .cardHover{
     margin: 45px 0 20px 0;
@@ -52,22 +46,13 @@ blockquote{
   transform: scale(1.09);
   color: #3C5A99;
 }
-.fa-twitter:hover {
+.fa-linkedin:hover {
   transform: scale(1.09);
-  color: #1DA1F2;
+  color: #0077B5;
 }
 .fa-instagram:hover {
   transform: scale(1.09);
   color: #405DE6;
-}
-.collection-item, .collection{
-    background-color: transparent !important;
-    border: none !important;
-}
-.collection-item{
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
 }
 .iconDescPlano{
     margin: 0 10px 0 0;
@@ -92,4 +77,3 @@ blockquote{
     z-index: 5;
     cursor: pointer;
 }
-

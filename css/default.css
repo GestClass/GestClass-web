@@ -5,7 +5,8 @@ body {
   padding: 0;
   font-family: 'Montserrat', sans-serif !important;
 }
-.btn-flat{
+.btn-flat{ 
+    text-transform: inherit !important;
     transition: 0.2s;
 }
 .btn-flat:focus{

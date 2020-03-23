@@ -1,24 +1,20 @@
-<?php
-$servername="localhost";
-$username="username";
-$password="password";
-$dbname="myDB";
+<?
+  define('DB_HOST', 'localhost:3306');
+  define('DB_USER', 'root');
+  define('DB_PASS', 'YOUR_PASSWORD');
+  define('DB_NAME', 'GestClass');
 
-function test()
-{
-	echo "This is a test function.";
-}
+  function connect()
+  {
+    $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die("Falha na conexão: " . mysqli_connect_error());
 
-// Create connection
-$conn=new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error){die("Connection failed: ".$conn->connect_error);} 
+    mysqli_set_charset($connection, "utf8");
 
-$sql = "SELECT id, firstname, lastname FROM MyGuests";
-$result = $conn->query($sql);
+    return $connection;
+  }
 
-if ($result->num_rows > 0) {
- // output data of each row
-while($row = $result->fetch_assoc()) {echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";}} else {echo "0 results";}
-$conn->close();
+  function disconnect($con)
+  {
+    mysqli_close($con);
+  }
 ?>

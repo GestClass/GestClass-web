@@ -37,16 +37,22 @@
                         </a>
                         <ul class="right hide-on-med-and-down">
                             <li>
-                                <a href="#home" class="btn-flat btnTextLight">Home</a>
+                                <a href="#home" class="btn-flat btnIndexMenu">Home</a>
                             </li>
                             <li>
-                                <a href="#sobre" class="btn-flat btnTextLight">Sobre</a>
+                                <a href="#sobre" class="btn-flat btnIndexMenu">Sobre</a>
                             </li>
                             <li>
-                                <a href="#recursos" class="btn-flat btnTextLight">Recursos</a>
+                                <a href="#recursos" class="btn-flat btnIndexMenu">Recursos</a>
                             </li>
                             <li>
-                                <a href="#planos" class="btn-flat btnTextLight">Planos</a>
+                                <a href="#planos" class="btn-flat btnIndexMenu">Planos</a>
+                            </li>
+                            <li>
+                                <a href="#app" class="btn-flat btnIndexMenu">App</a>
+                            </li>
+                            <li>
+                                <a href="#contato" class="btn-flat btnIndexMenu">Contato</a>
                             </li>
                         </ul>
                     </div>
@@ -65,6 +71,12 @@
             </li>
             <li>
                 <a href="#planos" class="waves-effect waves-light">Planos</a>
+            </li>
+            <li>
+                <a href="#app" class="waves-effect waves-light">App</a>
+            </li>
+            <li>
+                <a href="#contato" class="waves-effect waves-light">Contato</a>
             </li>
         </ul>
     </header>
@@ -96,9 +108,11 @@
                                 <input name="senhaLogin" type="password" placeholder="Senha" class="inputDark">
                                 <a href="" class="linkAzul">Esqueci minha senha</a>
                             </div>
-                                <button class="btn btn-flat waves-effect waves-light btnDark btnBlock" type="submit" name="action">
+                            <div class="right-align">
+                                <button class="btn btn-flat waves-effect waves-light btnDark" type="submit" name="action">
                                     Logar
                                 </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -106,12 +120,12 @@
         </div>
     </div>
 
-    <div class="section center grey-text text-darken-4">
+    <div class="section grey-text text-darken-4">
         <div class="container">
             <div class="row">
                 <div class="col s12 m12 l4">
                     <div class="cardHover">
-                        <i class="fas fa-cogs fa-6x"></i>
+                        <i class="fas fa-cogs fa-4x"></i>
                         <h5>
                             Gestão Escolar
                         </h5>
@@ -122,7 +136,7 @@
                 </div>
                 <div class="col s12 m12 l4">
                     <div class="cardHover">
-                        <i class="far fa-paper-plane fa-6x"></i>
+                        <i class="far fa-paper-plane fa-4x"></i>
                         <h5>
                             Comunicação direta
                         </h5>
@@ -133,7 +147,7 @@
                 </div>
                 <div class="col s12 m12 l4">
                     <div class="cardHover">
-                        <i class="fas fa-chalkboard-teacher fa-6x"></i>
+                        <i class="fas fa-chalkboard-teacher fa-4x"></i>
                         <h5>
                             Aprendizado Online
                         </h5>
@@ -171,7 +185,7 @@
                     <h3>Siga a GestClass</h3>
                     <p>Siga - nos em nossas redes sociais para ficar por dentro de todas atualizações e notícias</p>
                     <a href="#"><i class="fab iconSocial fa-facebook fa-3x"></i></a>
-                    <a href="#"><i class="fab iconSocial fa-twitter fa-3x"></i></a>
+                    <a href="#"><i class="fab iconSocial fa-linkedin fa-3x"></i></a>
                     <a href="#"><i class="fab iconSocial fa-instagram fa-3x"></i></a>
                 </div>
             </div>
@@ -299,28 +313,15 @@
             <div class="row">
                 <h2>Planos</h2>
                 <div class="col s12 m8 l4 offset-m2 center light-blue lighten-5 z-depth-5">
-                    <ul class="collection">
-                        <li class="collection-header">
-                            <h4>Primário</h4>
+                    <h4>Primário</h4>
+                    <ul>
+                        <li>
                         </li>
-                        <li class="collection-item">R$ <span class="flow-text">1000</span> 00</li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
+                        <li>R$ <span class="flow-text">1000</span> 00</li>
+                        <li>
                             até 250 alunos
                         </li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
-                            Indefinido
-                        </li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
-                            Indefinido
-                        </li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
-                            Indefinido
-                        </li>
-                        <li class="collection-item">
+                        <li>
                             <a href="contratacao.php?plano=primario" class="btn-flat btnDark btnBlock btnPlano">
                                 Quero contratar
                             </a>
@@ -328,28 +329,15 @@
                     </ul>
                 </div>
                 <div class="col s12 m8 l4 offset-m2 center light-blue lighten-4 z-depth-5">
-                    <ul class="collection">
-                        <li class="collection-header">
+                    <ul>
+                        <li>
                             <h4>Fundamental</h4>
                         </li>
-                        <li class="collection-item">R$ <span class="flow-text">1750</span> 00</li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
+                        <li>R$ <span class="flow-text">1750</span> 00</li>
+                        <li>
                             até 500 alunos
                         </li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
-                            Indefinido
-                        </li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
-                            Indefinido
-                        </li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
-                            Indefinido
-                        </li>
-                        <li class="collection-item">
+                        <li>
                             <a href="contratacao.php?plano=fundamental" class="btn-flat btnDark btnBlock btnPlano">
                                 Quero contratar
                             </a>
@@ -358,33 +346,73 @@
 
                 </div>
                 <div class="col s12 m8 l4 offset-m2 center light-blue lighten-3 z-depth-5">
-                    <ul class="collection">
-                        <li class="collection-header">
+                    <ul>
+                        <li>
                             <h4>Colegial</h4>
                         </li>
-                        <li class="collection-item">R$ <span class="flow-text">3000</span> 00</li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
+                        <li>R$ <span class="flow-text">3000</span> 00</li>
+                        <li>
                             mais de 500 alunos
                         </li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
-                            Indefinido
-                        </li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
-                            Indefinido
-                        </li>
-                        <li class="collection-item">
-                            <i class="material-icons iconDescPlano">done</i>
-                            Indefinido
-                        </li>
-                        <li class="collection-item">
+                        <li>
                             <a href="contratacao.php?plano=colegial" class="btn-flat btnDark btnBlock btnPlano">
                                 Quero contratar
                             </a>
                         </li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scrollspy light-blue lighten-4 section grey-text text-darken-4" id="app">
+        <div class="container">
+            <div class="row">
+                <h2 class="">App</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="scrollspy grey-text text-darken-4 section" id="contato">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card-panel light-blue lighten-4 z-depth-3">
+                        <i class="far fa-envelope fa-3x"></i>
+                        <h5>Contate - nos</h5>
+                        <p>Envie uma mensagem contendo sua dúvida ou sugestão e responderemos o mais rápido possível.</p>
+                    </div>
+                    <ul class="collection with-header z-depth-3">
+                        <li class="collection-header">
+                            <h4>Localização</h4>
+                        </li>
+                        <li class="collection-item">GestClass Inc.</li>
+                        <li class="collection-item">R. Cambará Orli, 866</li>
+                        <li class="collection-item">Itaquaquecetuba - SP</li>
+                        <li class="collection-item">+55 (11) 4642-2609</li>
+                    </ul>
+                </div>
+                <div class="col s12 m6">
+                    <div class="card-panel z-depth-3">
+                        <form class="" action="" method="post">
+                            <h4>Por favor preencha este formulário</h4>
+                            <div class="input-field">
+                                <input type="text" placeholder="Nome" class="inputDark"/>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" placeholder="Email" class="inputDark"/>
+                            </div>
+                            <div class="input-field">
+                                <textarea class="materialize-textarea inputDark" id="mensagemContato"
+                                    placeholder="Escreva sua mensagem" maxlength="120"></textarea>
+                            </div>
+                            <div class="right-align">
+                                <button class="btn btn-flat waves-effect waves-light btnDark" type="submit" name="action">
+                                    Enviar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -405,34 +433,6 @@
             </div>
         </div>
     </footer>
-
-    <div class="iziModal" id="modalLogin">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 space-top-modal">
-                    <form action="index.html" method="post">
-                        <h2 class="grey-text text-darken-4">Login</h2>
-                        <div class="input-field">
-                            <input type="text" class="inputDark" name="emailLogin" placeholder="Email" />
-                        </div>
-                        <div class="input-field right-align">
-                            <input type="password" class="inputDark senhaLogin" name="senhaLogin" placeholder="Senha" />
-                            <span onclick="verSenha()"
-                                class="fa fa-fw fa-eye iconVerSenha btnVerSenha grey-text text-darken-4 right"></span>
-                            <span class="helper-text red-text" id="spanSenha"></span>
-                            <a href="recuperacaoSenha.php">Esqueci minha senha</a>
-                        </div>
-                        <div class="input-field right-align">
-                            <a href="homeSecretaria.php" class="btn-flat btn-large btnDark">
-                                Logar <i class="fas fa-user-check"></i>
-                            </a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Bibliotecas JS -->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
