@@ -298,12 +298,20 @@ INSERT INTO tipo_usuario (nome_usuario) VALUES ('responsavel');
 
 /*	-	INSERTS INTO TABLE DISCIPLINA 	-	*/
 
-INSERT INTO disciplina (nome_disciplina) VALUES ('portugês');
+INSERT INTO disciplina (nome_disciplina) VALUES ('português');
 INSERT INTO disciplina (nome_disciplina) VALUES ('matemática');
-INSERT INTO disciplina (nome_disciplina) VALUES ('ingês');
+INSERT INTO disciplina (nome_disciplina) VALUES ('inglês');
+INSERT INTO disciplina (nome_disciplina) VALUES ('ciências');
 INSERT INTO disciplina (nome_disciplina) VALUES ('geografia');
 INSERT INTO disciplina (nome_disciplina) VALUES ('história');
+INSERT INTO disciplina (nome_disciplina) VALUES ('ed fisíca');
+INSERT INTO disciplina (nome_disciplina) VALUES ('artes');
 INSERT INTO disciplina (nome_disciplina) VALUES ('biologia');
+INSERT INTO disciplina (nome_disciplina) VALUES ('sociologia');
+INSERT INTO disciplina (nome_disciplina) VALUES ('filosofia');
+INSERT INTO disciplina (nome_disciplina) VALUES ('quimíca');
+INSERT INTO disciplina (nome_disciplina) VALUES ('fisíca');
+
 
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
