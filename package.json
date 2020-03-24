@@ -20,6 +20,8 @@
     "@fortawesome/fontawesome-free": "^5.4.2",
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
+    "animate.css": "^3.7.2",
+    "aos": "^3.0.0-beta.6",
     "izimodal": "^1.5.1",
     "jquery": "^3.4.1",
     "jquery-mask-plugin": "^1.14.16",
