@@ -25,7 +25,7 @@
 
     <div class="container">
         <h4>Chamada</h4>
-        <table class="highlight">
+        <table class="highlight centered">
             <thead>
                 <tr>
                     <th>Nome</th>

@@ -14,6 +14,8 @@
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/homeAdmGest.css" />
+    <link rel="stylesheet" type="text/css" href="css/cadastroEscola.css" />
+
 
 </head>
 
@@ -23,7 +25,7 @@
 
     <section class="floating-buttons">
         <div class="fixed-action-btn floating-right">
-            <a class="btn-floating btn blue accent-4 modal-trigger" href="#CadastarEscolas">
+            <a class="btn-floating btn blue accent-4 modal-trigger" href="cadastrarEscola.php">
                 <i class="large material-icons">create</i>
             </a>
         </div>
@@ -58,7 +60,7 @@
         </div>
     </section>
 
-    <!-- CADASTRO DAS ESCOLAS SENDO MODIFICADO "USANDO EXEMPLO DO CADASTRO DO CALENDARIO" -->
+    <!-- CADASTRO DAS ESCOLAS SENDO MODIFICADO "USANDO EXEMPLO DO CADASTRO DO CALENDARIO"
     <section>
         <div id="CadastarEscolas" class="modal">
             <div class="modal-content">
@@ -166,9 +168,25 @@
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">wc</i>
-                                <input placeholder="Digite a quantidade de alunos" name="quantidade_alunos"
-                                    id="quantidade_alunos" type="number" data-mask="0.000" class="validate">
-                                <label for="first_name">Quantidade de alunos</label>
+                                <label for="icon_telephone">Quantidade Alunos
+                                    <input type="range" id="qtd" min="0" max="5000" /></label>
+                            </div>
+                            <div class="input-field col s12">
+                                <ul class="tipos_de_turmas">
+                                    <li><label for="first_name">Tipos de turmas</label></li>
+                                    <li class="tipos_de_turmas"><input id="fk_id_tipos_turma_bercario" type="checkbox"
+                                            class="filled-in checkbox-blue-grey" /><span>Berçario</span><br></li>
+                                    <li class="tipos_de_turmas"><input id="fk_id_tipos_turma_pre_escola" type="checkbox"
+                                            class="filled-in checkbox-blue-grey" /><span>Pré-Escola</span><br></li>
+                                    <li class="tipos_de_turmas"><input id="fk_id_tipos_turma_fundamental_I" type="checkbox"
+                                            class="filled-in checkbox-blue-grey" /><span>Fundamental
+                                            I</span><br></li>
+                                    <li class="tipos_de_turmas"><input id="fk_id_tipos_turma_fundamental_II" type="checkbox"
+                                            class="filled-in checkbox-blue-grey" /><span>Fundamental
+                                            II</span><br></li>
+                                    <li class="tipos_de_turmas"><input id="fk_id_tipos_turma_medio" type="checkbox"
+                                            class="filled-in checkbox-blue-grey" /><span>Ensino Médio</span></li>
+                                </ul>
                             </div>
                         </div>
                 </div>
@@ -186,7 +204,7 @@
             </div>
         </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="floating-buttons">
         <div class="fixed-action-btn">

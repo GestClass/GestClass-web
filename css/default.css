@@ -36,6 +36,17 @@ body {
     color: #fff;
 }
 
+.btnLightDark{
+    text-transform: inherit;
+    border: 0.5px solid #1a237e;
+    color: #1a237e;
+}
+
+.btnLightDark:hover {
+    background: #1a237e;
+    color: #fff;
+}
+
 .btnLightGrey {
     text-transform: inherit;
     border: 0.5px solid #fff;
