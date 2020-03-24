@@ -23,6 +23,6 @@ $('.datepicker').datepicker({
         selectMonths: true,
         selectYears: 15
     },
-    format: 'dd mmmm, yyyy',
+    format: 'yyyy/mm/dd',
     container: 'body',
 });

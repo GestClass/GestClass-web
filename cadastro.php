@@ -94,7 +94,7 @@
                                 <label for="icon_telephone">Telefone</label>
                             </div>
                             <div class="input-field col s12 m8 l6">
-                                <input id="data_nascimento" placeholder="22 de Abril, 2001" type="text" class="datepicker">
+                                <input id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker">
                                 <label>Data de Nascimento</label>
                             </div>
                             <div class="input-field col s12">
@@ -203,7 +203,7 @@
                                 <label for="icon_telephone">Telefone (Comercial)</label>
                             </div>
                             <div class="input-field col s12 m8 l6">
-                                <input id="data_nascimento" placeholder="22 de Abril, 2001" type="text" class="datepicker">
+                                <input id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker">
                                 <label>Data de Nascimento</label>
                             </div>
                             <div class="input-field col s6">
