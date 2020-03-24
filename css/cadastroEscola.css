@@ -1,9 +1,12 @@
 .checkbox-blue-grey[type="checkbox"].filled-in:checked+span:not(.lever):after {
-    border: 2px solid #64b5f6;
-    background-color: #64b5f6;
+    border: 2px solid #1a237e;
+    background-color: #1a237e;
 }
 
 #qtd::-webkit-slider-thumb {
-    background: #64b5f6;
+    background: #1a237e;
 }
 
+.blue-icon{
+    color: #1a237e;
+}
