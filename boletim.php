@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8'/>
-    <title>GestClass - A gestão na palma da sua mão</title>
+    <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
 
     <!-- Bibliotecas CSS -->
@@ -170,11 +170,11 @@
             <td>10</td>
             <td>8.7</td>
             <td>8.7</td>
-           
+
           </tr>
         </tbody>
       </table>
-      <a href="contratacao.php" class="btn-flat btn-smalls btnDark btnHome" > 
+      <a href="contratacao.php" class="btn-flat btn-smalls btnDark btnHome" >
         <i class="large material-icons">file_upload</i>
             Gerar PDF
       </a>

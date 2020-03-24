@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>GestClass - A gestão na palma da sua mão</title>
+    <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/compass_white.png" />
 
     <!-- Bibliotecas CSS -->
@@ -28,7 +28,7 @@
                 <div class="container">
                     <div class="nav-wrapper">
                         <a href="index.php" class="brand-logo center">
-                            <i class="fas fa-drafting-compass"></i> 
+                            <i class="fas fa-drafting-compass"></i>
                             <span class="hide-on-med-and-down">GestClass</span>
                         </a>
                         <a href="index.php">
