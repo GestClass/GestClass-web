@@ -28,7 +28,7 @@
         <div class="card-panel z-depth-5 formLogin">
           <a href="index.php"><i class="fas fa-chevron-left"></i> Voltar</a>
           <form action="php/login.php" method="post" autocomplete="off">
-            <h4>Faça seu logon</h4>
+            <h4>Faça seu login</h4>
             <div class="input-field">
               <input name="emailLogin" type="email" placeholder="Email" class="inputDark">
             </div>
@@ -45,16 +45,14 @@
         </div>
         <div class="card-panel z-depth-5 formRecuperarSenha hide">
           <a href="index.php"><i class="fas fa-chevron-left"></i> Voltar</a>
-          <form action="processaEsqueciSenha.php" method="post">
+          <form action="php/esqSenha.php" method="post">
             <h4>Esqueceu sua senha?</h4>
             <p>
-              Não se preocupe! Insira o seu CPF e seu email de cadastro e enviaremos instruções para você.
+              Não se preocupe! Insira o seu email de cadastro e enviaremos instruções para você.
             </p>
-            <div class="input-field">
-              <input type="text" class="inputDark" name="cpf" placeholder="CPF" data-mask="000.000.000-00" />
-            </div>
             <div class="input-field right-align">
               <input type="text" class="inputDark" name="email" placeholder="Email" />
+              <input type="hidden" name="recuperarSenha" value="Recuperar Senha"/>
               <a class="linkAzul" onclick="toggleLoginRecupera()">Lembrei minha senha</a>
             </div>
             <div class="right-align">

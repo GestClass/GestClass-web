@@ -1,0 +1,40 @@
+body{
+    background: url(../assets/img/s.png);
+}
+.card-boletim{
+    height:650px;
+    width:1300px;
+    margin-left: 20px;
+    margin-top: 30px;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+h3{
+    padding-left:500px;
+    padding-top: 40px;
+}
+h5{
+    padding-left: 50px;
+}
+
+.centered  {
+    width: 700px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    position: relative;
+    padding-left: 150px;
+    padding-top: 30px;
+}
+td, th {
+    padding: 10px 20px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+.btn-flat{
+    margin-left: 850px;
+    font-weight: bold;
+    margin-top:40px;
+}
