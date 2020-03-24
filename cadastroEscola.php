@@ -44,6 +44,7 @@
     ?>
 
     <section class="escolas">
+    <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) {?>
         <div class="col s12">
             <div class="container">
                 <ul class="collection">
@@ -58,6 +59,7 @@
                 </ul>
             </div>
         </div>
+    <?php }?>    
     </section>
 
     <!-- CADASTRO DAS ESCOLAS SENDO MODIFICADO "USANDO EXEMPLO DO CADASTRO DO CALENDARIO"
