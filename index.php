@@ -28,31 +28,33 @@
             <nav class="light-blue lighten-1">
                 <div class="container">
                     <div class="nav-wrapper">
-                        <a class="brand-logo">
+                        <a class="brand-logo" href="#home">
                             <i class="fas fa-drafting-compass"></i>
                             <span class="hide-on-med-and-down">GestClass</span>
                         </a>
-                        <a href="" data-target="mobile-nav" class="sidenav-trigger">
+                        <a data-target="mobile-nav" class="sidenav-trigger">
                             <i class="material-icons">clear_all</i>
                         </a>
                         <ul class="right hide-on-med-and-down">
                             <li>
-                                <a href="#home" class="btn-flat btnIndexMenu">Home</a>
+                                <a href="#recursos" class="btnIndexMenu">Recursos</a>
                             </li>
                             <li>
-                                <a href="#sobre" class="btn-flat btnIndexMenu">Sobre</a>
+                                <a href="#planos" class="btnIndexMenu">Planos</a>
                             </li>
                             <li>
-                                <a href="#recursos" class="btn-flat btnIndexMenu">Recursos</a>
+                                <a href="#app" class="btnIndexMenu">App</a>
                             </li>
                             <li>
-                                <a href="#planos" class="btn-flat btnIndexMenu">Planos</a>
+                                <a href="#contato" class="btnIndexMenu">Contato</a>
                             </li>
                             <li>
-                                <a href="#app" class="btn-flat btnIndexMenu">App</a>
+                                <a href="login.php" class="btn-flat btnLight">Login</a>
                             </li>
+                        </ul>
+                        <ul class="right hide-on-large-only">
                             <li>
-                                <a href="#contato" class="btn-flat btnIndexMenu">Contato</a>
+                                <a href="login.php" class="btnIndexMenu">Login</a>
                             </li>
                         </ul>
                     </div>
@@ -60,12 +62,6 @@
             </nav>
         </div>
         <ul class="sidenav" id="mobile-nav">
-            <li>
-                <a href="#home" class="waves-effect waves-light">Home</a>
-            </li>
-            <li>
-                <a href="#sobre" class="waves-effect waves-light">Sobre</a>
-            </li>
             <li>
                 <a href="#recursos" class="waves-effect waves-light">Recursos</a>
             </li>
@@ -98,23 +94,7 @@
                     </a>
                 </div>
                 <div class="col l6 m8 s12 offset-m2">
-                    <div class="card-panel z-depth-5">
-                        <form class="" action="php/login.php" method="post">
-                            <h4>Faça seu logon</h4>
-                            <div class="input-field">
-                                <input name="emailLogin" type="email" placeholder="Email" class="inputDark">
-                            </div>
-                            <div class="input-field right-align">
-                                <input name="senhaLogin" type="password" placeholder="Senha" class="inputDark">
-                                <a href="" class="linkAzul">Esqueci minha senha</a>
-                            </div>
-                            <div class="right-align">
-                                <button class="btn btn-flat waves-effect waves-light btnDark" type="submit" name="action">
-                                    Logar
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                    <img src="./assets/img/home5.svg" class="responsive-img">
                 </div>
             </div>
         </div>
@@ -338,7 +318,7 @@
                             até 500 alunos
                         </li>
                         <li>
-                            <a href="contratacao.php?plano=fundamental" class="btn-flat btnDark btnBlock btnPlano">
+                            <a href="contratacao.php/fundamental" class="btn-flat btnDark btnBlock btnPlano">
                                 Quero contratar
                             </a>
                         </li>
@@ -380,7 +360,8 @@
                     <div class="card-panel light-blue lighten-4 z-depth-3">
                         <i class="far fa-envelope fa-3x"></i>
                         <h5>Contate - nos</h5>
-                        <p>Envie uma mensagem contendo sua dúvida ou sugestão e responderemos o mais rápido possível.</p>
+                        <p>Envie uma mensagem contendo sua dúvida ou sugestão e responderemos o mais rápido possível.
+                        </p>
                     </div>
                     <ul class="collection with-header z-depth-3">
                         <li class="collection-header">
@@ -397,17 +378,18 @@
                         <form class="" action="" method="post">
                             <h4>Por favor preencha este formulário</h4>
                             <div class="input-field">
-                                <input type="text" placeholder="Nome" class="inputDark"/>
+                                <input type="text" placeholder="Nome" class="inputDark" />
                             </div>
                             <div class="input-field">
-                                <input type="text" placeholder="Email" class="inputDark"/>
+                                <input type="text" placeholder="Email" class="inputDark" />
                             </div>
                             <div class="input-field">
                                 <textarea class="materialize-textarea inputDark" id="mensagemContato"
                                     placeholder="Escreva sua mensagem" maxlength="120"></textarea>
                             </div>
                             <div class="right-align">
-                                <button class="btn btn-flat waves-effect waves-light btnDark" type="submit" name="action">
+                                <button class="btn btn-flat waves-effect waves-light btnDark" type="submit"
+                                    name="action">
                                     Enviar
                                 </button>
                             </div>
