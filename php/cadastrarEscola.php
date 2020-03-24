@@ -12,7 +12,7 @@
     $dataPag = $_POST["data_pagamento"];   
     $qntdAlunos = $_POST["quantidade_alunos"];
     
-    // $chk1 = $_POST["chk1"];
+    $chk1 = $_POST["chk1"];
     // $chk2 = $_POST["chk2"];
     // $chk3 = $_POST["chk3"];
     // $chk4 = $_POST["chk4"];
@@ -22,13 +22,24 @@
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '0', '0', '0', '0', '0');");
 
     if ($query->execute(array($nome_escola, $cep, $numero, $complemento, $cnpj, $telefone, $email, $qntdAlunos, $dataPag))) {
-        echo "bicha cagada";
+        echo "<script>alert('bicha cagada inseriu');
+        location.href='../cadastroEscola.php'</script>";
 
-        // if ($chk1 != null) {
-        //     $query = $conn->prepare("select email,senha from diretor where email=:email and senha=:senha");
-        // }
+        if ($chk1 == 1) {
+            $query_up = $conn->prepare("UPDATE escola SET turma_bercario=:chk1 WHERE turma_bercario=0");
+            $query_up->bindValue(":chk1",$chk1);
+            $executa = $query_up->execute();
+
+            if ($executa == 0) {
+                echo "<script>alert('não foi otaria');
+                     history.back();</script>";
+            }
+        }
+        
+
     }else{
-        echo "te lascou otaria";
+        echo "<script>alert('te lascou otaria');
+        history.back();</script>";
     }
 
 

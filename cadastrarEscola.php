@@ -86,17 +86,17 @@
                                 </div>
                                 <div class="col s8">
                                     <label class="left"><input id="fk_id_tipos_turma_bercario" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk1"/><span>Berçario</span></label>
+                                            class="filled-in checkbox-blue-grey" name="chk1" value="1"/><span>Berçario</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_pre_escola" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk2" /><span>Pré-Escola</span></label>
+                                            class="filled-in checkbox-blue-grey" name="chk2" value="1" /><span>Pré-Escola</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_fundamental_I" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk3" /><span>Fundamental
+                                            class="filled-in checkbox-blue-grey" name="chk3" value="1" /><span>Fundamental
                                             I</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_fundamental_II" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk4"/><span>Fundamental
+                                            class="filled-in checkbox-blue-grey" name="chk4" value="1"/><span>Fundamental
                                             II</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_medio" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk5"/><span>Ensino Médio</span></label>
+                                            class="filled-in checkbox-blue-grey" name="chk5" value="1"/><span>Ensino Médio</span></label>
                                 </div>
                             </div>
                             <div class="input-field col s12">
