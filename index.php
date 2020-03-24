@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="node_modules/izimodal/css/iziModal.min.css">
+    <link rel="stylesheet" href="node_modules/aos/dist/aos.css">
 
     <!-- Arquivo CSS -->
     <link rel="stylesheet" type="text/css" href="css/default.css" />
@@ -21,7 +22,7 @@
 
 </head>
 
-<body class="scrollspy" id="home">
+<body class="scrollspy grey-text text-darken-4" id="home">
 
     <header>
         <div class="navbar-fixed">
@@ -36,9 +37,6 @@
                             <i class="material-icons">clear_all</i>
                         </a>
                         <ul class="right hide-on-med-and-down">
-                            <li>
-                                <a href="#recursos" class="btnIndexMenu">Recursos</a>
-                            </li>
                             <li>
                                 <a href="#planos" class="btnIndexMenu">Planos</a>
                             </li>
@@ -63,9 +61,6 @@
         </div>
         <ul class="sidenav" id="mobile-nav">
             <li>
-                <a href="#recursos" class="waves-effect waves-light">Recursos</a>
-            </li>
-            <li>
                 <a href="#planos" class="waves-effect waves-light">Planos</a>
             </li>
             <li>
@@ -79,13 +74,13 @@
 
     <div class="section sectionHome">
         <div class="container">
-            <div class="row grey-text text-darken-4 lax" data-lax-translate-y="0 0, 400 -50">
+            <div class="row lax" data-lax-translate-y="0 0, 400 -50">
                 <div class="col l6 hide-on-med-and-down">
                     <h3>Vamos começar</h3>
-                    <blockquote>
+                    <p>
                         GestClass é uma plataforma que ajuda o corpo docente escolar a gerenciar o ambiene
                         educacional com mais facilidade
-                    </blockquote>
+                    </p>
                     <a href="contratacao.php" class="btn-flat btn-large btnDark btnHome">
                         Quero fazer parte
                     </a>
@@ -93,17 +88,17 @@
                         Veja mais
                     </a>
                 </div>
-                <div class="col l6 m8 s12 offset-m2">
-                    <img src="./assets/img/home5.svg" class="responsive-img">
+                <div class="col s12 l6">
+                    <img src="./assets/img/home2.svg" class="responsive-img">
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="section grey-text text-darken-4">
+    <div class="section light-blue lighten-4">
         <div class="container">
             <div class="row">
-                <div class="col s12 m12 l4">
+                <div class="col s12 m12 l4" data-aos="fade-right" data-aos-duration="300">
                     <div class="cardHover">
                         <i class="fas fa-cogs fa-4x"></i>
                         <h5>
@@ -114,7 +109,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col s12 m12 l4">
+                <div class="col s12 m12 l4" data-aos="fade-right" data-aos-duration="600">
                     <div class="cardHover">
                         <i class="far fa-paper-plane fa-4x"></i>
                         <h5>
@@ -125,7 +120,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col s12 m12 l4">
+                <div class="col s12 m12 l4" data-aos="fade-right" data-aos-duration="900">
                     <div class="cardHover">
                         <i class="fas fa-chalkboard-teacher fa-4x"></i>
                         <h5>
@@ -142,7 +137,7 @@
         </div>
     </div>
 
-    <div class="scrollspy light-blue lighten-4 section grey-text text-darken-4" id="sobre">
+    <div class="scrollspy section" id="sobre">
         <div class="container">
             <div class="row">
                 <h2>Sobre nós</h2>
@@ -158,10 +153,10 @@
         </div>
     </div>
 
-    <div class="scrollspy center section">
+    <div class="scrollspy light-blue lighten-4 center section">
         <div class="container">
-            <div class="row">
-                <div class="col s12 grey-text text-darken-4">
+            <div class="row" data-aos="fade-right" data-aos-duration="1000">
+                <div class="col s12">
                     <h3>Siga a GestClass</h3>
                     <p>Siga - nos em nossas redes sociais para ficar por dentro de todas atualizações e notícias</p>
                     <a href="#"><i class="fab iconSocial fa-facebook fa-3x"></i></a>
@@ -172,127 +167,11 @@
         </div>
     </div>
 
-    <div class="scrollspy light-blue lighten-4 section grey-text text-darken-4" id="recursos">
-        <div class="container">
-            <div class="row">
-                <h2 class="">Recursos</h2>
-                <div class="col s12 m6">
-
-                </div>
-                <div class="col s12 m6">
-                    <ul class="collapsible">
-                        <li>
-                            <div class="collapsible-header flow-text">
-                                <i class="fas fa-school"></i><span class="titleCollapsible">Escola</span>
-                            </div>
-                            <div class="collapsible-body white">
-                                <ul>
-                                    <li>Cadastro das pessoas</li>
-                                    <li>Validação das notas</li>
-                                    <li>Comunicados</li>
-                                    <li>Disponibilização calendário acadêmico</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header flow-text">
-                                <i class="fas fa-chalkboard-teacher"></i><span
-                                    class="titleCollapsible">Professores</span>
-                            </div>
-                            <div class="collapsible-body white">
-                                <ul>
-                                    <li>Lançar notas de provas, atividades e avaliações</li>
-                                    <li>Disponibilização e recebimento de matérias de aula</li>
-                                    <li>Registrar frequência dos alunos em sala de aula</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header flow-text">
-                                <i class="fas fa-users"></i><span class="titleCollapsible">Pais</span>
-                            </div>
-                            <div class="collapsible-body white">
-                                <ul>
-                                    <li>Acesso ao boletim escolar</li>
-                                    <li>Acessem sua frequência escolar</li>
-                                    <li>Possam ver o calendário escolar com as datas onde haverá ou não aula (reunião de
-                                        pais, mestres, etc)
-                                    </li>
-                                    <li>Notificações da secretaria</li>
-                                    <li>Urgências (advertências, anotações etc)</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header flow-text">
-                                <i class="fas fa-user-graduate"></i><span class="titleCollapsible">Alunos</span>
-                            </div>
-                            <div class="collapsible-body white">
-                                <ul>
-                                    <li>Acesso ao boletim escolar</li>
-                                    <li>Acessem a grade das matérias</li>
-                                    <li>Acessem sua frequência escolar</li>
-                                    <li>Possam ver o calendário escolar com as datas onde haverá ou não aula (reunião de
-                                        pais, mestres, etc)
-                                    </li>
-                                    <li>Notificações da secretaria</li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col s12 m6">
-                    <blockquote>
-                        <h5></h5>
-                        <p>
-                            <ul>
-
-                            </ul>
-                        </p>
-                    </blockquote>
-                </div>
-                <div class="col s12 m6">
-                    <blockquote>
-                        <h5></h5>
-                        <p>
-                            <ul>
-
-                            </ul>
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 m6">
-                    <blockquote>
-                        <h5></h5>
-                        <p>
-                            <ul>
-
-                            </ul>
-                        </p>
-                    </blockquote>
-                </div>
-                <div class="col s12 m6">
-                    <blockquote>
-                        <h5></h5>
-                        <p>
-                            <ul>
-
-                            </ul>
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="scrollspy grey-text text-darken-4 section" id="planos">
+    <div class="scrollspysection" id="planos">
         <div class="container">
             <div class="row">
                 <h2>Planos</h2>
-                <div class="col s12 m8 l4 offset-m2 center light-blue lighten-5 z-depth-5">
+                <div class="col s12 m8 l4 offset-m2 light-blue lighten-5 z-depth-4">
                     <h4>Primário</h4>
                     <ul>
                         <li>
@@ -301,14 +180,14 @@
                         <li>
                             até 250 alunos
                         </li>
-                        <li>
+                        <li class="center">
                             <a href="contratacao.php?plano=primario" class="btn-flat btnDark btnBlock btnPlano">
                                 Quero contratar
                             </a>
                         </li>
                     </ul>
                 </div>
-                <div class="col s12 m8 l4 offset-m2 center light-blue lighten-4 z-depth-5">
+                <div class="col s12 m8 l4 offset-m2 light-blue lighten-4 z-depth-4">
                     <ul>
                         <li>
                             <h4>Fundamental</h4>
@@ -317,15 +196,15 @@
                         <li>
                             até 500 alunos
                         </li>
-                        <li>
-                            <a href="contratacao.php/fundamental" class="btn-flat btnDark btnBlock btnPlano">
+                        <li class="center">
+                            <a href="contratacao.php?plano=fundamental" class="btn-flat btnDark btnBlock btnPlano">
                                 Quero contratar
                             </a>
                         </li>
                     </ul>
 
                 </div>
-                <div class="col s12 m8 l4 offset-m2 center light-blue lighten-3 z-depth-5">
+                <div class="col s12 m8 l4 offset-m2 light-blue lighten-3 z-depth-4">
                     <ul>
                         <li>
                             <h4>Colegial</h4>
@@ -334,7 +213,7 @@
                         <li>
                             mais de 500 alunos
                         </li>
-                        <li>
+                        <li class="center">
                             <a href="contratacao.php?plano=colegial" class="btn-flat btnDark btnBlock btnPlano">
                                 Quero contratar
                             </a>
@@ -345,7 +224,7 @@
         </div>
     </div>
 
-    <div class="scrollspy light-blue lighten-4 section grey-text text-darken-4" id="app">
+    <div class="scrollspy light-blue lighten-4 section" id="app">
         <div class="container">
             <div class="row">
                 <h2 class="">App</h2>
@@ -353,11 +232,11 @@
         </div>
     </div>
 
-    <div class="scrollspy grey-text text-darken-4 section" id="contato">
+    <div class="scrollspysection" id="contato">
         <div class="container">
             <div class="row">
-                <div class="col s12 m6">
-                    <div class="card-panel light-blue lighten-4 z-depth-3">
+                <div class="col s12 m6" data-aos="fade-right" data-aos-duration="300">
+                    <div class="card-panel z-depth-3">
                         <i class="far fa-envelope fa-3x"></i>
                         <h5>Contate - nos</h5>
                         <p>Envie uma mensagem contendo sua dúvida ou sugestão e responderemos o mais rápido possível.
@@ -373,7 +252,7 @@
                         <li class="collection-item">+55 (11) 4642-2609</li>
                     </ul>
                 </div>
-                <div class="col s12 m6">
+                <div class="col s12 m6" data-aos="fade-right" data-aos-duration="600">
                     <div class="card-panel z-depth-3">
                         <form class="" action="" method="post">
                             <h4>Por favor preencha este formulário</h4>
@@ -422,6 +301,7 @@
     <script src="node_modules/lax.js/lib/lax.min.js"></script>
     <script src="node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <script src="node_modules/izimodal/js/iziModal.min.js"></script>
+    <script src="node_modules/aos/dist/aos.js"></script>
 
     <!-- Arquivo JS -->
     <script src="js/index.js"></script>

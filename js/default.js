@@ -1,17 +1,17 @@
-// Sidenav
-const sideNav = document.querySelector('.sidenav')
-M.Sidenav.init(sideNav, {})
+$(document).ready(function () {
+  $('.sidenav').sidenav()
+})
 
 $(document).ready(() => {
-  $('.fixed-action-btn').floatingActionButton();
-});
+  $('.fixed-action-btn').floatingActionButton()
+})
 
 $(document).ready(() => {
-  $('.tooltipped').tooltip();
-});
+  $('.tooltipped').tooltip()
+})
 
 $(document).ready(() => {
-  $('select').formSelect();
-});
+  $('select').formSelect()
+})
 
 

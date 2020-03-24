@@ -1,6 +1,13 @@
+// Sidenav
+const sideNav = document.querySelector('.sidenav')
+M.Sidenav.init(sideNav, {})
+
 // Scrollspy
 const ss = document.querySelectorAll('.scrollspy')
 M.ScrollSpy.init(ss, {})
+
+// AOS init
+AOS.init()
 
 // lax init
 window.onload = () => {

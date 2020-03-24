@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
   <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" />
 
   <!-- Arquivo CSS -->
   <link rel="stylesheet" type="text/css" href="css/default.css" />
@@ -25,7 +26,7 @@
   <div class="container">
     <div class="row">
       <div class="col l6 m8 s12 offset-l3 offset-m2">
-        <div class="card-panel z-depth-5 formLogin">
+        <div class="card-panel z-depth-5 formLogin animated fadeIn">
           <a href="index.php"><i class="fas fa-chevron-left"></i> Voltar</a>
           <form action="php/login.php" method="post" autocomplete="off">
             <h4>Faça seu logon</h4>
@@ -43,7 +44,7 @@
             </div>
           </form>
         </div>
-        <div class="card-panel z-depth-5 formRecuperarSenha hide">
+        <div class="card-panel z-depth-5 formRecuperarSenha hide animated fadeIn">
           <a href="index.php"><i class="fas fa-chevron-left"></i> Voltar</a>
           <form action="processaEsqueciSenha.php" method="post">
             <h4>Esqueceu sua senha?</h4>

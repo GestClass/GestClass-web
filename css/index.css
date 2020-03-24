@@ -6,19 +6,6 @@ body{
     position: relative;
     padding: 70px 0;
 }
-.sectionHome::after{
-    background: url(../assets/img/s.png);
-    background-position: center top;
-    background-size: cover;
-    opacity: 0.3;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;   
-}
 .btnIndexMenu{
     color: #fff;
     margin-left: -5px !important;
@@ -89,10 +76,11 @@ blockquote{
     position: relative;
 }
 .containerLoginGlobal::after{
-    background: url(../assets/img/home4.svg);
+    background: url(../assets/img/s.png);
     background-position: center center;  
     background-repeat: no-repeat ;
     content: "";
+    opacity: 0.5;
     top: 0;
     left: 0;
     bottom: 0;
