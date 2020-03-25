@@ -24,11 +24,17 @@
 
     if ($query->execute(array($nome_escola, $cep, $numero, $complemento, $cnpj, $telefone, $email, $qntdAlunos, $dataPag))) {
         echo "<script>alert('Escola cadastrada com sucesso');
-        location.href='../cadastroEscola.php';
+        location.href='../cadastroEscola.html.php';
         </script>";
 
+        $query_select = $conn->prepare("select id_escola FROM escola ORDER BY id_escola DESC");
+        $query_select->execute();
+        $dados = $query_select->fetch(PDO::FETCH_ASSOC);
+        $id_escola = $dados["id_escola"];
+
+        // UPDATE escola SET turma_bercario = '0' WHERE escola.ID_escola = 34;
         if ($chk1 == 1) {
-            $query_up = $conn->prepare("UPDATE escola SET turma_bercario=:chk1 WHERE turma_bercario=0");
+            $query_up = $conn->prepare("UPDATE escola SET turma_bercario=:chk1 WHERE escola.id_escola = $id_escola");
             $query_up->bindValue(":chk1",$chk1);
             $executa = $query_up->execute();
 
@@ -39,7 +45,7 @@
         }
 
         if ($chk2 == 1) {
-            $query_up = $conn->prepare("UPDATE escola SET turma_pre_escola=:chk2 WHERE turma_pre_escola=0");
+            $query_up = $conn->prepare("UPDATE escola SET turma_pre_escola=:chk2 WHERE escola.id_escola = $id_escola");
             $query_up->bindValue(":chk2",$chk2);
             $executa = $query_up->execute();
 
@@ -50,7 +56,7 @@
         }
 
         if ($chk3 == 1) {
-            $query_up = $conn->prepare("UPDATE escola SET turma_fundamental_I=:chk3 WHERE turma_fundamental_I=0");
+            $query_up = $conn->prepare("UPDATE escola SET turma_fundamental_I=:chk3 WHERE escola.id_escola = $id_escola");
             $query_up->bindValue(":chk3",$chk3);
             $executa = $query_up->execute();
 
@@ -61,7 +67,7 @@
         }
 
         if ($chk4 == 1) {
-            $query_up = $conn->prepare("UPDATE escola SET turma_fundamental_II=:chk4 WHERE turma_fundamental_II=0");
+            $query_up = $conn->prepare("UPDATE escola SET turma_fundamental_II=:chk4 WHERE escola.id_escola = $id_escola");
             $query_up->bindValue(":chk4",$chk4);
             $executa = $query_up->execute();
 
@@ -72,7 +78,7 @@
         }
 
         if ($chk5 == 1) {
-            $query_up = $conn->prepare("UPDATE escola SET turma_medio=:chk5 WHERE turma_medio=0");
+            $query_up = $conn->prepare("UPDATE escola SET turma_medio=:chk5 WHERE escola.id_escola = $id_escola");
             $query_up->bindValue(":chk5",$chk5);
             $executa = $query_up->execute();
 

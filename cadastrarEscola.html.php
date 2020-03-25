@@ -104,18 +104,29 @@
                                             Médio</span></label>
                                 </div>
                             </div>
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix blue-icon">attach_money</i>
-                                <select name="data_pagamento" id="data_pagamento">
-                                    <option value="" disabled selected>Escolha uma data de vencimento</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="5">5</option>
-                                    <option value="8">8</option>
-                                    <option value="15">15</option>
-                                    <option value="25">25</option>
-                                </select>
-                                <label for="first_name">Data de pagamento</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix blue-icon">attach_money</i>
+                                    <select name="data_pagamento" id="data_pagamento">
+                                        <option value="" disabled selected>Escolha uma data de vencimento</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="5">5</option>
+                                        <option value="8">8</option>
+                                        <option value="15">15</option>
+                                        <option value="25">25</option>
+                                    </select>
+                                    <label for="first_name">Data de pagamento</label>
+                                </div>
+                                <div class="file-field input-field col s6">
+                                    <div class="btn indigo darken-4">
+                                    <span><i class="material-icons">add_a_photo</i></span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -211,28 +222,30 @@
     <script src="js/default.js"></script>
 
     <script>
-        $('.datepicker').datepicker({
-            i18n: {
-                months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabádo'],
-                weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
-                weekdaysAbbrev: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
-                today: 'Hoje',
-                clear: 'Limpar',
-                cancel: 'Sair',
-                done: 'Confirmar',
-                labelMonthNext: 'Próximo mês',
-                labelMonthPrev: 'Mês anterior',
-                labelMonthSelect: 'Selecione um mês',
-                labelYearSelect: 'Selecione um ano',
-                selectMonths: true,
-                selectYears: 15,
-            },
-            format: 'dd mmmm, yyyy',
-            container: 'body',
-            minDate: new Date(),
-        });
+    $('.datepicker').datepicker({
+        i18n: {
+            months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
+                'Outubro', 'Novembro', 'Dezembro'
+            ],
+            monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabádo'],
+            weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+            weekdaysAbbrev: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+            today: 'Hoje',
+            clear: 'Limpar',
+            cancel: 'Sair',
+            done: 'Confirmar',
+            labelMonthNext: 'Próximo mês',
+            labelMonthPrev: 'Mês anterior',
+            labelMonthSelect: 'Selecione um mês',
+            labelYearSelect: 'Selecione um ano',
+            selectMonths: true,
+            selectYears: 15,
+        },
+        format: 'dd mmmm, yyyy',
+        container: 'body',
+        minDate: new Date(),
+    });
     </script>
 </body>
 
