@@ -44,7 +44,7 @@
                 <div class="dividerVert"></div>
               </li>
               <li>
-                <a href="index.php" data-izimodal-open="index.php" class="btn-flat btnLight">Sair</a>
+                <a href="index.php"  class="btn-flat btnLight">Sair</a>
               </li>
             </ul>
           </div>
