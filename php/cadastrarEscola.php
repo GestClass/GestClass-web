@@ -12,11 +12,12 @@
     $dataPag = $_POST["data_pagamento"];   
     $qntdAlunos = $_POST["quantidade_alunos"];
     
-    $chk1 = $_POST["chk1"];
-    $chk2 = $_POST["chk2"];
-    $chk3 = $_POST["chk3"];
-    $chk4 = $_POST["chk4"];
-    $chk5 = $_POST["chk5"];
+    
+    $chk1 = isset($_POST['chk1']) ? $_POST['chk1'] : 0;
+    $chk2 = isset($_POST['chk2']) ? $_POST['chk2'] : 0;
+    $chk3 = isset($_POST['chk3']) ? $_POST['chk3'] : 0;
+    $chk4 = isset($_POST['chk4']) ? $_POST['chk4'] : 0;
+    $chk5 = isset($_POST['chk5']) ? $_POST['chk5'] : 0;
     
 
     $query = $conn->prepare("INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, quantidade_alunos, data_pagamento_escola, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio) 
@@ -24,7 +25,7 @@
 
     if ($query->execute(array($nome_escola, $cep, $numero, $complemento, $cnpj, $telefone, $email, $qntdAlunos, $dataPag))) {
         echo "<script>alert('bicha cagada inseriu');
-        </script>";
+        locatio.href='../cadastroEscola.php'</script>";
 
 
         if ($chk1 == 1) {
