@@ -29,7 +29,7 @@
 
       if($query->rowCount()>0){
         echo "<script>alert('Secretario logado com sucesso :)');
-                  window.location = '../homeSecretaria.php'
+                  window.location = '../homeSecretaria.html.php'
                   </script>";
       }
       else {
@@ -71,7 +71,7 @@
     
                 if($query->rowCount()>0){
                   echo "<script>alert('Admin logado com sucesso :)');
-                  window.location = '../homeAdmGest.php'
+                  window.location = '../homeAdmGest.html.php'
                   </script>";
                 }else if (($dados["email"] == $email) || ($dados["senha"] != $senha)) {
                   echo "<script>alert('Email ou senha está incorreto');
