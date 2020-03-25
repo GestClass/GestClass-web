@@ -10,10 +10,12 @@
   <link rel="icon" href="assets/icon/logo.png" />
 
   <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.min.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/aos/dist/aos.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/default.css" />
   <link rel="stylesheet" type="text/css" href="css/menu.css" />
+  <link rel="stylesheet" type="text/css" href="css/default.css" />
 
 </head>
 
@@ -70,7 +72,7 @@
       </li>
       <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i
             class="material-icons">group_add</i>Cadastro de contas
-            <i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
+          <i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
       <ul id='dropdown1' class='dropdown-content'>
         <li><a href="paginaManutencao.php"><i class="material-icons">people_alt</i>Professores</a></li>
         <li><a href="paginaManutencao.php"><i class="material-icons">school</i>Secretaria</a></li>
@@ -78,17 +80,4 @@
         <li><a href="paginaManutencao.php"><i class="material-icons">wc</i>Pais</a></li>
       </ul>
     </ul>
-
-
   </header>
-
-
-
-  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-  <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-  <script src="js/menu.js"></script>
-  <script src="js/default.js"></script>
-
-</body>
-
-</html>

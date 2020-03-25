@@ -63,8 +63,8 @@
                         <input type="text" placeholder="Nome do(a) diretor(a)" class="inputDark" />
                     </div>
                     <div class="input-field col s12">
-                        <textarea class="materialize-textarea inputDark" id="mensagemContato" placeholder="Escreva sua mensagem"
-                            maxlength="120"></textarea>
+                        <textarea class="materialize-textarea inputDark" id="mensagemContato"
+                            placeholder="Escreva sua mensagem" maxlength="120"></textarea>
                         <span class="helper-text red-text" id="spanMensagemContato"></span>
                     </div>
                     <div class="input-field right-align col s12">
@@ -101,7 +101,41 @@
     <script src="node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
 
     <!-- Arquivo JS -->
-    <script src="js/contratacao.js"></script>
+    <script>
+        // pegar o parametro que vem da URL
+        window.onload = CapturaParametrosUrl()
+
+        function CapturaParametrosUrl() {
+            var url = window.location.href
+            var res = url.split('?')
+            if (res[1] !== undefined) {
+                captura = res[1].split('=')
+                let parametroEncontrado = captura[0]
+                let valorParametro = captura[1]
+                // let select = $('.selectPlanos')
+                if (valorParametro === 'primario') {
+                    $('.selectPlanos').val('1')
+                } else if (valorParametro === 'fundamental') {
+                    $('.selectPlanos').val('2')
+                } else {
+                    $('.selectPlanos').val('3')
+                }
+            }
+
+        }
+        // Sidenav
+        const sideNav = document.querySelector('.sidenav')
+        M.Sidenav.init(sideNav, {})
+
+        // modal
+        const modal = document.querySelector('.modal')
+        M.Modal.init(modal, {})
+
+        // select
+        $(document).ready(function () {
+            $('select').formSelect()
+        })
+    </script>
 
 
 </body>

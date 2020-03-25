@@ -20,7 +20,7 @@
 
 <body>
 
-    <?php require_once 'reqMenu.php' ?>
+    <?php require_once 'reqHeader.php' ?>
 
 
     <div class="container">
@@ -80,13 +80,4 @@
 
     </div>
 
-    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-    <script src="js/homeSecretaria.js"></script>
-    <script src="js/chamada.js"></script>
-
-    <script src="js/default.js"></script>
-
-</body>
-
-</html>
+<?php require_once 'reqFooter.php' ?>

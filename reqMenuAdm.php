@@ -87,7 +87,6 @@
 
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-    <script src="js/menu.js"></script>
     <script src="js/default.js"></script>
 
 </body>

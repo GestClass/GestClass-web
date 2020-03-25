@@ -19,7 +19,7 @@
 
 <body>
 
-  <?php require_once 'reqMenu.php' ?>
+  <?php require_once 'reqHeader.php' ?>
 
   <section class="section">
     <div class="container">
@@ -61,12 +61,5 @@
       </div>
     </div>
   </section>
-
-  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-  <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-  <script src="js/homeSecretaria.js"></script>
-  <script src="js/perfil.js"></script>
-
-</body>
-
-</html>
+  
+<?php require_once 'reqFooter.php' ?>

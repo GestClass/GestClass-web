@@ -14,4 +14,10 @@ $(document).ready(() => {
   $('select').formSelect()
 })
 
+$('.dropdown-trigger').dropdown();
+
+$(document).ready(() => {
+  $('.modal').modal()
+})
+
 

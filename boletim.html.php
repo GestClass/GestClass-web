@@ -22,66 +22,8 @@
 
 <body>
 
-  <header>
-    <div class="navbar-fixed">
-      <nav class="light-blue lighten-1">
-        <div class="container">
-          <div class="nav-wrapper">
-            <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
-                class="material-icons">menu</i></a>
-            <a href="homeSecretaria.html.php" class="brand-logo"><i class="fas fa-drafting-compass"></i> GestClass</a>
+  <?php require_once 'reqHeader.php' ?>  
 
-            <ul class="right">
-              <li>
-                <a class="transparent" disable>Olá Monique</a>
-              </li>
-              <li>
-                <a href="perfil.html.php" class="transparent">
-                  <img class="circle icon-user" width="50px" height="50px" src="assets/img/momo.jpg">
-                </a>
-              </li>
-              <li>
-                <div class="dividerVert"></div>
-              </li>
-              <li>
-                <a href="#" data-izimodal-open="#modalLogin" class="btn-flat btnLight">Sair</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <ul id="slide-out" class="sidenav">
-      <li>
-        <div class="user-view">
-          <div class="background">
-            <img src="assets/img/slide2.png">
-          </div>
-          <a href="perfil.html.php"><img class="circle" src="assets/img/momo.jpg"></a>
-          <a href="perfil.html.php"><span class="white-text name">Monique</span></a>
-          <a href="perfil.html.php"><span class="white-text email">monique@etec.sp.gov.br</span></a>
-        </div>
-      </li>
-      <li><a href="paginaManutencao.php"><i class="material-icons">filter_1</i>1 Semestre</a></li>
-      <li><a href="paginaManutencao.php"><i class="material-icons">filter_2</i>2 Semestre</a></li>
-      <li><a href="paginaManutencao.php"><i class="material-icons">filter_3</i>3 Semestre</a></li>
-      <li>
-        <div class="divider"></div>
-      </li>
-      <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a>
-      </li>
-      <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i
-            class="material-icons">group_add</i>Cadastro de contas
-          <i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
-      <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="paginaManutencao.php"><i class="material-icons">people_alt</i>Professores</a></li>
-        <li><a href="paginaManutencao.php"><i class="material-icons">school</i>Secretaria</a></li>
-        <li><a href="paginaManutencao.php"><i class="material-icons">person</i>Alunos</a></li>
-        <li><a href="paginaManutencao.php"><i class="material-icons">wc</i>Pais</a></li>
-      </ul>
-    </ul>
-  </header>
   <div class="row">
     <div class="col s12 m6">
       <div class="card-boletim">
@@ -182,17 +124,4 @@
       </div>
     </div>
 
-    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/default.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems, options);
-      });
-    </script>
-
-</body>
-
-</html>
+<?php require_once 'reqFooter.php' ?>

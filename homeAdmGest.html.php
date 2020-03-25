@@ -106,7 +106,7 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-    <script src="js/homeAdmGest.js"></script>
+    <script src="js/customAdm.js"></script>
     <script src="js/default.js"></script>
 
 </body>
