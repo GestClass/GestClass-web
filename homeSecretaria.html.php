@@ -41,11 +41,7 @@
         </a>
       </div>
       <div class="col s12 m4">
-<<<<<<< HEAD
-        <a href="cadastro.html.php">
-=======
         <a href="cadastroContas.html.php">
->>>>>>> 2377e00574aea167a496e84a46ed307b37e59f08
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-address-book fa-6x blue-icon"></i>
             <h5>Cadastro de contas</h5>
