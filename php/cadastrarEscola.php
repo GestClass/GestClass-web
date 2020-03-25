@@ -12,7 +12,6 @@
     $dataPag = $_POST["data_pagamento"];   
     $qntdAlunos = $_POST["quantidade_alunos"];
     
-    
     $chk1 = isset($_POST['chk1']) ? $_POST['chk1'] : 0;
     $chk2 = isset($_POST['chk2']) ? $_POST['chk2'] : 0;
     $chk3 = isset($_POST['chk3']) ? $_POST['chk3'] : 0;
@@ -24,9 +23,9 @@
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '0', '0', '0', '0', '0');");
 
     if ($query->execute(array($nome_escola, $cep, $numero, $complemento, $cnpj, $telefone, $email, $qntdAlunos, $dataPag))) {
-        echo "<script>alert('bicha cagada inseriu');
-        locatio.href='../cadastroEscola.php'</script>";
-
+        echo "<script>alert('Escola cadastrada com sucesso');
+        location.href='../cadastroEscola.php';
+        </script>";
 
         if ($chk1 == 1) {
             $query_up = $conn->prepare("UPDATE escola SET turma_bercario=:chk1 WHERE turma_bercario=0");
@@ -34,7 +33,7 @@
             $executa = $query_up->execute();
 
             if ($executa == 0) {
-                echo "<script>alert('não foi otaria');
+                echo "<script>alert('Update da turma não foi efetuado');
                      history.back();</script>";
             }
         }
@@ -45,7 +44,7 @@
             $executa = $query_up->execute();
 
             if ($executa == 0) {
-                echo "<script>alert('não foi otaria');
+                echo "<script>alert('Update da turma não foi efetuado');
                      history.back();</script>";
             }
         }
@@ -56,7 +55,7 @@
             $executa = $query_up->execute();
 
             if ($executa == 0) {
-                echo "<script>alert('não foi otaria');
+                echo "<script>alert('Update da turma não foi efetuado');
                      history.back();</script>";
             }
         }
@@ -67,7 +66,7 @@
             $executa = $query_up->execute();
 
             if ($executa == 0) {
-                echo "<script>alert('não foi otaria');
+                echo "<script>alert('Update da turma não foi efetuado');
                      history.back();</script>";
             }
         }
@@ -78,14 +77,13 @@
             $executa = $query_up->execute();
 
             if ($executa == 0) {
-                echo "<script>alert('não foi otaria');
+                echo "<script>alert('Update da turma não foi efetuado');
                      history.back();</script>";
             }
         }
         
-
     }else{
-        echo "<script>alert('te lascou otaria');
+        echo "<script>alert('Erro: Escola não foi cadastrada');
         history.back();</script>";
     }
 

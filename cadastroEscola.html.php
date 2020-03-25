@@ -36,7 +36,7 @@
     <?php
         include_once 'php/conexao.php';
 
-        $query = $conn->prepare("select nome_escola,cnpj,email from escola");
+        $query = $conn->prepare("select nome_escola,cnpj,email from escola LIMIT 5");
         // $query->bindValue(":email",$email);
         // $query->bindValue(":senha",$senha);
         $query->execute();
@@ -44,7 +44,7 @@
     ?>
 
     <section class="escolas">
-    <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) {?>
+        <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) {?>
         <div class="col s12">
             <div class="container">
                 <ul class="collection">
@@ -59,7 +59,18 @@
                 </ul>
             </div>
         </div>
-    <?php }?>
+        <?php }?>
+        <div class="center-align">
+            <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!">2</a></li>
+                <li class="waves-effect"><a href="#!">3</a></li>
+                <li class="waves-effect"><a href="#!">4</a></li>
+                <li class="waves-effect"><a href="#!">5</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div>
     </section>
 
     <!-- CADASTRO DAS ESCOLAS SENDO MODIFICADO "USANDO EXEMPLO DO CADASTRO DO CALENDARIO"

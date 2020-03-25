@@ -10,3 +10,7 @@
 .blue-icon{
     color: #1a237e;
 }
+
+.pagination li.active a{
+    background-color: #1a237e;
+}
