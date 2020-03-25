@@ -150,7 +150,7 @@
                                 <label for="first_name">ID Escola</label>
                             </div>
                             <div class="input-field right">
-                                <button id="btnFormContas" type="submit"
+                                <button name= "btncadastrar" value="formAluno" id="btnFormContas" type="submit"
                                     class="btn-flat btnDefaultFormContas">Cadastrar</button>
                             </div>
                         </div>
@@ -253,7 +253,7 @@
                                 <label for="icon_telephone">ID Escola</label>
                             </div>
                             <div class="input-field right">
-                                <button id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas">
+                                <button name = "btncadastrar" value="formResposavel" id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas">
                                     Cadastrar</button>
                             </div>
                         </div>
@@ -375,7 +375,7 @@
                                 <label>Diciplinas</label>
                             </div>
                             <div class="input-field right">
-                                <button id="btnFormContas" type="submit"
+                                <button btn = "btncadastrar" value="formProfessor" id="btnFormContas" type="submit"
                                     class="btn-flat btnDefaultFormContas">Cadastrar</button>
                             </div>
                         </div>
@@ -446,7 +446,7 @@
                                 <label for="icon_telephone">ID Escola</label>
                             </div>
                             <div class="input-field right">
-                                <button id="btnFormContas" type="submit"
+                                <button name= "btncadastrar" value="fomrSecretaria" id="btnFormContas" type="submit"
                                     class="btn-flat btnDefaultFormContas">Cadastrar</button>
                             </div>
                         </div>
