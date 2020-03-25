@@ -40,25 +40,35 @@
                     <h4>Aluno</h4>
                     <div>
                         <div class="container">
-                            <div class="file-field input-field col s6">
-                                <div id="btnf" class="btn col s6">
-                                    <span><i class="material-icons">add_a_photo</i> Foto</span>
-                                    <input type="file">
+                        <!-- PRESTA ATENÇÃO ksk, a cada 12 colunas voce precisa organnizar por linhas
+                            se voce ver, vai perceber que, a foto e o RA estao dentro de uma linha
+                            e essa linha tem ta manho que voce definiu na primeira div que é 12
+                            entao voce dividiu nessa linha que a foto e o RA vao ser 6 pra cada
+                             -->
+                            <div class="row">
+                                <div class="file-field input-field col s6">
+                                    <div id="btnf" class="btn col s6">
+                                        <span><i class="material-icons">add_a_photo</i> Foto</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input id="foto" class="validate" type="text">
+                                    </div>
                                 </div>
-                                <div class="file-path-wrapper">
-                                    <input id="foto" class="validate" type="text">
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">business</i>
+                                    <input id="RA" placeholder="8956478-9" type="text" class="validate"
+                                        data-mask="0000000-0">
+                                    <label for="first_name">RA</label>
                                 </div>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
-                                <label for="first_name">RA</label>
                             </div>
                             <div class="input-field col s6">
                                 <input id="nome_aluno" type="text" placeholder="Nome Aluno" class="validate ">
                                 <label for="first_name">Nome Aluno</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate ">
+                                <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000"
+                                    class="validate ">
                                 <label for="first_name">CEP</label>
                             </div>
                             <div class="input-field col s6">
@@ -70,11 +80,13 @@
                                 <label for="first_name">Complemento</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="RG" placeholder="65.745.984-6" type="tel" data-mask="00.000.000-0" class="validate ">
+                                <input id="RG" placeholder="65.745.984-6" type="tel" data-mask="00.000.000-0"
+                                    class="validate ">
                                 <label for="first_name">RG</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="CPF" placeholder="614755014/16" type="tel" data-mask="000000000/00" class="validate ">
+                                <input id="CPF" placeholder="614755014/16" type="tel" data-mask="000000000/00"
+                                    class="validate ">
                                 <label for="first_name">CPF</label>
                             </div>
                             <div class="input-field col s6">
@@ -86,15 +98,18 @@
                                 <label for="first_name">Senha</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate ">
+                                <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000"
+                                    class="validate ">
                                 <label for="first_name">Celular</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="telefone" placeholder="(11) 4002-8922" type="tel" data-mask="(00) 0000-0000" class="validate">
+                                <input id="telefone" placeholder="(11) 4002-8922" type="tel" data-mask="(00) 0000-0000"
+                                    class="validate">
                                 <label for="first_name">Telefone</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
+                                <input id="data_nascimento" placeholder="Ano/Mes/Dia" type="text"
+                                    class="datepicker validate">
                                 <label>Data Nascimento</label>
                             </div>
                             <div id="selcT" class="input-field col s8 l6 validate">
@@ -130,11 +145,13 @@
                                 <label>Turma</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="fk_id_escola_professor" placeholder="156" type="number" data-mask="000" class="validate">
+                                <input id="fk_id_escola_professor" placeholder="156" type="number" data-mask="000"
+                                    class="validate">
                                 <label for="first_name">ID Escola</label>
                             </div>
                             <div class="input-field right">
-                                <button id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas">Cadastrar</button>
+                                <button id="btnFormContas" type="submit"
+                                    class="btn-flat btnDefaultFormContas">Cadastrar</button>
                             </div>
                         </div>
                     </div>
@@ -158,7 +175,8 @@
                                 <label for="icon_telephone">Nome</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="cep" type="tel" placeholder="08574-150" data-mask="00000-000" class="validate">
+                                <input id="cep" type="tel" placeholder="08574-150" data-mask="00000-000"
+                                    class="validate">
                                 <label for="icon_telephone">CEP</label>
                             </div>
                             <div class="input-field col s6">
@@ -170,11 +188,13 @@
                                 <label for="icon_telephone">Complemento</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="rg" type="tel" placeholder="84.514.751-16" data-mask="00.000.000-00" class="validate">
+                                <input id="rg" type="tel" placeholder="84.514.751-16" data-mask="00.000.000-00"
+                                    class="validate">
                                 <label for="icon_telephone">RG</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="cpf" type="tel" placeholder="15886475/22" data-mask="000000000/00" class="validate">
+                                <input id="cpf" type="tel" placeholder="15886475/22" data-mask="000000000/00"
+                                    class="validate">
                                 <label for="icon_telephone">CPF</label>
                             </div>
                             <div class="input-field col s6">
@@ -186,23 +206,28 @@
                                 <label for="icon_telephone">Senha</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="pin" type="password" placeholder="******" data-mask="000000" class="validate">
+                                <input id="pin" type="password" placeholder="******" data-mask="000000"
+                                    class="validate">
                                 <label for="icon_telephone">Pin</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
+                                <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000"
+                                    class="validate">
                                 <label for="icon_telephone">Celular</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="telefone" type="tel" placeholder="(11) 4651-3030" data-mask="(00) 0000-0000" class="validate">
+                                <input id="telefone" type="tel" placeholder="(11) 4651-3030" data-mask="(00) 0000-0000"
+                                    class="validate">
                                 <label for="icon_telephone">Telefone</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="telefone_comercial" type="tel" placeholder="(11) 7765-3360" data-mask="(00) 0000-0000" class="validate">
+                                <input id="telefone_comercial" type="tel" placeholder="(11) 7765-3360"
+                                    data-mask="(00) 0000-0000" class="validate">
                                 <label for="icon_telephone">Telefone Comercial</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
+                                <input id="data_nascimento" placeholder="Ano/Mes/Dia" type="text"
+                                    class="datepicker validate">
                                 <label>Data Nascimento</label>
                             </div>
                             <div class="input-field col s12 l6">
@@ -218,15 +243,18 @@
                                 <label for="first_name">Data de pagamento</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="fk_ra_aluno_responsavel" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
+                                <input id="fk_ra_aluno_responsavel" placeholder="8956478-9" type="text" class="validate"
+                                    data-mask="0000000-0">
                                 <label for="icon_prefix">RA Aluno</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="fk_id_escola_professor" placeholder="156" type="number" data-mask="000" class="validate">
+                                <input id="fk_id_escola_professor" placeholder="156" type="number" data-mask="000"
+                                    class="validate">
                                 <label for="icon_telephone">ID Escola</label>
                             </div>
                             <div class="input-field right">
-                                <button id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas"> Cadastrar</button>
+                                <button id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas">
+                                    Cadastrar</button>
                             </div>
                         </div>
                     </div>
@@ -250,7 +278,8 @@
                                 <label for="icon_prefix">Nome</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate">
+                                <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000"
+                                    class="validate">
                                 <label for="icon_telephone">CEP</label>
                             </div>
                             <div class="input-field col s6">
@@ -262,11 +291,13 @@
                                 <label for="icon_telephone">Comple0mento</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="rg" placeholder="68.124.586-8" type="tel" data-mask="00.000.000-0" class="validate">
+                                <input id="rg" placeholder="68.124.586-8" type="tel" data-mask="00.000.000-0"
+                                    class="validate">
                                 <label for="icon_telephone">RG</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="cpf" placeholder="158688987/10" type="tel" data-mask="000000000/00" class="validate">
+                                <input id="cpf" placeholder="158688987/10" type="tel" data-mask="000000000/00"
+                                    class="validate">
                                 <label for="icon_telephone">CPF</label>
                             </div>
                             <div class="input-field col s6">
@@ -278,15 +309,18 @@
                                 <label for="icon_telephone">Senha</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate">
+                                <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000"
+                                    class="validate">
                                 <label for="icon_telephone">Celular</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="telefone" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate">
+                                <input id="telefone" placeholder="(11) 97765-3360" type="tel"
+                                    data-mask="(00) 00000-0000" class="validate">
                                 <label for="icon_telephone">Telefone</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="fk_id_escola_professor" placeholder="156" type="number" data-mask="000" class="validate">
+                                <input id="fk_id_escola_professor" placeholder="156" type="number" data-mask="000"
+                                    class="validate">
                                 <label for="icon_telephone">ID Escola</label>
                             </div>
                             <div class="input-field col s12 l6">
@@ -341,7 +375,8 @@
                                 <label>Diciplinas</label>
                             </div>
                             <div class="input-field right">
-                                <button id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas">Cadastrar</button>
+                                <button id="btnFormContas" type="submit"
+                                    class="btn-flat btnDefaultFormContas">Cadastrar</button>
                             </div>
                         </div>
                     </div>
@@ -365,7 +400,8 @@
                                 <label for="icon_prefix">Nome</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="cep" type="tel" placeholder="08574-150" data-mask="00000-000" class="validate">
+                                <input id="cep" type="tel" placeholder="08574-150" data-mask="00000-000"
+                                    class="validate">
                                 <label for="icon_telephone">CEP</label>
                             </div>
                             <div class="input-field col s6">
@@ -377,11 +413,13 @@
                                 <label for="icon_telephone">Complemento</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="rg" type="tel" placeholder="62.548.678-7" data-mask="00.000.000-0" class="validate">
+                                <input id="rg" type="tel" placeholder="62.548.678-7" data-mask="00.000.000-0"
+                                    class="validate">
                                 <label for="icon_telephone">RG</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="CPF" type="tel" placeholder="785958651/88" data-mask="000000000/00" class="validate">
+                                <input id="CPF" type="tel" placeholder="785958651/88" data-mask="000000000/00"
+                                    class="validate">
                                 <label for="icon_telephone">CPF</label>
                             </div>
                             <div class="input-field col s6">
@@ -393,19 +431,23 @@
                                 <label for="icon_telephone">Senha</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
+                                <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000"
+                                    class="validate">
                                 <label for="icon_telephone">Celular</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="telefone" type="tel" placeholder="(11) 4753-8560" data-mask="(00) 0000-0000" class="validate">
+                                <input id="telefone" type="tel" placeholder="(11) 4753-8560" data-mask="(00) 0000-0000"
+                                    class="validate">
                                 <label for="icon_telephone">Telefone</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="fk_id_escola_professor" placeholder="156" type="number" data-mask="000" class="validate">
+                                <input id="fk_id_escola_professor" placeholder="156" type="number" data-mask="000"
+                                    class="validate">
                                 <label for="icon_telephone">ID Escola</label>
                             </div>
                             <div class="input-field right">
-                                <button id="btnFormContas" type="submit" class="btn-flat btnDefaultFormContas">Cadastrar</button>
+                                <button id="btnFormContas" type="submit"
+                                    class="btn-flat btnDefaultFormContas">Cadastrar</button>
                             </div>
                         </div>
                     </div>
