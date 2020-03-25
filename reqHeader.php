@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/menu.css" />
   <link rel="stylesheet" type="text/css" href="css/default.css" />
+  <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />
 
 </head>
 
@@ -43,7 +44,7 @@
                 <div class="dividerVert"></div>
               </li>
               <li>
-                <a href="index.php" data-izimodal-open="#modalLogin" class="btn-flat btnLight">Sair</a>
+                <a href="index.php" data-izimodal-open="index.php" class="btn-flat btnLight">Sair</a>
               </li>
             </ul>
           </div>
