@@ -25,7 +25,7 @@
 
     <section class="floating-buttons">
         <div class="fixed-action-btn floating-right">
-            <a class="btn-floating btn blue accent-4 modal-trigger" href="cadastrarEscola.php">
+            <a class="btn-floating btn blue accent-4 modal-trigger" href="cadastrarEscola.html.php">
                 <i class="large material-icons">create</i>
             </a>
         </div>
@@ -220,7 +220,7 @@
                         data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
                 <li><a href="paginaManutencao.html" class="btn-floating blue-grey darken-4 tooltipped"
                         data-position="left" data-tooltip="Chat"><i class="material-icons">chat</i></a></li>
-                <li><a href="calendario.php" class="btn-floating blue tooltipped" data-position="left"
+                <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
                         data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
             </ul>
         </div>

@@ -34,7 +34,7 @@
           </a>
         </div>
         <div class="col s12 m4">
-          <a href="calendario.php">
+          <a href="calendario.html.php">
             <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
               <i class="fas fa-calendar-check fa-6x blue-icon"></i>
               <h5>Calendario Escolar</h5>
@@ -72,7 +72,7 @@
           </a>
         </div>
         <div class="col s12 m4">
-          <a href="perfil.php">
+          <a href="perfil.html.php">
             <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
               <i class="fas fa-cog fa-6x blue-icon"></i>
               <h5>Configurações</h5>
@@ -98,7 +98,7 @@
             data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
         <li><a href="paginaManutencao.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left"
             data-tooltip="Chat"><i class="material-icons">chat</i></a></li>
-        <li><a href="calendario.php" class="btn-floating blue tooltipped" data-position="left"
+        <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
             data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
       </ul>
     </div>

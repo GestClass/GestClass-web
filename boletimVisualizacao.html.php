@@ -13,9 +13,8 @@
 
     <!-- Arquivo CSS -->
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/boletim.css" />
-</head>
-<link rel="stylesheet" type="text/css" href="css/menu.css" />
+    <link rel="stylesheet" type="text/css" href="css/boletimVisualizacao.css" />
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />
 
 </head>
 
@@ -28,14 +27,14 @@
           <div class="nav-wrapper">
             <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
                 class="material-icons">menu</i></a>
-            <a href="homeSecretaria.php" class="brand-logo"><i class="fas fa-drafting-compass"></i> GestClass</a>
+            <a href="homeSecretaria.html.php" class="brand-logo"><i class="fas fa-drafting-compass"></i> GestClass</a>
 
             <ul class="right">
               <li>
                 <a class="transparent" disable>Olá Monique</a>
               </li>
               <li>
-                <a href="perfil.php" class="transparent">
+                <a href="perfil.html.php" class="transparent">
                   <img class="circle icon-user" width="50px" height="50px" src="assets/img/momo.jpg">
                 </a>
               </li>
@@ -56,9 +55,9 @@
           <div class="background">
             <img src="assets/img/slide2.png">
           </div>
-          <a href="perfil.php"><img class="circle" src="assets/img/momo.jpg"></a>
-          <a href="perfil.php"><span class="white-text name">Monique</span></a>
-          <a href="perfil.php"><span class="white-text email">monique@etec.sp.gov.br</span></a>
+          <a href="perfil.html.php"><img class="circle" src="assets/img/momo.jpg"></a>
+          <a href="perfil.html.php"><span class="white-text name">Monique</span></a>
+          <a href="perfil.html.php"><span class="white-text email">monique@etec.sp.gov.br</span></a>
         </div>
       </li>
       <li><a href="paginaManutencao.php"><i class="material-icons">filter_1</i>1 Semestre</a></li>
@@ -68,7 +67,7 @@
         <div class="divider"></div>
       </li>
       <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="calendario.php"><i class="material-icons">event</i>Calendario Escolar</a>
+      <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a>
       </li>
       <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i
             class="material-icons">group_add</i>Cadastro de contas
@@ -174,7 +173,7 @@
           </tr>
         </tbody>
       </table>
-      <a href="contratacao.php" class="btn-flat btn-smalls btnDark btnHome" >
+      <a href="contratacao.html.php" class="btn-flat btn-smalls btnDark btnHome" >
         <i class="large material-icons">file_upload</i>
             Gerar PDF
       </a>
