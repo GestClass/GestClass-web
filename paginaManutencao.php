@@ -19,7 +19,7 @@
 
 <body>
 
-<?php require_once 'reqMenu.php' ?>
+<?php require_once 'reqHeader.php' ?>
 
     <section class="section sectionError center">
       <img class="gear" src="assets/img/compass.svg" alt="manutencao">

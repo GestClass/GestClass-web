@@ -86,17 +86,22 @@
                                 </div>
                                 <div class="col s8">
                                     <label class="left"><input id="fk_id_tipos_turma_bercario" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk1" value="1"/><span>Berçario</span></label>
+                                            class="filled-in checkbox-blue-grey" name="chk1"
+                                            value="1" /><span>Berçario</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_pre_escola" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk2" value="1" /><span>Pré-Escola</span></label>
+                                            class="filled-in checkbox-blue-grey" name="chk2"
+                                            value="1" /><span>Pré-Escola</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_fundamental_I" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk3" value="1" /><span>Fundamental
+                                            class="filled-in checkbox-blue-grey" name="chk3"
+                                            value="1" /><span>Fundamental
                                             I</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_fundamental_II" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk4" value="1"/><span>Fundamental
+                                            class="filled-in checkbox-blue-grey" name="chk4"
+                                            value="1" /><span>Fundamental
                                             II</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_medio" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk5" value="1"/><span>Ensino Médio</span></label>
+                                            class="filled-in checkbox-blue-grey" name="chk5" value="1" /><span>Ensino
+                                            Médio</span></label>
                                 </div>
                             </div>
                             <div class="input-field col s12">
@@ -203,7 +208,32 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
     <script src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-    <script src="js/homeSecretaria.js"></script>
-    <script src="js/cadastroEscola.js"></script>
-
     <script src="js/default.js"></script>
+
+    <script>
+        $('.datepicker').datepicker({
+            i18n: {
+                months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabádo'],
+                weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                weekdaysAbbrev: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+                today: 'Hoje',
+                clear: 'Limpar',
+                cancel: 'Sair',
+                done: 'Confirmar',
+                labelMonthNext: 'Próximo mês',
+                labelMonthPrev: 'Mês anterior',
+                labelMonthSelect: 'Selecione um mês',
+                labelYearSelect: 'Selecione um ano',
+                selectMonths: true,
+                selectYears: 15,
+            },
+            format: 'dd mmmm, yyyy',
+            container: 'body',
+            minDate: new Date(),
+        });
+    </script>
+</body>
+
+</html>

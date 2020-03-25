@@ -25,18 +25,13 @@
     <link rel="stylesheet" type="text/css" href="css/calendario.css" />
 
     <!-- Arquivo JS -->
-    <script src='js/core/main.min.js'></script>
-    <script src='js/core/locales/pt-br.js'></script>
-    <script src='js/interaction/main.min.js'></script>
-    <script src='js/daygrid/main.min.js'></script>
-    <script src='js/list/main.min.js'></script>
-    <script src='js/google-calendar/main.min.js'></script>
+
 
 </head>
 
 <body>
 
-    <?php require_once 'reqMenu.php' ?>
+    <?php require_once 'reqHeader.php' ?>
 
     <div id='loading'>loading...</div>
 
@@ -52,7 +47,8 @@
         <div id="modalInfo" class="modal model">
 
             <div class="modal-content" id="modalEdit">
-                <dd class="col s3"><a href="#!" class="modal-close waves-effect btn-flat right"><i class="material-icons">clear</i></a></dd>
+                <dd class="col s3"><a href="#!" class="modal-close waves-effect btn-flat right"><i
+                            class="material-icons">clear</i></a></dd>
                 <h4>Detalhes do evento</h4>
                 <div class="visevent">
                     <dl class="row">
@@ -66,11 +62,11 @@
                         <dd class="col s9" id="end"></dd><br>
                     </dl>
                     <button class="tbtn waves-effect btn-flat btnDark btn-canc-vis">Editar
-                    <i class="material-icons left">create</i>
+                        <i class="material-icons left">create</i>
                     </button>
                 </div>
                 <div class="formedit">
-                <span id="msg-edit"></span>
+                    <span id="msg-edit"></span>
                     <form id="EditarEvento" class="col s12" method="POST">
                         <div class="row">
                             <div class="input-field col s12">
@@ -107,10 +103,12 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn waves-effect btn-flat btnDarkFill btn-canc-edit left">Cancelar
-                        <i class="material-icons right">clear</i>
-                        </button>
-                            <button class="btn btn-flat waves-effect btnLightBlue" type="submit" name="cadEvento" id="cadEvento"value="cadEvento">Cadastrar
+                            <button type="button"
+                                class="btn waves-effect btn-flat btnDarkFill btn-canc-edit left">Cancelar
+                                <i class="material-icons right">clear</i>
+                            </button>
+                            <button class="btn btn-flat waves-effect btnLightBlue" type="submit" name="cadEvento"
+                                id="cadEvento" value="cadEvento">Cadastrar
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -172,8 +170,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-flat waves-effect btnLightBlue right" type="submit" name="cadEvento" id="cadEvento"
-                                value="cadEvento">Cadastrar
+                            <button class="btn btn-flat waves-effect btnLightBlue right" type="submit" name="cadEvento"
+                                id="cadEvento" value="cadEvento">Cadastrar
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -202,11 +200,147 @@
             </ul>
         </div>
     </section>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-    <script src="js/default.js"></script>
-    <script src='js/calendario.js'></script>
 
-</body>
 
-</html>
+    <script src='js/core/main.min.js'></script>
+    <script src='js/core/locales/pt-br.js'></script>
+    <script src='js/interaction/main.min.js'></script>
+    <script src='js/daygrid/main.min.js'></script>
+    <script src='js/list/main.min.js'></script>
+    <script src='js/google-calendar/main.min.js'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+
+                locale: 'pt-br',
+                plugins: ['interaction', 'dayGrid', 'list', 'googleCalendar'],
+                editable: true,
+                eventLimit: true,
+                events: 'php/listarEventosCalendario.php',
+                extraParams: function () {
+                    return {
+                        cachebuster: new Date().valueOf()
+                    };
+                },
+
+                eventClick: function (info) {
+                    info.jsEvent.preventDefault();
+
+                    $('.modal #title').text(info.event.title);
+                    $('.modal #title').val(info.event.title);
+                    $('.modal #start').text(info.event.start.toLocaleString());
+                    $('.modal #start').val(info.event.start.toLocaleString());
+                    $('.modal #end').text(info.event.end.toLocaleString());
+                    $('.modal #end').val(info.event.end.toLocaleString());
+                    $('.model #color').val(info.event.backgroundColor);
+
+                    $(document).ready(function () {
+                        var modal = M.Modal.init($('#modalInfo')[0]);
+                        modal.open();
+                    });
+
+                    info.el.style.borderColor = '#000';
+                },
+
+                selectable: true,
+
+                select: function (info) {
+                    // alert('Inicio do evento ' + info.start.toLocaleString())
+                    $('#modalCadastro #start').val(info.start.toLocaleString());
+                    $('#modalCadastro #end').val(info.end.toLocaleString());
+
+                    $(document).ready(function () {
+                        var modal = M.Modal.init($('#modalCadastro')[0]);
+                        modal.open();
+                    });
+
+                    $(document).ready(function () {
+                        $('select').formSelect();
+                    });
+                },
+
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,listYear'
+                },
+
+                displayEventTime: false
+            });
+
+            calendar.render();
+        });
+
+
+        // mascara para o campo data e hora
+        function DataHora(evento, objeto) {
+            var keypress = (window.event) ? event.keyCode : evento.wich;
+            campo = eval(objeto);
+
+            if (campo.value == '00/00/0000 00:00:00') {
+                campo.value = "";
+            }
+
+            caracteres = '0123456789';
+            separacao1 = '/';
+            separacao2 = ' ';
+            separacao3 = ':';
+            separacao4 = ':';
+            conjunto1 = 2;
+            conjunto2 = 5;
+            conjunto3 = 10;
+            conjunto4 = 13;
+            conjunto5 = 16;
+
+            if ((caracteres.search(String.fromCharCode(keypress)) != -1) && campo.value.length < (19)) {
+                if (campo.value.length == conjunto1)
+                    campo.value = campo.value + separacao1;
+                else if (campo.value.length == conjunto2)
+                    campo.value = campo.value + separacao1;
+                else if (campo.value.length == conjunto3)
+                    campo.value = campo.value + separacao2;
+                else if (campo.value.length == conjunto4)
+                    campo.value = campo.value + separacao3;
+                else if (campo.value.length == conjunto5)
+                    campo.value = campo.value + separacao4;
+            } else {
+                event.returnValue = false;
+            }
+
+        }
+
+        $(document).ready(function () {
+            $("#adicionarEvento").on("submit", function (event) {
+                event.preventDefault();
+                $.ajax({
+                    method: "POST",
+                    url: "php/cadastrarEvento.php",
+                    data: new FormData(this),
+                    contentType: false,
+                    processData: false,
+                    success: function (retorna) {
+                        if (retorna['sit']) {
+                            // $("#msg-cad").html(retorna['msg']);
+                            location.reload();
+                        } else {
+                            $("#msg-cad").html(retorna['msg']);
+                        }
+                    }
+                })
+            });
+
+            $('.btn-canc-vis').on("click", function () {
+                $('.visevent').slideToggle();
+                $('.formedit').slideToggle();
+            })
+
+            $('.btn-canc-edit').on("click", function () {
+                $('.formedit').slideToggle();
+                $('.visevent').slideToggle();
+            })
+        });
+    </script>
+
+    <?php require_once 'reqFooter.php' ?>
