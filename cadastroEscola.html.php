@@ -51,7 +51,7 @@
                         <p><?php echo $dados["email"] ?> <br>
                             <?php echo $dados["cnpj"] ?>
                         </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        <a href="#!" class="secondary-content"><i class="material-icons blue-icon">visibility</i></a>
                     </li>
                 </ul>
             </div>
