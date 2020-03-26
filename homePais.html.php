@@ -13,7 +13,7 @@
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="boletim.html.php">
+        <a href="boletimVisualizacao.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-book fa-6x blue-icon"></i>
             <h5>Boletim Escolar</h5>

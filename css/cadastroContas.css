@@ -51,13 +51,14 @@
 =======
             /*Cor do texto*/
             
-            #tabs-swipe-demo .tab a {
+            #tabs-swipe-demo .tab a {         
                 color: black;
+                font-size: 10px;
             }
             /*Cor do texto ao passar o mouse*/
             
             #tabs-swipe-demo .tab a:hover {
-                background-color: #90caf9;
+                background-color: #42a5f5;
             }
             /*Cor do plano de fundo e do texto quando uma guia está ativa*/
             
@@ -98,9 +99,22 @@
                 border: 2px solid #64b5f6;
                 background-color: #64b5f6;
             }
+<<<<<<< HEAD
             /* #btnFormContas {
                 text-transform: inherit;
                 border: 0.5px solid #000;
                 color: #000;
             } */
 >>>>>>> 79c8287b57dd52e1d9e2f0a1a5464a2a47f92159
+=======
+            
+            .validate:focus {
+                background-color: #64b5f6;
+                border-bottom: 1px solid #64b5f6 !important;
+                box-shadow: 0 1px 0 0 #64b5f6 !important;
+            }
+            
+            #lbl {
+                color: #64b5f6;
+            }
+>>>>>>> 1664e72b76d417a86a019be6444d07ebd0ca5ba4
