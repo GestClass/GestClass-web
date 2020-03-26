@@ -418,5 +418,7 @@
         </form>
 
     </div>
+    <script src="js/customAdm.js"></script>
+    <script src="js/default.js"></script>
 
     <?php require_once 'reqFooter.php' ?>
