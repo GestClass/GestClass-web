@@ -57,3 +57,8 @@
             #lbl {
                 color: #64b5f6;
             }
+            
+            #data_nascimento:focus {
+                border-bottom: 1px solid #64b5f6 !important;
+                box-shadow: 0 1px 0 0 #64b5f6 !important;
+            }

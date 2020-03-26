@@ -51,66 +51,59 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">folder</i>
+                            <div class="input-field col s12 l6">
                                 <input id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
                                 <label id="lbl" for="first_name">RA</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">account_circle</i>
+                            <div class="input-field col s12 l6">
                                 <input id="nome_aluno" type="text" placeholder="Nome Aluno" class="validate ">
                                 <label id="lbl" for="first_name">Nome Aluno</label>
                             </div>
-                            <div class="input-field col s4">
-                                <i class="material-icons prefix blue-icon">location_on</i>
+                            <div class="input-field col s12 l4">
                                 <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate ">
                                 <label id="lbl" for="first_name">CEP</label>
                             </div>
-                            <div class="input-field col s2">
+                            <div class="input-field col s12 l2">
                                 <input id="numero" placeholder="Número" type="tel" class="validate ">
                                 <label id="lbl" for="first_name">Nº</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 l6">
                                 <input id="complemento" placeholder="Complemento" type="tel" class="validate ">
                                 <label id="lbl" for="first_name">Complemento</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">folder_shared</i>
+                            <div class="input-field col s12 l6">
                                 <input id="RG" placeholder="65.745.984-6" type="tel" data-mask="00.000.000-0" class="validate ">
                                 <label id="lbl" for="first_name">RG</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">folder_shared</i>
-                                <input id="CPF" placeholder="614755014/16" type="tel" data-mask="000000000/00" class="validate ">
+                            <div class="input-field col s12 l6">
+                                <input id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate ">
                                 <label id="lbl" for="first_name">CPF</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">local_post_office</i>
-                                <input id="email" placeholder="gestclass@enterprise.com" type="tel" class="validate ">
-                                <label id="lbl" for="first_name">Email</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">security</i>
-                                <input id="senha" placeholder="********" type="password" class="validate ">
-                                <label id="lbl" for="first_name">Senha</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">phone_android</i>
-                                <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate ">
-                                <label id="lbl" for="first_name">Celular</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">call</i>
-                                <input id="telefone" placeholder="(11) 4002-8922" type="tel" data-mask="(00) 0000-0000" class="validate">
-                                <label id="lbl" for="first_name">Telefone</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">cake</i>
+                            <div class="input-field col s12 l6">
                                 <input id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
                                 <label id="lbl">Data Nascimento</label>
                             </div>
-                            <div id="selcetEnsino" class="input-field col s8 l6 validate">
-                                <i class="material-icons prefix blue-icon">school</i>
+                            <div class="input-field col s12 l6">
+                                <input id="email" placeholder="gestclass@enterprise.com" type="tel" class="validate ">
+                                <label id="lbl" for="first_name">Email</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="senha" placeholder="********" type="password" class="validate ">
+                                <label id="lbl" for="first_name">Senha</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="confsenha" placeholder="********" type="password" class="validate ">
+                                <label id="lbl" for="first_name">Confirmar senha</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate ">
+                                <label id="lbl" for="first_name">Celular</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="telefone" placeholder="(11) 4002-8922" type="tel" data-mask="(00) 0000-0000" class="validate">
+                                <label id="lbl" for="first_name">Telefone</label>
+                            </div>
+                            <div id="selcetEnsino" class="input-field col s12 l6 validate">
                                 <select id="nome_tipo_turma">
                                     <option value="" disabled selected>Selecione o Ensino</option>
                                     <option value="1">Berçario</option>
@@ -121,8 +114,7 @@
                                 </select>
                                 <label id="lbl">Ensino</label>
                             </div>
-                            <div class="input-field col s8 l6 validate">
-                                <i class="material-icons prefix blue-icon">school</i>
+                            <div class="input-field col s12 l6 validate">
                                 <select id="nome_turma">
                                     <option value="" disabled selected>Selecione a Turma</option>
                                     <option value="1">Berçario A</option>
@@ -154,7 +146,7 @@
                     <h4>Responsável</h4>
                     <div>
                         <div class="container">
-                            <div class="file-field input-field col s6">
+                            <div class="file-field input-field col s12 l6">
                                 <div id="btnfoto" class="btn col s6">
                                     <span><i class="material-icons">add_a_photo</i></span>
                                     <input type="file">
@@ -163,71 +155,63 @@
                                     <input id="foto" class="file-path validate" type="text">
                                 </div>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">account_circle</i>
+                            <div class="input-field col s12 l6">
                                 <input id="nome_responsavel" type="tel" placeholder="Nome Responsável" class="validate">
                                 <label id="lbl" for="icon_telephone">Nome</label>
                             </div>
-                            <div class="input-field col s4">
-                                <i class="material-icons prefix blue-icon">location_on</i>
+                            <div class="input-field col s12 l4">
                                 <input id="cep" type="tel" placeholder="08574-150" data-mask="00000-000" class="validate">
                                 <label id="lbl" id="lbl" for="icon_telephone">CEP</label>
                             </div>
-                            <div class="input-field col s2">
+                            <div class="input-field col s12 l2">
                                 <input id="numero" type="tel" placeholder="Número" class="validate">
                                 <label id="lbl" for="icon_telephone">Nº</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 l6">
                                 <input id="complemento" type="tel" placeholder="Complemento" class="validate">
                                 <label id="lbl" for="icon_telephone">Complemento</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">folder_shared</i>
-                                <input id="rg" type="tel" placeholder="84.514.751-16" data-mask="00.000.000-00" class="validate">
+                            <div class="input-field col s12 l6">
+                                <input id="rg" type="tel" placeholder="84.514.751-1" data-mask="00.000.000-0" class="validate">
                                 <label id="lbl" for="icon_telephone">RG</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">folder_shared</i>
-                                <input id="cpf" type="tel" placeholder="15886475/22" data-mask="000000000/00" class="validate">
+                            <div class="input-field col s12 l6">
+                                <input id="cpf" type="tel" placeholder="154.258.963-22" data-mask="000.000.000-00" class="validate">
                                 <label id="lbl" for="icon_telephone">CPF</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">email</i>
-                                <input id="email" type="tel" placeholder="gestclass@enterprise.com" class="validate">
-                                <label id="lbl" for="icon_telephone">Email</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">security</i>
-                                <input id="senha" type="password" placeholder="******" class="validate">
-                                <label id="lbl" for="icon_telephone">Senha</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">fiber_pin</i>
-                                <input id="pin" type="password" placeholder="******" data-mask="000000" class="validate">
-                                <label id="lbl" for="icon_telephone">Pin</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">phone_android</i>
-                                <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
-                                <label id="lbl" for="icon_telephone">Celular</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">call</i>
-                                <input id="telefone" type="tel" placeholder="(11) 4651-3030" data-mask="(00) 0000-0000" class="validate">
-                                <label id="lbl" for="icon_telephone">Telefone</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">call</i>
-                                <input id="telefone_comercial" type="tel" placeholder="(11) 7765-3360" data-mask="(00) 0000-0000" class="validate">
-                                <label id="lbl" for="icon_telephone">Telefone Comercial</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">cake</i>
+                            <div class="input-field col s12 l6">
                                 <input id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
                                 <label id="lbl">Data Nascimento</label>
                             </div>
                             <div class="input-field col s12 l6">
-                                <i class="material-icons prefix blue-icon">attach_money</i>
+                                <input id="email" type="tel" placeholder="gestclass@enterprise.com" class="validate">
+                                <label id="lbl" for="icon_telephone">Email</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="senha" type="password" placeholder="******" class="validate">
+                                <label id="lbl" for="icon_telephone">Senha</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="confsenha" type="password" placeholder="******" class="validate">
+                                <label id="lbl" for="icon_telephone">Confirma Senha</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="pin" type="password" placeholder="******" data-mask="000000" class="validate">
+                                <label id="lbl" for="icon_telephone">Pin</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
+                                <label id="lbl" for="icon_telephone">Celular</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="telefone" type="tel" placeholder="(11) 4651-3030" data-mask="(00) 0000-0000" class="validate">
+                                <label id="lbl" for="icon_telephone">Telefone</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="telefone_comercial" type="tel" placeholder="(11) 7765-3360" data-mask="(00) 0000-0000" class="validate">
+                                <label id="lbl" for="icon_telephone">Telefone Comercial</label>
+                            </div>
+                            <div class="input-field col s12 l6">
                                 <select name="data_pagamento" id="data_pagamento">
                                     <option value="" disabled selected>Escolha uma data de pagamento</option>
                                     <option value="1">1</option>
@@ -239,8 +223,7 @@
                                 </select>
                                 <label id="lbl" for="first_name">Data de pagamento</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">folder</i>
+                            <div class="input-field col s12 l6">
                                 <input id="fk_ra_aluno_responsavel" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
                                 <label id="lbl" for="icon_prefix">RA Aluno</label>
                             </div>
@@ -256,7 +239,7 @@
                     <h4>Professor</h4>
                     <div>
                         <div class="container">
-                            <div class="file-field input-field col s6">
+                            <div class="file-field input-field col s12 l6">
                                 <div id="btnfoto" class="btn col s6">
                                     <span><i class="material-icons">add_a_photo</i></span>
                                     <input type="file">
@@ -265,56 +248,51 @@
                                     <input id="foto" class="file-path validate" type="text">
                                 </div>
                             </div>
-                            <div class="input-field col 6">
-                                <i class="material-icons prefix blue-icon">account_circle</i>
+                            <div class="input-field col s12 l6">                                
                                 <input id="nome_professor" type="text" placeholder="Nome Professor" class="validate">
                                 <label id="lbl" for="icon_prefix">Nome</label>
                             </div>
-                            <div class="input-field col s4">
-                                <i class="material-icons prefix blue-icon">location_on</i>
+                            <div class="input-field col s12 l4">
                                 <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate">
                                 <label id="lbl" for="icon_telephone">CEP</label>
                             </div>
-                            <div class="input-field col s2">
+                            <div class="input-field col s12 l2">
                                 <input id="numero" placeholder="Número" type="tel" class="validate">
                                 <label id="lbl" for="icon_telephone">Nº</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 l6">
                                 <input id="complemento" placeholder="Complemento" type="tel" class="validate">
                                 <label id="lbl" for="icon_telephone">Complemento</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">folder_shared</i>
+                            <div class="input-field col s12 l6">
                                 <input id="rg" placeholder="68.124.586-8" type="tel" data-mask="00.000.000-0" class="validate">
                                 <label id="lbl" for="icon_telephone">RG</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">folder_shared</i>
-                                <input id="cpf" placeholder="158688987/10" type="tel" data-mask="000000000/00" class="validate">
+                            <div class="input-field col s12 l6">
+                                <input id="cpf" placeholder="158.688.987-10" type="tel" data-mask="000.000.000-00" class="validate">
                                 <label id="lbl" for="icon_telephone">CPF</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">email</i>
+                            <div class="input-field col s12 l6">
                                 <input id="email" placeholder="gestclass@entreprise.com" type="tel" class="validate">
                                 <label id="lbl" for="icon_telephone">Email</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">security</i>
+                            <div class="input-field col s12 l6">
                                 <input id="senha" placeholder="*******" type="password" class="validate">
                                 <label id="lbl" for="icon_telephone">Senha</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">phone_android</i>
+                            <div class="input-field col s12 l6">
+                                <input id="confsenha" placeholder="*******" type="password" class="validate">
+                                <label id="lbl" for="icon_telephone">Confirmar senha</label>
+                            </div>
+                            <div class="input-field col s12 l6">
                                 <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate">
                                 <label id="lbl" for="icon_telephone">Celular</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">call</i>
-                                <input id="telefone" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate">
+                            <div class="input-field col s12 l6">
+                                <input id="telefone" placeholder="(11) 9765-3360" type="tel" data-mask="(00) 0000-0000" class="validate">
                                 <label id="lbl" for="icon_telephone">Telefone</label>
                             </div>
                             <div class="input-field col s12 l6">
-                                <i class="material-icons prefix blue-icon">school</i>
                                 <select id="nome_tipo_turma" multiple>
                                     <option value="" disabled selected>Selecione o Ensino</option>
                                     <option value="1">Berçario</option>
@@ -347,7 +325,6 @@
                                 <label id="lbl">Turmas</label>
                             </div>
                             <div class="input-field col s12 l6">
-                                <i class="material-icons prefix blue-icon">school</i>
                                 <select id="nome_disciplina" multiple>
                                     <option value="" disabled selected>Selecione a Disciplina</option>
                                     <option value="1">Português</option>
@@ -377,7 +354,7 @@
                     <h4>Secretaria</h4>
                     <div>
                         <div class="container">
-                            <div class="file-field input-field col s6">
+                            <div class="file-field input-field col s12 l6">
                                 <div id="btnfoto" class="btn col s6">
                                     <span><i class="material-icons">add_a_photo</i></span>
                                     <input type="file">
@@ -386,51 +363,47 @@
                                     <input id="foto" class="file-path validate" type="text">
                                 </div>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">account_circle</i>
+                            <div class="input-field col s12 l6">                                
                                 <input id="nome_secretario" type="text" placeholder="Nome Secretario" class="validate">
                                 <label id="lbl" for="icon_prefix">Nome</label>
                             </div>
-                            <div class="input-field col s4">
-                                <i class="material-icons prefix blue-icon">location_on</i>
+                            <div class="input-field col s12 l4">                               
                                 <input id="cep" type="tel" placeholder="08574-150" data-mask="00000-000" class="validate">
                                 <label id="lbl" for="icon_telephone">CEP</label>
                             </div>
-                            <div class="input-field col s2">
+                            <div class="input-field col s12 l2">
                                 <input id="numero" type="tel" placeholder="Número" class="validate">
                                 <label id="lbl" for="icon_telephone">Nº</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s12 l6">
                                 <input id="complemento" type="tel" placeholder="Complemento" class="validate">
                                 <label id="lbl" for="icon_telephone">Complemento</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">folder_shared</i>
+                            <div class="input-field col s12 l6">                                
                                 <input id="rg" type="tel" placeholder="62.548.678-7" data-mask="00.000.000-0" class="validate">
                                 <label id="lbl" for="icon_telephone">RG</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">folder_shared</i>
-                                <input id="CPF" type="tel" placeholder="785958651/88" data-mask="000000000/00" class="validate">
+                            <div class="input-field col s12 l6">                                
+                                <input id="CPF" type="tel" placeholder="785.958.651-88" data-mask="000.000.000-00" class="validate">
                                 <label id="lbl" for="icon_telephone">CPF</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">email</i>
+                            <div class="input-field col s12 l6">                                
                                 <input id="email" type="tel" placeholder="gestclass@enterprise.com" class="validate">
                                 <label id="lbl" for="icon_telephone">Email</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">security</i>
+                            <div class="input-field col s12 l6">                                
                                 <input id="senha" type="password" placeholder="*******" class="validate">
                                 <label id="lbl" for="icon_telephone">Senha</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">phone_android</i>
+                            <div class="input-field col s12 l6">                                
+                                <input id="confsenha" type="password" placeholder="*******" class="validate">
+                                <label id="lbl" for="icon_telephone">Confirma senha</label>
+                            </div>
+                            <div class="input-field col s12 l6">                                
                                 <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
                                 <label id="lbl" for="icon_telephone">Celular</label>
                             </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix blue-icon">call</i>
+                            <div class="input-field col s12 l6">                                
                                 <input id="telefone" type="tel" placeholder="(11) 4753-8560" data-mask="(00) 0000-0000" class="validate">
                                 <label id="lbl" for="icon_telephone">Telefone</label>
                             </div>
