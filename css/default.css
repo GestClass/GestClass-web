@@ -115,13 +115,7 @@ body {
     box-shadow: 0 1px 0 0 #212121 !important;
 }
 
-<<<<<<< HEAD
 .descFoto {
     visibility: hidden;
     width: 0;
-=======
-#btnfoto {
-    background-color: #42a5f5;
-    width: 50px;
->>>>>>> 79c8287b57dd52e1d9e2f0a1a5464a2a47f92159
 }
