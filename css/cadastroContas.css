@@ -6,7 +6,7 @@
             /*Cor do texto ao passar o mouse*/
             
             #tabs-swipe-demo .tab a:hover {
-                background-color: #90caf9;
+                background-color: #42a5f5;
             }
             /*Cor do plano de fundo e do texto quando uma guia está ativa*/
             
@@ -47,8 +47,13 @@
                 border: 2px solid #64b5f6;
                 background-color: #64b5f6;
             }
-            /* #btnFormContas {
-                text-transform: inherit;
-                border: 0.5px solid #000;
-                color: #000;
-            } */
+            
+            .validate:focus {
+                background-color: #64b5f6;
+                border-bottom: 1px solid #64b5f6 !important;
+                box-shadow: 0 1px 0 0 #64b5f6 !important;
+            }
+            
+            #lbl {
+                color: #64b5f6;
+            }
