@@ -27,7 +27,7 @@
             <h4>Cadastro escolas</h4><br>
             <div class="row">
                 <div class="col s12 m12 l12">
-                    <div class="scroll">
+                    <!-- <div class="scroll"> -->
                         <div class="container">
                             <div class="row">
                                 <div class="input-field col s6">
