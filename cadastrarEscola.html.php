@@ -48,6 +48,7 @@
                                     <i class="material-icons prefix blue-icon">alternate_email</i>
                                     <input placeholder="gestclass@enterprise.com" name="email" id="email" type="email"
                                         class="validate">
+                                        <input type="hidden" name="cadastrarDiretor" value="Bem vindo ao GestClass"/>
                                     <label for="email">Email</label>
                                     <span class="helper-text" data-error="wrong" data-success="right"></span>
                                 </div>
@@ -123,14 +124,6 @@
                         <button id="btnFormCadEscola" type="submit" class="btn-flat btnLightDark">
                             <i class="material-icons left">send</i>Enviar</button>
                     </div>
-                    <!-- <button class="btn btn-flat waves-effect btnDarkFill left" type="submit" name="cadEscola"
-                            id="cadEscola" value="cadEscola">Consultar
-                            <i class="material-icons right">pageview</i>
-                        </button>
-                        <button class="btn btn-flat waves-effect btnLightBlue right" type="submit" name="cascolato"
-                            id="cadEscola" value="cadEscola">Cadastrar
-                            <i class="material-icons right">send</i>
-                        </button> -->
                 </div>
             </div>
     </div>
