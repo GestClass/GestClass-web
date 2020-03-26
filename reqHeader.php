@@ -12,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
   <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
   <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.min.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/izitoast/dist/css/iziToast.min.css" />
   <link rel="stylesheet" type="text/css" href="node_modules/aos/dist/aos.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/menu.css" />
