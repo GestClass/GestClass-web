@@ -57,6 +57,7 @@
             #lbl {
                 color: #64b5f6;
             }
+<<<<<<< HEAD
 
             #complemento {
               margin-left: 26px;
@@ -65,3 +66,10 @@
             #confsenha{
               margin-left: 46px;
             }
+=======
+            
+            #data_nascimento:focus {
+                border-bottom: 1px solid #64b5f6 !important;
+                box-shadow: 0 1px 0 0 #64b5f6 !important;
+            }
+>>>>>>> d02c2f9a247fae114475a0804610af495a5307d2
