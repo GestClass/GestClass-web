@@ -23,7 +23,7 @@
     <?php require_once 'reqHeader.php' ?>
 
 
-    <div class="container">
+    <div class="container col s12 m12 l12">
         <h4>Chamada</h4>
         <table class="highlight centered">
             <thead>
@@ -74,7 +74,7 @@
         </table>
 
         <div class="input-field right">
-            <button id="btnTableChamada" type="submit" class="btn-flat btnDefaultTableChamada">
+            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
                 <i class="material-icons left">send</i>Enviar</button>
         </div>
 
