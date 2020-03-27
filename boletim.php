@@ -89,10 +89,10 @@
         <thead>
           <tr>
               <th >COMPONENTE CURRICULAR</th>
-              <th colspan="2">1º BIMESTRE</th>
-              <th colspan="2">2º BIMESTRE</th>
-              <th colspan="2">3º BIMESTRE</th>
-              <th colspan="2">4º BIMESTRE</th>
+              <th colspan="2">1ºBIMESTRE</th>
+              <th colspan="2">2ºBIMESTRE</th>
+              <th colspan="2">3ºBIMESTRE</th>
+              <th colspan="2">4ºBIMESTRE</th>
               <th colspan="2"> RESULTADO FINAL</th>
           </tr>
         </thead>
@@ -174,11 +174,12 @@
           </tr>
         </tbody>
       </table>
-      <a href="contratacao.php" class="btn-flat btn-smalls btnDark btnHome" > 
-        <i class="large material-icons">file_upload</i>
-            Gerar PDF
+      <form action="pdf.php" method="post">
+        <input type="submit" value="gerar pdf">
       </a>
+      </form>
     </div>
+
   </div>
 
   <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
