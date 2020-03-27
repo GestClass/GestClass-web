@@ -25,11 +25,6 @@
     <div class="container col s12 m12 l12 ">
         <form method="POST" action="./controller/cadastro.controller.php">
             <h4>Selecione o tipo de conta</h4>
-<<<<<<< HEAD
-            <h4>Selecione o tipo de conta</h4><br>
-            
-=======
->>>>>>> 24507c2e016c8f73a4ae6feccbb39c9d9a9e417b
             <div class="row">
                 <div class="col s12 m12 l12">
                     <ul id="tabs-swipe-demo" class="tabs blue lighten-3">
@@ -74,7 +69,8 @@
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate ">
+                        <input id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00"
+                            class="validate ">
                         <label id="lbl" for="first_name">CPF</label>
                     </div>
                     <div class="input-field col s8 m4 l4">
@@ -96,10 +92,6 @@
                         <label id="lbl" for="first_name">Email</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
-<<<<<<< HEAD
-                    <div class="input-field col s12 m6 l4">
-=======
->>>>>>> 24507c2e016c8f73a4ae6feccbb39c9d9a9e417b
                         <i class="material-icons prefix blue-icon">security</i>
                         <input id="senha" placeholder="********" type="password" class="validate ">
                         <label id="lbl" for="first_name">Senha</label>
@@ -110,12 +102,14 @@
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">smartphone</i>
-                        <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate ">
+                        <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000"
+                            class="validate ">
                         <label id="lbl" for="first_name">Celular</label>
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">call</i>
-                        <input id="telefone" placeholder="(11) 4002-8922" type="tel" data-mask="(00) 0000-0000" class="validate">
+                        <input id="telefone" placeholder="(11) 4002-8922" type="tel" data-mask="(00) 0000-0000"
+                            class="validate">
                         <label id="lbl" for="first_name">Telefone</label>
                     </div>
                     <div id="selcetEnsino" class="input-field col s12 m6 l6 validate">
@@ -152,7 +146,8 @@
                         <label id="lbl">Turma</label>
                     </div>
                     <div class="input-field right">
-                        <button name="btncadastrar" value="formAluno" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Cadastrar</button>
+                        <button name="btncadastrar" value="formAluno" id="btnFormContas" type="submit"
+                            class="btn-flat btnLightBlue"><i class="material-icons">send</i> Cadastrar</button>
                     </div>
                 </div>
 
@@ -174,7 +169,8 @@
                     </div>
                     <div class="input-field col s6 m6 l6">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input id="fk_ra_aluno_responsavel" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
+                        <input id="fk_ra_aluno_responsavel" placeholder="8956478-9" type="text" class="validate"
+                            data-mask="0000000-0">
                         <label id="lbl" for="icon_prefix">RA Aluno</label>
                     </div>
                     <div class="input-field col s6 m6 l6">
@@ -189,7 +185,8 @@
                     </div>
                     <div class="input-field col s6 m6 l6">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input id="cpf" type="tel" placeholder="154.258.963-22" data-mask="000.000.000-00" class="validate">
+                        <input id="cpf" type="tel" placeholder="154.258.963-22" data-mask="000.000.000-00"
+                            class="validate">
                         <label id="lbl" for="icon_telephone">CPF</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
@@ -213,17 +210,20 @@
                     </div>
                     <div class="input-field col s12 l4">
                         <i class="material-icons prefix blue-icon">account_circle</i>
-                        <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
+                        <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000"
+                            class="validate">
                         <label id="lbl" for="icon_telephone">Celular</label>
                     </div>
                     <div class="input-field col s12 l4">
                         <i class="material-icons prefix blue-icon">account_circle</i>
-                        <input id="telefone" type="tel" placeholder="(11) 4651-3030" data-mask="(00) 0000-0000" class="validate">
+                        <input id="telefone" type="tel" placeholder="(11) 4651-3030" data-mask="(00) 0000-0000"
+                            class="validate">
                         <label id="lbl" for="icon_telephone">Telefone</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">account_circle</i>
-                        <input id="telefone_comercial" type="tel" placeholder="(11) 7765-3360" data-mask="(00) 0000-0000" class="validate">
+                        <input id="telefone_comercial" type="tel" placeholder="(11) 7765-3360"
+                            data-mask="(00) 0000-0000" class="validate">
                         <label id="lbl" for="icon_telephone">Telefone Comercial</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
@@ -240,7 +240,8 @@
                         <label id="lbl" for="first_name">Data de pagamento</label>
                     </div>
                     <div class="input-field right">
-                        <button name="btncadastrar" value="formResposavel" id="btnFormContas" type="submit" class="btn-flat btnLightBlue">
+                        <button name="btncadastrar" value="formResposavel" id="btnFormContas" type="submit"
+                            class="btn-flat btnLightBlue">
                             <i class="material-icons">send</i> Cadastrar</button>
                     </div>
                 </div>
@@ -273,7 +274,8 @@
                     </div>
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input id="cpf" placeholder="158.688.987-10" type="tel" data-mask="000.000.000-00" class="validate">
+                        <input id="cpf" placeholder="158.688.987-10" type="tel" data-mask="000.000.000-00"
+                            class="validate">
                         <label id="lbl" for="icon_telephone">CPF</label>
                     </div>
                     <div class="input-field col s8 m4 l4">
@@ -305,12 +307,14 @@
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">smartphone</i>
-                        <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate">
+                        <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000"
+                            class="validate">
                         <label id="lbl" for="icon_telephone">Celular</label>
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">call</i>
-                        <input id="telefone" placeholder="(11) 9765-3360" type="tel" data-mask="(00) 0000-0000" class="validate">
+                        <input id="telefone" placeholder="(11) 9765-3360" type="tel" data-mask="(00) 0000-0000"
+                            class="validate">
                         <label id="lbl" for="icon_telephone">Telefone</label>
                     </div>
                     <div class="input-field col s12 m6 l6">
@@ -367,7 +371,8 @@
                         <label id="lbl">Diciplinas</label>
                     </div>
                     <div class="input-field right">
-                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit"
+                            class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
                     </div>
                 </div>
 
@@ -399,7 +404,8 @@
                     </div>
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input id="CPF" type="tel" placeholder="785.958.651-88" data-mask="000.000.000-00" class="validate">
+                        <input id="CPF" type="tel" placeholder="785.958.651-88" data-mask="000.000.000-00"
+                            class="validate">
                         <label id="lbl" for="icon_telephone">CPF</label>
                     </div>
                     <div class="input-field col s8 m4 l4">
@@ -431,16 +437,19 @@
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">smartphone</i>
-                        <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
+                        <input id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000"
+                            class="validate">
                         <label id="lbl" for="icon_telephone">Celular</label>
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">call</i>
-                        <input id="telefone" type="tel" placeholder="(11) 4753-8560" data-mask="(00) 0000-0000" class="validate">
+                        <input id="telefone" type="tel" placeholder="(11) 4753-8560" data-mask="(00) 0000-0000"
+                            class="validate">
                         <label id="lbl" for="icon_telephone">Telefone</label>
                     </div>
                     <div class="input-field right">
-                        <button name="btncadastrar" value="fomrSecretaria" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
+                        <button name="btncadastrar" value="fomrSecretaria" id="btnFormContas" type="submit"
+                            class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
                     </div>
                 </div>
             </div>
@@ -448,6 +457,24 @@
         </form>
 
     </div>
+
+    <section class="floating-buttons">
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large light-blue lighten-1">
+                <i class="large material-icons">add</i>
+            </a>
+            <ul>
+                <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left"
+                        data-tooltip="Gráfico de rendimento"><i class="material-icons">insert_chart</i></a></li>
+                <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left"
+                        data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
+                <li><a href="paginaManutencao.php" class="btn-floating blue-grey darken-4 tooltipped"
+                        data-position="left" data-tooltip="Chat"><i class="material-icons">chat</i></a></li>
+                <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
+                        data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
+            </ul>
+        </div>
+    </section>
     <script src="js/default.js"></script>
 
     <?php require_once 'reqFooter.php' ?>

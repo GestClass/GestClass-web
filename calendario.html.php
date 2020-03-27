@@ -48,11 +48,12 @@
     ?>
     <div id='calendar'></div>
 
+
     <section class="modals">
         <div id="modalInfo" class="modal model">
-
             <div class="modal-content" id="modalEdit">
-                <dd class="col s3"><a href="#!" class="modal-close waves-effect btn-flat right"><i class="material-icons">clear</i></a></dd>
+                <dd class="col s3"><a href="#!" class="modal-close waves-effect btn-flat right"><i
+                            class="material-icons">clear</i></a></dd>
                 <h4>Detalhes do evento</h4>
                 <div class="visevent">
                     <dl class="row">
@@ -66,11 +67,11 @@
                         <dd class="col s9" id="end"></dd><br>
                     </dl>
                     <button class="tbtn waves-effect btn-flat btnDark btn-canc-vis">Editar
-                    <i class="material-icons left">create</i>
+                        <i class="material-icons left">create</i>
                     </button>
                 </div>
                 <div class="formedit">
-                <span id="msg-edit"></span>
+                    <span id="msg-edit"></span>
                     <form id="EditarEvento" class="col s12" method="POST">
                         <div class="row">
                             <div class="input-field col s12">
@@ -107,10 +108,12 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn waves-effect btn-flat btnDarkFill btn-canc-edit left">Cancelar
-                        <i class="material-icons right">clear</i>
-                        </button>
-                            <button class="btn btn-flat waves-effect btnLightBlue" type="submit" name="cadEvento" id="cadEvento"value="cadEvento">Cadastrar
+                            <button type="button"
+                                class="btn waves-effect btn-flat btnDarkFill btn-canc-edit left">Cancelar
+                                <i class="material-icons right">clear</i>
+                            </button>
+                            <button class="btn btn-flat waves-effect btnLightBlue" type="submit" name="cadEvento"
+                                id="cadEvento" value="cadEvento">Cadastrar
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -172,8 +175,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-flat waves-effect btnLightBlue right" type="submit" name="cadEvento" id="cadEvento"
-                                value="cadEvento">Cadastrar
+                            <button class="btn btn-flat waves-effect btnLightBlue right" type="submit" name="cadEvento"
+                                id="cadEvento" value="cadEvento">Cadastrar
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -191,13 +194,13 @@
                 <i class="large material-icons">add</i>
             </a>
             <ul>
-                <li><a href="paginaManutencao.html" class="btn-floating black tooltipped" data-position="left"
+                <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left"
                         data-tooltip="Gráfico de rendimento"><i class="material-icons">insert_chart</i></a></li>
-                <li><a href="paginaManutencao.html" class="btn-floating yellow darken-1 tooltipped" data-position="left"
+                <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left"
                         data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-                <li><a href="paginaManutencao.html" class="btn-floating blue-grey darken-4 tooltipped"
+                <li><a href="paginaManutencao.php" class="btn-floating blue-grey darken-4 tooltipped"
                         data-position="left" data-tooltip="Chat"><i class="material-icons">chat</i></a></li>
-                <li><a href="calendario.php" class="btn-floating blue tooltipped" data-position="left"
+                <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
                         data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
             </ul>
         </div>

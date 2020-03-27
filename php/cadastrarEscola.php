@@ -91,51 +91,43 @@
                      history.back();</script>";
             }
         }
-
+     
         require_once 'Mail/src/PHPMailer.php';
         require_once 'Mail/src/SMTP.php';
         require_once 'Mail/src/POP3.php';
         require_once 'Mail/src/Exception.php';
         require_once 'Mail/src/OAuth.php';
-
-        $query = $conn->prepare("select email from escola where email=:email");
-        $query->bindValue(":email",$email);
-        $executa = $query->execute();
-
-        if (!$executa) {
-            echo "Registro nao encontrado";
-            die;
-        }
-
+     
         $mail = new PHPMailer();
-
-
+     
+     
         try {
-            
-            $mail->CharSet = 'UTF-8';
-            $mail->SMTPDebug = 0;                      
-            $mail->isSMTP();                                            
-            $mail->Host       = 'SMTP.office365.com';                   
-            $mail->SMTPAuth   = true;                                   
-            $mail->Username   = 'nick_oliveira2002@hotmail.com';                     
-            $mail->Password   = '5minutos';                              
-            $mail->SMTPSecure = 'STARTTLS';         
-            $mail->Port       = 587;                                 
+          
+           $mail->CharSet = 'UTF-8';
     
-            $mail->setFrom('nick_oliveira2002@hotmail.com', 'Monique');
-            $mail->addAddress($email);     
-
-            $mail->isHTML(true);                                  
-            $mail->Subject = $assunto;
-            $mail->Body    = "<p>Olá, a equipe do GestClass te deseja boas vindas.</br>Segue a baixo o link para cadastro do Diretor da escola:</br>http://localhost/GestClass-web/cadastrarDiretor.html.php?id_escola={$id_escola}</p>";
-            $mail->AltBody = 'habilite o html do seu email';
-        
-            $mail->send();
-                echo 'Email Enviado com sucesso!';
-        } catch (Exception $e) {
-            echo "Email nao foi enviado, motivo: {$this->mail->ErrorInfo}";
-        }
-    
+           $mail->SMTPDebug = 0;                  
+           $mail->isSMTP();                       
+           $mail->Host       = 'SMTP.office365.com';
+           $mail->SMTPAuth   = true;                
+           $mail->Username   = 'nick_oliveira2002@hotmail.com'; 
+           $mail->Password   = '5minutos';                      
+           $mail->SMTPSecure = 'STARTTLS';       
+           $mail->Port       = 587;              
+       
+          
+           $mail->setFrom('nick_oliveira2002@hotmail.com', 'Monique');
+           $mail->addAddress($email);     
+          
+           $mail->Subject = 'Bem vindo ao GestClass';
+           $mail->Body    = "<p> Olá, a equipe do GestClass te deseja boas vindas.</br>Segue a baixo o link para o cadastro do Diretor da escola:</br>http://localhost/GestClass-web/cadastrarDiretor.html.php?id_escola={$id_escola}</p>";
+           $mail->AltBody = 'habilite o html do seu email';
+       
+           $mail->send();
+           echo 'Email Enviado com sucesso!';
+       } catch (Exception $e) {
+           echo "Email nao foi enviado, motivo: {$this->mail->ErrorInfo}";
+       }
+         
     }else{
         echo "<script>alert('Erro: Escola não foi cadastrada');
         history.back();</script>";

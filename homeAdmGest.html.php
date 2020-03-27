@@ -64,7 +64,7 @@
                 <div class="col s12 m4">
                     <a href="paginaManutencao.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-inbox fa-6x blue-icon"></i>
+                            <i class="fas fa-envelope fa-6x blue-icon"></i>
                             <h5>Intermedio Escola e ADMINS</h5>
                             <p>Intermediario entre as escolas e os administradores do sistema</p>
                         </div>
@@ -90,14 +90,14 @@
                 <i class="large material-icons">add</i>
             </a>
             <ul>
-                <li><a href="paginaManutencao.html" class="btn-floating black tooltipped" data-position="left"
-                        data-tooltip="Gráfico de rendimento"><i class="material-icons">insert_chart</i></a></li>
+                <li><a href="cadastroEscola.html.php" class="btn-floating black tooltipped" data-position="left"
+                        data-tooltip="Cadastro Escolas"><i class="material-icons">account_balance</i></a></li>
                 <li><a href="paginaManutencao.html" class="btn-floating yellow darken-1 tooltipped" data-position="left"
                         data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
                 <li><a href="paginaManutencao.html" class="btn-floating blue-grey darken-4 tooltipped"
-                        data-position="left" data-tooltip="Chat"><i class="material-icons">chat</i></a></li>
+                        data-position="left" data-tooltip="Intermedio"><i class="material-icons">email</i></a></li>
                 <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
-                        data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
+                        data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
             </ul>
         </div>
     </section>

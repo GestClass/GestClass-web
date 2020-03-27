@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         locale: 'pt-br',
         plugins: ['interaction', 'dayGrid', 'list', 'googleCalendar'],
         editable: true,
+        defaultView: 'dayGridWeek',
         eventLimit: true,
         events: 'php/listarEventosCalendario.php',
         extraParams: function() {
@@ -51,9 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         header: {
-            left: 'prev,next today',
-            center: 'title',
+            left: 'prev,next dayGridWeek',
+            // center: 'title',
             right: 'dayGridMonth,listYear'
+        },
+
+        footer:{
+            center: 'title',
         },
 
         displayEventTime: false
