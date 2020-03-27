@@ -24,7 +24,12 @@
 
     <div class="container col s12 m12 l12 ">
         <form method="POST" action="./controller/cadastro.controller.php">
+<<<<<<< HEAD
             <h4>Selecione o tipo de conta</h4>
+=======
+            <h4>Selecione o tipo de conta</h4><br>
+            
+>>>>>>> d8e47ccf08ceff89ce109a7e8fc356c72494298a
             <div class="row">
                 <div class="col s12 m12 l12">
                     <ul id="tabs-swipe-demo" class="tabs blue lighten-3">
@@ -90,7 +95,11 @@
                         <input id="email" placeholder="gestclass@enterprise.com" type="tel" class="validate ">
                         <label id="lbl" for="first_name">Email</label>
                     </div>
+<<<<<<< HEAD
                     <div class="input-field col s7 m4 l4">
+=======
+                    <div class="input-field col s12 m6 l4">
+>>>>>>> d8e47ccf08ceff89ce109a7e8fc356c72494298a
                         <i class="material-icons prefix blue-icon">security</i>
                         <input id="senha" placeholder="********" type="password" class="validate ">
                         <label id="lbl" for="first_name">Senha</label>
