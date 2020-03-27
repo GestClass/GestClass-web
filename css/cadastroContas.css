@@ -34,8 +34,11 @@
                 color: #64b5f6;
             }
             
-            @media (max-width: 1024px) {
+            @media (max-width: 500px) {
                 #a {
                     margin-left: 43px;
+                }
+                #tabs-swipe-demo .tab a {
+                    font-size: 7px;
                 }
             }
