@@ -6,14 +6,46 @@
       <div class="col s12 m4">
         <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="far fa-user fa-6x blue-icon"></i>
-            <h5>Alunos</h5>
-            <p>Acesso aos dados dos alunos, efetuação e remoção de matriculas, lista de alunos</p>
+            <i class="fas fa-clipboard-list fa-6x blue-icon"></i>
+            <h5>Chamada</h5>
+            <p>Realização e modificação da chamada</p>
           </div>
         </a>
       </div>
+
+
       <div class="col s12 m4">
-        <a href="calendario.html.php">
+        <a href="boletimVisualizacao.html.php">
+          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+            <i class="fas fa-book fa-6x blue-icon"></i>
+            <h5>Boletim Escolar</h5>
+            <p>Adição e alteração de notas</p>
+          </div>
+        </a>
+      </div>
+
+    <div class="col s12 m4">
+      <a href="calendario.html.php">
+        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+          <i class="fas fa-clipboard fa-6x blue-icon"></i>
+          <h5>Ocorrências</h5>
+          <p>Realização de ocorrências relatando aos pais problemas com alunos</p>
+        </div>
+      </a>
+    </div>
+
+      <div class="col s12 m4">
+        <a href="paginaManutencao.php">
+          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+            <i class="fas fa-list-alt fa-6x blue-icon"></i>
+            <h5>Listas de alunos</h5>
+            <p>Visualização das listas de alunos</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col s12 m4">
+        <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-calendar-check fa-6x blue-icon"></i>
             <h5>Calendário Escolar</h5>
@@ -21,44 +53,17 @@
           </div>
         </a>
       </div>
+
       <div class="col s12 m4">
         <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-chalkboard-teacher fa-6x blue-icon"></i>
-            <h5>Professores</h5>
-            <p>Acesso total a dados dos professores, atribuição de classes, alterações de dados, etc</p>
+            <i class="fas fa-comment-dots fa-6x blue-icon"></i>
+            <h5>Chat</h5>
+            <p>Envio e recebebimento de mensages para os alunos, responsáveis, secretaria e diretores</p>
           </div>
         </a>
       </div>
-      <div class="col s12 m4">
-        <a href="paginaManutencao.php">
-          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-bell fa-6x blue-icon"></i>
-            <h5>Notificações</h5>
-            <p>Envio de notificações para pais e alunos, como a dispensa antes do horário, advertências, ocorrências,
-              suspensões, etc..</p>
-          </div>
-        </a>
-      </div>
-      <div class="col s12 m4">
-        <a href="cadastroContas.html.php">
-          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-address-book fa-6x blue-icon"></i>
-            <h5>Cadastro de contas</h5>
-            <p>Cadastro de novas contas ao aplicativo e remoção das mesmas, cadastro de novas contas de nível igual ou
-              inferior</p>
-          </div>
-        </a>
-      </div>
-      <div class="col s12 m4">
-        <a href="perfil.html.php">
-          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-cog fa-6x blue-icon"></i>
-            <h5>Configurações</h5>
-            <p>Configurações da conta</p>
-          </div>
-        </a>
-      </div>
+
     </div>
   </div>
 </section>
