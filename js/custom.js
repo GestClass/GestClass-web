@@ -132,3 +132,23 @@ function showToast(message, ){
 }
 
 // FIM CONSULTA CEP
+
+
+
+
+
+// TROCA FORM RESPONSAVEL
+
+function trocaFormResp(params) {
+    console.log(params);
+    
+    if (params == true) {
+        $('.novoResp').removeClass('hide')
+        $('.existeResp').addClass('hide')
+    } else{
+        $('.existeResp').removeClass('hide')
+        $('.novoResp').addClass('hide')
+    }
+}
+
+// FIM TROCA FORM RESPONSAVEL

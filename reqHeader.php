@@ -30,18 +30,17 @@
           <div class="nav-wrapper">
             <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
                 class="material-icons">menu</i></a>
-            <a href="homeSecretaria.html.php" class="brand-logo"><i class="fas fa-drafting-compass"></i> GestClass</a>
 
             <ul class="right">
               <li>
                 <a class="transparent" disable>Olá Ana</a>
               </li>
-              <li>
+              <li class="hide-on-med-and-down">
                 <a href="perfil.html.php" class="transparent">
                   <img class="circle icon-user" width="50px" height="50px" src="assets/img/pp.jpg">
                 </a>
               </li>
-              <li>
+              <li class="hide-on-med-and-down">
                 <div class="dividerVert"></div>
               </li>
               <li>
@@ -63,23 +62,20 @@
           <a href="perfil.html.php"><span class="white-text email">ana.lopes155@etec.sp.gov.br</span></a>
         </div>
       </li>
+      <li><a href="homeSecretaria.html.php"><i class="material-icons">home</i>Home</a></li>
+      <li>
+        <div class="divider"></div>
+      </li>
       <li><a href="paginaManutencao.php"><i class="material-icons">person</i>Alunos</a></li>
       <li><a href="paginaManutencao.php"><i class="material-icons">group</i>Classes</a></li>
       <li><a href="paginaManutencao.php"><i class="material-icons">people_alt</i>Professores</a></li>
       <li>
         <div class="divider"></div>
       </li>
-      <li><a class="subheader">Subheader</a></li>
       <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a>
       </li>
-      <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i
+      <li><a href="cadastroContas.html.php"><i
             class="material-icons">group_add</i>Cadastro de contas
-          <i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
-      <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="paginaManutencao.php"><i class="material-icons">people_alt</i>Professores</a></li>
-        <li><a href="paginaManutencao.php"><i class="material-icons">school</i>Secretaria</a></li>
-        <li><a href="paginaManutencao.php"><i class="material-icons">person</i>Alunos</a></li>
-        <li><a href="paginaManutencao.php"><i class="material-icons">wc</i>Pais</a></li>
-      </ul>
+      </a></li>
     </ul>
   </header>
