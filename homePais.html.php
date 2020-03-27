@@ -6,9 +6,9 @@
       <div class="col s12 m4">
         <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-scroll fa-6x blue-icon"></i>
+            <i class="fas fa-chart-line fa-6x blue-icon"></i>
             <h5>Rendimento Escolar</h5>
-            <p>Acesso presença do aluno,  atividades desempenhadas e gráficos de rendimentos .</p>
+            <p>Acesso a frequência do aluno,  atividades desempenhadas e gráficos de rendimentos .</p>
           </div>
         </a>
       </div>
@@ -17,7 +17,7 @@
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-book fa-6x blue-icon"></i>
             <h5>Boletim Escolar</h5>
-            <p>Acesso a notas </p>
+            <p>Visualizaçõa de notas do aluno</p>
           </div>
         </a>
       </div>
@@ -25,7 +25,7 @@
       <a href="calendario.html.php">
         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
           <i class="fas fa-calendar-check fa-6x blue-icon"></i>
-          <h5>Calendario Escolar</h5>
+          <h5>Calendário Escolar</h5>
           <p>Calendário de atividades acadêmicas</p>
         </div>
       </a>
@@ -44,8 +44,7 @@
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-bell fa-6x blue-icon"></i>
             <h5>Notificações</h5>
-            <p>Recebimento de notificações, como a dispensa antes do horário, advertências, ocorrências,
-              suspensões, etc..</p>
+            <p>Central de notificações</p>
           </div>
         </a>
       </div>
@@ -54,7 +53,7 @@
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-comment-dots fa-6x blue-icon"></i>
             <h5>Chat</h5>
-            <p>Bate-papo com professores, secretaria e diretores</p>
+            <p>Envio e recebebimento de mensages de professores, secretaia e diretores</p>
           </div>
         </a>
       </div>

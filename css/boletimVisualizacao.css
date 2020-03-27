@@ -1,16 +1,16 @@
 body{
     background: url(../assets/img/s.png);
 }
-.card-boletim{
-    height:650px;
-    width:1300px;
-    margin-left: 20px;
+.card-boletim {
+    height: 650px;
+    width: 1000px;
+    margin-left: 150px;
     margin-top: 30px;
     background-color: aliceblue;
     border-radius: 5px;
 }
 h3{
-    padding-left:500px;
+    padding-left:450px;
     padding-top: 40px;
 }
 h5{
@@ -23,7 +23,7 @@ h5{
     border-spacing: 0;
     display: block;
     position: relative;
-    padding-left: 150px;
+    padding-left: 30px;
     padding-top: 30px;
 }
 td, th {

@@ -49,9 +49,8 @@
 }
             /*Cor do texto*/
             
-            #tabs-swipe-demo .tab a {         
+            #tabs-swipe-demo .tab a {
                 color: black;
-                font-size: 10px;
             }
             /*Cor do texto ao passar o mouse*/
             
@@ -67,30 +66,6 @@
             
             #tabs-swipe-demo .indicator {
                 background-color: #42a5f5;
-            }
-            
-            #aluno {
-                width: auto;
-                margin-top: 15px;
-                margin-left: 10px;
-            }
-            
-            #responsavel {
-                width: auto;
-                margin-top: 15px;
-                margin-left: 10px;
-            }
-            
-            #professor {
-                width: auto;
-                margin-top: 15px;
-                margin-left: 10px;
-            }
-            
-            #secretaria {
-                width: auto;
-                margin-top: 15px;
-                margin-left: 10px;
             }
             
             .checkbox-blue-grey[type="checkbox"].filled-in:checked+span:not(.lever):after {
@@ -112,4 +87,13 @@
             
             #lbl {
                 color: #64b5f6;
+            }
+            
+            @media (max-width: 500px) {
+                #a {
+                    margin-left: 43px;
+                }
+                #tabs-swipe-demo .tab a {
+                    font-size: 7px;
+                }
             }

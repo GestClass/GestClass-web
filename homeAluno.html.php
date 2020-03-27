@@ -6,7 +6,7 @@
       <div class="col s12 m4">
         <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-scroll fa-6x blue-icon"></i>
+            <i class="fas fa-chart-line fa-6x blue-icon"></i>
             <h5>Rendimento Escolar</h5>
             <p>Acesso presença do aluno,  atividades desempenhadas e gráficos de rendimentos .</p>
           </div>
@@ -25,7 +25,7 @@
       <a href="calendario.html.php">
         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
           <i class="fas fa-calendar-check fa-6x blue-icon"></i>
-          <h5>Calendario Escolar</h5>
+          <h5>Calendário Escolar</h5>
           <p>Calendário de atividades acadêmicas</p>
         </div>
       </a>
