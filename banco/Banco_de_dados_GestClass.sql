@@ -145,7 +145,9 @@ CREATE TABLE dados_aluno (
 	ID_dados_aluno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
 	nota DECIMAL (4,2) NOT NULL,
 	presenca BOOLEAN,
-	observacoes VARCHAR (255) ,
+	observacoes VARCHAR (255),
+    nome_atividade VARCHAR(30) NOT NULL,
+    data_atividade DATE NOT NULL,
 	fk_ra_aluno_dados_aluno INTEGER NOT NULL,
 	fk_id_disciplina_dados_aluno INTEGER NOT NULL,
     fk_id_professor_dados_aluno INTEGER NOT NULL
@@ -348,7 +350,7 @@ INSERT INTO responsavel (nome_responsavel, cep, numero, complemento, rg, cpf, em
 
 /*	-	INSERTS INTO TABLE DADOS_ALUNO	-	*/
               
-INSERT INTO dados_aluno (nota, presenca, observacoes, fk_ra_aluno_dados_aluno, fk_id_disciplina_dados_aluno, fk_id_professor_dados_aluno) VALUES ('10.00', true, 'Hoje Fulano se portou de forma inadequada durante atividade', 00000000, 6, 1);
+INSERT INTO dados_aluno (nota, presenca, observacoes, nome_atividade, data_atividade, fk_ra_aluno_dados_aluno, fk_id_disciplina_dados_aluno, fk_id_professor_dados_aluno) VALUES ('10.00', true, 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade vetores', '2020-03-22', 00000000, 6, 1);
 
 
 /*	-	INSERTS INTO TABLE CONTATO	-	*/
