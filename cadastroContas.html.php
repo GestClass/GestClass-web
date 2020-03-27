@@ -724,8 +724,111 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
+                            <div class="input-field col s6">
+                                <input id="nome_professor" type="text" placeholder="Nome Professor" class="validate">
+                                <label for="icon_prefix">Nome</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000"
+                                    class="validate">
+                                <label for="icon_telephone">CEP</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="numero" placeholder="Número" type="tel" class="validate">
+                                <label for="icon_telephone">Nº</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="complemento" placeholder="Complemento" type="tel" class="validate">
+                                <label for="icon_telephone">Complemento</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="rg" placeholder="68.124.586-8" type="tel" data-mask="00.000.000-0"
+                                    class="validate">
+                                <label for="icon_telephone">RG</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="cpf" placeholder="158688987/10" type="tel" data-mask="000000000/00"
+                                    class="validate">
+                                <label for="icon_telephone">CPF</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="email" placeholder="gestclass@entreprise.com" type="tel" class="validate">
+                                <label for="icon_telephone">Email</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="senha" placeholder="*******" type="password" class="validate">
+                                <label for="icon_telephone">Senha</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000"
+                                    class="validate">
+                                <label for="icon_telephone">Celular</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="telefone" placeholder="(11) 97765-3360" type="tel"
+                                    data-mask="(00) 00000-0000" class="validate">
+                                <label for="icon_telephone">Telefone</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="fk_id_escola_professor" placeholder="156" type="number" data-mask="000"
+                                    class="validate">
+                                <label for="icon_telephone">ID Escola</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <select id="nome_tipo_turma" multiple>
+                                    <option value="" disabled selected>Selecione o Ensino</option>
+                                    <option value="1">Berçario</option>
+                                    <option value="2">Pré Escola</option>
+                                    <option value="3">Fundamental I</option>
+                                    <option value="4">Fundamental II</option>
+                                    <option value="5">Ensino Médio</option>
+                                </select>
+                                <label>Tipos Turmas</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <select id="nome_turma" multiple>
+                                    <option value="" disabled selected>Selecione a Turma</option>
+                                    <option value="1">Berçario A</option>
+                                    <option value="2">Pré 1 A</option>
+                                    <option value="3">Pré 2 B</option>
+                                    <option value="4">1º ano A</option>
+                                    <option value="4">2º ano A</option>
+                                    <option value="4">3º ano A</option>
+                                    <option value="4">4º ano A</option>
+                                    <option value="4">5º ano A</option>
+                                    <option value="4">6º ano A</option>
+                                    <option value="4">7º ano A</option>
+                                    <option value="4">8º ano A</option>
+                                    <option value="4">9º ano A</option>
+                                    <option value="5">1º ano médio A</option>
+                                    <option value="5">2º ano médio A</option>
+                                    <option value="5">3º ano médio A</option>
+                                </select>
+                                <label>Turmas</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <select id="nome_disciplina" multiple>
+                                    <option value="" disabled selected>Selecione a Disciplina</option>
+                                    <option value="1">Português</option>
+                                    <option value="2">Matemática</option>
+                                    <option value="3">Inglês</option>
+                                    <option value="4">Ciências</option>
+                                    <option value="5">Geografia</option>
+                                    <option value="6">História</option>
+                                    <option value="7">Ed Física</option>
+                                    <option value="8">Artes</option>
+                                    <option value="9">Biologia</option>
+                                    <option value="10">Sociologia</option>
+                                    <option value="11">Filosofia</option>
+                                    <option value="12">Química</option>
+                                    <option value="13">Física</option>
+                                </select>
+                                <label>Diciplinas</label>
+=======
                             <div class="input-field col s12 m6">
                                 <input class="inputDark" placeholder="Nome do(a) professor(a)" name="nome" type="text">
+>>>>>>> 83204b1f6ff50e64e30d406a4c78181cfdcb3bfa
                             </div>
                             <div class="input-field col s12 m6">
                                 <input class="inputDark" placeholder="RG" name="rg" type="text"
