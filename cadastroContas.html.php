@@ -24,12 +24,9 @@
 
     <div class="container col s12 m12 l12 ">
         <form method="POST" action="./controller/cadastro.controller.php">
-<<<<<<< HEAD
             <h4>Selecione o tipo de conta</h4>
-=======
             <h4>Selecione o tipo de conta</h4><br>
             
->>>>>>> d8e47ccf08ceff89ce109a7e8fc356c72494298a
             <div class="row">
                 <div class="col s12 m12 l12">
                     <ul id="tabs-swipe-demo" class="tabs blue lighten-3">
@@ -57,32 +54,32 @@
                         <input id="nome_aluno" type="text" placeholder="Nome Aluno" class="validate ">
                         <label id="lbl" for="first_name">Nome Aluno</label>
                     </div>
-                    <div class="input-field col s6 m6 l6">
+                    <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">ballot</i>
                         <input id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
                         <label id="lbl" for="first_name">RA</label>
                     </div>
-                    <div class="input-field col s6 m6 l6">
+                    <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">cake</i>
                         <input id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
                         <label id="lbl">Data Nascimento</label>
                     </div>
-                    <div class="input-field col s6 m6 l6">
+                    <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">ballot</i>
                         <input id="RG" placeholder="65.745.984-6" type="tel" data-mask="00.000.000-0" class="validate ">
                         <label id="lbl" for="first_name">RG</label>
                     </div>
-                    <div class="input-field col s6 m6 l6">
+                    <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">ballot</i>
                         <input id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate ">
                         <label id="lbl" for="first_name">CPF</label>
                     </div>
-                    <div class="input-field col s6 m4 l4">
+                    <div class="input-field col s8 m4 l4">
                         <i class="material-icons prefix blue-icon">location_on</i>
                         <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate ">
                         <label id="lbl" for="first_name">CEP</label>
                     </div>
-                    <div class="input-field col s6 m2 l2">
+                    <div class="input-field col s4 m2 l2">
                         <input id="numero" placeholder="Número" type="tel" class="validate ">
                         <label id="lbl" for="first_name">Nº</label>
                     </div>
@@ -95,11 +92,8 @@
                         <input id="email" placeholder="gestclass@enterprise.com" type="tel" class="validate ">
                         <label id="lbl" for="first_name">Email</label>
                     </div>
-<<<<<<< HEAD
-                    <div class="input-field col s7 m4 l4">
-=======
+                    <div class="input-field col s12 m4 l4">
                     <div class="input-field col s12 m6 l4">
->>>>>>> d8e47ccf08ceff89ce109a7e8fc356c72494298a
                         <i class="material-icons prefix blue-icon">security</i>
                         <input id="senha" placeholder="********" type="password" class="validate ">
                         <label id="lbl" for="first_name">Senha</label>

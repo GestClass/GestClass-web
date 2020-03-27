@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+        <a href="chamada.php.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-clipboard-list fa-6x blue-icon"></i>
             <h5>Chamada</h5>
@@ -15,7 +15,7 @@
 
 
       <div class="col s12 m4">
-        <a href="boletimVisualizacao.html.php">
+        <a href="boletimCadastro.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-book fa-6x blue-icon"></i>
             <h5>Boletim Escolar</h5>

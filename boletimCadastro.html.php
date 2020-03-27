@@ -13,12 +13,10 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
         <link rel="stylesheet" type="text/css" href="css/default.css" />
-        <link rel="stylesheet" type="text/css" href="css/chamada.css" />
-        <link rel="stylesheet" type="text/css" href="css/cadastroContas.css" />
 
     </head>
 
-    <body id="body_boletim">
+    <body id="body_boletimCadastro">
 
         <?php require_once 'reqHeader.php' ?>        
                     
@@ -27,7 +25,7 @@
             <h4>Cadastro de Notas</h4>
             <br>
             <div class="row">
-                <div class="input-field col s12 m12 l12 validate">
+                <div class="input-field col s12 m6 l6 validate">
                     <i class="material-icons prefix blue-icon">content_copy</i>
                     <select id="nome_tipo_turma">
                     <option value="" disabled selected>Selecione a Turma</option>            
@@ -37,7 +35,18 @@
                     <option value="2">2º ano A</option>
                     <option value="3">3º ano A</option>
                     </select>
-                    <label id="lbl">Ensino</label>
+                    <label id="lbl">Turma</label>                    
+                </div>
+
+                <div class="input-field col s12 m6 l6 validate">
+                    <i class="material-icons prefix blue-icon">library_books</i>
+                    <select id="nome_tipo_turma">
+                    <option value="" disabled selected>Selecione a Disciplina</option>            
+                    <option value="4">Portugê<s></s></option>
+                    <option value="5">Inglês</option>
+                    <option value="1">História</option>
+                    </select>
+                    <label id="lbl">Turma</label>
                 </div>
             </div>
 
