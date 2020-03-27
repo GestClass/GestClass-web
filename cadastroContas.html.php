@@ -25,8 +25,11 @@
     <div class="container col s12 m12 l12 ">
         <form method="POST" action="./controller/cadastro.controller.php">
             <h4>Selecione o tipo de conta</h4>
+<<<<<<< HEAD
             <h4>Selecione o tipo de conta</h4><br>
             
+=======
+>>>>>>> 24507c2e016c8f73a4ae6feccbb39c9d9a9e417b
             <div class="row">
                 <div class="col s12 m12 l12">
                     <ul id="tabs-swipe-demo" class="tabs blue lighten-3">
@@ -93,7 +96,10 @@
                         <label id="lbl" for="first_name">Email</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
+<<<<<<< HEAD
                     <div class="input-field col s12 m6 l4">
+=======
+>>>>>>> 24507c2e016c8f73a4ae6feccbb39c9d9a9e417b
                         <i class="material-icons prefix blue-icon">security</i>
                         <input id="senha" placeholder="********" type="password" class="validate ">
                         <label id="lbl" for="first_name">Senha</label>
@@ -241,7 +247,7 @@
 
                 <div id="professor" class="col s12 m12 l12">
                     <h4>Professor</h4>
-                    <div class="file-field input-field col s12m6  l6">
+                    <div class="file-field input-field col s12 m6 l6">
                         <div id="btnfoto" class="btn col s6">
                             <span><i class="material-icons">add_a_photo</i></span>
                             <input type="file">
@@ -341,7 +347,7 @@
                         <label id="lbl">Turmas</label>
                     </div>
                     <div class="input-field col s12 m6 l6">
-                    <i class="material-icons prefix blue-icon">school</i>
+                        <i class="material-icons prefix blue-icon">school</i>
                         <select id="nome_disciplina" multiple>
                             <option value="" disabled selected>Selecione a Disciplina</option>
                             <option value="1">Português</option>
