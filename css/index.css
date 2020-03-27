@@ -6,22 +6,6 @@ body{
     position: relative;
     padding: 70px 0;
 }
-<<<<<<< HEAD
-=======
-.sectionHome::after{
-    /* background: url(../assets/img/s.png); */
-    background-position: center top;
-    background-size: cover;
-    opacity: 0.3;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;   
-}
->>>>>>> a7e09c89add8fdf3b336804d83e4e7aa8c1b0946
 .btnIndexMenu{
     color: #fff;
     margin-left: -5px !important;

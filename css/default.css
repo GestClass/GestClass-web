@@ -36,7 +36,7 @@ body {
     color: #fff;
 }
 
-.btnLightDark{
+.btnLightDark {
     text-transform: inherit;
     border: 0.5px solid #1a237e;
     color: #1a237e;
@@ -115,8 +115,7 @@ body {
     box-shadow: 0 1px 0 0 #212121 !important;
 }
 
-#btnFormContas {
-    text-transform: inherit;
-    border: 0.5px solid #000;
-    color: #000;
+#btnfoto {
+    background-color: #42a5f5;
+    width: 50px;
 }

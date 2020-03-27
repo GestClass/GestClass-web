@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>GestClass - A gestão na palma da sua mão</title>
+    <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
 
     <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
@@ -19,7 +19,7 @@
 
 <body>
 
-<?php require_once 'reqMenu.php' ?>
+<?php require_once 'reqHeader.php' ?>
 
     <section class="section sectionError center">
       <img class="gear" src="assets/img/compass.svg" alt="manutencao">

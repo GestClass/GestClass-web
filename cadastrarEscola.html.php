@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>GestClass - A gestão na palma da sua mão</title>
+    <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
 
     <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
@@ -27,7 +27,7 @@
             <h4>Cadastro escolas</h4><br>
             <div class="row">
                 <div class="col s12 m12 l12">
-                    <div class="scroll">
+                    <!-- <div class="scroll"> -->
                         <div class="container">
                             <div class="row">
                                 <div class="input-field col s6">
@@ -48,6 +48,7 @@
                                     <i class="material-icons prefix blue-icon">alternate_email</i>
                                     <input placeholder="gestclass@enterprise.com" name="email" id="email" type="email"
                                         class="validate">
+                                        <input type="hidden" name="cadastrarDiretor" value="Bem vindo ao GestClass"/>
                                     <label for="email">Email</label>
                                     <span class="helper-text" data-error="wrong" data-success="right"></span>
                                 </div>
@@ -86,46 +87,43 @@
                                 </div>
                                 <div class="col s8">
                                     <label class="left"><input id="fk_id_tipos_turma_bercario" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk1"/><span>Berçario</span></label>
+                                            class="filled-in checkbox-blue-grey" name="chk1"
+                                            value="1" /><span>Berçario</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_pre_escola" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk2" /><span>Pré-Escola</span></label>
+                                            class="filled-in checkbox-blue-grey" name="chk2"
+                                            value="1" /><span>Pré-Escola</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_fundamental_I" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk3" /><span>Fundamental
+                                            class="filled-in checkbox-blue-grey" name="chk3"
+                                            value="1" /><span>Fundamental
                                             I</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_fundamental_II" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk4"/><span>Fundamental
+                                            class="filled-in checkbox-blue-grey" name="chk4"
+                                            value="1" /><span>Fundamental
                                             II</span></label>
                                     <label class="left"><input id="fk_id_tipos_turma_medio" type="checkbox"
-                                            class="filled-in checkbox-blue-grey" name="chk5"/><span>Ensino Médio</span></label>
+                                            class="filled-in checkbox-blue-grey" name="chk5" value="1" /><span>Ensino
+                                            Médio</span></label>
                                 </div>
                             </div>
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix blue-icon">attach_money</i>
-                                <select name="data_pagamento" id="data_pagamento">
-                                    <option value="" disabled selected>Escolha uma data de vencimento</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="5">5</option>
-                                    <option value="8">8</option>
-                                    <option value="15">15</option>
-                                    <option value="25">25</option>
-                                </select>
-                                <label for="first_name">Data de pagamento</label>
-                            </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix blue-icon">attach_money</i>
+                                    <select name="data_pagamento" id="data_pagamento">
+                                        <option value="" disabled selected>Escolha uma data de vencimento</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="5">5</option>
+                                        <option value="8">8</option>
+                                        <option value="15">15</option>
+                                        <option value="25">25</option>
+                                    </select>
+                                    <label for="first_name">Data de pagamento</label>
+                                </div>
                         </div>
                     </div>
                     <div class="input-field right">
                         <button id="btnFormCadEscola" type="submit" class="btn-flat btnLightDark">
                             <i class="material-icons left">send</i>Enviar</button>
                     </div>
-                    <!-- <button class="btn btn-flat waves-effect btnDarkFill left" type="submit" name="cadEscola"
-                            id="cadEscola" value="cadEscola">Consultar
-                            <i class="material-icons right">pageview</i>
-                        </button>
-                        <button class="btn btn-flat waves-effect btnLightBlue right" type="submit" name="cascolato"
-                            id="cadEscola" value="cadEscola">Cadastrar
-                            <i class="material-icons right">send</i>
-                        </button> -->
                 </div>
             </div>
     </div>
@@ -203,7 +201,34 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
     <script src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-    <script src="js/homeSecretaria.js"></script>
-    <script src="js/cadastroEscola.js"></script>
-
     <script src="js/default.js"></script>
+
+    <script>
+    $('.datepicker').datepicker({
+        i18n: {
+            months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
+                'Outubro', 'Novembro', 'Dezembro'
+            ],
+            monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabádo'],
+            weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+            weekdaysAbbrev: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+            today: 'Hoje',
+            clear: 'Limpar',
+            cancel: 'Sair',
+            done: 'Confirmar',
+            labelMonthNext: 'Próximo mês',
+            labelMonthPrev: 'Mês anterior',
+            labelMonthSelect: 'Selecione um mês',
+            labelYearSelect: 'Selecione um ano',
+            selectMonths: true,
+            selectYears: 15,
+        },
+        format: 'dd mmmm, yyyy',
+        container: 'body',
+        minDate: new Date(),
+    });
+    </script>
+</body>
+
+</html>

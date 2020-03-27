@@ -36,7 +36,7 @@
 
 <body>
 
-    <?php require_once 'reqMenu.php' ?>
+    <?php require_once 'reqHeader.php' ?>
 
     <div id='loading'>loading...</div>
 

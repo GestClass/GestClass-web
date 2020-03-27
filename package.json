@@ -22,6 +22,7 @@
     "@fullcalendar/daygrid": "^4.3.0",
     "animate.css": "^3.7.2",
     "aos": "^3.0.0-beta.6",
+    "git": "^0.1.5",
     "izimodal": "^1.5.1",
     "jquery": "^3.4.1",
     "jquery-mask-plugin": "^1.14.16",

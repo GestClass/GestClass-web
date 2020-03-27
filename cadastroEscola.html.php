@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>GestClass - A gestão na palma da sua mão</title>
+    <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
 
     <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
@@ -25,7 +25,7 @@
 
     <section class="floating-buttons">
         <div class="fixed-action-btn floating-right">
-            <a class="btn-floating btn blue accent-4 modal-trigger" href="cadastrarEscola.php">
+            <a class="btn-floating btn blue accent-4 modal-trigger" href="cadastrarEscola.html.php">
                 <i class="large material-icons">create</i>
             </a>
         </div>
@@ -37,13 +37,11 @@
         include_once 'php/conexao.php';
 
         $query = $conn->prepare("select nome_escola,cnpj,email from escola");
-        // $query->bindValue(":email",$email);
-        // $query->bindValue(":senha",$senha);
         $query->execute();
-        $dados = $query->fetch(PDO::FETCH_ASSOC);
     ?>
 
     <section class="escolas">
+        <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) {?>
         <div class="col s12">
             <div class="container">
                 <ul class="collection">
@@ -53,11 +51,23 @@
                         <p><?php echo $dados["email"] ?> <br>
                             <?php echo $dados["cnpj"] ?>
                         </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        <a href="#!" class="secondary-content"><i class="material-icons blue-icon">visibility</i></a>
                     </li>
                 </ul>
             </div>
         </div>
+        <?php }?>
+        <!-- <div class="center-align">
+            <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!">2</a></li>
+                <li class="waves-effect"><a href="#!">3</a></li>
+                <li class="waves-effect"><a href="#!">4</a></li>
+                <li class="waves-effect"><a href="#!">5</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div> -->
     </section>
 
     <!-- CADASTRO DAS ESCOLAS SENDO MODIFICADO "USANDO EXEMPLO DO CADASTRO DO CALENDARIO"
@@ -218,7 +228,7 @@
                         data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
                 <li><a href="paginaManutencao.html" class="btn-floating blue-grey darken-4 tooltipped"
                         data-position="left" data-tooltip="Chat"><i class="material-icons">chat</i></a></li>
-                <li><a href="calendario.php" class="btn-floating blue tooltipped" data-position="left"
+                <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
                         data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
             </ul>
         </div>
@@ -228,7 +238,7 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-    <script src="js/homeAdmGest.js"></script>
+    <script src="js/customAdm.js"></script>
     <script src="js/default.js"></script>
 
 </body>

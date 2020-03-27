@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>GestClass - A gestão na palma da sua mão</title>
+    <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
 
     <!-- Bibliotecas CSS -->
@@ -47,12 +47,12 @@
                                 <a href="#contato" class="btnIndexMenu">Contato</a>
                             </li>
                             <li>
-                                <a href="login.php" class="btn-flat btnLight">Login</a>
+                                <a href="login.html.php" class="btn-flat btnLight">Login</a>
                             </li>
                         </ul>
                         <ul class="right hide-on-large-only">
                             <li>
-                                <a href="login.php" class="btnIndexMenu">Login</a>
+                                <a href="login.html.php" class="btnIndexMenu">Login</a>
                             </li>
                         </ul>
                     </div>
@@ -81,7 +81,7 @@
                         GestClass é uma plataforma que ajuda o corpo docente escolar a gerenciar o ambiene
                         educacional com mais facilidade
                     </p>
-                    <a href="contratacao.php" class="btn-flat btn-large btnDark btnHome">
+                    <a href="contratacao.html.php" class="btn-flat btn-large btnDark btnHome">
                         Quero fazer parte
                     </a>
                     <a href="#recursos" class="btn-flat btn-large btnDarkFill btnHome">
@@ -181,7 +181,7 @@
                             até 250 alunos
                         </li>
                         <li class="center">
-                            <a href="contratacao.php?plano=primario" class="btn-flat btnDark btnBlock btnPlano">
+                            <a href="contratacao.html.php?plano=primario" class="btn-flat btnDark btnBlock btnPlano">
                                 Quero contratar
                             </a>
                         </li>
@@ -197,7 +197,7 @@
                             até 500 alunos
                         </li>
                         <li class="center">
-                            <a href="contratacao.php?plano=fundamental" class="btn-flat btnDark btnBlock btnPlano">
+                            <a href="contratacao.html.php?plano=fundamental" class="btn-flat btnDark btnBlock btnPlano">
                                 Quero contratar
                             </a>
                         </li>
@@ -214,7 +214,7 @@
                             mais de 500 alunos
                         </li>
                         <li class="center">
-                            <a href="contratacao.php?plano=colegial" class="btn-flat btnDark btnBlock btnPlano">
+                            <a href="contratacao.html.php?plano=colegial" class="btn-flat btnDark btnBlock btnPlano">
                                 Quero contratar
                             </a>
                         </li>

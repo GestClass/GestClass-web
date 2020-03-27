@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>GestClass - A gestão na palma da sua mão</title>
+    <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
 
     <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
@@ -34,7 +34,7 @@
                     </a>
                 </div>
                 <div class="col s12 m4">
-                    <a class="modal-trigger" href="cadastroEscola.php">
+                    <a class="modal-trigger" href="cadastroEscola.html.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="fas fa-school fa-6x blue-icon"></i>
                             <h5>Cadastro Escolas</h5>
@@ -71,7 +71,7 @@
                     </a>
                 </div>
                 <div class="col s12 m4">
-                    <a href="perfil.php">
+                    <a href="perfil.html.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="fas fa-cog fa-6x blue-icon"></i>
                             <h5>Configurações</h5>
@@ -83,7 +83,7 @@
         </div>
     </section>
 
-    
+
     <section class="floating-buttons">
         <div class="fixed-action-btn">
             <a class="btn-floating btn-large indigo darken-4">
@@ -96,7 +96,7 @@
                         data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
                 <li><a href="paginaManutencao.html" class="btn-floating blue-grey darken-4 tooltipped"
                         data-position="left" data-tooltip="Chat"><i class="material-icons">chat</i></a></li>
-                <li><a href="calendario.php" class="btn-floating blue tooltipped" data-position="left"
+                <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
                         data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
             </ul>
         </div>
@@ -106,7 +106,7 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-    <script src="js/homeAdmGest.js"></script>
+    <script src="js/customAdm.js"></script>
     <script src="js/default.js"></script>
 
 </body>
