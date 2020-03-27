@@ -16,8 +16,8 @@
         <a href="calendario.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-calendar-check fa-6x blue-icon"></i>
-            <h5>Calendario Escolar</h5>
-            <p>Adesão de eventos ao calendário de atividades acadêmicas</p>
+            <h5>Calendário Escolar</h5>
+            <p>Adesão, remoção e alteração de atividades no calendário</p>
           </div>
         </a>
       </div>

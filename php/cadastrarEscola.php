@@ -2,6 +2,10 @@
 
     include_once 'conexao.php';
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
     $nome_escola = $_POST["nome_escola"];
     $cep = $_POST["cep"];
     $numero = $_POST["numero"];
@@ -11,6 +15,7 @@
     $email = $_POST["email"];
     $dataPag = $_POST["data_pagamento"];   
     $qntdAlunos = $_POST["quantidade_alunos"];
+    $assunto = $_POST['cadastrarDiretor'];
     
     $chk1 = isset($_POST['chk1']) ? $_POST['chk1'] : 0;
     $chk2 = isset($_POST['chk2']) ? $_POST['chk2'] : 0;
@@ -32,7 +37,6 @@
         $dados = $query_select->fetch(PDO::FETCH_ASSOC);
         $id_escola = $dados["id_escola"];
 
-        // UPDATE escola SET turma_bercario = '0' WHERE escola.ID_escola = 34;
         if ($chk1 == 1) {
             $query_up = $conn->prepare("UPDATE escola SET turma_bercario=:chk1 WHERE escola.id_escola = $id_escola");
             $query_up->bindValue(":chk1",$chk1);
@@ -87,17 +91,46 @@
                      history.back();</script>";
             }
         }
-        
+     
+        require_once 'Mail/src/PHPMailer.php';
+        require_once 'Mail/src/SMTP.php';
+        require_once 'Mail/src/POP3.php';
+        require_once 'Mail/src/Exception.php';
+        require_once 'Mail/src/OAuth.php';
+     
+        $mail = new PHPMailer();
+     
+     
+        try {
+          
+           $mail->CharSet = 'UTF-8';
+    
+           $mail->SMTPDebug = 0;                  
+           $mail->isSMTP();                       
+           $mail->Host       = 'SMTP.office365.com';
+           $mail->SMTPAuth   = true;                
+           $mail->Username   = 'nick_oliveira2002@hotmail.com'; 
+           $mail->Password   = '5minutos';                      
+           $mail->SMTPSecure = 'STARTTLS';       
+           $mail->Port       = 587;              
+       
+          
+           $mail->setFrom('nick_oliveira2002@hotmail.com', 'Monique');
+           $mail->addAddress($email);     
+          
+           $mail->Subject = 'Bem vindo ao GestClass';
+           $mail->Body    = "<p> Olá, a equipe do GestClass te deseja boas vindas.</br>Segue a baixo o link para o cadastro do Diretor da escola:</br>http://localhost/GestClass-web/cadastrarDiretor.html.php?id_escola={$id_escola}</p>";
+           $mail->AltBody = 'habilite o html do seu email';
+       
+           $mail->send();
+           echo 'Email Enviado com sucesso!';
+       } catch (Exception $e) {
+           echo "Email nao foi enviado, motivo: {$this->mail->ErrorInfo}";
+       }
+         
     }else{
         echo "<script>alert('Erro: Escola não foi cadastrada');
         history.back();</script>";
     }
-
-
-
-
-
-
-
 
 ?>

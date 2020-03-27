@@ -23,7 +23,7 @@
     <?php require_once 'reqHeader.php' ?>
 
 
-    <div class="container">
+    <div class="container col s12 m12 l12">
         <h4>Chamada</h4>
         <table class="highlight centered">
             <thead>
@@ -74,8 +74,13 @@
         </table>
 
         <div class="input-field right">
+<<<<<<< HEAD
             <button class = "btn waves-effect blue lighten-2"id="btnTableChamada" type="submit" class="btn-flat btnDefaultTableChamada">
                 <i class="material-icons right">send</i>Enviar</button>
+=======
+            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
+                <i class="material-icons left">send</i>Enviar</button>
+>>>>>>> 83204b1f6ff50e64e30d406a4c78181cfdcb3bfa
         </div>
 
     </div>

@@ -27,7 +27,7 @@
             <h4>Cadastro escolas</h4><br>
             <div class="row">
                 <div class="col s12 m12 l12">
-                    <div class="scroll">
+                    <!-- <div class="scroll"> -->
                         <div class="container">
                             <div class="row">
                                 <div class="input-field col s6">
@@ -48,6 +48,7 @@
                                     <i class="material-icons prefix blue-icon">alternate_email</i>
                                     <input placeholder="gestclass@enterprise.com" name="email" id="email" type="email"
                                         class="validate">
+                                        <input type="hidden" name="cadastrarDiretor" value="Bem vindo ao GestClass"/>
                                     <label for="email">Email</label>
                                     <span class="helper-text" data-error="wrong" data-success="right"></span>
                                 </div>
@@ -104,8 +105,7 @@
                                             Médio</span></label>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="input-field col s6">
+                                <div class="input-field col s12">
                                     <i class="material-icons prefix blue-icon">attach_money</i>
                                     <select name="data_pagamento" id="data_pagamento">
                                         <option value="" disabled selected>Escolha uma data de vencimento</option>
@@ -118,30 +118,12 @@
                                     </select>
                                     <label for="first_name">Data de pagamento</label>
                                 </div>
-                                <div class="file-field input-field col s6">
-                                    <div class="btn indigo darken-4">
-                                    <span><i class="material-icons">add_a_photo</i></span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="input-field right">
                         <button id="btnFormCadEscola" type="submit" class="btn-flat btnLightDark">
                             <i class="material-icons left">send</i>Enviar</button>
                     </div>
-                    <!-- <button class="btn btn-flat waves-effect btnDarkFill left" type="submit" name="cadEscola"
-                            id="cadEscola" value="cadEscola">Consultar
-                            <i class="material-icons right">pageview</i>
-                        </button>
-                        <button class="btn btn-flat waves-effect btnLightBlue right" type="submit" name="cascolato"
-                            id="cadEscola" value="cadEscola">Cadastrar
-                            <i class="material-icons right">send</i>
-                        </button> -->
                 </div>
             </div>
     </div>
