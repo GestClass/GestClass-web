@@ -1,3 +1,52 @@
+/*Cor do texto*/
+
+#tabs-swipe-demo .tab a {
+    color: black;
+}
+/*Cor do texto ao passar o mouse*/
+
+#tabs-swipe-demo .tab a:hover {
+    background-color: #90caf9;
+}
+/*Cor do plano de fundo e do texto quando uma guia está ativa*/
+
+#tabs-swipe-demo .tab a.active {
+    background-color: #bbdefb;
+}
+/*Cor do sublinhado*/
+
+#tabs-swipe-demo .indicator {
+    background-color: #42a5f5;
+}
+
+#aluno {
+    width: auto;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+#responsavel {
+    width: auto;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+#professor {
+    width: auto;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+#secretaria {
+    width: auto;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.checkbox-blue-grey[type="checkbox"].filled-in:checked+span:not(.lever):aft{
+    border: 2px solid #64b5f6;
+    background-color: #64b5f6;
+}
             /*Cor do texto*/
             
             #tabs-swipe-demo .tab a {
@@ -23,6 +72,12 @@
                 border: 2px solid #64b5f6;
                 background-color: #64b5f6;
             }
+            /* #btnFormContas {
+                text-transform: inherit;
+                border: 0.5px solid #000;
+                color: #000;
+            } */
+
             
             .validate:focus {
                 background-color: #64b5f6;

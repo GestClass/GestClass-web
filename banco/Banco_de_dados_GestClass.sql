@@ -56,6 +56,7 @@ CREATE TABLE professor (
     senha VARCHAR(50) NOT NULL,
     celular VARCHAR(16) NOT NULL,
     telefone VARCHAR(16),
+    data_nascimento VARCHAR (12) NOT NULL,
     fk_id_aulas_professor INTEGER,
     fk_id_tipo_usuario_professor INTEGER NOT NULL,
     fk_id_escola_professor INTEGER NOT NULL
@@ -98,6 +99,7 @@ CREATE TABLE secretario (
     senha VARCHAR(50) NOT NULL,
     celular VARCHAR(16) NOT NULL,
     telefone VARCHAR(16),
+    data_nascimento VARCHAR (12) NOT NULL,
     fk_id_tipo_usuario_secretario INTEGER NOT NULL,
     fk_id_escola_secretario INTEGER NOT NULL
 );
@@ -111,7 +113,7 @@ CREATE TABLE aluno (
     email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
     celular VARCHAR(16),
-    data_nascimento DATE NOT NULL,
+    data_nascimento VARCHAR (12) NOT NULL,
     fk_id_turma_aluno INTEGER,
     fk_id_responsavel_aluno INTEGER,
     fk_id_dados_aluno INTEGER UNIQUE,
@@ -134,7 +136,7 @@ CREATE TABLE responsavel (
     celular VARCHAR(16) NOT NULL,
     telefone VARCHAR(16),
     telefone_comercial VARCHAR(16),
-    data_nascimento DATE NOT NULL,
+    data_nascimento VARCHAR (12) NOT NULL,
 	data_pagamento_responsavel INTEGER NOT NULL,
     fk_ra_aluno_responsavel INTEGER NOT NULL,
     fk_id_tipo_usuario_responsavel INTEGER NOT NULL,
@@ -175,7 +177,7 @@ CREATE TABLE `admin` (
     foto VARCHAR(255),
     email VARCHAR(65) NOT NULL,
     senha VARCHAR(50) NOT NULL,
-    data_nascimento DATE NOT NULL,
+    data_nascimento VARCHAR (12) NOT NULL,
     fk_id_tipo_usuario_admin INTEGER NOT NULL
 );
 

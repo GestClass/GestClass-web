@@ -84,9 +84,6 @@
                     <a href="contratacao.html.php" class="btn-flat btn-large btnDark btnHome">
                         Quero fazer parte
                     </a>
-                    <a href="#recursos" class="btn-flat btn-large btnDarkFill btnHome">
-                        Veja mais
-                    </a>
                 </div>
                 <div class="col s12 l6">
                     <img src="./assets/img/home2.svg" class="responsive-img">

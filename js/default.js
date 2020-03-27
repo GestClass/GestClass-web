@@ -20,4 +20,7 @@ $(document).ready(() => {
   $('.modal').modal()
 })
 
+$(document).ready(function () {
+  $('.materialboxed').materialbox();
+});
 

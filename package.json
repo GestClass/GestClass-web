@@ -24,6 +24,7 @@
     "aos": "^3.0.0-beta.6",
     "git": "^0.1.5",
     "izimodal": "^1.5.1",
+    "izitoast": "^1.4.0",
     "jquery": "^3.4.1",
     "jquery-mask-plugin": "^1.14.16",
     "lax.js": "^1.2.3",
