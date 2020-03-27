@@ -74,8 +74,8 @@
         </table>
 
         <div class="input-field right">
-            <button id="btnTableChamada" type="submit" class="btn-flat btnDefaultTableChamada">
-                <i class="material-icons left">send</i>Enviar</button>
+            <button class = "btn waves-effect blue lighten-2"id="btnTableChamada" type="submit" class="btn-flat btnDefaultTableChamada">
+                <i class="material-icons right">send</i>Enviar</button>
         </div>
 
     </div>

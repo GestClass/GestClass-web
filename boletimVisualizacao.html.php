@@ -24,7 +24,7 @@
 
   <div class="row">
     <div class="col s12 m6">
-      <div class="card-boletim">
+      <div class="card-boletim ">
           <h3>Boletim</h3>
             <table class="centered striped " >
         <thead>
@@ -116,7 +116,7 @@
         </tbody>
       </table>
       <a href="contratacao.html.php" class="btn-flat btn-smalls btnDark btnHome" >
-        <i class="large material-icons">file_upload</i>
+        <i class="large material-icons ">file_upload</i>
             Gerar PDF
       </a>
     </div>

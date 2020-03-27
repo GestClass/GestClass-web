@@ -288,7 +288,7 @@
                             </div>
                             <div class="input-field col s6">
                                 <input id="complemento" placeholder="Complemento" type="tel" class="validate">
-                                <label for="icon_telephone">Comple0mento</label>
+                                <label for="icon_telephone">Complemento</label>
                             </div>
                             <div class="input-field col s6">
                                 <input id="rg" placeholder="68.124.586-8" type="tel" data-mask="00.000.000-0"
