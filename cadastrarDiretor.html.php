@@ -20,23 +20,34 @@
 
 <body>
 
-    <?php require_once 'reqNoLog.php' ?>
+    <?php 
+         require_once 'reqNoLog.php';
+         include_once 'php/conexao.php';
+    
+        $id = $_GET["id_escola"];
+
+        session_start();
+
+        $_SESSION["id_da_escola"] = $id;
+        
+    
+    ?>
 
     <div class="container ">
-        <form id="adicionarEscola" class="col s12" method="POST" action="php/cadastrarEscola.php">
+        <form id="adicionarEscola" class="col s12" method="POST" action="php/cadastrarDiretor.php">
             <h4>Cadastro Diretor</h4><br>
             <div class="row">
                 <div class="col s12 m12 l12">
                     <div class="row">
                         <div class="input-field col s12 l6">
                             <i class="material-icons prefix blue-icon">account_circle</i>
-                            <input id="icon_titulo" type="text" name="nome_escola" id="nome_escola" class="validate">
+                            <input id="icon_titulo" type="text" name="nome_diretor" id="nome_diretor" class="validate">
                             <label for="icon_titulo">Nome Diretor</label>
                         </div>
                         <div class="file-field input-field col s12 l6">
                             <div id="btnfoto" class="btn col s6">
                                 <span><i class="material-icons">add_a_photo</i></span>
-                                <input type="file">
+                                <input type="file" name="imagem">
                             </div>
                             <div class="file-path-wrapper">
                                 <input id="foto" class="file-path validate" type="text">
@@ -46,7 +57,7 @@
                     <div class="row">
                         <div class="input-field col s12 l6">
                             <i class="material-icons prefix blue-icon">folder_shared</i>
-                            <input placeholder="187568953/22" name="cpf" id="cpf" type="text" class="validate" data-mask="000000000/00">
+                            <input placeholder="506.525.428-16" name="cpf" id="cpf" type="text" class="validate" data-mask="000.000.000-00">
                             <label for="first_name">CPF</label>
                         </div>
                         <div class="input-field col s12 l6">
