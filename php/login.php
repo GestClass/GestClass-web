@@ -18,7 +18,9 @@
     $dados = $query->fetch(PDO::FETCH_ASSOC);
 
     if($query->rowCount()>0){
-      echo "Login diretor efetuado";
+      echo "<script>alert('Diretor logado com sucesso :)');
+                  window.location = '../homeDiretor.html.php'
+                  </script>";
     }
     else{
       $query = $conn->prepare("select email,senha from secretario where email=:email and senha=:senha");
@@ -39,7 +41,9 @@
         $query->execute();
 
         if($query->rowCount()>0){
-          echo "Login professor efetuado";
+          echo "<script>alert('Professor logado com sucesso :)');
+          window.location = '../homeProfessor.html.php'
+          </script>";
         }
         else {
           $query = $conn->prepare("select email,senha from aluno where email=:email and senha=:senha");
@@ -49,7 +53,9 @@
           $dados = $query->fetch(PDO::FETCH_ASSOC);
 
           if($query->rowCount()>0){
-            echo "Login aluno efetuado";
+            echo "<script>alert('Aluno logado com sucesso :)');
+            window.location = '../homeAluno.html.php'
+            </script>";
           }
 
           else {
@@ -60,7 +66,9 @@
               $dados = $query->fetch(PDO::FETCH_ASSOC);
 
               if($query->rowCount()>0){
-                echo "Login responsavel efetuado";
+                echo "<script>alert('Responsável logado com sucesso :)');
+                window.location = '../homePais.html.php'
+                </script>";
               }
               else {
                 $query = $conn->prepare("select email,senha from admin where email=:email and senha=:senha");
