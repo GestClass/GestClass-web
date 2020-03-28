@@ -74,10 +74,15 @@
         </table>
 
         <div class="input-field right">
+<<<<<<< HEAD
             <button class = "btn waves-effect blue lighten-2"id="btnTableChamada" type="submit" class="btn-flat btnDefaultTableChamada">
                 <i class="material-icons right">send</i>Enviar</button>
+=======
+            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
+                <i class="material-icons left">send</i>Enviar</button>
+>>>>>>> 86e65409194e685aebaf16db2390b9d5154998b9
         </div>
 
     </div>
 
-<?php require_once 'reqFooter.php' ?>
+    <?php require_once 'reqFooter.php' ?>

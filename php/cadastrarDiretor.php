@@ -1,22 +1,24 @@
 <?php
 
-    include_once 'conexao.php';
+	include_once 'conexao.php';
+	
+	session_start();
 
-    $id_escola = $_GET["id_escola"];
-    $nome_diretor = $GET["nome_diretor"];
-    $cep = $GET["cep"];
-    $numero = $GET["numero"];
-    $complemento = $GET["complemento"];
-    $rg = $GET["rg"];
-    $cpf = $GET["cpf"];
-    $email = $GET["email"];
-    $senha = $GET["senha"];
-    $confsenha = $GET["confsenha"];
-    $celular = $GET["celular"];
-    $telefone = $GET["telefone"];
+	$id_escola = $_SESSION["id_da_escola"];
+    $nome_diretor = $_POST["nome_diretor"];
+    $cep = $_POST["cep"];
+    $numero = $_POST["numero"];
+    $complemento = $_POST["complemento"];
+    $rg = $_POST["rg"];
+    $cpf = $_POST["cpf"];
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+    $confsenha = $_POST["confsenha"];
+    $celular = $_POST["celular"];
+    $telefone = $_POST["telefone"];
 
     $imagem = $_FILES["imagem"];
-	//print_r($imagem);exit;
+	print_r($imagem);exit;
 	
 	if ($imagem["error"]==1){
 		echo "<script>alert('O arquivo no upload é maior do que o limite definido em upload_max_filesize no php.ini');
@@ -59,7 +61,7 @@
 			
 			move_uploaded_file($imagem["tmp_name"], $caminho);
 			
-			$query = $conn->prepare("INSERT INTO escola (nome_diretor,foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_diretor, fk_id_escola_diretor)
+			$query = $conn->prepare("INSERT INTO diretor (nome_diretor,foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_diretor, fk_id_escola_diretor)
             VALUES (?,?,?,?,?,?,?,?,?,?,?,'2',?)");
 
             if ($query->execute(array($nome_diretor, $imagem ,$cep, $numero, $complemento, $rg, $cpf, $email, $senha, $celular,$telefone, $id_escola))) {
