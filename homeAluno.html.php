@@ -1,4 +1,4 @@
-<?php require_once 'reqHeader.php' ?>
+<?php require_once 'reqAluno.php' ?>
 
 <section class="section center">
   <div class="container">
