@@ -15,7 +15,7 @@
     $email = $_POST["email"];
     $dataPag = $_POST["data_pagamento"];   
     $qntdAlunos = $_POST["quantidade_alunos"];
-    $assunto = $_POST['cadastrarDiretor'];
+    // $assunto = $_POST['cadastrarDiretor'];
     
     $chk1 = isset($_POST['chk1']) ? $_POST['chk1'] : 0;
     $chk2 = isset($_POST['chk2']) ? $_POST['chk2'] : 0;
