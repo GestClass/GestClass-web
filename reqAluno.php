@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/menu.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />
- 
+
 
 </head>
 
@@ -68,20 +68,19 @@
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">person</i>Rendimento Escolar</a></li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">people_alt</i>Boletim Escolar</a></li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a></li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
             <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario
                     Escolar</a>
+            <li><a href="paginaManutencao.php"><i class="material-icons">list_alt</i>Grade Escolar</a>
+            </li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">rowing</i>Atividades Extra</a>
+            </li>
             <li>
                 <div class="divider"></div>
             </li>
-            <!-- <li><a class="subheader">Subheader</a></li> -->
-            <!-- </li> -->
-            <li><a href="paginaManutencao.php"><i class="material-icons">notification_important</i>Grade Escolar</a></li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">notification_important</i>Notificações</a></li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">notification_important</i>Atividades Extra</a></li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
             <li><a href="index.php"><i class="material-icons">settings</i>Configurações</a></li>
             <li><a href="index.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
     </header>
-  

@@ -72,10 +72,6 @@
             <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario
                     Escolar</a>
             <li><a href="paginaManutencao.php"><i class="material-icons">people_alt</i>Professores</a></li>
-            <li>
-                <div class="divider"></div>
-            </li>
-            <!-- <li><a class="subheader">Subheader</a></li> -->
             </li>
             <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i
                         class="material-icons">group_add</i>Cadastro de contas
@@ -86,7 +82,10 @@
                 <li><a href="cadastroContas.html.php#alunos"><i class="material-icons">person</i>Alunos</a></li>
                 <li><a href="cadastroContas.html.php#responsavel"><i class="material-icons">wc</i>Pais</a></li>
             </ul>
-            <li><a href="paginaManutencao.php"><i class="material-icons">notification_important</i>Notificações</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
             <li><a href="index.php"><i class="material-icons">settings</i>Configurações</a></li>
             <li><a href="index.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>

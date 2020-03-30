@@ -45,16 +45,6 @@
                 <div class="col s12 m4">
                     <a href="paginaManutencao.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-bell fa-6x blue-icon"></i>
-                            <h5>Notificações</h5>
-                            <p>Envio de notificações para as escolas, avisos sobre atraso de mensalidade ou manutenção
-                                no sistema</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="fas fa-compass fa-6x blue-icon"></i>
                             <h5>Visão geral</h5>
                             <p>Visão geral do sistema para testes</p>
@@ -67,6 +57,16 @@
                             <i class="fas fa-envelope fa-6x blue-icon"></i>
                             <h5>Intermedio Escola e ADMINS</h5>
                             <p>Intermediario entre as escolas e os administradores do sistema</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m4">
+                    <a href="paginaManutencao.php">
+                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+                            <i class="fas fa-bell fa-6x blue-icon"></i>
+                            <h5>Notificações</h5>
+                            <p>Envio de notificações para as escolas, avisos sobre atraso de mensalidade ou manutenção
+                                no sistema</p>
                         </div>
                     </a>
                 </div>

@@ -1,4 +1,4 @@
-<?php require_once 'reqHeader.php' ?>
+<?php require_once 'reqPais.php' ?>
 
 <section class="section center">
   <div class="container">
@@ -15,7 +15,7 @@
       <div class="col s12 m4">
         <a href="boletimVisualizacao.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-book fa-6x blue-icon"></i>
+            <i class="fas fa-list-ol fa-6x blue-icon"></i>
             <h5>Boletim Escolar</h5>
             <p>Visualizaçõa de notas do aluno</p>
           </div>
@@ -42,18 +42,18 @@
       <div class="col s12 m4">
         <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-bell fa-6x blue-icon"></i>
-            <h5>Notificações</h5>
-            <p>Central de notificações</p>
+            <i class="fas fa-comment-dots fa-6x blue-icon"></i>
+            <h5>Chat</h5>
+            <p>Envio e recebebimento de mensages de professores, secretaia e diretores</p>
           </div>
         </a>
       </div>
       <div class="col s12 m4">
         <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-comment-dots fa-6x blue-icon"></i>
-            <h5>Chat</h5>
-            <p>Envio e recebebimento de mensages de professores, secretaia e diretores</p>
+            <i class="fas fa-bell fa-6x blue-icon"></i>
+            <h5>Notificações</h5>
+            <p>Central de notificações</p>
           </div>
         </a>
       </div>
@@ -68,7 +68,7 @@
     </a>
     <ul>
       <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left"
-          data-tooltip="Gráfico de rendimento"><i class="material-icons">insert_chart</i></a></li>
+          data-tooltip="Gráfico de rendimento"><i class="material-icons">trending_up</i></a></li>
       <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left"
           data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
       <li><a href="paginaManutencao.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left"
