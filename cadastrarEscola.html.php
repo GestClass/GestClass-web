@@ -24,7 +24,7 @@
 
     <div class="container ">
         <form id="adicionarEscola" class="col s12" method="POST" action="php/cadastrarEscola.php">
-            <h4>Cadastro escolas</h4><br>
+            <h4 class="center-align">Cadastro escolas</h4><br>
             <div class="row">
                 <div class="col s12 m12 l12">
                     <!-- <div class="scroll"> -->
@@ -68,12 +68,12 @@
                                 </div>
                                 <div class="input-field col s2">
                                     <input placeholder="Número" name="numero" id="numero" type="text" class="validate">
-                                    <!-- <label for="first_name">Nº</label> -->
+                                    <label for="first_name">Nº</label>
                                 </div>
                                 <div class="input-field col s4">
                                     <input placeholder="Complemento" name="complemento" id="complemento" type="text"
                                         class="validate">
-                                    <!-- <label for="first_name">Complemento</label> -->
+                                    <label for="first_name">Complemento</label>
                                 </div>
                             </div>
                             <div class="input-field col s6">
