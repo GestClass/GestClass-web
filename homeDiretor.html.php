@@ -8,7 +8,7 @@
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="far fa-user fa-6x blue-icon"></i>
             <h5>Alunos</h5>
-            <p>Acesso aos dados dos alunos, efetuação e remoção de matriculas, lista de alunos</p>
+            <p>Acesso aos dados dos alunos, efetuação e remoção de matriculas, mensalidade, lista de alunos</p>
           </div>
         </a>
       </div>
