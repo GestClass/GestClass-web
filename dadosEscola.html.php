@@ -233,18 +233,16 @@
             </form>
         </div>
 
-        <div class="col s6" id="dadosDiretor">
+        <div class="col s12 m12 l12" id="dadosDiretor">
             <div class="container">
                 <h5>Diretores Escola</h5><br>
                 <ul class="collection">
                     <li class="collection-item avatar">
-                        <img src="assets/img/atheneu.jpeg" alt="" class="circle">
-                        <span class="title"><?php echo $dados_diretor["nome_diretor"] ?></span>
-                        <p><?php echo $dados_diretor["email"] ?> <br>
-                            <?php echo $dados_diretor["cpf"] ?>
-                        </p>
-                        <a href="#" class="secondary-content"><i class="material-icons green-icon">done
-                                <!--done_all--></i></a>
+                        <img src="\assets<?php echo  $dados_diretor["foto"]; ?>"  alt="" class="circle">
+                        <span class="title"><?php echo $dados_diretor["nome_diretor"] ?></span><br>
+                        <span class="title"><?php echo $dados_diretor["email"] ?></span><br>
+                        <span class="title"><?php echo $dados_diretor["cpf"] ?></span>
+                        <a href="#" class="secondary-content"><i class="material-icons green-icon">done</i></a>
                     </li>
                 </ul>
             </div>
