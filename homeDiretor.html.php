@@ -13,11 +13,11 @@
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="calendario.html.php">
+        <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-calendar-check fa-6x blue-icon"></i>
-            <h5>Calendário Escolar</h5>
-            <p>Adesão, remoção e alteração de atividades no calendário</p>
+            <i class="fas fa-file-invoice-dollar fa-6x blue-icon"></i>
+            <h5>Mensalidade</h5>
+            <p>Acesso total aos dados da mensalidade dos alunos. </p>
           </div>
         </a>
       </div>
