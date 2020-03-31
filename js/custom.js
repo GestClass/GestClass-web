@@ -101,37 +101,6 @@ function contagemCarac() {
 
 
 
-// CONSULTA DE CEP
-
-$('.cepConsulta').blur(async () => {
-    let cep = $('.cepConsulta').val()
-    fetch(`https://viacep.com.br/ws/${cep}/json`).then(dados => {
-        dados.json().then(endereco => {
-
-            endereco.erro ?
-                showToast('O CEP informado é inválido')
-            :
-            $('.rua').val(endereco.logradouro)
-            $('.bairro').val(endereco.bairro)
-            $('.cidade').val(endereco.localidade)
-            $('.estado').val(endereco.uf)
-        })
-    })
-    .catch(erro => {
-        
-    })
-    
-})
-
-function showToast(message, ){
-    iziToast.error({
-        message,
-        position: 'bottomRight',
-        close
-    })
-}
-
-// FIM CONSULTA CEP
 
 
 
@@ -141,11 +110,11 @@ function showToast(message, ){
 
 function trocaFormResp(params) {
     console.log(params);
-    
+
     if (params == true) {
         $('.novoResp').removeClass('hide')
         $('.existeResp').addClass('hide')
-    } else{
+    } else {
         $('.existeResp').removeClass('hide')
         $('.novoResp').addClass('hide')
     }
