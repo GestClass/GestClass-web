@@ -38,6 +38,8 @@
 
         $query = $conn->prepare("select id_escola,nome_escola,cnpj,email from escola");
         $query->execute();
+
+
     ?>
 
     <section class="escolas">
@@ -51,7 +53,23 @@
                         <p><?php echo $dados["email"] ?> <br>
                             <?php echo $dados["cnpj"] ?>
                         </p>
-                        <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola'];?>" class="secondary-content"><i class="material-icons blue-icon">visibility</i></a>
+
+                        <?php
+                            
+                            $id_escola = $dados["id_escola"];
+                            $query_diretor = $conn->prepare("select * from diretor where fk_id_escola_diretor=$id_escola");
+                            $query_diretor->execute();
+                            // $dados_diretor = $query_diretor->fetch(PDO::FETCH_ASSOC);
+                        ?>
+                        <div class="row">
+                            <div class="col s12">
+                                <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola'];?>"
+                                    class="secondary-content"><i class="material-icons blue-icon">visibility</i></a>
+                            </div>
+                            <div class="col s12">
+                                <a style="right:50px" class="secondary-content"><i class="material-icons green-icon">done</i></a>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
