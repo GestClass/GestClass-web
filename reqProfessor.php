@@ -10,10 +10,14 @@
     <link rel="icon" href="assets/icon/logo.png" />
 
     <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/aos/dist/aos.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/menu.css" />
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />
+
 
 </head>
 
@@ -21,13 +25,13 @@
 
     <header>
         <div class="navbar-fixed">
-            <nav class="indigo darken-4">
+            <nav class="light-blue lighten-1">
                 <div class="container">
                     <div class="nav-wrapper">
                         <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
                                 class="material-icons">clear_all</i></a>
-                        <a href="homeAdmGest.html.php" class="brand-logo "><i class="fas fa-drafting-compass"></i><span
-                                class="hide-on-small-only">GestClass</span></a>
+                        <a href="homeSecretaria.html.php" class="brand-logo"><i class="fas fa-drafting-compass"></i>
+                            <span class="hide-on-small-only">GestClass<span></a>
 
                         <ul class="right">
                             <li>
@@ -42,18 +46,17 @@
                                 <div class="dividerVert hide-on-small-only"></div>
                             </li>
                             <li>
-                                <a href="index.php" data-izimodal-open="#modalLogin"
-                                    class="btn-flat btnLight hide-on-small-only">Sair</a>
+                                <a href="index.php" class="btn-flat btnLight hide-on-small-only">Sair</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </div>
-        <ul id="slide-out" class="sidenav mobile-nav">
+        <ul id="slide-out" class="sidenav">
             <li>
                 <div class="user-view">
-                    <div class="background indigo darken-4">
+                    <div class="background light-blue lighten-1">
                         <!-- <img src="assets/img/slide2.png"> -->
                     </div>
                     <a href="perfil.html.php"><img class="circle" src="assets/img/pp.jpg"></a>
@@ -61,32 +64,23 @@
                     <a href="perfil.html.php"><span class="white-text email">ana.lopes155@etec.sp.gov.br</span></a>
                 </div>
             </li>
-            <li><a href="homeAdmGest.html.php"><i class="material-icons">home</i>Início</a></li>
+            <li><a href="homeSecretaria.html.php"><i class="material-icons">home</i>Início</a></li>
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">person</i>Admins</a></li>
-            <li><a href="cadastroEscola.html.php"><i class="material-icons">account_balance</i>Cadastro Escolas</a></li>
-            <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">explore</i>Visão Geral</a></li>
-            <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">email</i>Intermedio</a></li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">assignment</i>Chamada</a></li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
+            <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">assignment_late</i>Ocorrências</a></li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">list_alt</i>Lista de alunos</a>
+            <li><a href="paginaManutencao.php"><i class="material-icons">event</i>Calendário Escolar</a>
+            </li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">chat_bubble</i>Chat</a>
+            </li>
             <li>
                 <div class="divider"></div>
             </li>
-            <!-- <li><a class="subheader">Submenu</a></li> -->
             <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
             <li><a href="index.php"><i class="material-icons">settings</i>Configurações</a></li>
             <li><a href="index.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
-
-
     </header>
-
-
-
-    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-    <script src="js/default.js"></script>
-
-</body>
-
-</html>

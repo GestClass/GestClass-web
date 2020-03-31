@@ -1,7 +1,7 @@
 <?php
 
 // A CONEXAO A BAIXO ESTA EM PDO, SE VOCE NAO TIVER A VERSAO 7 DO PHP NÃO VAI FUNCIONAR
-  
+
 define('HOST', 'localhost');
 define('USER', 'root');
 define('PASS', '');

@@ -1,125 +1,174 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='utf-8'/>
-    <title>GestClass - Is Cool Manage</title>
-    <link rel="icon" href="assets/icon/logo.png" />
+  <meta charset='utf-8' />
+  <title>GestClass - A gestão na palma da sua mão</title>
+  <link rel="icon" href="assets/icon/logo.png" />
 
-    <!-- Bibliotecas CSS -->
-    <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="node_modules/izimodal/css/iziModal.min.css">
+  <!-- Bibliotecas CSS -->
+  <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
 
-    <!-- Arquivo CSS -->
-    <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/boletimVisualizacao.css" />
-    <link rel="stylesheet" type="text/css" href="css/menu.css" />
-
+  <!-- Arquivo CSS -->
+  <link rel="stylesheet" type="text/css" href="css/default.css" />
+  <link rel="stylesheet" type="text/css" href="css/boletimVisualizacao.css" />
 </head>
 
-<body>
-  
+
+
+<body id="body_boletimVisualizacao">
+
   <?php require_once 'reqHeader.php' ?>
 
-  <div class="row">
-    <div class="col s12 m6">
-      <div class="card-boletim ">
-          <h3>Boletim</h3>
-            <table class="centered striped " >
-        <thead>
-          <tr>
-              <th >COMPONENTE CURRICULAR</th>
-              <th colspan="2">1º BIMESTRE</th>
-              <th colspan="2">2º BIMESTRE</th>
-              <th colspan="2">3º BIMESTRE</th>
-              <th colspan="2">4º BIMESTRE</th>
-              <th colspan="2"> RESULTADO FINAL</th>
-          </tr>
-        </thead>
+  <div class="container col s12 m12 l12 z-depth-5 " id="container_boletimVisualizacao">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <ul id="tabs-swipe-demo" class="tabs blue lighten-3">
+          <li class="tab col s1 m3 l3 "><a href="#1bimestre">1° Bimestre</a></li>
+          <li class="tab col s1 m3 l3 "><a href="#2bimestre">2° Bimestre</a></li>
+          <li class="tab col s1 m3 l3 "><a href="#3bimestre">3° Bimestre</a></li>
+          <li class="tab col s1 m3 l3 "><a href="#4bimestre">4° Bimestre</a></li>
+        </ul>
+      </div>
 
-        <tbody>
-          <tr>
-            <th> DISCIPLINAS</th>
-            <th>n</th>
-            <th>f</th>
-            <th>n</th>
-            <th>f</th>
-            <th>n</th>
-            <th>f</th>
-            <th>n</th>
-            <th>f</th>
-            <th>MÉDIA</th>
-            <TH> FALTAS</TH>
-          </tr>
-          <tr>
-          <td>GEOGRAFIA</td>
-            <td>9.55</td>
-            <td>2</td>
-            <td>10</td>
-            <td>1</td>
-            <td>10</td>
-            <td>-</td>
-            <td>10</td>
-            <td>5</td>
-            <td>8.7</td>
-          </tr>
-          <tr>
-          <td>GEOGRAFIA</td>
-            <td>8.55</td>
-            <td>4</td>
-            <td>10</td>
-            <td>3</td>
-            <td>10</td>
-            <td>-</td>
-            <td>10</td>
-            <td>5</td>
-            <td>8.7</td>
-          </tr>
-          <tr>
-          <td>GEOGRAFIA</td>
-            <td>7.55</td>
-            <td>4</td>
-            <td>10</td>
-            <td>3</td>
-            <td>10</td>
-            <td>8.7</td>
-            <td>10</td>
-            <td>8.7</td>
-            <td>8.7</td>
-          </tr>
-          <tr>
-          <td>GEOGRAFIA</td>
-            <td>4.55</td>
-            <td>9.87</td>
-            <td>10</td>
-            <td>8.7</td>
-            <td>10</td>
-            <td>8.7</td>
-            <td>10</td>
-            <td>8.7</td>
-            <td>8.7</td>
-          </tr>
-          <tr>
-          <td>GEOGRAFIA</td>
-            <td>4.55</td>
-            <td>9.87</td>
-            <td>10</td>
-            <td>8.7</td>
-            <td>10</td>
-            <td>8.7</td>
-            <td>10</td>
-            <td>8.7</td>
-            <td>8.7</td>
+      <div class="col s12 m12 l12 " id="1bimestre">
+        <table class="highlight centered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+            </tr>
+          </thead>
 
-          </tr>
-        </tbody>
-      </table>
-      <a href="contratacao.html.php" class="btn-flat btn-smalls btnDark btnHome" >
-        <i class="large material-icons ">file_upload</i>
-            Gerar PDF
-      </a>
+          <tbody>
+            <tr>
+              <td>Alvin</td>
+              <td>Eclair</td>
+              <td>$0.87</td>
+            </tr>
+            <tr>
+              <td>Alan</td>
+              <td>Jellybean</td>
+              <td>$3.76</td>
+            </tr>
+            <tr>
+              <td>Jonathan</td>
+              <td>Lollipop</td>
+              <td>$7.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col s12 m12 l12" id="2bimestre">
+        <table class="highlight centered">
+          <thead>
+            <tr>
+              <th>2Name</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Alvin</td>
+              <td>Eclair</td>
+              <td>$0.87</td>
+            </tr>
+            <tr>
+              <td>Alan</td>
+              <td>Jellybean</td>
+              <td>$3.76</td>
+            </tr>
+            <tr>
+              <td>Jonathan</td>
+              <td>Lollipop</td>
+              <td>$7.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col s12 m12 l12" id="3bimestre">
+        <table class="highlight centered">
+          <thead>
+            <tr>
+              <th>3Name</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Alvin</td>
+              <td>Eclair</td>
+              <td>$0.87</td>
+            </tr>
+            <tr>
+              <td>Alan</td>
+              <td>Jellybean</td>
+              <td>$3.76</td>
+            </tr>
+            <tr>
+              <td>Jonathan</td>
+              <td>Lollipop</td>
+              <td>$7.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col s12 m12 l12" id="4bimestre">
+        <table class="highlight centered">
+          <thead>
+            <tr>
+              <th>4Name</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Alvin</td>
+              <td>Eclair</td>
+              <td>$0.87</td>
+            </tr>
+            <tr>
+              <td>Alan</td>
+              <td>Jellybean</td>
+              <td>$3.76</td>
+            </tr>
+            <tr>
+              <td>Jonathan</td>
+              <td>Lollipop</td>
+              <td>$7.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="input-field left">
+        <form action="pdf.php" method="post">
+          <button class="btn waves-effect light-blue" type="submit" name="action"> Gerar PDF
+            <i class="material-icons right">file_upload</i>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 
-<?php require_once 'reqFooter.php' ?>
+  <script src="js/default.js"></script>
+  <script src="js/boletimVisualizacao.js"></script>
+
+
+
+
+
+  <?php require_once 'reqFooter.php' ?>

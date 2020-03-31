@@ -1,4 +1,4 @@
-<?php require_once 'reqHeader.php' ?>
+<?php require_once 'reqAluno.php' ?>
 
 <section class="section center">
   <div class="container">
@@ -15,7 +15,7 @@
       <div class="col s12 m4">
         <a href="boletimVisualizacao.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-book fa-6x blue-icon"></i>
+            <i class="fas fa-list-ol fa-6x blue-icon"></i>
             <h5>Boletim Escolar</h5>
             <p>Acesso a notas </p>
           </div>
@@ -33,9 +33,18 @@
       <div class="col s12 m4">
         <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-chalkboard-teacher fa-6x blue-icon"></i>
+            <i class="fas fa-list-alt fa-6x blue-icon"></i>
             <h5>Grade Escolar</h5>
             <p>Visualização dos horários de aulas, nome dos professores, lista de chamada</p>
+          </div>
+        </a>
+      </div>
+      <div class="col s12 m4">
+        <a href="paginaManutencao.php">
+          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+            <i class="fas fa-snowboarding fa-6x blue-icon"></i>
+            <h5>Atividade Extracurriculares</h5>
+            <p>Aulas complementares, como natação, treinos, atividades comunitarias</p>
           </div>
         </a>
       </div>
@@ -46,15 +55,6 @@
             <h5>Notificações</h5>
             <p>Recebimento de notificações, como a dispensa antes do horário, advertências, ocorrências,
               suspensões, etc..</p>
-          </div>
-        </a>
-      </div>
-      <div class="col s12 m4">
-        <a href="paginaManutencao.php">
-          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-book-reader fa-6x blue-icon"></i>
-            <h5>Atividade Extracurriculares</h5>
-            <p>Aulas complementares, como natação, treinos, atividades comunitarias</p>
           </div>
         </a>
       </div>
@@ -73,7 +73,7 @@
       <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left"
           data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
       <li><a href="paginaManutencao.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left"
-          data-tooltip="Chat"><i class="material-icons">chat</i></a></li>
+          data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered_rtl</i></a></li>
       <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
           data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
     </ul>

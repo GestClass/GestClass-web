@@ -1,13 +1,5 @@
-body{
-    background: url(../assets/img/s.png);
-}
-.card-boletim {
-    height: 650px;
-    width: 1000px;
-    margin-left: 150px;
-    margin-top: 30px;
-    background-color: aliceblue;
-    border-radius: 5px;
+html{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h3{
     padding-left:450px;
@@ -37,4 +29,20 @@ td, th {
     margin-left: 850px;
     font-weight: bold;
     margin-top:40px;
+}
+.waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 150px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
+    -webkit-transition: .3s ease-out;
+    transition: .3s ease-out;
 }
