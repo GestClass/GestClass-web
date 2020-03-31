@@ -1,4 +1,4 @@
-<?php require_once 'reqHeader.php' ?>
+<?php require_once 'reqProfessor.php' ?>
 
 <section class="section center">
   <div class="container">
@@ -17,7 +17,7 @@
       <div class="col s12 m4">
         <a href="boletimCadastro.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-book fa-6x blue-icon"></i>
+            <i class="fas fa-list-ol  fa-6x blue-icon"></i>
             <h5>Boletim Escolar</h5>
             <p>Adição e alteração de notas</p>
           </div>
@@ -74,8 +74,8 @@
       <i class="large material-icons">add</i>
     </a>
     <ul>
-      <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left"
-          data-tooltip="Gráfico de rendimento"><i class="material-icons">insert_chart</i></a></li>
+      <li><a href="chamada.html.php" class="btn-floating black tooltipped" data-position="left"
+          data-tooltip="Chamada"><i class="material-icons">assignment</i></a></li>
       <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left"
           data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
       <li><a href="paginaManutencao.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left"

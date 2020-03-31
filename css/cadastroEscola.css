@@ -11,6 +11,49 @@
     color: #1a237e;
 }
 
+.green-icon{
+    color: #1b5e20;
+}
+
 .pagination li.active a{
     background-color: #1a237e;
 }
+
+
+/*Cor do texto ao passar o mouse*/
+
+#tabs-swipe-demo .tab a:hover {
+    background-color: white;
+}
+
+
+/*Cor do plano de fundo e do texto quando uma guia está ativa*/
+
+#tabs-swipe-demo .tab a.active {
+    background-color: #283593;
+}
+
+
+/*Cor do sublinhado*/
+
+#tabs-swipe-demo .indicator {
+    background-color: white;
+}
+
+/*Cor do texto*/
+
+#tabs-swipe-demo .tab a {
+    color: white;
+}
+
+
+/*Cor do texto ao passar o mouse*/
+
+#tabs-swipe-demo .tab a:hover {
+    background-color: #283593;
+}
+
+
+
+
+

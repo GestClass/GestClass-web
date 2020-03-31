@@ -17,29 +17,33 @@
     $celular = $_POST["celular"];
     $telefone = $_POST["telefone"];
 
-    $imagem = $_FILES["imagem"];
-	print_r($imagem);exit;
+    $image_file = $_FILES["txt_file"]["name"];
+	$type  = $_FILES["txt_file"]["type"]; //file name "txt_file" 
+	$size  = $_FILES["txt_file"]["size"];
+	$temp  = $_FILES["txt_file"]["tmp_name"];
+	$error  = $_FILES["txt_file"]["error"];
+	// print_r($imagem);exit;
 	
-	if ($imagem["error"]==1){
+	if ($error==1){
 		echo "<script>alert('O arquivo no upload é maior do que o limite definido em upload_max_filesize no php.ini');
 			    history.back();
 		    </script>";
 	 }
 	//print_r($imagem);exit;
-	if ($imagem["name"]) {
+	if ($image_file) {
 
 		$largura = 2000;
 		$altura = 3000;
 		$tamanho = 2000000;
     	
-    	if(!preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $imagem["name"], $ext)){
+    	if(!preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $image_file, $ext)){
             echo "<script>alert('Ops! Isso não é uma imagem.');
                      history.back();
-                 </script>";
+				 </script>";
             
    	 	}
 	
-		$dimensoes = getimagesize($imagem["tmp_name"]);
+		$dimensoes = getimagesize($temp);
 		//print_r($dimensoes);exit;	
 		if($dimensoes[0] > $largura) {
 			echo "A largura da imagem não deve ultrapassar ".$largura." pixels";
@@ -49,30 +53,31 @@
 			echo "Altura da imagem não deve ultrapassar ".$altura." pixels";
 		}
 		
-		if($imagem["size"] > $tamanho) {
+		if($size > $tamanho) {
    		 	echo "A imagem deve ter no máximo ".$tamanho." bytes";
 		}else {
 			
-			preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $imagem["name"], $ext);
+			preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $image_file, $ext);
 
         	$nome_imagem = md5(uniqid(time())) . "." . $ext[1];
         	
         	$caminho = "../assets/img" . $nome_imagem;
 			
-			move_uploaded_file($imagem["tmp_name"], $caminho);
+			move_uploaded_file($temp, $caminho);
 			
 			$query = $conn->prepare("INSERT INTO diretor (nome_diretor,foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_diretor, fk_id_escola_diretor)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,'2',?)");
+            VALUES ('{$nome_diretor}', '{$nome_imagem}', '{$cep}', '{$numero}', '{$complemento}', '{$rg}', '{$cpf}', '{$email}', '{$senha}', '{$celular}','{$telefone}','2' ,'{$id_escola}')");
 
-            if ($query->execute(array($nome_diretor, $imagem ,$cep, $numero, $complemento, $rg, $cpf, $email, $senha, $celular,$telefone, $id_escola))) {
+            if ($query->execute()) {
 
-                echo "<script>alert('Escola cadastrada com sucesso');
-                        history.back();
+                echo "<script>alert('Diretor cadastrada com sucesso');
+                        window.location='../homeDiretor.html.php';
                      </script>";
             }else{
-                echo "<script>alert('TE LASCOU KSKS');
-                    history.back();
-                 </script>";
+				print_r($query);exit();
+			
+
+				 
             }
 
 		

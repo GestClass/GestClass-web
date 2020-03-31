@@ -36,7 +36,7 @@
     <?php
         include_once 'php/conexao.php';
 
-        $query = $conn->prepare("select nome_escola,cnpj,email from escola");
+        $query = $conn->prepare("select id_escola,nome_escola,cnpj,email from escola");
         $query->execute();
     ?>
 
@@ -51,7 +51,7 @@
                         <p><?php echo $dados["email"] ?> <br>
                             <?php echo $dados["cnpj"] ?>
                         </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons blue-icon">visibility</i></a>
+                        <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola'];?>" class="secondary-content"><i class="material-icons blue-icon">visibility</i></a>
                     </li>
                 </ul>
             </div>
