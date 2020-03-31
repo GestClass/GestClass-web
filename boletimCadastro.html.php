@@ -99,10 +99,7 @@
                 $query->execute();
 
 
-                while ($dados =  $query->fetch(PDO::FETCH_ASSOC)) {
-
-
-                  ?>
+                ?>
                 <table class="highlight centered">
                     <thead>
                         <tr>
@@ -113,6 +110,7 @@
                     </thead>
 
                     <tbody>
+                      <?php  while ($dados =  $query->fetch(PDO::FETCH_ASSOC)) {?>
                         <tr>
                             <td><?php echo $dados['nome_aluno'] ?></td>
                             <td>
@@ -125,9 +123,10 @@
                                 <input type="text" placeholder="Observações . . ."/>
                             </td>
                         </tr>
+                        <?php }?>
                     </tbody>
                 </table>
-                <?php }?>
+
 
                 <div class="input-field right">
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
