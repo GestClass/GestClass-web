@@ -123,27 +123,44 @@ body {
 
 /*  -   CSS 'boletimCadastro.html.php'  -   */
 
-#body_boletimCadastro{
+#body_boletimCadastro {
     background-image: url(../assets/img/s.png);
     background-size: auto;
-
 }
 
-#container_boletimCadastro{   
+#container_boletimCadastro {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 10px 30px 80px 30px;
     margin-top: 40px;
     margin-bottom: 40px;
     border-radius: 10px;
     text-shadow: 0.3px 0.3px 0.3px #111;
-
 }
 
-#container_boletimCadastro ::placeholder{
+#container_boletimCadastro ::placeholder {
     text-shadow: 0.5px 0.5px 0.5px #111;
-
 }
 
 #lbl {
     color: #64b5f6;
+}
+
+
+/*  -   CSS 'boletimVisualizacao.php'  -   */
+
+#body_boletimVisualizacao {
+    background-image: url(../assets/img/s.png);
+    background-size: auto;
+}
+
+#container_boletimVisualizacao {
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    text-shadow: 0.3px 0.3px 0.3px #111;
+}
+
+#container_boletimVisualizacao ::placeholder {
+    text-shadow: 0.5px 0.5px 0.5px #111;
 }

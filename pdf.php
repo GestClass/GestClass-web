@@ -1,19 +1,30 @@
 <?php
+
 require_once 'dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
+use Dompdf\Options;
+$dompdf= new Dompdf();
 
+//criando instancia 
+//trazer html
+// $dompdf->load_html('ola');
+// ob_start();
 
+$options = new Options();
+$options->set('isRemoteEnabled', TRUE);
+$dompdf = new Dompdf($options);
+$options->set('defaultPaperOrientation' , 'landscape');
+$dompdf->set_base_path('css/default.css');  
+$dompdf->set_base_path('css/boletimVisualizacao.css');  
 
-  //criando instancia 
-  $dompdf= new Dompdf();
-  //trazer html
-  $dompdf->load_html('ola');
+$dompdf->set_base_path('node_modules/materialize-css/dist/css/materialize.min.css');
 
-  ob_start();
+  
+$teste = file_get_contents('boletimVisualizacao.html.php');
 
- include 'boletim.php';
+$html = preg_replace('/>\s+</', '><', $teste);
 
-$dompdf->loadHtml(ob_get_clean());
+$dompdf->loadHtml(stripslashes($html));
 
   // Definindo o papel e a orientação
   $dompdf->setPaper('A4');
