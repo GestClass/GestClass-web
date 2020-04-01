@@ -179,7 +179,7 @@
                         </div>
                     </div>
 
-                    <H5>Responsável</H5>
+                    <H5>Novo Responsável</H5>
                     <div class="file-field input-field col s12 m3 l3">
                         <div id="btnfoto" class="btn col s6">
                             <span><i class="material-icons">add_a_photo</i></span>
