@@ -1,48 +1,45 @@
-html{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-h3{
-    padding-left:450px;
-    padding-top: 40px;
-}
-h5{
-    padding-left: 50px;
+html {
+    font-family: 'arial';
 }
 
-.centered  {
-    width: 700px;
-    border-collapse: collapse;
-    border-spacing: 0;
-    display: block;
+h4 {
+    margin-left: 200px;
+}
+
+.input-field {
     position: relative;
-    padding-left: 30px;
-    padding-top: 30px;
+    margin-top: 50px;
+    margin-bottom: 1rem;
+    margin-right: 40px;
 }
-td, th {
-    padding: 10px 20px;
-    display: table-cell;
-    text-align: left;
-    vertical-align: middle;
-    border-radius: 2px;
+
+.blue.lighten-3 {
+    background-color: #90CAF9 !important;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
-.btn-flat{
-    margin-left: 850px;
-    font-weight: bold;
-    margin-top:40px;
+
+.tabs .tab a {
+    color: rgba(255, 255, 255, 0.9) !important;
 }
-.waves-effect {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    overflow: hidden;
-    margin-left: 150px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    vertical-align: middle;
-    z-index: 1;
-    -webkit-transition: .3s ease-out;
-    transition: .3s ease-out;
+
+.tabs .tab a:hover,
+.tabs .tab a.active {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: #90CAF9 !important;
+}
+
+#tabs-swipe-demo .indicator {
+    background-color: #42a5f5;
+}
+
+table.striped>tbody>tr {
+    background-color: #bbdefb;
+    /* whatever color you want */
+}
+
+table.info {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

@@ -1,26 +1,25 @@
-$(document).ready(function () {
-  $('.sidenav').sidenav()
+$(document).ready(function() {
+    $('.sidenav').sidenav()
 })
 
 $(document).ready(() => {
-  $('.fixed-action-btn').floatingActionButton()
+    $('.fixed-action-btn').floatingActionButton()
 })
 
 $(document).ready(() => {
-  $('.tooltipped').tooltip()
+    $('.tooltipped').tooltip()
 })
 
 $(document).ready(() => {
-  $('select').formSelect()
+    $('select').formSelect()
 })
 
 $('.dropdown-trigger').dropdown();
 
 $(document).ready(() => {
-  $('.modal').modal()
+    $('.modal').modal()
 })
 
-$(document).ready(function () {
-  $('.materialboxed').materialbox();
+$(document).ready(function() {
+    $('.materialboxed').materialbox();
 });
-

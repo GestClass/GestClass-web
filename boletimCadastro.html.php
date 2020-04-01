@@ -331,7 +331,7 @@
                     <i class="material-icons left">send</i>Enviar
                 </button>
             </div>
-            <?php/* while $query_insert = $conn->prepare("INSERT INTO dados_aluno (nota , observacoes, fk_ra_aluno_dados_aluno, fk_id_disciplina_dados_aluno) VALUES())
+            <?php /* while $query_insert = $conn->prepare("INSERT INTO dados_aluno (nota , observacoes, fk_ra_aluno_dados_aluno, fk_id_disciplina_dados_aluno) VALUES())
 
              */?>
         </div>
