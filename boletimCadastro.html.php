@@ -19,8 +19,15 @@
 
     <body id="body_boletimCadastro">
 
-        <?php require_once 'reqHeader.php' ?>
-        <?php  include_once 'php/conexao.php'; ?>
+        <?php
+          session_start();
+          require_once 'reqHeader.php';
+          include_once 'php/conexao.php';
+
+          $id_usuario = $_SESSION["id_usuario"];
+          $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+          $id_escola = $_SESSION["id_escola"];
+        ?>
 
 
       <form class="" action="boletimCadastro.html.php" method="post">
@@ -38,6 +45,10 @@
 
               <br>
               <br>
+              <?php $query_select_turma = $conn->prepare("SELECT ID_turma, nome_turma FROM turma");
+                    $query_select_turma->execute();
+              ?>
+
               <div id="cadastro" class="col s12 m12 l12">
                 <h4 class="center">Cadastro de Notas</h4>
                 <br>
@@ -46,22 +57,24 @@
                         <i class="material-icons prefix blue-icon">content_copy</i>
                         <select id="nome_tipo_turma" name="turma">
                         <option value="" disabled selected>Selecione a Turma</option>
-                        <option value="4">8º ano A</option>
-                        <option value="5">9º ano A</option>
-                        <option value="1">1º ano A</option>
-                        <option value="2">2º ano A</option>
-                        <option value="3">3º ano A</option>
+                        <?php while($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)){ ?>
+                        <option name="turma" value="<?php echo $dados_turma['ID_turma'] ?>"><?php echo $dados_turma['nome_turma'] ?></option>
+                      <?php } ?>
                         </select>
                         <label id="lbl">Turma</label>
                     </div>
 
+                  <?php $query_select_disciplina = $conn->prepare("SELECT ID_disciplina, nome_disciplina FROM disciplina");
+                        $query_select_disciplina->execute();
+
+                    ?>
                     <div class="input-field col s12 m6 l6 validate">
                         <i class="material-icons prefix blue-icon">library_books</i>
                         <select id="nome_tipo_turma" name="disciplina">
                         <option value="" disabled selected>Selecione a Disciplina</option>
-                        <option value="4">Portugê<s></s></option>
-                        <option value="5">Inglês</option>
-                        <option value="1">História</option>
+                        <?php while($dados_disciplina = $query_select_disciplina->fetch(PDO::FETCH_ASSOC)){ ?>
+                        <option value="<?php echo $dados_disciplina['ID_disciplina'] ?>"><?php echo $dados_disciplina['nome_disciplina']  ?></option>
+                      <?php } ?>
                         </select>
                         <label id="lbl">Disciplina</label>
                     </div>
@@ -95,11 +108,15 @@
                 $disciplina = $_POST['disciplina'];
 
 
-                $query = $conn->prepare("SELECT * FROM aluno where fk_id_turma_aluno = 16");
+                $query = $conn->prepare("SELECT * FROM aluno where fk_id_turma_aluno =");
                 $query->execute();
-
-
                 ?>
+                <script>
+                  var valor = $("input [name = turma]").val()
+                  alert(valor)
+                </script>
+
+
                 <table class="highlight centered">
                     <thead>
                         <tr>
@@ -128,85 +145,11 @@
                 </table>
 
 
-<<<<<<< HEAD
-          <table class="highlight centered">
-              <thead>
-                  <tr>
-                      <th>Nome</th>
-                      <th>Nota</th>
-                      <th>Observações</th>
-                  </tr>
-              </thead>
-
-              <tbody>
-                  <tr>
-                      <td>Nome(Aluno)</td>
-                      <td>
-                          <label>
-                              <input type="number" data-mask="00.00" placeholder="Ex: 09.50"/>
-                              <span></span>
-                          </label>
-                      </td>
-                      <td>
-                          <input type="text" placeholder="Observações . . ."/>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td>Nome(Aluno)</td>
-                      <td>
-                          <label>
-                              <input type="number" data-mask="00.00" placeholder="Ex: 09.50"/>
-                              <span></span>
-                          </label>
-                      </td>
-                      <td>
-                          <input type="text" placeholder="Observações . . ."/>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td>Nome(Aluno)</td>
-                      <td>
-                          <label>
-                              <input type="number" data-mask="00.00" placeholder="Ex: 09.50"/>
-                              <span></span>
-                          </label>
-                      </td>
-                      <td>
-                          <input type="text" placeholder="Observações . . ."/>
-                      </td>
-                  </tr>
-
-              <tr>
-                  <td>Nome(Aluno)</td>
-                  <td>
-                          <label>
-                              <input type="number" data-mask="00.00" placeholder="Ex: 09.50"/>
-                              <span></span>
-                          </label>
-                      </td>
-                      <td>
-                          <input type="text" placeholder="Observações . . ."/>
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
-        
-          <div class="input-field right">
-              <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
-                  <i class="material-icons left">send</i>Enviar
-              </button>
-=======
-                <div class="input-field right">
-                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
-                        <i class="material-icons left">send</i>Enviar
-                    </button>
-                </div>
-
-            </div>
->>>>>>> 37962c50403c50e5d791f1a8be6df161990c4d9b
-          </div>
+              <div class="input-field right">
+                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
+                    <i class="material-icons left">send</i>Enviar
+                </button>
+              </div>
         </form>
 
           <form class="" action="php/boletimCadastro.php" method="post">
@@ -331,8 +274,13 @@
                     <i class="material-icons left">send</i>Enviar
                 </button>
             </div>
+<<<<<<< HEAD
             <?php /* while $query_insert = $conn->prepare("INSERT INTO dados_aluno (nota , observacoes, fk_ra_aluno_dados_aluno, fk_id_disciplina_dados_aluno) VALUES())
 
+=======
+            <?php/* while $query_insert = $conn->prepare("INSERT INTO dados_aluno (nota , observacoes, fk_ra_aluno_dados_aluno, fk_id_disciplina_dados_aluno) VALUES())
+//
+>>>>>>> 8a128ba928a6c8df6b9e6c5ec72262c350d15162
              */?>
         </div>
       </div>

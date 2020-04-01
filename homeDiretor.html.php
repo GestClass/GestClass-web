@@ -1,4 +1,13 @@
-<?php require_once 'reqHeader.php' ?>
+<?php
+
+  require_once 'reqDiretor.php';
+
+
+  // echo "id usuario ->".$id_usuario."</br>";
+  // echo "id tipo usuario ->".$id_tipo_usuario."</br>";
+  // echo "id escola ->".$id_escola."</br>";
+
+?>
 
 <section class="section center">
   <div class="container">

@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    include_once 'php/conexao.php';
+
+    $id_usuario = $_SESSION["id_usuario"];
+    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+    $id_escola = $_SESSION["id_escola"];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -17,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="css/menu.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />
- 
+
 
 </head>
 
@@ -53,7 +64,7 @@
                 </div>
             </nav>
         </div>
-        <ul id="slide-out" class="sidenav">
+        <ul id="slide-out" class="sidenav" style="width:auto">
             <li>
                 <div class="user-view">
                     <div class="background light-blue lighten-1">
@@ -90,4 +101,3 @@
             <li><a href="index.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
     </header>
-  

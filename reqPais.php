@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    include_once 'php/conexao.php';
+
+    $id_usuario = $_SESSION["id_usuario"];
+    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+    $id_escola = $_SESSION["id_escola"];
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -53,7 +62,7 @@
                 </div>
             </nav>
         </div>
-        <ul id="slide-out" class="sidenav">
+        <ul id="slide-out" class="sidenav" style="width:auto">
             <li>
                 <div class="user-view">
                     <div class="background light-blue lighten-1">

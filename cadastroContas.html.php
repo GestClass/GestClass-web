@@ -74,22 +74,26 @@
                     </div>
                     <div class="input-field col s12 m4 l2">
                         <i class="material-icons prefix blue-icon">location_on</i>
-                        <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate ">
+                        <input id="cep" placeholder="08574-150" type="text" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
                         <label id="lbl" for="first_name">CEP</label>
                     </div>
-                    <div id="a" class="input-field col s10 m4 l3">
-                        <input id="rua" placeholder="Rua" type="tel" class="validate ">
-                        <label id="lbl" for="first_name">Rua</label>
+                    <div id="a" class="input-field col s10 m4 l2">
+                        <input id="cidade" placeholder="Cidade" type="text" class="validate">
+                        <label id="lbl" for="first_name">Cidade</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m4 l2">
+                        <input id="bairro" placeholder="Bairro" type="text" class="validate">
+                        <label id="lbl" for="first_name">Bairro</label>
                     </div>
                     <div id="a" class="input-field col s10 m4 l3">
-                        <input id="Bairro" placeholder="Bairro" type="tel" class="validate ">
-                        <label id="lbl" for="first_name">Bairro</label>
+                        <input id="rua" placeholder="Rua" type="text" class="validate">
+                        <label id="lbl" for="first_name">Rua</label>
                     </div>
                     <div id="a" class="input-field col s10 m2 l1">
                         <input id="numero" placeholder="Número" type="tel" class="validate ">
                         <label id="lbl" for="first_name">Nº</label>
                     </div>
-                    <div id="a" class="input-field col s10 m6 l3">
+                    <div id="a" class="input-field col s10 m6 l2">
                         <input id="complemento" placeholder="Complemento" type="tel" class="validate ">
                         <label id="lbl" for="first_name">Complemento</label>
                     </div>
@@ -175,7 +179,7 @@
                         </div>
                     </div>
 
-                    <H5>Responsável</H5>
+                    <H5>Novo Responsável</H5>
                     <div class="file-field input-field col s12 m3 l3">
                         <div id="btnfoto" class="btn col s6">
                             <span><i class="material-icons">add_a_photo</i></span>
@@ -296,22 +300,26 @@
                     </div>
                     <div class="input-field col s12 m4 l2">
                         <i class="material-icons prefix blue-icon">location_on</i>
-                        <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate ">
+                        <input id="cep" placeholder="08574-150" type="text" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
                         <label id="lbl" for="first_name">CEP</label>
                     </div>
-                    <div id="a" class="input-field col s10 m4 l3">
-                        <input id="rua" placeholder="Rua" type="tel" class="validate ">
-                        <label id="lbl" for="first_name">Rua</label>
+                    <div id="a" class="input-field col s10 m4 l2">
+                        <input id="cidade" placeholder="Cidade" type="text" class="validate">
+                        <label id="lbl" for="first_name">Cidade</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m4 l2">
+                        <input id="bairro" placeholder="Bairro" type="text" class="validate">
+                        <label id="lbl" for="first_name">Bairro</label>
                     </div>
                     <div id="a" class="input-field col s10 m4 l3">
-                        <input id="Bairro" placeholder="Bairro" type="tel" class="validate ">
-                        <label id="lbl" for="first_name">Bairro</label>
+                        <input id="rua" placeholder="Rua" type="text" class="validate">
+                        <label id="lbl" for="first_name">Rua</label>
                     </div>
                     <div id="a" class="input-field col s10 m2 l1">
                         <input id="numero" placeholder="Número" type="tel" class="validate ">
                         <label id="lbl" for="first_name">Nº</label>
                     </div>
-                    <div id="a" class="input-field col s10 m6 l3">
+                    <div id="a" class="input-field col s10 m6 l2">
                         <input id="complemento" placeholder="Complemento" type="tel" class="validate ">
                         <label id="lbl" for="first_name">Complemento</label>
                     </div>
@@ -430,22 +438,26 @@
                     </div>
                     <div class="input-field col s12 m4 l2">
                         <i class="material-icons prefix blue-icon">location_on</i>
-                        <input id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate ">
+                        <input id="cep" placeholder="08574-150" type="text" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
                         <label id="lbl" for="first_name">CEP</label>
                     </div>
-                    <div id="a" class="input-field col s10 m4 l3">
-                        <input id="rua" placeholder="Rua" type="tel" class="validate ">
-                        <label id="lbl" for="first_name">Rua</label>
+                    <div id="a" class="input-field col s10 m4 l2">
+                        <input id="cidade" placeholder="Cidade" type="text" class="validate">
+                        <label id="lbl" for="first_name">Cidade</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m4 l2">
+                        <input id="bairro" placeholder="Bairro" type="text" class="validate">
+                        <label id="lbl" for="first_name">Bairro</label>
                     </div>
                     <div id="a" class="input-field col s10 m4 l3">
-                        <input id="Bairro" placeholder="Bairro" type="tel" class="validate ">
-                        <label id="lbl" for="first_name">Bairro</label>
+                        <input id="rua" placeholder="Rua" type="text" class="validate">
+                        <label id="lbl" for="first_name">Rua</label>
                     </div>
                     <div id="a" class="input-field col s10 m2 l1">
                         <input id="numero" placeholder="Número" type="tel" class="validate ">
                         <label id="lbl" for="first_name">Nº</label>
                     </div>
-                    <div id="a" class="input-field col s10 m6 l3">
+                    <div id="a" class="input-field col s10 m6 l2">
                         <input id="complemento" placeholder="Complemento" type="tel" class="validate ">
                         <label id="lbl" for="first_name">Complemento</label>
                     </div>
@@ -477,11 +489,14 @@
                         <button name="btncadastrar" value="fomrSecretaria" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
                     </div>
                 </div>
+
             </div>
 
         </form>
-
     </div>
+
+    <script src="js/query-3.3.1.min.js"></script>
+    <script src="js/cep.js"></script>
     <script src="js/default.js"></script>
 
     <?php require_once 'reqFooter.php' ?>

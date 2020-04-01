@@ -6,9 +6,8 @@
     $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
     $id_escola = $_SESSION["id_escola"];
 
-
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -80,14 +79,25 @@
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a></li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">person</i>Alunos</a></li>
             <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario
                     Escolar</a>
-            <li><a href="paginaManutencao.php"><i class="material-icons">list_alt</i>Grade Escolar</a>
+            <li><a href="paginaManutencao.php"><i class="material-icons">people_alt</i>Professores</a></li>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">rowing</i>Atividades Extra</a>
+            <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i
+                        class="material-icons">group_add</i>Cadastro de contas
+                    <i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="cadastroContas.html.php#professor"><i class="material-icons">people_alt</i>Professores</a></li>
+                <li><a href="cadastroContas.html.php#secretaria"><i class="material-icons">school</i>Secretaria</a></li>
+                <li><a href="cadastroContas.html.php#alunos"><i class="material-icons">person</i>Alunos</a></li>
+                <li><a href="cadastroContas.html.php#responsavel"><i class="material-icons">wc</i>Pais</a></li>
+            </ul>
+            <li>
+                <div class="divider"></div>
             </li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a></li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">attach_money</i>Financeiro</a>
             <li>
                 <div class="divider"></div>
             </li>

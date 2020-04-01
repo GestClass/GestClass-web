@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
     $('.tabs').tabs({
-        swipeable: false,
+        swipeable: false, //função para arrastar para o lado
         responsiveThreshold: 700
     });
 });
@@ -101,37 +101,6 @@ function contagemCarac() {
 
 
 
-// CONSULTA DE CEP
-
-$('.cepConsulta').blur(async () => {
-    let cep = $('.cepConsulta').val()
-    fetch(`https://viacep.com.br/ws/${cep}/json`).then(dados => {
-        dados.json().then(endereco => {
-
-            endereco.erro ?
-                showToast('O CEP informado é inválido')
-            :
-            $('.rua').val(endereco.logradouro)
-            $('.bairro').val(endereco.bairro)
-            $('.cidade').val(endereco.localidade)
-            $('.estado').val(endereco.uf)
-        })
-    })
-    .catch(erro => {
-        
-    })
-    
-})
-
-function showToast(message, ){
-    iziToast.error({
-        message,
-        position: 'bottomRight',
-        close
-    })
-}
-
-// FIM CONSULTA CEP
 
 
 
@@ -141,14 +110,55 @@ function showToast(message, ){
 
 function trocaFormResp(params) {
     console.log(params);
-    
+
     if (params == true) {
         $('.novoResp').removeClass('hide')
         $('.existeResp').addClass('hide')
-    } else{
+    } else {
         $('.existeResp').removeClass('hide')
         $('.novoResp').addClass('hide')
     }
 }
 
 // FIM TROCA FORM RESPONSAVEL
+
+
+//Modal de cadastro de contas
+$(document).ready(function() {
+    $('.sidenav').sidenav();
+});
+
+$('.dropdown-trigger').dropdown();
+
+$(document).ready(function() {
+    $('.modal').modal();
+});
+
+$(document).ready(function() {
+    $('select').formSelect();
+});
+
+$(".formContas").hide();
+
+
+function habilitaForm() {
+    //alert($("#selectConta")[0].selectedIndex)
+
+    if ($("#selectConta")[0].selectedIndex === 1) {
+        $(".formContas").hide();
+        window.location.href = ('cadastrarAluno.html.php');
+    } else if ($("#selectConta")[0].selectedIndex === 2) {
+        $(".formContas").hide();
+        window.location.href = ('cadastrarResponsavel.html.php')
+    } else if ($("#selectConta")[0].selectedIndex === 3) {
+        $('#respcadastrado').show(500)
+    } else if ($("#selectConta")[0].selectedIndex === 4) {
+        $(".formContas").hide();
+        window.location.href = ('cadastrarProfessor.html.php')
+    } else {
+        $(".formContas").hide();
+        window.location.href = ('cadastrarSecretaria.html.php')
+    }
+}
+
+//Fim

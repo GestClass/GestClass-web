@@ -1,4 +1,5 @@
 html {
+<<<<<<< HEAD
     font-family: 'arial';
 }
 
@@ -42,4 +43,58 @@ table.striped>tbody>tr {
 table.info {
     margin-top: 15px;
     margin-bottom: 15px;
+=======
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h3 {
+    padding-left: 450px;
+    padding-top: 40px;
+}
+
+h5 {
+    padding-left: 50px;
+}
+
+.centered {
+    width: 700px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+td,
+th {
+    padding: 60px 20px 60px 20px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+.btn-flat {
+    margin-left: 850px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 150px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
+    -webkit-transition: .3s ease-out;
+    transition: .3s ease-out;
+>>>>>>> 8a128ba928a6c8df6b9e6c5ec72262c350d15162
 }

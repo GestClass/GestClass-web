@@ -19,13 +19,20 @@
 
 <body>
 
-    <?php require_once 'reqMenuAdm.php' ?>
+    <?php
+ 
+    require_once 'reqMenuAdm.php';
+
+
+    // echo "id usuario ->".$id_usuario."</br>";
+    // echo "id tipo usuario ->".$id_tipo_usuario."</br>";
+    ?>
 
     <section class="section center">
         <div class="container">
             <div class="row">
                 <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
+                    <a href="admins.html.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="far fa-user fa-6x blue-icon"></i>
                             <h5>Admins</h5>

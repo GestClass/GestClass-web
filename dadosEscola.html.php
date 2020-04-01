@@ -33,7 +33,7 @@
 
     $query_diretor = $conn->prepare("select * from diretor where fk_id_escola_diretor=$id_escola");
     $query_diretor->execute();
-    $dados_diretor = $query_diretor->fetch(PDO::FETCH_ASSOC);
+    
    
     
     ?>
@@ -236,15 +236,17 @@
         <div class="col s12 m12 l12" id="dadosDiretor">
             <div class="container">
                 <h5>Diretores Escola</h5><br>
+                <?php while ($dados_diretor = $query_diretor->fetch(PDO::FETCH_ASSOC)) {?>
                 <ul class="collection">
                     <li class="collection-item avatar">
-                        <img src="\assets<?php echo  $dados_diretor["foto"]; ?>"  alt="" class="circle">
+                        <img src="assets/img/<?php echo  $dados_diretor["foto"]; ?>" alt="" class="circle">
                         <span class="title"><?php echo $dados_diretor["nome_diretor"] ?></span><br>
                         <span class="title"><?php echo $dados_diretor["email"] ?></span><br>
                         <span class="title"><?php echo $dados_diretor["cpf"] ?></span>
                         <a href="#" class="secondary-content"><i class="material-icons green-icon">done</i></a>
                     </li>
                 </ul>
+                <?php }?>
             </div>
         </div>
     </div>
