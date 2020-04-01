@@ -24,7 +24,7 @@
         <div class="row">
             <ul class="collection">
                 <li class="collection-item avatar">
-                    <img src="assets/ana.png" alt="" class="circle">
+                    <img src="assets/imagensBanco/ana.jpg" alt="" class="circle">
                     <span class="title">Ana Beatriz</span>
                     <p>anaana.abl@gmail.com<br>
                         (11) 97999-7809
@@ -34,7 +34,7 @@
             </ul>
             <ul class="collection">
                 <li class="collection-item avatar">
-                    <img src="assets/caio.jpg" alt="" class="circle">
+                    <img src="assets/imagensBanco/caio.jpg" alt="" class="circle">
                     <span class="title">Caio Fonseca</span>
                     <p>fcaio8137@gmail.com<br>
                         (11) 97765-3360
@@ -44,7 +44,7 @@
             </ul>
             <ul class="collection">
                 <li class="collection-item avatar">
-                    <img src="assets/kadu.png" alt="" class="circle">
+                    <img src="assets/imagensBanco/kadu.jpg" alt="" class="circle">
                     <span class="title">Carlos Eduardo</span>
                     <p>kadugomes343@gmail.com<br>
                         (11) 94302-7065
@@ -54,7 +54,7 @@
             </ul>
             <ul class="collection">
                 <li class="collection-item avatar">
-                    <img src="assets/eric.png" alt="" class="circle">
+                    <img src="assets/imagensBanco/eric.jpg" alt="" class="circle">
                     <span class="title">Eric Veludo</span>
                     <p>eric.oliveira46@etec.sp.gov.br<br>
                         (11) 97322-3651
@@ -64,7 +64,7 @@
             </ul>
             <ul class="collection">
                 <li class="collection-item avatar">
-                    <img src="assets/hector.png" alt="" class="circle">
+                    <img src="assets/imagensBanco/hector.jpg" alt="" class="circle">
                     <span class="title">Hector Lima</span>
                     <p>hector.limaaa@gmail.com<br>
                         (11) 96353-8500
@@ -74,7 +74,7 @@
             </ul>
             <ul class="collection">
                 <li class="collection-item avatar">
-                    <img src="assets/monique.png" alt="" class="circle">
+                    <img src="assets/imagensBanco/monique.jpg" alt="" class="circle">
                     <span class="title">Monique Correia</span>
                     <p>nick_oliveira2002@hotmail.com<br>
                         (11) 94956-0440

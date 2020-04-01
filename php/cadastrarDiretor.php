@@ -61,7 +61,7 @@
 
         	$nome_imagem = md5(uniqid(time())) . "." . $ext[1];
         	
-        	$caminho = "../assets/img/" . $nome_imagem;
+        	$caminho = "../assets/imagensBanco/" . $nome_imagem;
 			
 			move_uploaded_file($temp, $caminho);
 			

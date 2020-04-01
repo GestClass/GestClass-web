@@ -5,6 +5,10 @@
     $id_usuario = $_SESSION["id_usuario"];
     $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
     $id_escola = $_SESSION["id_escola"];
+
+    $query = $conn->prepare("select * from responsavel where id_responsavel=$id_usuario");
+    $query->execute();
+    $dados = $query->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -44,13 +48,24 @@
 
                         <ul class="right">
                             <li>
-                                <a class="transparent hide-on-small-only" disable>Olá Ana</a>
+                                <a class="transparent hide-on-small-only" disable>Olá
+                                    <?php echo $dados['nome_responsavel']?></a>
                             </li>
+                            <?php if(empty($dados['foto'])){?>
                             <li>
                                 <a href="perfil.html.php" class="transparent hide-on-small-only">
-                                    <img class="circle icon-user" width="50px" height="50px" src="assets/img/pp.jpg">
+                                    <img class="circle icon-user" width="50px" height="50px"
+                                        src="assets/imagensBanco/usuario.png">
                                 </a>
                             </li>
+                            <?php }else{?>
+                            <li>
+                                <a href="perfil.html.php" class="transparent hide-on-small-only">
+                                    <img class="circle icon-user" width="50px" height="50px"
+                                        src="assets/imagensBanco/<?php echo $dados['foto']?>">
+                                </a>
+                            </li>
+                            <?php }?>
                             <li>
                                 <div class="dividerVert hide-on-small-only"></div>
                             </li>
@@ -68,9 +83,13 @@
                     <div class="background light-blue lighten-1">
                         <!-- <img src="assets/img/slide2.png"> -->
                     </div>
-                    <a href="perfil.html.php"><img class="circle" src="assets/img/pp.jpg"></a>
-                    <a href="perfil.html.php"><span class="white-text name">Ana Beatriz</span></a>
-                    <a href="perfil.html.php"><span class="white-text email">ana.lopes155@etec.sp.gov.br</span></a>
+                    <?php if(empty($dados['foto'])){?>
+                        <a href="perfil.html.php"><img class="circle" src="assets/imagensBanco/usuario.png"></a>
+                    <?php }else{?>   
+                        <a href="perfil.html.php"><img class="circle" src="assets/imagensBanco/<?php echo $dados['foto']?>"></a> 
+                    <?php }?>
+                    <a href="perfil.html.php"><span class="white-text name"><?php echo $dados['nome_responsavel']?></span></a>
+                    <a href="perfil.html.php"><span class="white-text email"><?php echo $dados['email']?></span></a>
                 </div>
             </li>
             <li><a href="homeSecretaria.html.php"><i class="material-icons">home</i>Início</a></li>

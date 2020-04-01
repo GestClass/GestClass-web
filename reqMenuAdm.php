@@ -58,7 +58,7 @@
                 </div>
             </nav>
         </div>
-        <ul id="slide-out" class="sidenav mobile-nav" style="width:auto">
+        <ul id="slide-out" class="sidenav mobile-nav">
             <li>
                 <div class="user-view">
                     <div class="background indigo darken-4">
