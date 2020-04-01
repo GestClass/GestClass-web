@@ -1,13 +1,9 @@
 <?php
-  session_start();
 
-  include_once 'php/conexao.php';
-  require_once 'reqHeader.php';
-  $id_usuario = $_SESSION["id_usuario"];
-  $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
-  $id_escola = $_SESSION["id_escola"];
+  require_once 'reqDiretor.php';
 
-  //// echo "id usuario ->".$id_usuario."</br>";
+
+  // echo "id usuario ->".$id_usuario."</br>";
   // echo "id tipo usuario ->".$id_tipo_usuario."</br>";
   // echo "id escola ->".$id_escola."</br>";
 

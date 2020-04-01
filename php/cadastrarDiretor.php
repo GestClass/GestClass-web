@@ -71,10 +71,12 @@
             if ($query->execute()) {
 
                 echo "<script>alert('Diretor cadastrada com sucesso');
-                        window.location='../homeDiretor.html.php';
+                        window.location='../login.html.php';
                      </script>";
             }else{
-				print_r($query);exit();
+				echo "<script>alert('Erro: Diretor não cadastrado');
+					history.back();
+				</script>";
 			
 
 				 
