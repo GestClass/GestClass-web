@@ -19,7 +19,17 @@
 
 <body>
 
-    <?php require_once 'reqMenuAdm.php' ?>
+    <?php
+    session_start();
+    require_once 'reqMenuAdm.php';
+    include_once 'php/conexao.php';
+
+    $id_usuario = $_SESSION["id_usuario"];
+    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+
+    // echo "id usuario ->".$id_usuario."</br>";
+    // echo "id tipo usuario ->".$id_tipo_usuario."</br>";
+    ?>
 
     <section class="section center">
         <div class="container">
