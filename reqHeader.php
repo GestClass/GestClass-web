@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/menu.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />
- 
+
 
 </head>
 
@@ -90,4 +90,3 @@
             <li><a href="index.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
     </header>
-  
