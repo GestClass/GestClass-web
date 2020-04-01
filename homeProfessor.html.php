@@ -7,7 +7,7 @@ $id_usuario = $_SESSION["id_usuario"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
 
-// echo "id usuario ->".$id_usuario."</br>";
+//// echo "id usuario ->".$id_usuario."</br>";
 // echo "id tipo usuario ->".$id_tipo_usuario."</br>";
 // echo "id escola ->".$id_escola."</br>";
 ?>

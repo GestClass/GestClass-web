@@ -5,7 +5,7 @@
 define('HOST', 'localhost');
 define('USER', 'root');
 <<<<<<< HEAD
-define('PASS', '1234');
+define('PASS', '');
 define('DBNAME', 'GestClass');
 =======
 define('PASS', '');
