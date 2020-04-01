@@ -1,15 +1,17 @@
-html{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-h3{
-    padding-left:450px;
+
+h3 {
+    padding-left: 450px;
     padding-top: 40px;
 }
-h5{
+
+h5 {
     padding-left: 50px;
 }
 
-.centered  {
+.centered {
     width: 700px;
     border-collapse: collapse;
     border-spacing: 0;
@@ -18,18 +20,22 @@ h5{
     padding-left: 30px;
     padding-top: 30px;
 }
-td, th {
-    padding: 10px 20px;
+
+td,
+th {
+    padding: 60px 20px 60px 20px;
     display: table-cell;
     text-align: left;
     vertical-align: middle;
     border-radius: 2px;
 }
-.btn-flat{
+
+.btn-flat {
     margin-left: 850px;
     font-weight: bold;
-    margin-top:40px;
+    margin-top: 40px;
 }
+
 .waves-effect {
     position: relative;
     cursor: pointer;
