@@ -145,7 +145,6 @@ body {
     color: #64b5f6;
 }
 
-<<<<<<< HEAD
 
 /*  -   CSS 'boletimVisualizacao.php'  -   */
 
@@ -164,9 +163,9 @@ body {
 
 #container_boletimVisualizacao ::placeholder {
     text-shadow: 0.5px 0.5px 0.5px #111;
-=======
+}
+
 #btnfoto {
     background-color: #64b5f6;
     width: 50px;
->>>>>>> 37962c50403c50e5d791f1a8be6df161990c4d9b
 }

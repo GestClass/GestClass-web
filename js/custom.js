@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
     $('.tabs').tabs({
-        swipeable: false,
+        swipeable: false, //função para arrastar para o lado
         responsiveThreshold: 700
     });
 });
@@ -121,3 +121,44 @@ function trocaFormResp(params) {
 }
 
 // FIM TROCA FORM RESPONSAVEL
+
+
+//Modal de cadastro de contas
+$(document).ready(function() {
+    $('.sidenav').sidenav();
+});
+
+$('.dropdown-trigger').dropdown();
+
+$(document).ready(function() {
+    $('.modal').modal();
+});
+
+$(document).ready(function() {
+    $('select').formSelect();
+});
+
+$(".formContas").hide();
+
+
+function habilitaForm() {
+    //alert($("#selectConta")[0].selectedIndex)
+
+    if ($("#selectConta")[0].selectedIndex === 1) {
+        $(".formContas").hide();
+        window.location.href = ('cadastrarAluno.html.php');
+    } else if ($("#selectConta")[0].selectedIndex === 2) {
+        $(".formContas").hide();
+        window.location.href = ('cadastrarResponsavel.html.php')
+    } else if ($("#selectConta")[0].selectedIndex === 3) {
+        $('#respcadastrado').show(500)
+    } else if ($("#selectConta")[0].selectedIndex === 4) {
+        $(".formContas").hide();
+        window.location.href = ('cadastrarProfessor.html.php')
+    } else {
+        $(".formContas").hide();
+        window.location.href = ('cadastrarSecretaria.html.php')
+    }
+}
+
+//Fim

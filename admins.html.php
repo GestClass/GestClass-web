@@ -29,7 +29,7 @@
                     <p>anaana.abl@gmail.com<br>
                         (11) 97999-7809
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">create</i></a>
+                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
                 </li>
             </ul>
             <ul class="collection">
@@ -39,7 +39,7 @@
                     <p>fcaio8137@gmail.com<br>
                         (11) 97765-3360
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">create</i></a>
+                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
                 </li>
             </ul>
             <ul class="collection">
@@ -49,7 +49,7 @@
                     <p>kadugomes343@gmail.com<br>
                         (11) 94302-7065
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">create</i></a>
+                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
                 </li>
             </ul>
             <ul class="collection">
@@ -59,7 +59,7 @@
                     <p>eric.oliveira46@etec.sp.gov.br<br>
                         (11) 97322-3651
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">create</i></a>
+                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
                 </li>
             </ul>
             <ul class="collection">
@@ -69,7 +69,7 @@
                     <p>hector.limaaa@gmail.com<br>
                         (11) 96353-8500
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">create</i></a>
+                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
                 </li>
             </ul>
             <ul class="collection">
@@ -79,7 +79,7 @@
                     <p>nick_oliveira2002@hotmail.com<br>
                         (11) 94956-0440
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">create</i></a>
+                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
                 </li>
             </ul>
         </div>
