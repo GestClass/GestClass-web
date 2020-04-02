@@ -146,10 +146,10 @@ function habilitaForm() {
 
     if ($("#selectConta")[0].selectedIndex === 1) {
         $(".formContas").hide();
-        window.location.href = ('cadastrarAluno.html.php');
+        window.location.href = ('cadastrarAlunoRespon.html.php');
     } else if ($("#selectConta")[0].selectedIndex === 2) {
         $(".formContas").hide();
-        window.location.href = ('cadastrarResponsavel.html.php')
+        window.location.href = ('cadastrarAluno.html.php')
     } else if ($("#selectConta")[0].selectedIndex === 3) {
         $('#respcadastrado').show(500)
     } else if ($("#selectConta")[0].selectedIndex === 4) {
