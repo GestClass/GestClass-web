@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m4">
-        <a href="chamada.php.html.php">
+        <a href="chamada.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-clipboard-list fa-6x blue-icon"></i>
             <h5>Chamada</h5>

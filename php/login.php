@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  // session_start();
   include_once 'conexao.php';
 
   $email=$_POST['emailLogin'];

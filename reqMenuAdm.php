@@ -1,9 +1,18 @@
 <?php
-        session_start();
+        // session_start();
         include_once 'php/conexao.php';
 
         $id_usuario = $_SESSION["id_usuario"];
         $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+
+        $query = $conn->prepare("select * from admin where id_admin=$id_usuario");
+        $query->execute();
+        $dados = $query->fetch(PDO::FETCH_ASSOC);
+
+        $nomeADM = $dados['nome'];
+        
+        $nome = Explode(" ",$nomeADM);
+        $nome_admin = $nome[0];
 ?>
 
 <!DOCTYPE html>
@@ -39,18 +48,28 @@
 
                         <ul class="right">
                             <li>
-                                <a class="transparent hide-on-small-only" disable>Olá Ana</a>
+                                <a class="transparent hide-on-small-only" disable>Olá <?php echo $nome_admin?></a>
                             </li>
+                            <?php if(empty($dados['foto'])){?>
                             <li>
                                 <a href="perfil.html.php" class="transparent hide-on-small-only">
-                                    <img class="circle icon-user" width="50px" height="50px" src="assets/img/pp.jpg">
+                                    <img class="circle icon-user" width="50px" height="50px"
+                                        src="assets/imagensBanco/usuario.png">
                                 </a>
                             </li>
+                            <?php }else{?>
+                            <li>
+                                <a href="perfil.html.php" class="transparent hide-on-small-only">
+                                    <img class="circle icon-user" width="50px" height="50px"
+                                        src="assets/imagensBanco/<?php echo $dados['foto']?>">
+                                </a>
+                            </li>
+                            <?php }?>
                             <li>
                                 <div class="dividerVert hide-on-small-only"></div>
                             </li>
                             <li>
-                                <a href="index.php" data-izimodal-open="#modalLogin"
+                                <a href="php/logout.php" data-izimodal-open="#modalLogin"
                                     class="btn-flat btnLight hide-on-small-only">Sair</a>
                             </li>
                         </ul>
@@ -64,16 +83,20 @@
                     <div class="background indigo darken-4">
                         <!-- <img src="assets/img/slide2.png"> -->
                     </div>
-                    <a href="perfil.html.php"><img class="circle" src="assets/img/pp.jpg"></a>
-                    <a href="perfil.html.php"><span class="white-text name">Ana Beatriz</span></a>
-                    <a href="perfil.html.php"><span class="white-text email">ana.lopes155@etec.sp.gov.br</span></a>
+                    <?php if(empty($dados['foto'])){?>
+                        <a href="perfil.html.php"><img class="circle" src="assets/imagensBanco/usuario.png"></a>
+                    <?php }else{?>   
+                        <a href="perfil.html.php"><img class="circle" src="assets/imagensBanco/<?php echo $dados['foto']?>"></a> 
+                    <?php }?>
+                    <a href="perfil.html.php"><span class="white-text name"><?php echo $nome_admin?></span></a>
+                    <a href="perfil.html.php"><span class="white-text email"><?php echo $dados['email']?></span></a>
                 </div>
             </li>
             <li><a href="homeAdmGest.html.php"><i class="material-icons">home</i>Início</a></li>
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">person</i>Admins</a></li>
+            <li><a href="admins.html.php"><i class="material-icons">person</i>Admins</a></li>
             <li><a href="cadastroEscola.html.php"><i class="material-icons">account_balance</i>Cadastro Escolas</a></li>
             <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">explore</i>Visão Geral</a></li>
             <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">email</i>Intermedio</a></li>
@@ -83,7 +106,7 @@
             <!-- <li><a class="subheader">Submenu</a></li> -->
             <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
             <li><a href="index.php"><i class="material-icons">settings</i>Configurações</a></li>
-            <li><a href="index.php"><i class="material-icons">input</i>Sair</a></li>
+            <li><a href="php/logout.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
 
 

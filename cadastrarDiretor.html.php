@@ -26,8 +26,6 @@
     
         $id = $_GET["id_escola"];
 
-        session_start();
-
         $_SESSION["id_da_escola"] = $id;
         
     
