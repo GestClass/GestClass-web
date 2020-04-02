@@ -27,18 +27,18 @@
       $id_escola = $_SESSION["id_escola"];
 
       if ($id_tipo_usuario == 1) {
-          require_once 'reqAdmGest.php';
-      } else if($id_tipo_usuario == 2){
-          require_once 'reqDiretor.php';
-      }else if($id_tipo_usuario == 3){
-          require_once 'reqHeader.php';
-      }elseif ($id_tipo_usuario == 4) {
-          require_once 'reqProfessor.php';
-      }elseif ($id_tipo_usuario  == 5) {
-          require_once 'reqAluno.php';
-      }else {
-          require_once 'reqPais.php';
-      }
+        require_once 'reqMenuAdm.php';
+        } else if($id_tipo_usuario == 2){
+            require_once 'reqDiretor.php';
+        }else if($id_tipo_usuario == 3){
+            require_once 'reqHeader.php';
+        }elseif ($id_tipo_usuario == 4) {
+            require_once 'reqProfessor.php';
+        }elseif ($id_tipo_usuario  == 5) {
+            require_once 'reqAluno.php';
+        }else {
+            require_once 'reqPais.php';
+        }
 
 ?>
 

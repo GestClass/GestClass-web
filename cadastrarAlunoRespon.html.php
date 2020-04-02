@@ -28,7 +28,7 @@
         $id_escola = $_SESSION["id_escola"];
     
         if ($id_tipo_usuario == 1) {
-            require_once 'reqAdmGest.php';
+            require_once 'reqMenuAdm.php';
         } else if($id_tipo_usuario == 2){
             require_once 'reqDiretor.php';
         }else if($id_tipo_usuario == 3){
