@@ -10,7 +10,6 @@
     <body class="body_estilizado">
 
         <?php
-          require_once 'reqHeader.php';
           include_once 'php/conexao.php';
 
           $id_usuario = $_SESSION["id_usuario"];
