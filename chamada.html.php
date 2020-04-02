@@ -41,66 +41,54 @@
                 require_once 'reqPais.php';
             }
 
+            $query_alunos = $conn->prepare("select * from aluno where fk_id_escola_aluno=1");
+            $query_alunos->execute();
+
+            
+
+            
+
     ?>
 
 
     <div class="container col s12 m12 l12">
         <h4>Chamada</h4>
+        <form action="php/chamada.php" method="post">
         <table class="highlight centered">
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>Ausente</th>
+                    <th>Data</th>
+                    <th>Presença</th>
                 </tr>
             </thead>
 
             <tbody>
+                <?php while($dados_alunos = $query_alunos->fetch(PDO::FETCH_ASSOC)){
+                    $RA = $dados_alunos["RA"];    
+                ?>
+
                 <tr>
-                    <td>Nome(Aluno)</td>
+                    <td><?php echo $dados_alunos['nome_aluno']?></td>
+                    <td>00/00/0000</td>
                     <td>
                         <label>
-                            <input type="checkbox" class="filled-in checkbox-blue-grey" />
+                            <input type="checkbox" name="presenca[]" value="1" class="filled-in checkbox-blue-grey" />
                             <span></span>
                         </label>
                     </td>
                 </tr>
-                <tr>
-                    <td>Nome(Aluno)</td>
-                    <td>
-                        <label>
-                            <input type="checkbox" class="filled-in checkbox-blue-grey" />
-                            <span></span>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nome(Aluno)</td>
-                    <td>
-                        <label>
-                            <input type="checkbox" class="filled-in checkbox-blue-grey" />
-                            <span></span>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nome(Aluno)</td>
-                    <td>
-                        <label>
-                            <input type="checkbox" class="filled-in checkbox-blue-grey" />
-                            <span></span>
-                        </label>
-                    </td>
-                </tr>
+                <?php }?>
             </tbody>
         </table>
-
+ 
         <div class="input-field right">
             <button class="btn waves-effect blue lighten-2" id="btnTableChamada" type="submit"
                 class="btn-flat btnDefaultTableChamada">
                 <i class="material-icons right">send</i>Enviar
             </button>
         </div>
-
+        </form>
     </div>
 
     <?php require_once 'reqFooter.php' ?>
