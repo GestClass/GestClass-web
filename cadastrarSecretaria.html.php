@@ -117,6 +117,9 @@
                 <button name="btncadastrar" value="fomrSecretaria" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
             </div>
         </form>
+        <div class="input-field right">
+            <button id="voltar" class="btn-flat btnLightBlue" onClick="history.go(-1)"><i class="material-icons">keyboard_return</i> Voltar</button>
+        </div>
     </div>
 
     <script src="js/query-3.3.1.min.js"></script>
