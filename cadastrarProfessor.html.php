@@ -41,9 +41,12 @@
                 require_once 'reqPais.php';
             }
     ?>
+    <div class="input-field right">
+            <button id="voltar" class="btn-flat btnLightBlue" onClick="history.go(-1)"><i class="material-icons">keyboard_return</i> Voltar</button>
+        </div>
 
     <div class="container col s12 m12 l12 ">
-        <form id="professor" method="POST" action="./controller/cadastro.controller.php">
+        <form id="professor" method="POST" action=./php/cadastrarContas.php">
             <h5>Professor</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
@@ -194,9 +197,6 @@
                 <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
             </div>
         </form>
-        <div class="input-field right">
-            <button id="voltar" class="btn-flat btnLightBlue" onClick="history.go(-1)"><i class="material-icons">keyboard_return</i> Voltar</button>
-        </div>
     </div>
 
     <script src="js/query-3.3.1.min.js"></script>

@@ -403,12 +403,12 @@ INSERT INTO contato (mensagem, fk_envio_aluno_ra_aluno, fk_recebimento_professor
 
 /*	-	INSERTS INTO TABLE ADMIN	-	*/
               
-INSERT INTO `admin` (nome, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Ana Beatriz', 'ana@gestclass.com', '1234', '2001.04.24', 1);
-INSERT INTO `admin` (nome, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Caio Fonseca', 'caio@gestclass.com', '1234', '2000.09.05', 1);
-INSERT INTO `admin` (nome, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Carlos eduardo', 'carlos@gestclass.com', '1234', '2002.04.23', 1);
-INSERT INTO `admin` (nome, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Eric Veludo', 'eric@gestclass.com', '1234', '2002.04.07', 1);
-INSERT INTO `admin` (nome, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Hector Lima', 'hector@gestclass.com', '1234', '1994.09.27', 1);
-INSERT INTO `admin` (nome, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Monique Correia', 'monique@gestclass.com', '1234', '2002.08.24', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Ana Beatriz', 'ana.jpg' , 'ana@gestclass.com', '1234', '2001.04.24', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Caio Fonseca', 'caio.jpg', 'caio@gestclass.com', '1234', '2000.09.05', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Carlos eduardo', 'kadu.jpg', 'carlos@gestclass.com', '1234', '2002.04.23', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Eric Veludo', 'eric.jpg', 'eric@gestclass.com', '1234', '2002.04.07', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Hector Lima', 'hector.jpg', 'hector@gestclass.com', '1234', '1994.09.27', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Monique Correia', 'monique.jpg', 'monique@gestclass.com', '1234', '2002.08.24', 1);
 
 
 /*	-	SELECTs 	-	*/

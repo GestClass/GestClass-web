@@ -170,3 +170,13 @@ body {
     background-color: #64b5f6;
     width: 50px;
 }
+
+@media (max-width: 500px) {
+    #a {
+        margin-left: 43px;
+    }
+}
+
+#lbl {
+    color: #64b5f6;
+}
