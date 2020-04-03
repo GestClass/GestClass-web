@@ -83,7 +83,7 @@ require_once 'reqHeader.php';
         </select>
       </div>
 
-      <form action="" class="formContas" id="respcadastrado" method="POST">
+      <form action="php/responCadastrado.php" class="formContas" id="respcadastrado" method="POST">
         <div class="row col s12">
           <div class="input-field col s12 m6 l6">
             <i class="material-icons prefix blue-icon">ballot</i>

@@ -100,29 +100,6 @@ function contagemCarac() {
 
 
 
-
-
-
-
-
-
-// TROCA FORM RESPONSAVEL
-
-function trocaFormResp(params) {
-    console.log(params);
-
-    if (params == true) {
-        $('.novoResp').removeClass('hide')
-        $('.existeResp').addClass('hide')
-    } else {
-        $('.existeResp').removeClass('hide')
-        $('.novoResp').addClass('hide')
-    }
-}
-
-// FIM TROCA FORM RESPONSAVEL
-
-
 //Modal de cadastro de contas
 $(document).ready(function() {
     $('.sidenav').sidenav();
