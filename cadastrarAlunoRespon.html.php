@@ -46,7 +46,7 @@
         <button id="voltar" class="btn-flat btnLightBlue" onClick="history.go(-1)"><i class="material-icons">keyboard_return</i> Voltar</button>
     </div>
     <div class="container col s12 m12 l12 ">
-        <form id="aluno-responsavel" method="POST" action="php/cadastrarAlunoRespon.php">
+        <form id="aluno-responsavel" method="POST" action="php/cadastrarAlunoRespon.php" enctype="multipart/form-data">
             <h5>Aluno</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">

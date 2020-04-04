@@ -119,7 +119,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s112 m12 l12 validate">
+                <div class="input-field col s12 m12 l12 validate">
                     <i class="material-icons prefix blue-icon">school</i>
                     <select name="turma" id="nome_turma">
                         <option value="" disabled selected>Selecione a Turma</option>

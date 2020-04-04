@@ -45,7 +45,7 @@
         <button id="voltar" class="btn-flat btnLightBlue" onClick="history.go(-1)"><i class="material-icons">keyboard_return</i> Voltar</button>
     </div>
     <div class="container col s12 m12 l12 ">
-        <form id="secretaria" method="POST" action="php/cadastrarSecretaria.php">
+        <form id="secretaria" method="POST" action="php/cadastrarSecretaria.php" enctype="multipart/form-data">
             <h5>Secretaria</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
@@ -64,20 +64,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s6 m4 l4">
+                <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix blue-icon">ballot</i>
                     <input name="rg" id="rg" type="tel" placeholder="62.548.678-7" data-mask="00.000.000-0" class="validate">
                     <label id="lbl" for="icon_telephone">RG</label>
                 </div>
-                <div class="input-field col s6 m4 l4">
+                <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix blue-icon">ballot</i>
                     <input name="cpf" id="CPF" type="tel" placeholder="785.958.651-88" data-mask="000.000.000-00" class="validate">
                     <label id="lbl" for="icon_telephone">CPF</label>
-                </div>
-                <div class="input-field col s12 m4 l4">
-                    <i class="material-icons prefix blue-icon">cake</i>
-                    <input name="data_nascimento" id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
-                    <label id="lbl">Data Nascimento</label>
                 </div>
             </div>
             <div class="row">

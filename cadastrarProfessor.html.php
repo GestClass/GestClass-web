@@ -46,7 +46,7 @@
     </div>
 
     <div class="container col s12 m12 l12 ">
-        <form id="professor" method="POST" action="php/cadastrarProfessor.php">
+        <form id="professor" method="POST" action="php/cadastrarProfessor.php" enctype="multipart/form-data">
             <h5>Professor</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
@@ -65,20 +65,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s6 m4 l4">
+                <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix blue-icon">ballot</i>
                     <input name="rg" id="rg" placeholder="68.124.586-8" type="tel" data-mask="00.000.000-0" class="validate">
                     <label id="lbl" for="icon_telephone">RG</label>
                 </div>
-                <div class="input-field col s6 m4 l4">
+                <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix blue-icon">ballot</i>
                     <input name="cpf" id="cpf" placeholder="158.688.987-10" type="tel" data-mask="000.000.000-00" class="validate">
                     <label id="lbl" for="icon_telephone">CPF</label>
-                </div>
-                <div class="input-field col s12 m4 l4">
-                    <i class="material-icons prefix blue-icon">cake</i>
-                    <input name="data_nascimento" id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
-                    <label id="lbl">Data Nascimento</label>
                 </div>
             </div>
             <div class="row">
@@ -139,56 +134,41 @@
             <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <i class="material-icons prefix blue-icon">school</i>
-                    <select id="nome_tipo_turma" multiple>
-                        <option value="" disabled selected>Selecione o Ensino</option>
-                        <option value="1">Berçario</option>
-                        <option value="2">Pré Escola</option>
-                        <option value="3">Fundamental I</option>
-                        <option value="4">Fundamental II</option>
-                        <option value="5">Ensino Médio</option>
-                    </select>
-                    <label id="lbl">Tipos Turmas</label>
-                </div>
-                <div id="a" class="input-field col s10 m6 l6">
-                    <select id="nome_turma" multiple>
+                    <select name="turma" id="nome_turma" multiple>
                         <option value="" disabled selected>Selecione a Turma</option>
                         <option value="1">Berçario A</option>
                         <option value="2">Pré 1 A</option>
                         <option value="3">Pré 2 B</option>
                         <option value="4">1º ano A</option>
-                        <option value="4">2º ano A</option>
-                        <option value="4">3º ano A</option>
-                        <option value="4">4º ano A</option>
-                        <option value="4">5º ano A</option>
-                        <option value="4">6º ano A</option>
-                        <option value="4">7º ano A</option>
-                        <option value="4">8º ano A</option>
-                        <option value="4">9º ano A</option>
-                        <option value="5">1º ano médio A</option>
-                        <option value="5">2º ano médio A</option>
-                        <option value="5">3º ano médio A</option>
+                        <option value="5">2º ano A</option>
+                        <option value="6">3º ano A</option>
+                        <option value="7">4º ano A</option>
+                        <option value="8">5º ano A</option>
+                        <option value="9">6º ano A</option>
+                        <option value="10">7º ano A</option>
+                        <option value="11">8º ano A</option>
+                        <option value="12">9º ano A</option>
+                        <option value="13">1º ano médio A</option>
+                        <option value="14">2º ano médio A</option>
+                        <option value="15">3º ano médio A</option>
                     </select>
                     <label id="lbl">Turmas</label>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 m6 l6">
-                    <i class="material-icons prefix blue-icon">school</i>
-                    <select id="nome_disciplina" multiple>
+                <div id="a" class="input-field col s10 m6 l6">
+                    <select name="disciplina" id="nome_disciplina" multiple>
                         <option value="" disabled selected>Selecione a Disciplina</option>
                         <option value="1">Português</option>
-                        <option value="2">Matemática</option>
-                        <option value="3">Inglês</option>
-                        <option value="4">Ciências</option>
-                        <option value="5">Geografia</option>
-                        <option value="6">História</option>
-                        <option value="7">Ed Física</option>
-                        <option value="8">Artes</option>
-                        <option value="9">Biologia</option>
-                        <option value="10">Sociologia</option>
-                        <option value="11">Filosofia</option>
-                        <option value="12">Química</option>
-                        <option value="13">Física</option>
+                        <option value="2">Inglês</option>
+                        <option value="3">Matemática</option>
+                        <option value="4">Biologia</option>
+                        <option value="5">Ciências</option>
+                        <option value="6">Química</option>
+                        <option value="7">Física</option>
+                        <option value="8">Filosofia</option>
+                        <option value="9">História</option>
+                        <option value="10">Geografia</option>
+                        <option value="11">Sociologia</option>
+                        <option value="12">Ed Física</option>
                     </select>
                     <label id="lbl">Diciplinas</label>
                 </div>

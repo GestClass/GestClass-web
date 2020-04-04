@@ -128,9 +128,6 @@ function habilitaForm() {
         $(".formContas").hide();
         window.location.href = ('cadastrarAluno.html.php')
     } else if ($("#selectConta")[0].selectedIndex === 3) {
-        $('#respcadastrado').show(500)
-    } else if ($("#selectConta")[0].selectedIndex === 4) {
-        $(".formContas").hide();
         window.location.href = ('cadastrarProfessor.html.php')
     } else {
         $(".formContas").hide();

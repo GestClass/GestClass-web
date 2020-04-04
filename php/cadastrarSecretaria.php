@@ -2,27 +2,25 @@
 
   include_once 'conexao.php';
 
-  // Aluno
-  $id_escola = $_SESSION["id_da_escola"];
+  // Secretaria
+  $id_escola = $_SESSION["id_escola"];
   $nome = $_POST["nome"];
   $rg = $_POST["rg"];
   $cpf = $_POST["cpf"];
   $cep = $_POST["cep"];
   $numero = $_POST["numero"];
   $complemento = $_POST["complemento"];
-  $data_nascimento = ["data_nascimento"];
   $email = $_POST["email"];
   $senha = $_POST["senha"];
   $confsenha = $_POST["confsenha"];
   $celular = $_POST["celular"];
   $telefone = $_POST["telefone"];
 
-  $image_file = $_FILES["txt_file"]["name"];
-	$type  = $_FILES["txt_file"]["type"]; //file name "txt_file" 
-	$size  = $_FILES["txt_file"]["size"];
-	$temp  = $_FILES["txt_file"]["tmp_name"];
-	$error  = $_FILES["txt_file"]["error"];
-	// print_r($imagem);exit;
+  $image_file = $_FILES["foto_file"]["name"];
+	$type  = $_FILES["foto_file"]["type"]; //file name "foto_file" 
+	$size  = $_FILES["foto_file"]["size"];
+	$temp  = $_FILES["foto_file"]["tmp_name"];
+	$error  = $_FILES["foto_file"]["error"];
 	
 	if ($error==1){
 		echo "<script>alert('O arquivo no upload é maior do que o limite definido em upload_max_filesize no php.ini');
@@ -65,18 +63,18 @@
 			
 			move_uploaded_file($temp, $caminho);
 			
-			$query = $conn->prepare("INSERT INTO secretario (nome,foto, rg, cpf, cep, numero, complemento, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario)
-            VALUES ('{$nome}', '{$nome_imagem}', '{$rg}', '{$cpf}', '{cep}', '{numero}', '{complemento}', '{$email}', '{$senha}', '{$celular}','{$telefone}','3' ,'{$id_escola}')");
+			$query = $conn->prepare("INSERT INTO secretario (nome_secretario, foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario)
+            VALUES ('{$nome}', '{$nome_imagem}', '{cep}', '{numero}', '{complemento}','{$rg}', '{$cpf}', '{$email}', '{$senha}', '{$celular}','{$telefone}','3' ,'{$id_escola}')");
 
             if ($query->execute()) {
 
-                echo "<script>alert('Diretor cadastrada com sucesso');
-                        window.location='../login.html.php';
+                echo "<script>alert('Secretario cadastrado com sucesso');
+                        window.location='../homeSecretaria.html.php';
                      </script>";
             }else{
-				echo "<script>alert('Erro: Diretor não cadastrado');
-					history.back();
-				</script>";
+				echo "<script>alert('Erro: Secretario não cadastrado');
+				history.back();;
+			 </script>";
 			
 
 				 
