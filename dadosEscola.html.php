@@ -239,7 +239,7 @@
                 <?php while ($dados_diretor = $query_diretor->fetch(PDO::FETCH_ASSOC)) {?>
                 <ul class="collection">
                     <li class="collection-item avatar">
-                        <img src="assets/img/<?php echo  $dados_diretor["foto"]; ?>" alt="" class="circle">
+                        <img src="assets/imagensBanco/<?php echo  $dados_diretor["foto"]; ?>" alt="" class="circle">
                         <span class="title"><?php echo $dados_diretor["nome_diretor"] ?></span><br>
                         <span class="title"><?php echo $dados_diretor["email"] ?></span><br>
                         <span class="title"><?php echo $dados_diretor["cpf"] ?></span>

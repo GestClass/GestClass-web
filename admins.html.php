@@ -18,72 +18,31 @@
 </head>
 
 <body>
-    <?php require_once 'reqMenuAdm.php' ?>
-
+    <?php 
+        require_once 'reqMenuAdm.php';
+        
+        $query_adm = $conn->prepare("select * from admin");
+        $query_adm->execute();
+        
+    ?>
+    <h4 class="center-align">Administradores GestClass</h4>
     <div class="container">
         <div class="row">
+        <?php while ($dados_adm = $query_adm->fetch(PDO::FETCH_ASSOC)) {?>
             <ul class="collection">
                 <li class="collection-item avatar">
-                    <img src="assets/ana.png" alt="" class="circle">
-                    <span class="title">Ana Beatriz</span>
-                    <p>anaana.abl@gmail.com<br>
-                        (11) 97999-7809
+                    <img src="assets/imagensBanco/<?php echo $dados_adm['foto']?>" alt="" class="circle">
+                    <span class="title"><?php echo $dados_adm['nome']?></span>
+                    <p><?php echo $dados_adm['email']?><br>
+                    <?php echo $dados_adm['data_nascimento']?>
                     </p>
                     <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
                 </li>
             </ul>
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="assets/caio.jpg" alt="" class="circle">
-                    <span class="title">Caio Fonseca</span>
-                    <p>fcaio8137@gmail.com<br>
-                        (11) 97765-3360
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
-                </li>
-            </ul>
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="assets/kadu.png" alt="" class="circle">
-                    <span class="title">Carlos Eduardo</span>
-                    <p>kadugomes343@gmail.com<br>
-                        (11) 94302-7065
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
-                </li>
-            </ul>
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="assets/eric.png" alt="" class="circle">
-                    <span class="title">Eric Veludo</span>
-                    <p>eric.oliveira46@etec.sp.gov.br<br>
-                        (11) 97322-3651
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
-                </li>
-            </ul>
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="assets/hector.png" alt="" class="circle">
-                    <span class="title">Hector Lima</span>
-                    <p>hector.limaaa@gmail.com<br>
-                        (11) 96353-8500
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
-                </li>
-            </ul>
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="assets/monique.png" alt="" class="circle">
-                    <span class="title">Monique Correia</span>
-                    <p>nick_oliveira2002@hotmail.com<br>
-                        (11) 94956-0440
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
-                </li>
-            </ul>
+            <?php }?>
         </div>
     </div>
+    
 
 
 </body>

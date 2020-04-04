@@ -26,7 +26,7 @@ $('.datepicker').datepicker({
         selectMonths: true,
         selectYears: 15,
     },
-    format: 'yyyy/mm/dd',
+    format: 'yyyy-mm-dd',
     container: 'body'
 });
 
@@ -100,29 +100,6 @@ function contagemCarac() {
 
 
 
-
-
-
-
-
-
-// TROCA FORM RESPONSAVEL
-
-function trocaFormResp(params) {
-    console.log(params);
-
-    if (params == true) {
-        $('.novoResp').removeClass('hide')
-        $('.existeResp').addClass('hide')
-    } else {
-        $('.existeResp').removeClass('hide')
-        $('.novoResp').addClass('hide')
-    }
-}
-
-// FIM TROCA FORM RESPONSAVEL
-
-
 //Modal de cadastro de contas
 $(document).ready(function() {
     $('.sidenav').sidenav();
@@ -146,14 +123,11 @@ function habilitaForm() {
 
     if ($("#selectConta")[0].selectedIndex === 1) {
         $(".formContas").hide();
-        window.location.href = ('cadastrarAluno.html.php');
+        window.location.href = ('cadastrarAlunoRespon.html.php');
     } else if ($("#selectConta")[0].selectedIndex === 2) {
         $(".formContas").hide();
-        window.location.href = ('cadastrarResponsavel.html.php')
+        window.location.href = ('cadastrarAluno.html.php')
     } else if ($("#selectConta")[0].selectedIndex === 3) {
-        $('#respcadastrado').show(500)
-    } else if ($("#selectConta")[0].selectedIndex === 4) {
-        $(".formContas").hide();
         window.location.href = ('cadastrarProfessor.html.php')
     } else {
         $(".formContas").hide();

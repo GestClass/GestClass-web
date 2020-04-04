@@ -61,11 +61,17 @@ CREATE TABLE professor (
     fk_id_escola_professor INTEGER NOT NULL
 );
 
-CREATE TABLE aulas_professor (
-	ID_dados_professor INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
-    fk_id_professor_aulas_professor INTEGER NOT NULL,
-    fk_id_disciplina_professor_aulas_professor INTEGER, 
-    fk_id_turma_professor_aulas_professor INTEGER
+CREATE TABLE turmas_professor (
+	ID_turmas_professor INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
+    fk_id_professor_turmas_professor INTEGER NOT NULL,
+    fk_id_turma_professor_turmas_professor INTEGER
+);
+
+CREATE TABLE disciplinas_professor (
+	ID_disciplinas_professor INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
+    fk_id_professor_disciplinas_professor INTEGER NOT NULL,
+    fk_id_disciplina_professor_disciplinas_professor INTEGER, 
+    fk_id_turma_professor_disciplinas_professor INTEGER
 );
 
 CREATE TABLE diretor (
@@ -118,7 +124,6 @@ CREATE TABLE aluno (
     data_nascimento DATE NOT NULL,
     fk_id_turma_aluno INTEGER,
     fk_id_responsavel_aluno INTEGER,
-    fk_id_dados_aluno INTEGER UNIQUE,
     fk_id_tipo_usuario_aluno INTEGER NOT NULL,
     fk_id_escola_aluno INTEGER NOT NULL
 );
@@ -145,13 +150,24 @@ CREATE TABLE responsavel (
     fk_id_escola_responsavel INTEGER NOT NULL
 );
 
-CREATE TABLE dados_aluno (
-	ID_dados_aluno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
+CREATE TABLE boletim_aluno (
+	ID_boletim_aluno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
 	nota DECIMAL (4,2) NOT NULL,
-	presenca BOOLEAN,
-	observacoes VARCHAR (255) ,
-	fk_ra_aluno_dados_aluno INTEGER NOT NULL,
-	fk_id_disciplina_dados_aluno INTEGER NOT NULL
+	observacoes VARCHAR (255),
+    nome_atividade VARCHAR(70) NOT NULL,
+    data_atividade DATE NOT NULL,
+	fk_ra_aluno_boletim_aluno INTEGER NOT NULL,
+	fk_id_disciplina_boletim_aluno INTEGER NOT NULL,
+    fk_id_professor_boletim_aluno INTEGER NOT NULL
+);
+
+CREATE TABLE chamada_aluno (
+	ID_chamada_aluno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
+	presenca BOOLEAN NOT NULL,
+    data_aula DATE NOT NULL,
+	fk_ra_aluno_chamada_aluno INTEGER NOT NULL,
+	fk_id_disciplina_chamada_aluno INTEGER NOT NULL,
+    fk_id_professor_chamada_aluno INTEGER NOT NULL
 );
 
 
@@ -196,11 +212,18 @@ ALTER TABLE professor ADD CONSTRAINT fk_id_tipo_usuario_professor FOREIGN KEY (f
 ALTER TABLE professor ADD CONSTRAINT fk_id_escola_professor FOREIGN KEY (fk_id_escola_professor) REFERENCES escola (ID_escola);
 
 
-/*	-	FOREIGN KEYs TABLE AULAS_PROFESSOR	-	*/
+/*	-	FOREIGN KEYs TABLE TURMAS_PROFESSOR	-	*/
 
-ALTER TABLE aulas_professor ADD CONSTRAINT fk_id_professor_aulas_professor FOREIGN KEY (fk_id_professor_aulas_professor) REFERENCES professor (ID_professor);
-ALTER TABLE aulas_professor ADD CONSTRAINT fk_id_disciplina_professor_aulas_professor FOREIGN KEY (fk_id_disciplina_professor_aulas_professor) REFERENCES disciplina (ID_disciplina);
-ALTER TABLE aulas_professor ADD CONSTRAINT fk_id_turma_professor_aulas_professor FOREIGN KEY (fk_id_turma_professor_aulas_professor) REFERENCES turma (ID_turma);
+ALTER TABLE turmas_professor ADD CONSTRAINT fk_id_professor_turmas_professor FOREIGN KEY (fk_id_professor_turmas_professor) REFERENCES professor (ID_professor);
+ALTER TABLE turmas_professor ADD CONSTRAINT fk_id_turma_professor_turmas_professor FOREIGN KEY (fk_id_turma_professor_turmas_professor) REFERENCES turma (ID_turma);
+
+
+/*	-	FOREIGN KEYs TABLE DISCPLINAS_PROFESSOR	-	*/
+
+ALTER TABLE disciplinas_professor ADD CONSTRAINT fk_id_professor_disciplinas_professor FOREIGN KEY (fk_id_professor_disciplinas_professor) REFERENCES professor (ID_professor);
+ALTER TABLE disciplinas_professor ADD CONSTRAINT fk_id_disciplina_professor_disciplinas_professor FOREIGN KEY (fk_id_disciplina_professor_disciplinas_professor) REFERENCES disciplina (ID_disciplina);
+ALTER TABLE disciplinas_professor ADD CONSTRAINT fk_id_turma_professor_disciplinas_professor FOREIGN KEY (fk_id_turma_professor_disciplinas_professor) REFERENCES turma (ID_turma);
+
 
 
 /*	-	FOREIGN KEYs TABLE DIRETOR	-	*/
@@ -219,7 +242,6 @@ ALTER TABLE secretario ADD CONSTRAINT fk_id_escola_secretario FOREIGN KEY (fk_id
 
 ALTER TABLE aluno ADD CONSTRAINT fk_id_turma_aluno FOREIGN KEY (fk_id_turma_aluno) REFERENCES turma (ID_turma);
 ALTER TABLE aluno ADD CONSTRAINT fk_id_responsavel_aluno FOREIGN KEY (fk_id_responsavel_aluno) REFERENCES responsavel (ID_responsavel);
-ALTER TABLE aluno ADD CONSTRAINT fk_id_dados_aluno FOREIGN KEY (fk_id_dados_aluno) REFERENCES dados_aluno (ID_dados_aluno);
 ALTER TABLE aluno ADD CONSTRAINT fk_id_tipo_usuario_aluno FOREIGN KEY (fk_id_tipo_usuario_aluno) REFERENCES tipo_usuario (ID_tipo_usuario);
 ALTER TABLE aluno ADD CONSTRAINT fk_id_escola_aluno FOREIGN KEY (fk_id_escola_aluno) REFERENCES escola (ID_escola);
 
@@ -231,10 +253,18 @@ ALTER TABLE responsavel ADD CONSTRAINT fk_id_tipo_usuario_responsavel FOREIGN KE
 ALTER TABLE responsavel ADD CONSTRAINT fk_id_escola_responsavel FOREIGN KEY (fk_id_escola_responsavel) REFERENCES escola (ID_escola);
 
 
-/*	-	FOREIGN KEYs TABLE DADOS_ALUNO	-	*/
+/*	-	FOREIGN KEYs TABLE BOLETIM_ALUNO	-	*/
 
-ALTER TABLE dados_aluno ADD CONSTRAINT fk_ra_aluno_dados_aluno FOREIGN KEY (fk_ra_aluno_dados_aluno) REFERENCES aluno (RA);
-ALTER TABLE dados_aluno ADD CONSTRAINT fk_id_disciplina_dados_aluno FOREIGN KEY (fk_id_disciplina_dados_aluno) REFERENCES disciplina (ID_disciplina);
+ALTER TABLE boletim_aluno ADD CONSTRAINT fk_ra_aluno_boletim_aluno FOREIGN KEY (fk_ra_aluno_boletim_aluno) REFERENCES aluno (RA);
+ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_disciplina_boletim_aluno FOREIGN KEY (fk_id_disciplina_boletim_aluno) REFERENCES disciplina (ID_disciplina);
+ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_professor_boletim_aluno FOREIGN KEY (fk_id_professor_boletim_aluno) REFERENCES professor (ID_professor);
+
+
+/*	-	FOREIGN KEYs TABLE CHAMADA_ALUNO	-	*/
+
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_ra_aluno_chamada_aluno FOREIGN KEY (fk_ra_aluno_chamada_aluno) REFERENCES aluno (RA);
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_disciplina_chamada_aluno FOREIGN KEY (fk_id_disciplina_chamada_aluno) REFERENCES disciplina (ID_disciplina);
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_professor_chamada_aluno FOREIGN KEY (fk_id_professor_chamada_aluno) REFERENCES professor (ID_professor);
 
 
 /*	-	FOREIGN KEYs TABLE CONTATO	-	*/
@@ -296,13 +326,18 @@ INSERT INTO tipo_usuario (nome_usuario) VALUES ('responsavel');
 
 /*	-	INSERTS INTO TABLE DISCIPLINA 	-	*/
 
-INSERT INTO disciplina (nome_disciplina) VALUES ('portugês');
+INSERT INTO disciplina (nome_disciplina) VALUES ('português');
+INSERT INTO disciplina (nome_disciplina) VALUES ('inglês');
 INSERT INTO disciplina (nome_disciplina) VALUES ('matemática');
-INSERT INTO disciplina (nome_disciplina) VALUES ('ingês');
-INSERT INTO disciplina (nome_disciplina) VALUES ('geografia');
-INSERT INTO disciplina (nome_disciplina) VALUES ('história');
 INSERT INTO disciplina (nome_disciplina) VALUES ('biologia');
-
+INSERT INTO disciplina (nome_disciplina) VALUES ('Ciências');
+INSERT INTO disciplina (nome_disciplina) VALUES ('Quimíca');
+INSERT INTO disciplina (nome_disciplina) VALUES ('Física');
+INSERT INTO disciplina (nome_disciplina) VALUES ('Filosofia');
+INSERT INTO disciplina (nome_disciplina) VALUES ('história');
+INSERT INTO disciplina (nome_disciplina) VALUES ('geografia');
+INSERT INTO disciplina (nome_disciplina) VALUES ('Sociologia');
+INSERT INTO disciplina (nome_disciplina) VALUES ('Ed. Física');
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
@@ -314,11 +349,23 @@ INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email
 INSERT INTO professor (nome_professor, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_professor, fk_id_escola_professor) VALUES ('professor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'professor_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', 4, 1);
 
               
-/*	-	INSERTS INTO TABLE AULAS_PROFESSOR	-	*/
+/*	-	INSERTS INTO TABLE TURMAS_PROFESSOR	-	*/
               
-INSERT INTO aulas_professor (fk_id_professor_aulas_professor, fk_id_disciplina_professor_aulas_professor, fk_id_turma_professor_aulas_professor) VALUES (1, 6, 16);
+INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor) VALUES (1, 16);
+INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor) VALUES (1, 15);
+INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor) VALUES (1, 14);
+INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor) VALUES (1, 13);
               
               
+/*	-	INSERTS INTO TABLE DISCIPLINAS_PROFESSOR	-	*/
+              
+INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_disciplina_professor_disciplinas_professor, fk_id_turma_professor_disciplinas_professor) VALUES (1, 5, 16);
+INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_disciplina_professor_disciplinas_professor, fk_id_turma_professor_disciplinas_professor) VALUES (1, 4, 16);
+INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_disciplina_professor_disciplinas_professor, fk_id_turma_professor_disciplinas_professor) VALUES (1, 3, 15);
+INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_disciplina_professor_disciplinas_professor, fk_id_turma_professor_disciplinas_professor) VALUES (1, 2, 14);
+INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_disciplina_professor_disciplinas_professor, fk_id_turma_professor_disciplinas_professor) VALUES (1, 1, 13);
+
+
 /*	-	INSERTS INTO TABLE DIRETOR	-	*/
               
 INSERT INTO diretor (nome_diretor, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_diretor, fk_id_escola_diretor) VALUES ('diretor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'diretor_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', 2, 1);
@@ -332,17 +379,21 @@ INSERT INTO secretario (nome_secretario, cep, numero, complemento, rg, cpf, emai
 /*	-	INSERTS INTO TABLE ALUNO	-	*/
               
 INSERT INTO aluno (RA, nome_aluno, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000000, 'aluno_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'aluno_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 5, 1);
-INSERT INTO aluno (RA, nome_aluno, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000000, 'aluno_dois', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'aluno_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 5, 1);
-
+INSERT INTO aluno (RA, nome_aluno, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000001, 'aluno_dois', '000.00-000', '000', 'predio A', '00.000.000-1', '000.000.000-01', 'aluno2_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 5, 1);
 
 /*	-	INSERTS INTO TABLE RESPONSAVEL	-	*/
               
 INSERT INTO responsavel (nome_responsavel, cep, numero, complemento, rg, cpf, email, senha, pin, celular, telefone, telefone_comercial, data_nascimento, data_pagamento_responsavel, fk_ra_aluno_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel) VALUES ('responsavel_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'responsavel_exemplo@exemplo.com', '1234', 123456, '(11)00000-0000', '(11)0000-0000', '(11)0000-0000', '2020-03-22', '2020-03-22', 00000000, 6, 1);
 
 
-/*	-	INSERTS INTO TABLE DADOS_ALUNO	-	*/
+/*	-	INSERTS INTO TABLE BOLETIM_ALUNO	-	*/
               
-INSERT INTO dados_aluno (nota, presenca, observacoes, fk_ra_aluno_dados_aluno, fk_id_disciplina_dados_aluno) VALUES ('10.00', true, 'Hoje Fulano se portou de forma inadequada durante atividade', 00000000, 6);
+INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno, fk_id_professor_boletim_aluno) VALUES ('10.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 1', '2020-03-22', 00000000, 6, 1);
+
+
+/*	-	INSERTS INTO TABLE CHAMADA_ALUNO	-	*/
+              
+INSERT INTO chamada_aluno (presenca, data_aula, fk_ra_aluno_chamada_aluno, fk_id_disciplina_chamada_aluno, fk_id_professor_chamada_aluno) VALUES ( true, '2020-03-22',00000000, 6, 1);
 
 
 /*	-	INSERTS INTO TABLE CONTATO	-	*/
@@ -352,9 +403,12 @@ INSERT INTO contato (mensagem, fk_envio_aluno_ra_aluno, fk_recebimento_professor
 
 /*	-	INSERTS INTO TABLE ADMIN	-	*/
               
-INSERT INTO `admin` (nome, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('admin_exemplo', 'admin_exemplo@exemplo.com', '1234', '2020.03.22', 1);
-
-
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Ana Beatriz', 'ana.jpg' , 'ana@gestclass.com', '1234', '2001.04.24', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Caio Fonseca', 'caio.jpg', 'caio@gestclass.com', '1234', '2000.09.05', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Carlos eduardo', 'kadu.jpg', 'carlos@gestclass.com', '1234', '2002.04.23', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Eric Veludo', 'eric.jpg', 'eric@gestclass.com', '1234', '2002.04.07', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Hector Lima', 'hector.jpg', 'hector@gestclass.com', '1234', '1994.09.27', 1);
+INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Monique Correia', 'monique.jpg', 'monique@gestclass.com', '1234', '2002.08.24', 1);
 
 
 /*	-	SELECTs 	-	*/
@@ -371,7 +425,9 @@ SELECT * FROM escola;
 
 SELECT * FROM professor;
 
-SELECT * FROM aulas_professor;
+SELECT * FROM turmas_professor;
+
+SELECT * FROM disciplinas_professor;
 
 SELECT * FROM diretor;
 
@@ -379,7 +435,9 @@ SELECT * FROM secretario;
 
 SELECT * FROM aluno;
 
-SELECT * FROM dados_aluno;
+SELECT * FROM boletim_aluno;
+
+SELECT * FROM chamada_aluno;
 
 SELECT * FROM responsavel;
 

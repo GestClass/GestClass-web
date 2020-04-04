@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>GestClass - Is Cool Manage</title>
+    <link rel="icon" href="assets/icon/logo.png" />
+
+    <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/cadastroContas.css" />
+
+
+</head>
+
+<body>
+
+    <?php
+    include_once 'php/conexao.php';
+
+    $id_usuario = $_SESSION["id_usuario"];
+    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+    $id_escola = $_SESSION["id_escola"];
+
+    if ($id_tipo_usuario == 1) {
+        require_once 'reqMenuAdm.php';
+    } else if ($id_tipo_usuario == 2) {
+        require_once 'reqDiretor.php';
+    } else if ($id_tipo_usuario == 3) {
+        require_once 'reqHeader.php';
+    } elseif ($id_tipo_usuario == 4) {
+        require_once 'reqProfessor.php';
+    } elseif ($id_tipo_usuario  == 5) {
+        require_once 'reqAluno.php';
+    } else {
+        require_once 'reqPais.php';
+    }
+    ?>
+
+    <div class="input-field right">
+        <button id="voltar" class="btn-flat btnLightBlue" onClick="history.go(-1)"><i class="material-icons">keyboard_return</i> Voltar</button>
+    </div>
+    <div class="container col s12 m12 l12 ">
+        <form id="aluno-responsavel" method="POST" action="php/cadastrarAlunoRespon.php" enctype="multipart/form-data">
+            <h5>Aluno</h5>
+            <div class="row">
+                <div class="file-field input-field col s12 m3 l3">
+                    <div id="btnfoto" class="btn col s6">
+                        <span><i class="material-icons">add_a_photo</i></span>
+                        <input type="file" name="foto_file" />
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input id="foto" class="file-path validate" type="text" name="foto_file">
+                    </div>
+                </div>
+                <div class="input-field col s12 m9 l9">
+                    <i class="material-icons prefix blue-icon">account_circle</i>
+                    <input name="nome_aluno" id="nome_aluno" type="text" placeholder="Nome Aluno" class="validate ">
+                    <label id="lbl" for="first_name">Nome Aluno</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 m6 l3">
+                    <i class="material-icons prefix blue-icon">ballot</i>
+                    <input name="ra" id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
+                    <label id="lbl" for="first_name">RA</label>
+                </div>
+                <div class="input-field col s6 m6 l3">
+                    <i class="material-icons prefix blue-icon">ballot</i>
+                    <input name="rg_aluno" id="RG" placeholder="65.745.984-6" type="tel" data-mask="00.000.000-0" class="validate ">
+                    <label id="lbl" for="first_name">RG</label>
+                </div>
+                <div class="input-field col s6 m6 l3">
+                    <i class="material-icons prefix blue-icon">ballot</i>
+                    <input name="cpf_aluno" id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate ">
+                    <label id="lbl" for="first_name">CPF</label>
+                </div>
+                <div class="input-field col s6 m6 l3">
+                    <i class="material-icons prefix blue-icon">cake</i>
+                    <input name="nascimento_aluno" id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
+                    <label id="lbl">Data Nascimento</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m4 l4">
+                    <i class="material-icons prefix blue-icon">alternate_email</i>
+                    <input name="email_aluno" id="email" placeholder="gestclass@enterprise.com" type="tel" class="validate ">
+                    <label id="lbl" for="first_name">Email</label>
+                </div>
+                <div class="input-field col s12 m4 l4">
+                    <i class="material-icons prefix blue-icon">security</i>
+                    <input name="senha_aluno" id="senha" placeholder="********" type="password" class="validate ">
+                    <label id="lbl" for="first_name">Senha</label>
+                </div>
+                <div id="a" class="input-field col s10 m4 l4">
+                    <input name="confsenha_aluno" id="confsenha" placeholder="********" type="password" class="validate ">
+                    <label id="lbl" for="first_name">Confirmar senha</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix blue-icon">smartphone</i>
+                    <input name="celular_aluno" id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate ">
+                    <label id="lbl" for="first_name">Celular</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix blue-icon">call</i>
+                    <input name="telefone_aluno" id="telefone" placeholder="(11) 4002-8922" type="tel" data-mask="(00) 0000-0000" class="validate">
+                    <label id="lbl" for="first_name">Telefone</label>
+                </div>
+            </div>
+            <div class="row">
+                <div id="selcetEnsino" class="input-field col s12 m6 l6 validate">
+                    <i class="material-icons prefix blue-icon">school</i>
+                    <select id="nome_tipo_turma">
+                        <option value="" disabled selected>Selecione o Ensino</option>
+                        <option value="1">Berçario</option>
+                        <option value="2">Pré Escola</option>
+                        <option value="3">Fundamental I</option>
+                        <option value="4">Fundamental II</option>
+                        <option value="5">Ensino Médio</option>
+                    </select>
+                    <label id="lbl">Ensino</label>
+                </div>
+                <div id="a" class="input-field col s10 m6 l6 validate">
+                    <select id="nome_turma">
+                        <option value="" disabled selected>Selecione a Turma</option>
+                        <option value="1">Berçario A</option>
+                        <option value="2">Pré 1 A</option>
+                        <option value="3">Pré 2 B</option>
+                        <option value="4">1º ano A</option>
+                        <option value="4">2º ano A</option>
+                        <option value="4">3º ano A</option>
+                        <option value="4">4º ano A</option>
+                        <option value="4">5º ano A</option>
+                        <option value="4">6º ano A</option>
+                        <option value="4">7º ano A</option>
+                        <option value="4">8º ano A</option>
+                        <option value="4">9º ano A</option>
+                        <option value="5">1º ano médio A</option>
+                        <option value="5">2º ano médio A</option>
+                        <option value="5">3º ano médio A</option>
+                    </select>
+                    <label id="lbl">Turma</label>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l12">
+                <H5>Responsável</H5>
+                <div class="row">
+                    <div class="file-field input-field col s12 m3 l3">
+                        <div id="btnfoto" class="btn col s6">
+                            <span><i class="material-icons">add_a_photo</i></span>
+                            <input type="file" name="foto_file" />
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input id="foto" class="file-path validate" type="text" name="foto_file">
+                        </div>
+                    </div>
+                    <div class="input-field col s12 m9 l9">
+                        <i class="material-icons prefix blue-icon">account_circle</i>
+                        <input name="nome_respon" id="nome_responsavel" type="tel" placeholder="Nome Responsável" class="validate">
+                        <label id="lbl" for="icon_telephone">Nome</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 m6 l3">
+                        <i class="material-icons prefix blue-icon">ballot</i>
+                        <input name="ra" id="fk_ra_aluno_responsavel" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
+                        <label id="lbl" for="icon_prefix">RA Aluno</label>
+                    </div>
+                    <div class="input-field col s6 m6 l3">
+                        <i class="material-icons prefix blue-icon">ballot</i>
+                        <input name="rg_respon" id="rg" type="tel" placeholder="84.514.751-1" data-mask="00.000.000-0" class="validate">
+                        <label id="lbl" for="icon_telephone">RG</label>
+                    </div>
+                    <div class="input-field col s6 m6 l3">
+                        <i class="material-icons prefix blue-icon">ballot</i>
+                        <input name="cpf_respon" id="cpf" type="tel" placeholder="154.258.963-22" data-mask="000.000.000-00" class="validate">
+                        <label id="lbl" for="icon_telephone">CPF</label>
+                    </div>
+                    <div class="input-field col s6 m6 l3">
+                        <i class="material-icons prefix blue-icon">cake</i>
+                        <input name="nascimento_respon" id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
+                        <label id="lbl">Data Nascimento</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m4 l2">
+                        <i class="material-icons prefix blue-icon">location_on</i>
+                        <input name="cep" id="cep" placeholder="08574-150" type="text" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
+                        <label id="lbl" for="first_name">CEP</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m4 l2">
+                        <input id="cidade" placeholder="Cidade" type="text" class="validate">
+                        <label id="lbl" for="first_name">Cidade</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m4 l2">
+                        <input id="bairro" placeholder="Bairro" type="text" class="validate">
+                        <label id="lbl" for="first_name">Bairro</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m4 l3">
+                        <input id="rua" placeholder="Rua" type="text" class="validate">
+                        <label id="lbl" for="first_name">Rua</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m2 l1">
+                        <input name="numero" id="numero" placeholder="Número" type="tel" class="validate ">
+                        <label id="lbl" for="first_name">Nº</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m6 l2">
+                        <input name="complemento" id="complemento" placeholder="Complemento" type="tel" class="validate ">
+                        <label id="lbl" for="first_name">Complemento</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m4 l4">
+                        <i class="material-icons prefix blue-icon">alternate_email</i>
+                        <input name="email_respon" id="email" type="tel" placeholder="gestclass@enterprise.com" class="validate">
+                        <label id="lbl" for="icon_telephone">Email</label>
+                    </div>
+                    <div class="input-field col s12 m3 l3">
+                        <i class="material-icons prefix blue-icon">security</i>
+                        <input name="senha_respon" id="senha" type="password" placeholder="******" class="validate">
+                        <label id="lbl" for="icon_telephone">Senha</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m3 l3">
+                        <input name="confsenha_respon" id="confsenha" type="password" placeholder="******" class="validate">
+                        <label id="lbl" for="icon_telephone">Confirma Senha</label>
+                    </div>
+                    <div class="input-field col s12 m2 l2">
+                        <i class="material-icons prefix blue-icon">fiber_pin</i>
+                        <input name="pin" id="pin" type="password" placeholder="******" data-mask="000000" class="validate">
+                        <label id="lbl" for="icon_telephone">Pin</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m4 l4">
+                        <i class="material-icons prefix blue-icon">smartphone</i>
+                        <input name="celular_respon" id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
+                        <label id="lbl" for="icon_telephone">Celular</label>
+                    </div>
+                    <div class="input-field col s12 m4 l4">
+                        <i class="material-icons prefix blue-icon">call</i>
+                        <input name="telefone_respon" id="telefone" type="tel" placeholder="(11) 4651-3030" data-mask="(00) 0000-0000" class="validate">
+                        <label id="lbl" for="icon_telephone">Telefone</label>
+                    </div>
+                    <div class="input-field col s12 m4 l4">
+                        <i class="material-icons prefix blue-icon">call</i>
+                        <input name="tel_comercial" id="telefone_comercial" type="tel" placeholder="(11) 7765-3360" data-mask="(00) 0000-0000" class="validate">
+                        <label id="lbl" for="icon_telephone">Telefone Comercial</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m4 l4">
+                        <i class="material-icons prefix blue-icon">monetization_on</i>
+                        <select name="data_pagamento" id="data_pagamento">
+                            <option value="" disabled selected>Escolha uma data</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="5">5</option>
+                            <option value="8">8</option>
+                            <option value="15">15</option>
+                            <option value="25">25</option>
+                        </select>
+                        <label id="lbl" for="first_name">Data de pagamento</label>
+                    </div>
+                </div>
+                <div class="input-field right">
+                    <button name="btncadastrar" value="formResposavel" id="formResposavel" type="submit" class="btn-flat btnLightBlue">
+                        <i class="material-icons">send</i> Cadastrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/query-3.3.1.min.js"></script>
+    <script src="js/cep.js"></script>
+    <script src="js/default.js"></script>
+
+    <?php require_once 'reqFooter.php' ?>

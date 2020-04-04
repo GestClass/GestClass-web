@@ -2,7 +2,7 @@
 
 	include_once 'conexao.php';
 	
-	session_start();
+	// session_start();
 
 	$id_escola = $_SESSION["id_da_escola"];
     $nome_diretor = $_POST["nome_diretor"];
@@ -61,7 +61,7 @@
 
         	$nome_imagem = md5(uniqid(time())) . "." . $ext[1];
         	
-        	$caminho = "../assets/img/" . $nome_imagem;
+        	$caminho = "../assets/imagensBanco/" . $nome_imagem;
 			
 			move_uploaded_file($temp, $caminho);
 			

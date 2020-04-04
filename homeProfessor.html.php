@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m4">
-        <a href="chamada.php.html.php">
+        <a href="chamada.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-clipboard-list fa-6x blue-icon"></i>
             <h5>Chamada</h5>
@@ -21,7 +21,7 @@
 
 
       <div class="col s12 m4">
-        <a href="boletimCadastro.html.php">
+        <a class="modal-trigger" href="#modalboletimCadastro">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-list-ol  fa-6x blue-icon"></i>
             <h5>Boletim Escolar</h5>
@@ -92,4 +92,61 @@
   </div>
 </section>
 
+<div id="modalboletimCadastro" class="modal">
+  <div class="modal-content">
+    <h4>Selecione o tipo de conta</h4>
+    <div class="input-field col s12">
+      <select id="selectTurma" onchange="idTurma()">
+        <option value="" disabled selected>Selecione a Turma</option>
+        <?php
+          $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
+          $query_select_turmas_professor->execute();
+
+          while($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)){
+
+            $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+
+            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+            $query_select_turma->execute();
+
+            while($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)){
+        ?>        
+          <option value="<?php echo $id_turma?>"><?php echo $dados_turma_nome["nome_turma"]?></option>
+          <?php
+            }
+          }
+
+          $id_turma = "<script>document.write(valueId)</script>";
+
+          ?>
+      </select>
+      <div class="input-field col s12 m6 l6 validate">
+        <i class="material-icons prefix blue-icon">library_books</i>
+        <select id="nome_tipo_turma" name="disciplina">
+        <option value="" disabled selected>Selecione a Disciplina <?php echo $id_turma?></option>
+        <?php            
+
+            $query_select_disciplinas_professor = $conn->prepare("SELECT fk_id_disciplina_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_professor_disciplinas_professor = $id_usuario");
+            $query_select_disciplinas_professor->execute();
+
+            while($dados_disciplinas_professor = $query_select_disciplinas_professor->fetch(PDO::FETCH_ASSOC)){
+                $id_disciplina = $dados_disciplinas_professor["fk_id_disciplina_professor_aulas_professor"];
+
+                $query_select_disciplina_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");
+                $query_select_disciplina_nome->execute();
+
+                while($dados_disciplina_nome = $query_select_disciplina_nome->fetch(PDO::FETCH_ASSOC)) {
+        ?>
+        <option value="<?php echo $id_disciplina ?>"><?php echo $dados_disciplina_nome['nome_disciplina']  ?></option>
+        <?php
+                }
+            }
+        ?>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/boletimCadastro.js"></script>
 <?php require_once 'reqFooter.php' ?>

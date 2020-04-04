@@ -20,135 +20,124 @@
 
 <body>
 
-    <?php require_once 'reqHeader.php' ?>
+    <?php
+    include_once 'php/conexao.php';
 
+    $id_usuario = $_SESSION["id_usuario"];
+    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+    $id_escola = $_SESSION["id_escola"];
+
+    if ($id_tipo_usuario == 1) {
+        require_once 'reqMenuAdm.php';
+    } else if ($id_tipo_usuario == 2) {
+        require_once 'reqDiretor.php';
+    } else if ($id_tipo_usuario == 3) {
+        require_once 'reqHeader.php';
+    } elseif ($id_tipo_usuario == 4) {
+        require_once 'reqProfessor.php';
+    } elseif ($id_tipo_usuario  == 5) {
+        require_once 'reqAluno.php';
+    } else {
+        require_once 'reqPais.php';
+    }
+    ?>
+    <div class="input-field right">
+        <button id="voltar" class="btn-flat btnLightBlue" onClick="history.go(-1)"><i class="material-icons">keyboard_return</i> Voltar</button>
+    </div>
     <div class="container col s12 m12 l12 ">
-        <form id="aluno" method="POST" action="./controller/cadastro.controller.php">
+        <form id="aluno" method="POST" action="php/cadastrarAluno.php" enctype="multipart/form-data">
             <h5>Aluno</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
                     <div id="btnfoto" class="btn col s6">
                         <span><i class="material-icons">add_a_photo</i></span>
-                        <input type="file">
+                        <input type="file" name="foto_file" />
                     </div>
                     <div class="file-path-wrapper">
-                        <input id="foto" class="validate" type="text">
+                        <input id="foto" class="file-path validate" type="text" name="foto_file">
                     </div>
                 </div>
                 <div class="input-field col s12 m9 l9">
                     <i class="material-icons prefix blue-icon">account_circle</i>
-                    <input id="nome_aluno" type="text" placeholder="Nome Aluno" class="validate ">
+                    <input name="nome" id="nome_aluno" type="text" placeholder="Nome Aluno" class="validate ">
                     <label id="lbl" for="first_name">Nome Aluno</label>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s6 m6 l3">
+                <div class="input-field col s6 m6 l2">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
+                    <input name="ra" id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
                     <label id="lbl" for="first_name">RA</label>
                 </div>
-                <div class="input-field col s6 m6 l3">
+                <div class="input-field col s6 m6 l2">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input id="RG" placeholder="65.745.984-6" type="tel" data-mask="00.000.000-0" class="validate ">
+                    <input name="rg" id="RG" placeholder="65.745.984-6" type="tel" data-mask="00.000.000-0" class="validate ">
                     <label id="lbl" for="first_name">RG</label>
                 </div>
                 <div class="input-field col s6 m6 l3">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate ">
+                    <input name="cpf" id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate ">
                     <label id="lbl" for="first_name">CPF</label>
                 </div>
                 <div class="input-field col s6 m6 l3">
+                    <i class="material-icons prefix blue-icon">ballot</i>
+                    <input name="cpf_respon" id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate ">
+                    <label id="lbl" for="first_name">CPF Responsável</label>
+                </div>
+                <div class="input-field col s6 m6 l2">
                     <i class="material-icons prefix blue-icon">cake</i>
-                    <input id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
+                    <input name="data_nascimento" id="data_nascimento" placeholder="2000/09/05" type="text" class="datepicker validate">
                     <label id="lbl">Data Nascimento</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 m4 l2">
-                    <i class="material-icons prefix blue-icon">location_on</i>
-                    <input id="cep" placeholder="08574-150" type="text" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
-                    <label id="lbl" for="first_name">CEP</label>
-                </div>
-                <div id="a" class="input-field col s10 m4 l2">
-                    <input id="cidade" placeholder="Cidade" type="text" class="validate">
-                    <label id="lbl" for="first_name">Cidade</label>
-                </div>
-                <div id="a" class="input-field col s10 m4 l2">
-                    <input id="bairro" placeholder="Bairro" type="text" class="validate">
-                    <label id="lbl" for="first_name">Bairro</label>
-                </div>
-                <div id="a" class="input-field col s10 m4 l3">
-                    <input id="rua" placeholder="Rua" type="text" class="validate">
-                    <label id="lbl" for="first_name">Rua</label>
-                </div>
-                <div id="a" class="input-field col s10 m2 l1">
-                    <input id="numero" placeholder="Número" type="tel" class="validate ">
-                    <label id="lbl" for="first_name">Nº</label>
-                </div>
-                <div id="a" class="input-field col s10 m6 l2">
-                    <input id="complemento" placeholder="Complemento" type="tel" class="validate ">
-                    <label id="lbl" for="first_name">Complemento</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12 m4 l4">
                     <i class="material-icons prefix blue-icon">alternate_email</i>
-                    <input id="email" placeholder="gestclass@enterprise.com" type="tel" class="validate ">
+                    <input name="email" id="email" placeholder="gestclass@enterprise.com" type="tel" class="validate ">
                     <label id="lbl" for="first_name">Email</label>
                 </div>
                 <div class="input-field col s12 m4 l4">
                     <i class="material-icons prefix blue-icon">security</i>
-                    <input id="senha" placeholder="********" type="password" class="validate ">
+                    <input name="senha" id="senha" placeholder="********" type="password" class="validate ">
                     <label id="lbl" for="first_name">Senha</label>
                 </div>
                 <div id="a" class="input-field col s10 m4 l4">
-                    <input id="confsenha" placeholder="********" type="password" class="validate ">
+                    <input name="confsenha" id="confsenha" placeholder="********" type="password" class="validate ">
                     <label id="lbl" for="first_name">Confirmar senha</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <i class="material-icons prefix blue-icon">smartphone</i>
-                    <input id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate ">
+                    <input name="celular" id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate ">
                     <label id="lbl" for="first_name">Celular</label>
                 </div>
                 <div class="input-field col s12 m6 l6">
                     <i class="material-icons prefix blue-icon">call</i>
-                    <input id="telefone" placeholder="(11) 4002-8922" type="tel" data-mask="(00) 0000-0000" class="validate">
+                    <input name="telefone" id="telefone" placeholder="(11) 4002-8922" type="tel" data-mask="(00) 0000-0000" class="validate">
                     <label id="lbl" for="first_name">Telefone</label>
                 </div>
             </div>
             <div class="row">
-                <div id="selcetEnsino" class="input-field col s12 m6 l6 validate">
+                <div class="input-field col s12 m12 l12 validate">
                     <i class="material-icons prefix blue-icon">school</i>
-                    <select id="nome_tipo_turma">
-                        <option value="" disabled selected>Selecione o Ensino</option>
-                        <option value="1">Berçario</option>
-                        <option value="2">Pré Escola</option>
-                        <option value="3">Fundamental I</option>
-                        <option value="4">Fundamental II</option>
-                        <option value="5">Ensino Médio</option>
-                    </select>
-                    <label id="lbl">Ensino</label>
-                </div>
-                <div id="a" class="input-field col s10 m6 l6 validate">
-                    <select id="nome_turma">
+                    <select name="turma" id="nome_turma">
                         <option value="" disabled selected>Selecione a Turma</option>
                         <option value="1">Berçario A</option>
                         <option value="2">Pré 1 A</option>
                         <option value="3">Pré 2 B</option>
                         <option value="4">1º ano A</option>
-                        <option value="4">2º ano A</option>
-                        <option value="4">3º ano A</option>
-                        <option value="4">4º ano A</option>
-                        <option value="4">5º ano A</option>
-                        <option value="4">6º ano A</option>
-                        <option value="4">7º ano A</option>
-                        <option value="4">8º ano A</option>
-                        <option value="4">9º ano A</option>
-                        <option value="5">1º ano médio A</option>
-                        <option value="5">2º ano médio A</option>
-                        <option value="5">3º ano médio A</option>
+                        <option value="5">2º ano A</option>
+                        <option value="6">3º ano A</option>
+                        <option value="7">4º ano A</option>
+                        <option value="8">5º ano A</option>
+                        <option value="9">6º ano A</option>
+                        <option value="10">7º ano A</option>
+                        <option value="11">8º ano A</option>
+                        <option value="12">9º ano A</option>
+                        <option value="13">1º ano médio A</option>
+                        <option value="14">2º ano médio A</option>
+                        <option value="15">3º ano médio A</option>
                     </select>
                     <label id="lbl">Turma</label>
                 </div>
