@@ -45,15 +45,16 @@
         <button id="voltar" class="btn-flat btnLightBlue" onClick="history.go(-1)"><i class="material-icons">keyboard_return</i> Voltar</button>
     </div>
     <div class="container col s12 m12 l12 ">
-        <form id="secretaria" method="POST" action="php/cadastrarSecretaria.php"> <h5>Secretaria</h5>
+        <form id="secretaria" method="POST" action="php/cadastrarSecretaria.php">
+            <h5>Secretaria</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
                     <div id="btnfoto" class="btn col s6">
                         <span><i class="material-icons">add_a_photo</i></span>
-                        <input type="file" name="txt_file" />
+                        <input type="file" name="foto_file" />
                     </div>
                     <div class="file-path-wrapper">
-                        <input id="foto" class="file-path validate" type="text">
+                        <input id="foto" class="file-path validate" type="text" name="foto_file">
                     </div>
                 </div>
                 <div class="input-field col s12 m9 l9">

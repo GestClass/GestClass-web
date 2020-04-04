@@ -26,7 +26,7 @@ $('.datepicker').datepicker({
         selectMonths: true,
         selectYears: 15,
     },
-    format: 'yyyy/mm/dd',
+    format: 'yyyy-mm-dd',
     container: 'body'
 });
 
