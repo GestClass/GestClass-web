@@ -1,5 +1,4 @@
 html {
-<<<<<<< HEAD
     font-family: 'arial';
 }
 
@@ -43,13 +42,7 @@ table.striped>tbody>tr {
 table.info {
     margin-top: 15px;
     margin-bottom: 15px;
-=======
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-h3 {
-    padding-left: 450px;
-    padding-top: 40px;
 }
 
 h5 {
@@ -96,5 +89,4 @@ th {
     z-index: 1;
     -webkit-transition: .3s ease-out;
     transition: .3s ease-out;
->>>>>>> 8a128ba928a6c8df6b9e6c5ec72262c350d15162
 }

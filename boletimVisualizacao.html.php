@@ -14,13 +14,6 @@
 
 </head>
 
-<style>
-  th,td{
-    padding: 15px 5px 15px 5px;
-
-  }
-</style>
-
 <body id="body_boletimVisualizacao">
 
   <?php require_once 'reqHeader.php' ?>
@@ -49,9 +42,10 @@
 
         <ul id="tabs-swipe-demo" class="tabs blue lighten-3">
           <li class="tab col s1 m3 l3 "><a href="#1bimestre">1° Bimestre</a></li>
-          <li class="tab col s1 m3 l3 "><a href="#2bimestre">2° Bimestre</a></li>
-          <li class="tab col s1 m3 l3 "><a href="#3bimestre">3° Bimestre</a></li>
-          <li class="tab col s1 m3 l3 "><a href="#4bimestre">4° Bimestre</a></li>
+          <li class="tab col s1 m2 l2 "><a href="#2bimestre">2° Bimestre</a></li>
+          <li class="tab col s1 m2 l2 "><a href="#3bimestre">3° Bimestre</a></li>
+          <li class="tab col s1 m2 l2 "><a href="#4bimestre">4° Bimestre</a></li>
+          <li class="tab col s1 m3 l3 "><a href="#mf">Média Final</a></li>
         </ul>
       </div>
 
@@ -91,6 +85,10 @@
               <td>Matematica</td>
               <td>5</td>
               <td>-</td>
+            </tr>
+            <tr>
+              <th colspan="2">Situação Atual Do Aluno:</th>
+              <th>Aprovado</th>
             </tr>
           </tbody>
         </table>
@@ -132,6 +130,10 @@
               <td>5</td>
               <td>-</td>
             </tr>
+            <tr>
+              <th colspan="2">Situação Atual Do Aluno:</th>
+              <th>Aprovado</th>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -171,6 +173,10 @@
               <td>Matematica</td>
               <td>5</td>
               <td>-</td>
+            </tr>
+            <tr>
+              <th colspan="2">Situação Atual Do Aluno:</th>
+              <th>Aprovado</th>
             </tr>
           </tbody>
         </table>
@@ -212,10 +218,59 @@
               <td>5</td>
               <td>-</td>
             </tr>
+            <tr>
+              <th colspan="2">Situação Atual Do Aluno:</th>
+              <th>Aprovado</th>
+            </tr>
           </tbody>
         </table>
       </div>
 
+  <div class="col s12 m12 l12 " id="mf">
+        <h4 class="center">Média</h4>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th>Componente Curricular</th>
+              <th>Notas Finais</th>
+              <th>Faltas Finais </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Matematica</td>
+              <td>10</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>Matematica</td>
+              <td>8</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Matematica</td>
+              <td>7</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Matematica</td>
+              <td>9</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Matematica</td>
+              <td>5</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th colspan="2">Situação Atual Do Aluno:</th>
+              <th>Aprovado</th>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
 
       <div class="input-field right">
         <form action="pdf.php" method="post">

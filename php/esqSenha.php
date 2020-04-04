@@ -49,8 +49,9 @@
    }
 
    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-      echo "email invalido";
-      return;
+      echo "<script>alert('Email invalido, tente novamente :)');
+      window.location = '../login.html.php'
+      </script>";
    }
 
    require_once 'Mail/src/PHPMailer.php';
@@ -90,13 +91,17 @@
       // Content
       $mail->isHTML(true);                                  // Set email format to HTML
       $mail->Subject = $assunto;
-      $mail->Body    = "<h1> Sua nova senha : {$novaSenha}</h1>";
+      $mail->Body= "<h1> Acesse este link e mude sua senha: <a href='http://localhost/gestclass-web/novaSenha.html.php'>salve</a></h1>";
       $mail->AltBody = 'habilite o html do seu email';
   
       $mail->send();
-      echo 'Email Enviado com sucesso!';
+      echo "<script>alert('Email enviado com sucesso :)');
+      window.location = '../login.html.php'
+      </script>";
   } catch (Exception $e) {
-      echo "Email nao foi enviado, motivo: {$this->mail->ErrorInfo}";
+   echo "<script>alert('Email nao foi enviado, motivo: {$this->mail->ErrorInfo})');
+   window.location = '../login.html.php'
+   </script>";
   }
 
 
