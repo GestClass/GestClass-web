@@ -1,5 +1,5 @@
 <?php
-  // session_start();
+  
   include_once 'conexao.php';
 
   $email=$_POST['emailLogin'];
@@ -20,7 +20,7 @@
     $query->execute();
     $dados = $query->fetch(PDO::FETCH_ASSOC);
 
-    // session_start();
+    
     $_SESSION["id_usuario"] = $dados["ID_diretor"];
     $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_diretor"];
     $_SESSION["id_escola"] = $dados["fk_id_escola_diretor"];
@@ -38,7 +38,7 @@
       $query->execute();
       $dados = $query->fetch(PDO::FETCH_ASSOC);
 
-      // session_start();
+      
       $_SESSION["id_usuario"] = $dados["ID_secretario"];
       $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_secretario"];
       $_SESSION["id_escola"] = $dados["fk_id_escola_secretario"];
@@ -55,7 +55,7 @@
         $query->execute();
         $dados = $query->fetch(PDO::FETCH_ASSOC);
 
-        // session_start();
+        
         $_SESSION["id_usuario"] = $dados["ID_professor"];
         $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_professor"];
         $_SESSION["id_escola"] = $dados["fk_id_escola_professor"];
@@ -72,7 +72,7 @@
           $query->execute();
           $dados = $query->fetch(PDO::FETCH_ASSOC);
 
-          // session_start();
+          
           $_SESSION["id_usuario"] = $dados["RA"];
           $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_aluno"];
           $_SESSION["id_escola"] = $dados["fk_id_escola_aluno"];
@@ -90,7 +90,7 @@
               $query->execute();
               $dados = $query->fetch(PDO::FETCH_ASSOC);
 
-              // session_start();
+              
               $_SESSION["id_usuario"] = $dados["ID_responsavel"];
               $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_responsavel"];
               $_SESSION["id_escola"] = $dados["fk_id_escola_responsavel"];
@@ -107,7 +107,7 @@
                 $query->execute();
                 $dados = $query->fetch(PDO::FETCH_ASSOC);
 
-                // session_start();
+                
                 $_SESSION["id_usuario"] = $dados["ID_admin"];
                 $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_admin"];
 
