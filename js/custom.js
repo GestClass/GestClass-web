@@ -123,7 +123,7 @@ function habilitaForm() {
 
     if ($("#selectConta")[0].selectedIndex === 1) {
         $(".formContas").hide();
-        window.location.href = ('cadastrarAlunoRespon.html.php');
+        window.location.href = ('cadastrarResponsavel.html.php');
     } else if ($("#selectConta")[0].selectedIndex === 2) {
         $(".formContas").hide();
         window.location.href = ('cadastrarAluno.html.php')

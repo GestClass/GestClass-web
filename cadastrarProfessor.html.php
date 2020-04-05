@@ -41,9 +41,6 @@
         require_once 'reqPais.php';
     }
     ?>
-    <div class="input-field right">
-        <button id="voltar" class="btn-flat btnLightBlue" onClick="history.go(-1)"><i class="material-icons">keyboard_return</i> Voltar</button>
-    </div>
 
     <div class="container col s12 m12 l12 ">
         <form id="professor" method="POST" action="php/cadastrarProfessor.php" enctype="multipart/form-data">

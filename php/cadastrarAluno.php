@@ -4,7 +4,7 @@
 
   	// Aluno
 	$id_escola = $_SESSION["id_escola"];
-
+	
 	$rastro = $_POST["ra"];
 	$ra = str_replace('-', '', $rastro);
 
@@ -87,12 +87,12 @@
             if ($query->execute()) {
 
 				echo "<script>alert('Aluno cadastrado com sucesso');
-				history.back();
-			 </script>";
+				window.location='../homeSecretaria.html.php';
+				 </script>";
             }else{
 				echo "<script>alert('Erro: Aluno não foi cadastrado');
 				history.back();;
-			 </script>";
+				 </script>";
 				
 			
 

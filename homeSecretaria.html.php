@@ -75,7 +75,7 @@ require_once 'reqHeader.php';
       <div class="input-field col s12">
         <select id="selectConta" onchange="habilitaForm()">
           <option value="" disabled selected>Contas</option>
-          <option value="1">Aluno/Responsável</option>
+          <option value="1">Responsável/Aluno</option>
           <option value="2">Aluno</option>
           <option value="3">Professor</option>
           <option value="4">Secretaria</option>
