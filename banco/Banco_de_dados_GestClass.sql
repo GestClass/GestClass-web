@@ -112,9 +112,6 @@ CREATE TABLE aluno (
 	RA INTEGER PRIMARY KEY UNIQUE,    
     nome_aluno VARCHAR (70) NOT NULL,
     foto VARCHAR(255),
-	cep VARCHAR (10) NOT NULL,
-    numero INTEGER NOT NULL,
-    complemento VARCHAR (40),
     RG VARCHAR (12) NOT NULL UNIQUE,
     cpf VARCHAR (14) NOT NULL UNIQUE,  
     email VARCHAR(65) NOT NULL UNIQUE,
@@ -378,8 +375,8 @@ INSERT INTO secretario (nome_secretario, cep, numero, complemento, rg, cpf, emai
 
 /*	-	INSERTS INTO TABLE ALUNO	-	*/
               
-INSERT INTO aluno (RA, nome_aluno, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000000, 'aluno_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'aluno_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 5, 1);
-INSERT INTO aluno (RA, nome_aluno, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000001, 'aluno_dois', '000.00-000', '000', 'predio A', '00.000.000-1', '000.000.000-01', 'aluno2_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 5, 1);
+INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000000, 'aluno_exemplo','00.000.000-0', '000.000.000-00', 'aluno_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 5, 1);
+INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000001, 'aluno_dois', '00.000.000-1', '000.000.000-01', 'aluno2_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 5, 1);
 
 /*	-	INSERTS INTO TABLE RESPONSAVEL	-	*/
               
@@ -447,4 +444,4 @@ SELECT * FROM contato;
 
 
 
-/*	-	DROP DATABASE GestClass;	-	*/
+/*	DROP DATABASE GestClass;	*/
