@@ -2,23 +2,42 @@
 
   include_once 'conexao.php';
 
-  // Aluno
-  $id_escola = $_SESSION["id_da_escola"];
-  $nome = $_POST["nome"];
-  $rg = $_POST["rg"];
-  $cpf = $_POST["cpf"];
-  $data_nascimento = ["data_nascimento"];
-  $email = $_POST["email"];
-  $senha = $_POST["senha"];
-  $confsenha = $_POST["confsenha"];
-  $celular = $_POST["celular"];
-  $telefone = $_POST["telefone"];
+  	// Aluno
+	$id_escola = $_SESSION["id_escola"];
+	
+	$rastro = $_POST["ra"];
+	$ra = str_replace('-', '', $rastro);
 
-  $image_file = $_FILES["txt_file"]["name"];
-	$type  = $_FILES["txt_file"]["type"]; //file name "txt_file" 
-	$size  = $_FILES["txt_file"]["size"];
-	$temp  = $_FILES["txt_file"]["tmp_name"];
-	$error  = $_FILES["txt_file"]["error"];
+	$nome = $_POST["nome"];
+	$rg = $_POST["rg"];
+	
+	$cpf = $_POST["cpf"];
+	$limcpf =  str_replace('.', '', $cpf);
+	$cpf_aluno =  str_replace('-', '', $limcpf);
+
+	$data_nascimento = $_POST["data_nascimento"];
+	$email = $_POST["email"];
+	$senha = $_POST["senha"];
+	$confsenha = $_POST["confsenha"];
+	$celular = $_POST["celular"];
+	$telefone = $_POST["telefone"];
+	$turma = $_POST["turma"];
+
+
+	// Resgatando responsavel
+	$cpf_respon = $_POST["cpf_respon"];
+	$cpf_res = str_replace('.', '', $cpf_respon);
+	$cpf_responsavel = str_replace('-', '', $cpf_res);
+	$query = $conn->prepare("select id_responsavel from responsavel where cpf=$cpf_responsavel");
+    $query->execute();
+    $dados = $query->fetch(PDO::FETCH_ASSOC);
+	$id_responsavel = $dados['id_responsavel'];
+	
+	$image_file = $_FILES["foto_file"]["name"];
+	$type  = $_FILES["foto_file"]["type"]; //file name "foto_file" 
+	$size  = $_FILES["foto_file"]["size"];
+	$temp  = $_FILES["foto_file"]["tmp_name"];
+	$error  = $_FILES["foto_file"]["error"];
 	// print_r($imagem);exit;
 	
 	if ($error==1){
@@ -62,18 +81,19 @@
 			
 			move_uploaded_file($temp, $caminho);
 			
-			$query = $conn->prepare("INSERT INTO aluno (nome,foto, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_aluno, fk_id_escola_aluno)
-            VALUES ('{$nome}', '{$nome_imagem}', '{$rg}', '{$cpf}', '{$email}', '{$senha}', '{$celular}','{$telefone}','5' ,'{$id_escola}')");
+			$query = $conn->prepare("INSERT INTO aluno (RA,nome_aluno, foto, RG, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno)
+            VALUES ('{$ra}','{$nome}','{$nome_imagem}','{$rg}','{$cpf_aluno}','{$email}','{$senha}','{$celular}','{$telefone}','{$data_nascimento}','{$turma}','{$id_responsavel}','5', '{$id_escola}')");
 
             if ($query->execute()) {
 
-                echo "<script>alert('Diretor cadastrada com sucesso');
-                        window.location='../login.html.php';
-                     </script>";
+				echo "<script>alert('Aluno cadastrado com sucesso');
+				window.location='../homeSecretaria.html.php';
+				 </script>";
             }else{
-				echo "<script>alert('Erro: Diretor não cadastrado');
-					history.back();
-				</script>";
+				echo "<script>alert('Erro: Aluno não foi cadastrado');
+				history.back();;
+				 </script>";
+				
 			
 
 				 

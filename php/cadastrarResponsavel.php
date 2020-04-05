@@ -2,30 +2,37 @@
 
   include_once 'conexao.php';
 
-  // Secretaria
+  //Responsavel
   $id_escola = $_SESSION["id_escola"];
-  $nome = $_POST["nome"];
-  $rg = $_POST["rg"];
+  $nome_respon = $_POST["nome_respon"];
+  $rg_respon = $_POST["rg_respon"];
 
-  $cpf = $_POST["cpf"];
-  $cpf = $_POST["cpf"];
-  $limcpf =  str_replace('.', '', $cpf);
-  $cpf_secretario =  str_replace('-', '', $limcpf);
+  $cpf_r = $_POST["cpf_respon"];
+  $limcpf =  str_replace('.', '', $cpf_r);
+  $cpf_respon =  str_replace('-', '', $limcpf);
 
+  $nascimento_respon = $_POST["nascimento_respon"];
   $cep = $_POST["cep"];
   $numero = $_POST["numero"];
   $complemento = $_POST["complemento"];
-  $email = $_POST["email"];
-  $senha = $_POST["senha"];
-  $confsenha = $_POST["confsenha"];
-  $celular = $_POST["celular"];
-  $telefone = $_POST["telefone"];
+  $email_respon = $_POST["email_respon"];
+  $senha_respon = $_POST["senha_respon"];
+  $confsenha_respn = $_POST["confsenha_respon"];
+  $pin = $_POST["pin"];
+  $celular_respon = $_POST["celular_respon"];
+  $telefone_respon = $_POST["telefone_respon"];
+  $tel_comercial = $_POST["tel_comercial"];
+  $data_pagamento = $_POST["data_pagamento"];
 
   $image_file = $_FILES["foto_file"]["name"];
 	$type  = $_FILES["foto_file"]["type"]; //file name "foto_file" 
 	$size  = $_FILES["foto_file"]["size"];
 	$temp  = $_FILES["foto_file"]["tmp_name"];
 	$error  = $_FILES["foto_file"]["error"];
+  //print_r($imagem);exit;
+
+  
+
 	
 	if ($error==1){
 		echo "<script>alert('O arquivo no upload é maior do que o limite definido em upload_max_filesize no php.ini');
@@ -66,27 +73,25 @@
         	
         	$caminho = "../assets/imagensBanco/" . $nome_imagem;
 			
-			move_uploaded_file($temp, $caminho);
-			
-			$query = $conn->prepare("INSERT INTO secretario (nome_secretario, foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario)
-            VALUES ('{$nome}', '{$nome_imagem}', '{cep}', '{numero}', '{complemento}','{$rg}', '{$cpf_secretario}', '{$email}', '{$senha}', '{$celular}','{$telefone}','3' ,'{$id_escola}')");
+      move_uploaded_file($temp, $caminho);
+      
+      $query_responsavel = $conn->prepare("INSERT INTO responsavel(nome_responsavel, foto, cep, numero, complemento, RG, cpf, email, senha, pin, celular, telefone, telefone_comercial, data_nascimento, data_pagamento_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel)
+           VALUES ('{$nome_respon}','{$nome_imagem}', '{$cep}', '{$numero}', '{$complemento}', '{$rg_respon}', '{$cpf_respon}', '{$email_respon}', '{$senha_respon}', '{$pin}', '{$celular_respon}', '{$telefone_respon}', '{$tel_comercial}', '{$nascimento_respon}', '{$data_pagamento}','6', '{$id_escola}')");
 
-            if ($query->execute()) {
+            if ($query_responsavel->execute()) {
 
-                echo "<script>alert('Secretario cadastrado com sucesso');
-                        window.location='../homeSecretaria.html.php';
-                     </script>";
+              echo "<script>alert('Responsável cadastrado com sucesso');
+			  window.location='../cadastrarAluno.html.php';
+			   </script>";
+  
             }else{
-				echo "<script>alert('Erro: Secretario não foi cadastrado');
+				echo "<script>alert('Erro: Responsável não foi cadastrado');
 				history.back();;
-				 </script>";
-			
-
-				 
+			 	</script>";
             }
 
 		
 		}
     }
-  
+
 ?>
