@@ -22,7 +22,7 @@
 
     <?php require_once 'reqMenuAdm.php' ?>
 
-    <div class="container ">
+    <!-- <div class="container "> -->
         <form id="adicionarEscola" class="col s12" method="POST" action="php/cadastrarEscola.php">
             <div class="row">
                 <div class="col s12 m12 l12">
@@ -55,9 +55,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s12 m4 l2">
+                            <div class="input-field col s12 m4 l3">
                                 <i class="material-icons prefix blue-icon">location_on</i>
-                                <input id="cep" placeholder="08574-150" type="text" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
+                                <input id="cep" name="cep" placeholder="08574-150" type="text" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
                                 <label for="first_name">CEP</label>
                             </div>
                             <div id="a" class="input-field col s10 m4 l2">
@@ -68,16 +68,16 @@
                                 <input id="bairro" placeholder="Bairro" type="text" class="validate">
                                 <label for="first_name">Bairro</label>
                             </div>
-                            <div id="a" class="input-field col s10 m4 l3">
+                            <div id="a" class="input-field col s10 m4 l2">
                                 <input id="rua" placeholder="Rua" type="text" class="validate">
                                 <label for="first_name">Rua</label>
                             </div>
                             <div id="a" class="input-field col s10 m2 l1">
-                                <input id="numero" placeholder="Número" type="tel" class="validate ">
+                                <input id="numero" name="numero" placeholder="12" type="tel" class="validate ">
                                 <label for="first_name">Nº</label>
                             </div>
                             <div id="a" class="input-field col s10 m6 l2">
-                                <input id="complemento" placeholder="Complemento" type="tel" class="validate ">
+                                <input id="complemento" name="complemento" placeholder="ap" type="tel" class="validate ">
                                 <label for="first_name">Complemento</label>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
 
                                             <label class="left">
                                                 <input id="fk_id_tipos_turma_bercario" type="checkbox" class="filled-in checkbox-blue-grey" name="chk1" value="1" />
-                                                <span>Berçario&nbsp;&nbsp;</span>
+                                                <span>Berçario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                             </label>
 
                                             <label class="left">
@@ -116,7 +116,7 @@
 
                                             <label class="left">
                                                 <input id="fk_id_tipos_turma_fundamental_II" type="checkbox" class="filled-in checkbox-blue-grey" name="chk4" value="1" />
-                                                <span>FundamentalII</span>
+                                                <span>Fundamental II</span>
                                             </label>
 
                                         </div>
@@ -148,9 +148,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="container">
                 <div class="input-field right">
                     <button id="btnFormCadEscola" type="submit" class="btn-flat btnLightDark">
                         <i class="material-icons left">send</i>Enviar</button>
+                </div>
                 </div>
             </div>
         </form>
