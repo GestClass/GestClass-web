@@ -129,29 +129,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12 m6 l6">
+                <div  class="input-field col s12 m12 l12">
                     <i class="material-icons prefix blue-icon">school</i>
-                    <select name="turma" id="nome_turma" multiple>
-                        <option value="" disabled selected>Selecione a Turma</option>
-                        <option value="1">Berçario A</option>
-                        <option value="2">Pré 1 A</option>
-                        <option value="3">Pré 2 B</option>
-                        <option value="4">1º ano A</option>
-                        <option value="5">2º ano A</option>
-                        <option value="6">3º ano A</option>
-                        <option value="7">4º ano A</option>
-                        <option value="8">5º ano A</option>
-                        <option value="9">6º ano A</option>
-                        <option value="10">7º ano A</option>
-                        <option value="11">8º ano A</option>
-                        <option value="12">9º ano A</option>
-                        <option value="13">1º ano médio A</option>
-                        <option value="14">2º ano médio A</option>
-                        <option value="15">3º ano médio A</option>
-                    </select>
-                    <label id="lbl">Turmas</label>
-                </div>
-                <div id="a" class="input-field col s10 m6 l6">
                     <select name="disciplina" id="nome_disciplina" multiple>
                         <option value="" disabled selected>Selecione a Disciplina</option>
                         <option value="1">Português</option>
