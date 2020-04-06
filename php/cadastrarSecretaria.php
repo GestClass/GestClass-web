@@ -8,7 +8,6 @@
   $rg = $_POST["rg"];
 
   $cpf = $_POST["cpf"];
-  $cpf = $_POST["cpf"];
   $limcpf =  str_replace('.', '', $cpf);
   $cpf_secretario =  str_replace('-', '', $limcpf);
 
