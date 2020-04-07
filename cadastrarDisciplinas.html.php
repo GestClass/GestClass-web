@@ -42,115 +42,40 @@
     }
     ?>
 
-    <div class="container col s12 m12 l12 ">
-        <form id="Disciplina_turmas" method="POST" action="php/cadastrarDisciplinas.php" enctype="multipart/form-data">
-            <h5>Cadastro Turmas e Disciplinas</h5>
+    <div id="turmas_disci" class="container col s12 m12 l12 ">
+        <form id="disciplina_turmas" method="POST" action="php/cadastrarDisciplinas.php" enctype="multipart/form-data">
+            <h5>Cadastro Turmas e Disciplinas</h5><br><br>
 
-            <div class="input-field col s12 m12 l12 ">
-                <div class="col s4 m4 l3 ">
-                    <label id="lbl" for="first_name">Turmas</label>
-                </div><br>
-                <div class="row">
-                    <div class="col s6 m2 l2">
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="bercario_a" value="1" />
-                            <span>Berçario A</span>
-                        </label>
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="pre1_a" value="2" />
-                            <span>Pré 1 A</span>
-                        </label>
-
-                    </div>
-                    <div class="col s6 m2 l2">
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="pre2_a" value="3" />
-                            <span>Pré 2 A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        </label>
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="ano1_a" value="4" />
-                            <span>1ºano A</span>
-                        </label>
-
-                    </div>
-                    <div class="col s6 m2 l2">
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="ano2_a" value="5" />
-                            <span>2ºano A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        </label>
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="ano3_a" value="6" />
-                            <span>3ºano A</span>
-                        </label>
-
-                    </div>
-                    <div class="col s6 m2 l2">
-
-                        <label class="center">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="ano4_a" value="8" />
-                            <span>4ºano A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        </label>
-
-                        <label class="center">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="ano5_a" value="9" />
-                            <span>5ºano A</span>
-                        </label>
-
-                    </div>
-                    <div class="col s6 m2 l2">
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="ano6_a" value="10" />
-                            <span>6ºano A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        </label>
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="ano7_a" value="11" />
-                            <span>7ºano A</span>
-                        </label>
-
-                    </div>
-                    <div class="col s6 m2 l2">
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="ano8_a" value="12" />
-                            <span>8ºano A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        </label>
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="ano9_a" value="13" />
-                            <span>9ºano A</span>
-                        </label>
-
-                    </div>
-                    <br><br><br>
-                    <div class="col s6 m2 l2">
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="medio1_a" value="14" />
-                            <span>1ºmédio A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        </label>
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="medio2_a" value="15" />
-                            <span>2ºmédio A</span>
-                        </label>
-
-                        <label class="left">
-                            <input id="turma" type="checkbox" class="filled-in checkbox-blue-grey" name="medio3_a" value="16" />
-                            <span>3ºmédio A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        </label>
-
-                    </div>
-
-                </div>
-            </div>
+            <label id="lbl">Turmas</label>
+            <div class="input-field col s12 m12 l12">
+                <select name="turmas">
+                    <optgroup label="Berçario">
+                        <option value="1">Berçario - A</option>
+                    </optgroup>
+                    <optgroup label="Pré-Escola">
+                        <option value="2">Pré-1 A</option>
+                        <option value="3">Pré-2 A</option>
+                    </optgroup>
+                    <optgroup label="Fundamental I">
+                        <option value="4">1ºano A</option>
+                        <option value="5">2ºano A</option>
+                        <option value="7">3ºano A</option>
+                        <option value="8">4ºano A</option>
+                    </optgroup>
+                    <optgroup label="Fundamental II">
+                        <option value="9">5ºano A</option>
+                        <option value="10">6ºano A</option>
+                        <option value="11">7ºano A</option>
+                        <option value="12">8ºano A</option>
+                        <option value="13">9ºano A</option>
+                    </optgroup>
+                    <optgroup label="Ensino Médio">
+                        <option value="14">1ºmédio A</option>
+                        <option value="15">1ºmédio A</option>
+                        <option value="16">1ºmédio A</option>
+                    </optgroup>
+                </select>
+            </div><br>
 
             <div class="input-field col s12 m12 l12 ">
                 <div class="col s4 m4 l3 ">
