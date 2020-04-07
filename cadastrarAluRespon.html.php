@@ -62,22 +62,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s6 m6 l3">
+                <div class="input-field col s6 m3 l3">
                     <i class="material-icons prefix blue-icon">ballot</i>
                     <input name="ra" id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
                     <label id="lbl" for="first_name">RA</label>
                 </div>
-                <div class="input-field col s6 m6 l3">
+                <div class="input-field col s6 m3 l3">
                     <i class="material-icons prefix blue-icon">ballot</i>
                     <input name="rg" id="RG" placeholder="65.745.984-6" type="tel" data-mask="00.000.000-0" class="validate ">
                     <label id="lbl" for="first_name">RG</label>
                 </div>
-                <div class="input-field col s6 m6 l3">
+                <div class="input-field col s6 m3 l3">
                     <i class="material-icons prefix blue-icon">ballot</i>
                     <input name="cpf" id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate ">
                     <label id="lbl" for="first_name">CPF</label>
                 </div>
-                <div class="input-field col s6 m6 l3">
+                <div class="input-field col s6 m3 l3">
                     <i class="material-icons prefix blue-icon">cake</i>
                     <input name="data_nascimento" id="data_nascimento" placeholder="2000/09/05" type="text" class="datepicker validate">
                     <label id="lbl">Data Nascimento</label>
