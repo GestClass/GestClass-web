@@ -81,7 +81,7 @@
             if ($query_responsavel->execute()) {
 
               echo "<script>alert('Responsável cadastrado com sucesso');
-			  window.location='../cadastrarAluno.html.php';
+			  window.location='../cadastrarAluRespon.html.php';
 			   </script>";
   
             }else{
