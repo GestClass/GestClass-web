@@ -145,7 +145,7 @@ body {
     color: #64b5f6;
 }
 
-#modalboletimCadastro{
+#modalBoletimCadastro{
     width: 550px;
     max-height: 100%;
     overflow: visible;
@@ -184,4 +184,12 @@ body {
 
 #lbl {
     color: #64b5f6;
+}
+
+/*  -   Lista Alunos    -   */
+
+#modalListaAlunos{
+    width: 550px;
+    max-height: 100%;
+    overflow: visible;
 }

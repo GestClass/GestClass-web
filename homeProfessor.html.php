@@ -21,7 +21,7 @@
 
 
       <div class="col s12 m4">
-        <a class="modal-trigger" href="#modalboletimCadastro">
+        <a class="modal-trigger" href="#modalBoletimCadastro">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-list-ol  fa-6x blue-icon"></i>
             <h5>Boletim Escolar</h5>
@@ -41,7 +41,7 @@
     </div>
 
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+        <a class="modal-trigger" href="#modalListaAlunos">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-list-alt fa-6x blue-icon"></i>
             <h5>Listas de alunos</h5>
@@ -92,7 +92,7 @@
   </div>
 </section>
 
-<div id="modalboletimCadastro" class="modal">
+<div id="modalBoletimCadastro" class="modal">
   <div class="modal-content">
     <h4>Selecione o tipo de conta</h4>
     <div class="input-field col s12">
@@ -115,15 +115,12 @@
           <?php
             }
           }
-
-          $id_turma = "<script>document.write(valueId)</script>";
-
           ?>
       </select>
       <div class="input-field col s12 m6 l6 validate">
         <i class="material-icons prefix blue-icon">library_books</i>
         <select id="nome_tipo_turma" name="disciplina">
-        <option value="" disabled selected>Selecione a Disciplina <?php echo $id_turma?></option>
+        <option value="" disabled selected>Selecione a Disciplina</option>
         <?php            
 
             $query_select_disciplinas_professor = $conn->prepare("SELECT fk_id_disciplina_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_professor_disciplinas_professor = $id_usuario");
@@ -144,6 +141,36 @@
         ?>
         </select>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalListaAlunos" class="modal">
+  <div class="modal-content">
+    <h4>Selecione a turma</h4>
+    <div class="input-field col s12">
+      <select id="selectTurma" onchange="listaAlunos()">
+        <option value="" disabled selected>Selecione a Turma</option>
+          <?php
+        
+            $query_select_turmas_escola = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
+            $query_select_turmas_escola->execute();
+
+            while($dados_turmas_escola = $query_select_turmas_escola->fetch(PDO::FETCH_ASSOC)){
+
+              $id_turma = $dados_turmas_escola["fk_id_turma_professor_turmas_professor"];
+
+              $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+              $query_select_turma->execute();
+
+              while($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)){
+          ?>
+              <option value="<?php echo $id_turma?>"><?php echo $dados_turma_nome["nome_turma"]?></option>
+          <?php
+              } 
+            }       
+          ?>
+      </select>
     </div>
   </div>
 </div>

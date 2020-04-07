@@ -5,3 +5,10 @@ function idTurma(){
 
 	alert(id);
 }
+
+function listaAlunos(){
+
+alert()
+
+
+}
