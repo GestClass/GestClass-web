@@ -69,8 +69,10 @@
                 ?>
 
                 <tr>
-                    <td><?php echo $dados_alunos['nome_aluno']?></td>
-                    <td>00/00/0000</td>
+                    <td><?php echo $dados_alunos['nome_aluno']?></td> 
+                    <td><div class="input-field col s6 m3 l1">
+                    <input id="data" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
+                </div></td>
                     <td>
                         <label>
                             <input type="checkbox" name="presenca[]" value="1" class="filled-in checkbox-blue-grey" />
@@ -90,5 +92,7 @@
         </div>
         </form>
     </div>
+
+    <script src="js/chamada.js"></script>
 
     <?php require_once 'reqFooter.php' ?>

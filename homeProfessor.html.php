@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m4">
-        <a href="chamada.html.php">
+        <a class="modal-trigger" href="#modalChamada">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-clipboard-list fa-6x blue-icon"></i>
             <h5>Chamada</h5>
@@ -18,6 +18,7 @@
           </div>
         </a>
       </div>
+      
 
 
       <div class="col s12 m4">
@@ -72,6 +73,22 @@
 
     </div>
   </div>
+
+  <div id="modalChamada" class="modal ">
+    <div class="modal-content">
+      <h4>Selecione a Turma</h4>
+      <div class="input-field col s12 validate">
+        <select id="selecTurma" onchange="chamada()">
+          <option value="" disabled selected>Turmas</option>
+          <option value="1">8° ano A</option>
+          <option value="2">9° ano A</option>
+          <option value="3">1° ano A</option>
+          <option value="4">2° ano A</option>
+          <option value="5">3° ano A</option>
+        </select>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="floating-buttons">
@@ -91,5 +108,7 @@
     </ul>
   </div>
 </section>
+
+<script src="js/chamada.js"></script>
 
 <?php require_once 'reqFooter.php' ?>
