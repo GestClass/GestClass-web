@@ -161,6 +161,23 @@
 
                     </div>
                 </div>
+            </div><br>
+
+            <label id="lbl" for="first_name">Novas Disciplinas</label>
+            <div class="row">
+                <div class="input-field col s12 m3 l3">
+                    <input name="disciplina1" id="disciplina1" placeholder="Exemplo . . ." type="tel" class="validate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m3 l3">
+                    <input name="disciplina2" id="disciplina2" placeholder="Exemplo . . ." type="tel" class="validate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m3 l3">
+                    <input name="disciplina3" id="disciplina3" placeholder="Exemplo . . . " type="tel" class="validate">
+                </div>
             </div>
             <div class="input-field right">
                 <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>

@@ -10,7 +10,13 @@
   $query_select->execute();
   $dados = $query_select->fetch(PDO::FETCH_ASSOC);
   $id_professor = $dados["id_professor"];
+
   $turmas = $_POST["turmas"];
+
+  //Disciplinas que nao tem no checkbox
+  $disciplina1 = $_POST["disciplina1"];
+  $disciplina2 = $_POST["disciplina2"];
+  $disciplina3 = $_POST["disciplina3"];
    
    //disciplinas
   $portugues = isset($_POST['portugues']) ? $_POST['portugues'] : 0;
@@ -26,16 +32,20 @@
   $sociologia = isset($_POST['sociologia']) ? $_POST['sociologia'] : 0;
   $ed_fisica = isset($_POST['ed_fisica']) ? $_POST['ed_fisica'] : 0;
 
-  // switch ($variable) {
-  //   case 'value':
-  //     # code...
-  //     break;
-    
-  //   default:
-  //     # code...
-  //     break;
-  // }
-    
+
+    //Novas disciplinas, precisa fazer um insert na tabela de disciplina, e depois na tabela de disciplinas_professor
+    //to tentando achar a logica porem estou com dor de cabeça e sono kskskksksks 
+
+    // $query_novas_disciplinas = $conn->prepare("INSERT INTO disciplina (nome_disciplina)
+    //   VALUES ('{$disciplina1}')");
+
+    // $query_novas_disciplinas = $conn->prepare("INSERT INTO disciplina (nome_disciplina)
+    //   VALUES ('{$disciplina2}')");
+
+    // $query_novas_disciplinas = $conn->prepare("INSERT INTO disciplina (nome_disciplina)
+    //   VALUES ('{$disciplina3}')");
+
+  
 
     if ($portugues == 1) {
       $query_disciplinas = $conn->prepare("INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_disciplina_professor_disciplinas_professor, fk_id_turma_professor_disciplinas_professor)
