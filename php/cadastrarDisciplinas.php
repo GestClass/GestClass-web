@@ -65,7 +65,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeDiretor.html.php';
         }
@@ -80,7 +80,7 @@
           var confirmacao = confirm('Deseja cadastrar outra turma?');
 
           if(confirmacao == true){
-            window.location='../cadastrarDisciplinas.html.php';
+            window.location='../cadastroDisciplinas.html.php';
           }else{
             window.location='../homeSecretaria.html.php';
           }
@@ -112,7 +112,7 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastrarDisciplinas.html.php';
+        window.location='../cadastroDisciplinas.html.php';
       }else{
         window.location='../homeDiretor.html.php';
       }
@@ -127,7 +127,7 @@
           var confirmacao = confirm('Deseja cadastrar outra turma?');
 
           if(confirmacao == true){
-            window.location='../cadastrarDisciplinas.html.php';
+            window.location='../cadastroDisciplinas.html.php';
           }else{
             window.location='../homeSecretaria.html.php';
           }
@@ -159,7 +159,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeDiretor.html.php';
         }
@@ -175,7 +175,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeSecretaria.html.php';
         }
@@ -207,7 +207,7 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-      window.location='../cadastrarDisciplinas.html.php';
+      window.location='../cadastroDisciplinas.html.php';
       }else{
       window.location='../homeDiretor.html.php';
       }
@@ -222,7 +222,7 @@
           var confirmacao = confirm('Deseja cadastrar outra turma?');
 
           if(confirmacao == true){
-            window.location='../cadastrarDisciplinas.html.php';
+            window.location='../cadastroDisciplinas.html.php';
           }else{
             window.location='../homeSecretaria.html.php';
           }
@@ -255,7 +255,7 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastrarDisciplinas.html.php';
+        window.location='../cadastroDisciplinas.html.php';
       }else{
         window.location='../homeDiretor.html.php';
       }
@@ -271,7 +271,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeSecretaria.html.php';
         }
@@ -304,7 +304,7 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastrarDisciplinas.html.php';
+        window.location='../cadastroDisciplinas.html.php';
       }else{
         window.location='../homeDiretor.html.php';
       }
@@ -320,7 +320,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeSecretaria.html.php';
         }
@@ -353,7 +353,7 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastrarDisciplinas.html.php';
+        window.location='../cadastroDisciplinas.html.php';
       }else{
         window.location='../homeDiretor.html.php';
       }
@@ -369,7 +369,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeSecretaria.html.php';
         }
@@ -402,7 +402,7 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastrarDisciplinas.html.php';
+        window.location='../cadastroDisciplinas.html.php';
       }else{
         window.location='../homeDiretor.html.php';
       }
@@ -418,7 +418,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeSecretaria.html.php';
         }
@@ -451,7 +451,7 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastrarDisciplinas.html.php';
+        window.location='../cadastroDisciplinas.html.php';
       }else{
         window.location='../homeDiretor.html.php';
       }
@@ -467,7 +467,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeSecretaria.html.php';
         }
@@ -500,7 +500,7 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastrarDisciplinas.html.php';
+        window.location='../cadastroDisciplinas.html.php';
       }else{
         window.location='../homeDiretor.html.php';
       }
@@ -516,7 +516,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeSecretaria.html.php';
         }
@@ -550,7 +550,7 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastrarDisciplinas.html.php';
+        window.location='../cadastroDisciplinas.html.php';
       }else{
         window.location='../homeDiretor.html.php';
       }
@@ -566,7 +566,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeSecretaria.html.php';
         }
@@ -599,7 +599,7 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastrarDisciplinas.html.php';
+        window.location='../cadastroDisciplinas.html.php';
       }else{
         window.location='../homeDiretor.html.php';
       }
@@ -615,7 +615,7 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastrarDisciplinas.html.php';
+          window.location='../cadastroDisciplinas.html.php';
         }else{
           window.location='../homeSecretaria.html.php';
         }

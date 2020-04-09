@@ -73,7 +73,7 @@
               
               if ($query->execute()) {
                 echo "<script>alert('Professor cadastrado com sucesso');
-                window.location='../cadastrarDisciplinas.html.php';
+                window.location='../cadastroDisciplinas.html.php';
                 </script>";
 
               }else{
