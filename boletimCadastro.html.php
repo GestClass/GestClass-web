@@ -86,24 +86,7 @@
                         <i class="material-icons prefix blue-icon">library_books</i>
                         <select id="nome_tipo_turma" name="disciplina">
                         <option value="" disabled selected>Selecione a Disciplina</option>
-                        <?php
-
-                            $query_select_disciplinas_professor = $conn->prepare("SELECT fk_id_disciplina_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_professor_disciplinas_professor = $id_usuario");
-                            $query_select_disciplinas_professor->execute();
-
-                            while($dados_disciplinas_professor = $query_select_disciplinas_professor->fetch(PDO::FETCH_ASSOC)){
-                                $id_disciplina = $dados_disciplinas_professor["fk_id_disciplina_professor_aulas_professor"];
-
-                                $query_select_disciplina_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");
-                                $query_select_disciplina_nome->execute();
-
-                                while($dados_disciplina_nome = $query_select_disciplina_nome->fetch(PDO::FETCH_ASSOC)) {
-                        ?>
-                        <option value="<?php echo $id_disciplina ?>"><?php echo $dados_disciplina_nome['nome_disciplina']  ?></option>
-                        <?php
-                                }
-                            }
-                        ?>
+                        <option value="">aaaa</option>
                         </select>
                         <label id="lbl">Disciplina</label>
                     </div>
@@ -217,5 +200,6 @@
             <br>
           </form>
     </div>
+    
     <script src="js/default.js"></script>
 <?php require_once 'reqFooter.php' ?>

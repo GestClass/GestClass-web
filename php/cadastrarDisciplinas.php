@@ -44,7 +44,6 @@
 
     // $query_novas_disciplinas = $conn->prepare("INSERT INTO disciplina (nome_disciplina)
     //   VALUES ('{$disciplina3}')");
-
   
 
     if ($portugues == 1) {

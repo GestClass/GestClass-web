@@ -96,7 +96,7 @@
   <div class="modal-content">
     <h4>Selecione o tipo de conta</h4>
     <div class="input-field col s12">
-      <select id="selectTurma" onchange="idTurma()">
+      <select id="selectTurma" onchange="pegarId()">
         <option value="" disabled selected>Selecione a Turma</option>
         <?php
           $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
@@ -111,39 +111,46 @@
 
             while($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)){
         ?>        
-          <option value="<?php echo $id_turma?>"><?php echo $dados_turma_nome["nome_turma"]?></option>
+          <option value="<?php echo $id_turma?>"><?php echo $dados_turma_nome["nome_turma"]."  ".$id_turma?></option>
           <?php
             }
           }
           ?>
       </select>
-      <div class="input-field col s12 m6 l6 validate">
-        <i class="material-icons prefix blue-icon">library_books</i>
-        <select id="nome_tipo_turma" name="disciplina">
-        <option value="" disabled selected>Selecione a Disciplina</option>
-        <?php            
+      <form action="" class="selectDisciplina" method="post">
+        <div id="selectDisciplina" class="input-field col s12 m6 l6 validate">
+          <i class="material-icons prefix blue-icon">library_books</i>
+          <select id="disciplinas_professor" name="disciplina">
+            <option value="" disabled selected>Selecione a Disciplina</option>
+            <?php
+            
+              $query_select_discplina_turma_professor = $conn->prepare("SELECT fk_id_disciplina_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_professor_disciplinas_professor = $id_usuario AND fk_id_turma_professor_disciplinas_professor =16");
+              $query_select_discplina_turma_professor->execute();              
 
-            $query_select_disciplinas_professor = $conn->prepare("SELECT fk_id_disciplina_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_professor_disciplinas_professor = $id_usuario");
-            $query_select_disciplinas_professor->execute();
+              while($dados_discplina_turma_professor = $query_select_discplina_turma_professor->fetch(PDO::FETCH_ASSOC)){
 
-            while($dados_disciplinas_professor = $query_select_disciplinas_professor->fetch(PDO::FETCH_ASSOC)){
-                $id_disciplina = $dados_disciplinas_professor["fk_id_disciplina_professor_aulas_professor"];
+                $id_disciplina = $dados_discplina_turma_professor["fk_id_disciplina_professor_disciplinas_professor"];
 
-                $query_select_disciplina_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");
-                $query_select_disciplina_nome->execute();
+                $query_select_nome_disciplina = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina;");
+                $query_select_nome_disciplina->execute();
 
-                while($dados_disciplina_nome = $query_select_disciplina_nome->fetch(PDO::FETCH_ASSOC)) {
-        ?>
-        <option value="<?php echo $id_disciplina ?>"><?php echo $dados_disciplina_nome['nome_disciplina']  ?></option>
-        <?php
+                while($dados_nome_disciplina = $query_select_nome_disciplina->fetch(PDO::FETCH_ASSOC)){
+
+                  $nome_dsciplina = $dados_nome_disciplina["nome_disciplina"];
+                  ?>
+                  <option value="<?php echo $id_disciplina?>"><?php echo $nome_dsciplina?></option>
+            <?php
                 }
-            }
-        ?>
-        </select>
-      </div>
+              }
+            ?>
+          </select>
+        </div>
+      </form>
     </div>
   </div>
 </div>
+
+
 
 <div id="modalListaAlunos" class="modal">
   <div class="modal-content">
