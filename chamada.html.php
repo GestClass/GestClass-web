@@ -41,7 +41,7 @@
                 require_once 'reqPais.php';
             }
 
-            $query_alunos = $conn->prepare("select * from aluno where fk_id_escola_aluno=1");
+            $query_alunos = $conn->prepare("SELECT t.id_turma,t.nome_turma FROM turma AS t JOIN turmas_professor AS P ON t.id_turma = P.fk_id_turma_professor_turmas_professor");
             $query_alunos->execute();
 
             
@@ -65,7 +65,7 @@
 
             <tbody>
                 <?php while($dados_alunos = $query_alunos->fetch(PDO::FETCH_ASSOC)){
-                    $RA = $dados_alunos["RA"];    
+                       
                 ?>
 
                 <tr>
