@@ -136,3 +136,56 @@ function habilitaForm() {
 }
 
 //Fim
+
+//modal boletim
+$(document).ready(function() {
+    $('.sidenav').sidenav();
+});
+
+$('.dropdown-trigger').dropdown();
+
+$(document).ready(function() {
+    $('.modal').modal();
+});
+
+$(document).ready(function() {
+    $('select').formSelect();
+});
+
+$(".formTurmas").hide();
+
+function pegarId() {
+
+    $(".formTurmas").hide();
+
+    $("#selectTurma").on("change", function pegarId() {
+        var idTurma = $("#selectTurma").val();
+        //alert(idTurma);
+
+        if ($("#selectTurma")[0].selectedIndex === 0) {
+            //   $('#turminha').show(500)
+            $(".formTurmas").hide();
+        } else {
+            $('#turminha').show(500)
+        }
+    });
+
+    $.ajax({
+        url: 'home_professor.html.php',
+        type: 'POST',
+        data: { id_turmajs: idTurma },
+        beforeSend: function() {
+
+        },
+        success: function(data) {
+            $("disciplinas_professor").html("Carregando...");
+        },
+        error: function() {
+            $("disciplinas_professor").html("Houve um erro ao carregar...");
+        }
+
+    });
+
+
+}
+//fim
