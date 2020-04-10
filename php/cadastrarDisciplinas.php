@@ -33,9 +33,6 @@
   $ed_fisica = isset($_POST['ed_fisica']) ? $_POST['ed_fisica'] : 0;
 
 
-  //Novas disciplinas, precisa fazer um insert na tabela de disciplina, e depois na tabela de disciplinas_professor
-  //to tentando achar a logica porem estou com dor de cabeça e sono kskskksksks 
-
   // $query_novas_disciplinas = $conn->prepare("INSERT INTO disciplina (nome_disciplina)
   //   VALUES ('{$disciplina1}')");
 
