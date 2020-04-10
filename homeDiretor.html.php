@@ -1,11 +1,11 @@
 <?php
 
-  require_once 'reqDiretor.php';
+require_once 'reqDiretor.php';
 
 
-  // echo "id usuario ->".$id_usuario."</br>";
-  // echo "id tipo usuario ->".$id_tipo_usuario."</br>";
-  // echo "id escola ->".$id_escola."</br>";
+// echo "id usuario ->".$id_usuario."</br>";
+// echo "id tipo usuario ->".$id_tipo_usuario."</br>";
+// echo "id escola ->".$id_escola."</br>";
 
 ?>
 
@@ -50,7 +50,7 @@
         </a>
       </div>
       <div class="col s12 m4">
-      <a class="modal-trigger" href="#modalCadastroContas">
+        <a class="modal-trigger" href="#modalCadastroContas">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-address-book fa-6x blue-icon"></i>
             <h5>Cadastro de contas</h5>
@@ -112,14 +112,11 @@
       <i class="large material-icons">add</i>
     </a>
     <ul>
-      <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left"
-          data-tooltip="Gráfico de rendimento"><i class="material-icons">insert_chart</i></a></li>
-      <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left"
-          data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-      <li><a href="paginaManutencao.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left"
-          data-tooltip="Chat"><i class="material-icons">chat</i></a></li>
-      <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
-          data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
+      <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
+      <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Gráfico de rendimento"><i class="material-icons">insert_chart</i></a></li>
+      <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
+      <li><a href="paginaManutencao.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Chat"><i class="material-icons">chat</i></a></li>
+      <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
     </ul>
   </div>
 </section>

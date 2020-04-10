@@ -2,7 +2,7 @@
 
 	include_once 'conexao.php';
 	
-	session_start();
+	// session_start();
 
 	$id_escola = $_SESSION["id_da_escola"];
     $nome_diretor = $_POST["nome_diretor"];

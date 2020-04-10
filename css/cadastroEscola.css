@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 .checkbox-blue-grey[type="checkbox"].filled-in:checked+span:not(.lever):after {
     border: 2px solid #1a237e;
     background-color: #1a237e;

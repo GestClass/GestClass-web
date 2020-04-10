@@ -93,3 +93,10 @@
                     font-size: 7px;
                 }
             }
+
+            
+#modalBoletimCadastro{
+    width: 550px;
+    max-height: 100%;
+    overflow: visible;
+}

@@ -26,6 +26,7 @@
     include_once 'php/conexao.php';
 
     $id_escola = $_GET["id_escola"];
+    $_SESSION['id_escola'] = $id_escola;
 
     $query = $conn->prepare("select * from escola where id_escola=$id_escola");
     $query->execute();
@@ -49,7 +50,7 @@
             </div>
         </div>
         <div id="dadosEscola">
-            <form id="adicionarEscola" class="col s12" method="POST" action="php/cadastrarEscola.php">
+            <form id="adicionarEscola" class="col s12" method="POST" action="php/dadosEscola.php">
                 <div class="row">
                     <div class="col s12 m12 l12">
                         <div class="container">
