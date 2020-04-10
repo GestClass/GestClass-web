@@ -123,15 +123,15 @@ function habilitaForm() {
 
     if ($("#selectConta")[0].selectedIndex === 1) {
         $(".formContas").hide();
-        window.location.href = ('cadastrarResponsavel.html.php');
+        window.location.href = ('cadastroResponsavel.html.php');
     } else if ($("#selectConta")[0].selectedIndex === 2) {
         $(".formContas").hide();
-        window.location.href = ('cadastrarAluno.html.php')
+        window.location.href = ('cadastroAluno.html.php')
     } else if ($("#selectConta")[0].selectedIndex === 3) {
-        window.location.href = ('cadastrarProfessor.html.php')
+        window.location.href = ('cadastroProfessor.html.php')
     } else {
         $(".formContas").hide();
-        window.location.href = ('cadastrarSecretaria.html.php')
+        window.location.href = ('cadastroSecretaria.html.php')
     }
 }
 

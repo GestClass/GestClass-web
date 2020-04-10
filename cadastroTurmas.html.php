@@ -42,9 +42,29 @@
     }
     ?>
 
-    <div class="container col s12 m12 l12 ">
+    <div class="container col s12 m12 l12 "><br>
         <form id="cadastro_turmas" method="POST" action="php/cadastrarTurmas.php" enctype="multipart/form-data">
-            <h5>Cadastrar Turmas</h5>
+            <h5>Cadastrar Turmas</h5><br><br>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <select name="ensino">
+                        <option value="" disabled selected>Selecione o Ensino</option>
+                        <option value="1">Berçario</option>
+                        <option value="2">Pré-Escola</option>
+                        <option value="3">Fundamental I</option>
+                        <option value="4">Fundamental II</option>
+                        <option value="5">Ensino Médio</option>
+                    </select>
+                    <label id="lbl">Selecione o Ensino</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input name="turma" id="nome_turma" placeholder="Ex: 3ºano A . . ." type="text" class="validate">
+                    <label id="lbl" for="first_name">Turma</label>
+                </div>
+            </div>
+            <div class="input-field right">
+                <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
+            </div>
         </form>
     </div>
 
