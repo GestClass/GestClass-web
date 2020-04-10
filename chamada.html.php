@@ -70,12 +70,12 @@
 
                 <tr>
                     <td><?php echo $dados_alunos['nome_aluno']?></td> 
-                    <td><div class="input-field col s6 m3 l1">
-                    <input id="data" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
-                </div></td>
+                    <td>
+                    <strong><?php echo date("d/m/y");?></strong>
+                    </td>
                     <td>
                         <label>
-                            <input type="checkbox" name="presenca[]" value="1" class="filled-in checkbox-blue-grey" />
+                            <input type="radio" name="presenca[]" value="1" class="filled-in radio-blue-grey" />
                             <span></span>
                         </label>
                     </td>
