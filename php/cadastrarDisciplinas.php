@@ -13,10 +13,11 @@
 
   $turmas = $_POST["turmas"];
 
+
   //Disciplinas que nao tem no checkbox
-  $disciplina1 = $_POST["disciplina1"];
-  $disciplina2 = $_POST["disciplina2"];
-  $disciplina3 = $_POST["disciplina3"];
+  // $disciplina1 = $_POST["disciplina1"];
+  // $disciplina2 = $_POST["disciplina2"];
+  // $disciplina3 = $_POST["disciplina3"];
 
   //disciplinas
   $portugues = isset($_POST['portugues']) ? $_POST['portugues'] : 0;
@@ -48,6 +49,10 @@
     VALUES ('{$id_professor}', :portugues, '{$turmas}')");
     $query_disciplinas->bindValue(":portugues",$portugues);
     $executa = $query_disciplinas->execute();
+
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
 
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');
@@ -94,6 +99,10 @@
     VALUES ('{$id_professor}', :ingles, '{$turmas}')");
     $query_disciplinas->bindValue(":ingles",$ingles);
     $executa = $query_disciplinas->execute();
+
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
 
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');
@@ -143,6 +152,10 @@
     $query_disciplinas->bindValue(":matematica",$matematica);
     $executa = $query_disciplinas->execute();
 
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
+
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');
       history.back();</script>";
@@ -191,6 +204,10 @@
     $query_disciplinas->bindValue(":biologia",$biologia);
     $executa = $query_disciplinas->execute();
 
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
+
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');
       history.back();</script>";
@@ -237,6 +254,10 @@
     VALUES ('{$id_professor}', :ciencias, '{$turmas}')");
     $query_disciplinas->bindValue(":ciencias",$ciencias);
     $executa = $query_disciplinas->execute();
+
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
 
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');
@@ -287,6 +308,10 @@
     $query_disciplinas->bindValue(":quimica",$quimica);
     $executa = $query_disciplinas->execute();
 
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
+
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');
       history.back();</script>";
@@ -335,6 +360,10 @@
     VALUES ('{$id_professor}', :fisica, '{$turmas}')");
     $query_disciplinas->bindValue(":fisica",$fisica);
     $executa = $query_disciplinas->execute();
+
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
 
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');
@@ -385,6 +414,10 @@
     $query_disciplinas->bindValue(":filosofia",$filosofia);
     $executa = $query_disciplinas->execute();
 
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
+
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');
       history.back();</script>";
@@ -433,6 +466,10 @@
     VALUES ('{$id_professor}', :historia, '{$turmas}')");
     $query_disciplinas->bindValue(":historia",$historia);
     $executa = $query_disciplinas->execute();
+
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
 
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');
@@ -483,6 +520,10 @@
     $query_disciplinas->bindValue(":geografia",$geografia);
     $executa = $query_disciplinas->execute();
 
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
+
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');
       history.back();</script>";
@@ -531,6 +572,10 @@
     VALUES ('{$id_professor}', :sociologia, '{$turmas}')");
     $query_disciplinas->bindValue(":sociologia",$sociologia);
     $executa = $query_disciplinas->execute();
+
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
 
 
     if ($executa == 0) {
@@ -581,6 +626,10 @@
     VALUES ('{$id_professor}', :ed_fisica, '{$turmas}')");
     $query_disciplinas->bindValue(":ed_fisica",$ed_fisica);
     $executa = $query_disciplinas->execute();
+
+    $query_turmas = $conn->prepare("INSERT INTO turmas_professor (fk_id_professor_turmas_professor, fk_id_turma_professor_turmas_professor)
+    VALUES ('{$id_professor}', '{$turmas}')");
+    $executa_dois = $query_turmas->execute();
 
     if ($executa == 0) {
       echo "<script>alert('Update de disciplina não foi efetuado');

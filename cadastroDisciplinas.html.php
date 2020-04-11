@@ -62,8 +62,8 @@
                     <option value="12">8ºano A</option>
                     <option value="13">9ºano A</option>
                     <option value="14">1ºmédio A</option>
-                    <option value="15">1ºmédio A</option>
-                    <option value="16">1ºmédio A</option>
+                    <option value="15">2ºmédio A</option>
+                    <option value="16">3ºmédio A</option>
                 </select>
             </div><br>
 
