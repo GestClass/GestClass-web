@@ -165,6 +165,9 @@
             ?>
           </select>
         </div>
+        <div class="input-field right">
+                <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons rigth">chevron_right</i>Continuar</button>
+            </div>
       </form>
     </div>
   </div>
