@@ -57,9 +57,11 @@
         <table class="highlight centered">
             <thead>
                 <tr>
+                    <th>RA</th>
                     <th>Nome</th>
                     <th>Data</th>
                     <th>Presença</th>
+                    <th>Justificada</th>
                 </tr>
             </thead>
 
@@ -69,13 +71,24 @@
                 ?>
 
                 <tr>
-                    <td><?php echo $dados_alunos['nome_aluno']?></td> 
                     <td>
-                    <strong><?php echo date("d/m/y");?></strong>
+                        <?php echo $dados_alunos['RA']?>
                     </td>
                     <td>
-                        <label>
-                            <input type="radio" name="presenca[]" value="1" class="filled-in radio-blue-grey" />
+                        <?php echo $dados_alunos['nome_aluno']?>
+                    </td> 
+                    <td>
+                        <?php echo date("d/m/y");?>
+                    </td>
+                    <td>
+                        <label> 
+                            <input type="radio" name="presenca" id="radio" value="SIM"/>
+                            <span></span>
+                        </label>
+                    </td>
+                    <td>
+                        <label> 
+                            <input type="radio" name="presenca" id="radio" value="JUSTIFICADA"/>
                             <span></span>
                         </label>
                     </td>
@@ -95,4 +108,4 @@
 
     <script src="js/chamada.js"></script>
 
-    <?php require_once 'reqFooter.php' ?>
+    <?php require_once 'reqFooter.php'?>
