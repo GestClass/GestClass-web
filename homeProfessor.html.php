@@ -109,10 +109,9 @@
   </div>
 </section>
 
-<<<<<<< HEAD
+
 <script src="js/chamada.js"></script>
 
-=======
 <div id="modalBoletimCadastro" class="modal">
   <div class="modal-content">
     <h4>Selecione o tipo de conta</h4>
@@ -138,7 +137,7 @@
           }
           ?>
       </select>
-      <form action="" class="selectDisciplina" method="post">
+      <form action="" id="turminha" class="formTurmas" method="post">
         <div id="selectDisciplina" class="input-field col s12 m6 l6 validate">
           <i class="material-icons prefix blue-icon">library_books</i>
           <select id="disciplinas_professor" name="disciplina">
@@ -166,6 +165,9 @@
             ?>
           </select>
         </div>
+        <div class="input-field right">
+                <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons rigth">chevron_right</i>Continuar</button>
+            </div>
       </form>
     </div>
   </div>
@@ -204,5 +206,4 @@
 </div>
 
 <script src="js/boletimCadastro.js"></script>
->>>>>>> fa0b5fe8f5ef20bfb9cb68ec5f24e8246a883690
 <?php require_once 'reqFooter.php' ?>

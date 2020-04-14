@@ -49,31 +49,21 @@
             <label id="lbl">Turmas</label>
             <div class="input-field col s12 m12 l12">
                 <select name="turmas">
-                    <optgroup label="Berçario">
-                        <option value="1">Berçario - A</option>
-                    </optgroup>
-                    <optgroup label="Pré-Escola">
-                        <option value="2">Pré-1 A</option>
-                        <option value="3">Pré-2 A</option>
-                    </optgroup>
-                    <optgroup label="Fundamental I">
-                        <option value="4">1ºano A</option>
-                        <option value="5">2ºano A</option>
-                        <option value="7">3ºano A</option>
-                        <option value="8">4ºano A</option>
-                    </optgroup>
-                    <optgroup label="Fundamental II">
-                        <option value="9">5ºano A</option>
-                        <option value="10">6ºano A</option>
-                        <option value="11">7ºano A</option>
-                        <option value="12">8ºano A</option>
-                        <option value="13">9ºano A</option>
-                    </optgroup>
-                    <optgroup label="Ensino Médio">
-                        <option value="14">1ºmédio A</option>
-                        <option value="15">1ºmédio A</option>
-                        <option value="16">1ºmédio A</option>
-                    </optgroup>
+                    <option value="1">Berçario - A</option>
+                    <option value="2">Pré-1 A</option>
+                    <option value="3">Pré-2 A</option>
+                    <option value="4">1ºano A</option>
+                    <option value="5">2ºano A</option>
+                    <option value="7">3ºano A</option>
+                    <option value="8">4ºano A</option>
+                    <option value="9">5ºano A</option>
+                    <option value="10">6ºano A</option>
+                    <option value="11">7ºano A</option>
+                    <option value="12">8ºano A</option>
+                    <option value="13">9ºano A</option>
+                    <option value="14">1ºmédio A</option>
+                    <option value="15">2ºmédio A</option>
+                    <option value="16">3ºmédio A</option>
                 </select>
             </div><br>
 

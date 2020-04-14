@@ -29,4 +29,3 @@ function chamada() {
         window.location.href = ('chamada.html.php')
     }
 }
-
