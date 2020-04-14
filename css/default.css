@@ -176,6 +176,7 @@ body {
     width: 50px;
 }
 
+
 @media (max-width: 500px) {
     #a {
         margin-left: 43px;
@@ -199,3 +200,6 @@ body {
     max-height: 100%;
     overflow: visible;
 }
+
+/* default */
+

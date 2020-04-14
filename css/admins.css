@@ -1,0 +1,16 @@
+.blue-icon{
+    color: #1a237e;
+}
+
+.green-icon{
+    color: #1b5e20;
+}
+
+.red-icon{
+    color: red;
+}
+
+#btnfotoAdmin {
+    background-color: #1a237e;
+    width: 50px;
+}
