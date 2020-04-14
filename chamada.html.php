@@ -75,7 +75,7 @@
                 <tbody>
                     <?php
 
-                    $query_select_alunos = $conn->prepare("SELECT nome_aluno FROM aluno WHERE fk_id_escola_aluno = $id_escola");
+                    $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola");
                     $query_select_alunos->execute();
 
                     while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
@@ -84,7 +84,7 @@
 
                         <tr>
                             <td>
-                                000000000<!-- echo $dados_alunos['RA'] -->
+                                 <?php echo $dados_alunos['RA']?>
                             </td>
                             <td>
                                 <?php echo $dados_alunos['nome_aluno'] ?>
