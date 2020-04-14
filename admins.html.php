@@ -36,7 +36,18 @@
                     <p><?php echo $dados_adm['email']?><br>
                     <?php echo $dados_adm['data_nascimento']?>
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a>
+                    <div class="row">
+                            <div class="col s12">
+                                <a href="dadosAdmin.html.php?id_admin=<?php echo $dados_adm['ID_admin'];?>"
+                                    class="secondary-content" title="Dados da Admin"><i
+                                        class="material-icons blue-icon">visibility</i></a>
+                            </div>
+                            <div class="col s12">
+                                <a href="php/deletarAdmin.php?id_admin=<?php echo $dados_adm['ID_admin'];?>"
+                                    style="right:50px" class="secondary-content" title="Excluir admin"><i
+                                        class="material-icons red-icon">delete</i></a>
+                            </div>
+                        </div>
                 </li>
             </ul>
             <?php }?>
