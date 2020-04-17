@@ -1,6 +1,6 @@
-$(document).ready(function() {
-    $('.sidenav').sidenav()
-})
+// $(document).ready(function() {
+//     $('.sidenav').sidenav()
+// })
 
 $(document).ready(() => {
     $('.fixed-action-btn').floatingActionButton()

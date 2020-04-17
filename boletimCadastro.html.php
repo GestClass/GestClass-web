@@ -32,9 +32,6 @@
         ?>
 
 
-      <form class="" action="boletimCadastro.html.php" method="post">
-        <form class="" action="boletimCadastro.html.php" method="post">
-
           <div class="container col s12 m12 l12" id="container_boletimCadastro">
 
             <div class="row">
@@ -52,7 +49,8 @@
                 <h4 class="center">Cadastro de Notas</h4>
                 <br>
                 <div class="row">
-                    <form action="boletimCadastro.php" method="post">
+                <form class="form" action="boletimCadastro.php" method="post">
+                    <form class="form" action="boletimCadastro.php" method="post">
                         <div class="input-field col s12 m6 l6 validate">
                             <i class="material-icons prefix blue-icon">content_copy</i>
                             <select id="nome_tipo_turma" name="turma">
@@ -73,7 +71,7 @@
 
 
                             ?>
-                            <option name="turma" value="<?php echo $$id_turma ?>"><?php echo $dados_turma_nome['nome_turma'] ?></option>
+                            <option name="turma" class="turmaselect" value="<?php echo $$id_turma ?>"><?php echo $dados_turma_nome['nome_turma'] ?></option>
                             <?php
                                     }
                                 }
@@ -113,6 +111,10 @@
                   </button>
                 </div>
                 <br>
+
+                <div class="values">
+                    
+                </div>
               </form>
             </div>
 

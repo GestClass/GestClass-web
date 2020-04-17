@@ -24,3 +24,25 @@
 
 
 // }
+
+// function pegarValue () {
+//     const form = document.querySelector('.form');
+//     const values = document.querySelector('.values');
+
+//     function mostrarValue(evento) {
+//         evento.preventDefault();
+
+//         const turma = document.querySelector('.turmaselect');
+
+//         alert(turma.value);
+
+//         values.innerHTML = `<p> ${turma.value} </P>`;
+
+
+//     }
+
+
+//     form.addEventListener('submit', mostrarValue);
+// }
+
+// pegarValue();
