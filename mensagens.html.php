@@ -42,61 +42,121 @@
     }
 
     ?>
+
     <div class="container"><br><br><br>
         <div id="mensagens">
             <table class="highlight centered">
                 <thead>
                     <tr>
-
                         <th>Data</th>
                         <th>Assunto</th>
                         <th>Remetente</th>
-
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td><i class="small left material-icons  blue-icon">mail_outline</i> 22/04/2020</td>
+                        <td><i class="small left material-icons  blue-icon">email</i> 06/05/2020</td>
                         <td>Vagas de estagios</td>
                         <td>Banco do Brasil</td>
                     </tr>
                     <tr>
-                        <td><i class="small left material-icons  blue-icon">mail_outline</i> 22/04/2020</td>
+                        <td><i class="small left material-icons  blue-icon">drafts</i> 22/04/2020</td>
                         <td>Vagas de estagios</td>
                         <td>Banco do Brasil</td>
-                    </tr>
-                    <tr>
-                        <td><i class="small left material-icons  blue-icon">mail_outline</i> 22/04/2020</td>
-                        <td>Vagas de estagios</td>
-                        <td>Banco do Brasil</td>
-                    </tr>
-                    <tr>
-                        <td><i class="small left material-icons  blue-icon">mail_outline</i> 22/04/2020</td>
-                        <td>Vagas de estagios</td>
-                        <td>Banco do Brasil</td>
-                    </tr>
-                    <tr>
-                        <td><i class="small left material-icons  blue-icon">mail_outline</i> 22/04/2020</td>
-                        <td>Vagas de estagios</td>
-                        <td>Banco do Brasil</td>
+
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-        <div class="fixed-action-btn">
-            <a class="btn-floating btn-large light-blue lighten-1">
-                <i class="large material-icons">add</i>
-            </a>
-            <ul>
-                <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Lixeira"><i class="material-icons">delete</i></a></li>
-                <li><a href="cadastroTurmas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">cloud_off</i></a></li>
-                <li><a href="cadastroTurmas.html.php" class="btn-floating yellow tooltipped" data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
-            </ul>
+    <div id="modalMensagem" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Nova Mensagem</h4><br>
+            <div id="novaMensagem">
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected></option>
+                        <option value="1">Secretaria</option>
+                        <option value="2">Diretoria</option>
+                    </select>
+                    <label>Selecione para quem deseja enviar a mensagem</label>
+                </div><br>
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                </form>
+                <div class="input-field right">
+                <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+            </div>
+            </div>
         </div>
-    
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
+        </div>
+    </div>
+
+    <div id="modalArquivados" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Mensagens Arquivadas</h4>
+            <div id="arquivadas">
+                <table class="highlight centered">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Assunto</th>
+                            <th>Remetente</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><i class="small left material-icons  blue-icon">drafts</i> 23/04/2020</td>
+                            <td>Vagas de estagios</td>
+                            <td>Banco do Brasil</td>
+                        </tr>
+                        <tr>
+                            <td><i class="small left material-icons  blue-icon">drafts</i> 22/04/2020</td>
+                            <td>Vagas de estagios</td>
+                            <td>Banco do Brasil</td>
+
+                        </tr>
+                        <tr>
+                            <td><i class="small left material-icons  blue-icon">drafts</i> 15/04/2020</td>
+                            <td>Vagas de estagios</td>
+                            <td>Banco do Brasil</td>
+
+                        </tr>
+                        <tr>
+                            <td><i class="small left material-icons  blue-icon">drafts</i> 10/04/2020</td>
+                            <td>Vagas de estagios</td>
+                            <td>Banco do Brasil</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
+        </div>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large light-blue lighten-1">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><a href="#modalArquivados" class="modal-trigger btn-floating green tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
+            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow tooltipped" data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
+        </ul>
+    </div>
+
+    <script src="js/mensagens.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>
