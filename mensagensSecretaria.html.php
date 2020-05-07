@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/mensagens.css" />
+    <link rel="stylesheet" type="text/css" href="css/mensagensSecretaria.css" />
 
 
 </head>
@@ -75,14 +75,6 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <div class="input-field col s12">
-                    <select>
-                        <option value="" disabled selected></option>
-                        <option value="1">Secretaria</option>
-                        <option value="2">Diretoria</option>
-                    </select>
-                    <label>Selecione para quem deseja enviar a mensagem</label>
-                </div><br>
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
@@ -156,7 +148,7 @@
         </ul>
     </div>
 
-    <script src="js/mensagens.js"></script>
+    <script src="js/mensagensSecretaria.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>
