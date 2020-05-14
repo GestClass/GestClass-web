@@ -1,9 +1,8 @@
 <?php
-session_start();
+require_once 'conexao.php';
+$idTurma = "";
+$idTurma = $_POST['id'];       
+$_SESSION['idTurma'] = $idTurma;
 
-$turma = $_POST['turma'];
-
-$_SESSION["value_id_turma"] = $turma;
-
-echo $turma;
+echo $idTurma;
 ?>

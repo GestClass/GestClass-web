@@ -66,8 +66,7 @@
                         <th>RA</th>
                         <th>Nome</th>
                         <th>Presença</th>
-                        <th>Falta</th> 
-                        <th>Justificada</th>
+                        <th>Falta</th>
 
                     </tr>
                 </thead>
@@ -79,12 +78,13 @@
                     $query_select_alunos->execute();
 
                     while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
+                        
 
                     ?>
 
                         <tr>
                             <td>
-                                 <?php echo $dados_alunos['RA']?>
+                                <?php echo $dados_alunos['RA'] ?>
                             </td>
                             <td>
                                 <?php echo $dados_alunos['nome_aluno'] ?>
@@ -101,12 +101,6 @@
                                     <span></span>
                                 </label>
                             </td>
-                            <td>
-                                <label>
-                                    <input id="justificada" type="checkbox" class="filled-in falta checkbox-blue-grey" name="justificada[]" value="1" />
-                                    <span></span>
-                                </label>
-                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -119,4 +113,4 @@
 
     <script src="js/chamada.js"></script>
 
-    <?php require_once 'reqFooter.php'?>
+    <?php require_once 'reqFooter.php' ?>
