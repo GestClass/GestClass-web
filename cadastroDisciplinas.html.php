@@ -49,21 +49,19 @@
             <label id="lbl">Turmas</label>
             <div class="input-field col s12 m12 l12">
                 <select name="turmas">
-                    <option value="1">Berçario - A</option>
-                    <option value="2">Pré-1 A</option>
-                    <option value="3">Pré-2 A</option>
-                    <option value="4">1ºano A</option>
-                    <option value="5">2ºano A</option>
-                    <option value="7">3ºano A</option>
-                    <option value="8">4ºano A</option>
-                    <option value="9">5ºano A</option>
-                    <option value="10">6ºano A</option>
-                    <option value="11">7ºano A</option>
-                    <option value="12">8ºano A</option>
-                    <option value="13">9ºano A</option>
-                    <option value="14">1ºmédio A</option>
-                    <option value="15">2ºmédio A</option>
-                    <option value="16">3ºmédio A</option>
+                    <?php
+
+                    $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE $id_escola ");
+                    $query_select_turma->execute();
+
+                    while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                        $nome_turma = $dados_turma_nome["nome_turma"];
+                    ?>
+                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+                    <?php
+                    }
+                    ?>
+                    
                 </select>
             </div><br>
 
