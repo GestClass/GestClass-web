@@ -74,7 +74,7 @@
                 </div>
                 <div class="input-field col s6 m4 l2">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="rg" id="RG" placeholder="65.745.984-6" type="tel" data-mask="00.000.000-0" class="validate ">
+                    <input name="rg" id="RG" placeholder="65.745.984-6" type="tel" class="validate ">
                     <label id="lbl" for="first_name">RG</label>
                 </div>
                 <div class="input-field col s6 m6 l3">
@@ -123,15 +123,22 @@
                         <option value="" disabled selected>Selecione a Turma</option>
                         <?php
 
-                            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE $id_escola ");
-                            $query_select_turma->execute();
+                        $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE $id_escola");
+                        $query_select_turma->execute();
+ 
+                        while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $nome_turma = $dados_turma_nome['nome_turma'];
 
-                            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
-                                $nome_turma = $dados_turma_nome["nome_turma"];
+                            $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
+                            $query_select_id_turma->execute();
+
+                            while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                                $id_turma = $dados_turma_id;
                         ?>
-                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+                                <option name="turma" value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
                         <?php
                             }
+                        }
                         ?>
                     </select>
                     <label id="lbl">Turma</label>

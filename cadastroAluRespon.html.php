@@ -117,14 +117,21 @@
                     <select name="turma" id="nome_turma">
                         <?php
 
-                        $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE $id_escola ");
+                        $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE $id_escola");
                         $query_select_turma->execute();
 
                         while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
-                            $nome_turma = $dados_turma_nome["nome_turma"];
+                            $nome_turma = $dados_turma_nome['nome_turma'];
+
+                            $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
+                            $query_select_id_turma->execute();
+
+                            while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                                $id_turma = $dados_turma_id;
                         ?>
-                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+                                <option name="turma" value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
                         <?php
+                            }
                         }
                         ?>
                     </select>
