@@ -3,25 +3,26 @@
   include_once 'conexao.php';
 
   	// Aluno
-	$id_escola = $_SESSION["id_escola"];
+	// $id_escola = $_SESSION["id_escola"];
 	
-	$rastro = $_POST["ra"];
-	$ra = str_replace('-', '', $rastro);
+	// $rastro = $_POST["ra"];
+	// $ra = str_replace('-', '', $rastro);
 
-	$nome = $_POST["nome"];
-	$rg = $_POST["rg"];
+	// $nome = $_POST["nome"];
+	// $rg = $_POST["rg"];
 	
-	$cpf = $_POST["cpf"];
-	$limcpf =  str_replace('.', '', $cpf);
-	$cpf_aluno =  str_replace('-', '', $limcpf);
+	// $cpf = $_POST["cpf"];
+	// $limcpf =  str_replace('.', '', $cpf);
+	// $cpf_aluno =  str_replace('-', '', $limcpf);
 
-	$data_nascimento = $_POST["data_nascimento"];
-	$email = $_POST["email"];
-	$senha = $_POST["senha"];
-	$confsenha = $_POST["confsenha"];
-	$celular = $_POST["celular"];
-	$telefone = $_POST["telefone"];
+	// $data_nascimento = $_POST["data_nascimento"];
+	// $email = $_POST["email"];
+	// $senha = $_POST["senha"];
+	// $confsenha = $_POST["confsenha"];
+	// $celular = $_POST["celular"];
+	// $telefone = $_POST["telefone"];
 	$turma = $_POST["turma"];
+	echo
 
 
 	// Resgatando responsavel
