@@ -90,6 +90,9 @@
 				echo "<script>alert('Aluno cadastrado com sucesso');
 				window.location='../homeSecretaria.html.php';
 				 </script>";
+
+				 $queryUpdate = $conn->prepare("UPDATE responsavel SET fk_ra_aluno_responsavel=:$ra WHERE id_responsavel = $id_responsavel");
+				 
             }else{
 				echo "<script>alert('Erro: Aluno não foi cadastrado');
 				history.back();;

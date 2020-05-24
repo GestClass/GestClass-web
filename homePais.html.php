@@ -52,7 +52,7 @@
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-comment-dots fa-6x blue-icon"></i>
             <h5>Mensagens</h5>
-            <p>Envio e recebebimento de mensages de professores, secretaria e diretores</p>
+            <p>Envio e recebebimento de mensagens de professores, secretaria e diretores</p>
           </div>
         </a>
       </div>

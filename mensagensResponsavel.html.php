@@ -75,7 +75,7 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <form class="col s12">
+                <form class="col s12" action="php/enviarResponsavel.php">
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea id="textarea1" class="materialize-textarea"></textarea>
