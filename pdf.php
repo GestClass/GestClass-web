@@ -5,10 +5,6 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 $dompdf= new Dompdf();
 
-//criando instancia 
-//trazer html
-// $dompdf->load_html('ola');
-// ob_start();
 
 $options = new Options();
 $options->set('isRemoteEnabled', TRUE);
@@ -17,7 +13,7 @@ $options->set('defaultPaperOrientation' , 'landscape');
 $dompdf->set_base_path('css/default.css');  
 $dompdf->set_base_path('css/boletimVisualizacao.css');  
 
-$dompdf->set_base_path('node_modules/materialize-css/dist/css/materialize.min.css');
+$dompdf->set_base_path('css/boletimVisualizacao.css');
 
   
 $teste = file_get_contents('boletimVisualizacao.html.php');

@@ -4,7 +4,6 @@
     <head>
 
         <link rel="stylesheet" type="text/css" href="css/boletimCadastro.css" />
-
     </head>
 
     <body class="body_estilizado">

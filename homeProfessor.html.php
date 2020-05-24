@@ -108,7 +108,7 @@ require_once 'reqProfessor.php';
 </section>
 
 
-
+<script src="js/chamada.js"></script>
 
 <div id="modalBoletimCadastro" class="modal">
   <div class="modal-content">
