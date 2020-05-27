@@ -64,7 +64,7 @@ require_once 'reqProfessor.php';
       </div>
 
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+        <a class="modal-trigger" href="#modalChat">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-comment-dots fa-6x blue-icon"></i>
             <h5>Chat</h5>
@@ -92,6 +92,7 @@ require_once 'reqProfessor.php';
     </div>
   </div>
 </section>
+
 
 <section class="floating-buttons">
   <div class="fixed-action-btn">

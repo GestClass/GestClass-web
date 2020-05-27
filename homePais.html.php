@@ -48,7 +48,7 @@
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="mensagensResponsavel.html.php">
+      <a class="modal-trigger" href="#modalChat">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-comment-dots fa-6x blue-icon"></i>
             <h5>Mensagens</h5>
@@ -57,7 +57,7 @@
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+      <a class="modal-trigger" href="#modalNotif">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-bell fa-6x blue-icon"></i>
             <h5>Notificações</h5>
@@ -68,6 +68,32 @@
     </div>
   </div>
 </section>
+<div id="modalChat" class="modal ">
+    <div class="modal-content">
+      <h4 class="center"><i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
+      <div class="input-field col s12 validate">
+      <form action="php/pinChat.php" method="POST">
+      <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate"/>
+            <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Entrar
+              <i class="material-icons right">lock</i>
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="modalNotif" class="modal ">
+    <div class="modal-content">
+      <h4 class="center"> <i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
+      <div class="input-field col s12 validate">
+      <form action="php/pinNotif.php" method="POST">
+      <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate"/>
+            <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Entrar
+              <i class="material-icons right">lock</i>
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 <section class="floating-buttons">
   <div class="fixed-action-btn">
