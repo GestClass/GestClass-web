@@ -80,14 +80,28 @@ require_once 'reqProfessor.php';
     <div class="modal-content">
       <h4>Selecione a Turma</h4>
       <div class="input-field col s12 validate">
-        <select id="selecTurma" onchange="chamada()">
-          <option value="" disabled selected>Turmas</option>
-          <option value="1">8° ano A</option>
-          <option value="2">9° ano A</option>
-          <option value="3">1° ano A</option>
-          <option value="4">2° ano A</option>
-          <option value="5">3° ano A</option>
-        </select>
+         <select id="selectTurma" onchange="chamada()">
+        <option value="1" disabled selected>Turma</option>
+        <?php
+        $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
+        $query_select_turmas_professor->execute();
+
+        while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
+
+          $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+
+          $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+          $query_select_turma->execute();
+
+          while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+            $nome_turma = $dados_turma_nome["nome_turma"];
+        ?>
+            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+        <?php
+          }
+        }
+        ?>
+      </select>
       </div>
     </div>
   </div>

@@ -56,7 +56,7 @@
         <form action="php/chamada.php" method="post"><br>
             <div class="row">
                 <div class="input-field col s12 m3 l2">
-                    <input name="data_chamada" id="data_chamada" type="text" placeholder="05/09/2020" class="datepicker validate">
+                    <input  type="text" placeholder="05/09/2020" class="datepicker validate" nome="dataChamada">
                     <label id="lbl" for="icon_telephone">Data</label>
                 </div>
             </div>
@@ -91,13 +91,13 @@
                             </td>
                             <td>
                                 <label>
-                                    <input id="presenca" type="checkbox" class="filled-in presenca checkbox-blue-grey" name="presenca[]" value="1" />
+                                    <input id="presenca" type="checkbox" class="filled-in presenca checkbox-blue-grey" name="presenca" value="1" />
                                     <span></span>
                                 </label>
                             </td>
                             <td>
                                 <label>
-                                    <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="falta[]" value="1" />
+                                    <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="presenca" value="0" />
                                     <span></span>
                                 </label>
                             </td>
