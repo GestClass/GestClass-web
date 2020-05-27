@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/mensagensSecretaria.css" />
+    <link rel="stylesheet" type="text/css" href="css/mensagensAluno.css" />
 
 
 </head>
@@ -79,38 +79,13 @@
                     <div class="input-field col s12 m4 l4">
                         <select name="opcMensagem" id="opcMensagem">
                             <option value="" disabled selected></option>
-                            <option value="1">Aluno</option>
-                            <option value="2">Responsável</option>
-                            <option value="3">Professor</option>
-                            <option value="4">Diretor</option>
+                            <option value="1">Professor</option>
+                            <option value="2">Secretaria</option>
                         </select>
                         <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                     </div>
                 </div>
-                <label id="lbl">Encaminhar para:</label><br><br>
-                <div class="row">
-                    <div class="col s6 m2 l2">
-
-                        <label class="left">
-                            <input id="disciplina" type="checkbox" class="filled-in checkbox-blue-grey" name="escola_geral" value="1" />
-                            <span>Toda Escola</span>
-                        </label>
-
-                        <label class="left">
-                            <input id="disciplina" type="checkbox" class="filled-in checkbox-blue-grey" name="alunos_geral" value="2" />
-                            <span>Todos Alunos</span>
-                        </label>
-
-                    </div>
-                    <div class="col s6 m2 l2">
-
-                        <label class="left">
-                            <input id="disciplina" type="checkbox" class="filled-in checkbox-blue-grey" name="responsavel_geral" value="3" />
-                            <span>Todos Responsáveis</span>
-                        </label>
-
-                    </div>
-                </div>
+                
                 <form class="col s12" action="php/enviarSecretaria.php">
                     <div class="row">
                         <div class="input-field col s12">
@@ -184,7 +159,7 @@
         </ul>
     </div>
 
-    <script src="js/mensagensSecretaria.js"></script>
+    <script src="js/mensagensAluno.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>

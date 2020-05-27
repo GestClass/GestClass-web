@@ -40,13 +40,13 @@ require_once 'reqDiretor.php';
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+        <a class="modal-trigger" href="#modalListaAlunos">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-bell fa-6x blue-icon"></i>
-            <h5>Notificações</h5>
-            <p>Envio de notificações para pais e alunos, como a dispensa antes do horário, advertências, ocorrências,
-              suspensões, etc..</p>
+            <i class="fas fa-list-alt fa-6x blue-icon"></i>
+            <h5>Listas de alunos</h5>
+            <p>Visualização das listas de alunos</p>
           </div>
+        </a>
         </a>
       </div>
       <div class="col s12 m4">
@@ -120,5 +120,39 @@ require_once 'reqDiretor.php';
     </ul>
   </div>
 </section>
+
+<div id="modalListaAlunos" class="modal">
+  <div class="modal-content">
+    <h4>Selecione a turma</h4>
+    <div class="input-field col s12">
+      <form action="listaAlunos.html.php" method="POST">
+        <select name="turmas">
+          <option value="" disabled selected>Selecione a Turma</option>
+          <?php
+
+          $query_select_turmas_escola = $conn->prepare("SELECT nome_turma, ID_turma FROM turma WHERE fk_id_escola_turma = $id_escola");
+          $query_select_turmas_escola->execute();
+
+          while ($dados_turmas_escola = $query_select_turmas_escola->fetch(PDO::FETCH_ASSOC)) {
+
+            $nome_turma = $dados_turmas_escola["nome_turma"];
+            $id_turma = $dados_turmas_escola["ID_turma"];
+
+          ?>
+            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma ?></option>
+          <?php
+          }
+          ?>
+        </select>
+        <br>
+        <div class="center">
+          <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+            <i class="material-icons left">search</i>Pesquisar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <?php require_once 'reqFooter.php' ?>

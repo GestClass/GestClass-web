@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/mensagensSecretaria.css" />
+    <link rel="stylesheet" type="text/css" href="css/mensagensProfessor.css" />
 
 
 </head>
@@ -87,28 +87,26 @@
                         <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                     </div>
                 </div>
-                <label id="lbl">Encaminhar para:</label><br><br>
+                <h9>Ou deseja encaminhar para:</h9><br><br>
                 <div class="row">
-                    <div class="col s6 m2 l2">
-
-                        <label class="left">
-                            <input id="disciplina" type="checkbox" class="filled-in checkbox-blue-grey" name="escola_geral" value="1" />
-                            <span>Toda Escola</span>
-                        </label>
-
-                        <label class="left">
-                            <input id="disciplina" type="checkbox" class="filled-in checkbox-blue-grey" name="alunos_geral" value="2" />
-                            <span>Todos Alunos</span>
-                        </label>
-
+                    <div class="input-field col s12 m3 l3">
+                        <input name="nome_turma" id="nome_turma" placeholder="3º ano a" type="tel" class="validate">
+                        <label id="lbl" for="first_name">Apenas uma Turma</label><br><br><br>
+                    </div>
+                    <div class="input-field col s12 m3 l3">
+                        <input name="pais_turma" id="pais_turma"  placeholder="3º ano a" type="tel" class="validate">
+                        <label id="lbl" for="first_name">Responsáveis de uma turma</label><br><br><br>
                     </div>
                     <div class="col s6 m2 l2">
 
                         <label class="left">
-                            <input id="disciplina" type="checkbox" class="filled-in checkbox-blue-grey" name="responsavel_geral" value="3" />
+                            <input id="alunos_geral" type="checkbox" class="filled-in checkbox-blue-grey" name="alunos_geral" value="1" />
+                            <span>Todos alunos</span>
+                        </label>
+                        <label class="left">
+                            <input id="responsaveis_geral" type="checkbox" class="filled-in checkbox-blue-grey" name="responsaveis_geral" value="2" />
                             <span>Todos Responsáveis</span>
                         </label>
-
                     </div>
                 </div>
                 <form class="col s12" action="php/enviarSecretaria.php">
@@ -184,7 +182,7 @@
         </ul>
     </div>
 
-    <script src="js/mensagensSecretaria.js"></script>
+    <script src="js/mensagensProfessor.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>

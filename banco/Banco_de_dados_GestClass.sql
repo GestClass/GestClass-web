@@ -4,7 +4,6 @@ DEFAULT COLLATE UTF8_GENERAL_CI;
 
 USE GestClass;
 
-
 CREATE TABLE tipo_turma (
 	ID_tipo_turma INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     nome_tipo_turma VARCHAR(30) NOT NULL
@@ -18,11 +17,6 @@ CREATE TABLE tipo_usuario(
 CREATE TABLE disciplina(
 	ID_disciplina INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     nome_disciplina VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE turma (
-	ID_turma INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
-    nome_turma VARCHAR(50)
 );
 
 CREATE TABLE escola (
@@ -41,6 +35,12 @@ CREATE TABLE escola (
     turma_fundamental_I BOOLEAN,
     turma_fundamental_II BOOLEAN,
     turma_medio BOOLEAN 
+);
+
+CREATE TABLE turma (
+	ID_turma INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    nome_turma VARCHAR(50) NOT NULL,
+    fk_id_escola_turma INTEGER NOT NULL
 );
 
 CREATE TABLE professor (
@@ -64,7 +64,7 @@ CREATE TABLE professor (
 CREATE TABLE turmas_professor (
 	ID_turmas_professor INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
     fk_id_professor_turmas_professor INTEGER NOT NULL,
-    fk_id_turma_professor_turmas_professor INTEGER
+    fk_id_turma_professor_turmas_professor INTEGER 
 );
 
 CREATE TABLE disciplinas_professor (
@@ -204,6 +204,10 @@ CREATE TABLE `events` (
 
 
 /*	-	FOREIGN KEYs TABLE PROFESSOR	-	*/
+ALTER TABLE turma ADD CONSTRAINT fk_id_escola_turma FOREIGN KEY (fk_id_escola_turma) REFERENCES escola (ID_escola);
+
+
+/*	-	FOREIGN KEYs TABLE PROFESSOR	-	*/
 
 ALTER TABLE professor ADD CONSTRAINT fk_id_tipo_usuario_professor FOREIGN KEY (fk_id_tipo_usuario_professor) REFERENCES tipo_usuario (ID_tipo_usuario);
 ALTER TABLE professor ADD CONSTRAINT fk_id_escola_professor FOREIGN KEY (fk_id_escola_professor) REFERENCES escola (ID_escola);
@@ -282,7 +286,6 @@ ALTER TABLE contato ADD CONSTRAINT fk_recebimento_secretario_id_secretario FOREI
 
 ALTER TABLE `admin` ADD CONSTRAINT fk_id_tipo_usuario_admin FOREIGN KEY (fk_id_tipo_usuario_admin) REFERENCES tipo_usuario (ID_tipo_usuario);
 
-
 /*	-	INSERTS INTO TABLE TIPO_TURMA 	-	*/
     
 INSERT INTO tipo_turma (nome_tipo_turma) VALUES ('berçario');
@@ -290,27 +293,6 @@ INSERT INTO tipo_turma (nome_tipo_turma) VALUES ('pre-escola');
 INSERT INTO tipo_turma (nome_tipo_turma) VALUES ('ensino fundamental I');
 INSERT INTO tipo_turma (nome_tipo_turma) VALUES ('ensino fundamental II');
 INSERT INTO tipo_turma (nome_tipo_turma) VALUES ('ensino medio');
-
-
-/*	-	INSERTS INTO TABLE TURMA 	-	*/
-
-INSERT INTO turma (nome_turma) VALUES ('berçario A');
-INSERT INTO turma (nome_turma) VALUES ('pre 1 A');
-INSERT INTO turma (nome_turma) VALUES ('pre 2 A');
-INSERT INTO turma (nome_turma) VALUES ('1º ano A');
-INSERT INTO turma (nome_turma) VALUES ('2º ano A');
-INSERT INTO turma (nome_turma) VALUES ('3º ano A');
-INSERT INTO turma (nome_turma) VALUES ('3º ano A');
-INSERT INTO turma (nome_turma) VALUES ('4º ano A');
-INSERT INTO turma (nome_turma) VALUES ('5º ano A');
-INSERT INTO turma (nome_turma) VALUES ('6º ano A');
-INSERT INTO turma (nome_turma) VALUES ('7º ano A');
-INSERT INTO turma (nome_turma) VALUES ('8º ano A');
-INSERT INTO turma (nome_turma) VALUES ('9º ano A');
-INSERT INTO turma (nome_turma) VALUES ('1º ano medio A');
-INSERT INTO turma (nome_turma) VALUES ('2º ano medio A');
-INSERT INTO turma (nome_turma) VALUES ('3º ano medio A');
-
 
 /*	-	INSERTS INTO TABLE TIPO_USUARIO 	-	*/
 
@@ -339,6 +321,26 @@ INSERT INTO disciplina (nome_disciplina) VALUES ('Ed. Física');
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
 INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, quantidade_alunos, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11)0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', 500, true, true, true, true, true);
+
+
+/*	-	INSERTS INTO TABLE TURMA 	-	*/
+
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('berçario A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('pre 1 A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('pre 2 A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('1º ano A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('2º ano A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('3º ano A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('3º ano A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('4º ano A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('5º ano A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('6º ano A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('7º ano A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('8º ano A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('9º ano A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('1º ano medio A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('2º ano medio A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('3º ano medio A', 1);
 
 
 /*	-	INSERTS INTO TABLE PROFESSOR	-	*/

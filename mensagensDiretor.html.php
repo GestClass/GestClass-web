@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/mensagensSecretaria.css" />
+    <link rel="stylesheet" type="text/css" href="css/mensagensDiretor.css" />
 
 
 </head>
@@ -92,12 +92,12 @@
                     <div class="col s6 m2 l2">
 
                         <label class="left">
-                            <input id="disciplina" type="checkbox" class="filled-in checkbox-blue-grey" name="escola_geral" value="1" />
+                            <input id="escola_geral" type="checkbox" class="filled-in checkbox-blue-grey" name="ecola_geral" value="1" />
                             <span>Toda Escola</span>
                         </label>
 
                         <label class="left">
-                            <input id="disciplina" type="checkbox" class="filled-in checkbox-blue-grey" name="alunos_geral" value="2" />
+                            <input id="alunos_geral" type="checkbox" class="filled-in checkbox-blue-grey" name="alunos_geral" value="2" />
                             <span>Todos Alunos</span>
                         </label>
 
@@ -105,7 +105,7 @@
                     <div class="col s6 m2 l2">
 
                         <label class="left">
-                            <input id="disciplina" type="checkbox" class="filled-in checkbox-blue-grey" name="responsavel_geral" value="3" />
+                            <input id="responsaveis_geral" type="checkbox" class="filled-in checkbox-blue-grey" name="responsaveis_geral" value="3" />
                             <span>Todos Responsáveis</span>
                         </label>
 
@@ -114,7 +114,7 @@
                 <form class="col s12" action="php/enviarSecretaria.php">
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="textarea1" class="materialize-textarea"></textarea>
                             <label for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
@@ -184,7 +184,7 @@
         </ul>
     </div>
 
-    <script src="js/mensagensSecretaria.js"></script>
+    <script src="js/mensagensDiretor.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>
