@@ -93,15 +93,10 @@
             }else{
 				echo "<script>alert('Erro: Aluno não foi cadastrado');
 				history.back();;
-				 </script>";
-				
-			
-
+				 </script>";				
 				 
             }
 
 		
 		}
     }
-  
-?>

@@ -2,15 +2,9 @@
 <html lang="pt-br">
 
 <head>
-
-<<<<<<< Updated upstream
-        <link rel="stylesheet" type="text/css" href="css/boletimCadastro.css" />
-    </head>
-=======
     <link rel="stylesheet" type="text/css" href="css/boletimCadastro.css" />
-
 </head>
->>>>>>> Stashed changes
+
 
 <body class="body_estilizado">
 

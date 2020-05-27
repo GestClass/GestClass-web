@@ -49,38 +49,48 @@
 
 
                 <?php
-                $query_listagem = $conn->prepare('SELECT RA, nome_aluno, celular, telefone, email, cpf FROM aluno WHERE fk_id_escola_aluno = '.$id_escola.' AND fk_id_turma_aluno = '.$turma.'');
+                $query_listagem = $conn->prepare('SELECT RA, nome_aluno, celular, telefone, email, cpf FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = ' . $turma . '');
                 $query_listagem->execute();
 
-                while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
+                if ($query_listagem->rowCount()) {
+
+                    while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
                 ?>
-                    <tr>
-                        <td>
-                            <?php echo $alunos['RA']; ?>
-                        </td>
+                        <tr>
+                            <td>
+                                <?php echo $alunos['RA']; ?>
+                            </td>
 
-                        <td>
-                            <a href="#"><?php echo $alunos['nome_aluno']; ?></a>
-                        </td>
+                            <td>
+                                <a href="#"><?php echo $alunos['nome_aluno']; ?></a>
+                            </td>
 
-                        <td>
-                            <?php echo $alunos['celular']; ?>
-                        </td>
+                            <td>
+                                <?php echo $alunos['celular']; ?>
+                            </td>
 
-                        <td>
-                            <?php echo $alunos['telefone']; ?>
-                        </td>
+                            <td>
+                                <?php echo $alunos['telefone']; ?>
+                            </td>
 
-                        <td>
-                            <?php echo $alunos['email']; ?>
-                        </td>
+                            <td>
+                                <?php echo $alunos['email']; ?>
+                            </td>
 
-                        <td>
-                            <?php echo $alunos['cpf']; ?>
-                        </td>
-                    </tr>
+                            <td>
+                                <?php echo $alunos['cpf']; ?>
+                            </td>
+                        </tr>
 
 
+                    <?php
+                    }
+                } else {
+                    ?>
+                    <script>
+                        alert('Nenhum registro encontrado!!')
+                        history.back()
+                    </script>
                 <?php
                 }
                 ?>
