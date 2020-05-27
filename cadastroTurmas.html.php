@@ -43,17 +43,31 @@
     ?>
 
     <div class="container col s12 m12 l12 "><br>
-        <form id="cadastro_turmas" method="POST" action="php/cadastrarTurmas.php" enctype="multipart/form-data">
+        <form id="cadastro_turmas" method="POST" action="php/cadastrarTurmas.php">
             <h5>Cadastrar Turmas</h5><br><br>
             <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <select name="ensino">
-                        <option value="" disabled selected>Selecione o Ensino</option>
-                        <option value="1">Berçario</option>
-                        <option value="2">Pré-Escola</option>
-                        <option value="3">Fundamental I</option>
-                        <option value="4">Fundamental II</option>
-                        <option value="5">Ensino Médio</option>
+                        <?php
+
+                        $query_select_id_turma = $conn->prepare("SELECT ID_tipo_turma FROM tipo_turma WHERE $id_escola");
+                        $query_select_id_turma->execute();
+
+                        while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma_id['ID_tipo_turma'];
+
+                            $query_select_turma = $conn->prepare("SELECT nome_tipo_turma FROM tipo_turma WHERE ID_tipo_turma = $id_turma");
+                            $query_select_turma->execute();
+
+                            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_turma = $dados_turma_nome['nome_tipo_turma'];
+
+                        ?>
+                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+                        <?php
+                            }
+                        }
+                        ?>
                     </select>
                     <label id="lbl">Selecione o Ensino</label>
                 </div>
