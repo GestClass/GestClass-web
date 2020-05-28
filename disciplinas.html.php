@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/cadastroTurmas.css" />
+    <link rel="stylesheet" type="text/css" href="css/novasDisciplinas.css" />
 
 
 </head>
@@ -43,12 +43,12 @@
     ?>
 
     <div class="container col s12 m12 l12 "><br>
-        <form id="cadastro_turmas" method="POST" action="php/cadastrarTurmas.php">
-            <h5>Cadastrar Turmas</h5><br><br>
+        <form id="novas_disciplinas" method="POST" action="php/disciplinas.php">
+            <h5>Cadastrar Disciplinas</h5><br><br>
             <div class="row">
                 <div class="input-field col s12 m8 l8">
-                    <input name="turma" id="nome_turma" placeholder="Ex: 3ºano A . . ." type="text" class="validate">
-                    <label id="lbl" for="first_name">Turma</label>
+                    <input name="disciplina" id="disciplina" placeholder="Ex: Português . ." type="text" class="validate">
+                    <label id="lbl" for="first_name">Nome Disciplina</label>
                 </div>
             </div>
             <div class="input-field right">

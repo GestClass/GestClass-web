@@ -49,7 +49,8 @@
             <div class=" row">
             <div class="input-field col s12 m4 l4">
                 <i class="material-icons prefix blue-icon">account_circle</i>
-                <select name="ensino">
+                <select name="professor">
+                    <option value="" disabled selected>Selecione Professor</option>
                     <?php
 
                     $query_select_id_professor = $conn->prepare("SELECT ID_professor FROM professor WHERE $id_escola");
@@ -80,6 +81,7 @@
         <div class="input-field col s12 m4 l4">
             <i class="material-icons prefix blue-icon">school</i>
             <select name="turmas">
+                <option value="" disabled selected>Selecione a Turma</option>
                 <?php
 
                 $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
@@ -194,9 +196,34 @@
 
     <label id="lbl" for="first_name">Novas Disciplinas</label>
     <div class="row">
-        <div class="input-field col s12 m3 l3">
-            <input name="disciplina1" id="disciplina1" placeholder="Exemplo . . ." type="tel" class="validate">
+        <div class="input-field col s12 m4 l4">
+            <i class="material-icons prefix blue-icon">school</i>
+            <select name="disciplinas">
+                <option value="" disabled selected>Selecione a Disciplina</option>
+                <?php
+
+                $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola");
+                $query_select_id->execute();
+
+                while ($dados_id = $query_select_id->fetch(PDO::FETCH_ASSOC)) {
+                    $id_disciplina = $dados_id['ID_disciplina'];
+
+                    $query_select_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");
+                    $query_select_nome->execute();
+
+                    while ($dados_nome = $query_select_nome->fetch(PDO::FETCH_ASSOC)) {
+                        $nome = $dados_nome['nome_disciplina'];
+
+                ?>
+                        <option value="<?php echo $id_disciplina ?>"><?php echo $nome; ?></option>
+                <?php
+                    }
+                }
+                ?>
+
+            </select>
         </div>
+        <a href="disciplinas.html.php" class="waves-effect waves-light blue btn">Nova Disciplina</a>
     </div>
     <div class="input-field right">
         <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>

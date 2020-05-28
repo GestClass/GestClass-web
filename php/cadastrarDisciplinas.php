@@ -13,12 +13,6 @@
 
   $turmas = $_POST["turmas"];
 
-
-  //Disciplinas que nao tem no checkbox
-  // $disciplina1 = $_POST["disciplina1"];
-  // $disciplina2 = $_POST["disciplina2"];
-  // $disciplina3 = $_POST["disciplina3"];
-
   //disciplinas
   $portugues = isset($_POST['portugues']) ? $_POST['portugues'] : 0;
   $ingles = isset($_POST['ingles']) ? $_POST['ingles'] : 0;
@@ -32,16 +26,6 @@
   $geografia = isset($_POST['geografia']) ? $_POST['geografia'] : 0;
   $sociologia = isset($_POST['sociologia']) ? $_POST['sociologia'] : 0;
   $ed_fisica = isset($_POST['ed_fisica']) ? $_POST['ed_fisica'] : 0;
-
-
-  // $query_novas_disciplinas = $conn->prepare("INSERT INTO disciplina (nome_disciplina)
-  //   VALUES ('{$disciplina1}')");
-
-  // $query_novas_disciplinas = $conn->prepare("INSERT INTO disciplina (nome_disciplina)
-  //   VALUES ('{$disciplina2}')");
-
-  // $query_novas_disciplinas = $conn->prepare("INSERT INTO disciplina (nome_disciplina)
-  //   VALUES ('{$disciplina3}')");
 
 
   if ($portugues == 1) {

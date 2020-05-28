@@ -2,10 +2,9 @@
 
 include_once 'conexao.php';
 
-// $id_escola = $_SESSION["id_escola"];
+$id_escola = $_SESSION["id_escola"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 
-//$ensino = $_POST["ensino"];
 $turma = $_POST["turma"];
 
 if ($turma != "") {
