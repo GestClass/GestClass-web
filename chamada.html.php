@@ -14,6 +14,7 @@
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/chamada.css" />
+    <link rel="stylesheet" type="text/css" href="css/boletimCadastro.css" />
 
 
 </head>
@@ -44,72 +45,115 @@
     $query_alunos = $conn->prepare("SELECT t.id_turma,t.nome_turma FROM turma AS t JOIN turmas_professor AS P ON t.id_turma = P.fk_id_turma_professor_turmas_professor");
     $query_alunos->execute();
 
-
-
-
-
     ?>
 
+    <div class="container col s12 m12 l12" id="container_boletimCadastro">
 
-    <div class="container col s12 m12 l12">
-        <h4>Chamada</h4>
-        <form action="php/chamada.php" method="post"><br>
-            <div class="row">
-                <div class="input-field col s12 m3 l2">
-                    <input  type="text" placeholder="05/09/2020" class="datepicker validate" nome="dataChamada">
-                    <label id="lbl" for="icon_telephone">Data</label>
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <ul id="tabs-swipe-demo" class="tabs blue lighten-3">
+                    <li class="tab col s3 m6 l6 "><a href="#cadastroChamada">Cadastro da Chamada</a></li>
+                    <li class="tab col s3 m6 l6 "><a href="#alteracaoChamada">Alteração da Chamada</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div id="cadastroChamada" class="col s12 m12 l12">
+            <h4 class="center">Cadastro da Chamada</h4>
+            <br>
+            <form action="php/cadastroChamada.php" method="POST">
+                <div class="row">
+                    <div class="col  m8  offset-m4">
+                        <div class="file field input-field col s12 m6 l6">
+                            <i class="material-icons prefix blue-icon">event</i>
+                            <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataChamada">
+                            <label id="lbl">Data da atividade</label>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <table class="highlight centered">
-                <thead>
-                    <tr>
-                        <th>RA</th>
-                        <th>Nome</th>
-                        <th>Presença</th>
-                        <th>Falta</th>
 
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php
-
-                    $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola");
-                    $query_select_alunos->execute();
-
-                    while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
-                        
-
-                    ?>
-
+                <br><br>
+                <table class="highlight centered">
+                    <thead>
                         <tr>
-                            <td>
-                                <?php echo $dados_alunos['RA'] ?>
-                            </td>
-                            <td>
-                                <?php echo $dados_alunos['nome_aluno'] ?>
-                            </td>
-                            <td>
-                                <label>
-                                    <input id="presenca" type="checkbox" class="filled-in presenca checkbox-blue-grey" name="presenca" value="1" />
-                                    <span></span>
-                                </label>
-                            </td>
-                            <td>
-                                <label>
-                                    <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="presenca" value="0" />
-                                    <span></span>
-                                </label>
-                            </td>
+                            <th>RA</th>
+                            <th>Nome</th>
+                            <th>Presença</th>
+                            <th>Falta</th>
+
                         </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-            <div class="input-field right">
-                <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue">Enviar</button>
-            </div>
-        </form>
+                    </thead>
+
+                    <tbody>
+                        <?php
+
+                        $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = 16");
+                        $query_select_alunos->execute();
+
+                        while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
+
+
+                        ?>
+
+                            <tr>
+                                <td>
+                                    <?php echo $dados_alunos['RA'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $dados_alunos['nome_aluno'] ?>
+                                </td>
+                                <td>
+                                    <label>
+                                        <input id="presenca" type="checkbox" class="filled-in presenca checkbox-blue-grey" name="<?php echo $dados_alunos['RA'].'presenca'?>" value="1" />
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label>
+                                        <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="<?php echo $dados_alunos['RA'].'presenca'?>" value="0" />
+                                        <span></span>
+                                    </label>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <br><br><br>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">send</i>Cadastrar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div id="alteracaoChamada" class="col s12 m12 l12">
+            <form action="alteracaoChamada.html.php" method="POST">
+                <h4 class="center">Alteraçao da Chamada</h4>
+                <br>
+
+                <div class="row">
+                    <div class="col  m8  offset-m4">
+                        <div class="file field input-field col s12 m6 l6">
+                            <i class="material-icons prefix blue-icon">event</i>
+                            <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataChamada">
+                            <label id="lbl">Data da Chamada</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
+
 
     <script src="js/chamada.js"></script>
 
