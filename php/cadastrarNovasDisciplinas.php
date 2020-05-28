@@ -15,11 +15,9 @@
   // $dados = $query->fetch(PDO::FETCH_ASSOC);
 	// $id_professor = $dados['id_professor'];
 
-  $turmas = $_POST["turmas"];
-
-
-  // Disciplinas que nao tem no checkbox
-  // $disciplina1 = $_POST["disciplina1"];
+  $turmas = $_POST['turmas'];
+  // $disciplinas = $_POST['disciplinas'];
+  // echo $disciplinas;
 
   // disciplinas
   $portugues = isset($_POST['portugues']) ? $_POST['portugues'] : 0;
@@ -35,9 +33,6 @@
   $sociologia = isset($_POST['sociologia']) ? $_POST['sociologia'] : 0;
   $ed_fisica = isset($_POST['ed_fisica']) ? $_POST['ed_fisica'] : 0;
 
-
-  // // $query_novas_disciplinas = $conn->prepare("INSERT INTO disciplina (nome_disciplina)
-  // //   VALUES ('{$disciplina1}')");
 
 
   if ($portugues == 1) {

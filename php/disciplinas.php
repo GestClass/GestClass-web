@@ -19,7 +19,6 @@ if ($disciplina != "") {
         if ($id_tipo_usuario == 2) {
 ?>
             <script>
-                // alert('Diciplina inserida com sucesso');
 
                 var confirmacao = confirm('Deseja cadastrar outra disciplina?');
 
@@ -34,7 +33,6 @@ if ($disciplina != "") {
         } else if ($id_tipo_usuario == 3) {
         ?>
             <script>
-                // alert('Diciplina inserida com sucesso');
 
                 var confirmacao = confirm('Deseja cadastrar outra disciplina?');
 

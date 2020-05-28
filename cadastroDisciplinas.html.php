@@ -157,37 +157,6 @@
 
                     </div>
                 </div>
-            </div><br>
-
-            <label id="lbl" for="first_name">Novas Disciplinas</label>
-            <div class="row">
-                <div class="input-field col s12 m4 l4">
-                    <i class="material-icons prefix blue-icon">school</i>
-                    <select name="disciplinas">
-                        <option value="" disabled selected>Selecione a Disciplina</option>
-                        <?php
-
-                        $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola");
-                        $query_select_id->execute();
-
-                        while ($dados_id = $query_select_id->fetch(PDO::FETCH_ASSOC)) {
-                            $id_disciplina = $dados_id['ID_disciplina'];
-
-                            $query_select_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina ORDER BY $id_disciplina ASC LIMIT 6");
-                            $query_select_nome->execute();
-
-                            while ($dados_nome = $query_select_nome->fetch(PDO::FETCH_ASSOC)) {
-                                $nome = $dados_nome['nome_disciplina'];
-
-                        ?>
-                                <option value="<?php echo $id_disciplina ?>"><?php echo $nome; ?></option>
-                        <?php
-                            }
-                        }
-                        ?>
-
-                    </select>
-                </div>
             </div>
             <div class="input-field right">
                 <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
