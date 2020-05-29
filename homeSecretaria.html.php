@@ -91,7 +91,7 @@ require_once 'reqHeader.php';
       <i class="large material-icons">add</i>
     </a>
     <ul>
-      <li><a href="cadastroNovasDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Cadastrar Novas Disciplinas"><i class="material-icons">import_contacts</i></a></li>
+      <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
       <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
       <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
       <li><a href="mensagensSecretaria.html.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Envio de mensagens"><i class="material-icons">chat</i></a></li>

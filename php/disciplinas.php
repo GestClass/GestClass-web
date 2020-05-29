@@ -25,7 +25,7 @@ if ($disciplina != "") {
                 if (confirmacao == true) {
                     window.location = '../disciplinas.html.php';
                 } else {
-                    window.location = '../cadastroNovasDisciplinas.html.php';
+                    window.location = '../atribuicaoDisciplinas.html.php';
                 }
             </script>
         <?php
@@ -39,7 +39,7 @@ if ($disciplina != "") {
                 if (confirmacao == true) {
                     window.location = '../disciplinas.html.php';
                 } else {
-                    window.location = '../cadastroNovasDisciplinas.html.php';
+                    window.location = '../atribuicaoDisciplinas.html.php';
                 }
             </script>
 <?php
