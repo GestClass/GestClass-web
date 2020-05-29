@@ -158,14 +158,27 @@ CREATE TABLE boletim_aluno (
     fk_id_professor_boletim_aluno INTEGER NOT NULL
 );
 
+
+CREATE TABLE listagem_chamada(
+	ID_listagem INTEGER PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    data_chamada DATE NOT NULL,
+    fk_id_escola_listagem_chamada INTEGER NOT NULL,
+    fk_id_disciplina_listagem_chamada INTEGER NOT NULL,
+    fk_id_professor_listagem_chamada INTEGER NOT NULL
+);
+
+
 CREATE TABLE chamada_aluno (
 	ID_chamada_aluno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
 	presenca BOOLEAN NOT NULL,
     data_aula DATE NOT NULL,
 	fk_ra_aluno_chamada_aluno INTEGER NOT NULL,
 	fk_id_disciplina_chamada_aluno INTEGER NOT NULL,
-    fk_id_professor_chamada_aluno INTEGER NOT NULL
+    fk_id_professor_chamada_aluno INTEGER NOT NULL,
+    fk_id_listagem_chamada_aluno INTEGER NOT NULL
 );
+
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_listagem_chamada_aluno FOREIGN KEY (fk_id_listagem_chamada_aluno) REFERENCES listagem_chamada(ID_listagem);
 
 
 CREATE TABLE contato (
@@ -266,6 +279,14 @@ ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_professor_boletim_aluno FOREIGN K
 ALTER TABLE chamada_aluno ADD CONSTRAINT fk_ra_aluno_chamada_aluno FOREIGN KEY (fk_ra_aluno_chamada_aluno) REFERENCES aluno (RA);
 ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_disciplina_chamada_aluno FOREIGN KEY (fk_id_disciplina_chamada_aluno) REFERENCES disciplina (ID_disciplina);
 ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_professor_chamada_aluno FOREIGN KEY (fk_id_professor_chamada_aluno) REFERENCES professor (ID_professor);
+
+
+/*	-	FOREIGN KEYs TABLE LISTAGEM_CHAMADA	-	*/
+
+ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_escola_listagem_chamada FOREIGN KEY(fk_id_escola_listagem_chamada) REFERENCES escola (ID_escola);
+ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_disciplina_listagem_chamada FOREIGN KEY(fk_id_disciplina_listagem_chamada) REFERENCES disciplina (ID_disciplina);
+ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_professor_listagem_chamada FOREIGN KEY(fk_id_professor_listagem_chamada) REFERENCES professor (ID_professor);
+
 
 
 /*	-	FOREIGN KEYs TABLE CONTATO	-	*/
@@ -390,9 +411,13 @@ INSERT INTO responsavel (nome_responsavel, cep, numero, complemento, rg, cpf, em
 INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno, fk_id_professor_boletim_aluno) VALUES ('10.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 1', '2020-03-22', 00000000, 6, 1);
 
 
+/*	-	INSERTS INTO TABLE LISTAGEM_CHAMADA	-	*/
+
+INSERT INTO listagem_chamada (data_chamada, fk_id_escola_listagem_chamada, fk_id_disciplina_listagem_chamada, fk_id_professor_listagem_chamada) VALUES ('2020-05-28', 1, 1, 1);
+
 /*	-	INSERTS INTO TABLE CHAMADA_ALUNO	-	*/
               
-INSERT INTO chamada_aluno (presenca, data_aula, fk_ra_aluno_chamada_aluno, fk_id_disciplina_chamada_aluno, fk_id_professor_chamada_aluno) VALUES ( true, '2020-03-22',00000000, 6, 1);
+INSERT INTO chamada_aluno (presenca, data_aula, fk_ra_aluno_chamada_aluno, fk_id_disciplina_chamada_aluno, fk_id_professor_chamada_aluno, fk_id_listagem_chamada_aluno) VALUES ( true, '2020-03-22',00000000, 6, 1, 1);
 
 
 /*	-	INSERTS INTO TABLE CONTATO	-	*/
@@ -444,6 +469,4 @@ SELECT * FROM `admin`;
 
 SELECT * FROM contato;
 
-
-
-/*	DROP DATABASE GestClass;	*/
+	/*DROP DATABASE GestClass;*/

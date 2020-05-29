@@ -1,8 +1,27 @@
 <!DOCTYPE html>
+<html lang="pt">
 
-<body class="body_estilizado">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>GestClass - Is Cool Manage</title>
+    <link rel="icon" href="assets/icon/logo.png" />
+
+    <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/chamada.css" />
+    <link rel="stylesheet" type="text/css" href="css/boletimCadastro.css" />
+
+
+</head>
+
+<body>
+
     <?php
-
     include_once 'php/conexao.php';
 
     $id_usuario = $_SESSION["id_usuario"];
@@ -17,66 +36,72 @@
         require_once 'reqHeader.php';
     } elseif ($id_tipo_usuario == 4) {
         require_once 'reqProfessor.php';
+    } elseif ($id_tipo_usuario  == 5) {
+        require_once 'reqAluno.php';
+    } else {
+        require_once 'reqPais.php';
     }
 
-    $id_usuario = $_SESSION["id_usuario"];
-    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
-    $id_escola = $_SESSION["id_escola"];
-
-    $dataChamada = $_POST['dataChamada'];
-    // Alterar abaixo para o valor quando vier do <select>
-    $id_disciplina = 1;
-    $id_professor = $id_usuario;
-
-    if ($dataChamada != "") {
     ?>
 
-        <div class="container col s12 m12 l12" id="container_boletimCadastro">
-            <table class="striped centered">
-                <thead>
-                    <th>
-                        Data
-                    </th>
-                </thead>
-                <tbody>
+    <div class="container col s12 m12 l12" id="container_boletimCadastro">
+        <div id="cadastroChamada" class="col s12 m12 l12">
+            <h4 class="center">Cadastro da Chamada</h4>
+            <br>
+            <form action="php/alteracaoChamada.php" method="POST">
+                <br><br>
+                <table class="highlight centered">
+                    <thead>
+                        <tr>
+                            <th>RA</th>
+                            <th>Nome</th>
+                            <th>Presença</th>
+                            <th>Falta</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php
+
+                        $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = 16");
+                        $query_select_alunos->execute();
+
+                        while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
 
 
+                        ?>
 
-                    <?php
-                    $query_listagem = $conn->prepare('SELECT data_aula FROM chamada_aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_professor_chamada_aluno = '.$id_professor.' AND fk_id_disciplina_chamada_aluno = '.$id_disciplina.'');
-                    $query_listagem->execute();
-
-                    if ($query_listagem->rowCount()) {
-
-                        while ($chamadas = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
-                    ?>
                             <tr>
                                 <td>
-                                    <?php echo $chamadas['data_aula']; ?>
+                                    <?php echo $dados_alunos['RA'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $dados_alunos['nome_aluno'] ?>
+                                </td>
+                                <td>
+                                    <label>
+                                        <input id="presenca" type="checkbox" class="filled-in presenca checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] . 'presenca' ?>" value="1" />
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label>
+                                        <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] . 'presenca' ?>" value="0" />
+                                        <span></span>
+                                    </label>
                                 </td>
                             </tr>
-                        <?php
-                        }
-                    } else {
-                        ?>
-                        <script>
-                            alert('Nenhum registro encontrado!!')
-                            history.back()
-                        </script>
-                    <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <br><br><br>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">send</i>Alterar
+                    </button>
+                </div>
+            </form>
         </div>
-    <?php
-    } else {
-        ?>
-            <script>
-                alert('Por Favor, selecione a Data!!')
-                history.back()
-            </script>
-        <?php
-    }
-    include_once 'reqFooter.php';
-    ?>
+    </div>
+<?php require_once 'reqFooter.php' ?>

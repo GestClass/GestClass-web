@@ -42,9 +42,6 @@
         require_once 'reqPais.php';
     }
 
-    $query_alunos = $conn->prepare("SELECT t.id_turma,t.nome_turma FROM turma AS t JOIN turmas_professor AS P ON t.id_turma = P.fk_id_turma_professor_turmas_professor");
-    $query_alunos->execute();
-
     ?>
 
     <div class="container col s12 m12 l12" id="container_boletimCadastro">
@@ -131,7 +128,7 @@
         </div>
 
         <div id="alteracaoChamada" class="col s12 m12 l12">
-            <form action="alteracaoChamada.html.php" method="POST">
+            <form action="listagemChamadas.html.php" method="POST">
                 <h4 class="center">Alteraçao da Chamada</h4>
                 <br>
 

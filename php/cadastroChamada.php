@@ -13,40 +13,61 @@ $id_professor = $id_usuario;
 
 if ($dataChamada != "") {
 
+    $query_insert_listagem_chamada = $conn->prepare('INSERT INTO listagem_chamada (data_chamada, fk_id_escola_listagem_chamada, fk_id_disciplina_listagem_chamada, fk_id_professor_listagem_chamada)
+                                     VALUES (:data_chamada, :id_escola, :id_disciplina, :id_professor)');
 
-    $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = 16");
-    $query_select_alunos->execute();
+    $query_insert_listagem_chamada->bindParam(':data_chamada', $dataChamada);
+    $query_insert_listagem_chamada->bindParam(':id_escola', $id_escola);
+    $query_insert_listagem_chamada->bindParam(':id_disciplina', $id_disciplina);
+    $query_insert_listagem_chamada->bindParam(':id_professor', $id_usuario);
 
-    while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
 
-        $presenca = $_POST[$dados_alunos['RA'] . 'presenca'];
-        $ra = $dados_alunos['RA'];
+    $query_insert_listagem_chamada->execute();
 
-        $query_inser_chamada = $conn->prepare('INSERT INTO chamada_aluno (presenca, data_aula, fk_ra_aluno_chamada_aluno, fk_id_disciplina_chamada_aluno, fk_id_professor_chamada_aluno) 
-                                    VALUES (:presenca, :data_aula, :ra_aluno, :id_disciplina, :id_professor)');
+    $query_id_listagem = $conn->prepare('SELECT MAX(ID_listagem) FROM listagem_chamada WHERE fk_id_escola_listagem_chamada = 1');
 
-        $query_inser_chamada->bindParam(':presenca', $presenca);
-        $query_inser_chamada->bindParam(':data_aula', $dataChamada);
-        $query_inser_chamada->bindParam(':ra_aluno', $ra);
-        $query_inser_chamada->bindParam(':id_disciplina', $id_disciplina);
-        $query_inser_chamada->bindParam(':id_professor', $id_professor);
+    $query_id_listagem->execute();
 
-        $query_inser_chamada->execute();
+    while ($id_listagem = $query_id_listagem->fetch(PDO::FETCH_ASSOC)) {
 
-        if ($query_inser_chamada->rowCount()) {
+        $aa = $id_listagem['MAX(ID_listagem)'];
+        echo $aa;
+
+        $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = 16");
+        $query_select_alunos->execute();
+
+        while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
+
+            $presenca = $_POST[$dados_alunos['RA'] . 'presenca'];
+            $ra = $dados_alunos['RA'];
+
+            $query_insert_chamada = $conn->prepare('INSERT INTO chamada_aluno (presenca, data_aula, fk_ra_aluno_chamada_aluno, fk_id_disciplina_chamada_aluno, fk_id_professor_chamada_aluno, fk_id_listagem_chamada_aluno) 
+                                    VALUES (:presenca, :data_aula, :ra_aluno, :id_disciplina, :id_professor, :id_listagem)');
+
+            $query_insert_chamada->bindParam(':presenca', $presenca);
+            $query_insert_chamada->bindParam(':data_aula', $dataChamada);
+            $query_insert_chamada->bindParam(':ra_aluno', $ra);
+            $query_insert_chamada->bindParam(':id_disciplina', $id_disciplina);
+            $query_insert_chamada->bindParam(':id_professor', $id_professor);
+            $query_insert_chamada->bindParam('id_listagem', $aa);
+
+            $query_insert_chamada->execute();
+
+            if ($query_insert_chamada->rowCount()) {
 ?>
-            <script>
-                alert('Cadastrado com Sucesso!!')
-                window.location = '../homeProfessor.html.php'
-            </script>
-        <?php
-        } else {
-        ?>
-            <script>
-                alert('Erro ao  Cadastrar!!')
-                history.back();
-            </script>
+                <script>
+                    alert('Cadastrado com Sucesso!!')
+                    window.location = '../homeProfessor.html.php'
+                </script>
+            <?php
+            } else {
+            ?>
+                <script>
+                    alert('Erro ao  Cadastrar!!')
+                    history.back();
+                </script>
     <?php
+            }
         }
     }
 } else {
