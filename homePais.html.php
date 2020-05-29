@@ -69,14 +69,15 @@
   </div>
 </section>
 <div id="modalChat" class="modal ">
-    <div class="modal-content">
-      <h4 class="center"><i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
-      <div class="input-field col s12 validate">
-      <form action="php/pinChat.php" method="POST">
-      <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate"/>
-            <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Entrar
-              <i class="material-icons right">lock</i>
-            </button>
+  <div class="modal-content">
+        <h4 class="center"> <i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
+        <div class="input-field col s12 validate">
+        <form action="php/pinNotif.php" method="POST">
+          <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate"/>
+          <a class="waves-effect blue lighten-1 btn modal-trigger" href="#modalPin">Esqueceu o seu PIN?<i class="material-icons right">lock</i></a>
+          <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Entrar
+            <i class="material-icons right">verified_user</i>
+          </button>
         </form>
       </div>
     </div>
@@ -86,14 +87,31 @@
       <h4 class="center"> <i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
       <div class="input-field col s12 validate">
       <form action="php/pinNotif.php" method="POST">
-      <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate"/>
-            <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Entrar
-              <i class="material-icons right">lock</i>
+        <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate"/>
+        <a class="waves-effect blue lighten-1 btn modal-trigger" href="#modalPin">Esqueceu o seu PIN?<i class="material-icons right">lock</i></a>
+        <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Entrar
+          <i class="material-icons right">verified_user</i>
+        </button>
+      </form>
+      </div>
+    </div>
+  </div>
+  <div id="modalPin" class="modal ">
+    <div class="modal-content">
+      <h4 class="center"><i class="material-icons right">vpn_key</i>Esqueceu o seu PIN?</h4>
+      <div class="input-field col s12 validate">
+      <form action="php/esqPin.php" method="POST">
+      <h5 class="center">Não se preocupe, estamos aqui para te ajudar! Digite o seu email para recupera-lo:</h5>
+      <input placeholder="Digite o seu email" id="first_name" name="email"  type="text" class="validate"/>
+      <input type="hidden" name="recuperarPin" value="Recuperar Pin"/>    
+      <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Enviar
+              <i class="material-icons right">lock_open</i>
             </button>
         </form>
       </div>
     </div>
   </div>
+  
 
 <section class="floating-buttons">
   <div class="fixed-action-btn">

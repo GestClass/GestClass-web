@@ -32,8 +32,7 @@ $(document).ready(() => {
 
 // ver senha
 function verSenha() {
-    $('.btnVerSenha').toggleClass("fa-eye fa-eye-slash");
-    ;
+    $('.btnVerSenha').toggleClass("fa-eye fa-eye-slash");;
     if ($('.senhaLogin').attr("type") == "password") {
         $('.senhaLogin').attr("type", "text");
     } else {
@@ -45,6 +44,6 @@ function verSenha() {
 
 /* ==== JS PAGINA DE LOGIN E RECUPERAR SENHA ===== */
 function toggleLoginRecupera() {
-    $('.formRecuperarSenha').toggleClass('hide') 
-    $('.formLogin').toggleClass('hide') 
+    $('.formRecuperarSenha').toggleClass('hide')
+    $('.formLogin').toggleClass('hide')
 }
