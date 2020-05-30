@@ -466,6 +466,10 @@ SELECT * FROM chamada_aluno;
 
 SELECT * FROM responsavel;
 
+SELECT * FROM professor;
+
+SELECT * FROM secretario;
+
 SELECT * FROM `admin`;
 
 SELECT * FROM contato;
