@@ -26,6 +26,7 @@
     // Alterar abaixo para o valor quando vier do <select>
     $id_disciplina = 1;
     $dataChamada = $_POST['dataChamada'];
+    //echo $dataChamada;
 
     if ($dataChamada != "") {
     ?>
@@ -49,7 +50,7 @@
 
 
                         <?php
-                        $query_listagem = $conn->prepare('SELECT * FROM listagem_chamada WHERE fk_id_escola_listagem_chamada = ' . $id_escola . ' AND fk_id_professor_listagem_chamada = ' . $id_usuario . ' AND fk_id_disciplina_listagem_chamada = ' . $id_disciplina . '');
+                        $query_listagem = $conn->prepare('SELECT * FROM listagem_chamada WHERE fk_id_escola_listagem_chamada = ' . $id_escola . ' AND fk_id_professor_listagem_chamada = ' . $id_usuario . ' AND fk_id_disciplina_listagem_chamada = ' . $id_disciplina . ' AND data_chamada = "' . $dataChamada . '"');
                         $query_listagem->execute();
 
                         if ($query_listagem->rowCount()) {
@@ -67,13 +68,28 @@
                         ?>
                                     <tr>
                                         <td>
-                                            <?php echo $chamadas['data_chamada']; ?>
+                                            <?php
+                                            echo $dataChamada;
+                                            ?>
                                         </td>
+
                                         <td>
-                                            <?php echo $nomeDisciplina ?>
+                                            <?php
+                                            echo $nomeDisciplina;
+                                            ?>
                                         </td>
+
                                         <td>
-                                            <a href="alteracaoChamada.html.php?idChamada=<?php echo $id_chamada ?>">Editar</a>
+                                            <?php
+                                            echo '
+                                                <form action="alteracaoChamada.html.php" method="POST">
+                                                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                                                    <i class="material-icons left">edit</i>Editar
+                                                </button>
+                                                <input type="hidden" name="idChamada" value="' . $id_chamada . '"/>
+                                                <input type="hidden" name="dataChamada" value="' . $dataChamada . '" />
+                                                </form>';
+                                            ?>
                                         </td>
                                     </tr>
                             <?php

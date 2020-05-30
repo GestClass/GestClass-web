@@ -42,6 +42,14 @@
         require_once 'reqPais.php';
     }
 
+    $idChamada = $_POST['idChamada'];
+    $dataChamada = $_POST['dataChamada'];
+
+    // Substituir abaixo pelo valor do <select>
+    $idTurma = 16;
+
+    var_dump($_GET);
+
     ?>
 
     <div class="container col s12 m12 l12" id="container_boletimCadastro">
@@ -64,35 +72,45 @@
                     <tbody>
                         <?php
 
-                        $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = 16");
+                        $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = $idTurma");
                         $query_select_alunos->execute();
 
                         while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
 
+                            $query_select_presenca = $conn->prepare('SELECT presenca FROM chamada_aluno WHERE fk_ra_aluno_chamada_aluno = ' . $dados_alunos['RA'] . ' AND fk_id_listagem_chamada_aluno = ' . $idChamada . '');
+                            $query_select_presenca->execute();
 
+                            while ($dados_presenca = $query_select_presenca->fetch(PDO::FETCH_ASSOC)) {
+
+                                $presenca = $dados_presenca['presenca'];
                         ?>
 
-                            <tr>
-                                <td>
-                                    <?php echo $dados_alunos['RA'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $dados_alunos['nome_aluno'] ?>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input id="presenca" type="checkbox" class="filled-in presenca checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] . 'presenca' ?>" value="1" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] . 'presenca' ?>" value="0" />
-                                        <span></span>
-                                    </label>
-                                </td>
-                            </tr>
-                        <?php } ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $dados_alunos['RA'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $dados_alunos['nome_aluno'] ?>
+                                    </td>
+                                    <td>
+                                        <label>
+                                            <input id="presenca" type="checkbox" class="filled-in presenca checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] . 'presenca' ?>" value="1" <?php if ($presenca == 1) { ?> checked <?php } ?> />
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label>
+                                            <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] . 'presenca' ?>" value="0" <?php if ($presenca == 0) { ?> checked <?php } ?> />
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <input type="hidden" name="idChamada<?php echo $dados_alunos['RA']; ?>" value="<?php echo $idChamada ?>">
+                                <input type="hidden" name="dataChamada<?php echo $dados_alunos['RA']; ?>" value="<?php echo $dataChamada ?>">
+                        <?php
+                            }
+                        }
+                        ?>
                     </tbody>
                 </table>
                 <br><br><br>
@@ -104,4 +122,4 @@
             </form>
         </div>
     </div>
-<?php require_once 'reqFooter.php' ?>
+    <?php require_once 'reqFooter.php' ?>

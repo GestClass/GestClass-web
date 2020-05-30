@@ -128,7 +128,7 @@
         </div>
 
         <div id="alteracaoChamada" class="col s12 m12 l12">
-            <form action="listagemChamadas.html.php" method="POST">
+            <form action="listagemChamada.html.php" method="POST">
                 <h4 class="center">Alteraçao da Chamada</h4>
                 <br>
 

@@ -16,6 +16,10 @@
     $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
     $id_escola = $_SESSION["id_escola"];
 
+    $id_usuario = $_SESSION["id_usuario"];
+    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+    $id_escola = $_SESSION["id_escola"];
+
     if ($id_tipo_usuario == 2) {
         require_once 'reqDiretor.php';
     } else if ($id_tipo_usuario == 3) {
@@ -62,7 +66,7 @@
 
                         while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
 
-                            $query_boletim = $conn->prepare('SELECT nota, observacoes FROM boletim_aluno WHERE data_atividade = "' . $dataAtividade . '" AND nome_atividade = "' . $nomeAtividade . '" AND fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = ' . $alunos['RA'] . ' AND fk_id_professor_boletim_aluno = 1');
+                            $query_boletim = $conn->prepare('SELECT nota, observacoes, ID_boletim_aluno FROM boletim_aluno WHERE data_atividade = "' . $dataAtividade . '" AND nome_atividade = "' . $nomeAtividade . '" AND fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = ' . $alunos['RA'] . ' AND fk_id_professor_boletim_aluno = '.$id_usuario.'');
                             $query_boletim->execute();
 
                             if (($dataAtividade != "") && ($nomeAtividade != "")) {
@@ -90,6 +94,9 @@
                                                 <input value="<?php echo $boletim['observacoes']; ?>" type="text" class="validate" name="<?php echo $alunos['RA'] . 'observacao'; ?>">
                                             </td>
                                         </tr>
+
+                                        <input type="hidden" name="idBoletim<?php echo $alunos['RA'];?>" value="<?php echo $boletim['ID_boletim_aluno'];?>">
+
 
 
                                     <?php

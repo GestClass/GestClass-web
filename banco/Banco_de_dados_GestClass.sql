@@ -147,6 +147,8 @@ CREATE TABLE responsavel (
     fk_id_escola_responsavel INTEGER NOT NULL
 );
 
+UPDATE boletim_aluno SET nota = 20, observacoes = 'o b s' WHERE fk_ra_aluno_boletim_aluno = 0 AND ID_boletim_aluno = 2;
+
 CREATE TABLE boletim_aluno (
 	ID_boletim_aluno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
 	nota DECIMAL (4,2) NOT NULL,
@@ -177,8 +179,6 @@ CREATE TABLE chamada_aluno (
     fk_id_professor_chamada_aluno INTEGER NOT NULL,
     fk_id_listagem_chamada_aluno INTEGER NOT NULL
 );
-
-ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_listagem_chamada_aluno FOREIGN KEY (fk_id_listagem_chamada_aluno) REFERENCES listagem_chamada(ID_listagem);
 
 
 CREATE TABLE contato (
@@ -279,6 +279,7 @@ ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_professor_boletim_aluno FOREIGN K
 ALTER TABLE chamada_aluno ADD CONSTRAINT fk_ra_aluno_chamada_aluno FOREIGN KEY (fk_ra_aluno_chamada_aluno) REFERENCES aluno (RA);
 ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_disciplina_chamada_aluno FOREIGN KEY (fk_id_disciplina_chamada_aluno) REFERENCES disciplina (ID_disciplina);
 ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_professor_chamada_aluno FOREIGN KEY (fk_id_professor_chamada_aluno) REFERENCES professor (ID_professor);
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_listagem_chamada_aluno FOREIGN KEY (fk_id_listagem_chamada_aluno) REFERENCES listagem_chamada(ID_listagem);
 
 
 /*	-	FOREIGN KEYs TABLE LISTAGEM_CHAMADA	-	*/
