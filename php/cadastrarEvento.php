@@ -1,9 +1,9 @@
 <?php
 // A CODIGO A BAIXO ESTA EM PDO, SE VOCE NAO TIVER A VERSAO 7 DO PHP NÃO VAI FUNCIONAR
 
-session_start();
+// session_start();
 
-include_once './conexao.php';
+include_once 'conexao.php';
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 

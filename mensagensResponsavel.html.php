@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/mensagensResponsavel.css" />
+    <link rel="stylesheet" type="text/css" href="css/mensagensDiretor.css" />
 
 
 </head>
@@ -41,31 +41,37 @@
         require_once 'reqPais.php';
     }
 
+
+    $query_mensagem = $conn->prepare("SELECT nome_responsavel,fk_recebimento_responsavel_id_responsavel,data,assunto,mensagem
+    FROM responsavel AS R 
+    JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario}");
+    $query_mensagem->execute();
+    
+
+
+
     ?>
 
     <div class="container"><br><br><br>
         <div id="mensagens">
-            <table class="highlight centered">
+            <table class="highlight centered col s12 m12 l12">
                 <thead>
                     <tr>
                         <th>Data</th>
                         <th>Assunto</th>
-                        <th>Remetente</th>
+                        <th>Mensagem</th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) {?>
                     <tr>
-                        <td><i class="small left material-icons  blue-icon">email</i> 06/05/2020</td>
-                        <td>Vagas de estagios</td>
-                        <td>Banco do Brasil</td>
+                        <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                            <?php echo $mensagens["data"]?></td>
+                        <td><?php echo $mensagens["assunto"]?></td>
+                        <td><?php echo $mensagens["mensagem"]?></td>
                     </tr>
-                    <tr>
-                        <td><i class="small left material-icons  blue-icon">drafts</i> 22/04/2020</td>
-                        <td>Vagas de estagios</td>
-                        <td>Banco do Brasil</td>
-
-                    </tr>
+                    <?php }?>
                 </tbody>
             </table>
         </div>
@@ -75,17 +81,30 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <form class="col s12" action="php/enviarResponsavel.php">
+                <div class="row">
+                    <div class="input-field col s12 m4 l12">
+                        <select name="opcMensagem" id="opcMensagem">
+                            <option value="" disabled selected></option>
+                            <option value="1">Aluno</option>
+                            <option value="2">Responsável</option>
+                            <option value="3">Professor</option>
+                            <option value="4">Diretor</option>
+                        </select>
+                        <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
+                    </div>
+                </div>
+                <form class="col s12" action="php/enviarDiretor.php">
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
                             <label for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
                 </form>
                 <div class="input-field right">
-                <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-            </div>
+                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit"
+                        class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                </div>
             </div>
         </div>
         <div class="modal-footer">
@@ -143,12 +162,14 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalArquivados" class="modal-trigger btn-floating green tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
-            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow tooltipped" data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
+            <li><a href="#modalArquivados" class="modal-trigger btn-floating green tooltipped" data-position="left"
+                    data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
+            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow tooltipped" data-position="left"
+                    data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
         </ul>
     </div>
 
-    <script src="js/mensagensResponsavel.js"></script>
+    <script src="js/mensagensDiretor.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>

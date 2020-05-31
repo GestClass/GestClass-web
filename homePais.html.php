@@ -86,7 +86,7 @@
     <div class="modal-content">
       <h4 class="center"> <i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
       <div class="input-field col s12 validate">
-      <form action="php/pinNotif.php" method="POST">
+      <form action="php/pinChat.php" method="POST">
         <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate"/>
         <a class="waves-effect blue lighten-1 btn modal-trigger" href="#modalPin">Esqueceu o seu PIN?<i class="material-icons right">lock</i></a>
         <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Entrar
