@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/mensagensProfessor.css" />
+    <link rel="stylesheet" type="text/css" href="css/mensagensDiretor.css" />
 
 
 </head>
@@ -41,6 +41,15 @@
         require_once 'reqPais.php';
     }
 
+
+    $query_mensagem = $conn->prepare("SELECT nome_professor,fk_recebimento_professor_id_professor,data,assunto
+    FROM professor AS P 
+    JOIN contato AS C ON P.id_professor = C.fk_recebimento_professor_id_professor and P.id_professor = {$id_usuario};");
+    $query_mensagem->execute();
+    
+
+
+
     ?>
 
     <div class="container"><br><br><br>
@@ -50,22 +59,19 @@
                     <tr>
                         <th>Data</th>
                         <th>Assunto</th>
-                        <th>Remetente</th>
+                        <th>Mensagem</th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) {?>
                     <tr>
-                        <td><i class="small left material-icons  blue-icon">email</i> 06/05/2020</td>
-                        <td>Vagas de estagios</td>
-                        <td>Banco do Brasil</td>
+                        <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                            <?php echo $mensagens["data"]?></td>
+                        <td><?php echo $mensagens["assunto"]?></td>
+                        <td><?php echo $mensagens["mensagem"]?></td>
                     </tr>
-                    <tr>
-                        <td><i class="small left material-icons  blue-icon">drafts</i> 22/04/2020</td>
-                        <td>Vagas de estagios</td>
-                        <td>Banco do Brasil</td>
-
-                    </tr>
+                    <?php }?>
                 </tbody>
             </table>
         </div>
@@ -76,7 +82,7 @@
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
                 <div class="row">
-                    <div class="input-field col s12 m4 l4">
+                    <div class="input-field col s12 m4 l12">
                         <select name="opcMensagem" id="opcMensagem">
                             <option value="" disabled selected></option>
                             <option value="1">Aluno</option>
@@ -87,38 +93,17 @@
                         <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                     </div>
                 </div>
-                <h9>Ou deseja encaminhar para:</h9><br><br>
-                <div class="row">
-                    <div class="input-field col s12 m3 l3">
-                        <input name="nome_turma" id="nome_turma" placeholder="3º ano a" type="tel" class="validate">
-                        <label id="lbl" for="first_name">Apenas uma Turma</label><br><br><br>
-                    </div>
-                    <div class="input-field col s12 m3 l3">
-                        <input name="pais_turma" id="pais_turma"  placeholder="3º ano a" type="tel" class="validate">
-                        <label id="lbl" for="first_name">Responsáveis de uma turma</label><br><br><br>
-                    </div>
-                    <div class="col s6 m2 l2">
-
-                        <label class="left">
-                            <input id="alunos_geral" type="checkbox" class="filled-in checkbox-blue-grey" name="alunos_geral" value="1" />
-                            <span>Todos alunos</span>
-                        </label>
-                        <label class="left">
-                            <input id="responsaveis_geral" type="checkbox" class="filled-in checkbox-blue-grey" name="responsaveis_geral" value="2" />
-                            <span>Todos Responsáveis</span>
-                        </label>
-                    </div>
-                </div>
-                <form class="col s12" action="php/enviarSecretaria.php">
+                <form class="col s12" action="php/enviarDiretor.php">
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
                             <label for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
                 </form>
                 <div class="input-field right">
-                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit"
+                        class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
                 </div>
             </div>
         </div>
@@ -177,12 +162,14 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalArquivados" class="modal-trigger btn-floating green tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
-            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow tooltipped" data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
+            <li><a href="#modalArquivados" class="modal-trigger btn-floating green tooltipped" data-position="left"
+                    data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
+            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow tooltipped" data-position="left"
+                    data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
         </ul>
     </div>
 
-    <script src="js/mensagensProfessor.js"></script>
+    <script src="js/mensagensDiretor.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>

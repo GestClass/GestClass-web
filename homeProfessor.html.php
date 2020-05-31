@@ -64,7 +64,7 @@ require_once 'reqProfessor.php';
       </div>
 
       <div class="col s12 m4">
-        <a class="modal-trigger" href="#modalChat">
+        <a class="modal-trigger" href="mensagensProfessor.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-comment-dots fa-6x blue-icon"></i>
             <h5>Chat</h5>
