@@ -189,3 +189,59 @@ $(".formTurmas").hide();
 
 // }
 //fim
+
+
+
+$(document).ready(function() {
+    $('.modal').modal();
+});
+
+$(document).ready(function() {
+    $('.sidenav').sidenav();
+});
+
+$('.dropdown-trigger').dropdown();
+
+$(document).ready(function() {
+    $('.modal').modal();
+});
+
+$(document).ready(function() {
+    $('select').opcMensagem();
+});
+
+$(".formAluno").hide();
+$(".formSecretaria").hide();
+$(".formProfessor").hide();
+$(".formDiretor").hide();
+
+function formProf() {
+
+    $(".formAluno").hide();
+    $(".formSecretaria").hide();
+    $(".formProfessor").hide();
+    $(".formDiretor").hide();
+
+
+    if ($("#opcMensagem")[0].selectedIndex === 1) {
+        $('#formAluno').show(500);
+        $(".formSecretaria").hide();
+        $(".formProfessor").hide();
+        $(".formDiretor").hide();
+    } else if ($("#opcMensagem")[0].selectedIndex === 2) {
+        $('#formSecretaria').show(500);
+        $(".formAluno").hide();
+        $(".formProfessor").hide();
+        $(".formDiretor").hide();
+    } else if ($("#opcMensagem")[0].selectedIndex === 3) {
+        $('#formProfessor').show(500);
+        $(".formAluno").hide();
+        $(".formSecretaria").hide();
+        $(".formDiretor").hide();
+    } else {
+        $('#formDiretor').show(500);
+        $(".formAluno").hide();
+        $(".formSecretaria").hide();
+        $(".formProfessor").hide();
+    }
+}

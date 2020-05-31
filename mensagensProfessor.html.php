@@ -46,7 +46,7 @@
     FROM professor AS P 
     JOIN contato AS C ON P.id_professor = C.fk_recebimento_professor_id_professor and P.id_professor = {$id_usuario};");
     $query_mensagem->execute();
-    
+
 
 
 
@@ -64,14 +64,14 @@
                 </thead>
 
                 <tbody>
-                    <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) {?>
-                    <tr>
-                        <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
-                            <?php echo $mensagens["data"]?></td>
-                        <td><?php echo $mensagens["assunto"]?></td>
-                        <td><?php echo $mensagens["mensagem"]?></td>
-                    </tr>
-                    <?php }?>
+                    <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) { ?>
+                        <tr>
+                            <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                <?php echo $mensagens["data"] ?></td>
+                            <td><?php echo $mensagens["assunto"] ?></td>
+                            <td><?php echo $mensagens["mensagem"] ?></td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
@@ -83,17 +83,35 @@
             <div id="novaMensagem">
                 <div class="row">
                     <div class="input-field col s12 m4 l12">
-                        <select name="opcMensagem" id="opcMensagem">
+                        <select id="opcMensagem" onchange="formProf()">
                             <option value="" disabled selected></option>
                             <option value="1">Aluno</option>
-                            <option value="2">Responsável</option>
+                            <option value="2">Secretaria</option>
                             <option value="3">Professor</option>
                             <option value="4">Diretor</option>
                         </select>
                         <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                     </div>
                 </div>
-                <form class="col s12" action="php/enviarDiretor.php">
+
+                <form class="formAluno" id="formAluno" class="col s12" action="php/enviarDiretor.php">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <select name="opcMensagem" id="opcMensagem">
+                                <option value="" disabled selected></option>
+                                <option value="1">Todas as turmas</option>
+                                <option value="2">Apenas uma Turma</option>
+                                <option value="3">Apenas um aluno</option>
+                            </select>
+                            <label id="lbl" for="first_name">Escolha dentre as opções</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite uma mensagem ..." type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
@@ -101,9 +119,60 @@
                         </div>
                     </div>
                 </form>
+
+                <form class="formSecretaria" id="formSecretaria" class="col s12" action="php/enviarDiretor.php">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite uma mensagem ..." type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                </form>
+
+                <form class="formProfessor" id="formProfessor" class="col s12" action="php/enviarDiretor.php">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="mensaProf" id="mensaProf" placeholder="Digite uma mensagem ..." type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Para qual Professor?</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite uma mensagem ..." type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                </form>
+
+                <form class="formDiretor" id="formDiretor" class="col s12" action="php/enviarDiretor.php">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite uma mensagem ..." type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit"
-                        class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
                 </div>
             </div>
         </div>
@@ -162,14 +231,13 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalArquivados" class="modal-trigger btn-floating green tooltipped" data-position="left"
-                    data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
-            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow tooltipped" data-position="left"
-                    data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
+            <li><a href="#modalArquivados" class="modal-trigger btn-floating green tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
+            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow tooltipped" data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
         </ul>
     </div>
 
     <script src="js/mensagensDiretor.js"></script>
+    <script src="js/custom.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>
