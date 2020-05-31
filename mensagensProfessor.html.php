@@ -42,7 +42,7 @@
     }
 
 
-    $query_mensagem = $conn->prepare("SELECT nome_professor,fk_recebimento_professor_id_professor,data,assunto
+    $query_mensagem = $conn->prepare("SELECT nome_professor,fk_recebimento_professor_id_professor,data,assunto,mensagem
     FROM professor AS P 
     JOIN contato AS C ON P.id_professor = C.fk_recebimento_professor_id_professor and P.id_professor = {$id_usuario};");
     $query_mensagem->execute();

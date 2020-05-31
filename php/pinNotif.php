@@ -12,7 +12,7 @@
         window.location='../homePais.html.php'</script>";
     }else if($pin==$dados['pin']){
         echo "<script>alert('Validação efetuada com sucesso;)');
-        window.location='../paginaManutencao.php'
+        window.location='../mensagensResponsavel.html.php'
         </script>";
 
     }else{
