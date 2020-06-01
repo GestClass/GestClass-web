@@ -86,15 +86,16 @@
                         <select id="mensagemSecretaria" onchange="formSecretaria()">
                             <option value="" disabled selected></option>
                             <option value="1">Aluno</option>
-                            <option value="2">Professor</option>
-                            <option value="3">Diretor</option>
-                            <option value="4">Toda Escola</option>
+                            <option value="2">Responsável</option>
+                            <option value="3">Professor</option>
+                            <option value="4">Diretor</option>
+                            <option value="5">Toda Escola</option>
                         </select>
                         <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                     </div>
                 </div>
 
-                <form class="formAluno" id="formAluno" class="col s12" action="php/enviarSecretaria.php">
+                <form class="formAlunoSecretaria" id="formAlunoSecretaria" class="col s12" action="php/enviarSecretaria.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <select name="opcTurma" id="opcTurma">
@@ -118,9 +119,40 @@
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
                 </form>
 
-                <form class="formProfessor" id="formProfessor" class="col s12" action="php/enviarSecretaria.php">
+                <form class="formResponsavelSecretaria" id="formResponsavelSecretaria" class="col s12" action="php/enviarDiretor.php">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <select name="opcResponsavel" id="opcResponsavel">
+                                <option value="" disabled selected></option>
+                                <option value="1">Todos Responsáveis</option>
+                                <option value="2">Apenas um Responsável</option>
+                            </select>
+                            <label id="lbl" for="first_name">Escolha dentre as opções</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
+                </form>
+
+                <form class="formProfessorSecretaria" id="formProfessorSecretaria" class="col s12" action="php/enviarSecretaria.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <select name="opcProfessor" id="opcProfessor">
@@ -143,9 +175,12 @@
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
                 </form>
 
-                <form class="formDiretor" id="formDiretor" class="col s12" action="php/enviarSecretaria.php">
+                <form class="formDiretorSecretaria" id="formDiretorSecretaria" class="col s12" action="php/enviarSecretaria.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
@@ -158,9 +193,12 @@
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
                 </form>
 
-                <form class="escolaGeral" id="escolaGeral" class="col s12" action="php/enviarSecretaria.php">
+                <form class="escolaGeralSecretaria" id="escolaGeralSecretaria" class="col s12" action="php/enviarSecretaria.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
@@ -173,11 +211,11 @@
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
                 </form>
 
-                <div class="input-field right">
-                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                </div>
             </div>
         </div>
         <div class="modal-footer">

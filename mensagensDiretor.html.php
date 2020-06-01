@@ -83,7 +83,7 @@
             <div id="novaMensagem">
                 <div class="row">
                     <div class="input-field col s12 m4 l12">
-                        <select id="mensagemDiretor" onchange="formSecretaria()">
+                        <select id="mensagemDiretor" onchange="formDiretor()">
                             <option value="" disabled selected></option>
                             <option value="1">Aluno</option>
                             <option value="2">Professor</option>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
 
-                <form class="formAluno" id="formAluno" class="col s12" action="php/enviarDiretor.php">
+                <form class="formAlunoDiretor" id="formAlunoDiretor" class="col s12" action="php/enviarDiretor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <select name="opcTurma" id="opcTurma">
@@ -121,7 +121,7 @@
                     </div>
                 </form>
 
-                <form class="formProfessor" id="formProfessor" class="col s12" action="php/enviarDiretor.php">
+                <form class="formProfessorDiretor" id="formProfessorDiretor" class="col s12" action="php/enviarDiretor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <select name="opcProfessor" id="opcProfessor">
@@ -146,7 +146,7 @@
                     </div>
                 </form>
 
-                <form class="formResponsavel" id="formResponsavel" class="col s12" action="php/enviarDiretor.php">
+                <form class="formResponsavelDiretor" id="formResponsavelDiretor" class="col s12" action="php/enviarDiretor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <select name="opcResponsavel" id="opcResponsavel">
@@ -171,7 +171,7 @@
                     </div>
                 </form>
 
-                <form class="formSecretaria" id="formSecretaria" class="col s12" action="php/enviarDiretor.php">
+                <form class="formSecretariaDiretor" id="formSecretariaDiretor" class="col s12" action="php/enviarDiretor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
@@ -186,7 +186,7 @@
                     </div>
                 </form>
 
-                <form class="escolaGeral" id="escolaGeral" class="col s12" action="php/enviarDiretor.php">
+                <form class="escolaGeralDiretor" id="escolaGeralDiretor" class="col s12" action="php/enviarDiretor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">

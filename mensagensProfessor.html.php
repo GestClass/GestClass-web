@@ -94,7 +94,7 @@
                     </div>
                 </div>
 
-                <form class="formAluno" id="formAluno" class="col s12" action="php/enviarProfessor.php">
+                <form class="formAlunoProfessor" id="formAlunoProfessor" class="col s12" action="php/enviarProfessor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <select name="opcTurma" id="opcTurma">
@@ -120,7 +120,7 @@
                     </div>
                 </form>
 
-                <form class="formSecretaria" id="formSecretaria" class="col s12" action="php/enviarProfessor.php">
+                <form class="formSecretariaProfessor" id="formSecretariaProfessor" class="col s12" action="php/enviarProfessor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
@@ -135,7 +135,7 @@
                     </div>
                 </form>
 
-                <form class="formProfessor" id="formProfessor" class="col s12" action="php/enviarProfessor.php">
+                <form class="formProfessorEnviar" id="formProfessorEnviar" class="col s12" action="php/enviarProfessor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="mensagemProf" id="mensagemProf" placeholder="Digite o nome do professor" type="tel" class="validate ">
@@ -156,7 +156,7 @@
                     </div>
                 </form>
 
-                <form class="formDiretor" id="formDiretor" class="col s12" action="php/enviarProfessor.php">
+                <form class="formDiretorProfessor" id="formDiretorProfessor" class="col s12" action="php/enviarProfessor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
