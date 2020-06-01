@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="input-field col s6 m4 l2">
                     <i class="material-icons prefix blue-icon">cake</i>
-                    <input name="data_nascimento" id="data_nascimento" placeholder="2000/09/05" type="text" class="datepicker validate">
+                    <input name="data_nascimento" id="data_nascimento" placeholder="2000/09/05" type="text" data-mask="0000/00/00" class="validate">
                     <label id="lbl">Data Nascimento</label>
                 </div>
                 <div class="input-field col s6 m4 l2">

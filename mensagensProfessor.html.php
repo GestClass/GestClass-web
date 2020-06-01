@@ -83,7 +83,7 @@
             <div id="novaMensagem">
                 <div class="row">
                     <div class="input-field col s12 m4 l12">
-                        <select id="opcMensagem" onchange="formProf()">
+                        <select id="mensagemProf" onchange="formProf()">
                             <option value="" disabled selected></option>
                             <option value="1">Aluno</option>
                             <option value="2">Secretaria</option>
@@ -94,10 +94,10 @@
                     </div>
                 </div>
 
-                <form class="formAluno" id="formAluno" class="col s12" action="php/enviarDiretor.php">
+                <form class="formAluno" id="formAluno" class="col s12" action="php/enviarProfessor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <select name="opcMensagem" id="opcMensagem">
+                            <select name="opcTurma" id="opcTurma">
                                 <option value="" disabled selected></option>
                                 <option value="1">Todas as turmas</option>
                                 <option value="2">Apenas uma Turma</option>
@@ -108,65 +108,65 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite uma mensagem ..." type="tel" class="validate ">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
                             <label id="lbl" for="first_name">Assunto</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Digite a sua Mensagem</label>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
                 </form>
 
-                <form class="formSecretaria" id="formSecretaria" class="col s12" action="php/enviarDiretor.php">
+                <form class="formSecretaria" id="formSecretaria" class="col s12" action="php/enviarProfessor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite uma mensagem ..." type="tel" class="validate ">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
                             <label id="lbl" for="first_name">Assunto</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Digite a sua Mensagem</label>
+                            <label id="lbl"  for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
                 </form>
 
-                <form class="formProfessor" id="formProfessor" class="col s12" action="php/enviarDiretor.php">
+                <form class="formProfessor" id="formProfessor" class="col s12" action="php/enviarProfessor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <input name="mensaProf" id="mensaProf" placeholder="Digite uma mensagem ..." type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Para qual Professor?</label>
+                            <input name="mensagemProf" id="mensagemProf" placeholder="Digite o nome do professor" type="tel" class="validate ">
+                            <label id="lbl"  for="first_name">Para qual Professor?</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite uma mensagem ..." type="tel" class="validate ">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
                             <label id="lbl" for="first_name">Assunto</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Digite a sua Mensagem</label>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
                 </form>
 
-                <form class="formDiretor" id="formDiretor" class="col s12" action="php/enviarDiretor.php">
+                <form class="formDiretor" id="formDiretor" class="col s12" action="php/enviarProfessor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite uma mensagem ..." type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl"  for="first_name">Assunto</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Digite a sua Mensagem</label>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
                 </form>
@@ -231,12 +231,12 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalArquivados" class="modal-trigger btn-floating green tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
-            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow tooltipped" data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
+            <li><a href="#modalArquivados" class="modal-trigger btn-floating green accent-2 tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
+            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow lighten-2 tooltipped" data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
         </ul>
     </div>
 
-    <script src="js/mensagensDiretor.js"></script>
+    <script src="js/mensagensProfessor.js"></script>
     <script src="js/custom.js"></script>
 
 

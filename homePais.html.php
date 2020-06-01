@@ -121,10 +121,10 @@
     <ul>
       <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left"
           data-tooltip="Gráfico de rendimento"><i class="material-icons">trending_up</i></a></li>
-      <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left"
+      <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left"
           data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-      <li><a href="mensagensResponsavel.html.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left"
-          data-tooltip="Envio de Mensagens"><i class="material-icons">chat</i></a></li>
+      <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left"
+          data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
       <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
           data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
     </ul>

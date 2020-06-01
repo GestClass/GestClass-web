@@ -191,6 +191,64 @@ $(".formTurmas").hide();
 //fim
 
 
+//modal mensagens Prof
+$(document).ready(function() {
+    $('.modal').modal();
+});
+
+$(document).ready(function() {
+    $('.sidenav').sidenav();
+});
+
+$('.dropdown-trigger').dropdown();
+
+$(document).ready(function() {
+    $('.modal').modal();
+});
+
+$(document).ready(function() {
+    $('select').mensagemProf();
+});
+
+$(".formAluno").hide();
+$(".formSecretaria").hide();
+$(".formProfessor").hide();
+$(".formDiretor").hide();
+
+function formProf() {
+
+    $(".formAluno").hide();
+    $(".formSecretaria").hide();
+    $(".formProfessor").hide();
+    $(".formDiretor").hide();
+
+
+    if ($("#mensagemProf")[0].selectedIndex === 1) {
+        $('#formAluno').show(500);
+        $(".formSecretaria").hide();
+        $(".formProfessor").hide();
+        $(".formDiretor").hide();
+    } else if ($("#mensagemProf")[0].selectedIndex === 2) {
+        $('#formSecretaria').show(500);
+        $(".formAluno").hide();
+        $(".formProfessor").hide();
+        $(".formDiretor").hide();
+    } else if ($("#mensagemProf")[0].selectedIndex === 3) {
+        $('#formProfessor').show(500);
+        $(".formAluno").hide();
+        $(".formSecretaria").hide();
+        $(".formDiretor").hide();
+    } else {
+        $('#formDiretor').show(500);
+        $(".formAluno").hide();
+        $(".formSecretaria").hide();
+        $(".formProfessor").hide();
+    }
+}
+//fim
+
+
+//modal mensagens Secretaria
 
 $(document).ready(function() {
     $('.modal').modal();
@@ -207,41 +265,113 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $('select').opcMensagem();
+    $('select').mensagemSecretaria();
 });
 
 $(".formAluno").hide();
-$(".formSecretaria").hide();
+$(".escolaGeral").hide();
 $(".formProfessor").hide();
 $(".formDiretor").hide();
 
-function formProf() {
+function formSecretaria() {
 
     $(".formAluno").hide();
-    $(".formSecretaria").hide();
+    $(".escolaGeral").hide();
     $(".formProfessor").hide();
     $(".formDiretor").hide();
 
 
-    if ($("#opcMensagem")[0].selectedIndex === 1) {
+    if ($("#mensagemSecretaria")[0].selectedIndex === 1) {
         $('#formAluno').show(500);
-        $(".formSecretaria").hide();
+        $(".escolaGeral").hide();
         $(".formProfessor").hide();
         $(".formDiretor").hide();
-    } else if ($("#opcMensagem")[0].selectedIndex === 2) {
-        $('#formSecretaria').show(500);
-        $(".formAluno").hide();
-        $(".formProfessor").hide();
-        $(".formDiretor").hide();
-    } else if ($("#opcMensagem")[0].selectedIndex === 3) {
+    } else if ($("#mensagemSecretaria")[0].selectedIndex === 2) {
         $('#formProfessor').show(500);
         $(".formAluno").hide();
-        $(".formSecretaria").hide();
+        $(".escolaGeral").hide();
         $(".formDiretor").hide();
-    } else {
+    } else if ($("#mensagemSecretaria")[0].selectedIndex === 3) {
         $('#formDiretor').show(500);
         $(".formAluno").hide();
-        $(".formSecretaria").hide();
+        $(".escolaGeral").hide();
         $(".formProfessor").hide();
+    } else {
+        $('#escolaGeral').show(500);
+        $(".formAluno").hide();
+        $(".formProfessor").hide();
+        $(".formDiretor").hide();
     }
 }
+//fim
+
+//modal mensagens Diretor
+
+
+$(document).ready(function() {
+    $('.modal').modal();
+});
+
+$(document).ready(function() {
+    $('.sidenav').sidenav();
+});
+
+$('.dropdown-trigger').dropdown();
+
+$(document).ready(function() {
+    $('.modal').modal();
+});
+
+$(document).ready(function() {
+    $('select').mensagemDiretor();
+});
+
+$(".formAluno").hide();
+$(".formProfessor").hide();
+$(".formResponsavel").hide();
+$(".formSecretaria").hide();
+$(".escolaGeral").hide();
+
+function formSecretaria() {
+
+    $(".formAluno").hide();
+    $(".formProfessor").hide();
+    $(".formResponsavel").hide();
+    $(".formSecretaria").hide();
+    $(".escolaGeral").hide();
+
+
+    if ($("#mensagemDiretor")[0].selectedIndex === 1) {
+        $('#formAluno').show(500);
+        $(".escolaGeral").hide();
+        $(".formProfessor").hide();
+        $(".formResponsavel").hide();
+        $(".formSecretaria").hide();
+    } else if ($("#mensagemDiretor")[0].selectedIndex === 2) {
+        $('#formProfessor').show(500);
+        $(".formAluno").hide();
+        $(".escolaGeral").hide();
+        $(".formResponsavel").hide();
+        $(".formSecretaria").hide();
+    } else if ($("#mensagemDiretor")[0].selectedIndex === 3) {
+        $('#formResponsavel').show(500);
+        $(".formAluno").hide();
+        $(".escolaGeral").hide();
+        $(".formProfessor").hide();
+        $(".formSecretaria").hide();
+    } else if ($("#mensagemDiretor")[0].selectedIndex === 4) {
+        $('#formSecretaria').show(500);
+        $(".formAluno").hide();
+        $(".escolaGeral").hide();
+        $(".formProfessor").hide();
+        $(".formResponsavel").hide();
+    } else {
+        $('#escolaGeral').show(500);
+        $(".formAluno").hide();
+        $(".formProfessor").hide();
+        $(".formResponsavel").hide();
+        $(".formSecretaria").hide();
+    }
+}
+
+//fim

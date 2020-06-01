@@ -81,23 +81,17 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
+                <form class="col s12" action="php/enviarResponsavel.php">
                 <div class="row">
-                    <div class="input-field col s12 m4 l12">
-                        <select name="opcMensagem" id="opcMensagem">
-                            <option value="" disabled selected></option>
-                            <option value="1">Aluno</option>
-                            <option value="2">Responsável</option>
-                            <option value="3">Professor</option>
-                            <option value="4">Diretor</option>
-                        </select>
-                        <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
                     </div>
-                </div>
-                <form class="col s12" action="php/enviarDiretor.php">
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Digite a sua Mensagem</label>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
                 </form>
@@ -162,9 +156,9 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalArquivados" class="modal-trigger btn-floating green tooltipped" data-position="left"
+            <li><a href="#modalArquivados" class="modal-trigger btn-floating green accent-2 tooltipped" data-position="left"
                     data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
-            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow tooltipped" data-position="left"
+            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow lighten-2 tooltipped" data-position="left"
                     data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
         </ul>
     </div>

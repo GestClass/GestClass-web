@@ -77,41 +77,6 @@
         </div>
     </div>
 
-    <div id="modalMensagem" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            <h4>Nova Mensagem</h4><br>
-            <div id="novaMensagem">
-                <div class="row">
-                    <div class="input-field col s12 m4 l12">
-                        <select name="opcMensagem" id="opcMensagem">
-                            <option value="" disabled selected></option>
-                            <option value="1">Aluno</option>
-                            <option value="2">Responsável</option>
-                            <option value="3">Professor</option>
-                            <option value="4">Diretor</option>
-                        </select>
-                        <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
-                    </div>
-                </div>
-                <form class="col s12" action="php/enviarDiretor.php">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                </form>
-                <div class="input-field right">
-                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit"
-                        class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
-        </div>
-    </div>
-
     <div id="modalArquivados" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Mensagens Arquivadas</h4>
@@ -162,14 +127,12 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalArquivados" class="modal-trigger btn-floating green tooltipped" data-position="left"
+            <li><a href="#modalArquivados" class="modal-trigger btn-floating green accent-2 tooltipped" data-position="left"
                     data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
-            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow tooltipped" data-position="left"
-                    data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
         </ul>
     </div>
 
-    <script src="js/mensagensDiretor.js"></script>
+    <script src="js/mensagensAluno.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>

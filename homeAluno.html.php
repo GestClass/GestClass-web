@@ -84,8 +84,8 @@ require_once 'reqAluno.php';
                     data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered_rtl</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
                     data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
-            <li><a href="mensagensAluno.html.php" class="modal-trigger btn-floating yellow tooltipped" data-position="left"
-                    data-tooltip="Mensagens"><i class="material-icons">email</i></a></li>
+            <li><a href="mensagensAluno.html.php" class="modal-trigger btn-floating teal lighten-4 tooltipped" data-position="left"
+                    data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
         </ul>
     </div>
 </section>

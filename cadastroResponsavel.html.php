@@ -76,7 +76,7 @@
                     </div>
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">cake</i>
-                        <input name="nascimento_respon" id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" class="datepicker validate">
+                        <input name="nascimento_respon" id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" data-mask="0000/00/00" class="validate">
                         <label id="lbl">Data Nascimento</label>
                     </div>
                 </div>
