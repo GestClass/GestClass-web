@@ -43,7 +43,7 @@
     ?>
 
     <div class="container col s12 m12 l12 ">
-        <form id="secretaria" method="POST" action="php/cadastrarSecretaria.php" enctype="multipart/form-data">
+        <form name="frmcpf" id="secretaria" method="POST" action="php/cadastrarSecretaria.php" enctype="multipart/form-data">
             <h5>Secretaria</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
@@ -64,12 +64,12 @@
             <div class="row">
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="rg" id="rg" type="tel" placeholder="62.548.678-7" data-mask="00.000.000-0" class="validate">
+                    <input name="rg" id="rg" type="tel" placeholder="62.548.678-7" maxlength="12" data-mask="00.000.000-0" class="validate">
                     <label id="lbl" for="icon_telephone">RG</label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="cpf" id="CPF" type="tel" placeholder="785.958.651-88" data-mask="000.000.000-00" class="validate">
+                    <input name="cpf" id="CPF" type="tel" placeholder="785.958.651-88" data-mask="000.000.000-00" class="validate" onblur="VerificaCPF()">
                     <label id="lbl" for="icon_telephone">CPF</label>
                 </div>
             </div>
@@ -136,6 +136,7 @@
 
     <script src="js/query-3.3.1.min.js"></script>
     <script src="js/cep.js"></script>
+    <script src="js/validarCpf.js"></script>
     <script src="js/default.js"></script>
 
     <?php require_once 'reqFooter.php' ?>
