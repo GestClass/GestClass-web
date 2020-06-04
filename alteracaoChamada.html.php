@@ -43,7 +43,7 @@
     }
 
     $idChamada = $_POST['idChamada'];
-    echo $idChamada;
+    //echo $idChamada;
     echo '<br><br><br>';
     $dataChamada = $_POST['dataChamada'];
 

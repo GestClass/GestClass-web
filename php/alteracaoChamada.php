@@ -30,8 +30,8 @@ while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
     $idChamada = $_POST['idChamada' . $dados_alunos['RA']];
     //var_dump($_POST);
 
-    $query_update_chamada = $conn->prepare('UPDATE chamada_aluno SET presenca = :presenca WHERE fk_ra_aluno_chamada_aluno = ' . $dados_alunos['RA'] . ' AND fk_id_listagem_chamada_aluno = ' . $idChamada . ' AND data_aula = "' . $dataChamada . '"');
-
+    $query_update_chamada = $conn->prepare('UPDATE chamada_aluno SET presenca = :presenca WHERE fk_ra_aluno_chamada_aluno = '.$dados_alunos['RA'].' AND data_aula = "'.$dataChamada.'" AND fk_id_listagem_chamada_aluno = '.$idChamada.'');
+    
     $query_update_chamada->bindParam(':presenca', $presenca);
 
     $query_update_chamada->execute();
@@ -39,6 +39,7 @@ while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
 ?>
 
 <script>
-    alert('Alteração realizada com sucesso!!');
+    alert('Alterado com Sucesso!!')
     window.location = '../homeProfessor.html.php'
 </script>
+
