@@ -43,12 +43,12 @@
     }
 
     $idChamada = $_POST['idChamada'];
+    echo $idChamada;
+    echo '<br><br><br>';
     $dataChamada = $_POST['dataChamada'];
 
     // Substituir abaixo pelo valor do <select>
     $idTurma = 16;
-
-    var_dump($_GET);
 
     ?>
 
@@ -94,13 +94,13 @@
                                     </td>
                                     <td>
                                         <label>
-                                            <input id="presenca" type="checkbox" class="filled-in presenca checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] . 'presenca' ?>" value="1" <?php if ($presenca == 1) { ?> checked <?php } ?> />
+                                            <input id="presenca" type="checkbox" class="filled-in presenca checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] ?>presenca" value="1" <?php if ($presenca == 1) { ?> checked <?php } ?> />
                                             <span></span>
                                         </label>
                                     </td>
                                     <td>
                                         <label>
-                                            <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] . 'presenca' ?>" value="0" <?php if ($presenca == 0) { ?> checked <?php } ?> />
+                                            <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] ?>presenca" value="0" <?php if ($presenca == 0) { ?> checked <?php } ?> />
                                             <span></span>
                                         </label>
                                     </td>
