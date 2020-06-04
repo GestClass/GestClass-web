@@ -85,6 +85,6 @@
     '900' => $fontDir . '/font-awesome-5-free-900_51322e643811588c1971f2839805f17b',
   ),
   'material icons' => array(
-    'normal' => $fontDir . '/material-icons-normal_6f345ee9c7eed44fca8d6d09b4442c92',
+    'normal' => $fontDir . '/material-icons-normal_3fa2de6e6ef07598ef8dfca998f274ce',
   ),
 ) ?>

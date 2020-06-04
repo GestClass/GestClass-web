@@ -83,34 +83,19 @@
 
           <tbody>
             <tr>
-              <td>Matematica</td>
+              <td>
+
+                <?php
+                  $query_select_disciplinas = $conn->prepare('');
+
+                ?>
+              Matematica
+            
+            </td>
               <td>10</td>
               <td>4</td>
             </tr>
             <tr>
-              <td>Matematica</td>
-              <td>8</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>Matematica</td>
-              <td>7</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>Matematica</td>
-              <td>9</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>Matematica</td>
-              <td>5</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <th colspan="2">Situação Atual Do Aluno:</th>
-              <th>Aprovado</th>
-            </tr>
           </tbody>
         </table>
       </div>
