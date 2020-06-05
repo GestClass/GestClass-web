@@ -147,8 +147,6 @@ CREATE TABLE responsavel (
     fk_id_escola_responsavel INTEGER NOT NULL
 );
 
-UPDATE boletim_aluno SET nota = 20, observacoes = 'o b s' WHERE fk_ra_aluno_boletim_aluno = 0 AND ID_boletim_aluno = 2;
-
 CREATE TABLE boletim_aluno (
 	ID_boletim_aluno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
 	nota DECIMAL (4,2) NOT NULL,

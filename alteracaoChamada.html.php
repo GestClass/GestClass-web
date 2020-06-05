@@ -100,7 +100,7 @@
                                     </td>
                                     <td>
                                         <label>
-                                            <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] ?>presenca" value="0" <?php if ($presenca == 0) { ?> checked <?php } ?> />
+                                            <input id="falta" type="checkbox" class="filled-in falta checkbox-blue-grey" name="<?php echo $dados_alunos['RA'] ?>falta" value="0" <?php if ($presenca == 0) { ?> checked <?php } ?> />
                                             <span></span>
                                         </label>
                                     </td>
