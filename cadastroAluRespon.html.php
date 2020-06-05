@@ -74,7 +74,7 @@
                 </div>
                 <div class="input-field col s6 m3 l3">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="cpf" id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate" onblur="VerificaCPF()">
+                    <input name="cpf" id="cpf" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate" onblur="TestaCPF(this)">
                     <label id="lbl" for="first_name">CPF</label>
                 </div>
                 <div class="input-field col s6 m3 l3">
