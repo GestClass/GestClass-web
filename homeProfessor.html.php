@@ -145,7 +145,7 @@ require_once 'reqProfessor.php';
           while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
             $nome_turma = $dados_turma_nome["nome_turma"];
         ?>
-            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+            <option value="<?php echo $id_turma ?>"><?php echo utf8_decode($nome_turma); ?></option>
         <?php
           }
         }
@@ -247,7 +247,7 @@ require_once 'reqProfessor.php';
 
             while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
           ?>
-              <option value="<?php echo $id_turma ?>"><?php echo $dados_turma_nome["nome_turma"] ?></option>
+              <option value="<?php echo $id_turma ?>"><?php echo utf8_encode($dados_turma_nome["nome_turma"]) ?></option>
           <?php
             }
           }

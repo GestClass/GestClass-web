@@ -26,7 +26,7 @@ CREATE TABLE escola (
     numero INTEGER NOT NULL,
     complemento VARCHAR (40),
     CNPJ VARCHAR(18) NOT NULL UNIQUE,
-    telefone VARCHAR(13) NOT NULL,
+    telefone VARCHAR(14) NOT NULL,
     email VARCHAR(65) NOT NULL UNIQUE,
     quantidade_alunos INTEGER,
 	data_pagamento_escola DATE NOT NULL,
@@ -54,8 +54,8 @@ CREATE TABLE professor (
     cpf VARCHAR(14) NOT NULL UNIQUE,
 	email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
-    celular VARCHAR(14) NOT NULL,
-    telefone VARCHAR(13),
+    celular VARCHAR(15) NOT NULL,
+    telefone VARCHAR(14),
     fk_id_aulas_professor INTEGER,
     fk_id_tipo_usuario_professor INTEGER NOT NULL,
     fk_id_escola_professor INTEGER NOT NULL
@@ -85,8 +85,8 @@ CREATE TABLE diretor (
     cpf VARCHAR(14) NOT NULL UNIQUE,
 	email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
-    celular VARCHAR(14) NOT NULL,
-    telefone VARCHAR(13),
+    celular VARCHAR(15) NOT NULL,
+    telefone VARCHAR(14),
     fk_id_tipo_usuario_diretor INTEGER NOT NULL,
     fk_id_escola_diretor INTEGER NOT NULL
 );
@@ -102,11 +102,12 @@ CREATE TABLE secretario (
     cpf VARCHAR(14) NOT NULL UNIQUE,
 	email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
-    celular VARCHAR(14) NOT NULL,
-    telefone VARCHAR(13),
+    celular VARCHAR(15) NOT NULL,
+    telefone VARCHAR(14),
     fk_id_tipo_usuario_secretario INTEGER NOT NULL,
     fk_id_escola_secretario INTEGER NOT NULL
 );
+
 
 CREATE TABLE aluno (
 	RA INTEGER PRIMARY KEY UNIQUE,    
@@ -116,8 +117,8 @@ CREATE TABLE aluno (
     cpf VARCHAR (14) NOT NULL UNIQUE,  
     email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
-    celular VARCHAR(14) NOT NULL,
-    telefone VARCHAR(13),
+    celular VARCHAR(15) NOT NULL,
+    telefone VARCHAR(14),
     data_nascimento DATE NOT NULL,
     fk_id_turma_aluno INTEGER,
     fk_id_responsavel_aluno INTEGER,
@@ -137,9 +138,9 @@ CREATE TABLE responsavel (
     email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
     pin INTEGER(6) NOT NULL,
-    celular VARCHAR(14) NOT NULL,
-    telefone VARCHAR(13),
-    telefone_comercial VARCHAR(13),
+    celular VARCHAR(15) NOT NULL,
+    telefone VARCHAR(14),
+    telefone_comercial VARCHAR(14),
     data_nascimento DATE NOT NULL,
 	data_pagamento_responsavel DATE NOT NULL,
     fk_ra_aluno_responsavel INTEGER NOT NULL,
@@ -472,4 +473,10 @@ SELECT * FROM `admin`;
 
 SELECT * FROM contato;
 
+UPDATE responsavel SET nome_responsavel = 'tres', data_nascimento = '2020-09-27', RG = '00.000.000-2', cpf = '000.000.000-02', email = 'aluno3_exemplo@exemplo.com', celular = '(11)00000-0000', telefone = '(11)0000-0000', 
+telefone_comercial = '(11)0000-0000' WHERE ID_responsavel =  1;
+
+UPDATE responsavel SET nome_responsavel = 'tres', data_nascimento = '2020-09-27', RG = '00.000.000-2', cpf = '00.000.000-2', email = 'aluno3_exemplo@exemplo.com', celular = '(11)00000-0000', telefone = '(11)0000-0000', telefone_comercial = '(11)0000-0000' WHERE ID_responsavel = 1;
+     
+	
 	/*DROP DATABASE GestClass;*/
