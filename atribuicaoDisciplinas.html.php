@@ -142,6 +142,16 @@
     </form>
     </div>
 
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large light-blue lighten-1">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
+            <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Dados Professore"><i class="material-icons">account_circle</i></a></li>
+        </ul>
+    </div>
+
     <script src="js/query-3.3.1.min.js"></script>
     <script src="js/default.js"></script>
 

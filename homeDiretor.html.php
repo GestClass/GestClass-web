@@ -31,7 +31,7 @@ require_once 'reqDiretor.php';
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+        <a href="atribuicaoDisciplinas.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-chalkboard-teacher fa-6x blue-icon"></i>
             <h5>Professores</h5>
