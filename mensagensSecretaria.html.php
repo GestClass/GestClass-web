@@ -85,28 +85,25 @@
                     <div class="input-field col s12 m4 l12">
                         <select id="mensagemSecretaria" onchange="formSecretaria()">
                             <option value="" disabled selected></option>
-                            <option value="1">Aluno</option>
-                            <option value="2">Responsável</option>
-                            <option value="3">Professor</option>
-                            <option value="4">Diretor</option>
-                            <option value="5">Toda Escola</option>
+                            <optgroup label="Aluno">
+                                <option value="1">Todos Alunos</option>
+                                <option value="2">Uma Turma</option>
+                                <option value="3">Um Aluno</option>
+                            <optgroup label="Responsável">
+                                <option value="4">Todos Responsáveis</option>
+                                <option value="5">Um Responsável</option>
+                            <optgroup label="Professor">
+                                <option value="6">Todos Professores</option>
+                                <option value="7">Um Professor</option>
+                            <optgroup label="Outros">
+                                <option value="8">Diretor</option>
+                                <option value="9">Toda Escola</option>
                         </select>
                         <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                     </div>
                 </div>
 
-                <form class="formAlunoSecretaria" id="formAlunoSecretaria" class="col s12" action="php/enviarSecretaria.php">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <select name="opcTurma" id="opcTurma">
-                                <option value="" disabled selected></option>
-                                <option value="1">Todas as turmas</option>
-                                <option value="2">Apenas uma Turma</option>
-                                <option value="3">Apenas um aluno</option>
-                            </select>
-                            <label id="lbl" for="first_name">Escolha dentre as opções</label>
-                        </div>
-                    </div>
+                <form class="formTodasTurmasSecretaria" id="formTodasTurmasSecretaria" class="col s12" action="php/enviarSecretaria.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
@@ -115,7 +112,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para todos alunos" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
@@ -124,15 +121,15 @@
                     </div>
                 </form>
 
-                <form class="formResponsavelSecretaria" id="formResponsavelSecretaria" class="col s12" action="php/enviarDiretor.php">
+                <form class="formUmaTurmaSecretaria" id="formUmaTurmaSecretaria" class="col s12" action="php/enviarSecretaria.php">
                     <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <select name="opcResponsavel" id="opcResponsavel">
-                                <option value="" disabled selected></option>
-                                <option value="1">Todos Responsáveis</option>
-                                <option value="2">Apenas um Responsável</option>
-                            </select>
-                            <label id="lbl" for="first_name">Escolha dentre as opções</label>
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="nome_turma" type="text" id="autocomplete-input" placeholder="Digite o nome da turma ... " class="autocomplete validate">
+                                    <label id="lbl" for="autocomplete-input">Nome Turma</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -143,7 +140,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
@@ -152,15 +149,15 @@
                     </div>
                 </form>
 
-                <form class="formProfessorSecretaria" id="formProfessorSecretaria" class="col s12" action="php/enviarSecretaria.php">
+                <form class="formUmAlunoSecretaria" id="formUmAlunoSecretaria" class="col s12" action="php/enviarSecretaria.php">
                     <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <select name="opcProfessor" id="opcProfessor">
-                                <option value="" disabled selected></option>
-                                <option value="1">Todos Professores</option>
-                                <option value="2">Apenas um Professor</option>
-                            </select>
-                            <label id="lbl" for="first_name">Escolha dentre as opções</label>
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="nome_aluno" type="text" id="autocomplete-input" placeholder="Digite o nome do Aluno" class="autocomplete validate">
+                                    <label id="lbl" for="autocomplete-input">Nome Aluno</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -171,7 +168,99 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para o aluno" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
+                </form>
+
+                <form class="formTodosResponsaveisSecretaria" id="formTodosResponsaveisSecretaria" class="col s12" action="php/enviarDiretor.php">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para todos responsáveis" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
+                </form>
+
+                <form class="formUmResponsavelSecretaria" id="formUmResponsavelSecretaria" class="col s12" action="php/enviarDiretor.php">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="nome_responsavel" type="text" id="autocomplete-input" placeholder="Digite o nome do Responsável" class="autocomplete validate">
+                                    <label id="lbl" for="autocomplete-input">Nome Responsavel</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para o responsável" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
+                </form>
+
+                <form class="formTodosProfessoresSecretaria" id="formTodosProfessoresSecretaria" class="col s12" action="php/enviarSecretaria.php">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para todos professores" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
+                </form>
+
+                <form class="formUmProfessorSecretaria" id="formUmProfessorSecretaria" class="col s12" action="php/enviarSecretaria.php">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="nome_professor" type="text" id="autocomplete-input" placeholder="Digite o nome do Professor" class="autocomplete validate">
+                                    <label id="lbl" for="autocomplete-input">Nome Professor</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para o professor" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
@@ -189,7 +278,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para a Diretoria" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
@@ -198,7 +287,7 @@
                     </div>
                 </form>
 
-                <form class="escolaGeralSecretaria" id="escolaGeralSecretaria" class="col s12" action="php/enviarSecretaria.php">
+                <form class="formEscolaGeralSecretaria" id="formEscolaGeralSecretaria" class="col s12" action="php/enviarSecretaria.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
@@ -207,7 +296,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para toda escola" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>

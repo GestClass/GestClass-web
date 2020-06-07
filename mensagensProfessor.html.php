@@ -85,25 +85,48 @@
                     <div class="input-field col s12 m4 l12">
                         <select id="mensagemProf" onchange="formProf()">
                             <option value="" disabled selected></option>
-                            <option value="1">Aluno</option>
-                            <option value="2">Secretaria</option>
-                            <option value="3">Professor</option>
-                            <option value="4">Diretor</option>
+                            <optgroup label="Aluno">
+                                <option value="1">Todas Turmas</option>
+                                <option value="2">Uma Turma</option>
+                                <option value="3">Um Aluno</option>
+                            <optgroup label="Professor">
+                                <option value="4">Todos Professores</option>
+                                <option value="5">Um Professor</option>
+                            <optgroup label="Outros">
+                                <option value="6">Secretaria</option>
+                                <option value="7">Diretor</option>
                         </select>
                         <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                     </div>
                 </div>
 
-                <form class="formAlunoProfessor" id="formAlunoProfessor" class="col s12" action="php/enviarProfessor.php">
+                <form class="formTodasTurmasProfessor" id="formTodasTurmasProfessor" class="col s12" action="php/enviarProfessor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <select name="opcTurma" id="opcTurma">
-                                <option value="" disabled selected></option>
-                                <option value="1">Todas as turmas</option>
-                                <option value="2">Apenas uma Turma</option>
-                                <option value="3">Apenas um aluno</option>
-                            </select>
-                            <label id="lbl" for="first_name">Escolha dentre as opções</label>
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para todas as suas turmas" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
+                </form>
+
+                <form class="formUmaTurmaProfessor" id="formUmaTurmaProfessor" class="col s12" action="php/enviarProfessor.php">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="nome_turma" type="text" id="autocomplete-input" placeholder="Digite o nome da turma" class="autocomplete validate">
+                                    <label id="lbl" for="autocomplete-input">Nome Turma</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -114,9 +137,86 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para a turma" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
+                </form>
+
+                <form class="formUmAlunoProfessor" id="formUmAlunoProfessor" class="col s12" action="php/enviarProfessor.php">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="nome_aluno" type="text" id="autocomplete-input" placeholder="Digite o nome do aluno" class="autocomplete validate">
+                                    <label id="lbl" for="autocomplete-input">Nome Aluno</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para o aluno" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
+                </form>
+
+                <form class="formTodosProfessores" id="formTodosProfessores" class="col s12" action="php/enviarProfessor.php">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite a mensagem para todos professores" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
+                </form>
+
+                <form class="formUmProfessor" id="formUmProfessor" class="col s12" action="php/enviarProfessor.php">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="nome_Professor" type="text" id="autocomplete-input" placeholder="Digite o nome do Professor" class="autocomplete validate">
+                                    <label id="lbl" for="autocomplete-input">Nome Professor</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite a mensagem para o professor" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
                     </div>
                 </form>
 
@@ -129,19 +229,16 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
-                            <label id="lbl"  for="textarea1">Digite a sua Mensagem</label>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para a secretaria" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
                     </div>
                 </form>
 
-                <form class="formProfessorEnviar" id="formProfessorEnviar" class="col s12" action="php/enviarProfessor.php">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="mensagemProf" id="mensagemProf" placeholder="Digite o nome do professor" type="tel" class="validate ">
-                            <label id="lbl"  for="first_name">Para qual Professor?</label>
-                        </div>
-                    </div>
+                <form class="formDiretorProfessor" id="formDiretorProfessor" class="col s12" action="php/enviarProfessor.php">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
@@ -150,30 +247,15 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para a secretaria" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
-                </form>
-
-                <form class="formDiretorProfessor" id="formDiretorProfessor" class="col s12" action="php/enviarProfessor.php">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl"  for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
                     </div>
                 </form>
 
-                <div class="input-field right">
-                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                </div>
             </div>
         </div>
         <div class="modal-footer">
