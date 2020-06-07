@@ -65,12 +65,12 @@
 
                 <tbody>
                     <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) { ?>
-                    <tr>
-                        <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
-                            <?php echo $mensagens["data"] ?></td>
-                        <td><?php echo $mensagens["assunto"] ?></td>
-                        <td><?php echo $mensagens["mensagem"] ?></td>
-                    </tr>
+                        <tr>
+                            <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                <?php echo $mensagens["data"] ?></td>
+                            <td><?php echo $mensagens["assunto"] ?></td>
+                            <td><?php echo $mensagens["mensagem"] ?></td>
+                        </tr>
                     <?php } ?>
                 </tbody>
             </table>
@@ -92,51 +92,21 @@
                             <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                         </div>
                     </div>
-
-                    <form class="formSecretariaRespon" id="formSecretariaRespon" class="col s12" action="php/enviarResponsavel.php">
-                        <div class="row">
-                            <div class="input-field col s12 m12 l12">
-                                <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel"
-                                    class="validate ">
-                                <label id="lbl" for="first_name">Assunto</label>
-                            </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea name="mensagem" id="mensagem"
-                                    placeholder="Digite sua mensagem para a secretaria"
-                                    class="materialize-textarea"></textarea>
-                                <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem aqui" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
-                        <div class="input-field right">
-                            <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit"
-                                class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                        </div>
-                    </form>
-
-                    <form class="formDiretorRespon" id="formDiretorRespon" class="col s12"
-                        action="php/enviarResponsavel.php">
-                        <div class="row">
-                            <div class="input-field col s12 m12 l12">
-                                <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel"
-                                    class="validate ">
-                                <label id="lbl" for="first_name">Assunto</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea name="mensagem" id="mensagem"
-                                    placeholder="Digite sua mensagem para a Diretoria"
-                                    class="materialize-textarea"></textarea>
-                                <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                            </div>
-                        </div>
-                        <div class="input-field right">
-                            <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit"
-                                class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -195,11 +165,9 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalArquivados" class="modal-trigger btn-floating green accent-2 tooltipped"
-                    data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a>
+            <li><a href="#modalArquivados" class="modal-trigger btn-floating green accent-2 tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a>
             </li>
-            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow lighten-2 tooltipped"
-                    data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
+            <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow lighten-2 tooltipped" data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
         </ul>
     </div>
 
