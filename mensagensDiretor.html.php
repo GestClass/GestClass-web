@@ -81,52 +81,30 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <div class="row">
-                    <div class="input-field col s12 m12 l12">
-                        <select id="mensagemDiretor" onchange="formDiretor()">
-                            <option value="" disabled selected></option>
-                            <optgroup label="Aluno">
-                                <option value="1">Todas Turmas</option>
-                                <option value="2">Uma Turma</option>
-                                <option value="3">Um Aluno</option>
-                            <optgroup label="Professor">
-                                <option value="4">Todos Professores</option>
-                                <option value="5">Um Professor</option>
-                            <optgroup label="Responsável">
-                                <option value="6">Todos Responsáveis</option>
-                                <option value="7">Um Responsável</option>
-                            <optgroup label="Outros">
-                                <option value="8">Secretaria</option>
-                                <option value="9">Toda Escola</option>
-                        </select>
-                        <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
-                    </div>
-                </div>
-
-                <form class="formTodasTurmasDiretor" id="formTodasTurmasDiretor" class="col s12" action="php/enviarDiretor.php">
+                <form action="php/enviarDiretor.php" method="POST">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
+                            <select name="destinatario" id="mensagemDiretor">
+                                <option value="" disabled selected></option>
+                                <optgroup label="Aluno">
+                                    <option value="1">Uma Turma</option>
+                                    <option value="2">Aluno</option>
+                                <optgroup label="Professor">
+                                    <option value="3">Professor</option>
+                                <optgroup label="Responsável">
+                                    <option value="4">Responsável</option>
+                                <optgroup label="Secretaria">
+                                    <option value="5">Secretaria</option>
+                            </select>
+                            <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para todas turmas" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                    </div>
-                </form>
 
-                <form class="formUmaTurmaDiretor" id="formUmaTurmaDiretor" class="col s12" action="php/enviarDiretor.php">
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input name="nome_turma" type="text" id="autocomplete-input" placeholder="Digite o nome da turma" class="autocomplete validate">
+                                    <input name="nome" type="text" id="autocomplete-input" placeholder="Digite o nome" class="autocomplete validate">
                                     <label id="lbl" for="autocomplete-input">Nome Turma</label>
                                 </div>
                             </div>
@@ -140,26 +118,56 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para a turma" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
                     <div class="input-field right">
                         <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
                     </div>
-                </form>
 
-                <form class="formUmAlunoDiretor" id="formUmAlunoDiretor" class="col s12" action="php/enviarDiretor.php">
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
+        </div>
+    </div>
+
+    <div id="modalEncaminharMensagem" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Encaminhar Mensagem Para Todos</h4><br>
+            <div id="novaMensagem">
+                <form action="php/enviarDiretor.php" method="POST">
                     <div class="row">
-                        <div class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input name="nome_aluno" type="text" id="autocomplete-input" placeholder="Digite o nome do aluno" class="autocomplete validate">
-                                    <label id="lbl" for="autocomplete-input">Nome Aluno</label>
-                                </div>
-                            </div>
+                        <div class="input-field col s12 m4 l12">
+                            <select name="EncaminharMensagens" id="mensagemDiretor">
+                                <option value="" disabled selected></option>
+                                <?php
+
+                                $query_select_id_usuario = $conn->prepare("SELECT ID_tipo_usuario FROM tipo_usuario WHERE $id_escola ORDER BY `ID_tipo_usuario` DESC LIMIT 5");
+                                $query_select_id_usuario->execute();
+
+                                while ($dados_id_usuario = $query_select_id_usuario->fetch(PDO::FETCH_ASSOC)) {
+                                    $id_usuario = $dados_id_usuario['ID_tipo_usuario'];
+
+                                    $query_select_nome_usuario = $conn->prepare("SELECT nome_usuario FROM tipo_usuario WHERE ID_tipo_usuario = $id_usuario");
+                                    $query_select_nome_usuario->execute();
+
+                                    while ($dados_nome_usuario = $query_select_nome_usuario->fetch(PDO::FETCH_ASSOC)) {
+                                        $nome_usuario = $dados_nome_usuario['nome_usuario'];
+
+                                ?>
+                                        <option value="<?php echo $id_usuario ?>"><?php echo $nome_usuario; ?></option>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </select>
+                            <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
@@ -168,141 +176,14 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem aqui para o aluno" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite a mensagem aqui" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
                     <div class="input-field right">
-                        <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
                     </div>
-                </form>
 
-                <form class="formTodosProfessoresDiretor" id="formTodosProfessoresDiretor" class="col s12" action="php/enviarDiretor.php">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para todos professores" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                    </div>
-                </form>
-
-                <form class="formUmProfessorDiretor" id="formUmProfessorDiretor" class="col s12" action="php/enviarDiretor.php">
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input name="nome_professor" type="text" id="autocomplete-input" placeholder="Digite o nome do professor" class="autocomplete validate">
-                                    <label id="lbl" for="autocomplete-input">Nome Professor</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite a mensagem oara o professor" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                    </div>
-                </form>
-
-                <form class="formTodosResponsavelDiretor" id="formTodosResponsavelDiretor" class="col s12" action="php/enviarDiretor.php">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para todos responsáveis" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                    </div>
-                </form>
-
-                <form class="formUmResponsavelDiretor" id="formUmResponsavelDiretor" class="col s12" action="php/enviarDiretor.php">
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input name="nome_responsavel" type="text" id="autocomplete-input" placeholder="Digite o nome do responsavel" class="autocomplete validate">
-                                    <label id="lbl" for="autocomplete-input">Nome Responsável</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para o responsavel" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                    </div>
-                </form>
-
-                <form class="formSecretariaDiretor" id="formSecretariaDiretor" class="col s12" action="php/enviarDiretor.php">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para secretaria" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                    </div>
-                </form>
-
-                <form class="formEscolaGeralDiretor" id="formEscolaGeralDiretor" class="col s12" action="php/enviarDiretor.php">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem para toda escola" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                    </div>
                 </form>
             </div>
         </div>
@@ -362,6 +243,7 @@
         </a>
         <ul>
             <li><a href="#modalArquivados" class="modal-trigger btn-floating green accent-2 tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
+            <li><a href="#modalEncaminharMensagem" class="modal-trigger btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Encaminhar para Todos"><i class="material-icons">email</i></a></li>
             <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow lighten-2 tooltipped" data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
         </ul>
     </div>
