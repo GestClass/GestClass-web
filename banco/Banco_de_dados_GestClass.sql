@@ -192,7 +192,9 @@ CREATE TABLE contato (
     fk_recebimento_responsavel_id_responsavel INTEGER,
 	fk_recebimento_professor_id_professor INTEGER,
     fk_recebimento_diretor_id_diretor INTEGER,
-    fk_recebimento_secretario_id_secretario INTEGER
+    fk_recebimento_secretario_id_secretario INTEGER,
+    assunto text,
+    data datetime
 );
 
 CREATE TABLE `admin` (
