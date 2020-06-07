@@ -23,9 +23,11 @@
         
 
         if ($resultado == 1) {
-            echo "inseriu trouxa";
+            alert('Cadastrado com Sucesso!!')
+                    window.location = '../mensagensResponsavel.html.php';
         }else{
-            echo "otara";
+            alert('Erro ao enviar a mensagem')
+                    history.back();
         }
 
 
