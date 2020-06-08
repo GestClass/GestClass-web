@@ -1,6 +1,11 @@
 <?php
   
   require_once 'reqPais.php';
+  include_once 'php/conexao.php';
+
+  $id_usuario = $_SESSION["id_usuario"];
+  $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+  $id_escola = $_SESSION["id_escola"];
 
 
 // echo "id usuario ->".$id_usuario."</br>";
@@ -21,7 +26,7 @@
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="boletimVisualizacao.html.php">
+        <a class="modal-trigger" href="#modalFilhos">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-list-ol fa-6x blue-icon"></i>
             <h5>Boletim Escolar</h5>
@@ -130,5 +135,41 @@
     </ul>
   </div>
 </section>
+
+<div id="modalFilhos" class="modal">
+  <div class="modal-content">
+    <h4>Selecione o filho desejado</h4>
+    <div class="input-field col s12">
+      <form action="boletimVisualizacao.html.php" method="POST">
+        <select name="turmas">
+          <option value="" disabled selected>Selecionar filho</option>
+          <?php
+
+          $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+          $query_select_filhos_responsavel->execute();
+          print_r($query_select_filhos_responsavel);
+
+          while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
+
+            $nome_aluno= $filhos["nome_aluno"];
+            $ra = $dados_turmas_escola["RA"];
+
+          ?>
+            <option value="<?php echo $ra;?>"><?php echo $nome_aluno;?></option>
+          <?php
+          }
+          ?>
+        </select>
+        <br><br>
+        <div class="center">
+          <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+            <i class="material-icons left">search</i>Pesquisar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
 <?php require_once 'reqFooter.php' ?>

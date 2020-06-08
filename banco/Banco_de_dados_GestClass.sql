@@ -26,7 +26,7 @@ CREATE TABLE escola (
     numero INTEGER NOT NULL,
     complemento VARCHAR (40),
     CNPJ VARCHAR(18) NOT NULL UNIQUE,
-    telefone VARCHAR(14) NOT NULL,
+    telefone VARCHAR(13) NOT NULL,
     email VARCHAR(65) NOT NULL UNIQUE,
     quantidade_alunos INTEGER,
 	data_pagamento_escola DATE NOT NULL,
@@ -54,16 +54,15 @@ CREATE TABLE professor (
     cpf VARCHAR(14) NOT NULL UNIQUE,
 	email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
-    celular VARCHAR(15) NOT NULL,
-    telefone VARCHAR(14),
-    fk_id_aulas_professor INTEGER,
+    celular VARCHAR(14) NOT NULL,
+    telefone VARCHAR(13),
     fk_id_tipo_usuario_professor INTEGER NOT NULL,
     fk_id_escola_professor INTEGER NOT NULL
 );
 
 CREATE TABLE turmas_professor (
 	ID_turmas_professor INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
-    fk_id_professor_turmas_professor INTEGER NOT NULL,
+    fk_id_professor_turmas_professor INTEGER NOT NULL,	
     fk_id_turma_professor_turmas_professor INTEGER 
 );
 
@@ -85,8 +84,8 @@ CREATE TABLE diretor (
     cpf VARCHAR(14) NOT NULL UNIQUE,
 	email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
-    celular VARCHAR(15) NOT NULL,
-    telefone VARCHAR(14),
+    celular VARCHAR(14) NOT NULL,
+    telefone VARCHAR(13),
     fk_id_tipo_usuario_diretor INTEGER NOT NULL,
     fk_id_escola_diretor INTEGER NOT NULL
 );
@@ -102,12 +101,11 @@ CREATE TABLE secretario (
     cpf VARCHAR(14) NOT NULL UNIQUE,
 	email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
-    celular VARCHAR(15) NOT NULL,
-    telefone VARCHAR(14),
+    celular VARCHAR(14) NOT NULL,
+    telefone VARCHAR(13),
     fk_id_tipo_usuario_secretario INTEGER NOT NULL,
     fk_id_escola_secretario INTEGER NOT NULL
 );
-
 
 CREATE TABLE aluno (
 	RA INTEGER PRIMARY KEY UNIQUE,    
@@ -117,8 +115,8 @@ CREATE TABLE aluno (
     cpf VARCHAR (14) NOT NULL UNIQUE,  
     email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
-    celular VARCHAR(15) NOT NULL,
-    telefone VARCHAR(14),
+    celular VARCHAR(14) NOT NULL,
+    telefone VARCHAR(13),
     data_nascimento DATE NOT NULL,
     fk_id_turma_aluno INTEGER,
     fk_id_responsavel_aluno INTEGER,
@@ -138,12 +136,11 @@ CREATE TABLE responsavel (
     email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
     pin INTEGER(6) NOT NULL,
-    celular VARCHAR(15) NOT NULL,
-    telefone VARCHAR(14),
-    telefone_comercial VARCHAR(14),
+    celular VARCHAR(14) NOT NULL,
+    telefone VARCHAR(13),
+    telefone_comercial VARCHAR(13),
     data_nascimento DATE NOT NULL,
 	data_pagamento_responsavel DATE NOT NULL,
-    fk_ra_aluno_responsavel INTEGER NOT NULL,
     fk_id_tipo_usuario_responsavel INTEGER NOT NULL,
     fk_id_escola_responsavel INTEGER NOT NULL
 );
@@ -155,8 +152,7 @@ CREATE TABLE boletim_aluno (
     nome_atividade VARCHAR(70) NOT NULL,
     data_atividade DATE NOT NULL,
 	fk_ra_aluno_boletim_aluno INTEGER NOT NULL,
-	fk_id_disciplina_boletim_aluno INTEGER NOT NULL,
-    fk_id_professor_boletim_aluno INTEGER NOT NULL
+	fk_id_disciplina_boletim_aluno INTEGER NOT NULL    
 );
 
 
@@ -192,9 +188,7 @@ CREATE TABLE contato (
     fk_recebimento_responsavel_id_responsavel INTEGER,
 	fk_recebimento_professor_id_professor INTEGER,
     fk_recebimento_diretor_id_diretor INTEGER,
-    fk_recebimento_secretario_id_secretario INTEGER,
-    assunto text,
-    data datetime
+    fk_recebimento_secretario_id_secretario INTEGER
 );
 
 CREATE TABLE `admin` (
@@ -217,7 +211,7 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 
-/*	-	FOREIGN KEYs TABLE PROFESSOR	-	*/
+/*	-	FOREIGN KEYs TABLE TURMA	-	*/
 ALTER TABLE turma ADD CONSTRAINT fk_id_escola_turma FOREIGN KEY (fk_id_escola_turma) REFERENCES escola (ID_escola);
 
 
@@ -263,16 +257,14 @@ ALTER TABLE aluno ADD CONSTRAINT fk_id_escola_aluno FOREIGN KEY (fk_id_escola_al
 
 /*	-	FOREIGN KEYs TABLE RESPONSAVEL	-	*/
 
-ALTER TABLE responsavel ADD CONSTRAINT fk_ra_aluno_responsavel FOREIGN KEY (fk_ra_aluno_responsavel) REFERENCES aluno (RA);
 ALTER TABLE responsavel ADD CONSTRAINT fk_id_tipo_usuario_responsavel FOREIGN KEY (fk_id_tipo_usuario_responsavel) REFERENCES tipo_usuario (ID_tipo_usuario);
 ALTER TABLE responsavel ADD CONSTRAINT fk_id_escola_responsavel FOREIGN KEY (fk_id_escola_responsavel) REFERENCES escola (ID_escola);
 
 
 /*	-	FOREIGN KEYs TABLE BOLETIM_ALUNO	-	*/
 
-ALTER TABLE boletim_aluno ADD CONSTRAINT fk_ra_aluno_boletim_aluno FOREIGN KEY (fk_ra_aluno_boletim_aluno) REFERENCES aluno (RA);
 ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_disciplina_boletim_aluno FOREIGN KEY (fk_id_disciplina_boletim_aluno) REFERENCES disciplina (ID_disciplina);
-ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_professor_boletim_aluno FOREIGN KEY (fk_id_professor_boletim_aluno) REFERENCES professor (ID_professor);
+ALTER TABLE boletim_aluno ADD CONSTRAINT fk_ra_aluno_boletim_aluno FOREIGN KEY (fk_ra_aluno_boletim_aluno) REFERENCES aluno (RA);
 
 
 /*	-	FOREIGN KEYs TABLE CHAMADA_ALUNO	-	*/
@@ -397,20 +389,20 @@ INSERT INTO diretor (nome_diretor, cep, numero, complemento, rg, cpf, email, sen
               
 INSERT INTO secretario (nome_secretario, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario) VALUES ('diretor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'secretario_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', 3, 1);
 
+/*	-	INSERTS INTO TABLE RESPONSAVEL	-	*/
+              
+INSERT INTO responsavel (nome_responsavel, cep, numero, complemento, rg, cpf, email, senha, pin, celular, telefone, telefone_comercial, data_nascimento, data_pagamento_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel) VALUES ('responsavel_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'responsavel_exemplo@exemplo.com', '1234', 123456, '(11)00000-0000', '(11)0000-0000', '(11)0000-0000', '2020-03-22', '2020-03-22', 6, 1);
+
 
 /*	-	INSERTS INTO TABLE ALUNO	-	*/
               
-INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000000, 'aluno_exemplo','00.000.000-0', '000.000.000-00', 'aluno_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 5, 1);
-INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000001, 'aluno_dois', '00.000.000-1', '000.000.000-01', 'aluno2_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 5, 1);
-
-/*	-	INSERTS INTO TABLE RESPONSAVEL	-	*/
-              
-INSERT INTO responsavel (nome_responsavel, cep, numero, complemento, rg, cpf, email, senha, pin, celular, telefone, telefone_comercial, data_nascimento, data_pagamento_responsavel, fk_ra_aluno_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel) VALUES ('responsavel_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'responsavel_exemplo@exemplo.com', '1234', 123456, '(11)00000-0000', '(11)0000-0000', '(11)0000-0000', '2020-03-22', '2020-03-22', 00000000, 6, 1);
+INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000000, 'aluno_exemplo','00.000.000-0', '000.000.000-00', 'aluno_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 1, 5, 1);
+INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000001, 'aluno_dois', '00.000.000-1', '000.000.000-01', 'aluno2_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 1, 5, 1);
 
 
 /*	-	INSERTS INTO TABLE BOLETIM_ALUNO	-	*/
               
-INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno, fk_id_professor_boletim_aluno) VALUES ('10.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 1', '2020-03-22', 00000000, 6, 1);
+INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno) VALUES ('10.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 1', '2020-03-22', 00000000, 6);
 
 
 /*	-	INSERTS INTO TABLE LISTAGEM_CHAMADA	-	*/
@@ -475,10 +467,4 @@ SELECT * FROM `admin`;
 
 SELECT * FROM contato;
 
-UPDATE responsavel SET nome_responsavel = 'tres', data_nascimento = '2020-09-27', RG = '00.000.000-2', cpf = '000.000.000-02', email = 'aluno3_exemplo@exemplo.com', celular = '(11)00000-0000', telefone = '(11)0000-0000', 
-telefone_comercial = '(11)0000-0000' WHERE ID_responsavel =  1;
-
-UPDATE responsavel SET nome_responsavel = 'tres', data_nascimento = '2020-09-27', RG = '00.000.000-2', cpf = '00.000.000-2', email = 'aluno3_exemplo@exemplo.com', celular = '(11)00000-0000', telefone = '(11)0000-0000', telefone_comercial = '(11)0000-0000' WHERE ID_responsavel = 1;
-     
-	
-	/*DROP DATABASE GestClass;*/
+/*DROP DATABASE GestClass;*/

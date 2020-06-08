@@ -45,7 +45,6 @@ require_once 'reqHeader.php';
             <p>Visualização das listas de alunos</p>
           </div>
         </a>
-        </a>
       </div>
       <div class="col s12 m4">
         <a class="modal-trigger" href="#modalCadastroContas">
