@@ -19,6 +19,9 @@
     require_once 'reqPais.php';
   }
 
+  $idTurma = $_POST['idTurma'];
+
+  echo $idTurma;
   ?>
 <body id="body_boletimVisualizacao">
   <div class="container col s12 m12 l12 z-depth-5 " id="container_boletimVisualizacao">
@@ -65,10 +68,11 @@
 
           <tbody>
             <tr>
+
               <td>
 
                 <?php
-                $query_select_disciplinas = $conn->prepare('');
+                $query_select_disciplinas = $conn->prepare('SELECT * FROM aluno WHERE fk_id_responsavel_aluno');
 
                 ?>
                 Matematica
@@ -76,6 +80,7 @@
               </td>
               <td>10</td>
               <td>4</td>
+
             </tr>
             <tr>
           </tbody>

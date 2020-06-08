@@ -72,6 +72,7 @@ CREATE TABLE disciplinas_professor (
     fk_id_disciplina_professor_disciplinas_professor INTEGER, 
     fk_id_turma_professor_disciplinas_professor INTEGER
 );
+ 
 
 CREATE TABLE diretor (
 	ID_diretor INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
@@ -154,6 +155,11 @@ CREATE TABLE boletim_aluno (
 	fk_ra_aluno_boletim_aluno INTEGER NOT NULL,
 	fk_id_disciplina_boletim_aluno INTEGER NOT NULL    
 );
+
+
+SELECT COUNT(nota) FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = 0;
+
+SELECT SUM(nota) FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = 0;
 
 
 CREATE TABLE listagem_chamada(

@@ -13,6 +13,7 @@ while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
     $nota = $_POST[$alunos['RA'] . 'nota'];
     $observacao = $_POST[$alunos['RA'] . 'observacao'];
     $ra = $alunos['RA'];
+    // Alterar o campo abaixo com a disciplina vinda do <select>
     $disciplina =  1;
     $idProfessor = 1;
 
@@ -22,7 +23,7 @@ while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
 
     if (($nomeAtividade != "") && ($dataAtividade != "")) {
 
-        $query_insert = $conn->prepare('INSERT INTO boletim_aluno VALUES(:id, :nota, :observacoes, :nome_atividade, :data_atividade, :ra, :id_disciplina, :id_professor)');
+        $query_insert = $conn->prepare('INSERT INTO boletim_aluno VALUES(:id, :nota, :observacoes, :nome_atividade, :data_atividade, :ra, :id_disciplina)');
 
         $query_insert->bindParam(':id', $id, PDO::PARAM_STR);
         $query_insert->bindParam(':nota', $nota, PDO::PARAM_STR);
@@ -30,8 +31,7 @@ while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
         $query_insert->bindParam(':nome_atividade', $nomeAtividade, PDO::PARAM_STR);
         $query_insert->bindParam(':data_atividade', $dataAtividade, PDO::PARAM_STR);
         $query_insert->bindParam(':ra', $ra, PDO::PARAM_STR);
-        $query_insert->bindParam(':id_disciplina', $disciplina, PDO::PARAM_STR);
-        $query_insert->bindParam(':id_professor', $idProfessor, PDO::PARAM_STR);
+        $query_insert->bindParam(':id_disciplina', $disciplina, PDO::PARAM_STR);        
 
         $query_insert->execute();
 
