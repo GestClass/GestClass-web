@@ -41,7 +41,7 @@
 
     <?php
 
-    $tipo_usuario = "responsavel";
+    $tipo_usuario = "diretor";
 
     if ($tipo_usuario == "aluno") {
         $query_alunos = $conn->prepare("SELECT * FROM aluno WHERE RA = 1");
@@ -370,7 +370,7 @@
 
                     <div class="input-field col s12 m9 l9">
                         <i class="material-icons prefix blue-icon">account_circle</i>
-                        <input name="nome" id="nome_secretario" type="text"
+                        <input name="nome_secretario" id="nome_secretario" type="text"
                             value="<?php echo$dados_sec['nome_secretario']?>" readonly class="validate">
                         <label id="lbl" for="icon_prefix">Nome</label>
                     </div>

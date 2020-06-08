@@ -164,7 +164,7 @@
         $query_resp->execute();
         $dados_resp = $query_resp->fetch(PDO::FETCH_ASSOC)?>
 
-
+    <h4 class="center">Alteração de dados </h4>
     <div class="container col s12 m12 l12 ">
         <form id="responsavel" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
             <div class="col s12 m12 l12">
@@ -256,7 +256,8 @@
                         <input type="text" name="tipo_conta" value="responsavel" hidden>
                     </div>
                     <div>
-                        <input type="text" name="ID_responsavel" value="<?php echo$dados_resp['ID_responsavel']?>" hidden>
+                        <input type="text" name="ID_responsavel" value="<?php echo$dados_resp['ID_responsavel']?>"
+                            hidden>
                     </div>
                 </div>
             </div>
@@ -271,12 +272,13 @@
         $query_prof->execute();
         $dados_prof = $query_prof->fetch(PDO::FETCH_ASSOC) ?>
 
+<h4 class="center">Alteração de dados </h4>
         <div class="container col s12 m12 l12 ">
-            <form id="professor" method="POST" action="php/alterarDados.php" enctype="multipart/form-data">
+            <form id="professor" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
                 <div class="row">
                     <div class="input-field col s12 m9 l9">
                         <i class="material-icons prefix blue-icon">account_circle</i>
-                        <input name="nome" id="nome_professor" type="text"
+                        <input name="nome_professor" id="nome_professor" type="text"
                             value="<?php echo$dados_prof['nome_professor']?>" class=" validate">
                         <label id="lbl" for="icon_prefix">Nome</label>
                     </div>
@@ -348,6 +350,9 @@
                 <div>
                     <input type="text" name="tipo_conta" value="professor" hidden>
                 </div>
+                <div>
+                    <input type="text" name="ID_professor" value="<?php echo$dados_prof['ID_professor']?>" hidden>
+                </div>
                 <div class="row">
                     <input type="submit" class="waves-effect waves-light btn blue" value="Salvar Alterações">
 
@@ -362,13 +367,14 @@
         $query_sec->execute();
         $dados_sec = $query_sec->fetch(PDO::FETCH_ASSOC) ?>
 
+<h4 class="center">Alteração de dados </h4>
         <div class="container col s12 m12 l12 ">
-            <form id="secretaria" method="POST" action="php/alterarDados.php" enctype="multipart/form-data">
+            <form id="secretaria" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
                 <div class="row">
 
                     <div class="input-field col s12 m9 l9">
                         <i class="material-icons prefix blue-icon">account_circle</i>
-                        <input name="nome" id="nome_secretario" type="text"
+                        <input name="nome_secretario" id="nome_secretario" type="text"
                             value="<?php echo$dados_sec['nome_secretario']?>" class="validate">
                         <label id="lbl" for="icon_prefix">Nome</label>
                     </div>
@@ -439,6 +445,9 @@
                     <div>
                         <input type="text" name="tipo_conta" value="secretario" hidden>
                     </div>
+                    <div>
+                        <input type="text" name="ID_secretario" value="<?php echo$dados_sec['ID_secretario']?>" hidden>
+                    </div>
                 </div>
                 <div class="row">
                     <input type="submit" class="waves-effect waves-light btn blue" value="Salvar Alterações">
@@ -453,6 +462,7 @@
         $query_dir->execute();
         $dados_dir = $query_dir->fetch(PDO::FETCH_ASSOC) ?>
 
+        <h4 class="center">Alteração de dados </h4>
         <div class="container col s12 m12 l12 ">
             <div class="container ">
                 <form id="adicionarEscola" class="col s12" method="POST" action="php/alteracaoDados.php"
@@ -506,7 +516,7 @@
                             <label id="lbl" for="first_name">Nº</label>
                         </div>
                         <div id="a" class="input-field col s10 m2 l3">
-                            <input name="complemento" id="complemento" value="<?php echo$dados_dor['complemento']?>"
+                            <input name="complemento" id="complemento" value="<?php echo$dados_dir['complemento']?>"
                                 type="tel" class="validate ">
                             <label id="lbl" for="first_name">Complemento</label>
                         </div>
@@ -534,6 +544,9 @@
                         </div>
                         <div>
                             <input type="text" name="tipo_conta" value="diretor" hidden>
+                        </div>
+                        <div>
+                            <input type="text" name="ID_diretor" value="<?php echo$dados_dir['ID_diretor']?>" hidden>
                         </div>
                     </div>
 
