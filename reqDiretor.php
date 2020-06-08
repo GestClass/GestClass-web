@@ -119,7 +119,7 @@
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a></li>
+            <li><a href="graficoRendimentoDiretor.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a></li>
             <li><a href="paginaManutencao.php"><i class="material-icons">attach_money</i>Financeiro</a>
             <li>
                 <div class="divider"></div>

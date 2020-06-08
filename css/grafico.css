@@ -1,0 +1,31 @@
+body {
+    background-color: white;
+    background-size: auto;
+}
+
+#fundo {
+    background-image: url(../assets/img/index_img.png);
+    height: 200px;
+    width: 100%;
+    background-size: auto;
+    margin-top: -30px
+}
+
+#container_grafico {
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1768px) {
+    div#chart_div {
+        zoom: 0.6;
+        margin-left: -5%;
+    }
+}
+
+.tit {
+    color: black;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}

@@ -26,7 +26,6 @@
 
 
     <div class="container col s12 m12 l12" id="container_boletimCadastro">
-
         <div class="row">
             <div class="col s12 m12 l12">
                 <ul id="tabs-swipe-demo" class="tabs blue lighten-3">

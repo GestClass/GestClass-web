@@ -47,3 +47,4 @@ $confirmarPin=$_POST['confirmarPin'];
     }
 
 ?>
+
