@@ -148,9 +148,9 @@
             </div>
 
             <div class="row">
-                <input type="submit" class="waves-effect waves-light btn blue" value="Alterar dados">
+                <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
 
-                <a href="dadosResponsaveis.html.php" class="waves-effect waves-light btn blue"><i
+                <a href="dadosResponsaveis.html.php" class="btn-flat btnLightBlue center"><i
                         class="material-icons left">people_alt</i>Responsáveis</a>
             </div>
         </form>

@@ -147,7 +147,7 @@
             </div>
 
             <div class="row">
-                <input type="submit" class="waves-effect waves-light btn blue" value="Salvar Alterações">
+                <input type="submit" class="btn-flat btnLightBlue center" value="Salvar Alterações">
 
             </div>
         </form>
@@ -262,7 +262,7 @@
                 </div>
             </div>
             <div class="row">
-                <input type="submit" class="waves-effect waves-light btn blue" value="Salvar Alterações">
+                <input type="submit" class="btn-flat btnLightBlue center" value="Salvar Alterações">
 
             </div>
         </form>
@@ -354,7 +354,7 @@
                     <input type="text" name="ID_professor" value="<?php echo$dados_prof['ID_professor']?>" hidden>
                 </div>
                 <div class="row">
-                    <input type="submit" class="waves-effect waves-light btn blue" value="Salvar Alterações">
+                    <input type="submit" class="btn-flat btnLightBlue center" value="Salvar Alterações">
 
                 </div>
 
@@ -450,7 +450,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <input type="submit" class="waves-effect waves-light btn blue" value="Salvar Alterações">
+                    <input type="submit" class="btn-flat btnLightBlue center" value="Salvar Alterações">
                 </div>
         </div>
 
@@ -551,7 +551,7 @@
                     </div>
 
                     <div class="row">
-                        <input type="submit" class="waves-effect waves-light btn blue" value="Salvar Alterações">
+                        <input type="submit" class="btn-flat btnLightBlue center" value="Salvar Alterações">
 
                     </div>
 
