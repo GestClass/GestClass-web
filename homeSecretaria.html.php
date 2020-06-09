@@ -29,7 +29,7 @@ require_once 'reqHeader.php';
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+        <a href="atribuicaoDisciplinas.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-chalkboard-teacher fa-6x blue-icon"></i>
             <h5>Professores</h5>
@@ -44,7 +44,6 @@ require_once 'reqHeader.php';
             <h5>Listas de alunos</h5>
             <p>Visualização das listas de alunos</p>
           </div>
-        </a>
         </a>
       </div>
       <div class="col s12 m4">

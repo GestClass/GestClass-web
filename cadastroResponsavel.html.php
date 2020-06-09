@@ -44,7 +44,7 @@
 
 
     <div class="container col s12 m12 l12 ">
-        <form id="responsavel" method="POST" action="php/cadastrarResponsavel.php" enctype="multipart/form-data">
+        <form name="frmcpf" id="responsavel" method="POST" action="php/cadastrarResponsavel.php" enctype="multipart/form-data">
             <div class="col s12 m12 l12">
                 <H5>Responsável</H5>
                 <div class="row">
@@ -66,12 +66,12 @@
                 <div class="row">
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="rg_respon" id="rg" type="tel" placeholder="84.514.751-1" data-mask="00.000.000-0" class="validate">
+                        <input name="rg_respon" id="rg" type="tel" maxlength="12" placeholder="84.514.751-1" data-mask="00.000.000-0" class="validate">
                         <label id="lbl" for="icon_telephone">RG</label>
                     </div>
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="cpf_respon" id="cpf" type="tel" placeholder="154.258.963-22" data-mask="000.000.000-00" class="validate">
+                        <input name="cpf_respon" id="cpf" type="tel" placeholder="154.258.963-22" data-mask="000.000.000-00" class="validate" onblur="TestaCPF(this)">
                         <label id="lbl" for="icon_telephone">CPF</label>
                     </div>
                     <div class="input-field col s6 m4 l4">
@@ -170,6 +170,7 @@
 
     <script src="js/query-3.3.1.min.js"></script>
     <script src="js/cep.js"></script>
+    <script src="js/validarCpf.js"></script>
     <script src="js/default.js"></script>
 
     <?php require_once 'reqFooter.php' ?>

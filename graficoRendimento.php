@@ -142,3 +142,5 @@ $dados=$query->fetch(PDO::FETCH_ASSOC);
 <?php
     include_once 'reqFooter.php';
 ?>
+
+

@@ -30,15 +30,18 @@ if ($dataChamada != "") {
 
     while ($id_listagem = $query_id_listagem->fetch(PDO::FETCH_ASSOC)) {
 
-        $aa = $id_listagem['MAX(ID_listagem)'];
-        echo $aa;
+        $id = $id_listagem['MAX(ID_listagem)'];
+        echo $id;
 
         $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = 16");
         $query_select_alunos->execute();
 
         while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
-
-            $presenca = $_POST[$dados_alunos['RA'] . 'presenca'];
+            if (isset($_POST[$dados_alunos['RA'] . 'presenca'])) {
+                $presenca = 1;
+            } else {
+                $presenca = 0;
+            }
             $ra = $dados_alunos['RA'];
 
             $query_insert_chamada = $conn->prepare('INSERT INTO chamada_aluno (presenca, data_aula, fk_ra_aluno_chamada_aluno, fk_id_disciplina_chamada_aluno, fk_id_professor_chamada_aluno, fk_id_listagem_chamada_aluno) 
@@ -49,7 +52,7 @@ if ($dataChamada != "") {
             $query_insert_chamada->bindParam(':ra_aluno', $ra);
             $query_insert_chamada->bindParam(':id_disciplina', $id_disciplina);
             $query_insert_chamada->bindParam(':id_professor', $id_professor);
-            $query_insert_chamada->bindParam('id_listagem', $aa);
+            $query_insert_chamada->bindParam('id_listagem', $id);
 
             $query_insert_chamada->execute();
 

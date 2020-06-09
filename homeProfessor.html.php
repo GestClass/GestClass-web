@@ -116,7 +116,6 @@ require_once 'reqProfessor.php';
     <ul>
       <li><a href="chamada.html.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Chamada"><i class="material-icons">assignment</i></a></li>
       <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-      <li><a href="paginaManutencao.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
       <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
     </ul>
   </div>
@@ -145,7 +144,7 @@ require_once 'reqProfessor.php';
           while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
             $nome_turma = $dados_turma_nome["nome_turma"];
         ?>
-            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+            <option value="<?php echo $id_turma ?>"><?php echo utf8_decode($nome_turma); ?></option>
         <?php
           }
         }
@@ -247,7 +246,7 @@ require_once 'reqProfessor.php';
 
             while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
           ?>
-              <option value="<?php echo $id_turma ?>"><?php echo $dados_turma_nome["nome_turma"] ?></option>
+              <option value="<?php echo $id_turma ?>"><?php echo utf8_encode($dados_turma_nome["nome_turma"]) ?></option>
           <?php
             }
           }

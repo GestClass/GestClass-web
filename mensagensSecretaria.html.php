@@ -81,29 +81,33 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <div class="row">
-                    <div class="input-field col s12 m4 l12">
-                        <select id="mensagemSecretaria" onchange="formSecretaria()">
-                            <option value="" disabled selected></option>
-                            <option value="1">Aluno</option>
-                            <option value="2">Professor</option>
-                            <option value="3">Diretor</option>
-                            <option value="4">Toda Escola</option>
-                        </select>
-                        <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
-                    </div>
-                </div>
-
-                <form class="formAluno" id="formAluno" class="col s12" action="php/enviarSecretaria.php">
+                <form action="php/enviarSecretaria.php" method="POST">
                     <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <select name="opcTurma" id="opcTurma">
+                        <div class="input-field col s12 m4 l12">
+                            <select name="destinatario" id="mensagemSecretaria">
                                 <option value="" disabled selected></option>
-                                <option value="1">Todas as turmas</option>
-                                <option value="2">Apenas uma Turma</option>
-                                <option value="3">Apenas um aluno</option>
+                                <optgroup label="Aluno">
+                                    <option value="1">Uma Turma</option>
+                                    <option value="2">Aluno</option>
+                                <optgroup label="Responsável">
+                                    <option value="3">Responsável</option>
+                                <optgroup label="Professor">
+                                    <option value="4">Professor</option>
+                                <optgroup label="Diretor">
+                                    <option value="5">Diretor</option>
                             </select>
-                            <label id="lbl" for="first_name">Escolha dentre as opções</label>
+                            <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="nome" type="text" id="autocomplete-input" placeholder="Digite o nome " class="autocomplete validate">
+                                    <label id="lbl" for="autocomplete-input">Nome</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -114,23 +118,56 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
                 </form>
 
-                <form class="formProfessor" id="formProfessor" class="col s12" action="php/enviarSecretaria.php">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
+        </div>
+    </div>
+
+    <div id="modalEncaminharMensagem" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Encaminhar Mensagem Para Todos</h4><br>
+            <div id="novaMensagem">
+                <form action="php/enviarProfessor.php" method="POST">
                     <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <select name="opcProfessor" id="opcProfessor">
+                        <div class="input-field col s12 m4 l12">
+                            <select name="EncaminharMensagens" id="mensagemProf">
                                 <option value="" disabled selected></option>
-                                <option value="1">Todos Professores</option>
-                                <option value="2">Apenas um Professor</option>
+                                <?php
+
+                                $query_select_id_usuario = $conn->prepare("SELECT ID_tipo_usuario FROM tipo_usuario WHERE $id_escola ORDER BY `ID_tipo_usuario` DESC LIMIT 5");
+                                $query_select_id_usuario->execute();
+
+                                while ($dados_id_usuario = $query_select_id_usuario->fetch(PDO::FETCH_ASSOC)) {
+                                    $id_usuario = $dados_id_usuario['ID_tipo_usuario'];
+
+                                    $query_select_nome_usuario = $conn->prepare("SELECT nome_usuario FROM tipo_usuario WHERE ID_tipo_usuario = $id_usuario");
+                                    $query_select_nome_usuario->execute();
+
+                                    while ($dados_nome_usuario = $query_select_nome_usuario->fetch(PDO::FETCH_ASSOC)) {
+                                        $nome_usuario = $dados_nome_usuario['nome_usuario'];
+
+                                ?>
+                                        <option value="<?php echo $id_usuario ?>"><?php echo $nome_usuario; ?></option>
+                                <?php
+                                    }
+                                }
+                                ?>
                             </select>
-                            <label id="lbl" for="first_name">Escolha dentre as opções</label>
+                            <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
@@ -139,45 +176,15 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite a mensagem aqui" class="materialize-textarea"></textarea>
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
-                </form>
+                    <div class="input-field right">
+                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    </div>
 
-                <form class="formDiretor" id="formDiretor" class="col s12" action="php/enviarSecretaria.php">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
                 </form>
-
-                <form class="escolaGeral" id="escolaGeral" class="col s12" action="php/enviarSecretaria.php">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                </form>
-
-                <div class="input-field right">
-                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                </div>
             </div>
         </div>
         <div class="modal-footer">
@@ -236,6 +243,7 @@
         </a>
         <ul>
             <li><a href="#modalArquivados" class="modal-trigger btn-floating green accent-2 tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
+            <li><a href="#modalEncaminharMensagem" class="modal-trigger btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Encaminhar para Todos"><i class="material-icons">email</i></a></li>
             <li><a href="#modalMensagem" class="modal-trigger btn-floating yellow lighten-2 tooltipped" data-position="left" data-tooltip="Nova Mensagem"><i class="material-icons">email</i></a></li>
         </ul>
     </div>

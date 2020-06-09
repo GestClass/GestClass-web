@@ -9,7 +9,7 @@ $turma = $_POST["turma"];
 
 if ($turma != "") {
 
-    $query_insert = $conn->prepare("INSERT INTO turma (nome_turma)VALUES (:turma)");
+    $query_insert = $conn->prepare("INSERT INTO turma (nome_turma, fk_id_escola_turma)VALUES (:turma, $id_escola)");
 
 
     $query_insert->bindParam(':turma' , $_POST["turma"], PDO::PARAM_STR);

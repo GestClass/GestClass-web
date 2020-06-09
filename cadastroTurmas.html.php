@@ -46,12 +46,12 @@
         <form id="cadastro_turmas" method="POST" action="php/cadastrarTurmas.php">
             <h5>Cadastrar Turmas</h5><br><br>
             <div class="row">
-                <div class="input-field col s12 m8 l8">
+                <div class="input-field col s12 m5 l5">
                     <input name="turma" id="nome_turma" placeholder="Ex: 3ºano A . . ." type="text" class="validate">
                     <label id="lbl" for="first_name">Turma</label>
                 </div>
             </div>
-            <div class="input-field right">
+            <div class="input-field center">
                 <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
             </div>
         </form>

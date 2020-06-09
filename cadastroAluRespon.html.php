@@ -43,7 +43,7 @@
     ?>
 
     <div class="container col s12 m12 l12 ">
-        <form id="aluno" method="POST" action="php/cadastrarAluRespon.php" enctype="multipart/form-data">
+        <form name="frmcpf" id="aluno" method="POST" action="php/cadastrarAluRespon.php" enctype="multipart/form-data">
             <h5>Aluno</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
@@ -69,12 +69,12 @@
                 </div>
                 <div class="input-field col s6 m3 l3">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="rg" id="RG" placeholder="65.745.984-6" type="tel" data-mask="00.000.000-0" class="validate ">
+                    <input name="rg" id="RG" placeholder="65.745.984-6" type="tel" maxlength="12" data-mask="00.000.000-0" class="validate ">
                     <label id="lbl" for="first_name">RG</label>
                 </div>
                 <div class="input-field col s6 m3 l3">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="cpf" id="CPF" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate ">
+                    <input name="cpf" id="cpf" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate" onblur="TestaCPF(this)">
                     <label id="lbl" for="first_name">CPF</label>
                 </div>
                 <div class="input-field col s6 m3 l3">
@@ -147,6 +147,7 @@
 
     <script src="js/query-3.3.1.min.js"></script>
     <script src="js/cep.js"></script>
+    <script src="js/validarCpf.js"></script>
     <script src="js/default.js"></script>
 
     <?php require_once 'reqFooter.php' ?>

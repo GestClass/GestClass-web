@@ -44,7 +44,7 @@
                 
         $query_resp = $conn->prepare("SELECT * FROM responsavel WHERE fk_ra_aluno_responsavel = 0 AND fk_id_escola_responsavel = 1");
         $query_resp->execute();
-        while ($dados_resp = $query_resp->fetch(PDO::FETCH_ASSOC)) { ?>
+       $dados_resp = $query_resp->fetch(PDO::FETCH_ASSOC) ?>
 
 
     <div class="container col s12 m12 l12 ">
@@ -139,4 +139,4 @@
                 </div>
             </div>
         </form>     
-        <?php } include_once 'reqFooter.php'?>
+        <?php  include_once 'reqFooter.php'?>

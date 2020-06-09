@@ -8,7 +8,7 @@
 <script src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/default.js"></script>
-
+<script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
 
 </body>
 
