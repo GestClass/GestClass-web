@@ -4,7 +4,7 @@
 
 define('HOST', 'localhost');
 define('USER', 'root');
-define('PASS', '1234');
+define('PASS', '');
 define('DBNAME', 'gestclass');
 
 $conn = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME . ';', USER, PASS)
