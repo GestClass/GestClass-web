@@ -41,10 +41,12 @@
 
     <?php
 
-    $tipo_usuario = "diretor";
+    
 
-    if ($tipo_usuario == "aluno") {
-        $query_alunos = $conn->prepare("SELECT * FROM aluno WHERE RA = 1");
+    $tipo_usuario = $_GET['tipo'];
+
+    if ($tipo_usuario == "5") {
+        $query_alunos = $conn->prepare('SELECT * FROM aluno WHERE RA = ' . $_GET['id'] . '');
         $query_alunos->execute();
         $dados_alunos = $query_alunos->fetch(PDO::FETCH_ASSOC)
             ?>
@@ -159,7 +161,7 @@
 
     </div>
     </div><?php
-    } elseif ($tipo_usuario == "responsavel") {
+    } elseif ($tipo_usuario == "6") {
         $query_resp = $conn->prepare("SELECT * FROM responsavel WHERE fk_ra_aluno_responsavel = 0 AND fk_id_escola_responsavel = 1");
         $query_resp->execute();
         $dados_resp = $query_resp->fetch(PDO::FETCH_ASSOC)?>
@@ -266,7 +268,7 @@
 
         </form>
         <?php
-    } elseif ($tipo_usuario == "professor") {
+    } elseif ($tipo_usuario == "4") {
         $query_prof = $conn->prepare("SELECT * FROM professor WHERE ID_professor = 1");
         $query_prof->execute();
         $dados_prof = $query_prof->fetch(PDO::FETCH_ASSOC) ?>
@@ -359,7 +361,7 @@
 
         </form>
         <?php 
-    } elseif ($tipo_usuario == "secretario") {
+    } elseif ($tipo_usuario == "3") {
         $query_sec = $conn->prepare("SELECT * FROM secretario WHERE ID_secretario = 1");
         $query_sec->execute();
         $dados_sec = $query_sec->fetch(PDO::FETCH_ASSOC)  ?>
@@ -453,7 +455,7 @@
 
         </form>
         <?php 
-    } elseif ($tipo_usuario == "diretor") {
+    } elseif ($tipo_usuario == "2") {
         $query_dir = $conn->prepare("SELECT * FROM diretor WHERE ID_diretor = 1");
         $query_dir->execute();
         $dados_dir = $query_dir->fetch(PDO::FETCH_ASSOC) ?>

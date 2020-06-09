@@ -49,7 +49,7 @@
 
 
                 <?php
-                $query_listagem = $conn->prepare('SELECT RA, nome_aluno, celular, telefone, email, cpf FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = ' . $turma . '');
+                $query_listagem = $conn->prepare('SELECT RA, nome_aluno, celular, telefone, email, cpf,fk_id_tipo_usuario_aluno FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = ' . $turma . '');
                 $query_listagem->execute();
 
                 if ($query_listagem->rowCount()) {
@@ -62,7 +62,7 @@
                             </td>
 
                             <td>
-                                <a href="#"><?php echo $alunos['nome_aluno']; ?></a>
+                                <a href="dadosUsuarios.html.php?id=<?php echo $alunos['RA']?>&tipo=<?php echo $alunos['fk_id_tipo_usuario_aluno']?> "><?php echo $alunos['nome_aluno']; ?></a>
                             </td>
 
                             <td>
