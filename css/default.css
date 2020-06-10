@@ -169,5 +169,10 @@ body {
     overflow: visible;
 }
 
+#modalGraficos {
+    max-height: 100%;
+    overflow: visible;
+}
+
 
 /* default */
