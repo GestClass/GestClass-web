@@ -73,7 +73,7 @@ require_once 'reqDiretor.php';
 
   <div id="modalCadastroContas" class="modal">
     <div class="modal-content">
-      <h4>Selecione o tipo de conta</h4>
+      <h4 class="center">Selecione o tipo de conta</h4>
       <div class="input-field col s12">
         <select id="selectConta" onchange="habilitaForm()">
           <option value="" disabled selected>Contas</option>
@@ -136,5 +136,9 @@ require_once 'reqDiretor.php';
     </div>
   </div>
 </div>
-
+<script>
+  $('#modalCadastroContas').on('shown.bs.modal', function() {
+    $(window).trigger('resize');
+});
+</script>
 <?php require_once 'reqFooter.php' ?>
