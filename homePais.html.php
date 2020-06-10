@@ -145,7 +145,7 @@ $id_escola = $_SESSION["id_escola"];
         <h5 class="center">Seleciona a matéria desejada para acompanhar o rendimento do seu filho:</h5>
         <select name="disciplinas">
           <h4>Selecione o tipo de conta</h4>
-          <option value="" disabled selected>Selecione a Turma</option>
+          <option value="" disabled selected>Selecione a Disciplina</option>
           <?php
           $id_escola = $_SESSION["id_escola"];
           $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola ORDER BY `ID_disciplina` DESC LIMIT 10 ");

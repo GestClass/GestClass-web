@@ -105,7 +105,6 @@ $dados=$query->fetch(PDO::FETCH_ASSOC);
         <thead>
           <tr>
               <th>Professor(a)</th>
-              <th>Email</th>
               <th>Frequência Atual</th>
               <th>Frequência Total</th>
           </tr>
@@ -114,7 +113,6 @@ $dados=$query->fetch(PDO::FETCH_ASSOC);
         <tbody>
           <tr>
             <td>Mauro Bauru</td>
-            <td>mauro@gmail.com</td>
             <td>80%</td>
             <td>90%</td>
           </tr>
