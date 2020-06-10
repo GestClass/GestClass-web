@@ -50,7 +50,7 @@ $id_escola = $_SESSION["id_escola"];
             <h5>Financeiro</h5>
             <p>Emissão de segunda via de boleto</p>
           </div>
-        </a> 
+        </a>
       </div>
       <div class="col s12 m4">
         <a class="modal-trigger" href="#modalChat">
@@ -80,11 +80,11 @@ $id_escola = $_SESSION["id_escola"];
       <form action="php/pinNotif.php" method="POST">
         <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate" />
         <div class="center">
-        <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
+          <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
           <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
             <i class="material-icons left">verified_user</i>Entrar
           </button>
-       </div>
+        </div>
       </form>
     </div>
   </div>
@@ -96,11 +96,11 @@ $id_escola = $_SESSION["id_escola"];
       <form action="php/pinChat.php" method="POST">
         <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate" />
         <div class="center">
-        <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
+          <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
           <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
             <i class="material-icons left">verified_user</i>Entrar
           </button>
-       </div>
+        </div>
 
 
       </form>
@@ -121,43 +121,43 @@ $id_escola = $_SESSION["id_escola"];
       </form>
     </div>
   </div>
+</div>
 
-  <div id="modalGraficos" class="modal ">
-    <div class="modal-content">
-      <h4 class="center"><i class="material-icons right">school</i>Rendimento Escolar</h4>
-      <div class="input-field col s12 validate">
+<div id="modalGraficos" class="modal ">
+  <div class="modal-content">
+    <h4 class="center"><i class="material-icons right">school</i>Rendimento Escolar</h4>
+    <div class="input-field col s12 validate">
       <form action="graficoRendimento.php" method="POST">
-      <h5 class="center">Seleciona a matéria desejada para acompanhar o rendimento do seu filho:</h5>
-        <select  name="disciplinas">
-        <h4>Selecione o tipo de conta</h4>
-        <option value="" disabled selected>Selecione a Turma</option>
-        <?php
-        $id_escola = $_SESSION["id_escola"];
-        $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola ORDER BY `ID_disciplina` DESC LIMIT 10 ");
-        $query_select_id->execute();
+        <h5 class="center">Seleciona a matéria desejada para acompanhar o rendimento do seu filho:</h5>
+        <select name="disciplinas">
+          <h4>Selecione o tipo de conta</h4>
+          <option value="" disabled selected>Selecione a Turma</option>
+          <?php
+          $id_escola = $_SESSION["id_escola"];
+          $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola ORDER BY `ID_disciplina` DESC LIMIT 10 ");
+          $query_select_id->execute();
 
-        while ($dados_id=$query_select_id->fetch(PDO::FETCH_ASSOC)) {
-          $id_disciplina = $dados_id['ID_disciplina'];
+          while ($dados_id = $query_select_id->fetch(PDO::FETCH_ASSOC)) {
+            $id_disciplina = $dados_id['ID_disciplina'];
             $query_select_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");
             $query_select_nome->execute();
-        while($dados_nome=$query_select_nome->fetch(PDO::FETCH_ASSOC)){
-          $nome = $dados_nome['nome_disciplina'];
+            while ($dados_nome = $query_select_nome->fetch(PDO::FETCH_ASSOC)) {
+              $nome = $dados_nome['nome_disciplina'];
 
-        ?>
-          <option value="<?php echo $id_disciplina ?>"><?php echo $nome; ?></option>
-        <?php 
-        }
-      }
-        ?>
+          ?>
+              <option value="<?php echo $id_disciplina ?>"><?php echo $nome; ?></option>
+          <?php
+            }
+          }
+          ?>
         </select>
-  
-      </div>
-      <input type="hidden" name="id_disciplina" value="<?php $id_disciplina ?>"/>    
-      <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Acessar
-              <i class="material-icons right">check</i>
-            </button>
-        </form>
-      </div>
+
+
+        <input type="hidden" name="id_disciplina" value="<?php $id_disciplina ?>" />
+        <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Acessar
+          <i class="material-icons right">check</i>
+        </button>
+      </form>
     </div>
   </div>
 </div>
@@ -180,12 +180,12 @@ $id_escola = $_SESSION["id_escola"];
 
 
 
-<div id="modalFilhos" class="modal ">
-    <div class="modal-content">
-      <div class="input-field col s12 validate">
+<div id="modalFilhos" class="modal">
+  <div class="modal-content">
+    <div class="input-field col s12 validate">
       <form action="boletimVisualizacao.html.php" method="POST">
-      <h4>Selecione o filho desejado</h4>
-      <select name="turmas">
+        <h4>Selecione o filho desejado</h4>
+        <select name="filhos">
           <option value="" disabled selected>Selecionar filho</option>
           <?php
 
@@ -197,26 +197,23 @@ $id_escola = $_SESSION["id_escola"];
 
             $nome_aluno = $filhos["nome_aluno"];
             $ra = $filhos["RA"];
-            $idTurma = $filhos["fk_id_turma_aluno"];
 
           ?>
             <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
-
           <?php
           }
           ?>
         </select>
-      </div>
-      <input type="hidden" name="id_disciplina" value="<?php $id_disciplina ?>"/>    
-      <div class="center">
-          <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-            <i class="material-icons left">search</i>Pesquisar
-          </button>
-      </div>
-      </div>
+    </div>
+    
+    <div class="center">
+      <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+        <i class="material-icons left">search</i>Pesquisar
+      </button>
     </div>
   </div>
 </div>
+
 
 
 <?php require_once 'reqFooter.php' ?>

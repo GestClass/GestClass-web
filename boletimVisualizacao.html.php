@@ -19,28 +19,61 @@
     require_once 'reqPais.php';
   }
 
-  $idTurma = $_POST['idTurma'];
+    $ra = $_POST['filhos'];
+    echo $ra;
 
-  echo $idTurma;
+    // Resgatando nome da escola
+    $sql_select_nome_escola = $conn->prepare("SELECT nome_escola FROM escola WHERE ID_escola = $id_escola");
+    $sql_select_nome_escola->execute();
+    // Armazenando nome da escola
+    $escola = $sql_select_nome_escola->fetch(PDO::FETCH_ASSOC);
+    // Nome da escola
+    $nome_escola = $escola['nome_escola'];
+
+    // Resgatando dados dos Alunos
+    $sql_select_dados_alunos = $conn->prepare("SELECT * FROM aluno WHERE RA = $ra");
+    // Executando comando no banco
+    $sql_select_dados_alunos->execute();
+    // Armazenando retorno em um array com as informações
+    $aluno = $sql_select_dados_alunos->fetch(PDO::FETCH_ASSOC);
+
+    // variaveis de dados do aluno
+    $nome_aluno = $aluno['nome_aluno'];
+    $turma_aluno = $aluno['fk_id_turma_aluno'];
+
+    // Resgatando a turma do aluno
+    $sql_select_turma_aluno = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $turma_aluno");
+    // Executando comando 
+    $sql_select_turma_aluno->execute();
+    // Armazenando nome da turma
+    $turma = $sql_select_turma_aluno->fetch(PDO::FETCH_ASSOC);
+
+    // Variável nome turma
+    $nome_turma_aluno = $turma['nome_turma'];
+
   ?>
 <body id="body_boletimVisualizacao">
   <div class="container col s12 m12 l12 z-depth-5 " id="container_boletimVisualizacao">
     <div class="row">
-      <div class="col s12 m12 l12">
+      <div class="col s12 m12 l12 ">
         <h3 class="center">BOLETIM</h3>
-        <h5 class="center">Escola Tecnica De Itaquaquecetuba</h5>
-        <table class="info highlight ">
+        <br>
+        <h5 class="center"><?php echo $nome_escola?></h5>
+        <br>
+        <table class="info highlight">
           <thead>
             <tr>
               <th>Nome</th>
+              <th>RA</th>
               <th>Turma</th>
               <th>Turno</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Monique Correia Oliveira</td>
-              <td> 3 ano B</td>
+              <td><?php echo $nome_aluno;?></td>
+              <td>123456789</td>
+              <td><?php echo $nome_turma_aluno?></td>
               <td> Matutino</td>
 
           </tbody>
