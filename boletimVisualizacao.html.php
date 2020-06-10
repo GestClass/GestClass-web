@@ -300,9 +300,11 @@
 
       <div class="input-field right">
         <form action="pdf.php" method="post">
-          <button class="btn waves-effect blue lighten-2" type="submit" name="action"> Gerar PDF
-            <i class="material-icons right">file_upload</i>
+        <div class="center">
+          <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+            <i class="material-icons left">file_upload</i>Gerar PDF
           </button>
+        </div>
         </form>
       </div>
     </div>

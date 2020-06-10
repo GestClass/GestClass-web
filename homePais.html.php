@@ -12,12 +12,11 @@ $id_escola = $_SESSION["id_escola"];
 // echo "id tipo usuario ->".$id_tipo_usuario."</br>";
 // echo "id escola ->".$id_escola."</br>";
 ?>
-
 <section class="section center">
   <div class="container">
     <div class="row">
       <div class="col s12 m4">
-        <a class="modal-trigger" href="#modalGraficos">
+      <a class="modal-trigger" href="#modalGraficos">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-chart-line fa-6x blue-icon"></i>
             <h5>Rendimento Escolar</h5>
@@ -35,7 +34,7 @@ $id_escola = $_SESSION["id_escola"];
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="calendario.html.php">
+      <a href="calendario.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-calendar-check fa-6x blue-icon"></i>
             <h5>Calendário Escolar</h5>
@@ -44,7 +43,7 @@ $id_escola = $_SESSION["id_escola"];
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+       <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-file-invoice-dollar fa-6x blue-icon"></i>
             <h5>Financeiro</h5>
@@ -53,7 +52,7 @@ $id_escola = $_SESSION["id_escola"];
         </a>
       </div>
       <div class="col s12 m4">
-        <a class="modal-trigger" href="#modalChat">
+       <a class="modal-trigger" href="#modalChat">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-comment-dots fa-6x blue-icon"></i>
             <h5>Mensagens</h5>
@@ -62,13 +61,28 @@ $id_escola = $_SESSION["id_escola"];
         </a>
       </div>
       <div class="col s12 m4">
-        <a class="modal-trigger" href="#modalNotif">
+      <a class="modal-trigger" href="#modalNotif">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-bell fa-6x blue-icon"></i>
             <h5>Notificações</h5>
             <p>Central de notificações</p>
           </div>
         </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalCadastroContas" class="modal">
+    <div class="modal-content">
+      <h4>Selecione o tipo de conta</h4>
+      <div class="input-field col s12">
+        <select id="selectConta" onchange="habilitaForm()">
+          <option value="" disabled selected>Contas</option>
+          <option value="1">Responsável/Aluno</option>
+          <option value="2">Aluno</option>
+          <option value="3">Professor</option>
+          <option value="4">Secretaria</option>
+        </select>
       </div>
     </div>
   </div>
@@ -154,9 +168,11 @@ $id_escola = $_SESSION["id_escola"];
 
 
         <input type="hidden" name="id_disciplina" value="<?php $id_disciplina ?>" />
-        <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Acessar
-          <i class="material-icons right">check</i>
-        </button>
+        <div class="center">
+          <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+            <i class="material-icons left">check</i>Acessar
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -213,7 +229,6 @@ $id_escola = $_SESSION["id_escola"];
     </div>
   </div>
 </div>
-
 
 
 <?php require_once 'reqFooter.php' ?>
