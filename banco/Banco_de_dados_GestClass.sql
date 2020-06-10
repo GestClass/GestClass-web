@@ -73,7 +73,6 @@ CREATE TABLE disciplinas_professor (
     fk_id_disciplina_professor_disciplinas_professor INTEGER, 
     fk_id_turma_professor_disciplinas_professor INTEGER
 );
- 
 
 CREATE TABLE diretor (
 	ID_diretor INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
@@ -156,11 +155,6 @@ CREATE TABLE boletim_aluno (
 	fk_ra_aluno_boletim_aluno INTEGER NOT NULL,
 	fk_id_disciplina_boletim_aluno INTEGER NOT NULL    
 );
-
-
-SELECT COUNT(nota) FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = 0;
-
-SELECT SUM(nota) FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = 0;
 
 
 CREATE TABLE listagem_chamada(
@@ -393,7 +387,7 @@ INSERT INTO diretor (nome_diretor, cep, numero, complemento, rg, cpf, email, sen
 
 /*	-	INSERTS INTO TABLE SECRETARIO	-	*/
               
-INSERT INTO secretario (nome_secretario, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario) VALUES ('diretor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'secretario_exemplo@exemplo.com', '1234', '(11) 00000-0000', '(11) 0000-0000', 3, 1);
+INSERT INTO secretario (nome_secretario, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario) VALUES ('secretario_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'secretario_exemplo@exemplo.com', '1234', '(11) 00000-0000', '(11) 0000-0000', 3, 1);
 
 /*	-	INSERTS INTO TABLE RESPONSAVEL	-	*/
               
@@ -472,5 +466,19 @@ SELECT * FROM secretario;
 SELECT * FROM `admin`;
 
 SELECT * FROM contato;
+
+
+
+/*			- Códigos anotações Eric
+
+	SELECT COUNT(nota) FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = 0;
+
+	SELECT SUM(nota) FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = 0;
+
+	SELECT fk_id_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_turma_professor_disciplinas_professor = 16 AND fk_id_disciplina_professor_disciplinas_professor = 5;
+
+	SELECT fk_id_disciplina_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_turma_professor_disciplinas_professor = 16;
+
+*/
 
 /*DROP DATABASE GestClass;*/

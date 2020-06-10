@@ -141,14 +141,12 @@ $id_escola = $_SESSION["id_escola"];
   <div class="modal-content">
     <h4 class="center"><i class="material-icons right">school</i>Rendimento Escolar</h4>
     <div class="input-field col s12 validate">
-      <form action="graficoRendimento.php" method="POST">
+      <form action="graficoRendimento.html.php" method="POST">
         <h5 class="center">Seleciona a matéria desejada para acompanhar o rendimento do seu filho:</h5>
         <select name="disciplinas">
-          <h4>Selecione o tipo de conta</h4>
           <option value="" disabled selected>Selecione a Disciplina</option>
           <?php
-          $id_escola = $_SESSION["id_escola"];
-          $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola ORDER BY `ID_disciplina` DESC LIMIT 10 ");
+          $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola ORDER BY nome_disciplina ASC");
           $query_select_id->execute();
 
           while ($dados_id = $query_select_id->fetch(PDO::FETCH_ASSOC)) {
