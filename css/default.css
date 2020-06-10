@@ -152,4 +152,22 @@ body {
 }
 
 
+/*  -   Lista Alunos    -   */
+
+#modalListaAlunos {
+    max-height: 100%;
+    overflow: visible;
+}
+
+#modalChamada {
+    max-height: 100%;
+    overflow: visible;
+}
+
+#modalCadastroContas {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
 /* default */
