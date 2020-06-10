@@ -4,9 +4,9 @@ DEFAULT COLLATE UTF8_GENERAL_CI;
 
 USE GestClass;
 
-CREATE TABLE tipo_turma (
-	ID_tipo_turma INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
-    nome_tipo_turma VARCHAR(30) NOT NULL
+CREATE TABLE turno (
+	ID_turno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    nome_turno VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE tipo_usuario(
@@ -40,7 +40,8 @@ CREATE TABLE escola (
 CREATE TABLE turma (
 	ID_turma INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     nome_turma VARCHAR(50) NOT NULL,
-    fk_id_escola_turma INTEGER NOT NULL
+    fk_id_escola_turma INTEGER NOT NULL,
+    fk_id_turno_turma INTEGER NOT NULL
 );
 
 CREATE TABLE professor (
@@ -219,6 +220,7 @@ CREATE TABLE `events` (
 
 /*	-	FOREIGN KEYs TABLE TURMA	-	*/
 ALTER TABLE turma ADD CONSTRAINT fk_id_escola_turma FOREIGN KEY (fk_id_escola_turma) REFERENCES escola (ID_escola);
+ALTER TABLE turma ADD CONSTRAINT fk_id_turno_turma FOREIGN KEY (fk_id_turno_turma) REFERENCES turno (ID_turno);
 
 
 /*	-	FOREIGN KEYs TABLE PROFESSOR	-	*/
@@ -309,11 +311,9 @@ ALTER TABLE `admin` ADD CONSTRAINT fk_id_tipo_usuario_admin FOREIGN KEY (fk_id_t
 
 /*	-	INSERTS INTO TABLE TIPO_TURMA 	-	*/
     
-INSERT INTO tipo_turma (nome_tipo_turma) VALUES ('berçario');
-INSERT INTO tipo_turma (nome_tipo_turma) VALUES ('pre-escola');
-INSERT INTO tipo_turma (nome_tipo_turma) VALUES ('ensino fundamental I');
-INSERT INTO tipo_turma (nome_tipo_turma) VALUES ('ensino fundamental II');
-INSERT INTO tipo_turma (nome_tipo_turma) VALUES ('ensino medio');
+INSERT INTO turno (nome_turno) VALUES ('Matutino');
+INSERT INTO turno (nome_turno) VALUES ('Vespertino');
+INSERT INTO turno (nome_turno) VALUES ('Noturno');
 
 /*	-	INSERTS INTO TABLE TIPO_USUARIO 	-	*/
 
@@ -341,27 +341,27 @@ INSERT INTO disciplina (nome_disciplina) VALUES ('Ed. Física');
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
-INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, quantidade_alunos, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11)0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', 500, true, true, true, true, true);
+INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, quantidade_alunos, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', 500, true, true, true, true, true);
 
 
 /*	-	INSERTS INTO TABLE TURMA 	-	*/
 
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('berçario A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('pre 1 A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('pre 2 A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('1º ano A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('2º ano A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('3º ano A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('3º ano A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('4º ano A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('5º ano A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('6º ano A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('7º ano A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('8º ano A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('9º ano A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('1º ano medio A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('2º ano medio A', 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma) VALUES ('3º ano medio A', 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('berçario A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('pre 1 A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('pre 2 A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('1º ano A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('2º ano A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('3º ano A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('3º ano A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('4º ano A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('5º ano A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('6º ano A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('7º ano A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('8º ano A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('9º ano A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('1º ano medio A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('2º ano medio A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('3º ano medio A', 1, 1);
 
 
 /*	-	INSERTS INTO TABLE PROFESSOR	-	*/
@@ -388,22 +388,22 @@ INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_
 
 /*	-	INSERTS INTO TABLE DIRETOR	-	*/
               
-INSERT INTO diretor (nome_diretor, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_diretor, fk_id_escola_diretor) VALUES ('diretor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'diretor_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', 2, 1);
+INSERT INTO diretor (nome_diretor, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_diretor, fk_id_escola_diretor) VALUES ('diretor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'diretor_exemplo@exemplo.com', '1234', '(11) 00000-0000', '(11) 0000-0000', 2, 1);
 
 
 /*	-	INSERTS INTO TABLE SECRETARIO	-	*/
               
-INSERT INTO secretario (nome_secretario, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario) VALUES ('diretor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'secretario_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', 3, 1);
+INSERT INTO secretario (nome_secretario, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario) VALUES ('diretor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'secretario_exemplo@exemplo.com', '1234', '(11) 00000-0000', '(11) 0000-0000', 3, 1);
 
 /*	-	INSERTS INTO TABLE RESPONSAVEL	-	*/
               
-INSERT INTO responsavel (nome_responsavel, cep, numero, complemento, rg, cpf, email, senha, pin, celular, telefone, telefone_comercial, data_nascimento, data_pagamento_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel) VALUES ('responsavel_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'responsavel_exemplo@exemplo.com', '1234', 123456, '(11)00000-0000', '(11)0000-0000', '(11)0000-0000', '2020-03-22', '2020-03-22', 6, 1);
+INSERT INTO responsavel (nome_responsavel, cep, numero, complemento, rg, cpf, email, senha, pin, celular, telefone, telefone_comercial, data_nascimento, data_pagamento_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel) VALUES ('responsavel_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'responsavel_exemplo@exemplo.com', '1234', 123456, '(11) 00000-0000', '(11) 0000-0000', '(11) 0000-0000', '2020-03-22', '2020-03-22', 6, 1);
 
 
 /*	-	INSERTS INTO TABLE ALUNO	-	*/
               
-INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000000, 'aluno_exemplo','00.000.000-0', '000.000.000-00', 'aluno_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 1, 5, 1);
-INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000001, 'aluno_dois', '00.000.000-1', '000.000.000-01', 'aluno2_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', '2020-03-22', 16, 1, 5, 1);
+INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000000, 'aluno_exemplo','00.000.000-0', '000.000.000-00', 'aluno_exemplo@exemplo.com', '1234', '(11) 00000-0000', '(11) 0000-0000', '2020-03-22', 16, 1, 5, 1);
+INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000001, 'aluno_dois', '00.000.000-1', '000.000.000-01', 'aluno2_exemplo@exemplo.com', '1234', '(11) 00000-0000', '(11) 0000-0000', '2020-03-22', 16, 1, 5, 1);
 
 
 /*	-	INSERTS INTO TABLE BOLETIM_ALUNO	-	*/
@@ -437,7 +437,7 @@ INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuar
 
 /*	-	SELECTs 	-	*/
 
-SELECT * FROM tipo_turma;
+SELECT * FROM turno;
 
 SELECT * FROM turma;
 

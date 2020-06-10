@@ -20,36 +20,62 @@
   }
 
     $ra = $_POST['filhos'];
-    echo $ra;
 
     // Resgatando nome da escola
     $sql_select_nome_escola = $conn->prepare("SELECT nome_escola FROM escola WHERE ID_escola = $id_escola");
     $sql_select_nome_escola->execute();
+
     // Armazenando nome da escola
     $escola = $sql_select_nome_escola->fetch(PDO::FETCH_ASSOC);
+
     // Nome da escola
     $nome_escola = $escola['nome_escola'];
 
+
+
     // Resgatando dados dos Alunos
     $sql_select_dados_alunos = $conn->prepare("SELECT * FROM aluno WHERE RA = $ra");
+
     // Executando comando no banco
     $sql_select_dados_alunos->execute();
+    
     // Armazenando retorno em um array com as informações
     $aluno = $sql_select_dados_alunos->fetch(PDO::FETCH_ASSOC);
-
+    
     // variaveis de dados do aluno
     $nome_aluno = $aluno['nome_aluno'];
-    $turma_aluno = $aluno['fk_id_turma_aluno'];
+    $id_turma_aluno = $aluno['fk_id_turma_aluno'];
+
+    
 
     // Resgatando a turma do aluno
-    $sql_select_turma_aluno = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $turma_aluno");
+    $sql_select_turma_aluno = $conn->prepare("SELECT nome_turma, fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma_aluno");
+    
     // Executando comando 
     $sql_select_turma_aluno->execute();
+    
     // Armazenando nome da turma
-    $turma = $sql_select_turma_aluno->fetch(PDO::FETCH_ASSOC);
+    $turma_array = $sql_select_turma_aluno->fetch(PDO::FETCH_ASSOC);
 
     // Variável nome turma
-    $nome_turma_aluno = $turma['nome_turma'];
+    $nome_turma_aluno = $turma_array['nome_turma'];
+    $id_turno = $turma_array['fk_id_turno_turma'];
+
+    
+
+    // Resgatar nome do turno
+    $sql_select_nome_turno = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+    
+    // Executando o comando
+    $sql_select_nome_turno->execute();
+    
+    // Armazenando nome do turno
+    $turno = $sql_select_nome_turno->fetch(PDO::FETCH_ASSOC);
+
+    // Armazenando o nome em variável
+    $nome_turno = $turno['nome_turno'];
+    
+
 
   ?>
 <body id="body_boletimVisualizacao">
@@ -72,9 +98,9 @@
           <tbody>
             <tr>
               <td><?php echo $nome_aluno;?></td>
-              <td>123456789</td>
+              <td><?php echo $ra?></td>
               <td><?php echo $nome_turma_aluno?></td>
-              <td> Matutino</td>
+              <td><?php echo $nome_turno?></td>
 
           </tbody>
         </table>
