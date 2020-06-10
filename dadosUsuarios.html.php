@@ -43,6 +43,7 @@
 
     
 
+  
     $tipo_usuario = $_GET['tipo'];
 
     if ($tipo_usuario == "5") {
@@ -143,15 +144,18 @@
                     <label id="lbl">Turma</label>
                 </div>
                 <div>
-                    <input type="text" name="tipo_conta" value="aluno" hidden>
+                    <input type="text" name="tipo_conta" value="<?php echo $_GET['tipo']?>" hidden>
+                    <input type="text" name="id" value="<?php echo $_GET['id']?>" hidden>
                 </div>
             </div>
 
             <div class="row">
                 <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
 
-                <a href="dadosResponsaveis.html.php" class="btn-flat btnLightBlue center"><i
+                <a href="dadosResponsaveis.html.php?id=<?php echo $dados_alunos['fk_id_responsavel_aluno']?>" class="btn-flat btnLightBlue center"><i
                         class="material-icons left">people_alt</i>Responsáveis</a>
+
+                      
             </div>
         </form>
 
@@ -444,7 +448,7 @@
                         <label id="lbl" for="icon_telephone">Telefone</label>
                     </div>
                     <div>
-                        <input type="text" name="tipo_conta" value="secretario" hidden>
+                        <input type="text" name="tipo_conta" value="3" hidden>
                     </div>
                 </div>
 
@@ -541,7 +545,7 @@
                             <label id="lbl" for="icon_telephone">Telefone</label>
                         </div>
                         <div>
-                            <input type="text" name="tipo_conta" value="diretor" hidden>
+                            <input type="text" name="tipo_conta" value="2" hidden>
                         </div>
                     </div>
 

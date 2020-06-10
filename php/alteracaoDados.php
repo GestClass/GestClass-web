@@ -5,7 +5,8 @@ require_once 'conexao.php';
 $tipo_usuario = $_POST['tipo_conta'];
 
 
-if ($tipo_usuario == 'aluno') {
+
+if ($tipo_usuario == '5') {
     $nome_aluno = $_POST['nome'];
     $data_nascimento = $_POST['data_nascimento'];
     $RG = $_POST['rg'];
@@ -40,7 +41,7 @@ if ($tipo_usuario == 'aluno') {
 
 <script>
 alert('Dados alterados com sucesso')
-window.location = '../dadosUsuarios.html.php'
+window.location = '../dadosUsuarios.html.php?id=<?php echo $ra?>&tipo=<?php echo $tipo_usuario?>'
 </script>
 
 <?php
@@ -49,12 +50,12 @@ window.location = '../dadosUsuarios.html.php'
 
 <script>
 alert('Erro, confira os campos e tente novamente')
-window.location = '../dadosUsuarios.html.php'
+window.location = '../dadosUsuarios.html.php?id=<?php echo $ra?>&tipo=<?php echo $tipo_usuario?>'
 </script>
 
 <?php
     }
-} elseif ($tipo_usuario == 'responsavel') {
+} elseif ($tipo_usuario == '6') {
     $nome_responsavel = $_POST['nome_respon'];
     $data_nascimento = $_POST['nascimento_respon'];
     $RG = $_POST['rg_respon'];
@@ -66,12 +67,12 @@ window.location = '../dadosUsuarios.html.php'
     $ID_responsavel = $_POST['ID_responsavel'];
 
     // var_dump($nome_responsavel, $data_nascimento, $RG, $cpf, $email, $celular, $telefone,
-    // $tel_comercial, $ID_responsavel);exit;
+    //  $tel_comercial, $ID_responsavel);exit;
 
 
     $query_up = 'UPDATE responsavel SET nome_responsavel = :nome_responsavel, data_nascimento = :data_nascimento,
      RG = :RG, cpf = :cpf, email = :email, celular = :celular, telefone = :telefone, 
-     telefone_comercial = :tel_comercial WHERE ID_responsavel =' . $ID_responsavel . '';
+     telefone_comercial = :tel_comercial WHERE ID_responsavel = ' . $ID_responsavel . '';
 
     $query_update = $conn->prepare($query_up);
     $query_update->bindParam(':nome_responsavel', $nome_responsavel);
@@ -86,6 +87,8 @@ window.location = '../dadosUsuarios.html.php'
 
     $query_update->execute();
 
+    // var_dump($query_update);exit;
+
 
 
     if ($query_update->rowCount()) {
@@ -93,7 +96,7 @@ window.location = '../dadosUsuarios.html.php'
 
 <script>
 alert('Dados alterados com sucesso')
-window.location = '../dadosUsuarios.html.php'
+window.location = '../dadosResponsaveis.html.php?id=<?php echo $ID_responsavel?>'
 </script>
 
 <?php
@@ -102,12 +105,12 @@ window.location = '../dadosUsuarios.html.php'
 
 <script>
 alert('Erro, confira os campos e tente novamente')
-window.location = '../dadosUsuarios.html.php'
+window.location = '../dadosResponsaveis.html.php?id=<?php echo $ID_responsavel?>'
 </script>
 
 <?php
     }
-} elseif ($tipo_usuario == 'professor') {
+} elseif ($tipo_usuario == '4') {
     $nome_professor = $_POST['nome_professor'];
     $RG = $_POST['rg'];
     $cpf = $_POST['cpf'];
@@ -154,7 +157,7 @@ window.location = '../dadosUsuarios.html.php'
 
 <?php
     }
-} elseif ($tipo_usuario == 'secretario') {
+} elseif ($tipo_usuario == '3') {
 
     $nome_secretario = $_POST['nome_secretario'];
     $RG = $_POST['rg'];
@@ -202,7 +205,7 @@ window.location = '../dadosUsuarios.html.php'
 
 <?php
     }
-} elseif ($tipo_usuario == 'diretor') {
+} elseif ($tipo_usuario == '2') {
 
     $nome_diretor = $_POST['nome_diretor'];
     $RG = $_POST['rg'];

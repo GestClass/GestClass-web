@@ -42,13 +42,13 @@
     <?php
 
                 
-        $query_resp = $conn->prepare("SELECT * FROM responsavel WHERE fk_ra_aluno_responsavel = 0 AND fk_id_escola_responsavel = 1");
+        $query_resp = $conn->prepare("SELECT * FROM responsavel WHERE ID_responsavel =" . $_GET['id'] . "");
         $query_resp->execute();
        $dados_resp = $query_resp->fetch(PDO::FETCH_ASSOC) ?>
 
 
     <div class="container col s12 m12 l12 ">
-        <form id="responsavel" method="POST" action="" enctype="multipart/form-data">
+        <form id="responsavel" method="POST" action="alteracaoDados.html.php" enctype="multipart/form-data">
             <div class="col s12 m12 l12">
                 <div class="row">
                     <div class="input-field col s12 m9 l9">
@@ -137,6 +137,19 @@
                         <label id="lbl" for="icon_telephone">Telefone Comercial</label>
                     </div>
                 </div>
+                <div class="row">
+                    <div>
+                        <input type="text" name="tipo_conta" value="6" hidden>
+                        <input type="text" name="id" value="<?php echo $_GET['id']?>" hidden>
+                    </div>
+
+                    <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
+
+
+
+                </div>
+
             </div>
-        </form>     
-        <?php  include_once 'reqFooter.php'?>
+    </div>
+    </form>
+    <?php  include_once 'reqFooter.php'?>
