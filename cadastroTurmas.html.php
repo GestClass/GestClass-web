@@ -46,7 +46,34 @@
         <form id="cadastro_turmas" method="POST" action="php/cadastrarTurmas.php">
             <h5>Cadastrar Turmas</h5><br><br>
             <div class="row">
-                <div class="input-field col s12 m5 l5">
+                <div class="input-field col s12 m6 l6">
+                    <select name="turno">
+                        <option value="" disabled selected>Selecione o Truno</option>
+                        <?php
+
+                        $query_select_id_turno = $conn->prepare("SELECT ID_turno FROM turno WHERE $id_escola");
+                        $query_select_id_turno->execute();
+
+                        while ($dados_turno_id = $query_select_id_turno->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turno = $dados_turno_id['ID_turno'];
+
+                            $query_select_nome_turno = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                            $query_select_nome_turno->execute();
+
+                            while ($dados_turno_nome = $query_select_nome_turno->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_turno = $dados_turno_nome['nome_turno'];
+
+                        ?>
+                                <option value="<?php echo $id_turno ?>"><?php echo $nome_turno; ?></option>
+                        <?php
+                            }
+                        }
+                        ?>
+
+                    </select>
+                    <label id="lbl" for="first_name">Turno</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
                     <input name="turma" id="nome_turma" placeholder="Ex: 3ºano A . . ." type="text" class="validate">
                     <label id="lbl" for="first_name">Turma</label>
                 </div>

@@ -137,7 +137,7 @@
         <div class="modal-content">
             <h4>Encaminhar Mensagem Para Todos</h4><br>
             <div id="novaMensagem">
-                <form action="php/enviarProfessor.php" method="POST">
+                <form action="php/encaminharProfessor.php" method="POST">
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="EncaminharMensagens" id="mensagemProf">

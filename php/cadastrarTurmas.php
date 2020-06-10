@@ -5,14 +5,13 @@ include_once 'conexao.php';
 $id_escola = $_SESSION["id_escola"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 
-$turma = $_POST["turma"];
 
-if ($turma != "") {
+if ($_POST['turma'] != "") {
 
-    $query_insert = $conn->prepare("INSERT INTO turma (nome_turma, fk_id_escola_turma)VALUES (:turma, $id_escola)");
+    $query_insert = $conn->prepare("INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma)VALUES (:turma, $id_escola, :turno)");
 
-
-    $query_insert->bindParam(':turma' , $_POST["turma"], PDO::PARAM_STR);
+    $query_insert->bindParam(':turma', $_POST["turma"], PDO::PARAM_STR);
+    $query_insert->bindParam(':turno', $_POST["turno"], PDO::PARAM_STR);
 
     if ($query_insert->execute()) {
 
