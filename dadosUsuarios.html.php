@@ -45,9 +45,10 @@
 
   
     $tipo_usuario = $_GET['tipo'];
+    $id = $_GET['id'];
 
     if ($tipo_usuario == "5") {
-        $query_alunos = $conn->prepare('SELECT * FROM aluno WHERE RA = ' . $_GET['id'] . '');
+        $query_alunos = $conn->prepare('SELECT * FROM aluno WHERE RA = ' . $id . '');
         $query_alunos->execute();
         $dados_alunos = $query_alunos->fetch(PDO::FETCH_ASSOC)
             ?>
@@ -150,7 +151,10 @@
             </div>
 
             <div class="row">
+                <?php 
+                if($id_tipo_usuario == 2 || $id_tipo_usuario == 3){?> 
                 <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
+                <?php } ?>
 
                 <a href="dadosResponsaveis.html.php?id=<?php echo $dados_alunos['fk_id_responsavel_aluno']?>" class="btn-flat btnLightBlue center"><i
                         class="material-icons left">people_alt</i>Responsáveis</a>
@@ -267,13 +271,16 @@
             </div>
 
             <div class="row">
-                <input type="submit" class="waves-effect waves-light btn blue" value="Alterar dados">
+            <?php 
+                if($id_tipo_usuario == 2 || $id_tipo_usuario == 3){?> 
+                <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
+                <?php } ?>    
             </div>
 
         </form>
         <?php
     } elseif ($tipo_usuario == "4") {
-        $query_prof = $conn->prepare("SELECT * FROM professor WHERE ID_professor = 1");
+        $query_prof = $conn->prepare('SELECT * FROM professor WHERE ID_professor = ' . $id . '');
         $query_prof->execute();
         $dados_prof = $query_prof->fetch(PDO::FETCH_ASSOC) ?>
 
@@ -354,12 +361,15 @@
                         <label id="lbl" for="icon_telephone">Telefone</label>
                     </div>
                     <div>
-                        <input type="text" name="tipo_conta" value="professor" hidden>
+                        <input type="text" name="tipo_conta" value="<?php echo $tipo_usuario ?>" hidden>
+                        <input type="text" name="id" value="<?php echo $id ?>" hidden>
                     </div>
                 </div>
 
-                <div class="row">
-                    <input type="submit" class="waves-effect waves-light btn blue" value="Alterar dados">
+                <?php 
+                if($id_tipo_usuario == 2 || $id_tipo_usuario == 3){?> 
+                <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
+                <?php } ?>   
                 </div>
         </div>
 
@@ -453,7 +463,10 @@
                 </div>
 
                 <div class="row">
-                    <input type="submit" class="waves-effect waves-light btn blue" value="Alterar dados">
+                <?php 
+                if($id_tipo_usuario == 2 || $id_tipo_usuario == 3){?> 
+                <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
+                <?php } ?>   
                 </div>
         </div>
 
@@ -549,8 +562,10 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <input type="submit" class="waves-effect waves-light btn blue" value="Alterar dados">
+                    <?php 
+                if($id_tipo_usuario == 2 || $id_tipo_usuario == 3){?> 
+                <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
+                <?php } ?>   
                     </div>
 
                 </form>

@@ -143,7 +143,7 @@ window.location = '../dadosResponsaveis.html.php?id=<?php echo $ID_responsavel?>
 
 <script>
 alert('Dados alterados com sucesso')
-window.location = '../dadosUsuarios.html.php'
+window.location = '../dadosUsuarios.html.php?id=<?php echo $ID_professor?>&tipo=<?php echo $tipo_usuario?>'
 </script>
 
 <?php
@@ -152,7 +152,7 @@ window.location = '../dadosUsuarios.html.php'
 
 <script>
 alert('Erro, confira os campos e tente novamente')
-window.location = '../dadosUsuarios.html.php'
+window.location = '../dadosUsuarios.html.php?id=<?php echo $ID_professor?>&tipo=<?php echo $tipo_usuario?>'
 </script>
 
 <?php

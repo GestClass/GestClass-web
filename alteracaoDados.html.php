@@ -269,7 +269,7 @@
         </form>
         <?php 
     } elseif ($tipo_usuario == "4") {
-        $query_prof = $conn->prepare("SELECT * FROM professor WHERE ID_professor = 1");
+        $query_prof = $conn->prepare('SELECT * FROM professor WHERE ID_professor = ' . $id_usuario .'');
         $query_prof->execute();
         $dados_prof = $query_prof->fetch(PDO::FETCH_ASSOC) ?>
 
@@ -349,7 +349,7 @@
                     </div>
                 </div>
                 <div>
-                    <input type="text" name="tipo_conta" value="professor" hidden>
+                    <input type="text" name="tipo_conta" value="<?php echo $tipo_usuario ?>" hidden>
                 </div>
                 <div>
                     <input type="text" name="ID_professor" value="<?php echo$dados_prof['ID_professor']?>" hidden>
