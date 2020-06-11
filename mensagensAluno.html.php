@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/mensagensDiretor.css" />
+    <link rel="stylesheet" type="text/css" href="css/mensagensAluno.css" />
 
 
 </head>
@@ -75,61 +75,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
-
-    <div id="modalArquivados" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            <h4>Mensagens Arquivadas</h4>
-            <div id="arquivadas">
-                <table class="highlight centered">
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Assunto</th>
-                            <th>Remetente</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td><i class="small left material-icons  blue-icon">drafts</i> 23/04/2020</td>
-                            <td>Vagas de estagios</td>
-                            <td>Banco do Brasil</td>
-                        </tr>
-                        <tr>
-                            <td><i class="small left material-icons  blue-icon">drafts</i> 22/04/2020</td>
-                            <td>Vagas de estagios</td>
-                            <td>Banco do Brasil</td>
-
-                        </tr>
-                        <tr>
-                            <td><i class="small left material-icons  blue-icon">drafts</i> 15/04/2020</td>
-                            <td>Vagas de estagios</td>
-                            <td>Banco do Brasil</td>
-
-                        </tr>
-                        <tr>
-                            <td><i class="small left material-icons  blue-icon">drafts</i> 10/04/2020</td>
-                            <td>Vagas de estagios</td>
-                            <td>Banco do Brasil</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
-        </div>
-    </div>
-
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large light-blue lighten-1">
-            <i class="large material-icons">add</i>
-        </a>
-        <ul>
-            <li><a href="#modalArquivados" class="modal-trigger btn-floating green accent-2 tooltipped" data-position="left"
-                    data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
-        </ul>
     </div>
 
     <script src="js/mensagensAluno.js"></script>

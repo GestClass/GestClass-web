@@ -1,5 +1,5 @@
 <?php
-    include_once 'conexao.php';
+    include_once '../conexao.php';
 
     $id_escola = $_SESSION["id_escola"];
     $id_usuario = $_SESSION["id_usuario"];
@@ -23,7 +23,7 @@
 
         if ($resultado == 1) {
             echo "<script>alert('Cadastrado com Sucesso!!');
-                    window.location = '../mensagensResponsavel.html.php';</script>";
+                    window.location = '../../mensagensResponsavel.html.php';</script>";
         }else{
             echo "<script>alert('Erro ao enviar a mensagem')
                     history.back();</script>";
@@ -47,7 +47,7 @@
 
         if ($resultado == 1) {
             echo "<script>alert('Cadastrado com Sucesso!!');
-                    window.location = '../mensagensResponsavel.html.php';</script>";
+                    window.location = '../../mensagensResponsavel.html.php';</script>";
         }else{
             echo "<script>alert('Erro ao enviar a mensagem')
                     history.back();</script>";

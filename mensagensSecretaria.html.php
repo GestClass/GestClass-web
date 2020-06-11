@@ -81,15 +81,11 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <form action="php/enviarSecretariaAluno.php" method="POST">
+                <form action="php/enviarMensagem/enviarSecretariaAluno.php" method="POST">
                     <div class="row">
-                        <div class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input name="ra" type="text" placeholder="Digite RA do aluno" class="validate">
-                                    <label id="lbl">RA do aluno</label>
-                                </div>
-                            </div>
+                        <div class="input-field col s12 m12 l12">
+                            <input name="ra" id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
+                            <label id="lbl" for="first_name">RA do Aluno</label>
                         </div>
                     </div>
                     <div class="row">
@@ -120,7 +116,7 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <form action="php/enviarSecretariaTurmas.php" method="POST">
+                <form action="php/enviarMensagem/enviarSecretariaTurmas.php" method="POST">
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario">
@@ -177,7 +173,7 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <form action="php/enviarSecretariaProf.php" method="POST">
+                <form action="php/enviarMensagem/enviarSecretariaProf.php" method="POST">
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario">
@@ -234,15 +230,11 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <form action="php/enviarSecretariaRespon.php" method="POST">
+                <form action="php/enviarMensagem/enviarSecretariaRespon.php" method="POST">
                     <div class="row">
-                        <div class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input name="ra" type="text" placeholder="Pensar no que colocar aqui" class="validate">
-                                    <label id="lbl">RA do aluno</label>
-                                </div>
-                            </div>
+                        <div class="input-field col s12 m12 l12">
+                            <input name="cpf_respon" id="cpf_respon" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate">
+                            <label id="lbl" for="first_name">CPF Responsável</label>
                         </div>
                     </div>
                     <div class="row">
@@ -273,7 +265,7 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <form action="php/enviarSecretaria.php" method="POST">
+                <form action="php/enviarMensagem/enviarSecretaria.php" method="POST">
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
@@ -302,7 +294,7 @@
         <div class="modal-content">
             <h4>Encaminhar Mensagem Para Todos</h4><br>
             <div id="novaMensagem">
-                <form action="php/encaminharSecretaria.php" method="POST">
+                <form action="php/enviarMensagem/encaminharSecretaria.php" method="POST">
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="EncaminharMensagens" id="mensagemProf">
@@ -356,57 +348,11 @@
         </div>
     </div>
 
-    <div id="modalArquivados" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            <h4>Mensagens Arquivadas</h4>
-            <div id="arquivadas">
-                <table class="highlight centered">
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Assunto</th>
-                            <th>Remetente</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td><i class="small left material-icons  blue-icon">drafts</i> 23/04/2020</td>
-                            <td>Vagas de estagios</td>
-                            <td>Banco do Brasil</td>
-                        </tr>
-                        <tr>
-                            <td><i class="small left material-icons  blue-icon">drafts</i> 22/04/2020</td>
-                            <td>Vagas de estagios</td>
-                            <td>Banco do Brasil</td>
-
-                        </tr>
-                        <tr>
-                            <td><i class="small left material-icons  blue-icon">drafts</i> 15/04/2020</td>
-                            <td>Vagas de estagios</td>
-                            <td>Banco do Brasil</td>
-
-                        </tr>
-                        <tr>
-                            <td><i class="small left material-icons  blue-icon">drafts</i> 10/04/2020</td>
-                            <td>Vagas de estagios</td>
-                            <td>Banco do Brasil</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
-        </div>
-    </div>
-
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large light-blue lighten-1">
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalArquivados" class="modal-trigger btn-floating green accent-5 tooltipped" data-position="left" data-tooltip="Mensagens Arquivadas"><i class="material-icons">archive</i></a></li>
             <li><a href="#modalEncaminharMensagem" class="modal-trigger btn-floating indigo lighten-2 tooltipped" data-position="left" data-tooltip="Encaminhar para Todos"><i class="material-icons">record_voice_over</i></a></li>
             <li><a href="#modalDiretor" class="modal-trigger btn-floating grey darken-1 tooltipped" data-position="left" data-tooltip="Diretor"><i class="material-icons">perm_identity</i></a></li>
             <li><a href="#modalEnviarResponsavel" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Responsável"><i class="material-icons">supervisor_account</i></a></li>
