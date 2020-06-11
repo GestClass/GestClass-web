@@ -92,7 +92,7 @@
                                 </td>
 
                                 <td class="col s3 m3 l3">
-                                    <input placeholder="ex: 5,00" type="number" class="validate" name="<?php echo $alunos['RA'] . 'nota'; ?>">
+                                    <input placeholder="ex: 5,00" type="number" step="0.01" class="validate" name="<?php echo $alunos['RA'] . 'nota'; ?>">
                                 </td>
 
                                 <td class="col s9 m9 l9">

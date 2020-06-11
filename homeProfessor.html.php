@@ -34,7 +34,7 @@ require_once 'reqProfessor.php';
       </div>
 
       <div class="col s12 m4">
-        <a href="calendario.html.php">
+        <a href="paginaManutencao.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-clipboard fa-6x blue-icon"></i>
             <h5>Ocorrências</h5>
@@ -54,7 +54,7 @@ require_once 'reqProfessor.php';
       </div>
 
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+        <a href="calendario.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-calendar-check fa-6x blue-icon"></i>
             <h5>Calendário Escolar</h5>

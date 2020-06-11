@@ -61,12 +61,12 @@
                         $dataAtividade = $_POST["dataAtividade"];
                         $nomeAtividade = $_POST['nomeAtividade'];
 
-                        $query_listagem = $conn->prepare('SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno = '.$id_escola.' AND fk_id_turma_aluno = 16');
+                        $query_listagem = $conn->prepare('SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = 16');
                         $query_listagem->execute();
 
                         while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
 
-                            $query_boletim = $conn->prepare('SELECT nota, observacoes, ID_boletim_aluno FROM boletim_aluno WHERE data_atividade = "' . $dataAtividade . '" AND nome_atividade = "' . $nomeAtividade . '" AND fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = ' . $alunos['RA'] . ' AND fk_id_professor_boletim_aluno = '.$id_usuario.'');
+                            $query_boletim = $conn->prepare('SELECT nota, observacoes, ID_boletim_aluno FROM boletim_aluno WHERE data_atividade = "' . $dataAtividade . '" AND nome_atividade = "' . $nomeAtividade . '" AND fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = ' . $alunos['RA'] . '');
                             $query_boletim->execute();
 
                             if (($dataAtividade != "") && ($nomeAtividade != "")) {
@@ -87,7 +87,7 @@
                                             </td>
 
                                             <td class="col s3 m3 l3">
-                                                <input value="<?php echo $boletim['nota']; ?>" type="number" class="validate" name="<?php echo $alunos['RA'] . 'nota'; ?>">
+                                                <input value="<?php echo $boletim['nota']; ?>" type="number" step="0.01" class="validate" name="<?php echo $alunos['RA'] . 'nota'; ?>">
                                             </td>
 
                                             <td class="col s9 m9 l9">
@@ -95,7 +95,7 @@
                                             </td>
                                         </tr>
 
-                                        <input type="hidden" name="idBoletim<?php echo $alunos['RA'];?>" value="<?php echo $boletim['ID_boletim_aluno'];?>">
+                                        <input type="hidden" name="idBoletim<?php echo $alunos['RA']; ?>" value="<?php echo $boletim['ID_boletim_aluno']; ?>">
 
 
 

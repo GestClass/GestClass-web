@@ -47,7 +47,6 @@ require_once 'reqDiretor.php';
             <p>Visualização das listas de alunos</p>
           </div>
         </a>
-        </a>
       </div>
       <div class="col s12 m4">
         <a class="modal-trigger" href="#modalCadastroContas">
@@ -93,6 +92,7 @@ require_once 'reqDiretor.php';
       <i class="large material-icons">add</i>
     </a>
     <ul>
+    <li><a href="cadastroDatasFinaisBimestres.html.php" class="btn-floating gray tooltipped" data-position="left" data-tooltip="Atribuir datas de final de bimestre"><i class="material-icons">event_available</i></a></li>
       <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
       <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
       <li><a href="graficoRendimentoDiretor.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Gráfico de rendimento"><i class="material-icons">insert_chart</i></a></li>
@@ -139,6 +139,6 @@ require_once 'reqDiretor.php';
 <script>
   $('#modalCadastroContas').on('shown.bs.modal', function() {
     $(window).trigger('resize');
-});
+  });
 </script>
 <?php require_once 'reqFooter.php' ?>
