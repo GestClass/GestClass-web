@@ -180,6 +180,8 @@ CREATE TABLE chamada_aluno (
 CREATE TABLE contato (
 	ID_mensagem INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     mensagem TEXT NOT NULL,
+    assunto VARCHAR(50) NOT NULL,
+    data_mensagem DATETIME NOT NULL,
     fk_envio_aluno_ra_aluno INTEGER,
     fk_envio_responsavel_id_responsavel INTEGER,
     fk_envio_professor_id_professor INTEGER,
@@ -190,6 +192,15 @@ CREATE TABLE contato (
 	fk_recebimento_professor_id_professor INTEGER,
     fk_recebimento_diretor_id_diretor INTEGER,
     fk_recebimento_secretario_id_secretario INTEGER
+);
+
+CREATE TABLE datas_fim_bimestres (
+	ID_datas_fim_bimestres INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    bimestre1 DATE NOT NULL,
+    bimestre2 DATE NOT NULL,
+    bimestre3 DATE NOT NULL,
+    bimestre4 DATE NOT NULL,
+    fk_id_escola_datas_fim_bimestres INTEGER NOT NULL
 );
 
 CREATE TABLE `admin` (
@@ -297,6 +308,11 @@ ALTER TABLE contato ADD CONSTRAINT fk_recebimento_responsavel_id_responsavel FOR
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_professor_id_professor FOREIGN KEY (fk_recebimento_professor_id_professor) REFERENCES professor (ID_professor);
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_diretor_id_diretor FOREIGN KEY (fk_recebimento_diretor_id_diretor) REFERENCES diretor (ID_diretor);
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_secretario_id_secretario FOREIGN KEY (fk_recebimento_secretario_id_secretario) REFERENCES secretario (ID_secretario);
+
+
+/*	-	FOREIGN KEYs TABLE DATAS_FIM_BIMESTRES	- 	*/
+
+ALTER TABLE datas_fim_bimestres ADD CONSTRAINT fk_id_escola_datas_fim_bimestres FOREIGN KEY (fk_id_escola_datas_fim_bimestres) REFERENCES escola (ID_escola);
 
 
 /*	-	FOREIGN KEYs TABLE ADMIN	-	*/
@@ -467,7 +483,7 @@ SELECT * FROM `admin`;
 
 SELECT * FROM contato;
 
-
+SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor AS id_turma, disciplina.nome_disciplina AS nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (disciplinas_professor.ID_disciplinas_professor = disciplina.ID_disciplina) WHERE disciplinas_professor.fk_id_turma_professor_disciplinas_professor = 16;
 
 /*			- Códigos anotações Eric
 
