@@ -42,7 +42,7 @@
     }
 
 
-    $query_mensagem = $conn->prepare("SELECT nome_responsavel,fk_recebimento_responsavel_id_responsavel,data,assunto,mensagem
+    $query_mensagem = $conn->prepare("SELECT nome_responsavel,fk_recebimento_responsavel_id_responsavel,data_mensagem,assunto,mensagem
     FROM responsavel AS R 
     JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario}");
     $query_mensagem->execute();
@@ -67,7 +67,7 @@
                     <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) { ?>
                         <tr>
                             <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
-                                <?php echo $mensagens["data"] ?></td>
+                                <?php echo $mensagens["data_mensagem"] ?></td>
                             <td><?php echo $mensagens["assunto"] ?></td>
                             <td><?php echo $mensagens["mensagem"] ?></td>
                         </tr>
