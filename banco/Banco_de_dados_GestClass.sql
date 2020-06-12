@@ -200,7 +200,7 @@ CREATE TABLE datas_fim_bimestres (
     bimestre2 DATE NOT NULL,
     bimestre3 DATE NOT NULL,
     bimestre4 DATE NOT NULL,
-    fk_id_escola_datas_fim_bimestres INTEGER NOT NULL
+    fk_id_escola_datas_fim_bimestres INTEGER NOT NULL UNIQUE
 );
 
 CREATE TABLE `admin` (

@@ -13,12 +13,12 @@ require_once 'reqDiretor.php';
   <div class="container">
     <div class="row">
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+        <a href="graficoRendimentoDiretor.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="far fa-user fa-6x blue-icon"></i>
-            <h5>Alunos</h5>
-            <p>Acesso aos dados dos alunos, efetuação e remoção de matriculas, mensalidade, lista de alunos</p>
-          </div>
+            <i class="fas fa-chart-line fa-6x blue-icon"></i>
+            <h5>Gráfico de Rendimento</h5>
+            <p>Acesso aos dados de desempenho das turmas por bimestre.</p>
+          </div>          
         </a>
       </div>
       <div class="col s12 m4">
@@ -83,7 +83,7 @@ require_once 'reqDiretor.php';
         </select>
       </div>
     </div>
-
+  </div>
 </section>
 
 <section class="floating-buttons">
@@ -92,10 +92,9 @@ require_once 'reqDiretor.php';
       <i class="large material-icons">add</i>
     </a>
     <ul>
-    <li><a href="cadastroDatasFinaisBimestres.html.php" class="btn-floating gray tooltipped" data-position="left" data-tooltip="Atribuir datas de final de bimestre"><i class="material-icons">event_available</i></a></li>
+      <li><a href="cadastroDatasFinaisBimestres.html.php" class="btn-floating gray tooltipped" data-position="left" data-tooltip="Atribuir datas de final de bimestre"><i class="material-icons">event_available</i></a></li>
       <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
       <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
-      <li><a href="graficoRendimentoDiretor.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Gráfico de rendimento"><i class="material-icons">insert_chart</i></a></li>
       <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
       <li><a href="mensagensDiretor.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
       <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>

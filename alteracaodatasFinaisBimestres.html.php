@@ -22,14 +22,28 @@
     } elseif ($id_tipo_usuario == 4) {
         require_once 'reqProfessor.php';
     }
+
+    // Preparar select para buscar as datas de fim de bimestre
+    $sql_select_datas = $conn->prepare("SELECT * FROM datas_fim_bimestres WHERE fk_id_escola_datas_fim_bimestres = $id_escola");
+    // Executar comando
+    $sql_select_datas->execute();
+    // Armazenar retorno
+    $datas_fim_bimestres = $sql_select_datas->fetch(PDO::FETCH_ASSOC);
+
+    // Armazenar retornos
+    $data_bimestre1 = $datas_fim_bimestres['bimestre1'];
+    $data_bimestre2 = $datas_fim_bimestres['bimestre2'];
+    $data_bimestre3 = $datas_fim_bimestres['bimestre3'];
+    $data_bimestre4 = $datas_fim_bimestres['bimestre4'];
+
     ?>
 
 
     <div class="container col s12 m12 l12" id="container_boletimCadastro">
         <div id="cadastro" class="col s12 m12 l12">
-            <h4 class="center">Atribuição de datas finais de bimestres</h4>
+            <h4 class="center">Alteração de Datas Finais dos Bimestres</h4>
             <br><br>
-            <form action="php/cadastroDatasFinais.php" method="POST">
+            <form action="php/alteracaoDatasFinais.php" method="POST">
                 <div class="row">
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">filter_1</i>
@@ -39,7 +53,7 @@
 
                     <div class="file field input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre1">
+                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre1" value="<?php echo $data_bimestre1 ?>">
                         <label id="lbl">Data da atividade</label>
                     </div>
                 </div>
@@ -53,7 +67,7 @@
 
                     <div class="file field input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre2">
+                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre2" value="<?php echo $data_bimestre2; ?>">
                         <label id="lbl">Data da atividade</label>
                     </div>
                 </div>
@@ -67,7 +81,7 @@
 
                     <div class="file field input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre3">
+                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre3" value="<?php echo $data_bimestre3; ?>">
                         <label id="lbl">Data da atividade</label>
                     </div>
                 </div>
@@ -81,7 +95,7 @@
 
                     <div class="file field input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre4">
+                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre4" value="<?php echo $data_bimestre4; ?>">
                         <label id="lbl">Data da atividade</label>
                     </div>
                 </div>
@@ -89,17 +103,10 @@
 
                 <div class="row">
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
-                        <i class="material-icons left">send</i>Enviar
+                        <i class="material-icons left">send</i>Alterar
                     </button>
             </form>
-
-            <form action="alteracaodatasFinaisBimestres.html.php" method="POST">
-                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue left">
-                    <i class="material-icons left">edit</i>Alterar
-                </button>
-            </form>
         </div>
-
     </div>
 
 
