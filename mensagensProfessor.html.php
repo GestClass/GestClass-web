@@ -67,9 +67,9 @@
                     <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) { ?>
                         <tr>
                             <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
-                                <?php echo $mensagens["data_mensagem"] ?></td>
-                            <td><?php echo $mensagens["assunto"] ?></td>
-                            <td><?php echo $mensagens["mensagem"] ?></td>
+                                <?php echo date('d/m/Y H:i:s',strtotime($mensagens["data_mensagem"])); ?></td>
+                            <td><?php echo $mensagens["assunto"]; ?></td>
+                            <td><?php echo $mensagens["mensagem"]; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

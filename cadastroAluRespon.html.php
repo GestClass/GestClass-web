@@ -43,7 +43,7 @@
     ?>
 
     <div class="container col s12 m12 l12 ">
-        <form name="frmcpf" id="aluno" method="POST" action="php/cadastrarAluRespon.php" enctype="multipart/form-data">
+        <form name="frmcpf" id="aluno" method="POST" action="php/cadastroContas/cadastrarAluRespon.php" enctype="multipart/form-data">
             <h5>Aluno</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
@@ -69,7 +69,7 @@
                 </div>
                 <div class="input-field col s6 m3 l3">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="rg" id="RG" placeholder="65.745.984-6" type="tel" maxlength="12" data-mask="00.000.000-0" class="validate ">
+                    <input name="rg" id="RG" placeholder="65.745.984-6" type="tel" maxlength="12" class="validate ">
                     <label id="lbl" for="first_name">RG</label>
                 </div>
                 <div class="input-field col s6 m3 l3">
@@ -79,7 +79,7 @@
                 </div>
                 <div class="input-field col s6 m3 l3">
                     <i class="material-icons prefix blue-icon">cake</i>
-                    <input name="data_nascimento" id="data_nascimento" placeholder="2000/09/05" type="text" data-mask="0000/00/00" class="validate">
+                    <input name="data_nascimento" id="data_nascimento" placeholder="05/09/2000" type="text" data-mask="00/00/0000" class="validate">
                     <label id="lbl">Data Nascimento</label>
                 </div>
             </div>

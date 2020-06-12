@@ -1,8 +1,10 @@
 <?php
 
-  include_once 'conexao.php';
+include_once '../conexao.php';
 
   $id_escola = $_SESSION["id_escola"];
+  $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+
   $nome = $_POST["nome"];
   $rg = $_POST["rg"];
   
@@ -72,9 +74,20 @@
         VALUES ('{$nome}','{$nome_imagem}','{$cep}','{$numero}','{$complemento}','{$rg}','{$cpf_professor}','{$email}','{$senha}','{$celular}','{$telefone}','4','{$id_escola}')");
               
               if ($query->execute()) {
-                echo "<script>alert('Professor cadastrado com sucesso');
-                window.location='../cadastroDisciplinas.html.php';
-                </script>";
+                if ($id_tipo_usuario == 2) {
+
+                  echo "<script>alert('Aluno cadastrado com sucesso');
+                    window.location='../../homeDiretor.html.php';
+                    </script>";
+                } elseif ($id_tipo_usuario == 3) {
+          
+                  echo "<script>alert('Aluno cadastrado com sucesso');
+                    window.location='../../homeSecretaria.html.php';
+                    </script>";
+                } else {
+                  echo "<script>alert('Usuario sem permissão');
+                       window.location='../../index.php'</script>";
+                }
 
               }else{
                 echo "<script>alert('Erro: Professor não foi cadastrado');
@@ -86,4 +99,3 @@
       
       }
       }
-?>

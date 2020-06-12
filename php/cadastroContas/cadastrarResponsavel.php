@@ -1,9 +1,11 @@
 <?php
 
-  include_once 'conexao.php';
+include_once '../conexao.php';
 
   //Responsavel
   $id_escola = $_SESSION["id_escola"];
+  $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+
   $nome_respon = $_POST["nome_respon"];
   $rg_respon = $_POST["rg_respon"];
 
@@ -11,7 +13,8 @@
   $limcpf =  str_replace('.', '', $cpf_r);
   $cpf_respon =  str_replace('-', '', $limcpf);
 
-  $nascimento_respon = $_POST["nascimento_respon"];
+  $nascimento = $_POST["nascimento_respon"];
+  $nascimento_respon = date('Y/m/d',strtotime($nascimento));
   $cep = $_POST["cep"];
   $numero = $_POST["numero"];
   $complemento = $_POST["complemento"];
@@ -80,9 +83,20 @@
 
             if ($query_responsavel->execute()) {
 
-              echo "<script>alert('Responsável cadastrado com sucesso');
-			  window.location='../cadastroAluRespon.html.php';
-			   </script>";
+				if ($id_tipo_usuario == 2) {
+
+					echo "<script>alert('Aluno cadastrado com sucesso');
+						window.location='../../homeDiretor.html.php';
+						</script>";
+				} elseif ($id_tipo_usuario == 3) {
+	
+					echo "<script>alert('Aluno cadastrado com sucesso');
+						window.location='../../homeSecretaria.html.php';
+						</script>";
+				} else {
+					echo "<script>alert('Usuario sem permissão');
+					 window.location='../../index.php'</script>";
+				}
   
             }else{
 				echo "<script>alert('Erro: Responsável não foi cadastrado');

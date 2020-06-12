@@ -43,7 +43,7 @@
     ?>
 
     <div id="turmas_disci" class="container col s12 m12 l12 ">
-        <form id="disciplina_turmas" method="POST" action="php/cadastrarDisciplinas.php" enctype="multipart/form-data">
+        <form id="disciplina_turmas" method="POST" action="php/cadastroContas/cadastrarDisciplinas.php" enctype="multipart/form-data">
             <h5>Cadastro Turmas e Disciplinas</h5><br><br>
 
             <label id="lbl">Turmas</label>

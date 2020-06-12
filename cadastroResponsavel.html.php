@@ -44,7 +44,7 @@
 
 
     <div class="container col s12 m12 l12 ">
-        <form name="frmcpf" id="responsavel" method="POST" action="php/cadastrarResponsavel.php" enctype="multipart/form-data">
+        <form name="frmcpf" id="responsavel" method="POST" action="php/cadastroContas/cadastrarResponsavel.php" enctype="multipart/form-data">
             <div class="col s12 m12 l12">
                 <H5>Responsável</H5>
                 <div class="row">
@@ -66,7 +66,7 @@
                 <div class="row">
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="rg_respon" id="rg" type="tel" maxlength="12" placeholder="84.514.751-1" data-mask="00.000.000-0" class="validate">
+                        <input name="rg_respon" id="rg" type="tel" maxlength="12" placeholder="84.514.751-1"  class="validate">
                         <label id="lbl" for="icon_telephone">RG</label>
                     </div>
                     <div class="input-field col s6 m4 l4">
@@ -76,7 +76,7 @@
                     </div>
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">cake</i>
-                        <input name="nascimento_respon" id="data_nascimento" placeholder="Ano/Mes/Dia" type="text" data-mask="0000/00/00" class="validate">
+                        <input name="nascimento_respon" id="data_nascimento" placeholder="05/09/2000" type="text" data-mask="00/00/0000" class="validate">
                         <label id="lbl">Data Nascimento</label>
                     </div>
                 </div>

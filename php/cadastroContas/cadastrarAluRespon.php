@@ -1,9 +1,10 @@
 <?php
 
-  include_once 'conexao.php';
+include_once '../conexao.php';
 
   	// Aluno
 	$id_escola = $_SESSION["id_escola"];
+	$id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 
 	$query_select = $conn->prepare("select id_responsavel FROM responsavel ORDER BY id_responsavel DESC");
 	$query_select->execute();
@@ -20,7 +21,8 @@
 	$limcpf =  str_replace('.', '', $cpf);
 	$cpf_aluno =  str_replace('-', '', $limcpf);
 
-	$data_nascimento = $_POST["data_nascimento"];
+	$nascimento = $_POST["data_nascimento"];
+	$data_nascimento = date('Y/m/d',strtotime($nascimento));
 	$email = $_POST["email"];
 	$senha = $_POST["senha"];
 	$confsenha = $_POST["confsenha"];
@@ -82,9 +84,20 @@
 
             if ($query->execute()) {
 
-				echo "<script>alert('Aluno cadastrado com sucesso');
-				window.location='../homeSecretaria.html.php';
-				 </script>";
+				if ($id_tipo_usuario == 2) {
+
+					echo "<script>alert('Aluno cadastrado com sucesso');
+						window.location='../../homeDiretor.html.php';
+						</script>";
+				} elseif ($id_tipo_usuario == 3) {
+	
+					echo "<script>alert('Aluno cadastrado com sucesso');
+						window.location='../../homeSecretaria.html.php';
+						</script>";
+				} else {
+					echo "<script>alert('Usuario sem permissão');
+					 window.location='../../index.php'</script>";
+				}
 				 
             }else{
 				echo "<script>alert('Erro: Aluno não foi cadastrado');

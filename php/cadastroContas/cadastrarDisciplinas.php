@@ -1,6 +1,6 @@
 <?php
 
-  include_once 'conexao.php';
+include_once '../conexao.php';
 
   $id_escola = $_SESSION["id_escola"];
   $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
@@ -51,9 +51,9 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeDiretor.html.php';
+          window.location='../../homeDiretor.html.php';
         }
       </script>
     <?php
@@ -66,15 +66,15 @@
           var confirmacao = confirm('Deseja cadastrar outra turma?');
 
           if(confirmacao == true){
-            window.location='../cadastroDisciplinas.html.php';
+            window.location='../../cadastroDisciplinas.html.php';
           }else{
-            window.location='../homeSecretaria.html.php';
+            window.location='../../homeSecretaria.html.php';
           }
         </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
        }
     }
   }
@@ -102,9 +102,9 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastroDisciplinas.html.php';
+        window.location='../../cadastroDisciplinas.html.php';
       }else{
-        window.location='../homeDiretor.html.php';
+        window.location='../../homeDiretor.html.php';
       }
     </script>
 
@@ -117,15 +117,15 @@
           var confirmacao = confirm('Deseja cadastrar outra turma?');
 
           if(confirmacao == true){
-            window.location='../cadastroDisciplinas.html.php';
+            window.location='../../cadastroDisciplinas.html.php';
           }else{
-            window.location='../homeSecretaria.html.php';
+            window.location='../../homeSecretaria.html.php';
           }
         </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
@@ -153,9 +153,9 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeDiretor.html.php';
+          window.location='../../homeDiretor.html.php';
         }
       </script>
 
@@ -169,15 +169,15 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeSecretaria.html.php';
+          window.location='../../homeSecretaria.html.php';
         }
       </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
@@ -205,9 +205,9 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-      window.location='../cadastroDisciplinas.html.php';
+      window.location='../../cadastroDisciplinas.html.php';
       }else{
-      window.location='../homeDiretor.html.php';
+      window.location='../../homeDiretor.html.php';
       }
     </script>
 
@@ -220,15 +220,15 @@
           var confirmacao = confirm('Deseja cadastrar outra turma?');
 
           if(confirmacao == true){
-            window.location='../cadastroDisciplinas.html.php';
+            window.location='../../cadastroDisciplinas.html.php';
           }else{
-            window.location='../homeSecretaria.html.php';
+            window.location='../../homeSecretaria.html.php';
           }
         </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
@@ -257,9 +257,9 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastroDisciplinas.html.php';
+        window.location='../../cadastroDisciplinas.html.php';
       }else{
-        window.location='../homeDiretor.html.php';
+        window.location='../../homeDiretor.html.php';
       }
     </script>
 
@@ -273,15 +273,15 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeSecretaria.html.php';
+          window.location='../../homeSecretaria.html.php';
         }
       </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
@@ -310,9 +310,9 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastroDisciplinas.html.php';
+        window.location='../../cadastroDisciplinas.html.php';
       }else{
-        window.location='../homeDiretor.html.php';
+        window.location='../../homeDiretor.html.php';
       }
     </script>
 
@@ -326,15 +326,15 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeSecretaria.html.php';
+          window.location='../../homeSecretaria.html.php';
         }
       </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
@@ -363,9 +363,9 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastroDisciplinas.html.php';
+        window.location='../../cadastroDisciplinas.html.php';
       }else{
-        window.location='../homeDiretor.html.php';
+        window.location='../../homeDiretor.html.php';
       }
     </script>
 
@@ -379,15 +379,15 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeSecretaria.html.php';
+          window.location='../../homeSecretaria.html.php';
         }
       </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
@@ -416,9 +416,9 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastroDisciplinas.html.php';
+        window.location='../../cadastroDisciplinas.html.php';
       }else{
-        window.location='../homeDiretor.html.php';
+        window.location='../../homeDiretor.html.php';
       }
     </script>
 
@@ -432,15 +432,15 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeSecretaria.html.php';
+          window.location='../../homeSecretaria.html.php';
         }
       </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
@@ -469,9 +469,9 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastroDisciplinas.html.php';
+        window.location='../../cadastroDisciplinas.html.php';
       }else{
-        window.location='../homeDiretor.html.php';
+        window.location='../../homeDiretor.html.php';
       }
     </script>
 
@@ -485,15 +485,15 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeSecretaria.html.php';
+          window.location='../../homeSecretaria.html.php';
         }
       </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
@@ -522,9 +522,9 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastroDisciplinas.html.php';
+        window.location='../../cadastroDisciplinas.html.php';
       }else{
-        window.location='../homeDiretor.html.php';
+        window.location='../../homeDiretor.html.php';
       }
     </script>
 
@@ -538,15 +538,15 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeSecretaria.html.php';
+          window.location='../../homeSecretaria.html.php';
         }
       </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
@@ -576,9 +576,9 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastroDisciplinas.html.php';
+        window.location='../../cadastroDisciplinas.html.php';
       }else{
-        window.location='../homeDiretor.html.php';
+        window.location='../../homeDiretor.html.php';
       }
     </script>
 
@@ -592,15 +592,15 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeSecretaria.html.php';
+          window.location='../../homeSecretaria.html.php';
         }
       </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
@@ -629,9 +629,9 @@
       var confirmacao = confirm('Deseja cadastrar outra turma?');
 
       if(confirmacao == true){
-        window.location='../cadastroDisciplinas.html.php';
+        window.location='../../cadastroDisciplinas.html.php';
       }else{
-        window.location='../homeDiretor.html.php';
+        window.location='../../homeDiretor.html.php';
       }
     </script>
 
@@ -645,16 +645,16 @@
         var confirmacao = confirm('Deseja cadastrar outra turma?');
 
         if(confirmacao == true){
-          window.location='../cadastroDisciplinas.html.php';
+          window.location='../../cadastroDisciplinas.html.php';
         }else{
-          window.location='../homeSecretaria.html.php';
+          window.location='../../homeSecretaria.html.php';
         }
 
       </script>
       <?php
       }else{
         echo "<script>alert('Usuario sem permissão');
-        window.location='../index.php'</script>";
+        window.location='../../index.php'</script>";
       }
     }
   }
