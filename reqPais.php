@@ -106,7 +106,7 @@ $nome_pais = $nome[0];
                         Escolar</a>
                 <li><a href="paginaManutencao.php"><i class="material-icons">attach_money</i>Financeiro</a>
                 </li>
-                <li><a href="paginaManutencao.php"><i class="material-icons">chat_bubble</i>Chat</a>
+                <li><a href="mensagensResponsavel.html.php"><i class="material-icons">email</i>Caixa de Mensagens</a>
                 </li>
                 <li>
                     <div class="divider"></div>

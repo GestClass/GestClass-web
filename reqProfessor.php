@@ -105,7 +105,7 @@
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">assignment</i>Chamada</a></li>
+            <li><a href="chamada.html.php"><i class="material-icons">assignment</i>Chamada</a></li>
             <li><a href="boletimCadastro.html.php"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a>
             </li>
             <li><a class="waves-effect" href="calendario.html.php"><i
@@ -113,7 +113,7 @@
             <li><a href="paginaManutencao.php"><i class="material-icons">list_alt</i>Lista de alunos</a>
             <li><a href="paginaManutencao.php"><i class="material-icons">event</i>Calendário Escolar</a>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">chat_bubble</i>Chat</a>
+            <li><a href="mensagensProfessor.html.php"><i class="material-icons">email</i>Caixa de Mensagens</a>
             </li>
             <li>
                 <div class="divider"></div>

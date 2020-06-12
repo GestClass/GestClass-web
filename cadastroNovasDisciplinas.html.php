@@ -202,7 +202,7 @@
                 <option value="" disabled selected>Selecione a Disciplina</option>
                 <?php
 
-                $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola ORDER BY `ID_disciplina` DESC LIMIT 10 ");
+                $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola ORDER BY `ID_disciplina` DESC");
                 $query_select_id->execute();
 
                 while ($dados_id = $query_select_id->fetch(PDO::FETCH_ASSOC)) {
