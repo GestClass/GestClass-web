@@ -209,70 +209,11 @@
         </div>
     </div>
 
-    <div id="modalEncaminharMensagem" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            <h4>Encaminhar Mensagem Para Todos</h4><br>
-            <div id="novaMensagem">
-                <form action="php/enviarMensagem/encaminharProfessor.php" method="POST">
-                    <div class="row">
-                        <div class="input-field col s12 m4 l12">
-                            <select name="EncaminharMensagens" id="mensagemProf">
-                                <option value="" disabled selected></option>
-                                <?php
-
-                                $query_select_id_usuario = $conn->prepare("SELECT ID_tipo_usuario FROM tipo_usuario WHERE $id_escola ORDER BY `ID_tipo_usuario` DESC LIMIT 5");
-                                $query_select_id_usuario->execute();
-
-                                while ($dados_id_usuario = $query_select_id_usuario->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_usuario = $dados_id_usuario['ID_tipo_usuario'];
-
-                                    $query_select_nome_usuario = $conn->prepare("SELECT nome_usuario FROM tipo_usuario WHERE ID_tipo_usuario = $id_usuario");
-                                    $query_select_nome_usuario->execute();
-
-                                    while ($dados_nome_usuario = $query_select_nome_usuario->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_usuario = $dados_nome_usuario['nome_usuario'];
-
-                                ?>
-                                        <option value="<?php echo $id_usuario ?>"><?php echo $nome_usuario; ?></option>
-                                <?php
-                                    }
-                                }
-                                ?>
-                            </select>
-                            <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite a mensagem aqui" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
-        </div>
-    </div>
-
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large light-blue lighten-1">
             <i class="large material-icons">add</i>
         </a>
-        <ul>S
-            <li><a href="#modalEncaminharMensagem" class="modal-trigger btn-floating indigo lighten-2 tooltipped" data-position="left" data-tooltip="Encaminhar para Todos"><i class="material-icons">record_voice_over</i></a></li>
+        <ul>
             <li><a href="#modalSecreDiretor" class="modal-trigger btn-floating  yellow accent-2 tooltipped" data-position="left" data-tooltip="Professor"><i class="material-icons">portrait</i></a></li>
             <li><a href="#modalEnviarTurma" class="modal-trigger btn-floating blue tooltipped" data-position="left" data-tooltip="Turmas"><i class="material-icons">school</i></a></li>
             <li><a href="#modalEnviarAluno" class="modal-trigger btn-floating red lighten-2 tooltipped" data-position="left" data-tooltip="Aluno"><i class="material-icons">face</i></a></li>
