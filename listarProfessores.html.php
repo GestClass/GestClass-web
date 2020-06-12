@@ -19,13 +19,13 @@
         require_once 'reqProfessor.php';
     }
 
-    
+
     ?>
 
     <div class="container col s12 m12 l12" id="container_boletimCadastro">
         <table class="striped centered">
             <thead>
-                
+
                 <th>
                     Nome
                 </th>
@@ -55,10 +55,10 @@
                     while ($professor = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                         <tr>
-                            
+
 
                             <td>
-                                <a href="dadosUsuarios.html.php?id=<?php echo $professor['ID_professor']?>&tipo=<?php echo $professor['fk_id_tipo_usuario_professor']?> "><?php echo $professor['nome_professor']; ?></a>
+                                <a href="dadosUsuarios.html.php?id=<?php echo $professor['ID_professor'] ?>&tipo=<?php echo $professor['fk_id_tipo_usuario_professor'] ?> "><?php echo $professor['nome_professor']; ?></a>
                             </td>
 
                             <td>
@@ -92,6 +92,15 @@
                 ?>
             </tbody>
         </table>
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large light-blue lighten-1">
+                <i class="large material-icons">add</i>
+            </a>
+            <ul>
+                <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
+                <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
+            </ul>
+        </div>
     </div>
     <?php
     include_once 'reqFooter.php';
