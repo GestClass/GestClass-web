@@ -419,6 +419,14 @@ INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, dat
 /*	-	INSERTS INTO TABLE BOLETIM_ALUNO	-	*/
               
 INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno) VALUES ('10.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 1', '2020-03-22', 00000000, 6);
+INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno) VALUES ('10.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 1', '2020-06-12', 00000000, 5);
+INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno) VALUES ('0.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 2', '2020-06-12', 00000000, 5);
+INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno) VALUES ('10.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 1', '2020-06-12', 00000000, 4);
+INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno) VALUES ('5.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 2', '2020-06-12', 00000000, 4);
+INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno) VALUES ('10.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 1', '2020-06-12', 00000001, 5);
+INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno) VALUES ('0.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 2', '2020-06-12', 00000001, 5);
+INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno) VALUES ('10.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 1', '2020-06-12', 00000001, 4);
+INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk_ra_aluno_boletim_aluno, fk_id_disciplina_boletim_aluno) VALUES ('5.00', 'Hoje Fulano se portou de forma inadequada durante atividade', 'atividade 2', '2020-06-12', 00000001, 4);
 
 
 /*	-	INSERTS INTO TABLE LISTAGEM_CHAMADA	-	*/
@@ -428,6 +436,11 @@ INSERT INTO listagem_chamada (data_chamada, fk_id_escola_listagem_chamada, fk_id
 /*	-	INSERTS INTO TABLE CHAMADA_ALUNO	-	*/
               
 INSERT INTO chamada_aluno (presenca, data_aula, fk_ra_aluno_chamada_aluno, fk_id_disciplina_chamada_aluno, fk_id_professor_chamada_aluno, fk_id_listagem_chamada_aluno) VALUES ( true, '2020-03-22',00000000, 6, 1, 1);
+
+
+/*	-	INSERTS INTO TABLE datas_fim_bimestres	-	*/
+
+INSERT INTO datas_fim_bimestres (bimestre1, bimestre2, bimestre3, bimestre4, fk_id_escola_datas_fim_bimestres) VALUES ('2020-04-15', '2020-06-30', '2020-10-03', '2020-12-10', 1);
 
 
 /*	-	INSERTS INTO TABLE CONTATO	-	*/
@@ -482,8 +495,6 @@ SELECT * FROM secretario;
 SELECT * FROM `admin`;
 
 SELECT * FROM contato;
-
-SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor AS id_turma, disciplina.nome_disciplina AS nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (disciplinas_professor.ID_disciplinas_professor = disciplina.ID_disciplina) WHERE disciplinas_professor.fk_id_turma_professor_disciplinas_professor = 16;
 
 /*			- Códigos anotações Eric
 
