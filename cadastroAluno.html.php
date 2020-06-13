@@ -100,7 +100,7 @@
                     <label id="lbl" for="first_name">Senha</label>
                 </div>
                 <div id="a" class="input-field col s10 m4 l4">
-                    <input name="confsenha" id="confsenha" placeholder="********" type="password" class="validate ">
+                    <input name="confsenha" id="confsenha" placeholder="********" type="password" class="validate" onblur="validarSenha()">
                     <label id="lbl" for="first_name">Confirmar senha</label>
                 </div>
             </div>
@@ -136,7 +136,7 @@
                                 $nome_turma = $dados_turma_nome['nome_turma'];
 
                         ?>
-                                <option  value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
                         <?php
                             }
                         }
@@ -150,6 +150,17 @@
             </div>
         </form>
     </div>
+
+    <script>
+        var senha = document.getElementById("senha"),
+            confSenha = document.getElementById("confsenha");
+
+        function validarSenha() {
+            if (senha.value != confSenha.value) {
+                alert("Senhas diferentes!");
+            } else {}
+        }
+    </script>
 
     <script src="js/query-3.3.1.min.js"></script>
     <script src="js/default.js"></script>

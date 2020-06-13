@@ -43,7 +43,7 @@
     ?>
 
     <div class="container col s12 m12 l12 ">
-        <form  id="secretaria" method="POST" action="php/cadastroContas/cadastrarSecretaria.php" enctype="multipart/form-data">
+        <form id="secretaria" method="POST" action="php/cadastroContas/cadastrarSecretaria.php" enctype="multipart/form-data">
             <h5>Secretaria</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
@@ -112,7 +112,7 @@
                     <label id="lbl" for="icon_telephone">Senha</label>
                 </div>
                 <div id="a" class="input-field col s10 m4 l4">
-                    <input name="confsenha" id="confsenha" type="password" placeholder="*******" class="validate">
+                    <input name="confsenha" id="confsenha" type="password" placeholder="*******" class="validate" onblur="validarSenha()">
                     <label id="lbl" for="icon_telephone">Confirma senha</label>
                 </div>
             </div>
@@ -133,6 +133,17 @@
             </div>
         </form>
     </div>
+
+    <script>
+        var senha = document.getElementById("senha"),
+            confSenha = document.getElementById("confsenha");
+
+        function validarSenha() {
+            if (senha.value != confSenha.value) {
+                alert("Senhas diferentes!");
+            } else {}
+        }
+    </script>
 
     <script src="js/query-3.3.1.min.js"></script>
     <script src="js/cep.js"></script>

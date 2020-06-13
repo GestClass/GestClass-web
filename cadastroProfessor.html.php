@@ -112,7 +112,7 @@
                     <label id="lbl" for="icon_telephone">Senha</label>
                 </div>
                 <div id="a" class="input-field col s10 m4 l4">
-                    <input name="confsenha" id="confsenha" placeholder="*******" type="password" class="validate">
+                    <input name="confsenha" id="confsenha" placeholder="*******" type="password" class="validate" onblur="validarSenha()">
                     <label id="lbl" for="icon_telephone">Confirmar senha</label>
                 </div>
             </div>
@@ -133,6 +133,17 @@
             </div>
         </form>
     </div>
+
+    <script>
+        var senha = document.getElementById("senha"),
+            confSenha = document.getElementById("confsenha");
+
+        function validarSenha() {
+            if (senha.value != confSenha.value) {
+                alert("Senhas diferentes!");
+            } else {}
+        }
+    </script>
 
     <script src="js/query-3.3.1.min.js"></script>
     <script src="js/cep.js"></script>

@@ -66,7 +66,7 @@
                 <div class="row">
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="rg_respon" id="rg" type="tel" maxlength="12" placeholder="84.514.751-1"  class="validate">
+                        <input name="rg_respon" id="rg" type="tel" maxlength="12" placeholder="84.514.751-1" class="validate">
                         <label id="lbl" for="icon_telephone">RG</label>
                     </div>
                     <div class="input-field col s6 m4 l4">
@@ -119,7 +119,7 @@
                         <label id="lbl" for="icon_telephone">Senha</label>
                     </div>
                     <div id="a" class="input-field col s10 m3 l3">
-                        <input name="confsenha_respon" id="confsenha" type="password" placeholder="******" class="validate">
+                        <input name="confsenha_respon" id="confsenha" type="password" placeholder="******" class="validate" onblur="validarSenha()">
                         <label id="lbl" for="icon_telephone">Confirma Senha</label>
                     </div>
                     <div class="input-field col s12 m2 l2">
@@ -167,6 +167,17 @@
             </div>
         </form>
     </div>
+
+    <script>
+        var senha = document.getElementById("senha"),
+            confSenha = document.getElementById("confsenha");
+
+        function validarSenha() {
+            if (senha.value != confSenha.value) {
+                alert("Senhas diferentes!");
+            } else {}
+        }
+    </script>
 
     <script src="js/query-3.3.1.min.js"></script>
     <script src="js/cep.js"></script>
