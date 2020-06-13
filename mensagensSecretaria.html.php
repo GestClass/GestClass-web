@@ -181,22 +181,23 @@
 
                                 <?php
 
-                                $query_select_professor = $conn->prepare("SELECT ID_professor FROM professor WHERE fk_id_escola_professor = $id_escola");
+                                $query_select_professor = $conn->prepare("SELECT ID_professor,nome_professor FROM professor WHERE fk_id_escola_professor = $id_escola");
                                 $query_select_professor->execute();
 
                                 while ($dados_professor = $query_select_professor->fetch(PDO::FETCH_ASSOC)) {
                                     $id_professor = $dados_professor["ID_professor"];
+                                    $nome_professor = $dados_professor["nome_professor"];
 
-                                    $query_select_professor = $conn->prepare("SELECT nome_professor FROM professor WHERE ID_professor = $id_professor");
-                                    $query_select_professor->execute();
+                                    // $query_select_professor = $conn->prepare("SELECT nome_professor FROM professor WHERE ID_professor = $id_professor");
+                                    // $query_select_professor->execute();
 
-                                    while ($dados_professor_nome = $query_select_professor->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_professor = $dados_professor_nome["nome_professor"];
+                                    // while ($dados_professor_nome = $query_select_professor->fetch(PDO::FETCH_ASSOC)) {
+                                        // $nome_professor = $dados_professor_nome["nome_professor"];
 
                                 ?>
                                         <option value="<?php echo $id_professor ?>"><?php echo $nome_professor; ?></option>
                                 <?php
-                                    }
+                                    // }
                                 } ?>
                             </select>
                             <label id="lbl" for="first_name">Escolha a turma para que deseja enviar a mensagem</label>
