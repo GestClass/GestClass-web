@@ -43,7 +43,7 @@
     ?>
 
     <div class="container col s12 m12 l12 ">
-        <form name="frmcpf" id="aluno" method="POST" action="php/cadastroContas/cadastrarAluno.php" enctype="multipart/form-data">
+        <form id="aluno" method="POST" action="php/cadastroContas/cadastrarAluno.php" enctype="multipart/form-data">
             <h5>Aluno</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">

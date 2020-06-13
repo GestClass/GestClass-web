@@ -44,7 +44,7 @@
 
 
     <div class="container col s12 m12 l12 ">
-        <form name="frmcpf" id="responsavel" method="POST" action="php/cadastroContas/cadastrarResponsavel.php" enctype="multipart/form-data">
+        <form id="responsavel" method="POST" action="php/cadastroContas/cadastrarResponsavel.php" enctype="multipart/form-data">
             <div class="col s12 m12 l12">
                 <H5>Responsável</H5>
                 <div class="row">
