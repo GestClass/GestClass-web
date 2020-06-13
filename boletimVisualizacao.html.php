@@ -146,17 +146,7 @@
               // Armazenar no array
               $array_count_notas_bim1 = $sql_select_count_notas_bim1->fetch(PDO::FETCH_ASSOC);
               // Armazenar quantidade de notas da disciplina no 1º bim
-              $qtdeNotas_bim1 = $array_count_notas_bim1['contNotas'];              
-
-
-              // Selecionar a quantidade de notas do bimestre 2
-              $sql_select_count_notas_bim2 = $conn->prepare("SELECT COUNT(nota) AS contNotas FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '$bimestre1' AND data_atividade <= '$bimestre2'");
-              // Executar
-              $sql_select_count_notas_bim2->execute();
-              // Armazenar no array
-              $array_count_notas_bim2 = $sql_select_count_notas_bim2->fetch(PDO::FETCH_ASSOC);
-              // Armazenar quantidade de notas da disciplina no 2º bim
-              $qtdeNotas_bim2 = $array_count_notas_bim2['contNotas'];              
+              $qtdeNotas_bim1 = $array_count_notas_bim1['contNotas'];                         
               
               /*  - - - - - -   - - -   - - - -   - - --  - --  - - - - -*/ 
 
@@ -169,23 +159,13 @@
               // Armazenar soma de notas bimestre 1
               $somaNotas_bim1 = $array_soma_notas_bim1['sumNota'];
 
-
-              // Selecionar a soma das notas do bimestre 2
-              $sql_select_sum_notas_bim2 = $conn->prepare("SELECT SUM(nota) AS sumNota FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '$bimestre1' AND data_atividade <= '$bimestre2'");                            
-              // Executar
-              $sql_select_sum_notas_bim2->execute();
-              // Armazenar retorno no array
-              $array_soma_notas_bim2 = $sql_select_sum_notas_bim2->fetch(PDO::FETCH_ASSOC);
-              // Armazenar soma de notas bimestre 2
-              $somaNotas_bim2 = $array_soma_notas_bim2['sumNota'];              
-              
             ?>
               <tr>
                 <td><?php echo $nome_disciplina; ?></td>
                 <td>
                   <?php
                     // Gerar média bimestre 1;
-                    $media_bim1 = ($somaNotas_bim2 / $qtdeNotas_bim2);
+                    $media_bim1 = ($somaNotas_bim1 / $qtdeNotas_bim1);
                     $media_bim1 = number_format($media_bim1, 2, ',', '');                   
                     echo $media_bim1;
                   ?>
@@ -311,17 +291,7 @@
               $bimestre4 = $array_datas["bimestre4"];
 
 
-              /*  - ALTERAR CONDIÇÕES DE DATAS A CADA ANO - */                           
-
-              // Selecionar a quantidade de notas do bimestre 2
-              $sql_select_count_notas_bim2 = $conn->prepare("SELECT COUNT(nota) AS contNotas FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '$bimestre1' AND data_atividade <= '$bimestre2'");
-              // Executar
-              $sql_select_count_notas_bim2->execute();
-              // Armazenar no array
-              $array_count_notas_bim2 = $sql_select_count_notas_bim2->fetch(PDO::FETCH_ASSOC);
-              // Armazenar quantidade de notas da disciplina no 2º bim
-              $qtdeNotas_bim2 = $array_count_notas_bim2['contNotas'];              
-
+              /*  - ALTERAR CONDIÇÕES DE DATAS A CADA ANO - */                                        
 
               // Selecionar a quantidade de notas do bimestre 3
               $sql_select_count_notas_bim3 = $conn->prepare("SELECT COUNT(nota) AS contNotas FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '$bimestre2' AND data_atividade <= '$bimestre3'");
@@ -332,17 +302,7 @@
               // Armazenar quantidade de notas da disciplina no 3º bim
               $qtdeNotas_bim3 = $array_count_notas_bim3['contNotas'];
 
-              /*  - - - - - -   - - -   - - - -   - - --  - --  - - - - -*/ 
-
-              // Selecionar a soma das notas do bimestre 2
-              $sql_select_sum_notas_bim2 = $conn->prepare("SELECT SUM(nota) AS sumNota FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '$bimestre1' AND data_atividade <= '$bimestre2'");                            
-              // Executar
-              $sql_select_sum_notas_bim2->execute();
-              // Armazenar retorno no array
-              $array_soma_notas_bim2 = $sql_select_sum_notas_bim2->fetch(PDO::FETCH_ASSOC);
-              // Armazenar soma de notas bimestre 2
-              $somaNotas_bim2 = $array_soma_notas_bim2['sumNota'];              
-
+              /*  - - - - - -   - - -   - - - -   - - --  - --  - - - - -*/          
 
               // Selecionar a soma das notas do bimestre 3
               $sql_select_sum_notas_bim3 = $conn->prepare("SELECT SUM(nota) AS sumNota FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '$bimestre2' AND data_atividade <= '$bimestre3'");
@@ -359,7 +319,7 @@
                 <td>
                   <?php
                     // Gerar média bimestre 3;
-                    $media_bim3 = ($somaNotas_bim2 / $qtdeNotas_bim2);
+                    $media_bim3 = ($somaNotas_bim3 / $qtdeNotas_bim3);
                     $media_bim3 = number_format($media_bim3, 2, ',', '');                   
                     echo $media_bim3;
                   ?>
@@ -408,17 +368,7 @@
               $bimestre4 = $array_datas["bimestre4"];
 
 
-              /*  - ALTERAR CONDIÇÕES DE DATAS A CADA ANO - */            
-
-              // Selecionar a quantidade de notas do bimestre 2
-              $sql_select_count_notas_bim2 = $conn->prepare("SELECT COUNT(nota) AS contNotas FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '$bimestre1' AND data_atividade <= '$bimestre2'");
-              // Executar
-              $sql_select_count_notas_bim2->execute();
-              // Armazenar no array
-              $array_count_notas_bim2 = $sql_select_count_notas_bim2->fetch(PDO::FETCH_ASSOC);
-              // Armazenar quantidade de notas da disciplina no 2º bim
-              $qtdeNotas_bim2 = $array_count_notas_bim2['contNotas'];              
-
+              /*  - ALTERAR CONDIÇÕES DE DATAS A CADA ANO - */                        
 
               // Selecionar a quantidade de notas do bimestre 4
               $sql_select_count_notas_bim4 = $conn->prepare("SELECT COUNT(nota) AS contNotas FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '$bimestre3' AND data_atividade <= '$bimestre4'");              
@@ -429,19 +379,7 @@
               // Armazenar quantidade de notas da disciplina no 4º bim
               $qtdeNotas_bim4 = $array_count_notas_bim4['contNotas'];
 
-
-              /*  - - - - - -   - - -   - - - -   - - --  - --  - - - - -*/ 
-
-
-              // Selecionar a soma das notas do bimestre 2
-              $sql_select_sum_notas_bim2 = $conn->prepare("SELECT SUM(nota) AS sumNota FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '$bimestre1' AND data_atividade <= '$bimestre2'");                            
-              // Executar
-              $sql_select_sum_notas_bim2->execute();
-              // Armazenar retorno no array
-              $array_soma_notas_bim2 = $sql_select_sum_notas_bim2->fetch(PDO::FETCH_ASSOC);
-              // Armazenar soma de notas bimestre 2
-              $somaNotas_bim2 = $array_soma_notas_bim2['sumNota'];              
-
+              /*  - - - - - -   - - -   - - - -   - - --  - --  - - - - -*/           
 
               // Selecionar a soma das notas do bimestre 4
               $sql_select_sum_notas_bim4 = $conn->prepare("SELECT SUM(nota) AS sumNota FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '$bimestre3' AND data_atividade <= '$bimestre4'");
@@ -458,7 +396,7 @@
                 <td>
                   <?php
                     // Gerar média bimestre 1;
-                    $media_bim4 = ($somaNotas_bim2 / $qtdeNotas_bim2);
+                    $media_bim4 = ($somaNotas_bim4 / $qtdeNotas_bim4);
                     $media_bim4 = number_format($media_bim4, 2, ',', '');                   
                     echo $media_bim4;
                   ?>
