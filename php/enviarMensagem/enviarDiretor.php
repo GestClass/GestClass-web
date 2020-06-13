@@ -6,6 +6,7 @@ $id_usuario = $_SESSION["id_usuario"];
 $assunto = $_POST["assunto"];
 $mensagem = $_POST["mensagem"];
 
+if (($assunto != "") && ($mensagem != "")) {
 
     $selectSecretario = $conn->prepare("SELECT id_secretario FROM secretario where fk_id_escola_secretario = $id_escola");
     $selectSecretario->execute();
@@ -20,14 +21,13 @@ $mensagem = $_POST["mensagem"];
     $resultado = $inserirMensagem->execute();
 
     if ($resultado == 1) {
-        echo "<script>alert('C]mensagem enviada com Sucesso!!');
+        echo "<script>alert('mensagem enviada com Sucesso!!');
         window.location = '../../mensagensDiretor.html.php';</script>";
-    }else{
+    } else {
         echo "<script>alert('Erro ao enviar a mensagem')
-                history.back();</script>";
+        history.back();</script>";
     }
-
-
-    
-
-?>
+} else {
+    echo "<script>alert('Preencha os campos')
+    history.back();</script>";
+}

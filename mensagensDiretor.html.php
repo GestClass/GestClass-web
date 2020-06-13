@@ -44,7 +44,7 @@
 
     $query_mensagem = $conn->prepare("SELECT nome_diretor,fk_recebimento_diretor_id_diretor,data_mensagem,assunto,mensagem
     FROM diretor AS D 
-    JOIN contato AS c ON D.id_diretor = C.fk_recebimento_diretor_id_diretor and d.id_diretor = {$id_usuario}");
+    JOIN contato AS c ON D.id_diretor = C.fk_recebimento_diretor_id_diretor and d.id_diretor = {$id_usuario}  ORDER BY data_mensagem DESC");
     $query_mensagem->execute();
 
 

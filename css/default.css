@@ -162,6 +162,11 @@ body {
     overflow: visible;
 }
 
+#modalOcorrencias {
+    max-height: 100%;
+    overflow: visible;
+}
+
 #modalChamada {
     max-height: 100%;
     overflow: visible;

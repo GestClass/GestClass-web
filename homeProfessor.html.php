@@ -34,7 +34,7 @@ require_once 'reqProfessor.php';
       </div>
 
       <div class="col s12 m4">
-        <a href="paginaManutencao.php">
+        <a class="modal-trigger" href="#modalOcorrencias">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-clipboard fa-6x blue-icon"></i>
             <h5>Ocorrências</h5>
@@ -247,6 +247,45 @@ require_once 'reqProfessor.php';
             while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
           ?>
               <option value="<?php echo $id_turma ?>"><?php echo utf8_encode($dados_turma_nome["nome_turma"]) ?></option>
+          <?php
+            }
+          }
+          ?>
+        </select>
+          <br>
+        <div class="center">
+          <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+            <i class="material-icons left">search</i>Pesquisar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div id="modalOcorrencias" class="modal">
+  <div class="modal-content">
+    <h4>Selecione a turma</h4>
+    <div class="input-field col s12">
+      <form action="ocorrenciasProfessor.html.php" method="POST">
+        <select name="turmas">
+          <option value="" disabled selected>Selecione a Turma</option>
+          <?php
+
+          $query_select_turmas_escola = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
+          $query_select_turmas_escola->execute();
+
+          while ($dados_turmas_escola = $query_select_turmas_escola->fetch(PDO::FETCH_ASSOC)) {
+
+            $id_turma = $dados_turmas_escola["fk_id_turma_professor_turmas_professor"];
+
+            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+            $query_select_turma->execute();
+
+            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+          ?>
+              <option value="<?php echo $id_turma ?>"><?php echo $dados_turma_nome["nome_turma"]; ?></option>
           <?php
             }
           }

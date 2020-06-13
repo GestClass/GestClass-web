@@ -5,7 +5,10 @@ $id_escola = $_SESSION["id_escola"];
 $id_usuario = $_SESSION["id_usuario"];
 $assunto = $_POST["assunto"];
 $mensagem = $_POST["mensagem"];
-    
+
+if (($assunto != "") && ($mensagem != "")) {
+
+
     $selectDiretor = $conn->prepare("SELECT id_diretor FROM diretor where fk_id_escola_diretor =  $id_escola");
     $selectDiretor->execute();
     $diretor = $selectDiretor->fetch(PDO::FETCH_ASSOC);
@@ -21,11 +24,11 @@ $mensagem = $_POST["mensagem"];
     if ($resultado == 1) {
         echo "<script>alert('Cadastrado com Sucesso!!');
         window.location = '../../mensagensSecretaria.html.php';</script>";
-    }else{
+    } else {
         echo "<script>alert('Erro ao enviar a mensagem')
                 history.back();</script>";
     }
-
-
-
-?>
+} else {
+    echo "<script>alert('Preencha os campos')
+            history.back();</script>";
+}
