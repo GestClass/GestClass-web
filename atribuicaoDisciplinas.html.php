@@ -94,9 +94,23 @@
                         while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
                             $nome_turma = $dados_turma_nome['nome_turma'];
 
+                            $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                            $query_turno->execute();
+
+                            while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                                $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                $query_turno_nome->execute();
+
+                                while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                    $nome_turno = $dados_nome_turno['nome_turno'];
+
                     ?>
-                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+                                    <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?>&nbsp;&nbsp;&nbsp;<?php echo $nome_turno; ?></option>
                     <?php
+                                }
+                            }
                         }
                     }
                     ?>
@@ -112,7 +126,7 @@
                 <option value="" disabled selected>Selecione a Disciplina</option>
                 <?php
 
-                $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola ORDER BY `ID_disciplina` DESC LIMIT 10 ");
+                $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola ORDER BY `ID_disciplina` DESC ");
                 $query_select_id->execute();
 
                 while ($dados_id = $query_select_id->fetch(PDO::FETCH_ASSOC)) {

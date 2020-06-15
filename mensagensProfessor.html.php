@@ -67,7 +67,7 @@
                     <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) { ?>
                         <tr>
                             <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
-                                <?php echo date('d/m/Y H:i:s',strtotime($mensagens["data_mensagem"])); ?></td>
+                                <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                             <td><?php echo $mensagens["assunto"]; ?></td>
                             <td><?php echo $mensagens["mensagem"]; ?></td>
                         </tr>
@@ -137,9 +137,23 @@
                                     while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
                                         $nome_turma = $dados_turma_nome["nome_turma"];
 
+                                        $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                                        $query_turno->execute();
+
+                                        while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                            $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                                            $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                            $query_turno_nome->execute();
+
+                                            while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                                $nome_turno = $dados_nome_turno['nome_turno'];
+
                                 ?>
-                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+                                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?>&nbsp;&nbsp;&nbsp;<?php echo $nome_turno; ?></option>
                                 <?php
+                                            }
+                                        }
                                     }
                                 } ?>
                             </select>

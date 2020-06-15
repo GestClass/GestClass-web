@@ -92,7 +92,7 @@ $id_escola = $_SESSION["id_escola"];
     <h4 class="center"> <i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
     <div class="input-field col s12 validate">
       <form action="php/pinNotif.php" method="POST">
-        <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate" />
+        <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="password" data-mask="000000" class="validate" />
         <div class="center">
           <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
           <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">

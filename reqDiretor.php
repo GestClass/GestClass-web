@@ -105,16 +105,16 @@
             <li><a href="paginaManutencao.php"><i class="material-icons">person</i>Alunos</a></li>
             <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario
                     Escolar</a>
-            <li><a href="paginaManutencao.php"><i class="material-icons">people_alt</i>Professores</a></li>
+            <li><a href="listarProfessores.html.php"><i class="material-icons">people_alt</i>Professores</a></li>
             </li>
             <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i
                         class="material-icons">group_add</i>Cadastro de contas
                     <i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
             <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="cadastrarProfessor.html.php"><i class="material-icons">people_alt</i>Professores</a></li>
-                <li><a href="cadastrarSecretaria.html.php"><i class="material-icons">school</i>Secretaria</a></li>
-                <li><a href="cadastrarAluno.html.php"><i class="material-icons">person</i>Alunos</a></li>
-                <li><a href="cadastrarResponsavel.html.php"><i class="material-icons">wc</i>Pais</a></li>
+            <li><a href="cadastroProfessor.html.php"><i class="material-icons">people_alt</i>Professores</a></li>
+                <li><a href="cadastroSecretaria.html.php"><i class="material-icons">school</i>Secretaria</a></li>
+                <li><a href="cadastroResponsavel.html.php"><i class="material-icons">wc</i>Responsável e Aluno</a></li>
+                <li><a href="cadastroAluno.html.php"><i class="material-icons">person</i>Aluno</a></li>
             </ul>
             <li>
                 <div class="divider"></div>

@@ -67,7 +67,7 @@
                     <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) { ?>
                         <tr>
                             <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
-                            <?php echo date('d/m/Y H:i:s',strtotime($mensagens["data_mensagem"]));?></td>
+                                <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                             <td><?php echo $mensagens["assunto"] ?></td>
                             <td><?php echo $mensagens["mensagem"] ?></td>
                         </tr>
@@ -124,23 +124,38 @@
 
                                 <?php
 
-                                $query_select_turmas = $conn->prepare("SELECT ID_turma FROM turma WHERE fk_id_escola_turma = $id_escola");
-                                $query_select_turmas->execute();
+                                $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
+                                $query_select_id_turma->execute();
 
-                                while ($dados_turmas = $query_select_turmas->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_turma = $dados_turmas["ID_turma"];
+                                while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                                    $id_turma = $dados_turma_id['ID_turma'];
 
                                     $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
                                     $query_select_turma->execute();
 
                                     while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_turma = $dados_turma_nome["nome_turma"];
+                                        $nome_turma = $dados_turma_nome['nome_turma'];
+
+                                        $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                                        $query_turno->execute();
+
+                                        while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                            $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                                            $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                            $query_turno_nome->execute();
+
+                                            while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                                $nome_turno = $dados_nome_turno['nome_turno'];
 
                                 ?>
-                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+                                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?>&nbsp;&nbsp;&nbsp;<?php echo $nome_turno; ?></option>
                                 <?php
+                                            }
+                                        }
                                     }
-                                } ?>
+                                }
+                                ?>
                             </select>
                             <label id="lbl" for="first_name">Escolha a turma para que deseja enviar a mensagem</label>
                         </div>
@@ -188,7 +203,7 @@
                                     $id_professor = $dados_professor["ID_professor"];
                                     $nome_professor = $dados_professor["nome_professor"];
                                 ?>
-                                        <option value="<?php echo $id_professor ?>"><?php echo $nome_professor; ?></option>
+                                    <option value="<?php echo $id_professor ?>"><?php echo $nome_professor; ?></option>
                                 <?php
                                 } ?>
                             </select>
