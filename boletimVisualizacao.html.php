@@ -110,6 +110,7 @@
               <th>Componente Curricular</th>
               <th>Notas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
               <th>Faltas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              <th>Frequência</th>
             </tr>
           </thead>
           <tbody>
@@ -162,14 +163,24 @@
 
 
 
-              // Selecionar quantidade de faltas 
+              // Selecionar quantidade de faltas  do bimestre 1
               $sql_select_count_faltas_bim1 = $conn->prepare("SELECT COUNT(presenca) AS qtdeFaltas FROM  chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND presenca = 0 AND data_aula > '2020-01-01' AND data_aula <= '$bimestre1' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
               // Executar
               $sql_select_count_faltas_bim1->execute();
               // Armzenar resposta em um array
-              $array_count_faltas = $sql_select_count_faltas_bim1->fetch(PDO::FETCH_ASSOC);
+              $array_count_faltas_bim1 = $sql_select_count_faltas_bim1->fetch(PDO::FETCH_ASSOC);
               // Armazenar quantidade de faltas
-              $qtdeFaltas_bim1 = $array_count_faltas['qtdeFaltas'];
+              $qtdeFaltas_bim1 = $array_count_faltas_bim1['qtdeFaltas'];
+
+
+              // Selecionar quantidade de chamadas do bimestre 1
+              $sql_select_count_chamadas_bim1 = $conn->prepare("SELECT COUNT(presenca) AS qtdeChamadas FROM chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND data_aula > '2020-01-01' AND data_aula <= '$bimestre1' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
+              // Executar
+              $sql_select_count_chamadas_bim1->execute();
+              // Armazenar no array
+              $array_count_chamadas_bim1 = $sql_select_count_chamadas_bim1->fetch(PDO::FETCH_ASSOC);
+              // Armazenar quantidade de chamadas
+              $qtdeChamadas_bim1 = $array_count_chamadas_bim1['qtdeChamadas'];
 
             ?>
               <tr>
@@ -184,7 +195,12 @@
                 </td>
                 <td>
                   <?php
-                    echo $qtdeFaltas_bim1;
+                  echo $qtdeFaltas_bim1;
+                  ?>
+                </td>
+                <td>
+                  <?php
+                    echo $qtdeChamadas_bim1;
                   ?>
                 </td>
               </tr>
@@ -203,6 +219,7 @@
               <th>Componente Curricular</th>
               <th>Notas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
               <th>Faltas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              <th>Frequência</th>
             </tr>
           </thead>
           <tbody>
@@ -264,6 +281,7 @@
                   ?>
                 </td>
                 <td>4</td>
+                <td>85%</td>
               </tr>
             <?php
             }
@@ -280,6 +298,7 @@
               <th>Componente Curricular</th>
               <th>Notas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
               <th>Faltas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              <th>Frequência</th>
             </tr>
           </thead>
           <tbody>
@@ -341,6 +360,7 @@
                   ?>
                 </td>
                 <td>4</td>
+                <td>85%</td>
               </tr>
             <?php
             }
@@ -357,6 +377,7 @@
               <th>Componente Curricular</th>
               <th>Notas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
               <th>Faltas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              <th>Frequência</th>
             </tr>
           </thead>
           <tbody>
@@ -418,6 +439,7 @@
                   ?>
                 </td>
                 <td>4</td>
+                <td>85%</td>
               </tr>
             <?php
             }
@@ -434,6 +456,7 @@
               <th>Componente Curricular</th>
               <th>Notas Finais</th>
               <th>Faltas Finais </th>
+              <th>Frequência Final</th>
             </tr>
           </thead>
 
@@ -496,6 +519,7 @@
                   ?>
                 </td>
                 <td>4</td>
+                <td>85%</td>
               </tr>
             <?php
             }

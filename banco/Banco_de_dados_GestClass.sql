@@ -462,7 +462,7 @@ INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk
 INSERT INTO listagem_chamada (data_chamada, fk_id_escola_listagem_chamada, fk_id_disciplina_listagem_chamada, fk_id_professor_listagem_chamada) VALUES ('2020-05-28', 1, 1, 1);
 
 /*	-	INSERTS INTO TABLE CHAMADA_ALUNO	-	*/
-              
+             
 INSERT INTO chamada_aluno (presenca, data_aula, fk_ra_aluno_chamada_aluno, fk_id_disciplina_chamada_aluno, fk_id_professor_chamada_aluno, fk_id_listagem_chamada_aluno) VALUES ( true, '2020-03-22',00000000, 6, 1, 1);
 
 

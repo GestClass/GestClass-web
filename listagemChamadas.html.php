@@ -2,7 +2,7 @@
 
 <body class="body_estilizado">
     <?php
-
+                // EXCLUIR ARQUIVO
     include_once 'php/conexao.php';
 
     $id_usuario = $_SESSION["id_usuario"];
