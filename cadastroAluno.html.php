@@ -64,17 +64,17 @@
             <div class="row">
                 <div class="input-field col s6 m4 l2">
                     <i class="material-icons prefix blue-icon">cake</i>
-                    <input name="data_nascimento" id="data_nascimento" placeholder="05/09/2000" type="text" data-mask="00/00/0000" class="validate">
+                    <input name="data_nascimento" id="data_nascimento" placeholder="05/09/2000" type="tel" data-mask="00/00/0000" class="validate">
                     <label id="lbl">Data Nascimento</label>
                 </div>
                 <div class="input-field col s6 m4 l2">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="ra" id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
+                    <input name="ra" id="RA" placeholder="8956478-9" type="tel" class="validate" data-mask="0000000-0">
                     <label id="lbl" for="first_name">RA</label>
                 </div>
                 <div class="input-field col s6 m4 l2">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="rg" id="RG" placeholder="65.745.984-6" maxlength="12" type="tel" class="validate ">
+                    <input name="rg" id="RG" placeholder="65.745.984-6" maxlength="12" type="text" class="validate ">
                     <label id="lbl" for="first_name">RG</label>
                 </div>
                 <div class="input-field col s6 m6 l3">
@@ -91,7 +91,7 @@
             <div class="row">
                 <div class="input-field col s12 m4 l4">
                     <i class="material-icons prefix blue-icon">alternate_email</i>
-                    <input name="email" id="email" placeholder="gestclass@enterprise.com" type="tel" class="validate ">
+                    <input name="email" id="email" placeholder="gestclass@enterprise.com" type="text" class="validate ">
                     <label id="lbl" for="first_name">Email</label>
                 </div>
                 <div class="input-field col s12 m4 l4">

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<body class="body_estilizado">
+<body>
     <?php
 
     include_once 'php/conexao.php';
@@ -22,23 +22,14 @@
     $turma = $_POST['turmas'];
     ?>
 
-    <div class="container col s12 m12 l12" id="container_boletimCadastro">
-        <table class="striped centered">
+    <div class="container col s12 m12 l12">
+        <table class="striped">
             <thead>
                 <th>
                     RA
                 </th>
                 <th>
                     Nome
-                </th>
-                <th>
-                    Celular
-                </th>
-                <th>
-                    Telefone
-                </th>
-                <th>
-                    Email
                 </th>
             </thead>
             <tbody>
@@ -60,18 +51,6 @@
 
                             <td>
                                 <a href="enviarOcorrencias.html.php?id=<?php echo $alunos['fk_id_responsavel_aluno']?>"><?php echo $alunos['nome_aluno']; ?></a>
-                            </td>
-
-                            <td>
-                                <?php echo $alunos['celular']; ?>
-                            </td>
-
-                            <td>
-                                <?php echo $alunos['telefone']; ?>
-                            </td>
-
-                            <td>
-                                <?php echo $alunos['email']; ?>
                             </td>
                         </tr>
 

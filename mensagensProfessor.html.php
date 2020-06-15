@@ -90,7 +90,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
                             <label id="lbl" for="first_name">Assunto</label>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate ">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
                             <label id="lbl" for="first_name">Assunto</label>
                         </div>
                     </div>
@@ -187,7 +187,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="tel" class="validate">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate">
                             <label id="lbl" for="first_name">Assunto</label>
                         </div>
                     </div>

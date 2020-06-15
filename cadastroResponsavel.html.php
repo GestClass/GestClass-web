@@ -66,7 +66,7 @@
                 <div class="row">
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="rg_respon" id="rg" type="tel" maxlength="12" placeholder="84.514.751-1" class="validate">
+                        <input name="rg_respon" id="rg" type="text" maxlength="12" placeholder="84.514.751-1" class="validate">
                         <label id="lbl" for="icon_telephone">RG</label>
                     </div>
                     <div class="input-field col s6 m4 l4">
@@ -76,14 +76,14 @@
                     </div>
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">cake</i>
-                        <input name="nascimento_respon" id="data_nascimento" placeholder="05/09/2000" type="text" data-mask="00/00/0000" class="validate">
+                        <input name="nascimento_respon" id="data_nascimento" placeholder="05/09/2000" type="tel" data-mask="00/00/0000" class="validate">
                         <label id="lbl">Data Nascimento</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m3 l2">
                         <i class="material-icons prefix blue-icon">location_on</i>
-                        <input name="cep" id="cep" placeholder="08574-150" type="text" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
+                        <input name="cep" id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
                         <label id="lbl" for="first_name">CEP</label>
                     </div>
                     <div id="a" class="input-field col s10 m2 l2">
@@ -103,14 +103,14 @@
                         <label id="lbl" for="first_name">Nº</label>
                     </div>
                     <div id="a" class="input-field col s10 m2 l2">
-                        <input name="complemento" id="complemento" placeholder="Complemento" type="tel" class="validate ">
+                        <input name="complemento" id="complemento" placeholder="Complemento" type="text" class="validate ">
                         <label id="lbl" for="first_name">Complemento</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">alternate_email</i>
-                        <input name="email_respon" id="email" type="tel" placeholder="gestclass@enterprise.com" class="validate">
+                        <input name="email_respon" id="email" type="text" placeholder="gestclass@enterprise.com" class="validate">
                         <label id="lbl" for="icon_telephone">Email</label>
                     </div>
                     <div class="input-field col s12 m3 l3">

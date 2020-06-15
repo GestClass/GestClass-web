@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="rg" id="rg" placeholder="68.124.586-8" maxlength="12" type="tel" class="validate">
+                    <input name="rg" id="rg" placeholder="68.124.586-8" maxlength="12" type="text" class="validate">
                     <label id="lbl" for="icon_telephone">RG</label>
                 </div>
                 <div class="input-field col s6 m6 l6">
@@ -76,7 +76,7 @@
             <div class="row">
                 <div class="input-field col s12 m3 l2">
                     <i class="material-icons prefix blue-icon">location_on</i>
-                    <input name="cep" id="cep" placeholder="08574-150" type="text" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
+                    <input name="cep" id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
                     <label id="lbl" for="first_name">CEP</label>
                 </div>
                 <div id="a" class="input-field col s10 m2 l2">
@@ -96,14 +96,14 @@
                     <label id="lbl" for="first_name">Nº</label>
                 </div>
                 <div id="a" class="input-field col s10 m2 l2">
-                    <input name="complemento" id="complemento" placeholder="Complemento" type="tel" class="validate ">
+                    <input name="complemento" id="complemento" placeholder="Complemento" type="text" class="validate ">
                     <label id="lbl" for="first_name">Complemento</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12 m4 l4">
                     <i class="material-icons prefix blue-icon">alternate_email</i>
-                    <input name="email" id="email" placeholder="gestclass@entreprise.com" type="tel" class="validate">
+                    <input name="email" id="email" placeholder="gestclass@entreprise.com" type="text" class="validate">
                     <label id="lbl" for="icon_telephone">Email</label>
                 </div>
                 <div class="input-field col s12 m4 l4">
