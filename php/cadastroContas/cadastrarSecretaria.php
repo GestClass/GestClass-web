@@ -69,14 +69,28 @@ if (($nome != "") && ($rg != "") && ($cpf != "") && ($cep != "") && ($numero != 
 
 			move_uploaded_file($temp, $caminho);
 
-			$query = $conn->prepare("INSERT INTO secretario (nome_secretario, foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario)
-            VALUES ('{$nome}', '{$nome_imagem}','{$cep}','{$numero}','{$complemento}','{$rg}', '{$cpf_secretario}', '{$email}', '{$senha}', '{$celular}','{$telefone}','3' ,'{$id_escola}')");
+			$query_secretario = $conn->prepare("INSERT INTO secretario (nome_secretario, foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario)
+            VALUES (:nome,:nome_imagem,:cep,:numero,:complemento,:rg,:cpf_secretario,:email,:senha,:celular,:telefone,'3' ,:id_escola)");
 
-			if ($query->execute()) {
+			$query_secretario->bindParam('nome', $nome, PDO::PARAM_STR);
+			$query_secretario->bindParam('nome_imagem', $nome_imagem, PDO::PARAM_STR);
+			$query_secretario->bindParam('cep', $cep, PDO::PARAM_STR);
+			$query_secretario->bindParam('numero', $numero, PDO::PARAM_STR);
+			$query_secretario->bindParam('complemento', $complemento, PDO::PARAM_STR);
+			$query_secretario->bindParam('rg', $rg, PDO::PARAM_STR);
+			$query_secretario->bindParam('cpf_secretario', $cpf_secretario, PDO::PARAM_INT);
+			$query_secretario->bindParam('email', $email, PDO::PARAM_STR);
+			$query_secretario->bindParam('celular', $celular, PDO::PARAM_STR);
+			$query_secretario->bindParam('telefone', $telefone, PDO::PARAM_STR);
+			$query_secretario->bindParam('id_escola', $id_escola, PDO::PARAM_INT);
+
+			$query_secretario->execute();
+
+			if ($query_secretario->rowCount()) {
 				if ($id_tipo_usuario == 2) {
 
 					echo "<script>alert('Secretario cadastrado com sucesso');
-		window.location='../../homeDiretor.html.php';
+						window.location='../../homeDiretor.html.php';
 						</script>";
 				} elseif ($id_tipo_usuario == 3) {
 

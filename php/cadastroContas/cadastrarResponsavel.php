@@ -78,19 +78,38 @@ if (($nome_respon != "") && ($rg_respon != "") && ($cpf_r != "") && ($nascimento
 			move_uploaded_file($temp, $caminho);
 
 			$query_responsavel = $conn->prepare("INSERT INTO responsavel(nome_responsavel, foto, cep, numero, complemento, RG, cpf, email, senha, pin, celular, telefone, telefone_comercial, data_nascimento, data_pagamento_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel)
-           VALUES ('{$nome_respon}','{$nome_imagem}', '{$cep}', '{$numero}', '{$complemento}', '{$rg_respon}', '{$cpf_respon}', '{$email_respon}', '{$senha_respon}', '{$pin}', '{$celular_respon}', '{$telefone_respon}', '{$tel_comercial}', '{$nascimento_respon}', '{$data_pagamento}','6', '{$id_escola}')");
+		   VALUES (:nome_respon,:nome_imagem,:cep,:numero,:complemento,:rg_respon,:cpf_respon,:email_respon,:senha_respon,:pin,:celular_respon,:telefone_respon,:tel_comercial,:nascimento_respon,:data_pagamento,'6',:id_escola)");
 
-			if ($query_responsavel->execute()) {
+			$query_responsavel->bindParam(':nome', $nome, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':nome_imagem', $nome_imagem, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':cep', $cep, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':numero', $numero, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':complemento', $complemento, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':rg_respon', $rg_respon, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':cpf_respon', $cpf_respon, PDO::PARAM_INT);
+			$query_responsavel->bindParam(':email_respon', $email_respon, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':senha_respon', $senha_respon, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':pin', $pin, PDO::PARAM_INT);
+			$query_responsavel->bindParam(':celular_respon', $celular_respon, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':telefone_respon', $telefone_respon, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':tel_comercial', $tel_comercial, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':nascimento_respon', $nascimento_respon, PDO::PARAM_STR);
+			$query_responsavel->bindParam(':data_pagamento', $data_pagamento, PDO::PARAM_INT);
+			$query_responsavel->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
+
+			$query_responsavel->execute();
+
+			if ($query_responsavel->rowCount()) {
 
 				if ($id_tipo_usuario == 2) {
 
 					echo "<script>alert('Responsável cadastrado com sucesso');
-					window.location='../../homeDiretor.html.php';
+					window.location='../../cadastrarAlunoRespon.html.php';
 					</script>";
 				} elseif ($id_tipo_usuario == 3) {
 
 					echo "<script>alert('Responsável cadastrado com sucesso');
-					window.location='../../homeSecretaria.html.php';
+					window.location='../../cadastrarAlunoRespon.html.php';
 					</script>";
 				} else {
 					echo "<script>alert('Usuario sem permissão');

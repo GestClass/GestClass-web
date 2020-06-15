@@ -83,10 +83,26 @@ if (($rastro != "") && ($nome != "") && ($rg != "") && ($cpf != "") && ($nascime
 
 			move_uploaded_file($temp, $caminho);
 
-			$query = $conn->prepare("INSERT INTO aluno (RA,nome_aluno, foto, RG, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno)
-            VALUES ('{$ra}','{$nome}','{$nome_imagem}','{$rg}','{$cpf_aluno}','{$email}','{$senha}','{$celular}','{$telefone}','{$data_nascimento}','{$turma}','{$id_responsavel}','5', '{$id_escola}')");
+			$query_insert = $conn->prepare("INSERT INTO aluno (RA,nome_aluno, foto, RG, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno)
+            VALUES (:ra, :nome, :nome_imagem, :rg, :cpf_aluno, :email, :senha, :celular, :telefone, :data_nascimento, :turma, :id_responsavel, '5', :id_escola)");
 
-			if ($query->execute()) {
+			$query_insert->bindParam(':ra', $ra, PDO::PARAM_STR);
+			$query_insert->bindParam(':nome', $nome, PDO::PARAM_STR);
+			$query_insert->bindParam(':nome_imagem', $nome_imagem, PDO::PARAM_STR);
+			$query_insert->bindParam(':rg', $rg, PDO::PARAM_STR);
+			$query_insert->bindParam(':cpf_aluno', $cpf_aluno, PDO::PARAM_INT);
+			$query_insert->bindParam(':email', $email, PDO::PARAM_STR);
+			$query_insert->bindParam(':senha', $senha, PDO::PARAM_STR);
+			$query_insert->bindParam(':celular', $celular, PDO::PARAM_STR);
+			$query_insert->bindParam(':telefone', $telefone, PDO::PARAM_STR);
+			$query_insert->bindParam(':data_nascimento', $data_nascimento, PDO::PARAM_STR);
+			$query_insert->bindParam(':turma', $turma, PDO::PARAM_INT);
+			$query_insert->bindParam(':id_responsavel', $id_responsavel, PDO::PARAM_INT);
+			$query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
+			
+			$query_insert->execute();
+
+			if ($query_insert->rowCount()) {
 				if ($id_tipo_usuario == 2) {
 
 					echo "<script>alert('Aluno cadastrado com sucesso');

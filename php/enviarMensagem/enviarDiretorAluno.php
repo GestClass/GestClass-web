@@ -5,9 +5,11 @@ $id_escola = $_SESSION["id_escola"];
 $id_usuario = $_SESSION["id_usuario"];
 $assunto = $_POST["assunto"];
 $mensagem = $_POST["mensagem"];
-$ra_aluno = $_POST["ra"];
+$ra = $_POST["ra"];
 
 if (($assunto != "") && ($mensagem != "")) {
+
+    $ra_aluno = str_replace('-', '', $ra); 
 
     $inserirMensagem = $conn->prepare("INSERT INTO `contato` (`mensagem`, `fk_envio_aluno_ra_aluno`, `fk_envio_responsavel_id_responsavel`, 
     `fk_envio_professor_id_professor`, `fk_envio_diretor_id_diretor`, `fk_envio_secretario_id_secretario`, `fk_recebimento_aluno_ra_aluno`, 

@@ -69,10 +69,25 @@ if (($nome != "") && ($rg != "") && ($cpf != "") && ($cep != "") && ($numero != 
 
       move_uploaded_file($temp, $caminho);
 
-      $query = $conn->prepare("INSERT INTO professor(nome_professor, foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_professor, fk_id_escola_professor) 
-        VALUES ('{$nome}','{$nome_imagem}','{$cep}','{$numero}','{$complemento}','{$rg}','{$cpf_professor}','{$email}','{$senha}','{$celular}','{$telefone}','4','{$id_escola}')");
+      $query_insert = $conn->prepare("INSERT INTO professor(nome_professor, foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_professor, fk_id_escola_professor) 
+        VALUES (:nome,:nome_imagem,:cep,:numero,:complemento,:rg,:cpf_professor,:email,:senha,:celular,:telefone,'4',:id_escola)");
 
-      if ($query->execute()) {
+      $query_insert->bindParam(':nome', $nome, PDO::PARAM_STR);
+      $query_insert->bindParam(':nome_imagem', $nome_imagem, PDO::PARAM_STR);
+      $query_insert->bindParam(':cep', $cep, PDO::PARAM_STR);
+      $query_insert->bindParam(':numero', $numero, PDO::PARAM_STR);
+      $query_insert->bindParam(':complemento', $complemento, PDO::PARAM_STR);
+      $query_insert->bindParam(':rg', $rg, PDO::PARAM_STR);
+      $query_insert->bindParam(':cpf_professor', $cpf_professor, PDO::PARAM_INT);
+      $query_insert->bindParam(':email', $email, PDO::PARAM_STR);
+      $query_insert->bindParam(':senha', $senha, PDO::PARAM_STR);
+      $query_insert->bindParam(':celular', $celular, PDO::PARAM_STR);
+      $query_insert->bindParam(':telefone', $telefone, PDO::PARAM_STR);
+      $query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
+
+      $query_insert->execute();
+
+      if ($query_insert->rowCount()) {
         if ($id_tipo_usuario == 2) {
 
           echo "<script>alert('Professor cadastrado com sucesso');
