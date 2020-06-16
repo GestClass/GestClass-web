@@ -84,12 +84,40 @@ require_once 'reqHeader.php';
   </div>
 </section>
 
+<div id="modalAlterarTurmas" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Selecione a turma para alterar</h4>
+            <div class="input-field col s12">
+                <form action="alteracaoTurmas.html.php" method="POST">
+                    <select name='turma'>
+                        <option value="" disabled selected>Turmas</option>
+                        <?php $query_turmas = $conn->prepare('SELECT * FROM turma WHERE fk_id_escola_turma = ' .$id_escola.'' );
+                $query_turmas->execute();
+                while($dados_turmas = $query_turmas->fetch(PDO::FETCH_ASSOC)){?>
+                        <option value="<?php echo $dados_turmas['ID_turma']?>"><?php echo $dados_turmas['nome_turma']?>
+                        </option><?php
+
+                }?>
+
+                    </select>
+                    <br><br><br><br><br>
+
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
 <section class="floating-buttons">
   <div class="fixed-action-btn">
     <a class="btn-floating btn-large light-blue lighten-1">
       <i class="large material-icons">add</i>
     </a>
     <ul>
+    <li><a href="#modalAlterarTurmas" class="modal-trigger btn-floating indigo accent-2 tooltipped" data-position="left"data-tooltip="Alterar turma dos alunos"><i class="material-icons">create</i></a></li>
       <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
       <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
       <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>

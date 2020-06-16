@@ -43,11 +43,13 @@
     ?>
 
     <div id="turmas_disci" class="container col s12 m12 l12 ">
-        <form id="disciplina_turmas" method="POST" action="php/alteracaoTurma.php">
+        <form id="disciplina_turmas" method="POST" action="php/alteracaoTurmas.php">
             <h4 class="center">Alteração de turmas</h4><br><br>
 
-            <div class=" row">
-                <div class="input-field col s12 m6 l6">
+            <div class="row">
+
+                <div class="input-field col s12 m6 l6 offset-l3 ">
+
                     <i class="material-icons prefix blue-icon">school</i>
                     <select name="turma">
                         <option value="" disabled selected>Selecione a nova turma</option>
@@ -56,8 +58,12 @@
                         $query_select_turma->execute();
 
                         while ($turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                               $query_turno = $conn->prepare('SELECT * FROM turno WHERE ID_turno = '.$turma_nome['fk_id_turno_turma'].'');
+                               $query_turno->execute(); 
+                               $turma_turno = $query_turno->fetch(PDO::FETCH_ASSOC)
                             ?>
-                        <option value="<?php echo $turma_nome['ID_turma'] ?>"><?php echo $turma_nome['nome_turma'] ?>
+                        <option value="<?php echo $turma_nome['ID_turma'] ?>">
+                            <?php echo $turma_nome['nome_turma'] .'  -  '. $turma_turno['nome_turno'] ?>
                         </option>
                         <?php
                         }
@@ -65,30 +71,16 @@
                     ?>
                     </select>
                     <label id="lbl">Selecione a turma</label>
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6 offset-l12">
+
+                            <a href="cadastroTurmas.html.php" id="disciplinas"
+                                class="btn-flat btnLightBlue center">Nova Turma</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-field col s12 m6 l6">
-                    <i class="material-icons prefix blue-icon">school</i>
-                    <select name="turmas">
-                        <option value="" disabled selected>Selecione o turno para a nova turma</option>
-                        <?php
-
-                        $query_select_turno = $conn->prepare("SELECT * FROM turno");
-                        $query_select_turno->execute();
-
-                        while ($dados_turno = $query_select_turno->fetch(PDO::FETCH_ASSOC)) {
-                            ?>
-                        <option value="<?php echo $dados_turno['ID_turno'] ?>"><?php echo $dados_turno['nome_turno']; ?>
-                        </option>
-                        <?php
-                        }
-                    
-                    ?>
-
-                    </select>
-                    <label id="lbl" for="first_name">Selecione o turno</label>
-                </div>
-
                 <table class="striped centered">
+
                     <thead>
 
                         <th>
@@ -103,7 +95,7 @@
 
                         <?php
 
-            $query_listagem = $conn->prepare('SELECT nome_aluno,RA FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = 16');
+            $query_listagem = $conn->prepare('SELECT nome_aluno,RA FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = '.$_POST['turma'].'');
             $query_listagem->execute();
 
             if ($query_listagem->rowCount()) {
@@ -119,8 +111,8 @@
                             <td>
                                 <label>
                                     <input id="alteracaoturma" type="checkbox"
-                                        class="filled-in falta checkbox-blue-grey"
-                                        name="<?php echo $alunos['RA'].'alterar'?>" value="0" checked />
+                                        class="filled-in falta checkbox-blue-grey" name="<?php echo $alunos['RA']?>"
+                                        value="<?php echo $alunos['RA']?>" checked />
                                     <span></span>
                                 </label>
                             </td>
@@ -140,10 +132,12 @@
                     </tbody>
                 </table>
                 <div class="center">
+                    <input type="hidden" name='turmaAntiga' value="<?php echo $_POST['turma']?>">
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                         <i class="material-icons left">send</i>Alterar
                     </button>
                 </div>
+
         </form>
     </div>
 
