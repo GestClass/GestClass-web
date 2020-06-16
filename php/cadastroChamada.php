@@ -8,7 +8,7 @@ $id_escola = $_SESSION["id_escola"];
 
 $dataChamada = $_POST['dataChamada'];
 // Alterar abaixo para o valor quando vier do <select>
-$id_disciplina = 1;
+$id_disciplina = 5;
 $id_professor = $id_usuario;
 
 if ($dataChamada != "") {

@@ -161,7 +161,7 @@
               $somaNotas_bim1 = $array_soma_notas_bim1['sumNota'];
 
 
-
+              /*    -   SELECT DE FALTAS    -   */
 
               // Selecionar quantidade de faltas  do bimestre 1
               $sql_select_count_faltas_bim1 = $conn->prepare("SELECT COUNT(presenca) AS qtdeFaltas FROM  chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND presenca = 0 AND data_aula > '2020-01-01' AND data_aula <= '$bimestre1' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
@@ -187,20 +187,34 @@
                 <td><?php echo $nome_disciplina; ?></td>
                 <td>
                   <?php
-                  // Gerar média bimestre 1;
-                  $media_bim1 = ($somaNotas_bim1 / $qtdeNotas_bim1);
-                  $media_bim1 = number_format($media_bim1, 2, ',', '');
-                  echo $media_bim1;
+
+                  if ($qtdeNotas_bim1 == 0) {
+                    echo '-';
+                  } else {
+                    // Gerar média bimestre 1
+                    $media_bim1 = ($somaNotas_bim1 / $qtdeNotas_bim1);
+                    $media_bim1 = number_format($media_bim1, 2, ',', '');
+                    echo $media_bim1;
+                  }
                   ?>
                 </td>
                 <td>
                   <?php
-                  echo $qtdeFaltas_bim1;
+                  if ($qtdeChamadas_bim1 == 0) {
+                    echo '-';
+                  } else {
+                    echo $qtdeFaltas_bim1;
+                  }
                   ?>
                 </td>
                 <td>
                   <?php
-                    echo $qtdeChamadas_bim1;
+                  if ($qtdeChamadas_bim1 == 0) {
+                    echo '-';
+                  } else {
+                    $frequencia = 100 - ($qtdeFaltas_bim1 / $qtdeChamadas_bim1) * 100;
+                    echo $frequencia.'%';
+                  }
                   ?>
                 </td>
               </tr>
@@ -269,19 +283,62 @@
               // Armazenar soma de notas bimestre 2
               $somaNotas_bim2 = $array_soma_notas_bim2['sumNota'];
 
+
+              /*    -   SELECT DE FALTAS    -   */
+
+              // Selecionar quantidade de faltas  do bimestre 2
+              $sql_select_count_faltas_bim2 = $conn->prepare("SELECT COUNT(presenca) AS qtdeFaltas FROM  chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND presenca = 0 AND data_aula > '$bimestre1' AND data_aula <= '$bimestre2' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
+              // Executar
+              $sql_select_count_faltas_bim2->execute();
+              // Armzenar resposta em um array
+              $array_count_faltas_bim2 = $sql_select_count_faltas_bim2->fetch(PDO::FETCH_ASSOC);
+              // Armazenar quantidade de faltas
+              $qtdeFaltas_bim2 = $array_count_faltas_bim2['qtdeFaltas'];
+
+
+              // Selecionar quantidade de chamadas do bimestre 2
+              $sql_select_count_chamadas_bim2 = $conn->prepare("SELECT COUNT(presenca) AS qtdeChamadas FROM chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND data_aula > '$bimestre1' AND data_aula <= '$bimestre2' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
+              // Executar
+              $sql_select_count_chamadas_bim2->execute();
+              // Armazenar no array
+              $array_count_chamadas_bim2 = $sql_select_count_chamadas_bim2->fetch(PDO::FETCH_ASSOC);
+              // Armazenar quantidade de chamadas
+              $qtdeChamadas_bim2 = $array_count_chamadas_bim2['qtdeChamadas'];
+
             ?>
               <tr>
                 <td><?php echo $nome_disciplina; ?></td>
                 <td>
                   <?php
-                  // Gerar média bimestre 1;
-                  $media_bim2 = ($somaNotas_bim2 / $qtdeNotas_bim2);
-                  $media_bim2 = number_format($media_bim2, 2, ',', '');
-                  echo $media_bim2;
+                  if ($qtdeNotas_bim2 == 0) {
+                    echo '-';
+                  } else {
+                    // Gerar média bimestre 2;
+                    $media_bim2 = ($somaNotas_bim2 / $qtdeNotas_bim2);
+                    $media_bim2 = number_format($media_bim2, 2, ',', '');
+                    echo $media_bim2;
+                  }
                   ?>
                 </td>
-                <td>4</td>
-                <td>85%</td>
+                <td>
+                  <?php
+                  if ($qtdeChamadas_bim2 == 0) {
+                    echo '-';
+                  } else {
+                    echo $qtdeFaltas_bim2;
+                  }
+                  ?>
+                </td>
+                <td>
+                  <?php
+                  if ($qtdeChamadas_bim2 == 0) {
+                    echo '-';
+                  } else {
+                    $frequencia = 100 - ($qtdeFaltas_bim2 / $qtdeChamadas_bim2) * 100;
+                    echo $frequencia.'%';
+                  }
+                  ?>
+                </td>
               </tr>
             <?php
             }
@@ -348,19 +405,61 @@
               // Armazenar soma de notas bimestre 3
               $somaNotas_bim3 = $array_soma_notas_bim3['sumNota'];
 
+
+              /*    -   SELECT DE FALTAS    -   */
+
+              // Selecionar quantidade de faltas  do bimestre 3
+              $sql_select_count_faltas_bim3 = $conn->prepare("SELECT COUNT(presenca) AS qtdeFaltas FROM  chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND presenca = 0 AND data_aula > '$bimestre2' AND data_aula <= '$bimestre3' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
+              // Executar
+              $sql_select_count_faltas_bim3->execute();
+              // Armzenar resposta em um array
+              $array_count_faltas_bim3 = $sql_select_count_faltas_bim3->fetch(PDO::FETCH_ASSOC);
+              // Armazenar quantidade de faltas
+              $qtdeFaltas_bim3 = $array_count_faltas_bim3['qtdeFaltas'];
+
+
+              // Selecionar quantidade de chamadas do bimestre 3
+              $sql_select_count_chamadas_bim3 = $conn->prepare("SELECT COUNT(presenca) AS qtdeChamadas FROM chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND data_aula > '$bimestre2' AND data_aula <= '$bimestre3' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
+              // Executar
+              $sql_select_count_chamadas_bim3->execute();
+              // Armazenar no array
+              $array_count_chamadas_bim3 = $sql_select_count_chamadas_bim3->fetch(PDO::FETCH_ASSOC);
+              // Armazenar quantidade de chamadas
+              $qtdeChamadas_bim3 = $array_count_chamadas_bim3['qtdeChamadas'];
             ?>
               <tr>
                 <td><?php echo $nome_disciplina; ?></td>
                 <td>
                   <?php
-                  // Gerar média bimestre 3;
-                  $media_bim3 = ($somaNotas_bim3 / $qtdeNotas_bim3);
-                  $media_bim3 = number_format($media_bim3, 2, ',', '');
-                  echo $media_bim3;
+                  if ($qtdeNotas_bim3 == 0) {
+                    echo '-';
+                  } else {
+                    // Gerar média bimestre 3;
+                    $media_bim3 = ($somaNotas_bim3 / $qtdeNotas_bim3);
+                    $media_bim3 = number_format($media_bim3, 2, ',', '');
+                    echo $media_bim3;
+                  }
                   ?>
                 </td>
-                <td>4</td>
-                <td>85%</td>
+                <td>
+                  <?php
+                  if ($qtdeChamadas_bim3 == 0) {
+                    echo '-';
+                  } else {
+                    echo $qtdeFaltas_bim3;
+                  }
+                  ?>
+                </td>
+                <td>
+                  <?php
+                  if ($qtdeChamadas_bim3 == 0) {
+                    echo '-';
+                  } else {
+                    $frequencia = 100 - ($qtdeFaltas_bim3 / $qtdeChamadas_bim3) * 100;
+                    echo $frequencia.'%';
+                  }
+                  ?>
+                </td>
               </tr>
             <?php
             }
@@ -427,19 +526,62 @@
               // Armazenar soma de notas bimestre 4
               $somaNotas_bim4 = $array_soma_notas_bim4['sumNota'];
 
+
+              /*    -   SELECT DE FALTAS    -   */
+
+              // Selecionar quantidade de faltas  do bimestre 4
+              $sql_select_count_faltas_bim4 = $conn->prepare("SELECT COUNT(presenca) AS qtdeFaltas FROM  chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND presenca = 0 AND data_aula > '$bimestre3' AND data_aula <= '$bimestre4' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
+              // Executar
+              $sql_select_count_faltas_bim4->execute();
+              // Armzenar resposta em um array
+              $array_count_faltas_bim4 = $sql_select_count_faltas_bim4->fetch(PDO::FETCH_ASSOC);
+              // Armazenar quantidade de faltas
+              $qtdeFaltas_bim4 = $array_count_faltas_bim4['qtdeFaltas'];
+
+
+              // Selecionar quantidade de chamadas do bimestre 4
+              $sql_select_count_chamadas_bim4 = $conn->prepare("SELECT COUNT(presenca) AS qtdeChamadas FROM chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND data_aula > '$bimestre3' AND data_aula <= '$bimestre4' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
+              // Executar
+              $sql_select_count_chamadas_bim4->execute();
+              // Armazenar no array
+              $array_count_chamadas_bim4 = $sql_select_count_chamadas_bim4->fetch(PDO::FETCH_ASSOC);
+              // Armazenar quantidade de chamadas
+              $qtdeChamadas_bim4 = $array_count_chamadas_bim4['qtdeChamadas'];
+
             ?>
               <tr>
                 <td><?php echo $nome_disciplina; ?></td>
                 <td>
                   <?php
-                  // Gerar média bimestre 1;
-                  $media_bim4 = ($somaNotas_bim4 / $qtdeNotas_bim4);
-                  $media_bim4 = number_format($media_bim4, 2, ',', '');
-                  echo $media_bim4;
+                  if ($qtdeNotas_bim4 == 0) {
+                    echo '-';
+                  } else {
+                    // Gerar média bimestre 4;
+                    $media_bim4 = ($somaNotas_bim4 / $qtdeNotas_bim4);
+                    $media_bim4 = number_format($media_bim4, 2, ',', '');
+                    echo $media_bim4;
+                  }
                   ?>
                 </td>
-                <td>4</td>
-                <td>85%</td>
+                <td>
+                  <?php
+                  if ($qtdeChamadas_bim4 == 0) {
+                    echo '-';
+                  } else {
+                    echo $qtdeFaltas_bim4;
+                  }
+                  ?>
+                </td>
+                <td>
+                  <?php
+                  if ($qtdeChamadas_bim4 == 0) {
+                    echo '-';
+                  } else {
+                    $frequencia = 100 - ($qtdeFaltas_bim4 / $qtdeChamadas_bim4) * 100;
+                    echo $frequencia.'%';
+                  }
+                  ?>
+                </td>
               </tr>
             <?php
             }
@@ -487,39 +629,83 @@
 
               /*  - ALTERAR CONDIÇÕES DE DATAS A CADA ANO - */
 
-              // Selecionar a quantidade de notas do bimestre 4
+              // Selecionar a quantidade de notas final
               $sql_select_count_notas_final = $conn->prepare("SELECT COUNT(nota) AS contNotas FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '2020-01-01' AND data_atividade <= '$bimestre4'");
               // Executar
               $sql_select_count_notas_final->execute();
               // Armazenar no array
               $array_count_notas_final = $sql_select_count_notas_final->fetch(PDO::FETCH_ASSOC);
-              // Armazenar quantidade de notas da disciplina no 4º bim
+              // Armazenar quantidade de notas da disciplina final
               $qtdeNotas_final = $array_count_notas_final['contNotas'];
 
               /*  - - - - - -   - - -   - - - -   - - --  - --  - - - - -*/
 
-              // Selecionar a soma das notas do bimestre 4
+              // Selecionar a soma das notas do final
               $sql_select_sum_notas_final = $conn->prepare("SELECT SUM(nota) AS sumNota FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = $id_disciplina AND fk_ra_aluno_boletim_aluno = $ra AND data_atividade > '2020-01-01' AND data_atividade <= '$bimestre4'");
               // Executar
               $sql_select_sum_notas_final->execute();
               // Armazenar retorno no array
               $array_soma_notas_final = $sql_select_sum_notas_final->fetch(PDO::FETCH_ASSOC);
-              // Armazenar soma de notas bimestre 4
+              // Armazenar soma de notas final
               $somaNotas_final = $array_soma_notas_final['sumNota'];
+
+
+              /*    -   SELECT DE FALTAS    -   */
+
+              // Selecionar quantidade de faltas  final
+              $sql_select_count_faltas_final = $conn->prepare("SELECT COUNT(presenca) AS qtdeFaltas FROM  chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND presenca = 0 AND data_aula > '2020-01-01' AND data_aula <= '$bimestre4' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
+              // Executar
+              $sql_select_count_faltas_final->execute();
+              // Armzenar resposta em um array
+              $array_count_faltas_final = $sql_select_count_faltas_final->fetch(PDO::FETCH_ASSOC);
+              // Armazenar quantidade de faltas
+              $qtdeFaltas_final = $array_count_faltas_final['qtdeFaltas'];
+
+
+              // Selecionar quantidade de chamadas final
+              $sql_select_count_chamadas_final = $conn->prepare("SELECT COUNT(presenca) AS qtdeChamadas FROM chamada_aluno WHERE fk_ra_aluno_chamada_aluno = $ra AND data_aula > '2020-01-01' AND data_aula <= '$bimestre4' AND fk_id_disciplina_chamada_aluno = $id_disciplina");
+              // Executar
+              $sql_select_count_chamadas_final->execute();
+              // Armazenar no array
+              $array_count_chamadas_final = $sql_select_count_chamadas_final->fetch(PDO::FETCH_ASSOC);
+              // Armazenar quantidade de chamadas
+              $qtdeChamadas_final = $array_count_chamadas_final['qtdeChamadas'];
+
 
             ?>
               <tr>
                 <td><?php echo $nome_disciplina; ?></td>
                 <td>
                   <?php
-                  // Gerar média bimestre 1;
-                  $media_final = ($somaNotas_final / $qtdeNotas_final);
-                  $media_final = number_format($media_final, 2, ',', '');
-                  echo $media_final;
+                  if ($qtdeNotas_final == 0) {
+                    echo '-';
+                  } else {
+                    // Gerar média bimestre 1;
+                    $media_final = ($somaNotas_final / $qtdeNotas_final);
+                    $media_final = number_format($media_final, 2, ',', '');
+                    echo $media_final;
+                  }
                   ?>
                 </td>
-                <td>4</td>
-                <td>85%</td>
+                <td>
+                  <?php
+                  if ($qtdeChamadas_final == 0) {
+                    echo '-';
+                  } else {
+                    echo $qtdeChamadas_final;
+                  }
+                  ?>
+                </td>
+                <td>
+                  <?php
+                  if ($qtdeChamadas_final == 0) {
+                    echo '-';
+                  } else {
+                    $frequencia = 100 - ($qtdeFaltas_final / $qtdeChamadas_final) * 100;
+                    echo $frequencia.'%';
+                  }
+                  ?>
+                </td>
               </tr>
             <?php
             }
