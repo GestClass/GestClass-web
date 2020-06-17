@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/mensagensDiretor.css" />
+    <link rel="stylesheet" type="text/css" href="css/mensagensSecretaria.css" />
 
 
 </head>
@@ -115,69 +115,67 @@
     <div id="modalEnviarTurma" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
-            <div id="novaMensagem">
-                <form action="php/enviarMensagem/enviarSecretariaTurmas.php" method="POST">
-                    <div class="row">
-                        <div class="input-field col s12 m4 l12">
-                            <select name="destinatario">
-                                <option value="" disabled selected></option>
+            <form action="php/enviarMensagem/enviarSecretariaTurmas.php" method="POST">
+                <div class="row">
+                    <div class="input-field col s12 m4 l12">
+                        <select name="destinatario">
+                            <option value="" disabled selected>Selecione Uma Turma</option>
 
-                                <?php
+                            <?php
 
-                                $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
-                                $query_select_id_turma->execute();
+                            $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
+                            $query_select_id_turma->execute();
 
-                                while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_turma = $dados_turma_id['ID_turma'];
+                            while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                                $id_turma = $dados_turma_id['ID_turma'];
 
-                                    $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
-                                    $query_select_turma->execute();
+                                $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+                                $query_select_turma->execute();
 
-                                    while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_turma = $dados_turma_nome['nome_turma'];
+                                while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                                    $nome_turma = $dados_turma_nome['nome_turma'];
 
-                                        $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
-                                        $query_turno->execute();
+                                    $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                                    $query_turno->execute();
 
-                                        while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
-                                            $id_turno = $dados_turno['fk_id_turno_turma'];
+                                    while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                        $id_turno = $dados_turno['fk_id_turno_turma'];
 
-                                            $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
-                                            $query_turno_nome->execute();
+                                        $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                        $query_turno_nome->execute();
 
-                                            while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
-                                                $nome_turno = $dados_nome_turno['nome_turno'];
+                                        while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                            $nome_turno = $dados_nome_turno['nome_turno'];
 
-                                ?>
-                                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?>&nbsp;&nbsp;&nbsp;<?php echo $nome_turno; ?></option>
-                                <?php
-                                            }
+                            ?>
+                                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                            <?php
                                         }
                                     }
                                 }
-                                ?>
-                            </select>
-                            <label id="lbl" for="first_name">Escolha a turma para que deseja enviar a mensagem</label>
-                        </div>
+                            }
+                            ?>
+                        </select>
+                        <label id="lbl" for="first_name">Escolha a turma para que deseja enviar a mensagem</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                        <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
+                        <label id="lbl" for="first_name">Assunto</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem aqui" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem aqui" class="materialize-textarea"></textarea>
+                        <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                     </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                    </div>
+                </div>
+                <div class="input-field right">
+                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                </div>
 
-                </form>
-            </div>
+            </form>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>

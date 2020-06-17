@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/mensagensResponsavel.css" />
 
 </head>
 
@@ -52,7 +53,7 @@
 
     <div class="container"><br><br><br>
         <div id="mensagens">
-            <table class="highlight centered col s12 m12 l12">
+            <table class="highlight col s12 m12 l12">
                 <thead>
                     <tr>
                         <th>Data</th>

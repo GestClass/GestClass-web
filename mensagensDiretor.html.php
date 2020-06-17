@@ -149,7 +149,7 @@
                                                 $nome_turno = $dados_nome_turno['nome_turno'];
 
                                 ?>
-                                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?>&nbsp;&nbsp;&nbsp;<?php echo $nome_turno; ?></option>
+                                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma.' - '.$nome_turno; ?></option>
                                 <?php
                                             }
                                         }

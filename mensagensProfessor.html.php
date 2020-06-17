@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/mensagensDiretor.css" />
+    <link rel="stylesheet" type="text/css" href="css/mensagensDProfessor.css" />
 
 
 </head>
@@ -150,7 +150,7 @@
                                                 $nome_turno = $dados_nome_turno['nome_turno'];
 
                                 ?>
-                                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?>&nbsp;&nbsp;&nbsp;<?php echo $nome_turno; ?></option>
+                                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                                 <?php
                                             }
                                         }
