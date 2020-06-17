@@ -24,7 +24,7 @@
     $id_escola = $_SESSION["id_escola"];
 
     // Alterar abaixo para o valor quando vier do <select>
-    $id_disciplina = 1;
+    $id_disciplina = 5;
     $dataChamada = $_POST['dataChamada'];
     //echo $dataChamada;
 
@@ -47,12 +47,10 @@
                 </thead>
                 <tbody>
 
-
-
                     <?php
                     $query_listagem = $conn->prepare('SELECT * FROM listagem_chamada WHERE fk_id_escola_listagem_chamada = ' . $id_escola . ' AND fk_id_professor_listagem_chamada = ' . $id_usuario . ' AND fk_id_disciplina_listagem_chamada = ' . $id_disciplina . ' AND data_chamada = "' . $dataChamada . '"');
                     $query_listagem->execute();
-
+                    
                     if ($query_listagem->rowCount()) {
 
                         while ($chamadas = $query_listagem->fetch(PDO::FETCH_ASSOC)) {

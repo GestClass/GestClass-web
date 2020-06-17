@@ -19,6 +19,11 @@ CREATE TABLE disciplina(
     nome_disciplina VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE dia_semana (
+	ID_dia_semana INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    nome_dia VARCHAR(40) NOT NULL UNIQUE
+);
+
 CREATE TABLE escola (
 	ID_escola INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     nome_escola VARCHAR(70) NOT NULL,
@@ -42,6 +47,24 @@ CREATE TABLE turma (
     nome_turma VARCHAR(50) NOT NULL,
     fk_id_escola_turma INTEGER NOT NULL,
     fk_id_turno_turma INTEGER NOT NULL
+);
+
+CREATE TABLE aula_escola(
+	ID_aula_escola INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+	nome_aula VARCHAR(20) NOT NULL,
+	aula_start TIME NOT NULL,
+    intervalo_start TIME NOT NULL,
+    intervalo_end TIME NOT NULL,
+    aula_end TIME NOT NULL,    
+    fk_id_turno_aula_escola INTEGER NOT NULL,
+    fk_id_escola_aula_escola INTEGER NOT NULL
+);
+
+CREATE TABLE grade_curricular (
+	ID_grade_curricular INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+    fk_id_dia_semana_grade_curricular INTEGER NOT NULL,
+    fk_id_aula_escola_grade_curricular INTEGER NOT NULL,
+    fk_id_disciplinagrade_curricular INTEGER NOT NULL
 );
 
 CREATE TABLE professor (
@@ -176,6 +199,14 @@ CREATE TABLE chamada_aluno (
     fk_id_listagem_chamada_aluno INTEGER NOT NULL
 );
 
+CREATE TABLE envio_boleto (
+	ID_envio_boleto INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+    fk_id_diretor_envio_boleto INTEGER NULL,
+    fk_id_secretario_envio_boleto INTEGER NULL,
+    fk_id_responsavel_recebimento_boleto INTEGER NOT NULL,
+    data_envio DATETIME NOT NULL,
+    boleto VARCHAR(255) NOT NULL
+);
 
 CREATE TABLE contato (
 	ID_mensagem INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
