@@ -24,7 +24,7 @@ $id_escola = $_SESSION["id_escola"];
                 </a>
             </div>
             <div class="col s12 m4">
-                <a href="paginaManutencao.php">
+                <a class="modal-trigger" href="#modalMensalidades">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-file-invoice-dollar fa-6x blue-icon"></i>
                         <h5>Mensalidade</h5>
@@ -95,13 +95,13 @@ $id_escola = $_SESSION["id_escola"];
                 <form action="alteracaoTurmas.html.php" method="POST">
                     <select name='turma'>
                         <option value="" disabled selected>Turmas</option>
-                        <?php $query_turmas = $conn->prepare('SELECT * FROM turma WHERE fk_id_escola_turma = ' .$id_escola.'' );
-                $query_turmas->execute();
-                while($dados_turmas = $query_turmas->fetch(PDO::FETCH_ASSOC)){?>
-                        <option value="<?php echo $dados_turmas['ID_turma']?>"><?php echo $dados_turmas['nome_turma']?>
-                        </option><?php
+                        <?php $query_turmas = $conn->prepare('SELECT * FROM turma WHERE fk_id_escola_turma = ' . $id_escola . '');
+                        $query_turmas->execute();
+                        while ($dados_turmas = $query_turmas->fetch(PDO::FETCH_ASSOC)) { ?>
+                            <option value="<?php echo $dados_turmas['ID_turma'] ?>"><?php echo $dados_turmas['nome_turma'] ?>
+                            </option><?php
 
-                }?>
+                                    } ?>
 
                     </select>
                     <br><br><br><br><br>
@@ -123,22 +123,14 @@ $id_escola = $_SESSION["id_escola"];
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalAlterarTurmas" class="modal-trigger btn-floating indigo accent-2 tooltipped" data-position="left"
-                    data-tooltip="Alterar turma dos alunos"><i class="material-icons">create</i></a></li>
-            <li><a href="cadastroDatasFinaisBimestres.html.php" class="btn-floating gray tooltipped"
-                    data-position="left" data-tooltip="Atribuir datas de final de bimestre"><i
-                        class="material-icons">event_available</i></a></li>
-            <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left"
-                    data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a>
+            <li><a href="#modalAlterarTurmas" class="modal-trigger btn-floating indigo accent-2 tooltipped" data-position="left" data-tooltip="Alterar turma dos alunos"><i class="material-icons">create</i></a></li>
+            <li><a href="cadastroDatasFinaisBimestres.html.php" class="btn-floating gray tooltipped" data-position="left" data-tooltip="Atribuir datas de final de bimestre"><i class="material-icons">event_available</i></a></li>
+            <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a>
             </li>
-            <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left"
-                    data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
-            <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left"
-                    data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-            <li><a href="mensagensDiretor.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left"
-                    data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
-            <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
-                    data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
+            <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
+            <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
+            <li><a href="mensagensDiretor.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
+            <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
         </ul>
     </div>
 </section>
@@ -152,19 +144,19 @@ $id_escola = $_SESSION["id_escola"];
                     <option value="" disabled selected>Selecione a Turma</option>
                     <?php
 
-          $query_select_turmas_escola = $conn->prepare("SELECT nome_turma, ID_turma FROM turma WHERE fk_id_escola_turma = $id_escola");
-          $query_select_turmas_escola->execute();
+                    $query_select_turmas_escola = $conn->prepare("SELECT nome_turma, ID_turma FROM turma WHERE fk_id_escola_turma = $id_escola");
+                    $query_select_turmas_escola->execute();
 
-          while ($dados_turmas_escola = $query_select_turmas_escola->fetch(PDO::FETCH_ASSOC)) {
+                    while ($dados_turmas_escola = $query_select_turmas_escola->fetch(PDO::FETCH_ASSOC)) {
 
-            $nome_turma = $dados_turmas_escola["nome_turma"];
-            $id_turma = $dados_turmas_escola["ID_turma"];
+                        $nome_turma = $dados_turmas_escola["nome_turma"];
+                        $id_turma = $dados_turmas_escola["ID_turma"];
 
-          ?>
-                    <option value="<?php echo $id_turma ?>"><?php echo $nome_turma ?></option>
+                    ?>
+                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma ?></option>
                     <?php
-          }
-          ?>
+                    }
+                    ?>
                 </select>
                 <br>
                 <div class="center">
@@ -176,9 +168,44 @@ $id_escola = $_SESSION["id_escola"];
         </div>
     </div>
 </div>
+
+<div id="modalMensalidades" class="modal">
+    <div class="modal-content">
+        <h4>Selecione a turma</h4>
+        <div class="input-field col s12">
+            <form action="mensalidades.html.php" method="POST">
+                <select name="turmas">
+                    <option value="" disabled selected>Selecione a Turma</option>
+                    <?php
+
+                    $query_select_turmas_escola = $conn->prepare("SELECT nome_turma, ID_turma FROM turma WHERE fk_id_escola_turma = $id_escola");
+                    $query_select_turmas_escola->execute();
+
+                    while ($dados_turmas_escola = $query_select_turmas_escola->fetch(PDO::FETCH_ASSOC)) {
+
+                        $nome_turma = $dados_turmas_escola["nome_turma"];
+                        $id_turma = $dados_turmas_escola["ID_turma"];
+
+                    ?>
+                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <br>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script>
-$('#modalCadastroContas').on('shown.bs.modal', function() {
-    $(window).trigger('resize');
-});
+    $('#modalCadastroContas').on('shown.bs.modal', function() {
+        $(window).trigger('resize');
+    });
 </script>
 <?php require_once 'reqFooter.php' ?>

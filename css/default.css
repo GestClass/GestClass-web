@@ -182,6 +182,11 @@ body {
     overflow: visible;
 }
 
+#modalMensalidades {
+    max-height: 100%;
+    overflow: visible;
+}
+
 td {
     word-break: break-all;
 }
@@ -190,6 +195,13 @@ td {
 /*botao foto*/
 
 #btnfoto {
+    background-color: #64b5f6;
+}
+
+
+/*botao mensalidade*/
+
+#btnMensalidade {
     background-color: #64b5f6;
 }
 
