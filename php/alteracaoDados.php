@@ -8,7 +8,8 @@ $tipo_usuario = $_POST['tipo_conta'];
 
 if ($tipo_usuario == '5') {
     $nome_aluno = $_POST['nome'];
-    $data_nascimento = $_POST['data_nascimento'];
+    $data = $_POST['data_nascimento'];
+    $data_nascimento = date('Y/m/d', strtotime($data));
     $RG = $_POST['rg'];
     $cpf = $_POST['cpf'];
     $email = $_POST['email'];

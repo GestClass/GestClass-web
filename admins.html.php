@@ -34,7 +34,7 @@
                     <img src="assets/imagensBanco/<?php echo $dados_adm['foto']?>" alt="" class="circle">
                     <span class="title"><?php echo $dados_adm['nome']?></span>
                     <p><?php echo $dados_adm['email']?><br>
-                    <?php echo $dados_adm['data_nascimento']?>
+                    <?php echo date('d/m/Y', strtotime($dados_adm['data_nascimento']))?>
                     </p>
                     <div class="row">
                             <div class="col s12">

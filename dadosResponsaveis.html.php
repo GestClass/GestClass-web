@@ -74,7 +74,7 @@
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">cake</i>
                         <input name="nascimento_respon" id="data_nascimento"
-                            value="<?php echo$dados_resp['data_nascimento']?>" readonly type="date" class=" validate">
+                            value="<?php echo date('d/m/Y', strtotime($dados_resp['data_nascimento']))?>" readonly type="date" class=" validate">
                         <label id="lbl">Data Nascimento</label>
                     </div>
                 </div>

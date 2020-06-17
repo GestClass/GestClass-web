@@ -74,7 +74,7 @@
                                     <i class="material-icons prefix blue-icon">calendar_today</i>
                                     <input placeholder="datanascimento" name="datanascimento" id="datanascimento"
                                         placeholder="2000/09/05" type="text" class="datepicker validate"
-                                        value="<?php echo $dados["data_nascimento"]?>">
+                                        value="<?php echo date('d/m/Y', strtotime($dados["data_nascimento"]))?>">
                                     <label for="first_name">data de nascimento</label>
                                 </div>
                             </div>

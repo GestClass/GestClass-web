@@ -5,11 +5,15 @@ include_once 'conexao.php';
 // recuperando id da escola
 $id_escola = $_SESSION["id_escola"];
 
-// Resgatando datas informadas
-$dataBimestre1 = $_POST['dataBimestre1'];
-$dataBimestre2 = $_POST['dataBimestre2'];
-$dataBimestre3 = $_POST['dataBimestre3'];
-$dataBimestre4 = $_POST['dataBimestre4'];
+// Resgatando datas informadas e ajustando a data para o banco
+$data1 = $_POST['dataBimestre1'];
+$dataBimestre1 = date('Y/m/d', strtotime($data1));
+$data2 = $_POST['dataBimestre2'];
+$dataBimestre2 = date('Y/m/d', strtotime($data2));
+$data3 = $_POST['dataBimestre3'];
+$dataBimestre3 = date('Y/m/d', strtotime($data3));
+$data4 = $_POST['dataBimestre4'];
+$dataBimestre4 = date('Y/m/d', strtotime($data4));
 
 // Verificando preenchimento dos campos
 if (($dataBimestre1 != "") && ($dataBimestre2 != "") && ($dataBimestre3 != "") && ($dataBimestre4 != "")) {

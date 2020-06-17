@@ -39,7 +39,7 @@
 
                     <div class="file field input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre1">
+                        <input placeholder="Dia/Mês/Ano" type="tel" class="datepicker validate" name="dataBimestre1">
                         <label id="lbl">Data da atividade</label>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
 
                     <div class="file field input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre2">
+                        <input placeholder="Dia/Mês/Ano" type="tel" class="datepicker validate" name="dataBimestre2">
                         <label id="lbl">Data da atividade</label>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
 
                     <div class="file field input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre3">
+                        <input placeholder="Dia/Mês/Ano" type="tel" class="datepicker validate" name="dataBimestre3">
                         <label id="lbl">Data da atividade</label>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
 
                     <div class="file field input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataBimestre4">
+                        <input placeholder="Dia/Mês/Ano" type="tel" class="datepicker validate" name="dataBimestre4">
                         <label id="lbl">Data da atividade</label>
                     </div>
                 </div>

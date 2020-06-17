@@ -182,6 +182,10 @@ body {
     overflow: visible;
 }
 
+td {
+    word-break: break-all;
+}
+
 
 /*botao foto*/
 

@@ -66,7 +66,7 @@
                 <div class="input-field col s6 m4 l5">
                     <i class="material-icons prefix blue-icon">cake</i>
                     <input name="data_nascimento" id="data_nascimento"
-                        value="<?php echo $dados_alunos['data_nascimento']?>" type="date" class="data-picker validate">
+                        value="<?php echo date('d/m/Y', strtotime($dados_alunos['data_nascimento']))?>" data-mask="00/00/0000" type="tel" class="validate">
                     <label id="lbl">Data Nascimento</label>
                 </div>
                 <div class="input-field col s6 m4 l5">
@@ -193,7 +193,7 @@
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">cake</i>
                         <input name="nascimento_respon" id="data_nascimento"
-                            value="<?php echo$dados_resp['data_nascimento']?>" type="date" class=" validate">
+                            value="<?php echo date('d/m/Y',strtotime($dados_resp['data_nascimento']))?>" type="date" class=" validate">
                         <label id="lbl">Data Nascimento</label>
                     </div>
                 </div>

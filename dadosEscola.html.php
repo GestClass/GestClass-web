@@ -213,7 +213,7 @@
                             <div class="input-field col s12">
                                 <i class="material-icons prefix blue-icon">attach_money</i>
                                 <select name="data_pagamento" id="data_pagamento">
-                                    <option value="" disabled selected><?php echo $dados["data_pagamento_escola"]?>
+                                    <option value="" disabled selected><?php echo date('d/m/Y', strtotime($dados["data_pagamento_escola"]))?>
                                     </option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
