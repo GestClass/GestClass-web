@@ -22,6 +22,12 @@
     } elseif ($id_tipo_usuario == 4) {
         require_once 'reqProfessor.php';
     }
+
+    // alterar para valor vindo do <select>
+    $id_disciplina = 5;
+    // alterar para valor vindo do select
+    $id_turma = 16;
+
     ?>
 
 
@@ -42,6 +48,8 @@
             <h4 class="center">Cadastro de Notas</h4>
             <br>
             <form action="php/cadastroNotas.php" method="POST">
+                <input type="hidden" value="<?php echo $id_disciplina ?>" name="id_disciplina" />
+                <input type="hidden" value="<?php echo $id_turma ?>" name="id_turma" />
                 <div class="row">
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">border_color</i>
@@ -66,7 +74,7 @@
                             Nome
                         </th>
                         <th class="col s3 m3 l3">
-                            &nbsp&nbsp&nbsp&nbsp Nota &nbsp&nbsp&nbsp&nbsp
+                            Nota
                         </th>
                         <th class="col s9 m9 l9">
                             Observações
@@ -77,7 +85,7 @@
 
 
                         <?php
-                        $query_listagem = $conn->prepare('SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = 16');
+                        $query_listagem = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = $id_turma");
                         $query_listagem->execute();
 
                         while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
@@ -115,31 +123,66 @@
         </div>
 
         <div id="alteracao" class="col s12 m12 l12">
-            <form action="alteracaoNotas.html.php" method="POST">
-                <h4 class="center">Alteraçao de Notas</h4>
-                <br>
+            <h4 class="center">Lista de Atividades Dadas</h4>
+            <br>
 
-                <div class="row">
-                    <div class="input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">border_color</i>
-                        <input placeholder="Pesquise pelo nome da atividade" type="text" name="nomeAtividade">
-                        <label id="lbl">Nome atividade</label>
-                    </div>
+            <br><br>
+            <table class="striped centered">
+                <thead class="">
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Data
+                    </th>
+                    <th>
+                        Disciplina
+                    </th>
+                </thead>
 
-                    <div class="file field input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataAtividade">
-                        <label id="lbl">Data da atividade</label>
-                    </div>
-                </div>
+                <tbody>
+                    <?php
+                    $query_listagem_boletim = $conn->prepare("SELECT boletim_aluno.nome_atividade   AS nome_atividade, boletim_aluno.data_atividade AS data_atividade,  boletim_aluno.fk_id_disciplina_boletim_aluno AS id_disciplina, disciplina.nome_disciplina AS nome_disciplina FROM boletim_aluno INNER JOIN disciplina ON fk_id_disciplina_boletim_aluno = ID_disciplina WHERE boletim_aluno.fk_id_disciplina_boletim_aluno = $id_disciplina AND boletim_aluno.fk_id_turma_boletim_aluno = $id_turma GROUP BY fk_id_boletim_listagem_boletim_aluno ORDER BY data_atividade ASC");
+                    $query_listagem_boletim->execute();
 
-                <div class="center">
-                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-                        <i class="material-icons left">search</i>Pesquisar
-                    </button>
-                </div>
-            </form>
+                    while ($lista = $query_listagem_boletim->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
+                        <tr>
+                            <td>
+                                <?php echo $lista['nome_atividade']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo date('d-m-Y', strtotime($lista['data_atividade'])); ?>
+                            </td>
+
+                            <td>
+                                <?php echo $lista['nome_disciplina']; ?>
+                            </td>
+
+                            <td>
+
+                                <div class="center">
+                                    <form action="#" method="POST">
+                                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
+                                            <i class="material-icons left">edit</i>Alterar
+                                        </button>
+                                        <input type="hidden" value="<?php echo $id_disciplina ?>" name="id_disciplina" />
+                                        <input type="hidden" value="<?php echo $id_turma ?>" name="id_turma" />
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+
+                    <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <br><br><br>
+
         </div>
+
     </div>
 
     <script src="js/default.js"></script>
