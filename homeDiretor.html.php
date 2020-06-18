@@ -144,17 +144,36 @@ $id_escola = $_SESSION["id_escola"];
                     <option value="" disabled selected>Selecione a Turma</option>
                     <?php
 
-                    $query_select_turmas_escola = $conn->prepare("SELECT nome_turma, ID_turma FROM turma WHERE fk_id_escola_turma = $id_escola");
-                    $query_select_turmas_escola->execute();
+                    $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
+                    $query_select_id_turma->execute();
 
-                    while ($dados_turmas_escola = $query_select_turmas_escola->fetch(PDO::FETCH_ASSOC)) {
+                    while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                        $id_turma = $dados_turma_id['ID_turma'];
 
-                        $nome_turma = $dados_turmas_escola["nome_turma"];
-                        $id_turma = $dados_turmas_escola["ID_turma"];
+                        $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+                        $query_select_turma->execute();
+
+                        while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $nome_turma = $dados_turma_nome['nome_turma'];
+
+                            $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                            $query_turno->execute();
+
+                            while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                                $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                $query_turno_nome->execute();
+
+                                while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                    $nome_turno = $dados_nome_turno['nome_turno'];
 
                     ?>
-                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma ?></option>
+                                    <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                     <?php
+                                }
+                            }
+                        }
                     }
                     ?>
                 </select>
@@ -178,17 +197,36 @@ $id_escola = $_SESSION["id_escola"];
                     <option value="" disabled selected>Selecione a Turma</option>
                     <?php
 
-                    $query_select_turmas_escola = $conn->prepare("SELECT nome_turma, ID_turma FROM turma WHERE fk_id_escola_turma = $id_escola");
-                    $query_select_turmas_escola->execute();
+                    $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
+                    $query_select_id_turma->execute();
 
-                    while ($dados_turmas_escola = $query_select_turmas_escola->fetch(PDO::FETCH_ASSOC)) {
+                    while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                        $id_turma = $dados_turma_id['ID_turma'];
 
-                        $nome_turma = $dados_turmas_escola["nome_turma"];
-                        $id_turma = $dados_turmas_escola["ID_turma"];
+                        $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+                        $query_select_turma->execute();
+
+                        while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $nome_turma = $dados_turma_nome['nome_turma'];
+
+                            $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                            $query_turno->execute();
+
+                            while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                                $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                $query_turno_nome->execute();
+
+                                while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                    $nome_turno = $dados_nome_turno['nome_turno'];
 
                     ?>
-                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma ?></option>
+                                    <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                     <?php
+                                }
+                            }
+                        }
                     }
                     ?>
                 </select>

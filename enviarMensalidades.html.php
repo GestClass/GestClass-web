@@ -46,15 +46,15 @@
 
     <div class="container"><br>
         <h4>Enviar Mensalidades</h4><br><br><br><br><br><br>
-        <form action="php/enviarMensalidades/enviarMensalidade.php" method="POST">
+        <form action="php/enviarMensalidades/enviarMensalidade.php" enctype="multipart/form-data" method="POST">
             <div class="row">
                 <div class="file-field input-field col s8 m8 l8">
                     <div id="btnMensalidade" class="btn col s6 m4 l4">
                         <span><i class="material-icons">picture_as_pdf</i></span>
-                        <input type="file" name="mensalidade" />
+                        <input type="file" name="boleto" />
                     </div>
                     <div class="file-path-wrapper">
-                        <input id="mensalidade" class="file-path validate" type="text" name="mensalidade">
+                        <input id="boleto" class="file-path validate" type="text" name="boleto">
                     </div>
                 </div>
                 <div class="input-field left">
