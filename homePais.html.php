@@ -43,7 +43,7 @@ $id_escola = $_SESSION["id_escola"];
         </a>
       </div>
       <div class="col s12 m4">
-       <a href="paginaManutencao.php">
+       <a href="emissaoBoletos.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-file-invoice-dollar fa-6x blue-icon"></i>
             <h5>Financeiro</h5>
