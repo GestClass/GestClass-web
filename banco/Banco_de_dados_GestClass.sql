@@ -53,8 +53,6 @@ CREATE TABLE aula_escola(
 	ID_aula_escola INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
 	nome_aula VARCHAR(20) NOT NULL,
 	aula_start TIME NOT NULL,
-    intervalo_start TIME NOT NULL,
-    intervalo_end TIME NOT NULL,
     aula_end TIME NOT NULL,    
     fk_id_turno_aula_escola INTEGER NOT NULL,
     fk_id_escola_aula_escola INTEGER NOT NULL
@@ -64,7 +62,8 @@ CREATE TABLE grade_curricular (
 	ID_grade_curricular INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
     fk_id_dia_semana_grade_curricular INTEGER NOT NULL,
     fk_id_aula_escola_grade_curricular INTEGER NOT NULL,
-    fk_id_disciplinagrade_curricular INTEGER NOT NULL
+    fk_id_disciplina_grade_curricular INTEGER NULL,
+    fk_id_turma_grade_curricular INTEGER NOT NULL
 );
 
 CREATE TABLE professor (
@@ -169,6 +168,12 @@ CREATE TABLE responsavel (
     fk_id_escola_responsavel INTEGER NOT NULL
 );
 
+CREATE TABLE boletim_listagem (
+	ID_boletim_listagem INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+    fk_id_escola_boletim_listagem INTEGER NOT NULL,
+    fk_id_disciplina_boletim_listagem INTEGER NOT NULL
+);
+
 CREATE TABLE boletim_aluno (
 	ID_boletim_aluno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
 	nota DECIMAL (4,2) NOT NULL,
@@ -176,7 +181,8 @@ CREATE TABLE boletim_aluno (
     nome_atividade VARCHAR(70) NOT NULL,
     data_atividade DATE NOT NULL,
 	fk_ra_aluno_boletim_aluno INTEGER NOT NULL,
-	fk_id_disciplina_boletim_aluno INTEGER NOT NULL    
+	fk_id_disciplina_boletim_aluno INTEGER NOT NULL,
+    fk_id_boletim_listagem_boletim_aluno INTEGER NOT NULL
 );
 
 
@@ -259,6 +265,20 @@ ALTER TABLE turma ADD CONSTRAINT fk_id_escola_turma FOREIGN KEY (fk_id_escola_tu
 ALTER TABLE turma ADD CONSTRAINT fk_id_turno_turma FOREIGN KEY (fk_id_turno_turma) REFERENCES turno (ID_turno);
 
 
+/*	-	FOREIGN KEYs TABLE AULA_ESCOLA	-	*/
+
+ALTER TABLE aula_escola ADD CONSTRAINT fk_id_turno_aula_escola FOREIGN KEY (fk_id_turno_aula_escola) REFERENCES turno (ID_turno);
+ALTER TABLE aula_escola ADD CONSTRAINT fk_id_escola_aula_escola FOREIGN KEY (fk_id_escola_aula_escola) REFERENCES escola (ID_escola);
+
+
+/*	-	FOREIGN KEYs TABLE GRADE_CURRICULAR 	-	*/
+
+ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_dia_semana_grade_curricular FOREIGN KEY (fk_id_dia_semana_grade_curricular) REFERENCES dia_semana (ID_dia_semana);
+ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_aula_escola_grade_curricular FOREIGN KEY (fk_id_aula_escola_grade_curricular) REFERENCES aula_escola (ID_aula_escola);
+ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_disciplina_grade_curricular FOREIGN KEY (fk_id_disciplina_grade_curricular) REFERENCES disciplina (ID_disciplina);
+ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_turma_grade_curricular FOREIGN KEY (fk_id_turma_grade_curricular) REFERENCES turma (ID_turma);
+
+
 /*	-	FOREIGN KEYs TABLE PROFESSOR	-	*/
 
 ALTER TABLE professor ADD CONSTRAINT fk_id_tipo_usuario_professor FOREIGN KEY (fk_id_tipo_usuario_professor) REFERENCES tipo_usuario (ID_tipo_usuario);
@@ -325,6 +345,12 @@ ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_escola_listagem_chamada FOREIG
 ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_disciplina_listagem_chamada FOREIGN KEY(fk_id_disciplina_listagem_chamada) REFERENCES disciplina (ID_disciplina);
 ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_professor_listagem_chamada FOREIGN KEY(fk_id_professor_listagem_chamada) REFERENCES professor (ID_professor);
 
+
+/*	-	FOREIGN KEYs TABLE ENVIO_BOLETO	 -	*/
+
+ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_diretor_envio_boleto FOREIGN KEY (fk_id_diretor_envio_boleto) REFERENCES diretor (ID_diretor);
+ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_secretario_envio_boleto FOREIGN KEY (fk_id_secretario_envio_boleto) REFERENCES secretrio (ID_secretario);
+ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOREIGN KEY (fk_id_responsavel_recebimento_boleto) REFERENCES responsavel (ID_responsavel);
 
 
 /*	-	FOREIGN KEYs TABLE CONTATO	-	*/
@@ -405,6 +431,29 @@ INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('2
 INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('3º ano medio A', 1, 1);
 
 
+/*	-	INSERTs INTO TABLE AULA_ESCOLA	-	*/
+
+INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('1º aula', '07:00:00', '07:50:00', 1, 1);
+INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('2º aula', '07:50:00', '08:40:00', 1, 1);
+INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('3º aula', '08:40:00', '09:30:00', 1, 1);
+INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('Intervalo', '09:30:00', '09:50:00', 1, 1);
+INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('4º aula', '09:50:00', '10:40:00', 1, 1);
+INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('5º aula', '10:40:00', '11:30:00', 1, 1);
+INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('6º aula', '11:30:00', '12:20:00', 1, 1);
+
+
+/*	-	INSERTS INTO TABLE GRADE_CURRICULAR	-	*/
+
+INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_disciplina_grade_curricular, fk_id_turma_grade_curricular) VALUES (2, 1, 5, 16);
+INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_disciplina_grade_curricular, fk_id_turma_grade_curricular) VALUES (2, 2, 5, 16);
+INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_disciplina_grade_curricular, fk_id_turma_grade_curricular) VALUES (2, 3, 6, 16);
+INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_disciplina_grade_curricular, fk_id_turma_grade_curricular) VALUES (2, 4, 5, 16);
+INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_disciplina_grade_curricular, fk_id_turma_grade_curricular) VALUES (2, 5, 6, 16);
+INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_disciplina_grade_curricular, fk_id_turma_grade_curricular) VALUES (2, 6, 7, 16);
+INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_disciplina_grade_curricular, fk_id_turma_grade_curricular) VALUES (2, 7, 7, 16);
+
+
+
 /*	-	INSERTS INTO TABLE PROFESSOR	-	*/
 
 INSERT INTO professor (nome_professor, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_professor, fk_id_escola_professor) VALUES ('professor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'professor_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', 4, 1);
@@ -425,6 +474,17 @@ INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_
 INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_disciplina_professor_disciplinas_professor, fk_id_turma_professor_disciplinas_professor) VALUES (1, 3, 15);
 INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_disciplina_professor_disciplinas_professor, fk_id_turma_professor_disciplinas_professor) VALUES (1, 2, 14);
 INSERT INTO disciplinas_professor (fk_id_professor_disciplinas_professor, fk_id_disciplina_professor_disciplinas_professor, fk_id_turma_professor_disciplinas_professor) VALUES (1, 1, 13);
+
+
+/*	-	INSERTS INTO TABLE DIRETOR	-	*/
+              
+INSERT INTO dia_semana (nome_dia) VALUES ("Domingo");
+INSERT INTO dia_semana (nome_dia) VALUES ("Segunda-Feira");
+INSERT INTO dia_semana (nome_dia) VALUES ("Terça-Feira");
+INSERT INTO dia_semana (nome_dia) VALUES ("Quarta-Feira");
+INSERT INTO dia_semana (nome_dia) VALUES ("Quinta-Feira");
+INSERT INTO dia_semana (nome_dia) VALUES ("Sexta-Feira");
+INSERT INTO dia_semana (nome_dia) VALUES ("Sábado"); 
 
 
 /*	-	INSERTS INTO TABLE DIRETOR	-	*/
@@ -500,6 +560,11 @@ INSERT INTO chamada_aluno (presenca, data_aula, fk_ra_aluno_chamada_aluno, fk_id
 /*	-	INSERTS INTO TABLE datas_fim_bimestres	-	*/
 
 INSERT INTO datas_fim_bimestres (bimestre1, bimestre2, bimestre3, bimestre4, fk_id_escola_datas_fim_bimestres) VALUES ('2020-04-15', '2020-06-30', '2020-10-03', '2020-12-10', 1);
+
+
+/*	-	INSERTs INTO TABLE ENVIO_BOLETO 	-	*/
+
+INSERT INTO envio_boleto (fk_id_diretor_envio_boleto, fk_id_responsavel_recebimento_boleto, data_envio, boleto) VALUES (1, 1, 'boleto teste');
 
 
 /*	-	INSERTS INTO TABLE CONTATO	-	*/
