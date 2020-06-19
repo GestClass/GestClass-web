@@ -231,7 +231,7 @@ CREATE TABLE contato (
 	fk_recebimento_professor_id_professor INTEGER,
     fk_recebimento_diretor_id_diretor INTEGER,
     fk_recebimento_secretario_id_secretario INTEGER,
-    fk_recebmento_admin_id_admin INTEGER
+    fk_recebimento_admin_id_admin INTEGER
 );
 
 CREATE TABLE datas_fim_bimestres (
@@ -377,11 +377,13 @@ ALTER TABLE contato ADD CONSTRAINT fk_envio_responsavel_id_responsavel FOREIGN K
 ALTER TABLE contato ADD CONSTRAINT fk_envio_professor_id_professor FOREIGN KEY (fk_envio_professor_id_professor) REFERENCES professor (ID_professor);
 ALTER TABLE contato ADD CONSTRAINT fk_envio_diretor_id_diretor FOREIGN KEY (fk_envio_diretor_id_diretor) REFERENCES diretor (ID_diretor);
 ALTER TABLE contato ADD CONSTRAINT fk_envio_secretario_id_secretario FOREIGN KEY (fk_envio_secretario_id_secretario) REFERENCES secretario (ID_secretario);
+ALTER TABLE contato ADD CONSTRAINT fk_envio_admin_id_admin FOREIGN KEY (fk_envio_admin_id_admin) REFERENCES `admin` (ID_admin);
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_aluno_ra_aluno FOREIGN KEY (fk_recebimento_aluno_ra_aluno) REFERENCES aluno (RA);
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_responsavel_id_responsavel FOREIGN KEY (fk_recebimento_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel);
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_professor_id_professor FOREIGN KEY (fk_recebimento_professor_id_professor) REFERENCES professor (ID_professor);
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_diretor_id_diretor FOREIGN KEY (fk_recebimento_diretor_id_diretor) REFERENCES diretor (ID_diretor);
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_secretario_id_secretario FOREIGN KEY (fk_recebimento_secretario_id_secretario) REFERENCES secretario (ID_secretario);
+ALTER TABLE contato ADD CONSTRAINT fk_recebimento_admin_id_admin FOREIGN KEY (fk_recebimento_admin_id_admin) REFERENCES `admin` (ID_admin);
 
 
 /*	-	FOREIGN KEYs TABLE DATAS_FIM_BIMESTRES	- 	*/
@@ -616,9 +618,8 @@ INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuar
 INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Hector Lima', 'hector.jpg', 'hector@gestclass.com', '1234', '1994.09.27', 1);
 INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Monique Correia', 'monique.jpg', 'monique@gestclass.com', '1234', '2002.08.24', 1);
 
-
 /*	-	SELECTs 	-	*/
-
+/*
 SELECT * FROM turno;
 
 SELECT * FROM turma;
@@ -655,15 +656,4 @@ SELECT * FROM `admin`;
 
 SELECT * FROM contato;
 
-/*			- Códigos anotações Eric
-
-	SELECT COUNT(nota) FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = 0;
-
-	SELECT SUM(nota) FROM boletim_aluno WHERE fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = 0;
-
-	SELECT fk_id_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_turma_professor_disciplinas_professor = 16 AND fk_id_disciplina_professor_disciplinas_professor = 5;
-
-	SELECT fk_id_disciplina_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_turma_professor_disciplinas_professor = 16;
-
-*/
-/*DROP DATABASE GestClass;*/
+DROP DATABASE GestClass; */
