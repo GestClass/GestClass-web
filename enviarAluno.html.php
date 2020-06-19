@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <textarea name="mensagem" id="mensagem" placeholder="Digite a sua Mensagem" class="materialize-textarea"></textarea>
-                        <label id="lbl" for="textarea1">Digite a sua Ocorrência</label>
+                        <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                     </div>
                 </div>
                 <div class="input-field right">

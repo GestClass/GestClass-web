@@ -30,34 +30,6 @@ $('.datepicker').datepicker({
     container: 'body'
 });
 
-
-// // HOME SECRETARIA
-// $(document).ready(function() {
-//     $('.sidenav').sidenav();
-// });
-
-// $('.dropdown-trigger').dropdown();
-
-// $(document).ready(function() {
-//     $('.modal').modal();
-// });
-
-// $(document).ready(function() {
-//     $('select').formSelect();
-// });
-
-// $(".formContas").hide();
-
-// function habilitaForm() {
-//     //alert($("#selectConta")[0].selectedIndex)
-
-//     $(".formContas").hide();
-
-// }
-
-
-
-
 // INICIO PERFIL
 
 // image preview

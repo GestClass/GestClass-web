@@ -46,7 +46,14 @@
         </div>
     </div>
 
-
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large indigo darken-4">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><a href="enviarAdmin.html.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Enviar Mensagem"><i class="material-icons">email</i></a></li>
+        </ul>
+    </div>
 </body>
 
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
