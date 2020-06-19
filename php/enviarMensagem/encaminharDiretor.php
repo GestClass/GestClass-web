@@ -38,7 +38,7 @@ if (($assunto != "") && ($mensagem != "")) {
                 history.back();</script>";
                 }
             } else {
-                echo "<script>alert('Deu erro bobao')</script>";
+                echo "<script>alert('Houve algum erro')</script>";
             }
         }
     } elseif ($usuario == 4) {
@@ -63,7 +63,7 @@ if (($assunto != "") && ($mensagem != "")) {
                 history.back();</script>";
                 }
             } else {
-                echo "<script>alert('Deu erro bobao')</script>";
+                echo "<script>alert('Houve algum erro')</script>";
             }
         }
     } elseif ($usuario == 5) {
@@ -88,7 +88,7 @@ if (($assunto != "") && ($mensagem != "")) {
                 history.back();</script>";
                 }
             } else {
-                echo "<script>alert('Deu erro bobao')</script>";
+                echo "<script>alert('Houve algum erro')</script>";
             }
         }
     } elseif ($usuario == 6) {
@@ -113,7 +113,7 @@ if (($assunto != "") && ($mensagem != "")) {
                 history.back();</script>";
                 }
             } else {
-                echo "<script>alert('Deu erro bobao')</script>";
+                echo "<script>alert('Houve algum erro')</script>";
             }
         }
     }

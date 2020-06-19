@@ -37,7 +37,8 @@ if (($rastro != "") && ($nome != "") && ($rg != "") && ($cpf != "") && ($nascime
 	$limcpf =  str_replace('.', '', $cpf);
 	$cpf_aluno =  str_replace('-', '', $limcpf);
 	//ajustando data de acordo com banco
-	$data_nascimento = date('Y/m/d', strtotime($nascimento));
+	$data = str_replace('/','-', $nascimento);
+	$data_nascimento = date('Y-m-d', strtotime($data));
 
 	if ($error == 1) {
 		echo "<script>alert('O arquivo no upload é maior do que o limite definido em upload_max_filesize no php.ini');
