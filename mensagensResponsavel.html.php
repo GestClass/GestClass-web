@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <div id="modalMensagem" class="modal modal-fixed-footer">
+    <div id="modalMensagem" class="modal">
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
@@ -108,9 +108,6 @@
                     </div>
                 </form>
             </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
         </div>
     </div>
 

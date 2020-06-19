@@ -13,10 +13,15 @@ if (($assunto != "") && ($mensagem != "")) {
     `fk_envio_professor_id_professor`, `fk_envio_diretor_id_diretor`, `fk_envio_secretario_id_secretario`, `fk_recebimento_aluno_ra_aluno`, 
     `fk_recebimento_responsavel_id_responsavel`, `fk_recebimento_professor_id_professor`, `fk_recebimento_diretor_id_diretor`, 
     `fk_recebimento_secretario_id_secretario`, `assunto`, `data_mensagem`) 
-    VALUES ('{$mensagem}', NULL, NULL, NULL, '{$id_usuario}', NULL, NULL, NULL, '{$id_professor}', NULL, NULL, '{$assunto}', NOW())");
-    $resultado = $inserirMensagem->execute();
+    VALUES (:mensagem, NULL, NULL, NULL, :id_usuario, NULL, NULL, NULL, :id_professor, NULL, NULL, :assunto, NOW())");
+    
+    $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
+    $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+    $inserirMensagem->bindParam(':id_professor', $id_professor, PDO::PARAM_INT);
+    $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
+    $inserirMensagem->execute();
 
-    if ($resultado == 1) {
+    if ($inserirMensagem->rowCount()) {
         echo "<script>alert('Mensagem enviada com Sucesso!!');
         window.location = '../../mensagensDiretor.html.php';</script>";
     } else {

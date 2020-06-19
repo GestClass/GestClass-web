@@ -77,38 +77,57 @@
         </div>
     </div>
 
-    <div id="modalEnviarAluno" class="modal modal-fixed-footer">
+    <div id="modalEnviarAluno" class="modal">
         <div class="modal-content">
-            <h4>Nova Mensagem</h4><br>
-            <div id="novaMensagem">
-                <form action="php/enviarMensagem/enviarProfessorAluno.php" method="POST">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="ra" id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
-                            <label id="lbl" for="first_name">RA do Aluno</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem aqui" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                    </div>
+            <h4>Selecione a turma</h4>
+            <div class="input-field col s12">
+                <form action="listaAlunosMensagens.html.php" method="POST">
+                    <select name="turmas">
+                        <option value="" disabled selected>Selecione a Turma</option>
 
+                        <?php
+
+                        $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
+                        $query_select_turmas_professor->execute();
+
+                        while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
+
+                            $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+
+                            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+                            $query_select_turma->execute();
+
+                            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_turma = $dados_turma_nome["nome_turma"];
+
+                                $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                                $query_turno->execute();
+
+                                while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                    $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                                    $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                    $query_turno_nome->execute();
+
+                                    while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                        $nome_turno = $dados_nome_turno['nome_turno'];
+
+                        ?>
+                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                        <?php
+                                    }
+                                }
+                            }
+                        } ?>
+                    </select>
+                    <br>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
+                    </div>
                 </form>
             </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
         </div>
     </div>
 

@@ -30,7 +30,7 @@ if (($assunto != "") && ($mensagem != "")) {
             history.back();</script>";
             }
         } else {
-            echo "<script>alert('Deu erro bobao')</script>";
+            echo "<script>alert('Houve algum erro')</script>";
         }
     }
 } else {
