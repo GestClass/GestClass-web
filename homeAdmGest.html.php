@@ -59,10 +59,10 @@
                     </a>
                 </div>
                 <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
+                    <a href="feedbackEscolas.html.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="fas fa-envelope fa-6x blue-icon"></i>
-                            <h5>Intermedio Escola e ADMINS</h5>
+                            <h5>Feedback das Escola</h5>
                             <p>Intermediario entre as escolas e os administradores do sistema</p>
                         </div>
                     </a>

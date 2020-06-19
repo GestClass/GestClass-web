@@ -326,7 +326,6 @@
                     <div class="input-field right">
                         <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
                     </div>
-
                 </form>
             </div>
         </div>

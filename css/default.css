@@ -215,6 +215,14 @@ body {
     overflow: visible;
 }
 
+
+/*Modal Feedback*/
+
+#modalFeedback {
+    max-height: 100%;
+    overflow: visible;
+}
+
 td {
     word-break: break-all;
 }
