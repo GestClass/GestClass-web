@@ -25,11 +25,11 @@
 
     <div class="container">
         <h4>Enviar mensagem para escola</h4><br>
-        <form action="php/enviarMensagem/enviarAluno.php" method="POST">
+        <form action="php/enviarMensagem/enviarAdmin.php" method="POST">
             <div class="modal-content">
                 <div class="row">
                     <div class="input-field col s12 m4 l12">
-                        <select name="EncaminharMensagens" id="mensagemDiretor">
+                        <select name="destinatario" id="destinatario">
                             <option value="" disabled selected>Selecione uma Escola</option>
                             <?php
 
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="input-field right">
-                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    <button btn="btnEnviar" value="formPAdmin" id="btnFormAdmin" type="submit" class="btn-flat btnAdmin"><i class="material-icons">send</i> Enviar</button>
                 </div>
             </div>
         </form>
