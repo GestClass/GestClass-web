@@ -8,8 +8,9 @@ $tipo_usuario = $_POST['tipo_conta'];
 
 if ($tipo_usuario == '5') {
     $nome_aluno = $_POST['nome'];
-    $data = $_POST['data_nascimento'];
-    $data_nascimento = date('Y/m/d', strtotime($data));
+    $dataNasc = $_POST['data_nascimento'];
+    $data = str_replace('/','-', $data);
+    $data_nascimento = date('Y-m-d', strtotime($data));
     $RG = $_POST['rg'];
     $cpf = $_POST['cpf'];
     $email = $_POST['email'];
@@ -58,7 +59,9 @@ window.location = '../dadosUsuarios.html.php?id=<?php echo $ra?>&tipo=<?php echo
     }
 } elseif ($tipo_usuario == '6') {
     $nome_responsavel = $_POST['nome_respon'];
-    $data_nascimento = $_POST['nascimento_respon'];
+    $dataNasc = $_POST['data_nascimento'];
+    $data = str_replace('/','-', $data);
+    $data_nascimento = date('Y-m-d', strtotime($data));
     $RG = $_POST['rg_respon'];
     $cpf = $_POST['cpf_respon'];
     $email = $_POST['email_respon'];

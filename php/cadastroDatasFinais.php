@@ -7,13 +7,20 @@ $id_escola = $_SESSION["id_escola"];
 
 // Resgatando datas informadas e ajustando a data para o banco
 $data1 = $_POST['dataBimestre1'];
-$dataBimestre1 = date('Y/m/d', strtotime($data1));
+$dataB1 = str_replace('/','-', $data1);
+$dataBimestre1 = date('Y-m-d', strtotime($dataB1));
+
 $data2 = $_POST['dataBimestre2'];
-$dataBimestre2 = date('Y/m/d', strtotime($data2));
+$dataB2 = str_replace('/','-', $data2);
+$dataBimestre2 = date('Y-m-d', strtotime($dataB2));
+
 $data3 = $_POST['dataBimestre3'];
-$dataBimestre3 = date('Y/m/d', strtotime($data3));
+$dataB3 = str_replace('/','-', $data3);
+$dataBimestre3 = date('Y-m-d', strtotime($dataB3));
+
 $data4 = $_POST['dataBimestre4'];
-$dataBimestre4 = date('Y/m/d', strtotime($data4));
+$dataB4 = str_replace('/','-', $data4);
+$dataBimestre4 = date('Y-m-d', strtotime($dataB4));
 
 // Verificando preenchimento dos campos
 if (($dataBimestre1 != "") && ($dataBimestre2 != "") && ($dataBimestre3 != "") && ($dataBimestre4 != "")) {

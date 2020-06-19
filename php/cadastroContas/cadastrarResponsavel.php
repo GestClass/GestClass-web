@@ -35,7 +35,8 @@ if (($nome_respon != "") && ($rg_respon != "") && ($cpf_r != "") && ($nascimento
 	$limcpf =  str_replace('.', '', $cpf_r);
 	$cpf_respon =  str_replace('-', '', $limcpf);
 	//arrumando data conforme ao banco
-	$nascimento_respon = date('Y/m/d', strtotime($nascimento));
+	$data = str_replace('/','-', $nascimento);
+	$nascimento_respon = date('Y-m-d', strtotime($data));
 
 	if ($error == 1) {
 		echo "<script>alert('O arquivo no upload é maior do que o limite definido em upload_max_filesize no php.ini');
