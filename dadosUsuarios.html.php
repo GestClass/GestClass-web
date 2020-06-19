@@ -51,6 +51,8 @@
         $query_alunos = $conn->prepare('SELECT * FROM aluno WHERE RA = ' . $id . '');
         $query_alunos->execute();
         $dados_alunos = $query_alunos->fetch(PDO::FETCH_ASSOC)
+
+        
     ?>
         <div class="container col s12 m12 l12 ">
 
@@ -87,28 +89,15 @@
                 <div class="row">
                     <div class="input-field col s12 m3 l3">
                         <i class="material-icons prefix blue-icon">location_on</i>
-                        <input name="cep" id="cep" value="teste" readonly type="text" class="validate">
+                        <input name="cep" id="cep" value="<?php echo $dados_alunos['cep'] ?>" readonly type="text" class="validate">
                         <label id="lbl" for="first_name">CEP</label>
                     </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="cidade" value="teste" readonly type="text" class="validate">
-                        <label id="lbl" for="first_name">Cidade</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="bairro" value="Teste" readonly type="text" class="validate">
-                        <label id="lbl" for="first_name">Bairro</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l6">
-                        <i class="material-icons prefix blue-icon">edit_road</i>
-                        <input id="rua" value="teste" readonly type="text" class="validate">
-                        <label id="lbl" for="first_name">Rua</label>
-                    </div>
                     <div id="a" class="input-field col s10 m1 l1">
-                        <input name="numero" id="numero" value="teste" readonly type="tel" class="validate ">
+                        <input name="numero" id="numero" value="<?php echo $dados_alunos['numero'] ?>" readonly type="tel" class="validate ">
                         <label id="lbl" for="first_name">Nº</label>
                     </div>
                     <div id="a" class="input-field col s10 m2 l3">
-                        <input name="complemento" id="complemento" value="teste" readonly type="tel" class="validate ">
+                        <input name="complemento" id="complemento" value="<?php echo $dados_alunos['complemento'] ?>" readonly type="tel" class="validate ">
                         <label id="lbl" for="first_name">Complemento</label>
                     </div>
                 </div>
@@ -160,7 +149,7 @@
         </div>
         </div><?php
             } elseif ($tipo_usuario == "6") {
-                $query_resp = $conn->prepare("SELECT * FROM responsavel WHERE fk_ra_aluno_responsavel = 0 AND fk_id_escola_responsavel = 1");
+                $query_resp = $conn->prepare("SELECT * FROM responsavel WHERE fk_ra_aluno_responsavel = ".$id."");
                 $query_resp->execute();
                 $dados_resp = $query_resp->fetch(PDO::FETCH_ASSOC) ?>
 
@@ -197,19 +186,6 @@
                             <i class="material-icons prefix blue-icon">location_on</i>
                             <input name="cep" id="cep" value="<?php echo $dados_resp['cep'] ?>" readonly type="text" class="validate">
                             <label id="lbl" for="first_name">CEP</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l3">
-                            <input id="cidade" value="teste" readonly type="text" class="validate">
-                            <label id="lbl" for="first_name">Cidade</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l3">
-                            <input id="bairro" value="teste" readonly type="text" class="validate">
-                            <label id="lbl" for="first_name">Bairro</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l4">
-                            <i class="material-icons prefix blue-icon">edit_road</i>
-                            <input id="rua" value="teste" readonly type="text" class="validate">
-                            <label id="lbl" for="first_name">Rua</label>
                         </div>
                         <div id="a" class="input-field col s10 m1 l1">
                             <input name="numero" id="numero" value="<?php echo $dados_resp['numero'] ?>" readonly type="tel" class="validate ">
@@ -288,19 +264,6 @@
                             <input name="cep" id="cep" value="<?php echo $dados_prof['cep'] ?>" readonly type="text" class="validate">
                             <label id="lbl" for="first_name">CEP</label>
                         </div>
-                        <div id="a" class="input-field col s10 m2 l3">
-                            <input id="cidade" value="teste" readonly type="text" class="validate">
-                            <label id="lbl" for="first_name">Cidade</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l3">
-                            <input id="bairro" value="Teste" readonly type="text" class="validate">
-                            <label id="lbl" for="first_name">Bairro</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l6">
-                            <i class="material-icons prefix blue-icon">edit_road</i>
-                            <input id="rua" value="teste" readonly type="text" class="validate">
-                            <label id="lbl" for="first_name">Rua</label>
-                        </div>
                         <div id="a" class="input-field col s10 m1 l1">
                             <input name="numero" id="numero" value="<?php echo $dados_prof['numero'] ?>" readonly type="tel" class="validate ">
                             <label id="lbl" for="first_name">Nº</label>
@@ -344,7 +307,7 @@
         </form>
     <?php
             } elseif ($tipo_usuario == "3") {
-                $query_sec = $conn->prepare("SELECT * FROM secretario WHERE ID_secretario = 1");
+                $query_sec = $conn->prepare('SELECT * FROM secretario WHERE ID_secretario = ' . $id . '');
                 $query_sec->execute();
                 $dados_sec = $query_sec->fetch(PDO::FETCH_ASSOC)  ?>
 
@@ -375,19 +338,6 @@
                         <i class="material-icons prefix blue-icon">location_on</i>
                         <input name="cep" id="cep" value="<?php echo $dados_sec['cep'] ?>" readonly type="text" class="validate">
                         <label id="lbl" for="first_name">CEP</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="cidade" value="teste" readonly type="text" class="validate">
-                        <label id="lbl" for="first_name">Cidade</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="bairro" value="Teste" readonly type="text" class="validate">
-                        <label id="lbl" for="first_name">Bairro</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l6">
-                        <i class="material-icons prefix blue-icon">edit_road</i>
-                        <input id="rua" value="teste" readonly type="text" class="validate">
-                        <label id="lbl" for="first_name">Rua</label>
                     </div>
                     <div id="a" class="input-field col s10 m1 l1">
                         <input name="numero" id="numero" value="<?php echo $dados_sec['numero'] ?>" readonly type="tel" class="validate ">
@@ -432,7 +382,7 @@
         </form>
     <?php
             } elseif ($tipo_usuario == "2") {
-                $query_dir = $conn->prepare("SELECT * FROM diretor WHERE ID_diretor = 1");
+                $query_dir = $conn->prepare('SELECT * FROM diretor WHERE ID_diretor = ' . $id . '');
                 $query_dir->execute();
                 $dados_dir = $query_dir->fetch(PDO::FETCH_ASSOC) ?>
 
@@ -465,19 +415,6 @@
                             <i class="material-icons prefix blue-icon">location_on</i>
                             <input name="cep" id="cep" value="<?php echo $dados_dir['cep'] ?>" readonly type="text" class="validate">
                             <label id="lbl" for="first_name">CEP</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l3">
-                            <input id="cidade" value="teste" readonly type="text" class="validate">
-                            <label id="lbl" for="first_name">Cidade</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l3">
-                            <input id="bairro" value="Teste" readonly type="text" class="validate">
-                            <label id="lbl" for="first_name">Bairro</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l6">
-                            <i class="material-icons prefix blue-icon">edit_road</i>
-                            <input id="rua" value="teste" readonly type="text" class="validate">
-                            <label id="lbl" for="first_name">Rua</label>
                         </div>
                         <div id="a" class="input-field col s10 m1 l1">
                             <input name="numero" id="numero" value="<?php echo $dados_dir['numero'] ?>" readonly type="tel" class="validate ">

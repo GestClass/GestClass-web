@@ -93,19 +93,6 @@
                     <input name="cep" id="cep" value="teste" type="text" class="validate">
                     <label id="lbl" for="first_name">CEP</label>
                 </div>
-                <div id="a" class="input-field col s10 m2 l3">
-                    <input id="cidade" value="teste" type="text" class="validate">
-                    <label id="lbl" for="first_name">Cidade</label>
-                </div>
-                <div id="a" class="input-field col s10 m2 l3">
-                    <input id="bairro" value="Teste" type="text" class="validate">
-                    <label id="lbl" for="first_name">Bairro</label>
-                </div>
-                <div id="a" class="input-field col s10 m2 l6">
-                    <i class="material-icons prefix blue-icon">edit_road</i>
-                    <input id="rua" value="teste" type="text" class="validate">
-                    <label id="lbl" for="first_name">Rua</label>
-                </div>
                 <div id="a" class="input-field col s10 m1 l1">
                     <input name="numero" id="numero" value="teste" type="tel" class="validate ">
                     <label id="lbl" for="first_name">Nº</label>
@@ -203,19 +190,6 @@
                         <input name="cep" id="cep" value="<?php echo$dados_resp['cep']?>" type="text" class="validate">
                         <label id="lbl" for="first_name">CEP</label>
                     </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="cidade" value="teste" type="text" class="validate">
-                        <label id="lbl" for="first_name">Cidade</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="bairro" value="teste" type="text" class="validate">
-                        <label id="lbl" for="first_name">Bairro</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l4">
-                        <i class="material-icons prefix blue-icon">edit_road</i>
-                        <input id="rua" value="teste" type="text" class="validate">
-                        <label id="lbl" for="first_name">Rua</label>
-                    </div>
                     <div id="a" class="input-field col s10 m1 l1">
                         <input name="numero" id="numero" value="<?php echo$dados_resp['numero']?>" type="tel"
                             class="validate ">
@@ -302,19 +276,6 @@
                         <input name="cep" id="cep" value="<?php echo$dados_prof['cep']?>" type="text" class="validate">
                         <label id="lbl" for="first_name">CEP</label>
                     </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="cidade" value="teste" type="text" class="validate">
-                        <label id="lbl" for="first_name">Cidade</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="bairro" value="Teste" type="text" class="validate">
-                        <label id="lbl" for="first_name">Bairro</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l6">
-                        <i class="material-icons prefix blue-icon">edit_road</i>
-                        <input id="rua" value="teste" type="text" class="validate">
-                        <label id="lbl" for="first_name">Rua</label>
-                    </div>
                     <div id="a" class="input-field col s10 m1 l1">
                         <input name="numero" id="numero" value="<?php echo$dados_prof['numero']?>" type="tel"
                             class="validate ">
@@ -397,19 +358,6 @@
                         <i class="material-icons prefix blue-icon">location_on</i>
                         <input name="cep" id="cep" value="<?php echo$dados_sec['cep']?>" type="text" class="validate">
                         <label id="lbl" for="first_name">CEP</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="cidade" value="teste" type="text" class="validate">
-                        <label id="lbl" for="first_name">Cidade</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="bairro" value="Teste" type="text" class="validate">
-                        <label id="lbl" for="first_name">Bairro</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l6">
-                        <i class="material-icons prefix blue-icon">edit_road</i>
-                        <input id="rua" value="teste" type="text" class="validate">
-                        <label id="lbl" for="first_name">Rua</label>
                     </div>
                     <div id="a" class="input-field col s10 m1 l1">
                         <input name="numero" id="numero" value="<?php echo$dados_sec['numero']?>" type="tel"
@@ -497,19 +445,6 @@
                             <input name="cep" id="cep" value="<?php echo$dados_dir['cep']?>" type="text"
                                 class="validate">
                             <label id="lbl" for="first_name">CEP</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l3">
-                            <input id="cidade" value="teste" type="text" class="validate">
-                            <label id="lbl" for="first_name">Cidade</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l3">
-                            <input id="bairro" value="Teste" type="text" class="validate">
-                            <label id="lbl" for="first_name">Bairro</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l6">
-                            <i class="material-icons prefix blue-icon">edit_road</i>
-                            <input id="rua" value="teste" type="text" class="validate">
-                            <label id="lbl" for="first_name">Rua</label>
                         </div>
                         <div id="a" class="input-field col s10 m1 l1">
                             <input name="numero" id="numero" value="<?php echo$dados_dir['numero']?>" type="tel"

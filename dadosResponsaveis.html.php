@@ -145,7 +145,7 @@
 
                     <?php 
                 if($id_tipo_usuario == 2 || $id_tipo_usuario == 3){?> 
-                <input type="submit" class="waves-effect waves-light btn blue" value="Alterar dados">
+                <input type="submit" class="btn-flat btnLightBlue center"  value="Alterar dados">
                 <?php } ?>   
 
 
