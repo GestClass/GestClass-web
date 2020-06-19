@@ -1,19 +1,19 @@
 <?php
-    // session_start();
-    include_once 'php/conexao.php';
+// session_start();
+include_once 'php/conexao.php';
 
-    $id_usuario = $_SESSION["id_usuario"];
-    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
-    $id_escola = $_SESSION["id_escola"];
+$id_usuario = $_SESSION["id_usuario"];
+$id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+$id_escola = $_SESSION["id_escola"];
 
-    $query = $conn->prepare("select * from aluno where RA=$id_usuario");
-    $query->execute();
-    $dados = $query->fetch(PDO::FETCH_ASSOC);
+$query = $conn->prepare("select * from aluno where RA=$id_usuario");
+$query->execute();
+$dados = $query->fetch(PDO::FETCH_ASSOC);
 
-    $nomeAlu = $dados['nome_aluno'];
-    
-    $nome = Explode(" ",$nomeAlu);
-    $nome_alu = $nome[0];
+$nomeAlu = $dados['nome_aluno'];
+
+$nome = Explode(" ", $nomeAlu);
+$nome_alu = $nome[0];
 
 ?>
 
@@ -27,7 +27,7 @@
 
     <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
-
+    <link rel="stylesheet" type="text/css" href="css/boletimVisualizacao.css" />
     <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
     <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.min.css" />
@@ -36,7 +36,6 @@
     <link rel="stylesheet" type="text/css" href="css/menu.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />
-
 
 </head>
 
@@ -47,30 +46,27 @@
             <nav class="light-blue lighten-1">
                 <div class="container">
                     <div class="nav-wrapper">
-                        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
-                                class="material-icons">clear_all</i></a>
+                        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">clear_all</i></a>
                         <a href="homeAluno.html.php" class="brand-logo"><i class="fas fa-drafting-compass"></i>
                             <span class="hide-on-small-only">GestClass<span></a>
 
                         <ul class="right">
                             <li>
-                                <a class="transparent hide-on-small-only" disable>Olá <?php echo $nome_alu?></a>
+                                <a class="transparent hide-on-small-only" disable>Olá <?php echo $nome_alu ?></a>
                             </li>
-                            <?php if(empty($dados['foto'])){?>
-                            <li>
-                                <a href="perfil.html.php" class="transparent hide-on-small-only">
-                                    <img class="circle icon-user" width="50px" height="50px"
-                                        src="assets/imagensBanco/usuario.png">
-                                </a>
-                            </li>
-                            <?php }else{?>
-                            <li>
-                                <a href="perfil.html.php" class="transparent hide-on-small-only">
-                                    <img class="circle icon-user" width="50px" height="50px"
-                                        src="assets/imagensBanco/<?php echo $dados['foto']?>">
-                                </a>
-                            </li>
-                            <?php }?>
+                            <?php if (empty($dados['foto'])) { ?>
+                                <li>
+                                    <a href="perfil.html.php" class="transparent hide-on-small-only">
+                                        <img class="circle icon-user" width="50px" height="50px" src="assets/imagensBanco/usuario.png">
+                                    </a>
+                                </li>
+                            <?php } else { ?>
+                                <li>
+                                    <a href="perfil.html.php" class="transparent hide-on-small-only">
+                                        <img class="circle icon-user" width="50px" height="50px" src="assets/imagensBanco/<?php echo $dados['foto'] ?>">
+                                    </a>
+                                </li>
+                            <?php } ?>
                             <li>
                                 <div class="dividerVert hide-on-small-only"></div>
                             </li>
@@ -88,13 +84,13 @@
                     <div class="background light-blue lighten-1">
                         <!-- <img src="assets/img/slide2.png"> -->
                     </div>
-                    <?php if(empty($dados['foto'])){?>
+                    <?php if (empty($dados['foto'])) { ?>
                         <a href="perfil.html.php"><img class="circle" src="assets/imagensBanco/usuario.png"></a>
-                    <?php }else{?>   
-                        <a href="perfil.html.php"><img class="circle" src="assets/imagensBanco/<?php echo $dados['foto']?>"></a> 
-                    <?php }?>
-                    <a href="perfil.html.php"><span class="white-text name"><?php echo $nome_alu?></span></a>
-                    <a href="perfil.html.php"><span class="white-text email"><?php echo $dados['email']?></span></a>
+                    <?php } else { ?>
+                        <a href="perfil.html.php"><img class="circle" src="assets/imagensBanco/<?php echo $dados['foto'] ?>"></a>
+                    <?php } ?>
+                    <a href="perfil.html.php"><span class="white-text name"><?php echo $nome_alu ?></span></a>
+                    <a href="perfil.html.php"><span class="white-text email"><?php echo $dados['email'] ?></span></a>
                 </div>
             </li>
             <li><a href="homeAluno.html.php"><i class="material-icons">home</i>Início</a></li>

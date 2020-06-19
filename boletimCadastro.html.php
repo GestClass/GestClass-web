@@ -59,7 +59,7 @@
 
                     <div class="file field input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Ano/Mes/Dia" type="text" class="datepicker validate" name="dataAtividade">
+                        <input placeholder="Dia/Mes/Ano" type="text" class="datepicker validate" name="dataAtividade">
                         <label id="lbl">Data da atividade</label>
                     </div>
                 </div>

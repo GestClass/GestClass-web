@@ -14,13 +14,15 @@
   } elseif ($id_tipo_usuario == 4) {
     require_once 'reqProfessor.php';
   } elseif ($id_tipo_usuario  == 5) {
-    require_once 'reqAluno.php';
+    require_once 'reqAluno.php';    
   } else {
     require_once 'reqPais.php';
   }
-
+  if ($id_tipo_usuario == 6){
   $ra = $_POST['filhos'];
-
+  } else {
+    $ra = $id_usuario;
+  }
   // Resgatando nome da escola
   $sql_select_nome_escola = $conn->prepare("SELECT nome_escola FROM escola WHERE ID_escola = $id_escola");
   $sql_select_nome_escola->execute();
