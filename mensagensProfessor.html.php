@@ -131,7 +131,7 @@
         </div>
     </div>
 
-    <div id="modalEnviarTurma" class="modal modal-fixed-footer">
+    <div id="modalEnviarTurma" class="modal ">
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
@@ -139,7 +139,7 @@
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario" id="mensagemProf">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione uma Turma</option>
 
                                 <?php
 
@@ -194,16 +194,12 @@
                     <div class="input-field right">
                         <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
                     </div>
-
                 </form>
             </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
-        </div>
     </div>
 
-    <div id="modalSecreDiretor" class="modal modal-fixed-footer">
+    <div id="modalSecreDiretor" class="modal">
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
@@ -211,7 +207,7 @@
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario" id="mensagemProf">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione uma Opção</option>
                                 <option value="1">Secretaria</option>
                                 <option value="2">Diretor</option>
                             </select>
@@ -236,9 +232,6 @@
 
                 </form>
             </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
         </div>
     </div>
 

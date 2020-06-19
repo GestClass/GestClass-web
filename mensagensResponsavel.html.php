@@ -84,7 +84,7 @@
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <select name="destinatario" id="mensagemRespon">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione uma Opção</option>
                                 <option value="1">Secretaria</option>
                                 <option value="2">Diretor</option>
                             </select>

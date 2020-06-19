@@ -138,7 +138,7 @@
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione uma Turma</option>
 
                                 <?php
 
@@ -207,7 +207,7 @@
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione um Professor</option>
 
                                 <?php
 
@@ -340,7 +340,7 @@
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="EncaminharMensagens" id="mensagemDiretor">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione uma Opção</option>
                                 <?php
 
                                 $query_select_id_usuario = $conn->prepare("SELECT ID_tipo_usuario FROM tipo_usuario WHERE $id_escola ORDER BY `ID_tipo_usuario` DESC LIMIT 4");

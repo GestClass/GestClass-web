@@ -205,7 +205,7 @@
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione um Professor</option>
 
                                 <?php
 
@@ -246,32 +246,53 @@
 
     <div id="modalEnviarResponsavel" class="modal">
         <div class="modal-content">
-            <h4>Nova Mensagem</h4><br>
-            <div id="novaMensagem">
-                <form action="php/enviarMensagem/enviarSecretariaRespon.php" method="POST">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="cpf_respon" id="cpf_respon" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate">
-                            <label id="lbl" for="first_name">CPF Responsável</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+            <h4>Selecione a turma do aluno</h4>
+            <div class="input-field col s12">
+                <form action="listaResponMensagens.html.php" method="POST">
+                    <select name="turmas">
+                        <option value="" disabled selected>Selecione a Turma</option>
+                        <?php
+
+                        $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
+                        $query_select_id_turma->execute();
+
+                        while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma_id['ID_turma'];
+
+                            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+                            $query_select_turma->execute();
+
+                            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_turma = $dados_turma_nome['nome_turma'];
+
+                                $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                                $query_turno->execute();
+
+                                while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                    $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                                    $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                    $query_turno_nome->execute();
+
+                                    while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                        $nome_turno = $dados_nome_turno['nome_turno'];
+
+                        ?>
+                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                        <?php
+                                    }
+                                }
+                            }
+                        }
+                        ?>
+                    </select>
+                    <br>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
@@ -310,7 +331,7 @@
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="EncaminharMensagens" id="mensagemProf">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione Uma opção</option>
                                 <?php
 
                                 $query_select_id_usuario = $conn->prepare("SELECT ID_tipo_usuario FROM tipo_usuario WHERE $id_escola ORDER BY `ID_tipo_usuario` DESC LIMIT 3");
