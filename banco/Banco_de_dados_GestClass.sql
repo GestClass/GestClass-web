@@ -225,11 +225,13 @@ CREATE TABLE contato (
     fk_envio_professor_id_professor INTEGER,
     fk_envio_diretor_id_diretor INTEGER,
     fk_envio_secretario_id_secretario INTEGER,
+    fk_envio_admin_id_admin INTEGER,
 	fk_recebimento_aluno_ra_aluno INTEGER,
     fk_recebimento_responsavel_id_responsavel INTEGER,
 	fk_recebimento_professor_id_professor INTEGER,
     fk_recebimento_diretor_id_diretor INTEGER,
-    fk_recebimento_secretario_id_secretario INTEGER
+    fk_recebimento_secretario_id_secretario INTEGER,
+    fk_recebmento_admin_id_admin INTEGER
 );
 
 CREATE TABLE datas_fim_bimestres (
@@ -577,6 +579,7 @@ INSERT INTO boletim_aluno (nota, observacoes, nome_atividade, data_atividade, fk
 /*	-	INSERTS INTO TABLE LISTAGEM_CHAMADA	-	*/
 
 INSERT INTO listagem_chamada (data_chamada, fk_id_escola_listagem_chamada, fk_id_disciplina_listagem_chamada, fk_id_professor_listagem_chamada) VALUES ('2020-05-28', 1, 1, 1);
+
 
 /*	-	INSERTS INTO TABLE CHAMADA_ALUNO	-	*/
              
