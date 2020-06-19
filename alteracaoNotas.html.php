@@ -16,10 +16,6 @@
     $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
     $id_escola = $_SESSION["id_escola"];
 
-    $id_usuario = $_SESSION["id_usuario"];
-    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
-    $id_escola = $_SESSION["id_escola"];
-
     if ($id_tipo_usuario == 2) {
         require_once 'reqDiretor.php';
     } else if ($id_tipo_usuario == 3) {
@@ -28,18 +24,32 @@
         require_once 'reqProfessor.php';
     }
 
+    // Recebendo o id da listagem da atividade                        
+    $id_listagem_boletim = $_POST['id_listagem_boletim'];
+    // Armazenar nome da atividade
+    $nome_atividade = $_POST['nome_atividade'];
     ?>
 
 
     <div class="container col s12 m12 l12" id="container_boletimCadastro">
         <div id="cadastro" class="col s12 m12 l12">
             <h4 class="center">Alteração de Notas</h4>
-            <br>
+            <br><br>
 
             <form action="php/alteracaoNotas.php" method="POST">
+                <div class="row">
+                    <div class="col  m8  offset-m4">
+                        <div class="file field input-field col s12 m6 l6">
+                            <i class="material-icons prefix blue-icon">border_color</i>
+                            <input value="<?php echo $nome_atividade; ?>" type="text" name="nomeAtividade">
+                            <label id="lbl">Nome da atividade</label>
+                        </div>
+                    </div>
+                </div>
+
                 <br><br>
                 <table class="striped centered">
-                    <thead class="">
+                    <thead>
                         <th>
                             RA
                         </th>
@@ -58,69 +68,55 @@
 
 
                         <?php
-                        $dataAtividade = $_POST["dataAtividade"];
-                        $nomeAtividade = $_POST['nomeAtividade'];
 
-                        $query_listagem = $conn->prepare('SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = 16');
-                        $query_listagem->execute();
+                        // Seleciona os dados do aluno e os dados do boletim do aluno
+                        $query_boletim = $conn->prepare("SELECT boletim_aluno.nota AS nota, boletim_aluno.observacoes AS observacao, boletim_aluno.fk_ra_aluno_boletim_aluno AS ra_aluno, boletim_aluno.ID_boletim_aluno AS id_boletim_aluno, aluno.nome_aluno AS nome_aluno, aluno.fk_id_turma_aluno AS id_turma FROM boletim_aluno INNER JOIN aluno ON boletim_aluno.fk_ra_aluno_boletim_aluno = aluno.RA WHERE fk_id_boletim_listagem_boletim_aluno = $id_listagem_boletim");
+                        $query_boletim->execute();
 
-                        while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
+                        // Verificar retorno da pesquisa ao boletim
+                        if ($query_boletim->rowCount()) {
 
-                            $query_boletim = $conn->prepare('SELECT nota, observacoes, ID_boletim_aluno FROM boletim_aluno WHERE data_atividade = "' . $dataAtividade . '" AND nome_atividade = "' . $nomeAtividade . '" AND fk_id_disciplina_boletim_aluno = 1 AND fk_ra_aluno_boletim_aluno = ' . $alunos['RA'] . '');
-                            $query_boletim->execute();
+                            while ($boletim = $query_boletim->fetch(PDO::FETCH_ASSOC)) {
 
-                            if (($dataAtividade != "") && ($nomeAtividade != "")) {
-
-                                if ($query_boletim->rowCount()) {
-
-                                    while ($boletim = $query_boletim->fetch(PDO::FETCH_ASSOC)) {
+                                // Armazenar retornos do banco em variáveis
+                                $nota = $boletim['nota'];
+                                $observacao = $boletim['observacao'];
+                                $ra = $boletim['ra_aluno'];
+                                $id_boletim = $boletim['id_boletim_aluno'];
+                                $nome_aluno = $boletim['nome_aluno'];
+                                $id_turma = $boletim['id_turma'];
 
 
                         ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $alunos['RA']; ?>
-                                            </td>
+                                <tr>
+                                    <td>
+                                        <?php echo $ra; ?>
+                                    </td>
 
-                                            <td>
-                                                <?php echo $alunos['nome_aluno']; ?>
-                                            </td>
+                                    <td>
+                                        <?php echo $nome_aluno; ?>
+                                    </td>
 
-                                            <td class="col s3 m3 l3">
-                                                <input value="<?php echo $boletim['nota']; ?>" type="number" step="0.01" class="validate" name="<?php echo $alunos['RA'] . 'nota'; ?>">
-                                            </td>
+                                    <td class="col s3 m3 l3">
+                                        <input value="<?php echo $nota; ?>" type="number" step="0.01" class="validate" name="<?php echo $ra . 'nota'; ?>">
+                                    </td>
 
-                                            <td class="col s9 m9 l9">
-                                                <input value="<?php echo $boletim['observacoes']; ?>" type="text" class="validate" name="<?php echo $alunos['RA'] . 'observacao'; ?>">
-                                            </td>
-                                        </tr>
+                                    <td class="col s9 m9 l9">
+                                        <input value="<?php echo $observacao; ?>" type="text" class="validate" name="<?php echo $ra . 'observacao'; ?>">
+                                    </td>
+                                </tr>
 
-                                        <input type="hidden" name="idBoletim<?php echo $alunos['RA']; ?>" value="<?php echo $boletim['ID_boletim_aluno']; ?>">
-
-
-
-                                    <?php
-                                    }
-                                } else {
-                                    ?>
-
-                                    <script>
-                                        alert('Nenhum resultado encontrado, verifique o Nome e a Data da atividade!!')
-                                        window.location = 'boletimCadastro.html.php'
-                                    </script>
-
-                                <?php
-                                }
-                            } else {
-                                ?>
-
-                                <script>
-                                    alert('Preencha corretamente os campos de Nome e Data para pesquisar a atividade!!')
-                                    window.location = 'boletimCadastro.html.php'
-                                </script>
-
-                        <?php
+                                <input type="hidden" name="<?php echo $ra . 'id_boletim'; ?>" value="<?php echo $id_boletim; ?>">
+                                <input type="hidden" name="id_turma" value="<?php echo $id_turma; ?>">
+                            <?php
                             }
+                        } else {
+                            ?>
+                            <script>
+                                alert('Erro ao encontrar dados!!');
+                                history.back();
+                            </script>
+                        <?php
                         }
                         ?>
                     </tbody>
@@ -128,7 +124,7 @@
                 <br><br><br>
                 <div class="center">
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-                        <i class="material-icons left">send</i>Enviar
+                        <i class="material-icons left">edit</i>Alterar
                     </button>
                 </div>
             </form>
