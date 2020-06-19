@@ -218,7 +218,7 @@ CREATE TABLE envio_boleto (
 CREATE TABLE contato (
 	ID_mensagem INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     mensagem TEXT NOT NULL,
-    assunto VARCHAR(50) NOT NULL,
+    assunto VARCHAR(50) NULL,
     data_mensagem DATETIME NOT NULL,
     fk_envio_aluno_ra_aluno INTEGER,
     fk_envio_responsavel_id_responsavel INTEGER,
@@ -262,6 +262,12 @@ CREATE TABLE `events` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
+CREATE TABLE `notificacoes` (
+  `id_notificacoes` int(11) NOT NULL,
+  `id_para` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `notificacao` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*	-	FOREIGN KEYs TABLE TURMA	-	*/
 ALTER TABLE turma ADD CONSTRAINT fk_id_escola_turma FOREIGN KEY (fk_id_escola_turma) REFERENCES escola (ID_escola);
