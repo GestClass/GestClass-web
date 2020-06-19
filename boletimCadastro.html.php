@@ -66,7 +66,7 @@
 
                 <br><br>
                 <table class="striped centered">
-                    <thead class="">
+                    <thead>
                         <th>
                             RA
                         </th>
@@ -85,6 +85,7 @@
 
 
                         <?php
+                        // Seleciona o nome e ra do aluno para a lista de atribuições de notas  
                         $query_listagem = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = $id_turma");
                         $query_listagem->execute();
 
@@ -142,14 +143,18 @@
 
                 <tbody>
                     <?php
-                    $query_listagem_boletim = $conn->prepare("SELECT boletim_aluno.nome_atividade   AS nome_atividade, boletim_aluno.data_atividade AS data_atividade,  boletim_aluno.fk_id_disciplina_boletim_aluno AS id_disciplina, disciplina.nome_disciplina AS nome_disciplina FROM boletim_aluno INNER JOIN disciplina ON fk_id_disciplina_boletim_aluno = ID_disciplina WHERE boletim_aluno.fk_id_disciplina_boletim_aluno = $id_disciplina AND boletim_aluno.fk_id_turma_boletim_aluno = $id_turma GROUP BY fk_id_boletim_listagem_boletim_aluno ORDER BY data_atividade ASC");
+                    // Selecionar os dados da atividade e o nome da disciplia 
+                    $query_listagem_boletim = $conn->prepare("SELECT boletim_aluno.nome_atividade   AS nome_atividade, boletim_aluno.data_atividade AS data_atividade,  boletim_aluno.fk_id_disciplina_boletim_aluno AS id_disciplina, boletim_aluno.fk_id_boletim_listagem_boletim_aluno AS id_listagem, disciplina.nome_disciplina AS nome_disciplina FROM boletim_aluno INNER JOIN disciplina ON fk_id_disciplina_boletim_aluno = ID_disciplina WHERE boletim_aluno.fk_id_disciplina_boletim_aluno = $id_disciplina AND boletim_aluno.fk_id_turma_boletim_aluno = $id_turma GROUP BY fk_id_boletim_listagem_boletim_aluno ORDER BY data_atividade ASC, nome_atividade ASC");
                     $query_listagem_boletim->execute();
 
                     while ($lista = $query_listagem_boletim->fetch(PDO::FETCH_ASSOC)) {
+                        // Armazenando o id da listagem
+                        $id_listagem_boletim = $lista['id_listagem'];
+                        $nome_atividade = $lista['nome_atividade'];
                     ?>
                         <tr>
                             <td>
-                                <?php echo $lista['nome_atividade']; ?>
+                                <?php echo $nome_atividade; ?>
                             </td>
 
                             <td>
@@ -163,12 +168,13 @@
                             <td>
 
                                 <div class="center">
-                                    <form action="#" method="POST">
+                                    <form action="alteracaoNotas.html.php" method="POST">
                                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
                                             <i class="material-icons left">edit</i>Alterar
                                         </button>
-                                        <input type="hidden" value="<?php echo $id_disciplina ?>" name="id_disciplina" />
-                                        <input type="hidden" value="<?php echo $id_turma ?>" name="id_turma" />
+                                        <!--    Enviar o id la listagem da atividade    -->
+                                        <input type="hidden" value="<?php echo $id_listagem_boletim ?>" name="id_listagem_boletim" />
+                                        <input type="hidden" value="<?php echo $nome_atividade ?>" name="nome_atividade" />                                        
                                     </form>
                                 </div>
                             </td>

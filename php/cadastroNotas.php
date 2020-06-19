@@ -6,17 +6,15 @@ $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
 
 $nomeAtividade = $_POST['nomeAtividade'];
-$dataAtividade = $_POST['dataAtividade'];
+$dataOriginal = $_POST['dataAtividade'];
+$data = str_replace('/', '-', $dataOriginal);
+$dataAtividade = date('Y-m-d', strtotime($data));
 $id = null;
 
 $id_disciplina =  $_POST['id_disciplina'];
 $id_turma = $_POST['id_turma'];
 $idProfessor = $id_usuario;
 
-echo $id_disciplina;
-echo '<br><br>';
-echo $id_turma;
-echo '<br><br>';
 if (($nomeAtividade != "") && ($dataAtividade != "")) {
 
     $query_insert_boletim_listagem = $conn->prepare("INSERT INTO boletim_listagem VALUES (:id, :id_escola, :id_disciplina)");
@@ -33,9 +31,7 @@ if (($nomeAtividade != "") && ($dataAtividade != "")) {
 
         $array_id_listagem = $query_select_id_listagem->fetch(PDO::FETCH_ASSOC);
 
-        $id_listagem = $array_id_listagem['id_listagem'];
-
-        echo $id_listagem;
+        $id_listagem = $array_id_listagem['id_listagem'];        
 
 
         $query_listagem = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno =  $id_escola AND fk_id_turma_aluno = $id_turma");
@@ -78,7 +74,7 @@ if (($nomeAtividade != "") && ($dataAtividade != "")) {
                 ?>
                 <script>
                     alert("Erro ao cadastrar!!")
-                    //history.back()
+                    history.back()
                 </script>
         <?php
             }
@@ -87,7 +83,7 @@ if (($nomeAtividade != "") && ($dataAtividade != "")) {
         ?>
         <script>
             alert("Erro ao cadastrar!!")
-            //history.back()
+            history.back()
         </script>
     <?php
     }
