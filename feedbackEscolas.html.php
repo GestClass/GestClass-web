@@ -21,26 +21,31 @@
     <?php
     require_once 'reqMenuAdm.php';
 
+    $query_mensagem = $conn->prepare("SELECT nome,fk_recebmento_admin_id_admin,data_mensagem,mensagem
+    FROM `admin` AS R 
+    JOIN contato AS C ON R.ID_admin = C.fk_recebmento_admin_id_admin and R.ID_admin = {$id_usuario}  ORDER BY data_mensagem DESC");
+    $query_mensagem->execute();
+
     ?>
+
     <div class="container"><br><br><br>
         <div id="mensagens">
             <table class="highlight centered col s12 m12 l12">
                 <thead>
                     <tr>
                         <th>Data</th>
-                        <th>Assunto</th>
                         <th>Mensagem</th>
                     </tr>
                 </thead>
 
                 <tbody>
-
-                    <tr>
-                        <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) { ?>
+                        <tr>
+                            <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
+                            <td><?php echo $mensagens["mensagem"] ?></td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
