@@ -9,6 +9,7 @@ $tipo_usuario = $_POST['tipo_conta'];
 if ($tipo_usuario == '5') {
     $nome_aluno = $_POST['nome'];
     $dataNasc = $_POST['data_nascimento'];
+    $foto = $_POST['foto_file'];
     $data = str_replace('/','-', $data);
     $data_nascimento = date('Y-m-d', strtotime($data));
     $RG = $_POST['rg'];
@@ -22,12 +23,13 @@ if ($tipo_usuario == '5') {
     if (($nome_aluno != "")&&($data_nascimento != "")&&($RG != "")&&($cpf != "")&&($email != "")&&
             ($celular != "")&&($telefone != "")&&($id_turma!= "")) {
         
-     $query_up = 'UPDATE aluno SET nome_aluno = :nome_aluno, data_nascimento = :data_nascimento,
+     $query_up = 'UPDATE aluno SET foto = :foto, nome_aluno = :nome_aluno, data_nascimento = :data_nascimento,
      RG = :RG, cpf = :cpf, email = :email, celular = :celular, telefone = :telefone, 
      fk_id_turma_aluno = :fk_id_turma_aluno 
      WHERE RA = ' . $ra . '';
 
         $query_update = $conn->prepare($query_up);
+        $query_update->bindParam(':foto', $foto);
         $query_update->bindParam(':nome_aluno', $nome_aluno);
         $query_update->bindParam(':data_nascimento', $data_nascimento);
         $query_update->bindParam(':RG', $RG);

@@ -55,6 +55,16 @@
 
         <form id="aluno" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
             <div class="row">
+
+            <div class="file-field input-field col s12 m3 l3">
+                    <div id="btnfoto" class="btn col s6">
+                        <span><i class="material-icons">add_a_photo</i></span>
+                        <input type="file" name="foto_file" />
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input id="foto" class="file-path validate" type="text" name="foto_file">
+                    </div>
+                </div>
                 <div class="input-field col s12 m9 l6">
                     <i class="material-icons prefix blue-icon">account_circle</i>
                     <input name="nome" id="nome_aluno" type="text" value="<?php echo $dados_alunos['nome_aluno']?>"
@@ -66,7 +76,8 @@
                 <div class="input-field col s6 m4 l5">
                     <i class="material-icons prefix blue-icon">cake</i>
                     <input name="data_nascimento" id="data_nascimento"
-                        value="<?php echo date('d/m/Y', strtotime($dados_alunos['data_nascimento']))?>" data-mask="00/00/0000" type="tel" class="validate">
+                        value="<?php echo date('d/m/Y', strtotime($dados_alunos['data_nascimento']))?>"
+                        data-mask="00/00/0000" type="tel" class="validate">
                     <label id="lbl">Data Nascimento</label>
                 </div>
                 <div class="input-field col s6 m4 l5">
@@ -85,21 +96,6 @@
                     <i class="material-icons prefix blue-icon">ballot</i>
                     <input name="cpf" id="CPF" value="<?php echo $dados_alunos['cpf']?>" type="text" class="validate ">
                     <label id="lbl" for="first_name">CPF</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 m3 l3">
-                    <i class="material-icons prefix blue-icon">location_on</i>
-                    <input name="cep" id="cep" value="teste" type="text" class="validate">
-                    <label id="lbl" for="first_name">CEP</label>
-                </div>
-                <div id="a" class="input-field col s10 m1 l1">
-                    <input name="numero" id="numero" value="teste" type="tel" class="validate ">
-                    <label id="lbl" for="first_name">Nº</label>
-                </div>
-                <div id="a" class="input-field col s10 m2 l3">
-                    <input name="complemento" id="complemento" value="teste" type="tel" class="validate ">
-                    <label id="lbl" for="first_name">Complemento</label>
                 </div>
             </div>
             <div class="row">
@@ -157,6 +153,15 @@
         <form id="responsavel" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
             <div class="col s12 m12 l12">
                 <div class="row">
+                    <div class="file-field input-field col s12 m3 l3">
+                        <div id="btnfoto" class="btn col s6">
+                            <span><i class="material-icons">add_a_photo</i></span>
+                            <input type="file" name="foto_file" />
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input id="foto" class="file-path validate" type="text" name="foto_file">
+                        </div>
+                    </div>
                     <div class="input-field col s12 m9 l9">
                         <i class="material-icons prefix blue-icon">account_circle</i>
                         <input name="nome_respon" id="nome_responsavel" type="text"
@@ -180,7 +185,8 @@
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">cake</i>
                         <input name="nascimento_respon" id="data_nascimento"
-                            value="<?php echo date('d/m/Y',strtotime($dados_resp['data_nascimento']))?>" type="date" class=" validate">
+                            value="<?php echo date('d/m/Y',strtotime($dados_resp['data_nascimento']))?>" type="date"
+                            class=" validate">
                         <label id="lbl">Data Nascimento</label>
                     </div>
                 </div>
@@ -247,7 +253,7 @@
         $query_prof->execute();
         $dados_prof = $query_prof->fetch(PDO::FETCH_ASSOC) ?>
 
-<h4 class="center">Alteração de dados </h4>
+        <h4 class="center">Alteração de dados </h4>
         <div class="container col s12 m12 l12 ">
             <form id="professor" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
                 <div class="row">
@@ -329,7 +335,7 @@
         $query_sec->execute();
         $dados_sec = $query_sec->fetch(PDO::FETCH_ASSOC) ?>
 
-<h4 class="center">Alteração de dados </h4>
+        <h4 class="center">Alteração de dados </h4>
         <div class="container col s12 m12 l12 ">
             <form id="secretaria" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
                 <div class="row">
