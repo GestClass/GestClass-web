@@ -60,18 +60,19 @@
 
 
             <div class="row">
-                <div class="input-field col s12 m9 l1">
+                <div class="input-field col s12 m9 l2">
                     <?php if(empty($dados_alunos['foto'])){?>
 
-                    <img class="responsive-img" width="90px" height="90px" src="assets/imagensBanco/usuario.png">
+                    <img class="responsive-img" width="90px" height="100px" src="assets/imagensBanco/usuario.png">
 
                     <?php }else{?>
 
-                    <img class="responsive-img" width="90px" height="90px"
+                    <img class="responsive-img" width="90px" height="100px"
                         src="assets/imagensBanco/<?php echo $dados_alunos['foto']?>">
 
                     <?php }?>
                 </div>
+                <br><br>
                 <div class="input-field col s12 m9 l6">
                     <input name="nome" id="nome_aluno" type="text" value="<?php echo $dados_alunos['nome_aluno'] ?>"
                         class="validate " readonly>
@@ -167,196 +168,197 @@
         <form id="responsavel" method="POST" action="alteracaoDados.html.php" enctype="multipart/form-data">
             <div class="col s12 m12 l12">
                 <div class="row">
-                    <div class="input-field col s12 m9 l1">
+                    <div class="input-field col s12 m9 l2">
                         <?php if(empty($dados_resp['foto'])){?>
 
-                        <img class="responsive-img" width="90px" height="90px" src="assets/imagensBanco/usuario.png">
+                        <img class="responsive-img" width="90px" height="100px" src="assets/imagensBanco/usuario.png">
 
                         <?php }else{?>
 
-                        <img class="responsive-img" width="90px" height="90px"
+                        <img class="responsive-img" width="90px" height="100px"
                             src="assets/imagensBanco/<?php echo $dados_resp['foto']?>">
 
                         <?php }?>
                     </div>
-                    <div class="input-field col s12 m9 l9">
-                        <input name="nome_respon" id="nome_responsavel" type="text"
-                            value="<?php echo $dados_resp['nome_responsavel'] ?>" readonly class="validate">
-                        <label id="lbl" for="icon_telephone">Nome</label>
-                    </div>
+                    <br><br>
                 </div>
-                <div class="row">
-                    <div class="input-field col s6 m4 l4">
-                        <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="rg_respon" id="rg" type="tel" data-mask="00.000.000-0"
-                            value="<?php echo $dados_resp['RG'] ?>" readonly class="validate">
-                        <label id="lbl" for="icon_telephone">RG</label>
-                    </div>
-                    <div class="input-field col s6 m4 l4">
-                        <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="cpf_respon" id="cpf" type="tel" value="<?php echo $dados_resp['cpf'] ?>" readonly
-                            data-mask="000.000.000-00" class="validate">
-                        <label id="lbl" for="icon_telephone">CPF</label>
-                    </div>
-                    <div class="input-field col s6 m4 l4">
-                        <i class="material-icons prefix blue-icon">cake</i>
-                        <input name="nascimento_respon" id="data_nascimento"
-                            value="<?php echo date('d/m/Y', strtotime($dados_resp['data_nascimento'])) ?>" readonly
-                            type="date" class=" validate">
-                        <label id="lbl">Data Nascimento</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m3 l3">
-                        <i class="material-icons prefix blue-icon">location_on</i>
-                        <input name="cep" id="cep" value="<?php echo $dados_resp['cep'] ?>" readonly type="text"
-                            class="validate">
-                        <label id="lbl" for="first_name">CEP</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m1 l1">
-                        <input name="numero" id="numero" value="<?php echo $dados_resp['numero'] ?>" readonly type="tel"
-                            class="validate ">
-                        <label id="lbl" for="first_name">Nº</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l2">
-                        <input name="complemento" id="complemento" value="<?php echo $dados_resp['complemento'] ?>"
-                            readonly type="tel" class="validate ">
-                        <label id="lbl" for="first_name">Complemento</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m4 l5">
-                        <i class="material-icons prefix blue-icon">alternate_email</i>
-                        <input name="email_respon" id="email" type="tel" value="<?php echo $dados_resp['email'] ?>"
-                            readonly class="validate">
-                        <label id="lbl" for="icon_telephone">Email</label>
-                    </div>
-                    <div class="input-field col s12 m4 l5">
-                        <i class="material-icons prefix blue-icon">smartphone</i>
-                        <input name="celular_respon" id="celular" type="tel"
-                            value="<?php echo $dados_resp['celular'] ?>" readonly data-mask="(00) 00000-0000"
-                            class="validate">
-                        <label id="lbl" for="icon_telephone">Celular</label>
-                    </div>
-                    <div class="input-field col s12 m4 l5">
-                        <i class="material-icons prefix blue-icon">call</i>
-                        <input name="telefone_respon" id="telefone" type="tel"
-                            value="<?php echo $dados_resp['telefone'] ?>" readonly data-mask="(00) 0000-0000"
-                            class="validate">
-                        <label id="lbl" for="icon_telephone">Telefone</label>
-                    </div>
-                    <div class="input-field col s12 m4 l5">
-                        <i class="material-icons prefix blue-icon">call</i>
-                        <input name="tel_comercial" id="telefone_comercial" type="tel"
-                            value="<?php echo $dados_resp['telefone_comercial'] ?>" readonly data-mask=" (00) 0000-0000"
-                            class="validate">
-                        <label id="lbl" for="icon_telephone">Telefone Comercial</label>
-                    </div>
-                </div>
-                <div>
-                    <input type="text" name="tipo_conta" value="responsavel" hidden>
+                <div class="input-field col s12 m9 l9">
+                    <input name="nome_respon" id="nome_responsavel" type="text"
+                        value="<?php echo $dados_resp['nome_responsavel'] ?>" readonly class="validate">
+                    <label id="lbl" for="icon_telephone">Nome</label>
                 </div>
             </div>
-
             <div class="row">
-                <?php
-                    if ($id_tipo_usuario == 2 || $id_tipo_usuario == 3) { ?>
-                <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
-                <?php } ?>
+                <div class="input-field col s6 m4 l4">
+                    <i class="material-icons prefix blue-icon">ballot</i>
+                    <input name="rg_respon" id="rg" type="tel" data-mask="00.000.000-0"
+                        value="<?php echo $dados_resp['RG'] ?>" readonly class="validate">
+                    <label id="lbl" for="icon_telephone">RG</label>
+                </div>
+                <div class="input-field col s6 m4 l4">
+                    <i class="material-icons prefix blue-icon">ballot</i>
+                    <input name="cpf_respon" id="cpf" type="tel" value="<?php echo $dados_resp['cpf'] ?>" readonly
+                        data-mask="000.000.000-00" class="validate">
+                    <label id="lbl" for="icon_telephone">CPF</label>
+                </div>
+                <div class="input-field col s6 m4 l4">
+                    <i class="material-icons prefix blue-icon">cake</i>
+                    <input name="nascimento_respon" id="data_nascimento"
+                        value="<?php echo date('d/m/Y', strtotime($dados_resp['data_nascimento'])) ?>" readonly
+                        type="date" class=" validate">
+                    <label id="lbl">Data Nascimento</label>
+                </div>
             </div>
+            <div class="row">
+                <div class="input-field col s12 m3 l3">
+                    <i class="material-icons prefix blue-icon">location_on</i>
+                    <input name="cep" id="cep" value="<?php echo $dados_resp['cep'] ?>" readonly type="text"
+                        class="validate">
+                    <label id="lbl" for="first_name">CEP</label>
+                </div>
+                <div id="a" class="input-field col s10 m1 l1">
+                    <input name="numero" id="numero" value="<?php echo $dados_resp['numero'] ?>" readonly type="tel"
+                        class="validate ">
+                    <label id="lbl" for="first_name">Nº</label>
+                </div>
+                <div id="a" class="input-field col s10 m2 l2">
+                    <input name="complemento" id="complemento" value="<?php echo $dados_resp['complemento'] ?>" readonly
+                        type="tel" class="validate ">
+                    <label id="lbl" for="first_name">Complemento</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m4 l5">
+                    <i class="material-icons prefix blue-icon">alternate_email</i>
+                    <input name="email_respon" id="email" type="tel" value="<?php echo $dados_resp['email'] ?>" readonly
+                        class="validate">
+                    <label id="lbl" for="icon_telephone">Email</label>
+                </div>
+                <div class="input-field col s12 m4 l5">
+                    <i class="material-icons prefix blue-icon">smartphone</i>
+                    <input name="celular_respon" id="celular" type="tel" value="<?php echo $dados_resp['celular'] ?>"
+                        readonly data-mask="(00) 00000-0000" class="validate">
+                    <label id="lbl" for="icon_telephone">Celular</label>
+                </div>
+                <div class="input-field col s12 m4 l5">
+                    <i class="material-icons prefix blue-icon">call</i>
+                    <input name="telefone_respon" id="telefone" type="tel" value="<?php echo $dados_resp['telefone'] ?>"
+                        readonly data-mask="(00) 0000-0000" class="validate">
+                    <label id="lbl" for="icon_telephone">Telefone</label>
+                </div>
+                <div class="input-field col s12 m4 l5">
+                    <i class="material-icons prefix blue-icon">call</i>
+                    <input name="tel_comercial" id="telefone_comercial" type="tel"
+                        value="<?php echo $dados_resp['telefone_comercial'] ?>" readonly data-mask=" (00) 0000-0000"
+                        class="validate">
+                    <label id="lbl" for="icon_telephone">Telefone Comercial</label>
+                </div>
+            </div>
+            <div>
+                <input type="text" name="tipo_conta" value="responsavel" hidden>
+            </div>
+    </div>
 
-        </form>
+    <div class="row">
         <?php
+                    if ($id_tipo_usuario == 2 || $id_tipo_usuario == 3) { ?>
+        <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
+        <?php } ?>
+    </div>
+
+    </form>
+    <?php
             } elseif ($tipo_usuario == "4") {
                 $query_prof = $conn->prepare('SELECT * FROM professor WHERE ID_professor = ' . $id . '');
                 $query_prof->execute();
                 $dados_prof = $query_prof->fetch(PDO::FETCH_ASSOC) ?>
 
-        <div class="container col s12 m12 l12 ">
-            <form id="professor" method="POST" action="alteracaoDados.html.php" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="input-field col s12 m9 l1">
-                        <?php if(empty($dados_prof['foto'])){?>
+    <div class="container col s12 m12 l12 ">
+        <form id="professor" method="POST" action="alteracaoDados.html.php" enctype="multipart/form-data">
+            <div class="row">
+                <div class="input-field col s12 m9 l2">
+                    <?php if(empty($dados_prof['foto'])){?>
 
-                        <img class="responsive-img" width="90px" height="90px" src="assets/imagensBanco/usuario.png">
+                    <img class="responsive-img" width="90px" height="100px" src="assets/imagensBanco/usuario.png">
 
-                        <?php }else{?>
+                    <?php }else{?>
 
-                        <img class="responsive-img" width="90px" height="90px"
-                            src="assets/imagensBanco/<?php echo $dados_prof['foto']?>">
+                    <img class="responsive-img" width="90px" height="100px"
+                        src="assets/imagensBanco/<?php echo $dados_prof['foto']?>">
 
-                        <?php }?>
-                    </div>
-                    <div class="input-field col s12 m9 l9">
-                        <input name="nome" id="nome_professor" type="text"
-                            value="<?php echo $dados_prof['nome_professor'] ?>" readonly class=" validate">
-                        <label id="lbl" for="icon_prefix">Nome</label>
-                    </div>
+                    <?php }?>
                 </div>
-                <div class="row">
-                    <div class="input-field col s6 m4 l4">
-                        <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="rg" id="rg" value="<?php echo $dados_prof['rg'] ?>" readonly type="tel"
-                            class="validate">
-                        <label id="lbl" for="icon_telephone">RG</label>
-                    </div>
-                    <div class="input-field col s6 m4 l4">
-                        <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="cpf" id="cpf" value="<?php echo $dados_prof['cpf'] ?>" readonly type="tel"
-                            class="validate">
-                        <label id="lbl" for="icon_telephone">CPF</label>
-                    </div>
+                <br><br>
+                <div class="input-field col s12 m9 l9">
+                    <input name="nome" id="nome_professor" type="text"
+                        value="<?php echo $dados_prof['nome_professor'] ?>" readonly class=" validate">
+                    <label id="lbl" for="icon_prefix">Nome</label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12 m3 l3">
-                        <i class="material-icons prefix blue-icon">location_on</i>
-                        <input name="cep" id="cep" value="<?php echo $dados_prof['cep'] ?>" readonly type="text"
-                            class="validate">
-                        <label id="lbl" for="first_name">CEP</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m1 l1">
-                        <input name="numero" id="numero" value="<?php echo $dados_prof['numero'] ?>" readonly type="tel"
-                            class="validate ">
-                        <label id="lbl" for="first_name">Nº</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input name="complemento" id="complemento" value="<?php echo $dados_prof['complemento'] ?>"
-                            readonly type="tel" class="validate ">
-                        <label id="lbl" for="first_name">Complemento</label>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 m4 l4">
+                    <i class="material-icons prefix blue-icon">ballot</i>
+                    <input name="rg" id="rg" value="<?php echo $dados_prof['rg'] ?>" readonly type="tel"
+                        class="validate">
+                    <label id="lbl" for="icon_telephone">RG</label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12 m4 l4">
-                        <i class="material-icons prefix blue-icon">alternate_email</i>
-                        <input name="email" id="email" value="<?php echo $dados_prof['email'] ?>" readonly type="tel"
-                            class="validate">
-                        <label id="lbl" for="icon_telephone">Email</label>
-                    </div>
+                <div class="input-field col s6 m4 l4">
+                    <i class="material-icons prefix blue-icon">ballot</i>
+                    <input name="cpf" id="cpf" value="<?php echo $dados_prof['cpf'] ?>" readonly type="tel"
+                        class="validate">
+                    <label id="lbl" for="icon_telephone">CPF</label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12 m6 l4">
-                        <i class="material-icons prefix blue-icon">smartphone</i>
-                        <input name="celular" id="celular" value="<?php echo $dados_prof['celular'] ?>" readonly
-                            type="tel" data-mask="(00) 00000-0000" class="validate">
-                        <label id="lbl" for="icon_telephone">Celular</label>
-                    </div>
-                    <div class="input-field col s12 m6 l4">
-                        <i class="material-icons prefix blue-icon">call</i>
-                        <input name="telefone" id="telefone" value="<?php echo $dados_prof['telefone'] ?>" readonly
-                            type="tel" data-mask="(00) 0000-0000" class="validate">
-                        <label id="lbl" for="icon_telephone">Telefone</label>
-                    </div>
-                    <div>
-                        <input type="text" name="tipo_conta" value="<?php echo $tipo_usuario ?>" hidden>
-                        <input type="text" name="id" value="<?php echo $id ?>" hidden>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m3 l3">
+                    <i class="material-icons prefix blue-icon">location_on</i>
+                    <input name="cep" id="cep" value="<?php echo $dados_prof['cep'] ?>" readonly type="text"
+                        class="validate">
+                    <label id="lbl" for="first_name">CEP</label>
                 </div>
+                <div id="a" class="input-field col s10 m1 l1">
+                    <input name="numero" id="numero" value="<?php echo $dados_prof['numero'] ?>" readonly type="tel"
+                        class="validate ">
+                    <label id="lbl" for="first_name">Nº</label>
+                </div>
+                <div id="a" class="input-field col s10 m2 l3">
+                    <input name="complemento" id="complemento" value="<?php echo $dados_prof['complemento'] ?>" readonly
+                        type="tel" class="validate ">
+                    <label id="lbl" for="first_name">Complemento</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m4 l4">
+                    <i class="material-icons prefix blue-icon">alternate_email</i>
+                    <input name="email" id="email" value="<?php echo $dados_prof['email'] ?>" readonly type="tel"
+                        class="validate">
+                    <label id="lbl" for="icon_telephone">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l4">
+                    <i class="material-icons prefix blue-icon">smartphone</i>
+                    <input name="celular" id="celular" value="<?php echo $dados_prof['celular'] ?>" readonly type="tel"
+                        data-mask="(00) 00000-0000" class="validate">
+                    <label id="lbl" for="icon_telephone">Celular</label>
+                </div>
+                <div class="input-field col s12 m6 l4">
+                    <i class="material-icons prefix blue-icon">call</i>
+                    <input name="telefone" id="telefone" value="<?php echo $dados_prof['telefone'] ?>" readonly
+                        type="tel" data-mask="(00) 0000-0000" class="validate">
+                    <label id="lbl" for="icon_telephone">Telefone</label>
+                </div>
+                <div>
+                    <input type="text" name="tipo_conta" value="<?php echo $tipo_usuario ?>" hidden>
+                    <input type="text" name="id" value="<?php echo $id ?>" hidden>
+                </div>
+            </div>
 
-                <?php
+            <?php
                     if ($id_tipo_usuario == 2 || $id_tipo_usuario == 3) { ?>
-                <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
-                <?php } ?>
-        </div>
+            <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
+            <?php } ?>
+    </div>
     </div>
 
     </form>
@@ -369,19 +371,19 @@
     <div class="container col s12 m12 l12 ">
         <form id="secretaria" method="POST" action="alteracaoDados.html.php" enctype="multipart/form-data">
             <div class="row">
-
-                <div class="input-field col s12 m9 l1">
+                <div class="input-field col s12 m9 l2">
                     <?php if(empty($dados_sec['foto'])){?>
 
-                    <img class="responsive-img" width="90px" height="90px" src="assets/imagensBanco/usuario.png">
+                    <img class="responsive-img" width="90px" height="100px" src="assets/imagensBanco/usuario.png">
 
                     <?php }else{?>
 
-                    <img class="responsive-img" width="90px" height="90px"
+                    <img class="responsive-img" width="90px" height="100px"
                         src="assets/imagensBanco/<?php echo $dados_sec['foto']?>">
 
                     <?php }?>
                 </div>
+                <br><br>
                 <div class="input-field col s12 m9 l9">
 
                     <input name="nome_secretario" id="nome_secretario" type="text"
@@ -468,19 +470,20 @@
                 enctype="multipart/form-data">
                 <div class="col s12 m12 l12">
                     <div class="row">
-                        <div class="input-field col s12 m9 l1">
+                        <div class="input-field col s12 m9 l2">
                             <?php if(empty($dados_sec['foto'])){?>
 
-                            <img class="responsive-img" width="90px" height="90px"
+                            <img class="responsive-img" width="90px" height="100px"
                                 src="assets/imagensBanco/usuario.png">
 
                             <?php }else{?>
 
-                            <img class="responsive-img" width="90px" height="90px"
+                            <img class="responsive-img" width="90px" height="100px"
                                 src="assets/imagensBanco/<?php echo $dados_sec['foto']?>">
 
                             <?php }?>
                         </div>
+                        <br><br>
                     </div>
                     <div class="input-field col s12 m9 l9">
                         <i class="material-icons prefix blue-icon">account_circle</i>

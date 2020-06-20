@@ -51,8 +51,21 @@
         <form id="responsavel" method="POST" action="alteracaoDados.html.php" enctype="multipart/form-data">
             <div class="col s12 m12 l12">
                 <div class="row">
+                    <div class="input-field col s12 m9 l2">
+                        <?php if(empty($dados_sec['foto'])){?>
+
+                        <img class="responsive-img" width="90px" height="100px" src="assets/imagensBanco/usuario.png">
+
+                        <?php }else{?>
+
+                        <img class="responsive-img" width="90px" height="100px"
+                            src="assets/imagensBanco/<?php echo $dados_sec['foto']?>">
+
+                        <?php }?>
+                    </div>
+                    <br><br>
+
                     <div class="input-field col s12 m9 l9">
-                        <i class="material-icons prefix blue-icon">account_circle</i>
                         <input name="nome_respon" id="nome_responsavel" type="text"
                             value="<?php echo$dados_resp['nome_responsavel']?>" readonly class="validate">
                         <label id="lbl" for="icon_telephone">Nome</label>
@@ -74,7 +87,8 @@
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">cake</i>
                         <input name="nascimento_respon" id="data_nascimento"
-                            value="<?php echo date('d/m/Y', strtotime($dados_resp['data_nascimento']))?>" readonly type="date" class=" validate">
+                            value="<?php echo date('d/m/Y', strtotime($dados_resp['data_nascimento']))?>" readonly
+                            type="date" class=" validate">
                         <label id="lbl">Data Nascimento</label>
                     </div>
                 </div>
@@ -84,19 +98,6 @@
                         <input name="cep" id="cep" value="<?php echo$dados_resp['cep']?>" readonly type="text"
                             class="validate">
                         <label id="lbl" for="first_name">CEP</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="cidade" value="teste" readonly type="text" class="validate">
-                        <label id="lbl" for="first_name">Cidade</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l3">
-                        <input id="bairro" value="teste" readonly type="text" class="validate">
-                        <label id="lbl" for="first_name">Bairro</label>
-                    </div>
-                    <div id="a" class="input-field col s10 m2 l4">
-                        <i class="material-icons prefix blue-icon">edit_road</i>
-                        <input id="rua" value="teste" readonly type="text" class="validate">
-                        <label id="lbl" for="first_name">Rua</label>
                     </div>
                     <div id="a" class="input-field col s10 m1 l1">
                         <input name="numero" id="numero" value="<?php echo$dados_resp['numero']?>" readonly type="tel"
@@ -144,9 +145,9 @@
                     </div>
 
                     <?php 
-                if($id_tipo_usuario == 2 || $id_tipo_usuario == 3){?> 
-                <input type="submit" class="btn-flat btnLightBlue center"  value="Alterar dados">
-                <?php } ?>   
+                if($id_tipo_usuario == 2 || $id_tipo_usuario == 3){?>
+                    <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
+                    <?php } ?>
 
 
 

@@ -56,7 +56,7 @@
         <form id="aluno" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
             <div class="row">
 
-            <div class="file-field input-field col s12 m3 l3">
+                <div class="file-field input-field col s12 m3 l2">
                     <div id="btnfoto" class="btn col s6">
                         <span><i class="material-icons">add_a_photo</i></span>
                         <input type="file" name="foto_file" />
@@ -153,7 +153,7 @@
         <form id="responsavel" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
             <div class="col s12 m12 l12">
                 <div class="row">
-                    <div class="file-field input-field col s12 m3 l3">
+                    <div class="file-field input-field col s12 m3 l2">
                         <div id="btnfoto" class="btn col s6">
                             <span><i class="material-icons">add_a_photo</i></span>
                             <input type="file" name="foto_file" />
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                     <div class="input-field col s12 m9 l9">
-                        <i class="material-icons prefix blue-icon">account_circle</i>
+                        
                         <input name="nome_respon" id="nome_responsavel" type="text"
                             value="<?php echo$dados_resp['nome_responsavel']?>" class="validate">
                         <label id="lbl" for="icon_telephone">Nome</label>
@@ -256,12 +256,22 @@
         <h4 class="center">Alteração de dados </h4>
         <div class="container col s12 m12 l12 ">
             <form id="professor" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
+            <div class="col s12 m12 l12">
                 <div class="row">
+                    <div class="file-field input-field col s12 m3 l2">
+                        <div id="btnfoto" class="btn col s6">
+                            <span><i class="material-icons">add_a_photo</i></span>
+                            <input type="file" name="foto_file" />
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input id="foto" class="file-path validate" type="text" name="foto_file">
+                        </div>
+                    </div>
                     <div class="input-field col s12 m9 l9">
-                        <i class="material-icons prefix blue-icon">account_circle</i>
-                        <input name="nome_professor" id="nome_professor" type="text"
-                            value="<?php echo$dados_prof['nome_professor']?>" class=" validate">
-                        <label id="lbl" for="icon_prefix">Nome</label>
+                        
+                        <input name="nome_professor" id="nome_responsavel" type="text"
+                            value="<?php echo$dados_prof['nome_professor']?>" class="validate">
+                        <label id="lbl" for="icon_telephone">Nome</label>
                     </div>
                 </div>
                 <div class="row">
@@ -339,9 +349,16 @@
         <div class="container col s12 m12 l12 ">
             <form id="secretaria" method="POST" action="php/alteracaoDados.php" enctype="multipart/form-data">
                 <div class="row">
-
+                    <div class="file-field input-field col s12 m3 l3">
+                        <div id="btnfoto" class="btn col s6">
+                            <span><i class="material-icons">add_a_photo</i></span>
+                            <input type="file" name="foto_file" />
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input id="foto" class="file-path validate" type="text" name="foto_file">
+                        </div>
+                    </div>
                     <div class="input-field col s12 m9 l9">
-                        <i class="material-icons prefix blue-icon">account_circle</i>
                         <input name="nome_secretario" id="nome_secretario" type="text"
                             value="<?php echo$dados_sec['nome_secretario']?>" class="validate">
                         <label id="lbl" for="icon_prefix">Nome</label>
@@ -423,7 +440,14 @@
                 <form id="adicionarEscola" class="col s12" method="POST" action="php/alteracaoDados.php"
                     enctype="multipart/form-data">
                     <div class="col s12 m12 l12">
-                        <div class="row">
+                        <div class="file-field input-field col s12 m3 l3">
+                            <div id="btnfoto" class="btn col s6">
+                                <span><i class="material-icons">add_a_photo</i></span>
+                                <input type="file" name="foto_file" />
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input id="foto" class="file-path validate" type="text" name="foto_file">
+                            </div>
                         </div>
                         <div class="input-field col s12 m9 l9">
                             <i class="material-icons prefix blue-icon">account_circle</i>
