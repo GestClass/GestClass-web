@@ -27,7 +27,7 @@
             </button></p>
             <hr>
             <ul>
-                <li>Titulo notificação | Lido</li>
+                
             </ul>
     </div>
 
