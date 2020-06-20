@@ -54,10 +54,12 @@
 
     <div class="container"><br><br><br>
         <div id="mensagens">
-            <table class="highlight centered col s12 m12 l12">
+            <table class="highlight col s12 m12 l12">
                 <thead>
                     <tr>
                         <th>Data</th>
+                        <th>Cargo</th>
+                        <th>Nome</th>
                         <th>Assunto</th>
                         <th>Mensagem</th>
                     </tr>
@@ -68,6 +70,8 @@
                     <tr>
                         <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                         <?php echo date('d/m/Y H:i:s',strtotime($mensagens["data_mensagem"]));?></td>
+                        <td>Achando uma solucao</td>
+                        <td>aqui tambem</td>
                         <td><?php echo $mensagens["assunto"]?></td>
                         <td><?php echo $mensagens["mensagem"]?></td>
                     </tr>
@@ -76,8 +80,6 @@
             </table>
         </div>
     </div>
-
-    <script src="js/mensagensAluno.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>

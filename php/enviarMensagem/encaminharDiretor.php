@@ -4,6 +4,7 @@ include_once '../conexao.php';
 
 $id_escola = $_SESSION["id_escola"];
 $id_usuario = $_SESSION["id_usuario"];
+$id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $assunto = $_POST["assunto"];
 $mensagem = $_POST["mensagem"];
 $usuario = $_POST["EncaminharMensagens"];
@@ -25,14 +26,15 @@ if (($assunto != "") && ($mensagem != "")) {
             if (isset($dados_secretaria["ID_secretario"])) {
                 $id_secretario = $dados_secretaria["ID_secretario"];
 
-                $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem, 
+                $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,fk_id_tipo_usuario_envio,
                 fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
                 fk_envio_admin_id_admin, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebmento_admin_id_admin) 
-                VALUES (:mensagem, :assunto,  NOW(), NULL, NULL, NULL,:id_usuario, NULL, NULL, NULL, NULL,NULL,NULL,:id_secretario, NULL)");
-                
+                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin) 
+                VALUES (:mensagem, :assunto,  NOW(),:tipo_usuario, NULL, NULL, NULL,:id_usuario, NULL, NULL, NULL, NULL,NULL,NULL,:id_secretario, NULL)");
+
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
+                $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_secretario', $id_secretario, PDO::PARAM_INT);
                 $inserirMensagem->execute();
@@ -57,14 +59,15 @@ if (($assunto != "") && ($mensagem != "")) {
             if (isset($dados_professor["ID_professor"])) {
                 $id_professor = $dados_professor["ID_professor"];
 
-                $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem, 
+                $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,fk_id_tipo_usuario_envio, 
                 fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
                 fk_envio_admin_id_admin, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebmento_admin_id_admin) 
-                VALUES (:mensagem, :assunto,  NOW(), NULL, NULL, NULL,:id_usuario, NULL, NULL, NULL, NULL,:id_professor,NULL,NULL, NULL)");
-                
+                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin) 
+                VALUES (:mensagem, :assunto,  NOW(),:tipo_usuario, NULL, NULL, NULL,:id_usuario, NULL, NULL, NULL, NULL,:id_professor,NULL,NULL, NULL)");
+
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
+                $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_professor', $id_professor, PDO::PARAM_INT);
                 $inserirMensagem->execute();
@@ -87,16 +90,17 @@ if (($assunto != "") && ($mensagem != "")) {
 
         while ($dados_aluno = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
             if (isset($dados_aluno["RA"])) {
-                $ra = $dados["RA"];
+                $ra = $dados_aluno["RA"];
 
-                $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem, 
+                $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,fk_id_tipo_usuario_envio,
                 fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
                 fk_envio_admin_id_admin, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebmento_admin_id_admin) 
-                VALUES (:mensagem, :assunto,  NOW(), NULL, NULL, NULL,:id_usuario, NULL, NULL,:ra, NULL,NULL,NULL,NULL, NULL)");
+                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin) 
+                VALUES (:mensagem, :assunto,  NOW(),:tipo_usuario, NULL, NULL, NULL,:id_usuario, NULL, NULL,:ra, NULL,NULL,NULL,NULL, NULL)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
+                $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':ra', $ra, PDO::PARAM_INT);
                 $inserirMensagem->execute();
@@ -121,14 +125,15 @@ if (($assunto != "") && ($mensagem != "")) {
             if (isset($dados_responsavel["ID_responsavel"])) {
                 $id_reponsavel = $dados_responsavel["ID_responsavel"];
 
-                $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem, 
+                $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,fk_id_tipo_usuario_envio, 
                 fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
                 fk_envio_admin_id_admin, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebmento_admin_id_admin) 
-                VALUES (:mensagem, :assunto,  NOW(), NULL, NULL, NULL,:id_usuario, NULL, NULL,NULL, :id_responsavel,NULL,NULL,NULL, NULL)");
+                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin) 
+                VALUES (:mensagem, :assunto,  NOW(),:tipo_usuario, NULL, NULL, NULL,:id_usuario, NULL, NULL,NULL, :id_responsavel,NULL,NULL,NULL, NULL)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
+                $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_responsavel', $id_responsavel, PDO::PARAM_INT);
                 $inserirMensagem->execute();
@@ -144,7 +149,7 @@ if (($assunto != "") && ($mensagem != "")) {
                 echo "<script>alert('Houve algum erro')</script>";
             }
         }
-    }else {
+    } else {
         echo "<script>alert('Escolha umas das opções')</script>";
     }
 } else {

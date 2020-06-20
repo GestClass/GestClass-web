@@ -21,9 +21,9 @@
     <?php
     require_once 'reqMenuAdm.php';
 
-    $query_mensagem = $conn->prepare("SELECT nome,fk_recebmento_admin_id_admin,data_mensagem,mensagem
+    $query_mensagem = $conn->prepare("SELECT nome,fk_recebimento_admin_id_admin,data_mensagem,mensagem
     FROM `admin` AS R 
-    JOIN contato AS C ON R.ID_admin = C.fk_recebmento_admin_id_admin and R.ID_admin = {$id_usuario}  ORDER BY data_mensagem DESC");
+    JOIN contato AS C ON R.ID_admin = C.fk_recebimento_admin_id_admin and R.ID_admin = {$id_usuario}  ORDER BY data_mensagem DESC");
     $query_mensagem->execute();
 
     ?>
@@ -34,6 +34,8 @@
                 <thead>
                     <tr>
                         <th>Data</th>
+                        <th>Tipo Usuário</th>
+                        <th>Escola</th>
                         <th>Mensagem</th>
                     </tr>
                 </thead>
@@ -43,6 +45,8 @@
                         <tr>
                             <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                 <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
+                             <td>Achando uma solução</td>
+                             <td>Aqui tambem</td>
                             <td><?php echo $mensagens["mensagem"] ?></td>
                         </tr>
                     <?php } ?>

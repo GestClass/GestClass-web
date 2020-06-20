@@ -58,6 +58,8 @@
                 <thead>
                     <tr>
                         <th>Data</th>
+                        <th>Cargo</th>
+                        <th>Nome</th>
                         <th>Assunto</th>
                         <th>Mensagem</th>
                     </tr>
@@ -68,6 +70,8 @@
                         <tr>
                             <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                 <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
+                            <td>Achando uma solucao</td>
+                            <td>aqui tambem</td>
                             <td><?php echo $mensagens["assunto"] ?></td>
                             <td><?php echo $mensagens["mensagem"] ?></td>
                         </tr>
@@ -203,7 +207,7 @@
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <form action="php/enviarDiretorProf.php" method="POST">
+                <form action="php/enviarMensagem/profSecreDiretor.php" method="POST">
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario">
@@ -399,8 +403,6 @@
             <li><a href="#modalEnviarAluno" class="modal-trigger btn-floating red lighten-2 tooltipped" data-position="left" data-tooltip="Aluno"><i class="material-icons">face</i></a></li>
         </ul>
     </div>
-
-    <script src="js/mensagensDiretor.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>

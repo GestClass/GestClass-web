@@ -57,6 +57,8 @@
                 <thead>
                     <tr>
                         <th>Data</th>
+                        <th>Cargo</th>
+                        <th>Nome</th>
                         <th>Assunto</th>
                         <th>Mensagem</th>
                     </tr>
@@ -67,6 +69,8 @@
                         <tr>
                             <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                             <?php echo date('d/m/Y H:i:s',strtotime($mensagens["data_mensagem"]));?></td>
+                            <td>Achando uma solucao</td>
+                            <td>Aqui tambem</td>
                             <td><?php echo $mensagens["assunto"] ?></td>
                             <td><?php echo $mensagens["mensagem"] ?></td>
                         </tr>
