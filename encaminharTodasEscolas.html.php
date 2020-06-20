@@ -24,31 +24,9 @@
     ?>
 
     <div class="container">
-        <h4>Enviar mensagem para Admin</h4><br>
-        <form action="php/enviarMensagem/enviarAdmin.php" method="POST">
+        <h4>Encaminhar Todas Escolas</h4><br>
+        <form action="php/enviarMensagem/adminTodasEscolas.php" method="POST">
             <div class="modal-content">
-                <div class="row">
-                    <div class="input-field col s12 m4 l12">
-                        <select name="destinatario" id="destinatario">
-                            <option value="" disabled selected>Selecione uma Admin</option>
-                            <?php
-
-                            $query_select_admin = $conn->prepare("SELECT * FROM `admin`");
-                            $query_select_admin->execute();
-
-                            while ($dados_admin = $query_select_admin->fetch(PDO::FETCH_ASSOC)) {
-                                $id_admin = $dados_admin['ID_admin'];
-                                $nome_admin = $dados_admin['nome'];
-
-                            ?>
-                                    <option value="<?php echo $id_admin ?>"><?php echo $nome_admin ?></option>
-                            <?php
-                                }
-                            ?>
-                        </select>
-                        <label id="lbl_admin" for="first_name">Escolha a escola para que deseja enviar a mensagem</label>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="input-field col s12 m12 l12">
                         <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate">

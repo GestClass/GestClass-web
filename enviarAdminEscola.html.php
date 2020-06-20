@@ -24,24 +24,24 @@
     ?>
 
     <div class="container">
-        <h4>Enviar mensagem para Admin</h4><br>
-        <form action="php/enviarMensagem/enviarAdmin.php" method="POST">
+        <h4>Enviar mensagem para escola</h4><br>
+        <form action="php/enviarMensagem/enviarAdminEscola.php" method="POST">
             <div class="modal-content">
                 <div class="row">
                     <div class="input-field col s12 m4 l12">
                         <select name="destinatario" id="destinatario">
-                            <option value="" disabled selected>Selecione uma Admin</option>
+                            <option value="" disabled selected>Selecione uma Escola</option>
                             <?php
 
-                            $query_select_admin = $conn->prepare("SELECT * FROM `admin`");
-                            $query_select_admin->execute();
+                            $query_select_escola = $conn->prepare("SELECT * FROM escola");
+                            $query_select_escola->execute();
 
-                            while ($dados_admin = $query_select_admin->fetch(PDO::FETCH_ASSOC)) {
-                                $id_admin = $dados_admin['ID_admin'];
-                                $nome_admin = $dados_admin['nome'];
+                            while ($dados_escola = $query_select_escola->fetch(PDO::FETCH_ASSOC)) {
+                                $id_escola = $dados_escola['ID_escola'];
+                                $nome_escola = $dados_escola['nome_escola'];
 
                             ?>
-                                    <option value="<?php echo $id_admin ?>"><?php echo $nome_admin ?></option>
+                                    <option value="<?php echo $id_escola ?>"><?php echo $nome_escola; ?></option>
                             <?php
                                 }
                             ?>

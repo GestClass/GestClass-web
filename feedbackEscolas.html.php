@@ -198,7 +198,9 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="enviarAdmin.html.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Enviar Mensagem"><i class="material-icons">email</i></a></li>
+            <li><a href="enviarAdminEscola.html.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Escola"><i class="material-icons">account_balance</i></a></li>
+            <li><a href="encaminharTodasEscolas.html.php" class=" btn-floating indigo lighten-2 tooltipped" data-position="left" data-tooltip="Todas Escolas"><i class="material-icons">record_voice_over</i></a></li>
+            <li><a href="enviarAdmin.html.php" class="btn-floating red darken-1 tooltipped" data-position="left" data-tooltip="Admin"><i class="material-icons">perm_identity</i></a></li>
         </ul>
     </div>
 </body>
