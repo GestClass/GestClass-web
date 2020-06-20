@@ -28,7 +28,7 @@ if (($assunto != "") && ($mensagem != "")) {
     $inserirMensagem->execute();
 
     if ($inserirMensagem->rowCount()) {
-        echo "<script>alert('Cadastrado com Sucesso!!');
+        echo "<script>alert('Mensagem enviada com Sucesso!!');
         window.location = '../../mensagensSecretaria.html.php';</script>";
     } else {
         echo "<script>alert('Erro ao enviar a mensagem')
