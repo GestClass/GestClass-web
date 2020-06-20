@@ -104,6 +104,26 @@
                                     <td><?php echo $mensagens["assunto"] ?></td>
                                     <td><?php echo $mensagens["mensagem"] ?></td>
                                 </tr>
+                            <?php
+                            }
+                        } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 5) {
+                            $dados_aluno = $mensagens["fk_envio_aluno_ra_aluno"];
+
+                            $query_aluno = $conn->prepare("SELECT RA,nome_aluno FROM aluno WHERE RA = $dados_aluno");
+                            $query_aluno->execute();
+
+                            while ($aluno_dados = $query_aluno->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_aluno = $aluno_dados["nome_aluno"];
+
+                            ?>
+                                <tr>
+                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i></a>
+                                        <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
+                                    <td>aluno</td>
+                                    <td><?php echo $nome_aluno ?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
+                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                </tr>
                     <?php
                             }
                         }
@@ -276,7 +296,7 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalSecreDiretor" class="modal-trigger btn-floating  yellow accent-2 tooltipped" data-position="left" data-tooltip="Professor"><i class="material-icons">portrait</i></a></li>
+            <li><a href="#modalSecreDiretor" class="modal-trigger btn-floating  yellow accent-2 tooltipped" data-position="left" data-tooltip="Secretaria ou Diretor"><i class="material-icons">portrait</i></a></li>
             <li><a href="#modalEnviarTurma" class="modal-trigger btn-floating blue tooltipped" data-position="left" data-tooltip="Turmas"><i class="material-icons">school</i></a></li>
             <li><a href="#modalEnviarAluno" class="modal-trigger btn-floating red lighten-2 tooltipped" data-position="left" data-tooltip="Aluno"><i class="material-icons">face</i></a></li>
         </ul>

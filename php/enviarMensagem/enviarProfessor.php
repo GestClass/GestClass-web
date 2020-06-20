@@ -12,13 +12,13 @@ if (($assunto != "") && ($mensagem != "")) {
 
     if ($destinatario == 1) {
 
-        $query_select_secretaria = $conn->prepare("SELECT ID_secretario FROM secretario WHERE  fk_id_escola_secretario = $id_escola AND fk_id_tipo_usuario_secretario = $usuario");
+        $query_select_secretaria = $conn->prepare("SELECT ID_secretario,fk_id_escola_secretario FROM secretario WHERE  fk_id_escola_secretario = $id_escola");
         $query_select_secretaria->execute();
 
         while ($dados_secretaria = $query_select_secretaria->fetch(PDO::FETCH_ASSOC)) {
             if (isset($dados_secretaria["ID_secretario"])) {
 
-                $id_secretari0 = $dados_secretaria["ID_secretario"];
+                $id_secretario = $dados_secretaria["ID_secretario"];
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,fk_id_tipo_usuario_envio, 
                 fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
@@ -33,7 +33,7 @@ if (($assunto != "") && ($mensagem != "")) {
                 $inserirMensagem->bindParam(':id_secretario', $id_secretario, PDO::PARAM_INT);
                 $inserirMensagem->execute();
 
-                if ($resultado == 1) {
+                if ($inserirMensagem->rowCount()) {
                     echo "<script>alert('Mensagem enviada com Sucesso!!');
                     window.location = '../../mensagensProfessor.html.php'</script>";
                 } else {
@@ -65,7 +65,7 @@ if (($assunto != "") && ($mensagem != "")) {
         $inserirMensagem->execute();
 
         if ($inserirMensagem->rowCount()) {
-            echo "<script>alert('MEnsagem enviada com Sucesso!!');
+            echo "<script>alert('Mensagem enviada com Sucesso!!');
         window.location = '../../mensagensProfessor.html.php'</script>";
         } else {
             echo "<script>alert('Erro ao enviar a mensagem')

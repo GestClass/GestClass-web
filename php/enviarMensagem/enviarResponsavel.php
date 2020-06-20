@@ -13,7 +13,7 @@ if (($assunto != "") && ($mensagem != "")) {
 
     if ($destinatario == 1) {
 
-        $query_select_secretaria = $conn->prepare("SELECT ID_secretario FROM secretario WHERE  fk_id_escola_secretario = $id_escola AND fk_id_tipo_usuario_secretario = $usuario");
+        $query_select_secretaria = $conn->prepare("SELECT ID_secretario,fk_id_escola_secretario FROM secretario WHERE  fk_id_escola_secretario = $id_escola");
         $query_select_secretaria->execute();
 
         while ($dados_secretaria = $query_select_secretaria->fetch(PDO::FETCH_ASSOC)) {
