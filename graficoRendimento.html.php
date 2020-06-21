@@ -1,62 +1,29 @@
 <?php
-$id = $_POST['disciplinas'];
-
-
 include_once 'php/conexao.php';
-$query = $conn->prepare("select nota,nome_atividade from boletim_aluno where fk_id_disciplina_boletim_aluno=:id");
-$query->bindValue(":id", $id);
-$query->execute();
-$dados = $query->fetch(PDO::FETCH_ASSOC);
 
-// colocar include_once 'reqPais';
+  $id_disciplina =  $_POST['disciplinas'];
+  $RA_filho = $_SESSION["RA_filho"];
+
+  $select_boletim_aluno = $conn->prepare("select nota,nome_atividade, data_atividade from boletim_aluno where fk_id_disciplina_boletim_aluno=:id and fk_ra_aluno_boletim_aluno=:ra");
+  $select_boletim_aluno->bindValue(":id", $id_disciplina);
+  $select_boletim_aluno->bindValue(":ra", $RA_filho);
+  $select_boletim_aluno->execute();
+ 
+
+
 ?>
-<!DOCTYPE html>
-<html>
-
-<head>
-
-  <meta charset='utf-8' />
-  <title>GestClass - A gestão na palma da sua mão</title>
-  <link rel="icon" href="assets/icon/logo.png" />
-  <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/default.css" />
-  <link rel="stylesheet" type="text/css" href="css/grafico.css" />
-
-</head>
-
-<body>
-
   <?php
-  include_once 'php/conexao.php';
+  include_once 'reqPais.php';
 
   $id_usuario = $_SESSION["id_usuario"];
   $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
   $id_escola = $_SESSION["id_escola"];
 
-  if ($id_tipo_usuario == 1) {
-    require_once 'reqMenuAdm.php';
-  } else if ($id_tipo_usuario == 2) {
-    require_once 'reqDiretor.php';
-  } else if ($id_tipo_usuario == 3) {
-    require_once 'reqHeader.php';
-  } elseif ($id_tipo_usuario == 4) {
-    require_once 'reqProfessor.php';
-  } elseif ($id_tipo_usuario  == 5) {
-    require_once 'reqAluno.php';
-  } else {
-    require_once 'reqPais.php';
-  }
-  // substituir pelo valor que vier do 1º select (modal pais)
-  $ra = 1;
-  // Substiruir pelo valor que vier do select
-  $id_disciplina = 5;
-
+  
+ 
 
   // Selecionar a turma do aluno
-  $sql_select_id_turma = $conn->prepare("SELECT fk_id_turma_aluno FROM aluno WHERE RA = $ra");
+  $sql_select_id_turma = $conn->prepare("SELECT fk_id_turma_aluno FROM aluno WHERE RA = $RA_filho");
   // Executando
   $sql_select_id_turma->execute();
   // Armazenando array da informação
@@ -94,20 +61,44 @@ $dados = $query->fetch(PDO::FETCH_ASSOC);
   // Armazenando nome professor na variável
   $nome_professor = $array_nome_professor['nome_professor'];
 
+  //Selecionar data do fim do semestre
+  $sql_fim_semestre = $conn->prepare("SELECT  bimestre1, bimestre2, bimestre3, bimestre4,fk_id_escola_datas_fim_bimestres FROM   datas_fim_bimestres where fk_id_escola_datas_fim_bimestres = $id_escola");
+  //executar
+  $sql_fim_semestre->execute();
+  //armazenar
+  $array_fim_semestre = $sql_fim_semestre->fetch(PDO::FETCH_ASSOC);
+
+  $bimestre1=$array_fim_semestre['bimestre1'];
+  $bimestre2=$array_fim_semestre['bimestre2'];
+  $bimestre3=$array_fim_semestre['bimestre3'];
+  $bimestre4=$array_fim_semestre['bimestre4'];
+
   ?>
   <html>
 
   <head>
     <div class='col s12 m12 l12' id="fundo">
     </div>
+
     <h4 class="tit center">Rendimento em
-      <?php $query_select_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id");
+      <?php $query_select_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");
       $query_select_nome->execute();
       while ($dados_nome = $query_select_nome->fetch(PDO::FETCH_ASSOC)) {
         $nome = $dados_nome['nome_disciplina'];
+        //aqui exibe a disciplina puxada 
         echo $nome;
-      } ?> <i class="Small material-icons">trending_up </i>
+      }
+      
+
+        $query_select_n = $conn->prepare("SELECT * FROM aluno");
+        $query_select_n->execute();
+        while ($dados_n = $query_select_n->fetch(PDO::FETCH_ASSOC)) {
+          $nomeL = $dados_n['nome_aluno'];
+
+      ?> <i class="Small material-icons">trending_up </i>
     </h4>
+
+
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -115,23 +106,23 @@ $dados = $query->fetch(PDO::FETCH_ASSOC);
         packages: ['corechart', 'bar']
       });
       google.charts.setOnLoadCallback(drawMultSeries);
-
+      <?php
+      
+      ?>
       function drawMultSeries() {
         var data = google.visualization.arrayToDataTable([
           ['Element', '', {
             role: 'style'
           }],
-          ['1BIMESTRE', 8.94, '#e3f2fd'], // RGB value
-          ['2BIMESTRE', 10, '#bbdefb'], // English color name
-          ['3BIMESTRE', 7.50, '#90caf9'],
-          ['4BIMESTRE', 5.45, 'color: #64b5f6'], // CSS-style declaration
-        ]);
+          ['<?php echo $dados_n['nome_aluno'];?>', 8.94, '#e3f2fd'], // RGB value
+                ]);
+        <?php } ?>
 
 
         var options = {
           title: 'MÉDIA DAS NOTAS POR BIMESTRE',
           backgroundColor: 'rgba(255, 99, 71, 0.2)',
-          width: '500px',
+          width: '700px',
           chartArea: {
             left: 300,
             top: 30
@@ -144,14 +135,18 @@ $dados = $query->fetch(PDO::FETCH_ASSOC);
 
         var chart = new google.visualization.BarChart(document.querySelector('#chart_div'));
         chart.draw(data, options);
-        $(window).resize(function() {
-          var view = new google.visualization.DataView(data);
-          chart.draw(view, options);
-        })
+
+        $(window).resize(function(){
+          drawMultSeries();
+          
+        });
 
 
       }
     </script>
+
+
+    
   </head>
 
   <body>
@@ -160,31 +155,73 @@ $dados = $query->fetch(PDO::FETCH_ASSOC);
       <thead>
         <tr>
           <th>Professor(a)</th>
+          <th>Turno</th>
           <th>Frequência Atual</th>
           <th>Frequência Total</th>
         </tr>
       </thead>
-
       <tbody>
         <tr>
-          <td><?php echo $nome_professor?></td>
+          <td><?php echo $nome_professor ?></td>
+          <td><?php   ?></td>
           <td>80%</td>
           <td>90%</td>
         </tr>
 
       </tbody>
     </table>
+    <h4 class="tit center">Atividades Realizadas </h4>
+    <table class="atividades center striped">
+    <thead>
+             <tr>
+              <th>Data</th>
+              <th>Atividades</th>
+              <th>Notas</th>
+              <th>Bimestre</th>
+            </tr>
+          </thead>
+          <?php 
+           while( $dados_boletim_aluno = $select_boletim_aluno->fetch(PDO::FETCH_ASSOC)){
+            $nota = $dados_boletim_aluno['nota'];
+            $nome_atividade = $dados_boletim_aluno['nome_atividade'];
+            $data_atividade = $dados_boletim_aluno['data_atividade'];
+            if(strtotime($data_atividade) < strtotime($bimestre1)){
+              $bimestre = "1º Bimestre";
+            }elseif(strtotime($data_atividade) < strtotime($bimestre2)){
+              $bimestre = "2º Bimestre";
+            }elseif (strtotime($data_atividade) < strtotime($bimestre3)) {
+              $bimestre = "3º Bimestre";
+            }else {
+              $bimestre ="4º Bimestre";
+            }
+          
+          ?>
+         
+          <tbody>
+        <tr>
+          <td><?php echo $data_atividade?></td>
+          <td><?php echo $nome_atividade ?></td>
+          <td><?php echo $nota ?></td>
+          <td><?php echo $bimestre ?></td>
+          <?php } ?>
+        </tr>
+
+      </tbody>
+    </table>
+    <button id="btnTable" type="submit" href='#modal' class=" modal-trigger  btn-flat btnLightBlue center">
+        <i class="material-icons left">trending_up</i> Acessar Gráfico  
+      </button>
     <!--Div that will hold the pie chart-->
-    <div class="container col s12 m12 l12" id="container_grafico">
-      <div class="row">
-        <div class="col s12 m12 l12">
-          <div id="chart_div" style="height:800px; ">
+<div id="modal" class="modal">
+  <div class="modal-content">
+        <div class=" col-md-6">
+          <div id="chart_div" style="height:500px; width:900px; ">
+          <h4 class="tit center">Gráfico</h4>
           </div>
         </div>
       </div>
-    </div>
 
 
-    <?php
-    include_once 'reqFooter.php';
-    ?>
+<?php
+  include_once 'reqFooter.php';
+?>
