@@ -165,7 +165,10 @@
 
         function validarSenha() {
             if (senha.value != confSenha.value) {
-                alert("Senhas diferentes!");
+                M.toast({
+                    html: 'Senhas Diferentes',
+                    classes: 'rounded'
+                })
             } else {}
         }
     </script>
