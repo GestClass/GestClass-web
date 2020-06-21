@@ -33,7 +33,8 @@ if (($rastro != "") && ($nome != "") && ($rg != "") && ($cpf != "") && ($nascime
 	$limcpf =  str_replace('.', '', $cpf);
 	$cpf_aluno =  str_replace('-', '', $limcpf);
 	//ajustando a data de acordo com o banco 
-	$data_nascimento = date('Y/m/d', strtotime($nascimento));
+	$data = str_replace('/','-', $nascimento);
+	$data_nascimento = date('Y-m-d', strtotime($data));
 	// Resgatando responsavel
 	$cpf_res = str_replace('.', '', $cpf_respon);
 	$cpf_responsavel = str_replace('-', '', $cpf_res);

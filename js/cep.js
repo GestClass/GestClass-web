@@ -51,7 +51,11 @@ function pesquisacep(valor) {
         else {
             //cep é inválido.
             limpa_formulário_cep();
-            alert("Formato de CEP inválido.");
+            M.toast({
+                    html: 'Formato de CEP inválido',
+                    classes: 'rounded'
+                })
+                // alert("Formato de CEP inválido.");
         }
     } //end if.
     else {

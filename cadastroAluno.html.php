@@ -148,7 +148,7 @@
                                         $nome_turno = $dados_nome_turno['nome_turno'];
 
                         ?>
-                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma.' - '.$nome_turno; ?></option>
+                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                         <?php
                                     }
                                 }
@@ -171,7 +171,10 @@
 
         function validarSenha() {
             if (senha.value != confSenha.value) {
-                alert("Senhas diferentes!");
+                M.toast({
+                    html: 'Senhas Diferentes',
+                    classes: 'rounded'
+                })
             } else {}
         }
     </script>

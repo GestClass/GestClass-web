@@ -6,7 +6,9 @@ $id_usuario = $_SESSION["id_usuario"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
 
-$dataChamada = $_POST['dataChamada'];
+$dataChamada_original = $_POST['dataChamada'];
+$data = str_replace('/', '-', $dataChamada_original);
+$dataChamada = date('Y-m-d', strtotime($data));
 // Alterar abaixo para o valor quando vier do <select>
 $id_disciplina = 5;
 $id_professor = $id_usuario;

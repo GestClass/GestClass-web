@@ -42,7 +42,7 @@
     }
 
 
-    $query_mensagem = $conn->prepare("SELECT nome_diretor,fk_recebimento_diretor_id_diretor,data_mensagem,assunto,mensagem
+    $query_mensagem = $conn->prepare("SELECT *
     FROM diretor AS D 
     JOIN contato AS c ON D.id_diretor = C.fk_recebimento_diretor_id_diretor and d.id_diretor = {$id_usuario}  ORDER BY data_mensagem DESC");
     $query_mensagem->execute();
@@ -58,69 +58,163 @@
                 <thead>
                     <tr>
                         <th>Data</th>
+                        <th>Remetente</th>
+                        <th>Nome</th>
                         <th>Assunto</th>
                         <th>Mensagem</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) { ?>
-                        <tr>
-                            <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
-                                <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
-                            <td><?php echo $mensagens["assunto"] ?></td>
-                            <td><?php echo $mensagens["mensagem"] ?></td>
-                        </tr>
-                    <?php } ?>
+                    <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) {
+
+                        if ($mensagens["fk_id_tipo_usuario_envio"] == 1) {
+                            $dados_admin = $mensagens["fk_envio_admin_id_admin"];
+                            $query_admin = $conn->prepare("SELECT nome,ID_admin FROM `admin` WHERE ID_admin = $dados_admin");
+                            $query_admin->execute();
+
+                            while ($admin = $query_admin->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_admin = $admin["nome"];
+
+                    ?>
+                                <tr>
+                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                        <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
+                                    <td>GestClass</td>
+                                    <td><?php echo $nome_admin?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
+                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                </tr>
+                            <?php
+                            }
+                        } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 3) {
+                            $dados_secretario = $mensagens["fk_envio_secretario_id_secretario"];
+
+                            $query_secretario = $conn->prepare("SELECT ID_secretario,nome_secretario FROM secretario WHERE ID_secretario = $dados_secretario");
+                            $query_secretario->execute();
+
+                            while ($secretario_dados = $query_secretario->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_secretario = $secretario_dados["nome_secretario"];
+
+                            ?>
+                                <tr>
+                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                        <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
+                                    <td>Secretario</td>
+                                    <td><?php echo $nome_secretario ?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
+                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                </tr>
+                            <?php
+                            }
+                        } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 4) {
+                            $dados_professor = $mensagens["fk_envio_professor_id_professor"];
+
+                            $query_professor = $conn->prepare("SELECT ID_professor,nome_professor FROM professor WHERE ID_professor = $dados_professor");
+                            $query_professor->execute();
+
+                            while ($professor_dados = $query_professor->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_professor = $professor_dados["nome_professor"];
+
+                            ?>
+                                <tr>
+                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                        <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
+                                    <td>Professor</td>
+                                    <td><?php echo $nome_professor ?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
+                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                </tr>
+                            <?php
+                            }
+                        } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 6) {
+                            $dados_responsavel = $mensagens["fk_envio_responsavel_id_responsavel"];
+
+                            $query_responsavel = $conn->prepare("SELECT ID_responsavel,nome_responsavel FROM responsavel WHERE ID_responsavel = $dados_responsavel");
+                            $query_responsavel->execute();
+
+                            while ($responsavel_dados = $query_responsavel->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_respon = $responsavel_dados["nome_responsavel"];
+                            ?>
+                                <tr>
+                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                        <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
+                                    <td>Responsável</td>
+                                    <td><?php echo $nome_respon ?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
+                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                </tr>
+                    <?php
+                            }
+                        }
+                    } ?>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div id="modalEnviarAluno" class="modal modal-fixed-footer">
+    <div id="modalEnviarAluno" class="modal">
         <div class="modal-content">
-            <h4>Nova Mensagem</h4><br>
-            <div id="novaMensagem">
-                <form action="php/enviarMensagem/enviarDiretorAluno.php" method="POST">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="ra" id="RA" placeholder="8956478-9" type="text" class="validate" data-mask="0000000-0">
-                            <label id="lbl" for="first_name">RA do Aluno</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+            <h4>Selecione a turma do aluno</h4>
+            <div class="input-field col s12">
+                <form action="listaAlunosMensagens.html.php" method="POST">
+                    <select name="turmas">
+                        <option value="" disabled selected>Selecione a Turma</option>
+                        <?php
+
+                        $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
+                        $query_select_id_turma->execute();
+
+                        while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma_id['ID_turma'];
+
+                            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+                            $query_select_turma->execute();
+
+                            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_turma = $dados_turma_nome['nome_turma'];
+
+                                $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                                $query_turno->execute();
+
+                                while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                    $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                                    $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                    $query_turno_nome->execute();
+
+                                    while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                        $nome_turno = $dados_nome_turno['nome_turno'];
+
+                        ?>
+                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                        <?php
+                                    }
+                                }
+                            }
+                        }
+                        ?>
+                    </select>
+                    <br>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
                     </div>
                 </form>
-
             </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
         </div>
     </div>
 
-    <div id="modalEnviarTurma" class="modal modal-fixed-footer">
+    <div id="modalEnviarTurma" class="modal">
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <form action="php/enviarMensagem/enviarDiretorTurmas.php" method="POST">
+                <form action="php/enviarMensagem/enviarTurmas.php" method="POST">
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione uma Turma</option>
 
                                 <?php
 
@@ -149,7 +243,7 @@
                                                 $nome_turno = $dados_nome_turno['nome_turno'];
 
                                 ?>
-                                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma.' - '.$nome_turno; ?></option>
+                                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                                 <?php
                                             }
                                         }
@@ -179,20 +273,17 @@
                 </form>
             </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
-        </div>
     </div>
 
-    <div id="modalProfessor" class="modal modal-fixed-footer">
+    <div id="modalEnviarProfessor" class="modal">
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
-                <form action="php/enviarDiretorProf.php" method="POST">
+                <form action="php/enviarMensagem/profSecreDiretor.php" method="POST">
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione um Professor</option>
 
                                 <?php
 
@@ -236,47 +327,62 @@
                 </form>
             </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
-        </div>
     </div>
 
-    <div id="modalEnviarResponsavel" class="modal modal-fixed-footer">
+    <div id="modalEnviarResponsavel" class="modal">
         <div class="modal-content">
-            <h4>Nova Mensagem</h4><br>
-            <div id="novaMensagem">
-                <form action="php/enviarMensagem/enviarDiretorRespon.php" method="POST">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="cpf_respon" id="cpf_respon" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate">
-                            <label id="lbl" for="first_name">CPF Responsável</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
-                    </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+            <h4>Selecione a turma do aluno</h4>
+            <div class="input-field col s12">
+                <form action="listaResponMensagens.html.php" method="POST">
+                    <select name="turmas">
+                        <option value="" disabled selected>Selecione a Turma</option>
+                        <?php
+
+                        $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
+                        $query_select_id_turma->execute();
+
+                        while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma_id['ID_turma'];
+
+                            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+                            $query_select_turma->execute();
+
+                            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_turma = $dados_turma_nome['nome_turma'];
+
+                                $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                                $query_turno->execute();
+
+                                while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                    $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                                    $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                    $query_turno_nome->execute();
+
+                                    while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                        $nome_turno = $dados_nome_turno['nome_turno'];
+
+                        ?>
+                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                        <?php
+                                    }
+                                }
+                            }
+                        }
+                        ?>
+                    </select>
+                    <br>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
                     </div>
                 </form>
-
             </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
         </div>
     </div>
 
-    <div id="modalSecretaria" class="modal modal-fixed-footer">
+    <div id="modalSecretaria" class="modal">
         <div class="modal-content">
             <h4>Nova Mensagem</h4><br>
             <div id="novaMensagem">
@@ -296,16 +402,12 @@
                     <div class="input-field right">
                         <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
                     </div>
-
                 </form>
             </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
-        </div>
     </div>
 
-    <div id="modalEncaminharMensagem" class="modal modal-fixed-footer">
+    <div id="modalEncaminharMensagem" class="modal">
         <div class="modal-content">
             <h4>Encaminhar Mensagem Para Todos</h4><br>
             <div id="novaMensagem">
@@ -313,7 +415,7 @@
                     <div class="row">
                         <div class="input-field col s12 m4 l12">
                             <select name="EncaminharMensagens" id="mensagemDiretor">
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione uma Opção</option>
                                 <?php
 
                                 $query_select_id_usuario = $conn->prepare("SELECT ID_tipo_usuario FROM tipo_usuario WHERE $id_escola ORDER BY `ID_tipo_usuario` DESC LIMIT 4");
@@ -358,9 +460,6 @@
                 </form>
             </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sair</a>
-        </div>
     </div>
 
     <div class="fixed-action-btn">
@@ -371,13 +470,11 @@
             <li><a href="#modalEncaminharMensagem" class="modal-trigger btn-floating indigo lighten-2 tooltipped" data-position="left" data-tooltip="Encaminhar para Todos"><i class="material-icons">record_voice_over</i></a></li>
             <li><a href="#modalSecretaria" class="modal-trigger btn-floating grey darken-1 tooltipped" data-position="left" data-tooltip="Secretaria"><i class="material-icons">perm_identity</i></a></li>
             <li><a href="#modalEnviarResponsavel" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Responsável"><i class="material-icons">supervisor_account</i></a></li>
-            <li><a href="#modalProfessor" class="modal-trigger btn-floating  yellow accent-2 tooltipped" data-position="left" data-tooltip="Professor"><i class="material-icons">portrait</i></a></li>
+            <li><a href="#modalEnviarProfessor" class="modal-trigger btn-floating  yellow accent-2 tooltipped" data-position="left" data-tooltip="Professor"><i class="material-icons">portrait</i></a></li>
             <li><a href="#modalEnviarTurma" class="modal-trigger btn-floating blue tooltipped" data-position="left" data-tooltip="Turmas"><i class="material-icons">school</i></a></li>
             <li><a href="#modalEnviarAluno" class="modal-trigger btn-floating red lighten-2 tooltipped" data-position="left" data-tooltip="Aluno"><i class="material-icons">face</i></a></li>
         </ul>
     </div>
-
-    <script src="js/mensagensDiretor.js"></script>
 
 
     <?php require_once 'reqFooter.php' ?>

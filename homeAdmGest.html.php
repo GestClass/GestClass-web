@@ -59,11 +59,11 @@
                     </a>
                 </div>
                 <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
+                    <a href="feedbackEscolas.html.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="fas fa-envelope fa-6x blue-icon"></i>
-                            <h5>Intermedio Escola e ADMINS</h5>
-                            <p>Intermediario entre as escolas e os administradores do sistema</p>
+                            <h5>Feedback dos Usuários</h5>
+                            <p>Intermediario entre os usuários do sistema e os administradores do sistema</p>
                         </div>
                     </a>
                 </div>
@@ -102,7 +102,7 @@
                 <li><a href="paginaManutencao.html" class="btn-floating yellow darken-1 tooltipped" data-position="left"
                         data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
                 <li><a href="paginaManutencao.html" class="btn-floating blue-grey darken-4 tooltipped"
-                        data-position="left" data-tooltip="Intermedio"><i class="material-icons">email</i></a></li>
+                        data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li>
                 <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
                         data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
             </ul>

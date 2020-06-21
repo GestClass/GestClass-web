@@ -2,8 +2,11 @@ function TestaCPF(elemento) {
 
     cpf = elemento.value;
     cpf = cpf.replace(/[^\d]+/g, '');
-    if (cpf == '') return alert("CPF inválido, Digite novamente");
-    // Elimina CPFs invalidos conhecidos    
+    if (cpf == '') return M.toast({
+            html: 'CPF inválido, Digite novamente',
+            classes: 'rounded'
+        })
+        // Elimina CPFs invalidos conhecidos    
     if (cpf.length != 11 ||
         cpf == "00000000000" ||
         cpf == "11111111111" ||
@@ -15,8 +18,11 @@ function TestaCPF(elemento) {
         cpf == "77777777777" ||
         cpf == "88888888888" ||
         cpf == "99999999999")
-        return alert("CPF inválido, Digite novamente");
-    // Valida 1o digito 
+        return M.toast({
+                html: 'CPF inválido, Digite novamente',
+                classes: 'rounded'
+            })
+            // Valida 1o digito 
     add = 0;
     for (i = 0; i < 9; i++)
         add += parseInt(cpf.charAt(i)) * (10 - i);
@@ -24,8 +30,11 @@ function TestaCPF(elemento) {
     if (rev == 10 || rev == 11)
         rev = 0;
     if (rev != parseInt(cpf.charAt(9)))
-        return alert("CPF inválido, Digite novamente");
-    // Valida 2o digito 
+        return M.toast({
+                html: 'Formato de CEP inválido',
+                classes: 'rounded'
+            })
+            // Valida 2o digito 
     add = 0;
     for (i = 0; i < 10; i++)
         add += parseInt(cpf.charAt(i)) * (11 - i);
@@ -33,5 +42,8 @@ function TestaCPF(elemento) {
     if (rev == 10 || rev == 11)
         rev = 0;
     if (rev != parseInt(cpf.charAt(10)))
-        return alert("CPF inválido, Digite novamente");
+        return M.toast({
+            html: 'CPF inválido, Digite novamente',
+            classes: 'rounded'
+        })
 }

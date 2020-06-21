@@ -117,6 +117,7 @@ require_once 'reqHeader.php';
       <i class="large material-icons">add</i>
     </a>
     <ul>
+      <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">build</i></a></li>
       <li><a href="#modalAlterarTurmas" class="modal-trigger btn-floating indigo accent-2 tooltipped" data-position="left" data-tooltip="Alterar turma dos alunos"><i class="material-icons">create</i></a></li>
       <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
       <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
@@ -126,6 +127,25 @@ require_once 'reqHeader.php';
     </ul>
   </div>
 </section>
+
+<div id="modalFeedback" class="modal">
+  <div class="modal-content">
+    <h4>Digite o Problema que occoreu</h4><br>
+    <div id="novaMensagem">
+      <form action="php/enviarMensagem/enviarFeedback.php" method="POST">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
+            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+          </div>
+        </div>
+        <div class="input-field right">
+          <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <div id="modalListaAlunos" class="modal">
   <div class="modal-content">

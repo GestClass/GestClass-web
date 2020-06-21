@@ -4,13 +4,20 @@ include_once 'conexao.php';
 
 // resgatando valores dos campos para fazer alteração
 $data1 = $_POST['dataBimestre1'];
-$bimestre1 = date('Y/m/d', strtotime($data1));
+$dataB1 = str_replace('/','-', $data1);
+$bimestre1 = date('Y-m-d', strtotime($dataB1));
+
 $data2 = $_POST['dataBimestre2'];
-$bimestre2 = date('Y/m/d', strtotime($data2));
+$dataB2 = str_replace('/','-', $data2);
+$bimestre2 = date('Y-m-d', strtotime($dataB2));
+
 $data3 = $_POST['dataBimestre3'];
-$bimestre3 = date('Y/m/d', strtotime($data3));
+$dataB3 = str_replace('/','-', $data3);
+$bimestre3 = date('Y-m-d', strtotime($dataB3));
+
 $data4 = $_POST['dataBimestre4'];
-$bimestre4 = date('Y/m/d', strtotime($data4));
+$dataB4 = str_replace('/','-', $data4);
+$bimestre4 = date('Y-m-d', strtotime($dataB4));
 
 // Comando de alteração no banco de dados
 $sql_alteracao_data = $conn->prepare("UPDATE datas_fim_bimestres SET bimestre1 = :bimestre1, bimestre2 = :bimestre2, bimestre3 = :bimestre3, bimestre4 = :bimestre4");

@@ -62,11 +62,11 @@ $id_escola = $_SESSION["id_escola"];
                 </a>
             </div>
             <div class="col s12 m4">
-                <a href="perfil.html.php">
+                <a href="mensagensDiretor.html.php">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                        <i class="fas fa-cog fa-6x blue-icon"></i>
-                        <h5>Configurações</h5>
-                        <p>Configurações da conta</p>
+                        <i class="fas fa-envelope fa-6x blue-icon"></i>
+                        <h5>Mensagens</h5>
+                        <p>Envio e recebebimento de mensagens de professores, secretaria e diretores</p>
                     </div>
                 </a>
             </div>
@@ -123,17 +123,36 @@ $id_escola = $_SESSION["id_escola"];
             <i class="large material-icons">add</i>
         </a>
         <ul>
+            <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">build</i></a></li>
             <li><a href="#modalAlterarTurmas" class="modal-trigger btn-floating indigo accent-2 tooltipped" data-position="left" data-tooltip="Alterar turma dos alunos"><i class="material-icons">create</i></a></li>
             <li><a href="cadastroDatasFinaisBimestres.html.php" class="btn-floating gray tooltipped" data-position="left" data-tooltip="Atribuir datas de final de bimestre"><i class="material-icons">event_available</i></a></li>
             <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a>
             </li>
             <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
             <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-            <li><a href="mensagensDiretor.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
         </ul>
     </div>
 </section>
+
+<div id="modalFeedback" class="modal">
+    <div class="modal-content">
+        <h4>Digite o Problema que occoreu</h4><br>
+        <div id="novaMensagem">
+            <form action="php/enviarMensagem/enviarFeedback.php" method="POST">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
+                        <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                    </div>
+                </div>
+                <div class="input-field right">
+                    <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <div id="modalListaAlunos" class="modal">
     <div class="modal-content">
