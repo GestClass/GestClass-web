@@ -10,7 +10,7 @@ $sql_select_media = $conn->prepare("SELECT media_min, media_max FROM escola wher
 $sql_select_media->execute();
 $array_media = $sql_select_media->fetch(PDO::FETCH_ASSOC);
 $media_min = $array_media['media_min'];
-$media_max = $array_media['media_min'];
+$media_max = $array_media['media_max'];
 
 
 $nomeAtividade = $_POST['nomeAtividade'];
@@ -24,6 +24,7 @@ $id_turma = $_POST['id_turma'];
 $idProfessor = $id_usuario;
 
 $status = 0;
+$status2 = 0;
 
 $query_listagem = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno =  $id_escola AND fk_id_turma_aluno = $id_turma");
 $query_listagem->execute();
@@ -41,43 +42,43 @@ while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
     if (($nota < $media_min) && ($observacao == '')) {
         $status += 1;
     }
+
+    if ($nota > $media_max) {
+        $status2 += 1;
+    }
 }
 
-if ($status == 0) {
+if (($status == 0) && ($status2 == 0)) {
 
-    $query_listagem2 = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno =  $id_escola AND fk_id_turma_aluno = $id_turma");
-    $query_listagem2->execute();
+    $query_insert_boletim_listagem = $conn->prepare("INSERT INTO boletim_listagem VALUES (:id, :id_escola, :id_disciplina)");
+    $query_insert_boletim_listagem->bindParam(':id', $id, PDO::PARAM_STR);
+    $query_insert_boletim_listagem->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
+    $query_insert_boletim_listagem->bindParam(':id_disciplina', $id_disciplina, PDO::PARAM_STR);
+    $query_insert_boletim_listagem->execute();
 
-    while ($alunos2 = $query_listagem2->fetch(PDO::FETCH_ASSOC)) {
+    if ($query_insert_boletim_listagem->rowCount()) {
 
+        // Armazenar id da listagem armazenada agora
+        $query_select_id_listagem = $conn->prepare("SELECT MAX(ID_boletim_listagem)AS id_listagem FROM boletim_listagem WHERE fk_id_escola_boletim_listagem = $id_escola");
+        $query_select_id_listagem->execute();
+        $array_id_listagem = $query_select_id_listagem->fetch(PDO::FETCH_ASSOC);
+        $id_listagem = $array_id_listagem['id_listagem'];
 
-        $ra = $alunos2['RA'];
-        $nota = $_POST[$ra . 'nota'];
-        $observacao = $_POST[$ra . 'observacao'];
+        // Listr alunos
+        $query_listagem2 = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno =  $id_escola AND fk_id_turma_aluno = $id_turma");
+        $query_listagem2->execute();
 
-        if ($nota == "") {
-            $nota = 0;
-        }
-        if (($nomeAtividade != "") && ($dataAtividade != "")) {
-
-            $query_insert_boletim_listagem = $conn->prepare("INSERT INTO boletim_listagem VALUES (:id, :id_escola, :id_disciplina)");
-
-            $query_insert_boletim_listagem->bindParam(':id', $id, PDO::PARAM_STR);
-            $query_insert_boletim_listagem->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
-            $query_insert_boletim_listagem->bindParam(':id_disciplina', $id_disciplina, PDO::PARAM_STR);
-            $query_insert_boletim_listagem->execute();
-
-            if ($query_insert_boletim_listagem->rowCount()) {
-
-                $query_select_id_listagem = $conn->prepare("SELECT MAX(ID_boletim_listagem)AS id_listagem FROM boletim_listagem WHERE fk_id_escola_boletim_listagem = $id_escola");
-                $query_select_id_listagem->execute();
-
-                $array_id_listagem = $query_select_id_listagem->fetch(PDO::FETCH_ASSOC);
-
-                $id_listagem = $array_id_listagem['id_listagem'];
+        while ($alunos2 = $query_listagem2->fetch(PDO::FETCH_ASSOC)) {
 
 
+            $ra = $alunos2['RA'];
+            $nota = $_POST[$ra . 'nota'];
+            $observacao = $_POST[$ra . 'observacao'];
 
+            if ($nota == "") {
+                $nota = 0;
+            }
+            if (($nomeAtividade != "") && ($dataAtividade != "")) {
 
                 $query_insert = $conn->prepare('INSERT INTO boletim_aluno VALUES(:id, :nota, :observacoes, :nome_atividade, :data_atividade, :ra, :id_disciplina, :id_boletim_listagem, :id_turma)');
 
@@ -113,24 +114,24 @@ if ($status == 0) {
             } else {
                 ?>
                 <script>
-                    alert("Erro ao cadastrar!!")
+                    alert("Por favor, preencha o Nome e a Data da Atividade!!")
                     history.back()
                 </script>
-            <?php
+        <?php
             }
-        } else {
-            ?>
-            <script>
-                alert("Por favor, preencha o Nome e a Data da Atividade!!")
-                history.back()
-            </script>
-    <?php
         }
+    } else {
+        ?>
+        <script>
+            alert("Erro ao cadastrar!!")
+            history.back()
+        </script>
+    <?php
     }
 } else {
     ?>
     <script>
-        alert('Por favor, insira uma observação para alunos abaixo da média!!');
+        alert('Por favor, insira notas dentro do permitido pela escola\n e observação para alunos abaixo da média!!');
         history.back();
     </script>
 <?php
