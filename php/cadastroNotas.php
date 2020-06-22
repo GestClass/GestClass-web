@@ -10,6 +10,7 @@ $sql_select_media = $conn->prepare("SELECT media_min FROM escola where ID_escola
 $sql_select_media->execute();
 $array_media = $sql_select_media->fetch(PDO::FETCH_ASSOC);
 $media = $array_media['media_min'];
+echo $media;
 
 $nomeAtividade = $_POST['nomeAtividade'];
 $dataOriginal = $_POST['dataAtividade'];
@@ -83,7 +84,7 @@ if (($nomeAtividade != "") && ($dataAtividade != "")) {
                 ?>
                     <script>
                         alert("Cadastrado com sucesso!!")
-                        window.location = '../homeProfessor.html.php'
+                        //window.location = '../homeProfessor.html.php'
                     </script>
                 <?php
 
