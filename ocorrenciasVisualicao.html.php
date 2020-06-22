@@ -59,8 +59,8 @@
                     <label id="lbl" for="first_name">Data Mensagem</label>
                 </div>
                 <div class="input-field col s12 m2 l2">
-                    <i class="material-icons prefix blue-icon">perm_identity</i>
-                    <input name="assunto" id="assunto" value="GestClass" readonly type="text">
+                    <i class="material-icons prefix blue-icon">assignment_ind</i>
+                    <input name="assunto" id="assunto" value="Professor" readonly type="text">
                     <label id="lbl" for="first_name">Usuário</label>
                 </div>
                 <div class="input-field col s12 m6 l6">

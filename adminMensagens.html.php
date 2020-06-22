@@ -44,7 +44,7 @@
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
                     <div class="input-field col s12 m2 l2">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="GestClass" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
                     </div>
@@ -86,12 +86,12 @@
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
                     <div class="input-field col s12 m2 l2">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="Diretor" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">account_balance</i>
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
@@ -128,12 +128,12 @@
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
                     <div class="input-field col s12 m2 l2">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="Secretario" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">account_balance</i>
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
@@ -167,12 +167,12 @@
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
                     <div class="input-field col s12 m2 l2">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="Professor" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">account_balance</i>
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
@@ -206,12 +206,12 @@
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
                     <div class="input-field col s12 m2 l2">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="Responsavel" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">account_balance</i>
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
@@ -245,12 +245,12 @@
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
                     <div class="input-field col s12 m2 l2">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="Aluno" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
-                        <i class="material-icons prefix blue-icon">perm_identity</i>
+                        <i class="material-icons prefix blue-icon">account_balance</i>
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
