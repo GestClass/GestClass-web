@@ -6,11 +6,12 @@ $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
 
 // Selecionar média da escola
-$sql_select_media = $conn->prepare("SELECT media_min FROM escola where ID_escola = $id_escola");
+$sql_select_media = $conn->prepare("SELECT media_min, media_max FROM escola where ID_escola = $id_escola");
 $sql_select_media->execute();
 $array_media = $sql_select_media->fetch(PDO::FETCH_ASSOC);
-$media = $array_media['media_min'];
-echo $media;
+$media_min = $array_media['media_min'];
+$media_max = $array_media['media_min'];
+
 
 $nomeAtividade = $_POST['nomeAtividade'];
 $dataOriginal = $_POST['dataAtividade'];
@@ -22,49 +23,61 @@ $id_disciplina =  $_POST['id_disciplina'];
 $id_turma = $_POST['id_turma'];
 $idProfessor = $id_usuario;
 
-if (($nomeAtividade != "") && ($dataAtividade != "")) {
+$status = 0;
 
-    $query_insert_boletim_listagem = $conn->prepare("INSERT INTO boletim_listagem VALUES (:id, :id_escola, :id_disciplina)");
+$query_listagem = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno =  $id_escola AND fk_id_turma_aluno = $id_turma");
+$query_listagem->execute();
 
-    $query_insert_boletim_listagem->bindParam(':id', $id, PDO::PARAM_STR);
-    $query_insert_boletim_listagem->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
-    $query_insert_boletim_listagem->bindParam(':id_disciplina', $id_disciplina, PDO::PARAM_STR);
-    $query_insert_boletim_listagem->execute();
+while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
 
-    if ($query_insert_boletim_listagem->rowCount()) {
+    $ra = $alunos['RA'];
+    $nota = $_POST[$ra . 'nota'];
+    $observacao = $_POST[$ra . 'observacao'];
 
-        $query_select_id_listagem = $conn->prepare("SELECT MAX(ID_boletim_listagem)AS id_listagem FROM boletim_listagem WHERE fk_id_escola_boletim_listagem = $id_escola");
-        $query_select_id_listagem->execute();
+    if ($nota == "") {
+        $nota = 0;
+    }
 
-        $array_id_listagem = $query_select_id_listagem->fetch(PDO::FETCH_ASSOC);
+    if (($nota < $media_min) && ($observacao == '')) {
+        $status += 1;
+    }
+}
 
-        $id_listagem = $array_id_listagem['id_listagem'];
+if ($status == 0) {
+
+    $query_listagem2 = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno =  $id_escola AND fk_id_turma_aluno = $id_turma");
+    $query_listagem2->execute();
+
+    while ($alunos2 = $query_listagem2->fetch(PDO::FETCH_ASSOC)) {
 
 
-        $query_listagem = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno =  $id_escola AND fk_id_turma_aluno = $id_turma");
-        $query_listagem->execute();
+        $ra = $alunos2['RA'];
+        $nota = $_POST[$ra . 'nota'];
+        $observacao = $_POST[$ra . 'observacao'];
 
-        while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
+        if ($nota == "") {
+            $nota = 0;
+        }
+        if (($nomeAtividade != "") && ($dataAtividade != "")) {
 
-            $ra = $alunos['RA'];
-            $nota = $_POST[$ra . 'nota'];
-            $observacao = $_POST[$ra . 'observacao'];
+            $query_insert_boletim_listagem = $conn->prepare("INSERT INTO boletim_listagem VALUES (:id, :id_escola, :id_disciplina)");
 
-            if ($nota == "") {
-                $nota = 0;
-            }
+            $query_insert_boletim_listagem->bindParam(':id', $id, PDO::PARAM_STR);
+            $query_insert_boletim_listagem->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
+            $query_insert_boletim_listagem->bindParam(':id_disciplina', $id_disciplina, PDO::PARAM_STR);
+            $query_insert_boletim_listagem->execute();
 
-            if (($nota < $media) && ($observacao == '')) {
+            if ($query_insert_boletim_listagem->rowCount()) {
 
-?>
+                $query_select_id_listagem = $conn->prepare("SELECT MAX(ID_boletim_listagem)AS id_listagem FROM boletim_listagem WHERE fk_id_escola_boletim_listagem = $id_escola");
+                $query_select_id_listagem->execute();
 
-                <script>
-                    alert('Por favor, insira uma observação para alunos com nota abaixo da média!!')
-                    history.back();
-                </script>
+                $array_id_listagem = $query_select_id_listagem->fetch(PDO::FETCH_ASSOC);
 
-                <?php
-            } else {
+                $id_listagem = $array_id_listagem['id_listagem'];
+
+
+
 
                 $query_insert = $conn->prepare('INSERT INTO boletim_aluno VALUES(:id, :nota, :observacoes, :nome_atividade, :data_atividade, :ra, :id_disciplina, :id_boletim_listagem, :id_turma)');
 
@@ -81,10 +94,10 @@ if (($nomeAtividade != "") && ($dataAtividade != "")) {
                 $query_insert->execute();
 
                 if ($query_insert->rowCount()) {
-                ?>
+?>
                     <script>
                         alert("Cadastrado com sucesso!!")
-                        //window.location = '../homeProfessor.html.php'
+                        window.location = '../homeProfessor.html.php'
                     </script>
                 <?php
 
@@ -95,23 +108,30 @@ if (($nomeAtividade != "") && ($dataAtividade != "")) {
                         alert("Erro ao cadastrar!!")
                         history.back()
                     </script>
-        <?php
+                <?php
                 }
+            } else {
+                ?>
+                <script>
+                    alert("Erro ao cadastrar!!")
+                    history.back()
+                </script>
+            <?php
             }
-        }
-    } else {
-        ?>
-        <script>
-            alert("Erro ao cadastrar!!")
-            history.back()
-        </script>
+        } else {
+            ?>
+            <script>
+                alert("Por favor, preencha o Nome e a Data da Atividade!!")
+                history.back()
+            </script>
     <?php
+        }
     }
 } else {
     ?>
     <script>
-        alert("Por favor, preencha o Nome e a Data da Atividade!!")
-        history.back()
+        alert('Por favor, insira uma observação para alunos abaixo da média!!');
+        history.back();
     </script>
 <?php
 }

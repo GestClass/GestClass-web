@@ -40,7 +40,8 @@ CREATE TABLE escola (
     turma_fundamental_I BOOLEAN,
     turma_fundamental_II BOOLEAN,
     turma_medio BOOLEAN,
-    media_min DECIMAL (4,2) NOT NULL 
+    media_min DECIMAL (4,2) NOT NULL,
+    media_max DECIMAL (4,2) NOT NULL
 );
 
 CREATE TABLE turma (
@@ -422,7 +423,7 @@ INSERT INTO disciplina (nome_disciplina) VALUES ('Ed. Física');
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
-INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, quantidade_alunos, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', 500, true, true, true, true, true, 5.00);
+INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, quantidade_alunos, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min, media_max) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', 500, true, true, true, true, true, 5.00, 10.00);
 
 
 /*	-	INSERTS INTO TABLE DIRETOR	-	*/
