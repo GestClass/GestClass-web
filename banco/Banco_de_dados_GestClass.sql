@@ -651,4 +651,4 @@ SELECT * FROM `admin`;
 
 SELECT * FROM contato;
 
-/*DROP DATABASE GestClass;
+/*DROP DATABASE GestClass;*/
