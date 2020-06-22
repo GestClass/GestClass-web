@@ -39,7 +39,8 @@ CREATE TABLE escola (
     turma_pre_escola BOOLEAN,
     turma_fundamental_I BOOLEAN,
     turma_fundamental_II BOOLEAN,
-    turma_medio BOOLEAN 
+    turma_medio BOOLEAN,
+    media_min DECIMAL (4,2) NOT NULL 
 );
 
 CREATE TABLE turma (
@@ -218,9 +219,8 @@ CREATE TABLE envio_boleto (
 CREATE TABLE contato (
 	ID_mensagem INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     mensagem TEXT NOT NULL,
-    assunto VARCHAR(50) NULL,
+    assunto VARCHAR(50) NOT NULL,
     data_mensagem DATETIME NOT NULL,
-    fk_id_tipo_usuario_envio INTEGER NOT NULL,
     fk_envio_aluno_ra_aluno INTEGER,
     fk_envio_responsavel_id_responsavel INTEGER,
     fk_envio_professor_id_professor INTEGER,
@@ -263,12 +263,6 @@ CREATE TABLE `events` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
-CREATE TABLE `notificacoes` (
-  `id_notificacoes` int(11) NOT NULL,
-  `id_para` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `notificacao` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*	-	FOREIGN KEYs TABLE TURMA	-	*/
 ALTER TABLE turma ADD CONSTRAINT fk_id_escola_turma FOREIGN KEY (fk_id_escola_turma) REFERENCES escola (ID_escola);
@@ -373,7 +367,6 @@ ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOR
 
 /*	-	FOREIGN KEYs TABLE CONTATO	-	*/
 
-ALTER TABLE contato ADD CONSTRAINT fk_id_tipo_usuario_envio FOREIGN KEY (fk_id_tipo_usuario_envio) REFERENCES tipo_usuario (ID_tipo_usuario);
 ALTER TABLE contato ADD CONSTRAINT fk_envio_aluno_ra_aluno FOREIGN KEY (fk_envio_aluno_ra_aluno) REFERENCES aluno (RA);
 ALTER TABLE contato ADD CONSTRAINT fk_envio_responsavel_id_responsavel FOREIGN KEY (fk_envio_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel);
 ALTER TABLE contato ADD CONSTRAINT fk_envio_professor_id_professor FOREIGN KEY (fk_envio_professor_id_professor) REFERENCES professor (ID_professor);
@@ -429,7 +422,7 @@ INSERT INTO disciplina (nome_disciplina) VALUES ('Ed. Física');
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
-INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, quantidade_alunos, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', 500, true, true, true, true, true);
+INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, quantidade_alunos, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', 500, true, true, true, true, true, 5,00);
 
 
 /*	-	INSERTS INTO TABLE DIRETOR	-	*/
@@ -608,7 +601,8 @@ INSERT INTO envio_boleto (fk_id_diretor_envio_boleto, fk_id_responsavel_recebime
 
 /*	-	INSERTS INTO TABLE CONTATO	-	*/
               
-INSERT INTO contato (mensagem, assunto, data_mensagem, fk_id_tipo_usuario_envio, fk_envio_aluno_ra_aluno, fk_recebimento_professor_id_professor) VALUES ('Professor, favor corrigir a pauta de chamada, pois me encontrava presente na aula de hoje, grato!', 'Correção de chamada', '2020-06-13',5,00000000, 1);
+INSERT INTO contato (mensagem, assunto, data_mensagem, fk_envio_aluno_ra_aluno, fk_recebimento_professor_id_professor) VALUES ('Professor, favor corrigir a pauta de chamada, pois me encontrava presente na aula de hoje, grato!', 'Correção de chamada', '2020-06-13', 00000000, 1);
+
 
 /*	-	INSERTS INTO TABLE ADMIN	-	*/
               
@@ -620,7 +614,7 @@ INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuar
 INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Monique Correia', 'monique.jpg', 'monique@gestclass.com', '1234', '2002.08.24', 1);
 
 /*	-	SELECTs 	-	*/
-/*
+
 SELECT * FROM turno;
 
 SELECT * FROM turma;
@@ -657,4 +651,4 @@ SELECT * FROM `admin`;
 
 SELECT * FROM contato;
 
-DROP DATABASE GestClass; */
+/*DROP DATABASE GestClass; */
