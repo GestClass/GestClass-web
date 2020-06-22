@@ -33,7 +33,6 @@ CREATE TABLE escola (
     CNPJ VARCHAR(18) NOT NULL UNIQUE,
     telefone VARCHAR(14) NOT NULL,
     email VARCHAR(65) NOT NULL UNIQUE,
-    quantidade_alunos INTEGER,
 	data_pagamento_escola DATE NOT NULL,
     turma_bercario BOOLEAN, 
     turma_pre_escola BOOLEAN,
@@ -53,6 +52,7 @@ CREATE TABLE turma (
 
 CREATE TABLE aula_escola(
 	ID_aula_escola INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+    nome_padrao VARCHAR (30) NOT NULL,
 	nome_aula VARCHAR(20) NOT NULL,
 	aula_start TIME NOT NULL,
     aula_end TIME NOT NULL,    
@@ -423,7 +423,7 @@ INSERT INTO disciplina (nome_disciplina) VALUES ('Ed. Física');
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
-INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, quantidade_alunos, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min, media_max) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', 500, true, true, true, true, true, 5.00, 10.00);
+INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min, media_max) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', true, true, true, true, true, 5.00, 10.00);
 
 
 /*	-	INSERTS INTO TABLE DIRETOR	-	*/
@@ -458,13 +458,13 @@ INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('3
 
 /*	-	INSERTs INTO TABLE AULA_ESCOLA	-	*/
 
-INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('1º aula', '07:00:00', '07:50:00', 1, 1);
-INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('2º aula', '07:50:00', '08:40:00', 1, 1);
-INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('3º aula', '08:40:00', '09:30:00', 1, 1);
-INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('Intervalo', '09:30:00', '09:50:00', 1, 1);
-INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('4º aula', '09:50:00', '10:40:00', 1, 1);
-INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('5º aula', '10:40:00', '11:30:00', 1, 1);
-INSERT INTO aula_escola (nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('6º aula', '11:30:00', '12:20:00', 1, 1);
+INSERT INTO aula_escola (nome_padrao, nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('Padrão 1', '1º aula', '07:00:00', '07:50:00', 1, 1);
+INSERT INTO aula_escola (nome_padrao, nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('Padrão 1', '2º aula', '07:50:00', '08:40:00', 1, 1);
+INSERT INTO aula_escola (nome_padrao, nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('Padrão 1', '3º aula', '08:40:00', '09:30:00', 1, 1);
+INSERT INTO aula_escola (nome_padrao, nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('Padrão 1', 'Intervalo', '09:30:00', '09:50:00', 1, 1);
+INSERT INTO aula_escola (nome_padrao, nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('Padrão 1', '4º aula', '09:50:00', '10:40:00', 1, 1);
+INSERT INTO aula_escola (nome_padrao, nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('Padrão 1', '5º aula', '10:40:00', '11:30:00', 1, 1);
+INSERT INTO aula_escola (nome_padrao, nome_aula, aula_start, aula_end, fk_id_turno_aula_escola, fk_id_escola_aula_escola) VALUES ('Padrão 1', '6º aula', '11:30:00', '12:20:00', 1, 1);
 
 
 /*	-	INSERTS INTO TABLE GRADE_CURRICULAR	-	*/
