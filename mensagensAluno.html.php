@@ -58,10 +58,9 @@
                 <thead>
                     <tr>
                         <th>Data</th>
-                        <th>Remetente</th>
-                        <th>Nome</th>
+                        <th>Usuário</th>
                         <th>Assunto</th>
-                        <th>Mensagem</th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -74,15 +73,17 @@
                             $query_diretor->execute();
 
                             while ($diretor_dados = $query_diretor->fetch(PDO::FETCH_ASSOC)) {
-                                $nome_diretor = $diretor_dados["nome_diretor"];
+                                $nome = $diretor_dados["nome_diretor"];
                     ?>
                                 <tr>
                                     <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Diretor</td>
-                                    <td><?php echo $nome_diretor ?></td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
-                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
+                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_diretor ?>&u=<?php echo 2 ?>">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
+                                                <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
                             }
@@ -93,16 +94,17 @@
                             $query_secretario->execute();
 
                             while ($secretario_dados = $query_secretario->fetch(PDO::FETCH_ASSOC)) {
-                                $nome_secretario = $secretario_dados["nome_secretario"];
+                                $nome = $secretario_dados["nome_secretario"];
 
                             ?>
                                 <tr>
                                     <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Secretario</td>
-                                    <td><?php echo $nome_secretario ?></td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
-                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_secretario ?>&u=<?php echo 3 ?>">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
+                                                <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
                             }
@@ -113,16 +115,17 @@
                             $query_professor->execute();
 
                             while ($professor_dados = $query_professor->fetch(PDO::FETCH_ASSOC)) {
-                                $nome_professor = $professor_dados["nome_professor"];
+                                $nome = $professor_dados["nome_professor"];
 
                             ?>
                                 <tr>
                                     <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Professor</td>
-                                    <td><?php echo $nome_professor ?></td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
-                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_professor ?>&u=<?php echo 4 ?>">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
+                                                <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                     <?php
                             }
