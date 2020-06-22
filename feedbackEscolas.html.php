@@ -35,8 +35,8 @@
                     <tr>
                         <th>Data</th>
                         <th>Tipo Usuário</th>
-                        <th>Escola</th>
-                        <th>Mensagem</th>
+                        <th>Assunto</th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -49,21 +49,23 @@
                             $query_admin->execute();
 
                             while ($admin = $query_admin->fetch(PDO::FETCH_ASSOC)) {
-                                $nome_admin = $admin["nome"];
+                                $nome = $admin["nome"];
                     ?>
                                 <tr>
                                     <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
-                                    <td><?php echo $nome_admin ?></td>
-                                    <td></td>
-                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                    <td><?php echo $nome?></td>
+                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_admin ?>&u=<?php echo 1 ?>" class="modal-trigger">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
+                                                <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
                             }
                         } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 2) {
                             $dados_diretor = $mensagens["fk_envio_diretor_id_diretor"];
 
-                            $query_diretor = $conn->prepare("SELECT ID_diretor,fk_id_escola_diretor FROM diretor WHERE ID_diretor = $dados_diretor");
+                            $query_diretor = $conn->prepare("SELECT ID_diretor,nome_diretor,fk_id_escola_diretor FROM diretor WHERE ID_diretor = $dados_diretor");
                             $query_diretor->execute();
 
                             while ($diretor_dados = $query_diretor->fetch(PDO::FETCH_ASSOC)) {
@@ -80,15 +82,17 @@
                                     <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Diretor</td>
-                                    <td><?php echo $nome_escola ?></td>
-                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_diretor ?>&u=<?php echo 2 ?>" class="modal-trigger">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
+                                                <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
                             }
                         } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 3) {
                             $dados_secretario = $mensagens["fk_envio_secretario_id_secretario"];
 
-                            $query_secretario = $conn->prepare("SELECT ID_secretario,fk_id_escola_secretario FROM secretario WHERE ID_secretario = $dados_secretario");
+                            $query_secretario = $conn->prepare("SELECT ID_secretario,nome_secretario,fk_id_escola_secretario FROM secretario WHERE ID_secretario = $dados_secretario");
                             $query_secretario->execute();
 
                             while ($secretario_dados = $query_secretario->fetch(PDO::FETCH_ASSOC)) {
@@ -105,15 +109,17 @@
                                     <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Secretario</td>
-                                    <td><?php echo $nome_escola ?></td>
-                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_secretario ?>&u=<?php echo 3 ?>" class="modal-trigger">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
+                                                <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
                             }
                         } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 4) {
                             $dados_professor = $mensagens["fk_envio_professor_id_professor"];
 
-                            $query_professor = $conn->prepare("SELECT ID_professor,fk_id_escola_professor FROM professor WHERE ID_professor = $dados_professor");
+                            $query_professor = $conn->prepare("SELECT ID_professor,nome_professor,fk_id_escola_professor FROM professor WHERE ID_professor = $dados_professor");
                             $query_professor->execute();
 
                             while ($professor_dados = $query_professor->fetch(PDO::FETCH_ASSOC)) {
@@ -130,15 +136,17 @@
                                     <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Professor</td>
-                                    <td><?php echo $nome_escola ?></td>
-                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_professor ?>&u=<?php echo 4 ?>" class="modal-trigger">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
+                                                <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
                             }
                         } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 5) {
                             $dados_aluno = $mensagens["fk_envio_aluno_ra_aluno"];
 
-                            $query_aluno = $conn->prepare("SELECT RA,fk_id_escola_aluno FROM aluno WHERE RA = $dados_aluno");
+                            $query_aluno = $conn->prepare("SELECT RA,nome_aluno,fk_id_escola_aluno FROM aluno WHERE RA = $dados_aluno");
                             $query_aluno->execute();
 
                             while ($aluno_dados = $query_aluno->fetch(PDO::FETCH_ASSOC)) {
@@ -155,8 +163,10 @@
                                     <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Aluno</td>
-                                    <td><?php echo $nome_escola ?></td>
-                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_aluno ?>&u=<?php echo 5 ?>" class="modal-trigger">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
+                                                <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
                             }
@@ -164,7 +174,7 @@
 
                             $dados_responsavel = $mensagens["fk_envio_responsavel_id_responsavel"];
 
-                            $query_responsavel = $conn->prepare("SELECT ID_responsavel,fk_id_escola_responsavel FROM responsavel WHERE ID_responsavel = $dados_responsavel");
+                            $query_responsavel = $conn->prepare("SELECT ID_responsavel,nome_responsavel,fk_id_escola_responsavel FROM responsavel WHERE ID_responsavel = $dados_responsavel");
                             $query_responsavel->execute();
 
                             while ($responsavel_dados = $query_responsavel->fetch(PDO::FETCH_ASSOC)) {
@@ -181,8 +191,10 @@
                                     <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Responsvel</td>
-                                    <td><?php echo $nome_escola ?></td>
-                                    <td><?php echo $mensagens["mensagem"] ?></td>
+                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_responsavel ?>&u=<?php echo 6 ?>" class="modal-trigger">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
+                                                <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                     <?php
                             }
