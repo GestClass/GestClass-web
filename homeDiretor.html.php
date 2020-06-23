@@ -139,7 +139,7 @@ $id_escola = $_SESSION["id_escola"];
 
 <div id="modalHorarioAulas" class="modal">
     <div class="modal-content">
-        <h4>Selecione a turma</h4>
+        <h4 class="center">Selecione a turma</h4>
         <form action="cadastroHorarioAulas.html.php" method="POST"><br>
             <div class="row">
                 <div class="input-field col s12 m6 l6">
@@ -176,7 +176,7 @@ $id_escola = $_SESSION["id_escola"];
 
 <div id="modalFeedback" class="modal">
     <div class="modal-content">
-        <h4>Digite o Problema que occoreu</h4><br>
+        <h4 class="center">Digite o Problema que occoreu</h4><br>
         <div id="novaMensagem">
             <form action="php/enviarMensagem/enviarFeedback.php" method="POST">
                 <div class="row">
@@ -195,7 +195,7 @@ $id_escola = $_SESSION["id_escola"];
 
 <div id="modalListaAlunos" class="modal">
     <div class="modal-content">
-        <h4>Selecione a turma</h4>
+        <h4 class="center">Selecione a turma</h4>
         <div class="input-field col s12">
             <form action="listaAlunos.html.php" method="POST">
                 <select name="turmas">
@@ -228,7 +228,7 @@ $id_escola = $_SESSION["id_escola"];
 
 <div id="modalMensalidades" class="modal">
     <div class="modal-content">
-        <h4>Selecione a turma</h4>
+        <h4 class="center">Selecione a turma</h4>
         <div class="input-field col s12">
             <form action="mensalidades.html.php" method="POST">
                 <select name="turmas">
@@ -261,7 +261,7 @@ $id_escola = $_SESSION["id_escola"];
 
 <div id="modalGradeCurricular" class="modal">
     <div class="modal-content">
-        <h4>Selecione a turma</h4>
+        <h4 class="center">Selecione os Dados</h4>
         <div class="input-field col s12">
             <form action="cadastroGradeCurricular.html.php" method="POST">
                 <select name="turmas">
@@ -294,6 +294,23 @@ $id_escola = $_SESSION["id_escola"];
                         $nome_padrao = $dados_padroes['nome_padrao'];
                     ?>
                         <option value="<?php echo $id_padrao; ?>"><?php echo $nome_padrao; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <br><br>
+                <select name="dia">
+                    <option value="" disabled selected>Selecione o Dia da Semana</option>
+                    <?php
+
+                    $query_select_dias = $conn->prepare("SELECT ID_dia_semana, nome_dia FROM dia_semana ORDER BY ID_dia_semana ASC");
+                    $query_select_dias->execute();
+
+                    while ($dados_dias = $query_select_dias->fetch(PDO::FETCH_ASSOC)) {
+                        $id_dia = $dados_dias['ID_dia_semana'];
+                        $nome_dia = $dados_dias['nome_dia'];
+                    ?>
+                        <option value="<?php echo $id_dia; ?>"><?php echo $nome_dia; ?></option>
                     <?php
                     }
                     ?>
