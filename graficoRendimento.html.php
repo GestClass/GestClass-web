@@ -119,16 +119,13 @@ include_once 'php/conexao.php';
         <tr>
           <th>Professor(a)</th>
           <th>Turno</th>
-          <th>Frequência Atual</th>
-          <th>Frequência Total</th>
+       
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><?php echo $nome_professor ?></td>
           <td><?php echo $nome_turno?></td>
-          <td>80%</td>
-          <td>90%</td>
         </tr>
 
       </tbody>
