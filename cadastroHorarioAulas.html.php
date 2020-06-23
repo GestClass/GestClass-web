@@ -44,11 +44,6 @@
     $nomeHorario = $_POST["nome"];
     $turno = $_POST["turno"];
 
-    if (($nomeHorario != "") && ($turno == 0)) {
-    } else {
-        echo "<script>alert('Preencha o Nome do Horário e Selecione o turno')
-        history.back()</script>";
-    }
     ?>
 
     <div class="container col s12 m12 l12 "><br>
