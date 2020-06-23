@@ -44,6 +44,11 @@
     $nomeHorario = $_POST["nome"];
     $turno = $_POST["turno"];
 
+    if (($nomeHorario != "") && ($turno == 0)) {
+    } else {
+        echo "<script>alert('Preencha o Nome do Horário e Selecione o turno')
+        history.back()</script>";
+    }
     ?>
 
     <div class="container col s12 m12 l12 "><br>
@@ -69,8 +74,8 @@
                         </div>
                     </div>
                 </div><br>
-                <input type="text" name="nomeHorario" value="<?php echo $nomeHorario;?>" hidden>
-                <input type="text" name="turno" value="<?php echo $turno;?>" hidden>
+                <input type="text" name="nomeHorario" value="<?php echo $nomeHorario; ?>" hidden>
+                <input type="text" name="turno" value="<?php echo $turno; ?>" hidden>
                 <div class="input-field right">
                     <button name="btncadastrar" value="formAluno" id="formAluno" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Cadastrar</button>
                 </div>
