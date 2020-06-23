@@ -34,11 +34,6 @@ h4 {
     background-color: #42a5f5;
 }
 
-table.striped>tbody>tr {
-    background-color: #bbdefb;
-    /* whatever color you want */
-}
-
 table.info {
     margin-top: 15px;
     margin-bottom: 15px;

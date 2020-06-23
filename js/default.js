@@ -19,6 +19,13 @@ $('.dropdown-trigger').dropdown();
 $(document).ready(() => {
     $('.modal').modal()
 })
+$(document).ready(() => {
+    $('#modalFilhosPuts').modal('open');
+
+})
+
+
+
 
 $(document).ready(function() {
     $('.materialboxed').materialbox();

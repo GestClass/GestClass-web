@@ -2,28 +2,43 @@
 include_once 'php/conexao.php';
 
   $id_disciplina =  $_POST['disciplinas'];
-  $RA_filho = $_SESSION["RA_filho"];
-
-  $select_boletim_aluno = $conn->prepare("select nota,nome_atividade, data_atividade from boletim_aluno where fk_id_disciplina_boletim_aluno=:id and fk_ra_aluno_boletim_aluno=:ra");
-  $select_boletim_aluno->bindValue(":id", $id_disciplina);
-  $select_boletim_aluno->bindValue(":ra", $RA_filho);
-  $select_boletim_aluno->execute();
- 
-
-
-?>
-  <?php
-  include_once 'reqPais.php';
-
   $id_usuario = $_SESSION["id_usuario"];
   $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
   $id_escola = $_SESSION["id_escola"];
+
+  if ($id_tipo_usuario == 1) {
+    require_once 'reqMenuAdm.php';
+  } else if ($id_tipo_usuario == 2) {
+    require_once 'reqDiretor.php';
+  } else if ($id_tipo_usuario == 3) {
+    require_once 'reqHeader.php';
+  } elseif ($id_tipo_usuario == 4) {
+    require_once 'reqProfessor.php';
+  } elseif ($id_tipo_usuario  == 5) {
+    require_once 'reqAluno.php';    
+  } else {
+    require_once 'reqPais.php';
+  }
+  if ($id_tipo_usuario == 6){
+  $ra = $_SESSION["RA_filho"];
+  } else {
+    $ra = $id_usuario;
+  }
+
+
+  $nome_turno = $_SESSION['nome_turno'];
+  $select_boletim_aluno = $conn->prepare("select nota,nome_atividade, data_atividade from boletim_aluno where fk_id_disciplina_boletim_aluno=:id and fk_ra_aluno_boletim_aluno=:ra");
+  $select_boletim_aluno->bindValue(":id", $id_disciplina);
+  $select_boletim_aluno->bindValue(":ra", $ra);
+  $select_boletim_aluno->execute();
+ 
+
 
   
  
 
   // Selecionar a turma do aluno
-  $sql_select_id_turma = $conn->prepare("SELECT fk_id_turma_aluno FROM aluno WHERE RA = $RA_filho");
+  $sql_select_id_turma = $conn->prepare("SELECT fk_id_turma_aluno FROM aluno WHERE RA = $ra");
   // Executando
   $sql_select_id_turma->execute();
   // Armazenando array da informação
@@ -89,61 +104,9 @@ include_once 'php/conexao.php';
         echo $nome;
       }
       
-
-        $query_select_n = $conn->prepare("SELECT * FROM aluno");
-        $query_select_n->execute();
-        while ($dados_n = $query_select_n->fetch(PDO::FETCH_ASSOC)) {
-          $nomeL = $dados_n['nome_aluno'];
-
       ?> <i class="Small material-icons">trending_up </i>
     </h4>
 
-
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {
-        packages: ['corechart', 'bar']
-      });
-      google.charts.setOnLoadCallback(drawMultSeries);
-      <?php
-      
-      ?>
-      function drawMultSeries() {
-        var data = google.visualization.arrayToDataTable([
-          ['Element', '', {
-            role: 'style'
-          }],
-          ['<?php echo $dados_n['nome_aluno'];?>', 8.94, '#e3f2fd'], // RGB value
-                ]);
-        <?php } ?>
-
-
-        var options = {
-          title: 'MÉDIA DAS NOTAS POR BIMESTRE',
-          backgroundColor: 'rgba(255, 99, 71, 0.2)',
-          width: '700px',
-          chartArea: {
-            left: 300,
-            top: 30
-          },
-          hAxis: {
-            title: 'NOTAS',
-            minValue: 0
-          }
-        };
-
-        var chart = new google.visualization.BarChart(document.querySelector('#chart_div'));
-        chart.draw(data, options);
-
-        $(window).resize(function(){
-          drawMultSeries();
-          
-        });
-
-
-      }
-    </script>
 
 
     
@@ -163,7 +126,7 @@ include_once 'php/conexao.php';
       <tbody>
         <tr>
           <td><?php echo $nome_professor ?></td>
-          <td><?php   ?></td>
+          <td><?php echo $nome_turno?></td>
           <td>80%</td>
           <td>90%</td>
         </tr>
@@ -172,34 +135,40 @@ include_once 'php/conexao.php';
     </table>
     <h4 class="tit center">Atividades Realizadas </h4>
     <table class="atividades center striped">
-    <thead>
-             <tr>
-              <th>Data</th>
-              <th>Atividades</th>
-              <th>Notas</th>
-              <th>Bimestre</th>
-            </tr>
-          </thead>
+      <thead>   
+        <th>
+          Data
+        </th>
+        <th>
+          Atividades
+        </th>
+        <th>
+          Notas
+        </th>
+        <th>
+          Bimestre
+        </th>
+      </thead>
+      <tbody>
           <?php 
            while( $dados_boletim_aluno = $select_boletim_aluno->fetch(PDO::FETCH_ASSOC)){
             $nota = $dados_boletim_aluno['nota'];
             $nome_atividade = $dados_boletim_aluno['nome_atividade'];
+            //modificar a cada ano
             $data_atividade = $dados_boletim_aluno['data_atividade'];
-            if(strtotime($data_atividade) < strtotime($bimestre1)){
+            if(($data_atividade > '2020-01-01') && ($data_atividade <= $bimestre1)){
               $bimestre = "1º Bimestre";
-            }elseif(strtotime($data_atividade) < strtotime($bimestre2)){
+            }elseif (($data_atividade > $bimestre1) && ($data_atividade <= $bimestre2)){
               $bimestre = "2º Bimestre";
-            }elseif (strtotime($data_atividade) < strtotime($bimestre3)) {
+            }elseif (($data_atividade > $bimestre2) && ($data_atividade <= $bimestre3)) {
               $bimestre = "3º Bimestre";
-            }else {
+            }elseif(($data_atividade > $bimestre3) && ($data_atividade <= $bimestre4)) {
               $bimestre ="4º Bimestre";
             }
           
           ?>
-         
-          <tbody>
         <tr>
-          <td><?php echo $data_atividade?></td>
+          <td><?php echo date('d/m/Y ', strtotime($data_atividade)) ?></td>
           <td><?php echo $nome_atividade ?></td>
           <td><?php echo $nota ?></td>
           <td><?php echo $bimestre ?></td>
@@ -208,18 +177,8 @@ include_once 'php/conexao.php';
 
       </tbody>
     </table>
-    <button id="btnTable" type="submit" href='#modal' class=" modal-trigger  btn-flat btnLightBlue center">
-        <i class="material-icons left">trending_up</i> Acessar Gráfico  
-      </button>
-    <!--Div that will hold the pie chart-->
-<div id="modal" class="modal">
-  <div class="modal-content">
-        <div class=" col-md-6">
-          <div id="chart_div" style="height:500px; width:900px; ">
-          <h4 class="tit center">Gráfico</h4>
-          </div>
-        </div>
-      </div>
+    
+
 
 
 <?php

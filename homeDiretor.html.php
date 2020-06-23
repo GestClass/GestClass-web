@@ -15,10 +15,10 @@ $id_escola = $_SESSION["id_escola"];
     <div class="container">
         <div class="row">
             <div class="col s12 m4">
-                <a href="graficoRendimentoDiretor.html.php">
+              <a class="modal-trigger" href="#modalTurmas">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-chart-line fa-6x blue-icon"></i>
-                        <h5>Gráfico de Rendimento</h5>
+                        <h5>Rendimento Disciplinar</h5>
                         <p>Acesso aos dados de desempenho das turmas por bimestre.</p>
                     </div>
                 </a>
@@ -316,6 +316,60 @@ $id_escola = $_SESSION["id_escola"];
                     ?>
                 </select>
                 <br><br>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="modalTurmas" class="modal">
+    <div class="modal-content">
+        <h4>Selecione a turma</h4>
+        <div class="input-field col s12">
+            <form action="selectDisciplinaDiretor.html.php" method="POST">
+                <select name="turmas">
+                    <option value="" disabled selected>Selecione a Turma</option>
+                    <?php
+
+                    $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
+                    $query_select_id_turma->execute();
+
+                    while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
+                        $id_turma = $dados_turma_id['ID_turma'];
+                        $_SESSION['id_turma']=$id_turma;
+                        $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+                        $query_select_turma->execute();
+
+                        while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $nome_turma = $dados_turma_nome['nome_turma'];
+                            $_SESSION['nome_turma']=$nome_turma;
+
+                            $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                            $query_turno->execute();
+
+                            while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                                $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                                $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                                $query_turno_nome->execute();
+
+                                while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                                    $nome_turno = $dados_nome_turno['nome_turno'];
+                                    $_SESSION['nome_turno']=$nome_turno;
+
+                    ?>
+                                    <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                    <?php
+                                }
+                            }
+                        }
+                    }
+                    ?>
+                </select>
+                <br>
                 <div class="center">
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                         <i class="material-icons left">search</i>Pesquisar

@@ -1,7 +1,7 @@
 <?php
 
 require_once 'reqAluno.php';
-
+$id_usuario = $_SESSION["id_usuario"];
 
 // echo "id usuario ->".$id_usuario."</br>";
 // echo "id tipo usuario ->".$id_tipo_usuario."</br>";
@@ -15,7 +15,7 @@ require_once 'reqAluno.php';
                 <a class="modal-trigger" href="#modalGraficos">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-chart-line fa-6x blue-icon"></i>
-                        <h5>Rendimento Escolar</h5>
+                        <h5>Rendimento Disciplinar</h5>
                         <p>Acesso presença do aluno, atividades desempenhadas e gráficos de rendimentos .</p>
                     </div>
                 </a>
@@ -76,8 +76,13 @@ require_once 'reqAluno.php';
             <i class="large material-icons">add</i>
         </a>
         <ul>
+<<<<<<< Updated upstream
             <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
             <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Gráfico de rendimento"><i class="material-icons">insert_chart</i></a></li>
+=======
+            <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">build</i></a></li>
+            <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">insert_chart</i></a></li>
+>>>>>>> Stashed changes
             <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
             <li><a href="paginaManutencao.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered_rtl</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
@@ -109,28 +114,53 @@ require_once 'reqAluno.php';
     <div class="modal-content">
         <h4 class="center"><i class="material-icons right">school</i>Rendimento Escolar</h4>
         <div class="input-field col s12 validate">
-            <form action="graficoRendimento.php" method="POST">
-                <h5 class="center">Seleciona a matéria desejada para acompanhar o rendimento do seu filho:</h5>
+            <form action="graficoRendimento.html.php" method="POST">
+                <h5 class="center">Seleciona a matéria desejada para acompanhar o rendimento:</h5>
                 <select name="disciplinas">
-                    <h4>Selecione o tipo de conta</h4>
-                    <option value="" disabled selected>Selecione a Disciplina</option>
-                    <?php
-                    $id_escola = $_SESSION["id_escola"];
-                    $query_select_id = $conn->prepare("SELECT ID_disciplina FROM disciplina WHERE $id_escola ORDER BY `ID_disciplina` DESC LIMIT 10 ");
-                    $query_select_id->execute();
+                <?php
+                     // Selecionar a turma do aluno
+                    $sql_select_id_turma = $conn->prepare("SELECT fk_id_turma_aluno FROM aluno WHERE RA = $id_usuario");
+                    // Executando
+                    $sql_select_id_turma->execute();
+                    // Armazenando array da informação
+                    $array_turma = $sql_select_id_turma->fetch(PDO::FETCH_ASSOC);
+                    // Armazenar ID turma
+                    $id_turma = $array_turma['fk_id_turma_aluno'];
 
-                    while ($dados_id = $query_select_id->fetch(PDO::FETCH_ASSOC)) {
-                        $id_disciplina = $dados_id['ID_disciplina'];
-                        $query_select_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");
-                        $query_select_nome->execute();
-                        while ($dados_nome = $query_select_nome->fetch(PDO::FETCH_ASSOC)) {
-                            $nome = $dados_nome['nome_disciplina'];
+                    // Resgatando a turma do aluno
+                    $sql_select_turma_aluno = $conn->prepare("SELECT nome_turma, fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                    // Executando comando 
+                    $sql_select_turma_aluno->execute();
+                    // Armazenando nome da turma
+                    $turma_array = $sql_select_turma_aluno->fetch(PDO::FETCH_ASSOC);
+                    // Variável nome turma
+                    $nome_turma_aluno = $turma_array['nome_turma'];
+                    $id_turno = $turma_array['fk_id_turno_turma'];
 
-                    ?>
-                            <option value="<?php echo $id_disciplina ?>"><?php echo $nome; ?></option>
+
+                    
+                    // Resgatar nome do turno
+                    $sql_select_nome_turno = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                    // Executando o comando
+                    $sql_select_nome_turno->execute();
+                    // Armazenando nome do turno
+                    $turno = $sql_select_nome_turno->fetch(PDO::FETCH_ASSOC);
+                    // Armazenando o nome em variável
+                    $nome_turno = $turno['nome_turno'];
+                    $_SESSION['nome_turno']=$nome_turno;
+                    $query_select_disciplinas = $conn->prepare("SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor AS id_disciplina, disciplina.nome_disciplina AS nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor = disciplina.ID_disciplina) WHERE disciplinas_professor.fk_id_turma_professor_disciplinas_professor = $id_turma");
+                    // Executar
+                     $query_select_disciplinas->execute();
+                        // Armazenar em um array
+                        while ($array_disciplinas = $query_select_disciplinas->fetch(PDO::FETCH_ASSOC)) {
+                            // Armazenando o nome e o id da disciplina
+                            $nome_disciplina = $array_disciplinas['nome_disciplina'];
+                            $id_disciplina = $array_disciplinas['id_disciplina'];
+                        ?>
+                            <option value="<?php echo $id_disciplina ?>"><?php echo $nome_disciplina; ?></option>
                     <?php
                         }
-                    }
+                    
                     ?>
                 </select>
 

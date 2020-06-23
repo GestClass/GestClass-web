@@ -36,6 +36,7 @@ $nome_alu = $nome[0];
     <link rel="stylesheet" type="text/css" href="css/menu.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />
+    <link rel="stylesheet" type="text/css" href="css/grafico.css" />
 
 </head>
 
