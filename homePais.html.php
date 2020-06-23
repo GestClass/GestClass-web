@@ -92,8 +92,7 @@ $id_escola = $_SESSION["id_escola"];
         <h4 class="center"> <i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
         <div class="input-field col s12 validate">
             <form action="php/pinNotif.php" method="POST">
-                <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="password"
-                    data-mask="000000" class="validate" />
+                <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="password" data-mask="000000" class="validate" />
                 <div class="center">
                     <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
@@ -109,8 +108,7 @@ $id_escola = $_SESSION["id_escola"];
         <h4 class="center"> <i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
         <div class="input-field col s12 validate">
             <form action="php/pinChat.php" method="POST">
-                <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number"
-                    class="validate" />
+                <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate" />
                 <div class="center">
                     <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
@@ -150,20 +148,20 @@ $id_escola = $_SESSION["id_escola"];
                     <option value="" disabled selected>Selecionar filho</option>
                     <?php
 
-          $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
-          $query_select_filhos_responsavel->execute();
-          print_r($query_select_filhos_responsavel);
+                    $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+                    $query_select_filhos_responsavel->execute();
+                    print_r($query_select_filhos_responsavel);
 
-          while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
+                    while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
 
-            $nome_aluno = $filhos["nome_aluno"];
-            $ra = $filhos["RA"];
+                        $nome_aluno = $filhos["nome_aluno"];
+                        $ra = $filhos["RA"];
 
-          ?>
-                    <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
+                    ?>
+                        <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
                     <?php
-          }
-          ?>
+                    }
+                    ?>
                 </select>
         </div>
 
@@ -181,12 +179,12 @@ $id_escola = $_SESSION["id_escola"];
 
 <?php
 
-  $query_mensagem = $conn->prepare("SELECT *
+$query_mensagem = $conn->prepare("SELECT *
   FROM responsavel AS R 
   JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario}  ORDER BY data_mensagem DESC");
-  $query_mensagem->execute();
-  $notificacao = $query_mensagem->rowCount();
-  
+$query_mensagem->execute();
+$notificacao = $query_mensagem->rowCount();
+
 
 ?>
 
@@ -197,18 +195,34 @@ $id_escola = $_SESSION["id_escola"];
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left"
-                    data-tooltip="Gráfico de rendimento"><i class="material-icons">trending_up</i></a></li>
-            <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left"
-                    data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a><?php echo $notificacao?></li>
-            <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped"
-                    data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
-            <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
-                    data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
+            <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
+            <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Gráfico de rendimento"><i class="material-icons">trending_up</i></a></li>
+            <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a><?php echo $notificacao ?></li>
+            <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
+            <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
         </ul>
     </div>
 </section>
 
+
+<div id="modalFeedback" class="modal">
+    <div class="modal-content">
+        <h4>Digite o Problema que occoreu</h4><br>
+        <div id="novaMensagem">
+            <form action="php/enviarMensagem/enviarFeedback.php" method="POST">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
+                        <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                    </div>
+                </div>
+                <div class="input-field right">
+                    <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 <div id="modalFilhos" class="modal">
@@ -220,20 +234,20 @@ $id_escola = $_SESSION["id_escola"];
                     <option value="" disabled selected>Selecionar filho</option>
                     <?php
 
-          $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
-          $query_select_filhos_responsavel->execute();
-          print_r($query_select_filhos_responsavel);
+                    $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+                    $query_select_filhos_responsavel->execute();
+                    print_r($query_select_filhos_responsavel);
 
-          while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
+                    while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
 
-            $nome_aluno = $filhos["nome_aluno"];
-            $ra = $filhos["RA"];
+                        $nome_aluno = $filhos["nome_aluno"];
+                        $ra = $filhos["RA"];
 
-          ?>
-                    <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
+                    ?>
+                        <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
                     <?php
-          }
-          ?>
+                    }
+                    ?>
                 </select>
         </div>
 

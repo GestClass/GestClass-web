@@ -117,8 +117,9 @@ require_once 'reqHeader.php';
       <i class="large material-icons">add</i>
     </a>
     <ul>
-      <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">build</i></a></li>
+      <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
       <li><a href="#modalAlterarTurmas" class="modal-trigger btn-floating indigo accent-2 tooltipped" data-position="left" data-tooltip="Alterar turma dos alunos"><i class="material-icons">create</i></a></li>
+      <li><a href="#modalHorarioAulas" class="modal-trigger btn-floating grey tooltipped" data-position="left" data-tooltip="Cadastro Horário Aulas"><i class="material-icons">access_time</i></a></li>
       <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
       <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
       <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
@@ -127,6 +128,43 @@ require_once 'reqHeader.php';
     </ul>
   </div>
 </section>
+
+<div id="modalHorarioAulas" class="modal">
+  <div class="modal-content">
+    <h4>Selecione a turma</h4>
+    <form action="cadastroHorarioAulas.html.php" method="POST"><br>
+      <div class="row">
+        <div class="input-field col s12 m6 l6">
+          <label id="lbl" for="first_name">Nome do Horário</label>
+          <input name="nome" id="nome" placeholder="Ex: Horário Manhã" type="text" class="validate">
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <select name="turno">
+            <option value="" disabled selected>Selecione o Turno</option>
+            <?php
+
+            $query_select_turno = $conn->prepare("SELECT * FROM turno");
+            $query_select_turno->execute();;
+
+            while ($dados_turno = $query_select_turno->fetch(PDO::FETCH_ASSOC)) {
+              $id_turno = $dados_turno["ID_turno"];
+              $nome_turno = $dados_turno['nome_turno'];
+            ?>
+              <option value="<?php echo $id_turno ?>"><?php echo $nome_turno; ?></option>
+            <?php
+            }
+            ?>
+          </select>
+        </div>
+        <div class="center">
+          <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+            <i class="material-icons left">send</i> Continuar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
 <div id="modalFeedback" class="modal">
   <div class="modal-content">

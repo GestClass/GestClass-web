@@ -3,13 +3,16 @@
 $aulaNome = $_POST["aula"];
 $inicio = $_POST["inicio"];
 $termino = $_POST["termino"];
+// $nomeHorario = $_POST["nomeHorario"];
+// $turno = $_POST["turno"];
 
-$result = count($aulaNome);
+echo $nomeHorario."<br><br>";
+echo $turno."<br><br>";
 
-for ($i = 0; $i < ($result); $i++) {
-    echo "Aula: " . $aulaNome[$i]."<br>";
-    echo " Inicio: " . $inicio[$i] . "<br>";
-    echo " Termino: " . $termino[$i] . "<br><br>";
-}
+// for ($cont = 0; $cont < count($aulaNome); $cont++) {
+//     echo "Aula: " . $aulaNome[$cont]."<br>";
+//     echo " Inicio: " . $inicio[$cont] . "<br>";
+//     echo " Termino: " . $termino[$cont] . "<br><br>";
+// }
 
 ?>

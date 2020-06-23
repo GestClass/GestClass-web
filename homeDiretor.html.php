@@ -124,8 +124,9 @@ $id_escola = $_SESSION["id_escola"];
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">build</i></a></li>
+            <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
             <li><a href="#modalAlterarTurmas" class="modal-trigger btn-floating indigo accent-2 tooltipped" data-position="left" data-tooltip="Alterar turma dos alunos"><i class="material-icons">create</i></a></li>
+            <li><a href="#modalHorarioAulas" class="modal-trigger btn-floating grey tooltipped" data-position="left" data-tooltip="Cadastro Horário Aulas"><i class="material-icons">access_time</i></a></li>
             <li><a href="#modalGradeCurricular" class="modal-trigger btn-floating brown accent-2 tooltipped" data-position="left" data-tooltip="Atribuir grade curricular das turmas"><i class="material-icons">toc</i></a></li>
             <li><a href="cadastroDatasFinaisBimestres.html.php" class="btn-floating gray tooltipped" data-position="left" data-tooltip="Atribuir datas de final de bimestre"><i class="material-icons">event_available</i></a></li>
             <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
@@ -135,6 +136,43 @@ $id_escola = $_SESSION["id_escola"];
         </ul>
     </div>
 </section>
+
+<div id="modalHorarioAulas" class="modal">
+    <div class="modal-content">
+        <h4>Selecione a turma</h4>
+        <form action="cadastroHorarioAulas.html.php" method="POST"><br>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <label id="lbl" for="first_name">Nome do Horário</label>
+                    <input name="nome" id="nome" placeholder="Ex: Horário Manhã" type="text" class="validate">
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <select name="turno">
+                        <option value="" disabled selected>Selecione o Turno</option>
+                        <?php
+
+                        $query_select_turno = $conn->prepare("SELECT * FROM turno");
+                        $query_select_turno->execute();;
+
+                        while ($dados_turno = $query_select_turno->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turno = $dados_turno["ID_turno"];
+                            $nome_turno = $dados_turno['nome_turno'];
+                        ?>
+                            <option value="<?php echo $id_turno ?>"><?php echo $nome_turno; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">send</i> Continuar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 <div id="modalFeedback" class="modal">
     <div class="modal-content">
@@ -207,7 +245,7 @@ $id_escola = $_SESSION["id_escola"];
                     ?>
                         <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                     <?php
-                    }             
+                    }
                     ?>
                 </select>
                 <br>
@@ -250,7 +288,7 @@ $id_escola = $_SESSION["id_escola"];
 
                     $query_select_padroes = $conn->prepare("SELECT ID_aula_escola, nome_padrao FROM aula_escola WHERE fk_id_escola_aula_escola = $id_escola GROUP BY nome_padrao");
                     $query_select_padroes->execute();
-                    
+
                     while ($dados_padroes = $query_select_padroes->fetch(PDO::FETCH_ASSOC)) {
                         $id_padrao = $dados_padroes['ID_aula_escola'];
                         $nome_padrao = $dados_padroes['nome_padrao'];

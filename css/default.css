@@ -229,6 +229,11 @@ body {
     overflow: visible;
 }
 
+#modalHorarioAulas {
+    max-height: 100%;
+    overflow: visible;
+}
+
 
 /*label admin*/
 
