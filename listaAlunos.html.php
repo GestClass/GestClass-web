@@ -20,9 +20,19 @@
     }
 
     $turma = $_POST['turmas'];
+
+    $sql_select_nome_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $turma");
+    $sql_select_nome_turma->execute();
+    $array_turma = $sql_select_nome_turma->fetch(PDO::FETCH_ASSOC);
+    $nome_turma = $array_turma['nome_turma'];
+
     ?>
 
     <div class="container col s12 m12 l12" id="container_boletimCadastro">
+    <h3 class="center">Lista de Alunos</h3>
+    <br><hr>
+    <h5 class="center">Turma: <?php echo $nome_turma?></h5>
+    <br><hr><br><br>
         <table class="striped centered">
             <thead>
                 <th>
@@ -35,13 +45,7 @@
                     Celular
                 </th>
                 <th>
-                    Telefone
-                </th>
-                <th>
                     Email
-                </th>
-                <th>
-                    CPF
                 </th>
             </thead>
             <tbody>
@@ -70,15 +74,7 @@
                             </td>
 
                             <td>
-                                <?php echo $alunos['telefone']; ?>
-                            </td>
-
-                            <td>
                                 <?php echo $alunos['email']; ?>
-                            </td>
-
-                            <td>
-                                <?php echo $alunos['cpf']; ?>
                             </td>
                         </tr>
 

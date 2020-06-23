@@ -263,4 +263,20 @@ td {
 }
 
 
+/*  modalGradeCurricular Home Diretor    */
+
+#modalGradeCurricular {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
+/*  modalAlterarTurmas Home Diretor  */
+
+#modalAlterarTurmas {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
 /* default */
