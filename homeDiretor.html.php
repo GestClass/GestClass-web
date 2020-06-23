@@ -325,6 +325,7 @@ $id_escola = $_SESSION["id_escola"];
         </div>
     </div>
 </div>
+
 <div id="modalTurmas" class="modal">
     <div class="modal-content">
         <h4>Selecione a turma</h4>

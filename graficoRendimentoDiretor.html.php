@@ -18,172 +18,177 @@ include_once 'php/conexao.php';
 
 </head>
 
-<body >
+<body>
 
-  <?php 
-      include_once 'php/conexao.php';
+  <?php
+  include_once 'php/conexao.php';
 
-      $id_usuario = $_SESSION["id_usuario"];
-      $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
-      $id_escola = $_SESSION["id_escola"];
-      $id_turma = $_SESSION['id_turma'];
-      $nome_turma=$_SESSION['nome_turma'];
-      $nome_turno=$_SESSION['nome_turno'];
-      $id_disciplina=$_POST['disciplinas'];
+  $id_usuario = $_SESSION["id_usuario"];
+  $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+  $id_escola = $_SESSION["id_escola"];
+  $id_turma = $_SESSION['id_turma'];
+  $nome_turma = $_SESSION['nome_turma'];
+  $nome_turno = $_SESSION['nome_turno'];
+  $id_disciplina = $_POST['disciplinas'];
 
-      if ($id_tipo_usuario == 1) {
-        require_once 'reqMenuAdm.php';
-      } else if($id_tipo_usuario == 2){
-          require_once 'reqDiretor.php';
-      }else if($id_tipo_usuario == 3){
-          require_once 'reqHeader.php';
-      }elseif ($id_tipo_usuario == 4) {
-          require_once 'reqProfessor.php';
-      }elseif ($id_tipo_usuario  == 5) {
-          require_once 'reqAluno.php';
-      }else {
-          require_once 'reqPais.php';
-      }
+  if ($id_tipo_usuario == 1) {
+    require_once 'reqMenuAdm.php';
+  } else if ($id_tipo_usuario == 2) {
+    require_once 'reqDiretor.php';
+  } else if ($id_tipo_usuario == 3) {
+    require_once 'reqHeader.php';
+  } elseif ($id_tipo_usuario == 4) {
+    require_once 'reqProfessor.php';
+  } elseif ($id_tipo_usuario  == 5) {
+    require_once 'reqAluno.php';
+  } else {
+    require_once 'reqPais.php';
+  }
 
-        // Selecionando o id do professor
-        $sql_select_id_professor = $conn->prepare("SELECT fk_id_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_turma_professor_disciplinas_professor = $id_turma AND fk_id_disciplina_professor_disciplinas_professor = $id_disciplina");
-        // Executar
-        $sql_select_id_professor->execute();
-        // Armazenar no array
-        $array_id_professor = $sql_select_id_professor->fetch(PDO::FETCH_ASSOC);
-        // Armazenar na variavel o id do professor
-        $id_professor = $array_id_professor['fk_id_professor_disciplinas_professor'];
+  // Selecionando o id do professor
+  $sql_select_id_professor = $conn->prepare("SELECT fk_id_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_turma_professor_disciplinas_professor = $id_turma AND fk_id_disciplina_professor_disciplinas_professor = $id_disciplina");
+  // Executar
+  $sql_select_id_professor->execute();
+  // Armazenar no array
+  $array_id_professor = $sql_select_id_professor->fetch(PDO::FETCH_ASSOC);
+  // Armazenar na variavel o id do professor
+  $id_professor = $array_id_professor['fk_id_professor_disciplinas_professor'];
 
-        // Selecionar o nome do professor
-        $sql_select_nome_professor = $conn->prepare("SELECT nome_professor FROM professor WHERE ID_professor = $id_professor");
-        // Executar
-        $sql_select_nome_professor->execute();
-        // Armazenar no array
-        $array_nome_professor = $sql_select_nome_professor->fetch(PDO::FETCH_ASSOC);
-        // Armazenando nome professor na variável
-        $nome_professor = $array_nome_professor['nome_professor'];
+  // Selecionar o nome do professor
+  $sql_select_nome_professor = $conn->prepare("SELECT nome_professor FROM professor WHERE ID_professor = $id_professor");
+  // Executar
+  $sql_select_nome_professor->execute();
+  // Armazenar no array
+  $array_nome_professor = $sql_select_nome_professor->fetch(PDO::FETCH_ASSOC);
+  // Armazenando nome professor na variável
+  $nome_professor = $array_nome_professor['nome_professor'];
 
-        //selecionar nome disciplina
-        $query_select_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");
-        //Executar
-        $query_select_nome->execute();
-        //armazenando em um array
-        $dados_nome = $query_select_nome->fetch(PDO::FETCH_ASSOC);
-        //armazenando em variavel
-        $nomeDisciplina = $dados_nome['nome_disciplina'];
+  //selecionar nome disciplina
+  $query_select_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");
+  //Executar
+  $query_select_nome->execute();
+  //armazenando em um array
+  $dados_nome = $query_select_nome->fetch(PDO::FETCH_ASSOC);
+  //armazenando em variavel
+  $nomeDisciplina = $dados_nome['nome_disciplina'];
 
-  
 
-      //selecionar notas alunos agrupando
-      $select_soma_notas = $conn->prepare("SELECT SUM(nota)as soma, nome_atividade, data_atividade  from boletim_aluno where fk_id_disciplina_boletim_aluno=:id and fk_id_turma_boletim_aluno=:idTurma group by fk_id_boletim_listagem_boletim_aluno");
-      //passar parametro
-      $select_soma_notas->bindValue(":id", $id_disciplina);
-      $select_soma_notas->bindValue(":idTurma", $id_turma);
-      //executar
-      $select_soma_notas->execute();
 
-      //selecionar notas alunos agrupando
-      $select_contagem_notas = $conn->prepare("SELECT COUNT(nota)as cont, nome_atividade, data_atividade  from boletim_aluno where fk_id_disciplina_boletim_aluno=:id and fk_id_turma_boletim_aluno=:idTurma group by fk_id_boletim_listagem_boletim_aluno");
-      //passar parametro
-      $select_contagem_notas->bindValue(":id", $id_disciplina);
-      $select_contagem_notas->bindValue(":idTurma", $id_turma);
-      //executar
-      $select_contagem_notas->execute();
+  //selecionar notas alunos agrupando
+  $select_soma_notas = $conn->prepare("SELECT SUM(nota)as soma, nome_atividade, data_atividade  from boletim_aluno where fk_id_disciplina_boletim_aluno=:id and fk_id_turma_boletim_aluno=:idTurma group by fk_id_boletim_listagem_boletim_aluno");
+  //passar parametro
+  $select_soma_notas->bindValue(":id", $id_disciplina);
+  $select_soma_notas->bindValue(":idTurma", $id_turma);
+  //executar
+  $select_soma_notas->execute();
 
-       //Selecionar data do fim do semestre
-      $sql_fim_semestre = $conn->prepare("SELECT  bimestre1, bimestre2, bimestre3, bimestre4,fk_id_escola_datas_fim_bimestres FROM   datas_fim_bimestres where fk_id_escola_datas_fim_bimestres = $id_escola");
-      //executar
-      $sql_fim_semestre->execute();
-      //armazenar
-      $array_fim_semestre = $sql_fim_semestre->fetch(PDO::FETCH_ASSOC);
+  //selecionar notas alunos agrupando
+  $select_contagem_notas = $conn->prepare("SELECT COUNT(nota)as cont, nome_atividade, data_atividade  from boletim_aluno where fk_id_disciplina_boletim_aluno=:id and fk_id_turma_boletim_aluno=:idTurma group by fk_id_boletim_listagem_boletim_aluno");
+  //passar parametro
+  $select_contagem_notas->bindValue(":id", $id_disciplina);
+  $select_contagem_notas->bindValue(":idTurma", $id_turma);
+  //executar
+  $select_contagem_notas->execute();
 
-      $bimestre1=$array_fim_semestre['bimestre1'];
-      $bimestre2=$array_fim_semestre['bimestre2'];
-      $bimestre3=$array_fim_semestre['bimestre3'];
-      $bimestre4=$array_fim_semestre['bimestre4'];
+  //Selecionar data do fim do semestre
+  $sql_fim_semestre = $conn->prepare("SELECT  bimestre1, bimestre2, bimestre3, bimestre4,fk_id_escola_datas_fim_bimestres FROM   datas_fim_bimestres where fk_id_escola_datas_fim_bimestres = $id_escola");
+  //executar
+  $sql_fim_semestre->execute();
+  //armazenar
+  $array_fim_semestre = $sql_fim_semestre->fetch(PDO::FETCH_ASSOC);
 
-        
+  $bimestre1 = $array_fim_semestre['bimestre1'];
+  $bimestre2 = $array_fim_semestre['bimestre2'];
+  $bimestre3 = $array_fim_semestre['bimestre3'];
+  $bimestre4 = $array_fim_semestre['bimestre4'];
+
+
   ?>
-<html>
+  <html>
+
   <head>
-  <div class='col s12 m12 l12' id="fundo">
+    <div class='col s12 m12 l12' id="fundo">
     </div>
     <h4 class="tit center">Rendimento em
-      <?php 
-        echo $nomeDisciplina;
+      <?php
+      echo $nomeDisciplina;
       ?><i class="Small material-icons">trending_up </i></h4>
-    <table class="center responsive-table">
-      <thead>
-        <tr>
-          <th>Turma</th>
-          <th>Turno</th>
-          <th>Disciplina</th> 
-          <th>Professor(a)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><?php echo $nome_turma ?></td>
-          <td><?php echo $nome_turno ?></td>
-          <td><?php echo $nomeDisciplina ?></td>
-          <td><?php echo $nome_professor ?></td>
+    <div class="container">
+      <table class="center responsive-table">
+        <thead>
+          <tr>
+            <th>Turma</th>
+            <th>Turno</th>
+            <th>Disciplina</th>
+            <th>Professor(a)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><?php echo $nome_turma ?></td>
+            <td><?php echo $nome_turno ?></td>
+            <td><?php echo $nomeDisciplina ?></td>
+            <td><?php echo $nome_professor ?></td>
 
-        </tr>
+          </tr>
 
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
     <h4 class="tit center">Atividades Realizadas </h4>
-    <table class="atividades center striped ">
-    <thead>
-             <tr>
-              <th>Data</th>
-              <th>Atividade</th>
-              <th>Média Notas</th>
-              <th>Alunos</th>
-              <th>Bimestre</th>
-            </tr>
-          </thead>
-          <tbody>
-          <?php 
-            while($count_notas=$select_contagem_notas->fetch(PDO::FETCH_ASSOC)){
-                $notas_qntd=$count_notas['cont'];
-               
-            
+    <div class="container">
+      <table class="atividades center striped ">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Atividade</th>
+            <th>Média Notas</th>
+            <th>Alunos</th>
+            <th>Bimestre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          while ($count_notas = $select_contagem_notas->fetch(PDO::FETCH_ASSOC)) {
+            $notas_qntd = $count_notas['cont'];
 
-            while( $soma_notas= $select_soma_notas->fetch(PDO::FETCH_ASSOC)){
+
+
+            while ($soma_notas = $select_soma_notas->fetch(PDO::FETCH_ASSOC)) {
               $nota = $soma_notas['soma'];
               $nome_atividade = $soma_notas['nome_atividade'];
               $data_atividade = $soma_notas['data_atividade'];
-              $media=$nota/$notas_qntd;
+              $media = $nota / $notas_qntd;
 
               //modificar a cada ano
 
-              if(($data_atividade > '2020-01-01') && ($data_atividade <= $bimestre1)){
+              if (($data_atividade > '2020-01-01') && ($data_atividade <= $bimestre1)) {
                 $bimestre = "1º Bimestre";
-              }elseif (($data_atividade > $bimestre1) && ($data_atividade <= $bimestre2)){
+              } elseif (($data_atividade > $bimestre1) && ($data_atividade <= $bimestre2)) {
                 $bimestre = "2º Bimestre";
-              }elseif (($data_atividade > $bimestre2) && ($data_atividade <= $bimestre3)) {
+              } elseif (($data_atividade > $bimestre2) && ($data_atividade <= $bimestre3)) {
                 $bimestre = "3º Bimestre";
-              }elseif(($data_atividade > $bimestre3) && ($data_atividade <= $bimestre4)) {
-                $bimestre ="4º Bimestre";
+              } elseif (($data_atividade > $bimestre3) && ($data_atividade <= $bimestre4)) {
+                $bimestre = "4º Bimestre";
               }
           ?>
-     
-        <tr>
-          <td><?php echo date('d/m/Y ', strtotime($data_atividade))?></td>
-          <td><?php echo $nome_atividade ?></td>
-          <td><?php echo $media ?></td>
-          <td><?php echo $notas_qntd?></td>
-          <td><?php echo $bimestre?></td>
-          <?php } 
-            }
+
+              <tr>
+                <td><?php echo date('d/m/Y ', strtotime($data_atividade)) ?></td>
+                <td><?php echo $nome_atividade ?></td>
+                <td><?php echo $media ?></td>
+                <td><?php echo $notas_qntd ?></td>
+                <td><?php echo $bimestre ?></td>
+            <?php }
+          }
             ?>
-        </tr>
+              </tr>
 
-      </tbody>
-    </table>
+        </tbody>
+      </table><br><br>
+    </div>
 
 
-<?php
+    <?php
     include_once 'reqFooter.php';
-?>
+    ?>

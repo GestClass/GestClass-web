@@ -201,6 +201,16 @@ body {
     overflow: visible;
 }
 
+#modalTurmas {
+    max-height: 100%;
+    overflow: visible;
+}
+
+#modalFilhosPuts {
+    max-height: 100%;
+    overflow: visible;
+}
+
 
 /*Modals Mensagens*/
 
@@ -268,7 +278,6 @@ td {
 }
 
 
-<<<<<<< Updated upstream
 /*  modalGradeCurricular Home Diretor    */
 
 #modalGradeCurricular {
@@ -286,7 +295,8 @@ td {
 
 
 /* default */
-=======
+
+
 /* definindo fundo e botão selectDisciplina.html.php */
 
 .bodyDisciplinaGrafico {
@@ -306,4 +316,3 @@ td {
     margin-top: 30%;
     width: 200px;
 }
->>>>>>> Stashed changes
