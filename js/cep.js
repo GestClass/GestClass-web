@@ -15,7 +15,10 @@ function meu_callback(conteudo) {
     else {
         //CEP não Encontrado.
         limpa_formulário_cep();
-        alert("CEP não encontrado.");
+        M.toast({
+            html: 'CEP não encontrado',
+            classes: 'rounded'
+        })
     }
 }
 

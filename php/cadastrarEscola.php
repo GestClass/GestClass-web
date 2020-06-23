@@ -14,7 +14,8 @@
     $telefone = $_POST["telefone"];
     $email = $_POST["email"];
     $dataPag = $_POST["data_pagamento"];   
-    $qntdAlunos = $_POST["quantidade_alunos"];
+    $mediaEscola = $_POST["media"];
+    $notaMaxima = $_POST["nota_maxima"];
     // $assunto = $_POST['cadastrarDiretor'];
     
     $chk1 = isset($_POST['chk1']) ? $_POST['chk1'] : 0;
@@ -23,11 +24,24 @@
     $chk4 = isset($_POST['chk4']) ? $_POST['chk4'] : 0;
     $chk5 = isset($_POST['chk5']) ? $_POST['chk5'] : 0;
     
+    if (($nome_escola != "") && ($cep != "") && ($numero != "") && ($cnpj != "") && ($telefone != "") && ($email != "") && ($mediaEscola != "") && ($notaMaxima != "")) {
 
-    $query = $conn->prepare("INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, quantidade_alunos, data_pagamento_escola, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '0', '0', '0', '0', '0');");
+    $query = $conn->prepare("INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min, media_max) 
+    VALUES (:nome_escola, :cep, :numero, :complemento, :cnpj, :telefone, :email, :dataPag, '0', '0', '0', '0', '0', :mediaEscola, :notaMaxima);");
 
-    if ($query->execute(array($nome_escola, $cep, $numero, $complemento, $cnpj, $telefone, $email, $qntdAlunos, $dataPag))) {
+    $query->bindParam(':nome_escola', $nome_escola, PDO::PARAM_STR);
+    $query->bindParam(':cep', $cep, PDO::PARAM_STR);
+    $query->bindParam(':numero', $numero, PDO::PARAM_INT);
+    $query->bindParam(':complemento', $complemento, PDO::PARAM_STR);
+    $query->bindParam(':cnpj', $cnpj, PDO::PARAM_STR);
+    $query->bindParam(':telefone', $telefone, PDO::PARAM_STR);
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->bindParam(':dataPag', $dataPag, PDO::PARAM_STR);
+    $query->bindParam(':mediaEscola', $mediaEscola, PDO::PARAM_STR);
+    $query->bindParam(':notaMaxima', $notaMaxima, PDO::PARAM_STR);
+    $query->execute();
+
+    if ($query->rowCount()) {
         echo "<script>alert('Escola cadastrada com sucesso');
         location.href='../cadastroEscola.html.php';
         </script>";
@@ -109,13 +123,13 @@
            $mail->isSMTP();                       
            $mail->Host       = 'SMTP.office365.com';
            $mail->SMTPAuth   = true;                
-           $mail->Username   = 'nick_oliveira2002@hotmail.com'; 
-           $mail->Password   = '5minutos';                      
+           $mail->Username   = 'gestclass-esqueceusenha@hotmail.com'; 
+           $mail->Password   = 'gestclass@1234';                      
            $mail->SMTPSecure = 'STARTTLS';       
            $mail->Port       = 587;              
        
           
-           $mail->setFrom('nick_oliveira2002@hotmail.com', 'Monique');
+           $mail->setFrom('gestclass-esqueceusenha@hotmail.com', 'GestClass');
            $mail->addAddress($email);     
           
            $mail->Subject = 'Bem vindo ao GestClass';
@@ -132,5 +146,9 @@
         echo "<script>alert('Erro: Escola não foi cadastrada');
         history.back();</script>";
     }
+}else {
+    echo "<script>alert('Peencha os campos')
+    history.back()</script>";
+}
 
 ?>

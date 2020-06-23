@@ -103,8 +103,9 @@
             <div class="row">
                 <div class="input-field col s12 m4 l4">
                     <i class="material-icons prefix blue-icon">alternate_email</i>
-                    <input name="email" id="email" placeholder="gestclass@entreprise.com" type="text" class="validate">
+                    <input name="email" id="email" placeholder="gestclass@entreprise.com" type="email" class="validate">
                     <label id="lbl" for="icon_telephone">Email</label>
+                    <span class="helper-text" data-error="Ex: gestclass@enterprise.com" data-success="right"></span>
                 </div>
                 <div class="input-field col s12 m4 l4">
                     <i class="material-icons prefix blue-icon">security</i>

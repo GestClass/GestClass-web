@@ -59,7 +59,7 @@
                     </div>
                     <div class="input-field col s6 m6 l6">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="cpf" id="cpf" type="tel" placeholder="785.958.651-88" data-mask="000.000.000-00" class="validate" onblur="TestaCPF(this)">
+                        <input name="cpf" id="cpf" type="tel" placeholder="785.958.651-88" maxlength="12" class="validate" onblur="TestaCPF(this)">
                         <label id="lbl" for="icon_telephone">CPF</label>
                     </div>
                     <div class="row">
@@ -92,15 +92,16 @@
                     <div class="row">
                         <div class="input-field col s12 m4 l4">
                             <i class="material-icons prefix blue-icon">alternate_email</i>
-                            <input name="email" id="email" type="tel" placeholder="gestclass@enterprise.com" class="validate">
+                            <input name="email" id="email" type="email" placeholder="gestclass@enterprise.com" class="validate">
                             <label id="lbl" for="icon_telephone">Email</label>
+                            <span class="helper-text" data-error="Ex: gestclass@enterprise.com" data-success="right"></span>
                         </div>
-                        <div class="input-field col s12 m3 l3">
+                        <div class="input-field col s12 m4 l4">
                             <i class="material-icons prefix blue-icon">security</i>
                             <input name="senha" id="senha" type="password" placeholder="******" class="validate">
                             <label id="lbl" for="icon_telephone">Senha</label>
                         </div>
-                        <div id="a" class="input-field col s10 m3 l3">
+                        <div id="a" class="input-field col s10 m4 l4">
                             <input name="confsenha" id="confsenha" type="password" placeholder="******" class="validate" onblur="validarSenha()">
                             <label id="lbl" for="icon_telephone">Confirma Senha</label>
                         </div>
@@ -132,7 +133,10 @@
 
         function validarSenha() {
             if (senha.value != confSenha.value) {
-                alert("Senhas diferentes!");
+                M.toast({
+                    html: 'Senhas Diferentes',
+                    classes: 'rounded'
+                })
             } else {}
         }
     </script>
