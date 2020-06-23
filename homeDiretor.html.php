@@ -244,7 +244,7 @@ $id_escola = $_SESSION["id_escola"];
                     ?>
                 </select>
                 <br><br>
-                <select name="turmas">
+                <select name="padroes">
                     <option value="" disabled selected>Selecione o Padrão de Horários</option>
                     <?php
 
@@ -255,7 +255,7 @@ $id_escola = $_SESSION["id_escola"];
                         $id_padrao = $dados_padroes['ID_aula_escola'];
                         $nome_padrao = $dados_padroes['nome_padrao'];
                     ?>
-                        <option value="<?php echo $id_padrao ?>"><?php echo $nome_padrao; ?></option>
+                        <option value="<?php echo $id_padrao; ?>"><?php echo $nome_padrao; ?></option>
                     <?php
                     }
                     ?>

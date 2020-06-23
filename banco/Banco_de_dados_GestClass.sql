@@ -228,6 +228,7 @@ CREATE TABLE contato (
     fk_envio_diretor_id_diretor INTEGER,
     fk_envio_secretario_id_secretario INTEGER,
     fk_envio_admin_id_admin INTEGER,
+    fk_id_tipo_usuario_envio INTEGER NOT NULL,
 	fk_recebimento_aluno_ra_aluno INTEGER,
     fk_recebimento_responsavel_id_responsavel INTEGER,
 	fk_recebimento_professor_id_professor INTEGER,
@@ -368,6 +369,7 @@ ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOR
 
 /*	-	FOREIGN KEYs TABLE CONTATO	-	*/
 
+ALTER TABLE contato ADD CONSTRAINT fk_id_tipo_usuario_envio FOREIGN KEY (fk_id_tipo_usuario_envio) REFERENCES tipo_usuario (ID_tipo_usuario);
 ALTER TABLE contato ADD CONSTRAINT fk_envio_aluno_ra_aluno FOREIGN KEY (fk_envio_aluno_ra_aluno) REFERENCES aluno (RA);
 ALTER TABLE contato ADD CONSTRAINT fk_envio_responsavel_id_responsavel FOREIGN KEY (fk_envio_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel);
 ALTER TABLE contato ADD CONSTRAINT fk_envio_professor_id_professor FOREIGN KEY (fk_envio_professor_id_professor) REFERENCES professor (ID_professor);
@@ -602,7 +604,7 @@ INSERT INTO envio_boleto (fk_id_diretor_envio_boleto, fk_id_responsavel_recebime
 
 /*	-	INSERTS INTO TABLE CONTATO	-	*/
               
-INSERT INTO contato (mensagem, assunto, data_mensagem, fk_envio_aluno_ra_aluno, fk_recebimento_professor_id_professor) VALUES ('Professor, favor corrigir a pauta de chamada, pois me encontrava presente na aula de hoje, grato!', 'Correção de chamada', '2020-06-13', 00000000, 1);
+INSERT INTO contato (mensagem, assunto, data_mensagem, fk_envio_aluno_ra_aluno, fk_id_tipo_usuario_envio, fk_recebimento_professor_id_professor) VALUES ('Professor, favor corrigir a pauta de chamada, pois me encontrava presente na aula de hoje, grato!', 'Correção de chamada', '2020-06-13', 00000000, 5, 1);
 
 
 /*	-	INSERTS INTO TABLE ADMIN	-	*/

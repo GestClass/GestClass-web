@@ -22,70 +22,48 @@
     } elseif ($id_tipo_usuario == 4) {
         require_once 'reqProfessor.php';
     }
+
+    // Resgatando valores do select do modal
+    $id_turma = $_POST['turmas'];
+    $id_padrao = $_POST['padroes'];
+
+    // Selecionando o nome da turma
+    $sql_select_nome_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+    $sql_select_nome_turma->execute();
+    $array_turma = $sql_select_nome_turma->fetch(PDO::FETCH_ASSOC);
+    $nome_turma = $array_turma['nome_turma'];
+
     ?>
 
 
     <div class="container col s12 m12 l12" id="container_boletimCadastro">
         <div id="cadastro" class="col s12 m12 l12">
-            <h4 class="center">Atribuição de datas finais de bimestres</h4>
-            <br><br>
+            <h3 class="center">Cadastro de Grade Curricular</h3>
+            <br>
+            <hr>
+            <h5 class="center">Turma: <?php echo $nome_turma; ?></h5>
+            <br>
+            <hr><br><br><br>
             <form action="php/cadastroDatasFinais.php" method="POST">
                 <div class="row">
-                    <div class="input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">filter_1</i>
-                        <input type="text" name="bimestre1" value="1º Bimestre" readonly>
-                        <label id="lbl">Bimestre</label>
+                    <div class="input-field col s12 m4 l4">
+                        <i class="material-icons prefix blue-icon">access_time</i>
+                        <input type="text" name="bimestre1" value="1º Aula" readonly>
+                        <label id="lbl">Aula</label>
                     </div>
 
-                    <div class="file field input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Dia/Mês/Ano" type="tel" class="datepicker validate" name="dataBimestre1">
-                        <label id="lbl">Data da atividade</label>
+                    <div class="input-field col s12 m4 l4">
+                        <input type="text" name="bimestre1" value="07:00:00  -  07:50:00" readonly>
+                        <label id="lbl">Início - Término</label>
+                    </div>
+
+                    <div class="input-field col s12 m4 l4">
+                        <select name="padroes">
+                            <option value="" disabled selected>Selecione a Disciplina</option>
+                        </select>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">filter_2</i>
-                        <input type="text" name="bimestre2" value="2º Bimestre" readonly>
-                        <label id="lbl">Bimestre</label>
-                    </div>
-
-                    <div class="file field input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Dia/Mês/Ano" type="tel" class="datepicker validate" name="dataBimestre2">
-                        <label id="lbl">Data da atividade</label>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">filter_3</i>
-                        <input type="text" name="bimestre3" value="3º Bimestre" readonly>
-                        <label id="lbl">Bimestre</label>
-                    </div>
-
-                    <div class="file field input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Dia/Mês/Ano" type="tel" class="datepicker validate" name="dataBimestre3">
-                        <label id="lbl">Data da atividade</label>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">filter_4</i>
-                        <input type="text" name="bimestre4" value="4º Bimestre" readonly>
-                        <label id="lbl">Bimestre</label>
-                    </div>
-
-                    <div class="file field input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">event</i>
-                        <input placeholder="Dia/Mês/Ano" type="tel" class="datepicker validate" name="dataBimestre4">
-                        <label id="lbl">Data da atividade</label>
-                    </div>
-                </div>
-                <br><br>
 
                 <div class="row">
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue">
