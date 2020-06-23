@@ -54,8 +54,8 @@ CREATE TABLE aula_escola(
 	ID_aula_escola INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
     nome_padrao VARCHAR (30) NOT NULL,
 	nome_aula VARCHAR(20) NOT NULL,
-	aula_start TIME NOT NULL,
-    aula_end TIME NOT NULL,    
+	aula_start TIME NULL,
+    aula_end TIME NULL,    
     fk_id_turno_aula_escola INTEGER NOT NULL,
     fk_id_escola_aula_escola INTEGER NOT NULL
 );
@@ -653,5 +653,7 @@ SELECT * FROM secretario;
 SELECT * FROM `admin`;
 
 SELECT * FROM contato;
-
+SELECT * FROM aula_escola WHERE fk_id_escola_aula_escola = 1;
+SELECT nome_aula, aula_start, aula_end FROM aula_escola WHERE fk_id_escola_aula_escola = 1 AND fk_id_turno_aula_escola = 1 AND nome_padrao = "Padrão 1" ORDER BY aula_start ASC;
+SELECT nome_padrao FROM aula_escola WHERE ID_aula_escola = 1;
 /*DROP DATABASE GestClass;*/
