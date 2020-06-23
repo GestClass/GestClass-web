@@ -119,6 +119,7 @@ require_once 'reqHeader.php';
     <ul>
       <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
       <li><a href="#modalAlterarTurmas" class="modal-trigger btn-floating indigo accent-2 tooltipped" data-position="left" data-tooltip="Alterar turma dos alunos"><i class="material-icons">create</i></a></li>
+      <li><a href="#modalGradeCurricular" class="modal-trigger btn-floating brown accent-2 tooltipped" data-position="left" data-tooltip="Atribuir grade curricular das turmas"><i class="material-icons">toc</i></a></li>
       <li><a href="#modalHorarioAulas" class="modal-trigger btn-floating grey tooltipped" data-position="left" data-tooltip="Cadastro Horário Aulas"><i class="material-icons">access_time</i></a></li>
       <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
       <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
@@ -290,5 +291,72 @@ require_once 'reqHeader.php';
     </div>
   </div>
 </div>
+<div id="modalGradeCurricular" class="modal">
+    <div class="modal-content">
+        <h4 class="center">Selecione os Dados</h4>
+        <div class="input-field col s12">
+            <form action="cadastroGradeCurricular.html.php" method="POST">
+                <select name="turmas">
+                    <option value="" disabled selected>Selecione a Turma</option>
+                    <?php
+
+                    $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                    $query_select_turma->execute();
+
+                    while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                        $id_turma = $dados_turma['id_turma'];
+                        $nome_turma = $dados_turma['nome_turma'];
+                        $nome_turno = $dados_turma['nome_turno'];
+                    ?>
+                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <br><br>
+                <select name="padroes">
+                    <option value="" disabled selected>Selecione o Padrão de Horários</option>
+                    <?php
+
+                    $query_select_padroes = $conn->prepare("SELECT ID_aula_escola, nome_padrao FROM aula_escola WHERE fk_id_escola_aula_escola = $id_escola GROUP BY nome_padrao");
+                    $query_select_padroes->execute();
+
+                    while ($dados_padroes = $query_select_padroes->fetch(PDO::FETCH_ASSOC)) {
+                        $id_padrao = $dados_padroes['ID_aula_escola'];
+                        $nome_padrao = $dados_padroes['nome_padrao'];
+                    ?>
+                        <option value="<?php echo $id_padrao; ?>"><?php echo $nome_padrao; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <br><br>
+                <select name="dia">
+                    <option value="" disabled selected>Selecione o Dia da Semana</option>
+                    <?php
+
+                    $query_select_dias = $conn->prepare("SELECT ID_dia_semana, nome_dia FROM dia_semana ORDER BY ID_dia_semana ASC");
+                    $query_select_dias->execute();
+
+                    while ($dados_dias = $query_select_dias->fetch(PDO::FETCH_ASSOC)) {
+                        $id_dia = $dados_dias['ID_dia_semana'];
+                        $nome_dia = $dados_dias['nome_dia'];
+                    ?>
+                        <option value="<?php echo $id_dia; ?>"><?php echo $nome_dia; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <br><br>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <?php require_once 'reqFooter.php' ?>

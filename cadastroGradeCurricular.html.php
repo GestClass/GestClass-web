@@ -27,6 +27,7 @@
     $id_turma = $_POST['turmas'];
     $id_padrao = $_POST['padroes'];
     $id_dia = $_POST['dia'];
+    echo $id_dia;
 
     if (($id_turma == null) || ($id_padrao == null) || ($id_dia == null)) {
     ?>
@@ -75,33 +76,29 @@
 
                 <?php
 
-                $contador = 0;
-
                 // Selecionar dados do padrão de horário
-                $sql_select_padrao = $conn->prepare("SELECT nome_aula, aula_start, aula_end FROM aula_escola WHERE fk_id_escola_aula_escola = $id_escola AND fk_id_turno_aula_escola = $turno_turma AND nome_padrao = '$nome_padrao' ORDER BY aula_start ASC");
+                $sql_select_padrao = $conn->prepare("SELECT ID_aula_escola, nome_aula, aula_start, aula_end FROM aula_escola WHERE fk_id_escola_aula_escola = $id_escola AND fk_id_turno_aula_escola = $turno_turma AND nome_padrao = '$nome_padrao' ORDER BY aula_start ASC");
                 $sql_select_padrao->execute();
                 while ($array_aula_escola = $sql_select_padrao->fetch(PDO::FETCH_ASSOC)) {
                     $nome_aula = $array_aula_escola['nome_aula'];
                     $aula_start = $array_aula_escola['aula_start'];
                     $aula_end = $array_aula_escola['aula_end'];
-
-                    $contador += 1;
-
+                    $id_aula = $array_aula_escola['ID_aula_escola'];
                 ?>
                     <div class="row">
                         <div class="input-field col s12 m4 l4">
                             <i class="material-icons prefix blue-icon">access_time</i>
-                            <input type="text" name="nomeAula" value="<?php echo $nome_aula . '   -   ' . $nome_dia; ?>" readonly>
+                            <input type="text" name="nomeAula<?php echo $id_aula?>" value="<?php echo $nome_aula . '   -   ' . $nome_dia; ?>" readonly>
                             <label id="lbl">Aula</label>
                         </div>
 
                         <div class="input-field col s12 m4 l4">
-                            <input type="text" name="HorarioAula" value="<?php echo $aula_start . '   -   ' . $aula_end; ?>" readonly>
+                            <input type="text" name="HorarioAula<?php echo $id_aula?>" value="<?php echo $aula_start . '   -   ' . $aula_end; ?>" readonly>
                             <label id="lbl">Início - Término</label>
                         </div>
 
                         <div class="input-field col s12 m4 l4">
-                            <select name="<?php // O ERRO ESTÁ AQUI!! ?>">
+                            <select name="disciplina<?php echo $id_aula; ?>">
                                 <option value="" disabled selected>Selecione a Disciplina</option>
                                 <option value="-1">Intervalo</option>
                                 <?php
