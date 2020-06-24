@@ -5,13 +5,13 @@ require_once  'conexao.php';
 $id_usuario = $_SESSION["id_usuario"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
-
 $dataChamada_original = $_POST['dataChamada'];
 $data = str_replace('/', '-', $dataChamada_original);
 $dataChamada = date('Y-m-d', strtotime($data));
 // Alterar abaixo para o valor quando vier do <select>
-$id_disciplina = 5;
 $id_professor = $id_usuario;
+$id_disciplina=$_SESSION["id_disciplinas"];
+$id_turma=$_SESSION['id_turma'];
 
 if ($dataChamada != "") {
 
@@ -33,9 +33,8 @@ if ($dataChamada != "") {
     while ($id_listagem = $query_id_listagem->fetch(PDO::FETCH_ASSOC)) {
 
         $id = $id_listagem['MAX(ID_listagem)'];
-        echo $id;
-
-        $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = 16");
+        
+        $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = $id_turma");
         $query_select_alunos->execute();
 
         while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
@@ -85,3 +84,4 @@ if ($dataChamada != "") {
 }
 
 ?>
+

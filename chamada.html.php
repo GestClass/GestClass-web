@@ -27,6 +27,8 @@
     $id_usuario = $_SESSION["id_usuario"];
     $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
     $id_escola = $_SESSION["id_escola"];
+    $id_disciplina=$_POST['disciplinas'];
+    $_SESSION['id_disciplinas']=$id_disciplina;
 
     if ($id_tipo_usuario == 1) {
         require_once 'reqMenuAdm.php';
@@ -86,8 +88,8 @@
 
                     <tbody>
                         <?php
-
-                        $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = 16");
+                        $id_turma=$_SESSION['id_turma'];
+                        $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE   fk_id_turma_aluno = $id_turma AND fk_id_escola_aluno = $id_escola");
                         $query_select_alunos->execute();
 
                         while ($dados_alunos = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {

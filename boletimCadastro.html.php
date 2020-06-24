@@ -14,6 +14,7 @@
     $id_usuario = $_SESSION["id_usuario"];
     $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
     $id_escola = $_SESSION["id_escola"];
+    
 
     if ($id_tipo_usuario == 2) {
         require_once 'reqDiretor.php';
@@ -23,10 +24,6 @@
         require_once 'reqProfessor.php';
     }
 
-    // alterar para valor vindo do <select>
-    $id_disciplina = 5;
-    // alterar para valor vindo do select
-    $id_turma = 16;
 
     ?>
 
@@ -47,6 +44,10 @@
         <div id="cadastro" class="col s12 m12 l12">
             <h4 class="center">Cadastro de Notas</h4>
             <br>
+            <?php 
+                $id_turma= $_SESSION['id_turma'];
+                $id_disciplina=$_POST['disciplinas'];
+            ?>
             <form action="php/cadastroNotas.php" method="POST">
                 <input type="hidden" value="<?php echo $id_disciplina ?>" name="id_disciplina" />
                 <input type="hidden" value="<?php echo $id_turma ?>" name="id_turma" />

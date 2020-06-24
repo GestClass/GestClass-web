@@ -25,7 +25,7 @@ $id_escola = $_SESSION["id_escola"];
                 </a>
             </div>
             <div class="col s12 m4">
-                <a class="modal-trigger" href="#modalFilhos">
+                <a class="modal-trigger" href="#modalFilhosBoletim">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-list-ol fa-6x blue-icon"></i>
                         <h5>Boletim Escolar</h5>
@@ -162,16 +162,16 @@ $id_escola = $_SESSION["id_escola"];
                     <?php
                     }
                     ?>
-                </select>
-        </div>
-        <div class="center">
-            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-                <i class="material-icons left">search</i>Pesquisar
-            </button>
+                 </select>
+                 <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+                </div>                
+            </form>            
         </div>
     </div>
 </div>
-
 
 <?php
 
@@ -183,23 +183,6 @@ $notificacao = $query_mensagem->rowCount();
 
 
 ?>
-
-
-<section class="floating-buttons">
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large light-blue lighten-1">
-            <i class="large material-icons">add</i>
-        </a>
-        <ul>
-            <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
-            <li><a href="#modalFilhosGrafico" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
-            <li><a href="#modalFilhosGrade" class="modal-trigger btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
-            <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-            <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
-            <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
-        </ul>
-    </div>
-</section>
 
 
 <div id="modalFeedback" class="modal">
@@ -221,8 +204,7 @@ $notificacao = $query_mensagem->rowCount();
     </div>
 </div>
 
-
-<div id="modalFilhos" class="modal">
+<div id="modalFilhosBoletim" class="modal">
     <div class="modal-content">
         <div class="input-field col s12 validate">
             <form action="boletimVisualizacao.html.php" method="POST">
@@ -250,11 +232,13 @@ $notificacao = $query_mensagem->rowCount();
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                         <i class="material-icons left">search</i>Pesquisar
                     </button>
-                </div>
-            </form>
+                </div>                
+            </form>            
         </div>
     </div>
 </div>
+
+
 
 <div id="modalFilhosGrade" class="modal">
     <div class="modal-content">
@@ -289,6 +273,23 @@ $notificacao = $query_mensagem->rowCount();
         </div>
     </div>
 </div>
+
+<section class="floating-buttons">
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large light-blue lighten-1">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
+            <li><a href="#modalFilhosGrafico" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
+            <li><a href="#modalFilhosGrade" class="modal-trigger btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
+            <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
+            <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
+            <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
+        </ul>
+    </div>
+</section>
+
 
 
 <?php require_once 'reqFooter.php' ?>

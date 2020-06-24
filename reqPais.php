@@ -100,8 +100,8 @@ $nome_pais = $nome[0];
                 <li>
                     <div class="divider"></div>
                 </li>
-                <li><a href="#modalFilhosGrafico" class="modal-trigger"><i class="material-icons">trending_up</i>Rendimento Disciplinar</a></li>
-                <li><a href="#modalFilhos" class="modal-trigger"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
+                <li><a href="#modalFilhosRendimento" class="modal-trigger"><i class="material-icons">trending_up</i>Rendimento Disciplinar</a></li>
+                <li><a href="#modalFilhosBoletim" class="modal-trigger"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
                 <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario
                         Escolar</a>
                 <li><a href="emissaoBoletos.php"><i class="material-icons">attach_money</i>Financeiro</a>
@@ -115,7 +115,7 @@ $nome_pais = $nome[0];
                 <li><a href="perfil.html.php"><i class="material-icons">settings</i>Configurações</a></li>
                 <li><a href="php/logout.php"><i class="material-icons">input</i>Sair</a></li>
             </ul>
-        <div id="modalFilhosGrafico" class="modal">
+        <div id="modalFilhosRendimento" class="modal">
             <div class="modal-content">
                 <div class="input-field col s12 validate">
                     <form action="selectDisciplinaRendimento.html.php" method="POST">
@@ -138,15 +138,17 @@ $nome_pais = $nome[0];
                             }
                             ?>
                         </select>
+                        <div class="center">
+                                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                                    <i class="material-icons left">search</i>Pesquisar
+                                </button>
                         </div>
-        <div class="center">
-            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-                <i class="material-icons left">search</i>Pesquisar
-            </button>
+                    </form>
+                </div>
+            </div>               
         </div>
-    </div>
-</div>
-<div id="modalFilhos" class="modal">
+
+<div id="modalFilhosBoletim" class="modal">
     <div class="modal-content">
         <div class="input-field col s12 validate">
             <form action="boletimVisualizacao.html.php" method="POST">
@@ -170,13 +172,14 @@ $nome_pais = $nome[0];
                     }
                     ?>
                 </select>
-        </div>
-
-        <div class="center">
-            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-                <i class="material-icons left">search</i>Pesquisar
-            </button>
+                <div class="center">
+                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                    <i class="material-icons left">search</i>Pesquisar
+                </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
         </header>

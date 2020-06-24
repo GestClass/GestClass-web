@@ -43,7 +43,7 @@ $id_escola = $_SESSION["id_escola"];
         Selecionar Disciplina
     </button>
     
-    <div id="modalFilhosPuts" class="modal" data-backdrop="static">
+    <div id="modalAlunoSelect" class="modal" data-backdrop="static">
         <div class="modal-content">
             <div class="input-field col s12 validate">
                 <form action="graficoRendimentoDiretor.html.php" method="POST">

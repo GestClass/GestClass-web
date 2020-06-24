@@ -19,12 +19,12 @@ $data = str_replace('/', '-', $dataOriginal);
 $dataAtividade = date('Y-m-d', strtotime($data));
 $id = null;
 
-$id_disciplina =  $_POST['id_disciplina'];
-$id_turma = $_POST['id_turma'];
-$idProfessor = $id_usuario;
-
 $status = 0;
 $status2 = 0;
+
+$id_turma= $_SESSION['id_turma'];
+$id_disciplina=$_SESSION['id_disciplinas'];
+$idProfessor = $id_usuario;
 
 $query_listagem = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno =  $id_escola AND fk_id_turma_aluno = $id_turma");
 $query_listagem->execute();

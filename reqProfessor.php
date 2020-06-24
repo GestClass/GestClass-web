@@ -105,8 +105,8 @@
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="chamada.html.php"><i class="material-icons">assignment</i>Chamada</a></li>
-            <li><a href="boletimCadastro.html.php"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a>
+            <li><a href="#modalTurma" class="modal-trigger"><i class="material-icons">assignment</i>Chamada</a></li>
+            <li><a href="#modalTurmaBoletim" class="modal-trigger"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a>
             </li>
             <li><a class="waves-effect modal-trigger" href="#modalOcorrencias"><i
                         class="material-icons">assignment_late</i>Ocorrências</a></li>
@@ -226,4 +226,83 @@
     </div>
   </div>
 </div>
+<div id="modalTurma" class="modal">
+    <div class="modal-content">
+      <div class="input-field col s12 validate">
+         <form action="selectDisciplinaChamada.html.php"  method="POST">
+            <h5 class="center">Seleciona a turma:</h5>
+              <div class='select'>
+                  <select name="turma">
+                    <option value="" disabled selected>Selecione a Turma</option>
+                      </div>
+                        <?php
+                            $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
+                            $query_select_turmas_professor->execute();
+
+                            while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
+
+                                $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+
+                                $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+                                $query_select_turma->execute();
+
+                                while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_turma = $dados_turma_nome["nome_turma"];
+                            ?>
+                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+                            <?php
+                                }
+                            }
+                            ?>
+                   </select>
+                </div>
+                <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
+                </div> 
+           </form>
+      </div>
+    </div>
+  </div>
+  <div id="modalTurmaBoletim" class="modal">
+    <div class="modal-content">
+      <div class="input-field col s12 validate">
+         <form action="selectDisciplinaBoletim.html.php"  method="POST">
+            <h5 class="center">Seleciona a turma:</h5>
+              <div class='select'>
+                  <select name="turma">
+                    <option value="" disabled selected>Selecione a Turma</option>
+                      </div>
+                        <?php
+                            $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
+                            $query_select_turmas_professor->execute();
+
+                            while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
+
+                                $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+
+                                $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+                                $query_select_turma->execute();
+
+                                while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                                $nome_turma = $dados_turma_nome["nome_turma"];
+                            ?>
+                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma; ?></option>
+                            <?php
+                                }
+                            }
+                            ?>
+                   </select>
+                </div>
+                <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
+                </div> 
+           </form>
+      </div>
+    </div>
+  </div>
+
     </header>

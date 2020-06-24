@@ -20,13 +20,17 @@ $(document).ready(() => {
     $('.modal').modal()
 })
 $(document).ready(() => {
-    $('#modalFilhosPuts').modal('open');
+    $('#modalSelectChamada').modal('open');
 
 })
+$(document).ready(() => {
+    $('#modalBoletimSelect').modal('open');
 
+})
+$(document).ready(() => {
+    $('#modalAlunoSelect').modal('open');
 
-
-
+})
 $(document).ready(function() {
     $('.materialboxed').materialbox();
 });
