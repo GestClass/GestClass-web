@@ -44,6 +44,15 @@
     $nomeHorario = $_POST["nome"];
     $turno = $_POST["turno"];
 
+    if (($nomeHorario == null) && ($turno == null)) {
+        ?>
+            <script>
+                alert('Por favor, selecione os dados solicitados!!');
+                history.back();
+            </script>
+        <?php
+        }
+
     ?>
 
     <div class="container col s12 m12 l12 "><br>
@@ -54,15 +63,15 @@
                     <div class="row" id="remove">
                         <div class="input-field col s12 m3 l3">
                             <input name="aula[]" id="aula[]" placeholder="Ex: Primeira Aula" type="text" class="validate ">
-                            <label id="lbl" for="first_name">Nome da Aula</label>
+                            <label id="lbl" for="first_name">Aula</label>
                         </div>
                         <div class="input-field col s6 m3 l3">
                             <input name="inicio[]" id="inicio[]" placeholder="07:00:00" type="tel" class="validate">
-                            <label id="lbl" for="first_name">Início da Aula</label>
+                            <label id="lbl" for="first_name">Início</label>
                         </div>
                         <div class="input-field col s6 m3 l3">
                             <input name="termino[]" id="termino[]" placeholder="07:50:00" type="tel" class="validate">
-                            <label id="lbl" for="first_name">Término da Aula</label>
+                            <label id="lbl" for="first_name">Término</label>
                         </div>
                         <div class="input-field col s6 m2 l2">
                             <button id="add_div" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Adicionar"><i class="material-icons">add_circle</i></button>
@@ -86,9 +95,9 @@
                 e.preventDefault(); //previne novos cliques
                 if (i < maximo) {
                     $('#idDiv').append('<div class="row">\
-                    <div class="input-field col s12 m3 l3"><input name="aula[]" id="aula[]" placeholder="Ex: Segunda Aula" type="text" class="validate "><label class="active" id="lbl" for="first_name">Nome da Aula</label></div>\
-                    <div class="input-field col s6 m3 l3"><input name="inicio[]" id="inicio[]" placeholder="07:00:00" type="tel" class="validate"><label class="active" id="lbl" for="first_name">Início da Aula</label></div>\
-                    <div class="input-field col s6 m3 l3"><input name="termino[]" id="termino[]" placeholder="07:50:00" type="tel" class="validate"><label class="active" id="lbl" for="first_name">Término da Aula</label></div>\
+                    <div class="input-field col s12 m3 l3"><input name="aula[]" id="aula[]" placeholder="Ex: Segunda Aula" type="text" class="validate "><label class="active" id="lbl" for="first_name">Aula</label></div>\
+                    <div class="input-field col s6 m3 l3"><input name="inicio[]" id="inicio[]" placeholder="07:00:00" type="tel" class="validate"><label class="active" id="lbl" for="first_name">Início</label></div>\
+                    <div class="input-field col s6 m3 l3"><input name="termino[]" id="termino[]" placeholder="07:50:00" type="tel" class="validate"><label class="active" id="lbl" for="first_name">Término</label></div>\
                     <a href="#" class="remove"><i class="small material-icons left" style="color:red;">delete</i></a>\
                     </div>\
                     ');
