@@ -21,14 +21,14 @@ if ($sql_select_grade_verificacao->rowCount()) {
     if ($id_usuario == 2) {
 ?>
         <script>
-            alert('Erro no cadastro, por favor entre novamente clique no botão alterar!!\n\nCaso queira alterar os dados, utilize o botão "Alterar"');
+            alert('Desculpe, não podem ser cadastradas mais de uma grade para a mesma Turma no mesmo Horário!!\n\nCaso queira alterar os dados, utilize o botão "Alterar"');
             window.location = '../homeDiretor.html.php';
         </script>
     <?php
     } else {
     ?>
         <script>
-            alert('Erro no cadastro, por favor entre novamente clique no botão alterar!!\n\nCaso queira alterar os dados, utilize o botão "Alterar"');
+            alert('Desculpe, não podem ser cadastradas mais de uma grade para a mesma Turma no mesmo Horário!!\n\nCaso queira alterar os dados, utilize o botão "Alterar"');
             window.location = '../homeSecretaria.html.php';
         </script>
         <?php
@@ -47,74 +47,110 @@ if ($sql_select_grade_verificacao->rowCount()) {
     $array_nome_padrao = $sql_selct_nome_padrao->fetch(PDO::FETCH_ASSOC);
     $nome_padrao = $array_nome_padrao['nome_padrao'];
 
-    // Variavel para verificação de sucesso
+    // Variavel para vazer verificação
     $status = 0;
-    $contador = 0;
-
-    // Selecionar dados do padrão de horário
-    $sql_select_padrao = $conn->prepare("SELECT ID_aula_escola, nome_aula, aula_start, aula_end FROM aula_escola WHERE fk_id_escola_aula_escola = $id_escola AND fk_id_turno_aula_escola = $turno_turma AND nome_padrao = '$nome_padrao' ORDER BY aula_start ASC");
-    $sql_select_padrao->execute();
-    while ($array_aula_escola = $sql_select_padrao->fetch(PDO::FETCH_ASSOC)) {
-        // Incrementando contador
-        $contador += 1;
+    // Laço para verificar se os selects estão vazios
+    $sql_select_padrao_verifica = $conn->prepare("SELECT ID_aula_escola, nome_aula, aula_start, aula_end FROM aula_escola WHERE fk_id_escola_aula_escola = $id_escola AND fk_id_turno_aula_escola = $turno_turma AND nome_padrao = '$nome_padrao' ORDER BY aula_start ASC");
+    $sql_select_padrao_verifica->execute();
+    while ($array_aula_escola_verifica = $sql_select_padrao_verifica->fetch(PDO::FETCH_ASSOC)) {
 
         // Resgatar valores da consulta
-        $id_aula = $array_aula_escola['ID_aula_escola'];
+        $id_aula = $array_aula_escola_verifica['ID_aula_escola'];
         $id_disciplina = $_POST['disciplina' . $id_aula];
 
-        // Verificar se a disciplina é o intervalo
-        if ($id_disciplina == -1) {
-            $sql_insert_intervalo = $conn->prepare("INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_turma_grade_curricular) VALUES (:id_dia, :id_aula, :id_turma)");
-            $sql_insert_intervalo->bindParam(':id_dia', $id_dia, PDO::PARAM_STR);
-            $sql_insert_intervalo->bindParam(':id_aula', $id_aula, PDO::PARAM_STR);
-            $sql_insert_intervalo->bindParam(':id_turma', $id_turma, PDO::PARAM_STR);
-            $sql_insert_intervalo->execute();
-
-            if ($sql_insert_intervalo->rowCount()) {
-                $status += 1;
-            }
-        } else {
-            $sql_insert_grade = $conn->prepare("INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_disciplina_grade_curricular, fk_id_turma_grade_curricular) VALUES (:id_dia, :id_aula, :id_disciplina, :id_turma)");
-            $sql_insert_grade->bindParam(':id_dia', $id_dia, PDO::PARAM_STR);
-            $sql_insert_grade->bindParam(':id_aula', $id_aula, PDO::PARAM_STR);
-            $sql_insert_grade->bindParam(':id_disciplina', $id_disciplina, PDO::PARAM_STR);
-            $sql_insert_grade->bindParam(':id_turma', $id_turma, PDO::PARAM_STR);
-            $sql_insert_grade->execute();
-
-            if ($sql_insert_grade->rowCount()) {
-                $status += 1;
-            }
+        // verificaar preenchimento 
+        if ($id_disciplina == null) {
+            $status += 1;
         }
     }
+    // Verificar preenchimento e permitir ou não cadastro
+    if ($status == 0) {
 
-    if ($status == $contador) {
-        if ($id_usuario == 2) {
+        // Variavel para verificação de sucesso
+        $status = 0;
+        $contador = 0;
+
+        // Selecionar dados do padrão de horário
+        $sql_select_padrao = $conn->prepare("SELECT ID_aula_escola, nome_aula, aula_start, aula_end FROM aula_escola WHERE fk_id_escola_aula_escola = $id_escola AND fk_id_turno_aula_escola = $turno_turma AND nome_padrao = '$nome_padrao' ORDER BY aula_start ASC");
+        $sql_select_padrao->execute();
+        while ($array_aula_escola = $sql_select_padrao->fetch(PDO::FETCH_ASSOC)) {
+            // Incrementando contador
+            $contador += 1;
+
+            // Resgatar valores da consulta
+            $id_aula = $array_aula_escola['ID_aula_escola'];
+            $id_disciplina = $_POST['disciplina' . $id_aula];
+
+            // Verificar se a disciplina é o intervalo
+            if ($id_disciplina == -1) {
+                $sql_insert_intervalo = $conn->prepare("INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_turma_grade_curricular) VALUES (:id_dia, :id_aula, :id_turma)");
+                $sql_insert_intervalo->bindParam(':id_dia', $id_dia, PDO::PARAM_STR);
+                $sql_insert_intervalo->bindParam(':id_aula', $id_aula, PDO::PARAM_STR);
+                $sql_insert_intervalo->bindParam(':id_turma', $id_turma, PDO::PARAM_STR);
+                $sql_insert_intervalo->execute();
+
+                if ($sql_insert_intervalo->rowCount()) {
+                    $status += 1;
+                }
+            } else {
+                $sql_insert_grade = $conn->prepare("INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_escola_grade_curricular, fk_id_disciplina_grade_curricular, fk_id_turma_grade_curricular) VALUES (:id_dia, :id_aula, :id_disciplina, :id_turma)");
+                $sql_insert_grade->bindParam(':id_dia', $id_dia, PDO::PARAM_STR);
+                $sql_insert_grade->bindParam(':id_aula', $id_aula, PDO::PARAM_STR);
+                $sql_insert_grade->bindParam(':id_disciplina', $id_disciplina, PDO::PARAM_STR);
+                $sql_insert_grade->bindParam(':id_turma', $id_turma, PDO::PARAM_STR);
+                $sql_insert_grade->execute();
+
+                if ($sql_insert_grade->rowCount()) {
+                    $status += 1;
+                }
+            }
+        }
+
+        if ($status == $contador) {
+            if ($id_usuario == 2) {
         ?>
-            <script>
-                alert('Grade cadastrada com sucesso !!');
-                window.location = '../homeDiretor.html.php';
-            </script>
-        <?php
+                <script>
+                    alert('Grade cadastrada com sucesso !!');
+                    window.location = '../homeDiretor.html.php';
+                </script>
+            <?php
+            } else {
+            ?>
+                <script>
+                    alert('Grade cadastrada com sucesso !!');
+                    window.location = '../homeSecretaria.html.php';
+                </script>
+            <?php
+            }
         } else {
-        ?>
-            <script>
-                alert('Grade cadastrada com sucesso !!');
-                window.location = '../homeSecretaria.html.php';
-            </script>
-        <?php
+            if ($id_usuario == 2) {
+            ?>
+                <script>
+                    alert('Erro no cadastro, por favor entre novamente clique no botão alterar!!');
+                    window.location = '../homeDiretor.html.php';
+                </script>
+            <?php
+            } else {
+            ?>
+                <script>
+                    alert('Erro no cadastro, por favor entre novamente clique no botão alterar!!');
+                    window.location = '../homeSecretaria.html.php';
+                </script>
+            <?php
+            }
         }
     } else {
         if ($id_usuario == 2) {
-        ?>
+            ?>
             <script>
-                alert('Erro no cadastro, por favor entre novamente clique no botão alterar!!');
+                alert('Por Favor, Selecoine uma Disciplina para cada Horário!!');
                 window.location = '../homeDiretor.html.php';
             </script>
         <?php
         } else {
         ?>
             <script>
-                alert('Erro no cadastro, por favor entre novamente clique no botão alterar!!');
+                alert('Por Favor, Selecoine uma Disciplina para cada Horário!!');
                 window.location = '../homeSecretaria.html.php';
             </script>
 <?php

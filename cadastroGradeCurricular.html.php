@@ -26,8 +26,7 @@
     // Resgatando valores do select do modal
     $id_turma = $_POST['turmas'];
     $id_padrao = $_POST['padroes'];
-    $id_dia = $_POST['dia'];
-    echo $id_dia;
+    $id_dia = $_POST['dia'];    
 
     if (($id_turma == null) || ($id_padrao == null) || ($id_dia == null)) {
     ?>
@@ -88,12 +87,12 @@
                     <div class="row">
                         <div class="input-field col s12 m4 l4">
                             <i class="material-icons prefix blue-icon">access_time</i>
-                            <input type="text" name="nomeAula<?php echo $id_aula?>" value="<?php echo $nome_aula . '   -   ' . $nome_dia; ?>" readonly>
+                            <input type="text" name="nomeAula<?php echo $id_aula ?>" value="<?php echo $nome_aula . '   -   ' . $nome_dia; ?>" readonly>
                             <label id="lbl">Aula</label>
                         </div>
 
                         <div class="input-field col s12 m4 l4">
-                            <input type="text" name="HorarioAula<?php echo $id_aula?>" value="<?php echo $aula_start . '   -   ' . $aula_end; ?>" readonly>
+                            <input type="text" name="HorarioAula<?php echo $id_aula ?>" value="<?php echo $aula_start . '   -   ' . $aula_end; ?>" readonly>
                             <label id="lbl">Início - Término</label>
                         </div>
 
@@ -129,7 +128,10 @@
                     </button>
             </form>
 
-            <form action="alteracaodatasFinaisBimestres.html.php" method="POST">
+            <form action="alteracaoGradeCurricular.html.php" method="POST">
+                <input type="hidden" name="idTurma" value="<?php echo $id_turma; ?>">
+                <input type="hidden" name="idDia" value="<?php echo $id_dia; ?>">
+                <input type="hidden" name="idPadrao" value="<?php echo $id_padrao; ?>">
                 <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue left">
                     <i class="material-icons left">edit</i>Alterar
                 </button>

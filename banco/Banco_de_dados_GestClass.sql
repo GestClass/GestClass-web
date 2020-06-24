@@ -653,7 +653,5 @@ SELECT * FROM secretario;
 SELECT * FROM `admin`;
 
 SELECT * FROM contato;
-SELECT * FROM aula_escola WHERE fk_id_escola_aula_escola = 1;
-SELECT nome_aula, aula_start, aula_end FROM aula_escola WHERE fk_id_escola_aula_escola = 1 AND fk_id_turno_aula_escola = 1 AND nome_padrao = "Padrão 1" ORDER BY aula_start ASC;
-SELECT nome_padrao FROM aula_escola WHERE ID_aula_escola = 1;
+
 /*DROP DATABASE GestClass;*/
