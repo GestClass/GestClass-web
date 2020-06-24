@@ -99,13 +99,13 @@
             <li><a href="admins.html.php"><i class="material-icons">person</i>Admins</a></li>
             <li><a href="cadastroEscola.html.php"><i class="material-icons">account_balance</i>Cadastro Escolas</a></li>
             <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">explore</i>Visão Geral</a></li>
-            <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">email</i>Intermedio</a></li>
+            <li><a class="waves-effect" href="feedbackEscolas.html.php"><i class="material-icons">email</i>Intermedio</a></li>
             <li>
                 <div class="divider"></div>
             </li>
             <!-- <li><a class="subheader">Submenu</a></li> -->
             <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
-            <li><a href="index.php"><i class="material-icons">settings</i>Configurações</a></li>
+            <li><a href="perfil.html.php"><i class="material-icons">settings</i>Configurações</a></li>
             <li><a href="php/logout.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
 

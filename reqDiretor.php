@@ -102,7 +102,7 @@
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">person</i>Alunos</a></li>
+            <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">person</i>Alunos</a></li>
             <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario
                     Escolar</a>
             <li><a href="listarProfessores.html.php"><i class="material-icons">people_alt</i>Professores</a></li>
@@ -120,12 +120,77 @@
                 <div class="divider"></div>
             </li>
             <li><a href="graficoRendimentoDiretor.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a></li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">attach_money</i>Financeiro</a>
+            <li><a href="#modalMensalidades" class="modal-trigger"><i class="material-icons">attach_money</i>Mensalidade</a>
             <li>
                 <div class="divider"></div>
             </li>
             <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
-            <li><a href="index.php"><i class="material-icons">settings</i>Configurações</a></li>
+            <li><a href="perfil.html.php"><i class="material-icons">settings</i>Configurações</a></li>
             <li><a href="php/logout.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
+<div id="modalMensalidades" class="modal">
+    <div class="modal-content">
+        <h4 class="center">Selecione a turma</h4>
+        <div class="input-field col s12">
+            <form action="mensalidades.html.php" method="POST">
+                <select name="turmas">
+                    <option value="" disabled selected>Selecione a Turma</option>
+                    <?php
+
+                    $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                    $query_select_turma->execute();
+
+                    while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                        $id_turma = $dados_turma['id_turma'];
+                        $nome_turma = $dados_turma['nome_turma'];
+                        $nome_turno = $dados_turma['nome_turno'];
+                    ?>
+                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <br>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="modalListaAlunos" class="modal">
+    <div class="modal-content">
+        <h4 class="center">Selecione a turma</h4>
+        <div class="input-field col s12">
+            <form action="listaAlunos.html.php" method="POST">
+                <select name="turmas">
+                    <option value="" disabled selected>Selecione a Turma</option>
+                    <?php
+
+                    $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                    $query_select_turma->execute();
+
+                    while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                        $id_turma = $dados_turma['id_turma'];
+                        $nome_turma = $dados_turma['nome_turma'];
+                        $nome_turno = $dados_turma['nome_turno'];
+                    ?>
+                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <br>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     </header>

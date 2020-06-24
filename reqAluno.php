@@ -57,13 +57,13 @@ $nome_alu = $nome[0];
                             </li>
                             <?php if (empty($dados['foto'])) { ?>
                                 <li>
-                                    <a href="perfil.html.php" class="transparent hide-on-small-only">
+                                    <a href="homeAluno.html.php" class="transparent hide-on-small-only">
                                         <img class="circle icon-user" width="50px" height="50px" src="assets/imagensBanco/usuario.png">
                                     </a>
                                 </li>
                             <?php } else { ?>
                                 <li>
-                                    <a href="perfil.html.php" class="transparent hide-on-small-only">
+                                    <a href="homeAluno.html.php" class="transparent hide-on-small-only">
                                         <img class="circle icon-user" width="50px" height="50px" src="assets/imagensBanco/<?php echo $dados['foto'] ?>">
                                     </a>
                                 </li>
@@ -98,19 +98,78 @@ $nome_alu = $nome[0];
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a></li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
+            <li><a href="#modalGraficos" class="modal-trigger"><i class=" material-icons">trending_up</i>Rendimento Disciplinar</a></li>
+            <li><a href="boletimVisualizacao.html.php"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
             <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario
                     Escolar</a>
             <li><a href="paginaManutencao.php"><i class="material-icons">list_alt</i>Grade Escolar</a>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">rowing</i>Atividades Extra</a>
-            </li>
+    
             <li>
                 <div class="divider"></div>
             </li>
             <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
-            <li><a href="index.php"><i class="material-icons">settings</i>Configurações</a></li>
             <li><a href="php/logout.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
+        <div id="modalGraficos" class="modal ">
+        <div class="modal-content">
+            <h4 class="center"><i class="material-icons right">school</i>Rendimento Escolar</h4>
+                <div class="input-field col s12 validate">
+                    <form action="graficoRendimento.html.php" method="POST">
+                        <h5 class="center">Seleciona a matéria desejada para acompanhar o rendimento:</h5>
+                        <select name="disciplinas">
+                        <?php
+                            // Selecionar a turma do aluno
+                            $sql_select_id_turma = $conn->prepare("SELECT fk_id_turma_aluno FROM aluno WHERE RA = $id_usuario");
+                            // Executando
+                            $sql_select_id_turma->execute();
+                            // Armazenando array da informação
+                            $array_turma = $sql_select_id_turma->fetch(PDO::FETCH_ASSOC);
+                            // Armazenar ID turma
+                            $id_turma = $array_turma['fk_id_turma_aluno'];
+
+                            // Resgatando a turma do aluno
+                            $sql_select_turma_aluno = $conn->prepare("SELECT nome_turma, fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+                            // Executando comando 
+                            $sql_select_turma_aluno->execute();
+                            // Armazenando nome da turma
+                            $turma_array = $sql_select_turma_aluno->fetch(PDO::FETCH_ASSOC);
+                            // Variável nome turma
+                            $nome_turma_aluno = $turma_array['nome_turma'];
+                            $id_turno = $turma_array['fk_id_turno_turma'];
+
+                            // Resgatar nome do turno
+                            $sql_select_nome_turno = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                            // Executando o comando
+                            $sql_select_nome_turno->execute();
+                            // Armazenando nome do turno
+                            $turno = $sql_select_nome_turno->fetch(PDO::FETCH_ASSOC);
+                            // Armazenando o nome em variável
+                            $nome_turno = $turno['nome_turno'];
+                            $_SESSION['nome_turno']=$nome_turno;
+                            $query_select_disciplinas = $conn->prepare("SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor AS id_disciplina, disciplina.nome_disciplina AS nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor = disciplina.ID_disciplina) WHERE disciplinas_professor.fk_id_turma_professor_disciplinas_professor = $id_turma");
+                            // Executar
+                            $query_select_disciplinas->execute();
+                                // Armazenar em um array
+                                while ($array_disciplinas = $query_select_disciplinas->fetch(PDO::FETCH_ASSOC)) {
+                                    // Armazenando o nome e o id da disciplina
+                                    $nome_disciplina = $array_disciplinas['nome_disciplina'];
+                                    $id_disciplina = $array_disciplinas['id_disciplina'];
+                                ?>
+                                    <option value="<?php echo $id_disciplina ?>"><?php echo $nome_disciplina; ?></option>
+                            <?php
+                                }
+                            
+                            ?>
+                        </select>
+                <input type="hidden" name="id_disciplina" value="<?php $id_disciplina ?>" />
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">check</i>Acessar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     </header>

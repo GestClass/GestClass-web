@@ -101,7 +101,7 @@
                         data-tooltip="Cadastro Escolas"><i class="material-icons">account_balance</i></a></li>
                 <li><a href="paginaManutencao.html" class="btn-floating yellow darken-1 tooltipped" data-position="left"
                         data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-                <li><a href="paginaManutencao.html" class="btn-floating blue-grey darken-4 tooltipped"
+                <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey darken-4 tooltipped"
                         data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li>
                 <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
                         data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>

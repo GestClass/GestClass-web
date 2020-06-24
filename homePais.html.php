@@ -13,7 +13,6 @@ $id_escola = $_SESSION["id_escola"];
 // echo "id escola ->".$id_escola."</br>";
 ?>
 <section class="section center">
-<<<<<<< Updated upstream
     <div class="container">
         <div class="row">
             <div class="col s12 m4">
@@ -71,64 +70,7 @@ $id_escola = $_SESSION["id_escola"];
                 </a>
             </div>
         </div>
-=======
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m4">
-      <a class="modal-trigger" href="#modalFilhosGrafico">
-          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-chart-line fa-6x blue-icon"></i>
-            <h5>Rendimento Disciplinar</h5>
-            <p>Acesso a frequência do aluno, atividades desempenhadas e gráficos de rendimentos .</p>
-          </div>
-        </a>
-      </div>
-      <div class="col s12 m4">
-        <a class="modal-trigger" href="#modalFilhos">
-          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-list-ol fa-6x blue-icon"></i>
-            <h5>Boletim Escolar</h5>
-            <p>Visualização de notas do aluno</p>
-          </div>
-        </a>
-      </div>
-      <div class="col s12 m4">
-      <a href="calendario.html.php">
-          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-calendar-check fa-6x blue-icon"></i>
-            <h5>Calendário Escolar</h5>
-            <p>Calendário de atividades acadêmicas</p>
-          </div>
-        </a>
-      </div>
-      <div class="col s12 m4">
-       <a href="emissaoBoletos.html.php">
-          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-file-invoice-dollar fa-6x blue-icon"></i>
-            <h5>Financeiro</h5>
-            <p>Emissão de segunda via de boleto</p>
-          </div>
-        </a>
-      </div>
-      <div class="col s12 m4">
-       <a class="modal-trigger" href="#modalChat">
-          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-comment-dots fa-6x blue-icon"></i>
-            <h5>Mensagens</h5>
-            <p>Envio e recebebimento de mensagens de professores, secretaria e diretores</p>
-          </div>
-        </a>
-      </div>
-      <div class="col s12 m4">
-      <a class="modal-trigger" href="#modalNotif">
-          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-bell fa-6x blue-icon"></i>
-            <h5>Notificações</h5>
-            <p>Central de notificações</p>
-          </div>
-        </a>
-      </div>
->>>>>>> Stashed changes
+
     </div>
 
     <div id="modalCadastroContas" class="modal">
@@ -199,10 +141,9 @@ $id_escola = $_SESSION["id_escola"];
 
 
 <div id="modalFilhosGrafico" class="modal">
-<<<<<<< Updated upstream
     <div class="modal-content">
         <div class="input-field col s12 validate">
-            <form action="selectDisciplina.html.php" method="POST">
+            <form action="selectDisciplinaRendimento.html.php" method="POST">
                 <h4>Selecione o filho desejado</h4>
                 <select name="filhos">
                     <option value="" disabled selected>Selecionar filho</option>
@@ -211,7 +152,6 @@ $id_escola = $_SESSION["id_escola"];
                     $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
                     $query_select_filhos_responsavel->execute();
                     print_r($query_select_filhos_responsavel);
-
                     while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
 
                         $nome_aluno = $filhos["nome_aluno"];
@@ -223,45 +163,15 @@ $id_escola = $_SESSION["id_escola"];
                     }
                     ?>
                 </select>
-        </div>
-=======
-  <div class="modal-content">
-    <div class="input-field col s12 validate">
-      <form action="selectDisciplinaRendimento.html.php" method="POST">
-        <h4>Selecione o filho desejado</h4>
-        <select name="filhos">
-          <option value="" disabled selected>Selecionar filho</option>
-          <?php
-
-          $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
-          $query_select_filhos_responsavel->execute();
-          print_r($query_select_filhos_responsavel);
-
-          while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
-
-            $nome_aluno = $filhos["nome_aluno"];
-            $ra = $filhos["RA"];
-
-          ?>
-            <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
-          <?php
-          }
-          ?>
-        </select>
-    </div>
->>>>>>> Stashed changes
-
-
-        <input type="hidden" name="id_disciplina" value="<?php $id_disciplina ?>" />
+                </div>
         <div class="center">
             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-                <i class="material-icons left">check</i>Acessar
+                <i class="material-icons left">search</i>Pesquisar
             </button>
         </div>
-        </form>
     </div>
 </div>
-</div>
+  
 
 <?php
 
@@ -276,32 +186,18 @@ $notificacao = $query_mensagem->rowCount();
 
 
 <section class="floating-buttons">
-<<<<<<< Updated upstream
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large light-blue lighten-1">
             <i class="large material-icons">add</i>
         </a>
         <ul>
             <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
-            <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Gráfico de rendimento"><i class="material-icons">trending_up</i></a></li>
-            <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a><?php echo $notificacao ?></li>
+            <li><a href="#modalFilhosGrafico" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
+            <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
             <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
         </ul>
     </div>
-=======
-  <div class="fixed-action-btn">
-    <a class="btn-floating btn-large light-blue lighten-1">
-      <i class="large material-icons">add</i>
-    </a>
-    <ul>
-      <li><a href="paginaManutencao.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
-      <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-      <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
-      <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
-    </ul>
-  </div>
->>>>>>> Stashed changes
 </section>
 
 

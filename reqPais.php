@@ -100,11 +100,11 @@ $nome_pais = $nome[0];
                 <li>
                     <div class="divider"></div>
                 </li>
-                <li><a href="paginaManutencao.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a></li>
-                <li><a href="paginaManutencao.php"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
+                <li><a href="#modalFilhosGrafico" class="modal-trigger"><i class="material-icons">trending_up</i>Rendimento Disciplinar</a></li>
+                <li><a href="#modalFilhos" class="modal-trigger"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
                 <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario
                         Escolar</a>
-                <li><a href="paginaManutencao.php"><i class="material-icons">attach_money</i>Financeiro</a>
+                <li><a href="emissaoBoletos.php"><i class="material-icons">attach_money</i>Financeiro</a>
                 </li>
                 <li><a href="mensagensResponsavel.html.php"><i class="material-icons">email</i>Caixa de Mensagens</a>
                 </li>
@@ -112,7 +112,71 @@ $nome_pais = $nome[0];
                     <div class="divider"></div>
                 </li>
                 <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
-                <li><a href="paginaManutencao.php"><i class="material-icons">settings</i>Configurações</a></li>
+                <li><a href="perfil.html.php"><i class="material-icons">settings</i>Configurações</a></li>
                 <li><a href="php/logout.php"><i class="material-icons">input</i>Sair</a></li>
             </ul>
+        <div id="modalFilhosGrafico" class="modal">
+            <div class="modal-content">
+                <div class="input-field col s12 validate">
+                    <form action="selectDisciplinaRendimento.html.php" method="POST">
+                        <h4>Selecione o filho desejado</h4>
+                        <select name="filhos">
+                            <option value="" disabled selected>Selecionar filho</option>
+                            <?php
+
+                            $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+                            $query_select_filhos_responsavel->execute();
+                            print_r($query_select_filhos_responsavel);
+                            while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
+
+                                $nome_aluno = $filhos["nome_aluno"];
+                                $ra = $filhos["RA"];
+
+                            ?>
+                                <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                        </div>
+        <div class="center">
+            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                <i class="material-icons left">search</i>Pesquisar
+            </button>
+        </div>
+    </div>
+</div>
+<div id="modalFilhos" class="modal">
+    <div class="modal-content">
+        <div class="input-field col s12 validate">
+            <form action="boletimVisualizacao.html.php" method="POST">
+                <h4>Selecione o filho desejado</h4>
+                <select name="filhos">
+                    <option value="" disabled selected>Selecionar filho</option>
+                    <?php
+
+                    $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+                    $query_select_filhos_responsavel->execute();
+                    print_r($query_select_filhos_responsavel);
+
+                    while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
+
+                        $nome_aluno = $filhos["nome_aluno"];
+                        $ra = $filhos["RA"];
+
+                    ?>
+                        <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+        </div>
+
+        <div class="center">
+            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                <i class="material-icons left">search</i>Pesquisar
+            </button>
+        </div>
+    </div>
+</div>
         </header>

@@ -108,10 +108,10 @@
             <li><a href="chamada.html.php"><i class="material-icons">assignment</i>Chamada</a></li>
             <li><a href="boletimCadastro.html.php"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a>
             </li>
-            <li><a class="waves-effect" href="calendario.html.php"><i
+            <li><a class="waves-effect modal-trigger" href="#modalOcorrencias"><i
                         class="material-icons">assignment_late</i>Ocorrências</a></li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">list_alt</i>Lista de alunos</a>
-            <li><a href="paginaManutencao.php"><i class="material-icons">event</i>Calendário Escolar</a>
+            <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">list_alt</i>Lista de alunos</a>
+            <li><a href="calendario.php.html"><i class="material-icons">event</i>Calendário Escolar</a>
             </li>
             <li><a href="mensagensProfessor.html.php"><i class="material-icons">email</i>Caixa de Mensagens</a>
             </li>
@@ -119,7 +119,111 @@
                 <div class="divider"></div>
             </li>
             <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
-            <li><a href="index.php"><i class="material-icons">settings</i>Configurações</a></li>
+            <li><a href="perfil.html.php"><i class="material-icons">settings</i>Configurações</a></li>
             <li><a href="php/logout.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
+<div id="modalOcorrencias" class="modal">
+  <div class="modal-content">
+    <h4>Selecione a turma</h4>
+    <div class="input-field col s12">
+      <form action="ocorrenciasProfessor.html.php" method="POST">
+        <select name="turmas">
+          <option value="" disabled selected>Selecione a Turma</option>
+          <?php
+
+          $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
+          $query_select_turmas_professor->execute();
+
+          while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
+
+            $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+
+            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+            $query_select_turma->execute();
+
+            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+              $nome_turma = $dados_turma_nome["nome_turma"];
+
+              $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+              $query_turno->execute();
+
+              while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                $query_turno_nome->execute();
+
+                while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                  $nome_turno = $dados_nome_turno['nome_turno'];
+
+          ?>
+                  <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+          <?php
+                }
+              }
+            }
+          } ?>
+        </select>
+        <br>
+        <div class="center">
+          <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+            <i class="material-icons left">search</i>Pesquisar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="modalListaAlunos" class="modal">
+  <div class="modal-content">
+    <h4>Selecione a turma</h4>
+    <div class="input-field col s12">
+      <form action="listaAlunos.html.php" method="POST">
+        <select name="turmas">
+          <option value="" disabled selected>Selecione a Turma</option>
+          <?php
+
+          $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
+          $query_select_turmas_professor->execute();
+
+          while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
+
+            $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+
+            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
+            $query_select_turma->execute();
+
+            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+              $nome_turma = $dados_turma_nome["nome_turma"];
+
+              $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
+              $query_turno->execute();
+
+              while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
+                $id_turno = $dados_turno['fk_id_turno_turma'];
+
+                $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
+                $query_turno_nome->execute();
+
+                while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
+                  $nome_turno = $dados_nome_turno['nome_turno'];
+
+          ?>
+                  <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+          <?php
+                }
+              }
+            }
+          } ?>
+        </select>
+        <br>
+        <div class="center">
+          <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+            <i class="material-icons left">search</i>Pesquisar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
     </header>
