@@ -294,6 +294,22 @@ td {
 }
 
 
+/*  modalFilhosGrade Home Pais*/
+
+#modalFilhos {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
+/*  modalFilhosGrade Home Pais*/
+
+#modalFilhosGrade {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
 /* default */
 
 

@@ -163,7 +163,7 @@ $id_escola = $_SESSION["id_escola"];
                     }
                     ?>
                 </select>
-                </div>
+        </div>
         <div class="center">
             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                 <i class="material-icons left">search</i>Pesquisar
@@ -171,7 +171,7 @@ $id_escola = $_SESSION["id_escola"];
         </div>
     </div>
 </div>
-  
+
 
 <?php
 
@@ -193,6 +193,7 @@ $notificacao = $query_mensagem->rowCount();
         <ul>
             <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
             <li><a href="#modalFilhosGrafico" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
+            <li><a href="#modalFilhosGrade" class="modal-trigger btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
             <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
             <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
@@ -245,12 +246,46 @@ $notificacao = $query_mensagem->rowCount();
                     }
                     ?>
                 </select>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+                </div>
+            </form>
         </div>
+    </div>
+</div>
 
-        <div class="center">
-            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-                <i class="material-icons left">search</i>Pesquisar
-            </button>
+<div id="modalFilhosGrade" class="modal">
+    <div class="modal-content">
+        <div class="input-field col s12 validate">
+            <form action="gradeCurricularExibicao.html.php" method="POST">
+                <h4>Selecione o filho desejado</h4>
+                <select name="filhos">
+                    <option value="" disabled selected>Selecionar filho</option>
+                    <?php
+
+                    $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+                    $query_select_filhos_responsavel->execute();
+                    print_r($query_select_filhos_responsavel);
+
+                    while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
+
+                        $nome_aluno = $filhos["nome_aluno"];
+                        $ra = $filhos["RA"];
+
+                    ?>
+                        <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+                </div>                
+            </form>            
         </div>
     </div>
 </div>
