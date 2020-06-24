@@ -115,7 +115,7 @@ $nome_turno = $turno['nome_turno'];
         </div>
 
         <div class="col s12 m12 l12 " id="segunda">
-            <table class="info highlight">
+            <table class="info highlight striped">
                 <thead>
                     <tr>
                         <th>Aula</th>
@@ -155,7 +155,7 @@ $nome_turno = $turno['nome_turno'];
         </div>
 
         <div class="col s12 m12 l12" id="terca">
-            <table class="info highlight">
+            <table class="info highlight striped">
                 <thead>
                     <tr>
                         <th>Aula</th>
@@ -195,7 +195,7 @@ $nome_turno = $turno['nome_turno'];
         </div>
 
         <div class="col s12 m12 l12" id="quarta">
-        <table class="info highlight">
+        <table class="info highlight striped">
                 <thead>
                     <tr>
                         <th>Aula</th>
@@ -235,7 +235,7 @@ $nome_turno = $turno['nome_turno'];
         </div>
 
         <div class="col s12 m12 l12" id="quinta">
-        <table class="info highlight">
+        <table class="info highlight striped">
                 <thead>
                     <tr>
                         <th>Aula</th>
@@ -275,7 +275,7 @@ $nome_turno = $turno['nome_turno'];
         </div>
 
         <div class="col s12 m12 l12 " id="sexta">
-        <table class="info highlight">
+        <table class="info highlight striped">
                 <thead>
                     <tr>
                         <th>Aula</th>
@@ -315,7 +315,7 @@ $nome_turno = $turno['nome_turno'];
         </div>
 
         <div class="col s12 m12 l12 " id="sabado">
-        <table class="info highlight">
+        <table class="info highlight striped">
                 <thead>
                     <tr>
                         <th>Aula</th>
