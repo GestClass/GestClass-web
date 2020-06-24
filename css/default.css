@@ -212,6 +212,32 @@ body {
 }
 
 
+/*modal boleim*/
+
+#modalTurmaBoletim {
+    max-height: 100%;
+    overflow: visible;
+}
+
+#modalBoletimSelect {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
+/*modal chamada*/
+
+#modalTurma {
+    max-height: 100%;
+    overflow: visible;
+}
+
+#modalSelectChamadas {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
 /*Modals Mensagens*/
 
 #modalEnviarAluno {
@@ -238,6 +264,9 @@ body {
     max-height: 100%;
     overflow: visible;
 }
+
+
+/*modal horario aula*/
 
 #modalHorarioAulas {
     max-height: 100%;

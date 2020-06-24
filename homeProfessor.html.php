@@ -64,7 +64,7 @@ $id_escola = $_SESSION["id_escola"];
       </div>
 
       <div class="col s12 m4">
-        <a class="modal-trigger" href="mensagensProfessor.html.php">
+        <a href="mensagensProfessor.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-envelope fa-6x blue-icon"></i>
             <h5>Mensagens</h5>
@@ -115,6 +115,7 @@ $id_escola = $_SESSION["id_escola"];
       </div>
     </div>
   </div>
+  
   <div id="modalTurmaBoletim" class="modal">
     <div class="modal-content">
       <div class="input-field col s12 validate">
