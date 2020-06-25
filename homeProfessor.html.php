@@ -115,11 +115,9 @@ $id_escola = $_SESSION["id_escola"];
       </form>
     </div>
   </div>
-<<<<<<< Updated upstream
-  
-=======
+
+
   </div>
->>>>>>> Stashed changes
   <div id="modalTurmaBoletim" class="modal">
     <div class="modal-content">
       <div class="input-field col s12 validate">
