@@ -1,10 +1,10 @@
 <?php
 require_once  'conexao.php';
 
-
 $id_usuario = $_SESSION["id_usuario"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
+
 $dataChamada_original = $_POST['dataChamada'];
 $data = str_replace('/', '-', $dataChamada_original);
 $dataChamada = date('Y-m-d', strtotime($data));
@@ -26,7 +26,7 @@ if ($dataChamada != "") {
 
     $query_insert_listagem_chamada->execute();
 
-    $query_id_listagem = $conn->prepare('SELECT MAX(ID_listagem) FROM listagem_chamada WHERE fk_id_escola_listagem_chamada = 1');
+    $query_id_listagem = $conn->prepare("SELECT MAX(ID_listagem) FROM listagem_chamada WHERE fk_id_escola_listagem_chamada = $id_escola");
 
     $query_id_listagem->execute();
 
