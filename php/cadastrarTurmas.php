@@ -5,13 +5,17 @@ include_once 'conexao.php';
 $id_escola = $_SESSION["id_escola"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 
+$nome_turma = $_POST['turma'];
+$id_turno = $_POST['turno'];
 
-if ($_POST['turma'] != "") {
 
-    $query_insert = $conn->prepare("INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma)VALUES (:turma, $id_escola, :turno)");
+if (($nome_turma != "") && ($id_turno != null)) {
 
-    $query_insert->bindParam(':turma', $_POST["turma"], PDO::PARAM_STR);
-    $query_insert->bindParam(':turno', $_POST["turno"], PDO::PARAM_STR);
+    $query_insert = $conn->prepare("INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES (:turma, :id_escola, :turno)");
+
+    $query_insert->bindParam(':turma', $nome_turma, PDO::PARAM_STR);
+    $query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
+    $query_insert->bindParam(':turno', $id_turno, PDO::PARAM_STR);
 
     if ($query_insert->execute()) {
 
@@ -47,9 +51,12 @@ if ($_POST['turma'] != "") {
         }
     }
 } else {
-    echo "<script>alert('Erro: Turma não cadastrada, Preencha os campos.');
+    echo "
+            <script>
+                alert('Por favor, informe os dados solicitados!!');
 				history.back();;
-				 </script>";
+            </script>
+        ";
 }
 
 ?>

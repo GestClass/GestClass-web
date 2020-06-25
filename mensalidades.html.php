@@ -42,67 +42,78 @@
     }
 
     $turma = $_POST['turmas'];
+    if ($turma == null) {
+    ?>
+        <script>
+            alert('Por favor, escolha uma Turma!!');
+            history.back();
+        </script>
+    <?php
+    } else {
 
     ?>
 
-    <div class="container col s12 m12 l12" id="container_boletimCadastro">
-    <h4>Selecione o Aluno</h4><br>
-        <table class="striped centered">
-            <thead>
-                <th>
-                    RA
-                </th>
-                <th>
-                    Nome
-                </th>
-                <th>
-                    Celular
-                </th>
-                <th>
-                    Email
-                </th>
-            </thead>
-            <tbody>
-
-                <?php
-                $query_listagem = $conn->prepare('SELECT RA, nome_aluno, celular, telefone, email, cpf,fk_id_responsavel_aluno,fk_id_tipo_usuario_aluno FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = ' . $turma . '');
-                $query_listagem->execute();
-
-                if ($query_listagem->rowCount()) {
-
-                    while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
-                ?>
-                        <tr>
-                            <td>
-                                <?php echo $alunos['RA']; ?>
-                            </td>
-
-                            <td>
-                                <a href="enviarMensalidades.html.php?id_respon=<?php echo $alunos['fk_id_responsavel_aluno']?>"><?php echo $alunos['nome_aluno']; ?></a>
-                            </td>
-
-                            <td>
-                                <?php echo $alunos['celular']; ?>
-                            </td>
-                            <td>
-                                <?php echo $alunos['email']; ?>
-                            </td>
-                        </tr>
-
+        <div class="container col s12 m12 l12" id="container_boletimCadastro">
+            <h3 class="center">Selecione o Aluno</h3><br><br>
+            <table class="striped centered">
+                <thead>
+                    <th>
+                        RA
+                    </th>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Celular
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                </thead>
+                <tbody>
 
                     <?php
-                    }
-                } else {
-                    ?>
-                    <script>
-                        alert('Nenhum registro encontrado!!')
-                        history.back()
-                    </script>
-                <?php
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
+                    $query_listagem = $conn->prepare('SELECT RA, nome_aluno, celular, telefone, email, cpf,fk_id_responsavel_aluno,fk_id_tipo_usuario_aluno FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = ' . $turma . '');
+                    $query_listagem->execute();
 
-    <?php require_once 'reqFooter.php' ?>
+                    if ($query_listagem->rowCount()) {
+
+                        while ($alunos = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
+                            <tr>
+                                <td>
+                                    <?php echo $alunos['RA']; ?>
+                                </td>
+
+                                <td>
+                                    <a href="enviarMensalidades.html.php?id_respon=<?php echo $alunos['fk_id_responsavel_aluno'] ?>"><?php echo $alunos['nome_aluno']; ?></a>
+                                </td>
+
+                                <td>
+                                    <?php echo $alunos['celular']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $alunos['email']; ?>
+                                </td>
+                            </tr>
+
+
+                        <?php
+                        }
+                    } else {
+                        ?>
+                        <script>
+                            alert('Nenhum registro encontrado!!')
+                            history.back()
+                        </script>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+    <?php
+        require_once 'reqFooter.php';
+    }
+    ?>

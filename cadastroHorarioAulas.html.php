@@ -47,7 +47,7 @@
     if (($nomeHorario == null) && ($turno == null)) {
         ?>
             <script>
-                alert('Por favor, selecione os dados solicitados!!');
+                alert('Por favor, informe os dados solicitados!!');
                 history.back();
             </script>
         <?php
@@ -58,7 +58,7 @@
     <div class="container col s12 m12 l12 "><br>
         <form id="horarioAula" class="center" method="POST" action="php/cadastrarHorarioAulas.php">
             <div class="container">
-                <h5>Cadastro de Novos Horário de Aulas</h5><br><br>
+                <h3 class="center">Cadastro de Horário de Aulas</h3><br><br>
                 <div id="idDiv">
                     <div class="row" id="remove">
                         <div class="input-field col s12 m3 l3">

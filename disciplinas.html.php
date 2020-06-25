@@ -52,7 +52,9 @@
                 </div>
             </div>
             <div class="input-field right">
-                <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i>Cadastrar</button>
+                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                    <i class="material-icons left">send</i>Cadastrar
+                </button>
             </div>
         </form>
     </div>

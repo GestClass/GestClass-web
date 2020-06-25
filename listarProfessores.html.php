@@ -23,6 +23,8 @@
     ?>
 
     <div class="container col s12 m12 l12" id="container_boletimCadastro">
+        <h3 class="center">Lista de Professores</h3>
+        <br><br>
         <table class="striped centered">
             <thead>
 

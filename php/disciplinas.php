@@ -9,17 +9,17 @@ $disciplina = $_POST["disciplina"];
 
 if ($disciplina != "") {
 
-    $query_insert = $conn->prepare("INSERT INTO disciplina (nome_disciplina)VALUES (:disciplina)");
+    $query_insert = $conn->prepare("INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES (:disciplina, :id_escola)");
 
 
-    $query_insert->bindParam(':disciplina' , $_POST["disciplina"], PDO::PARAM_STR);
+    $query_insert->bindParam(':disciplina', $disciplina, PDO::PARAM_STR);
+    $query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
 
     if ($query_insert->execute()) {
 
         if ($id_tipo_usuario == 2) {
 ?>
             <script>
-
                 var confirmacao = confirm('Deseja cadastrar outra disciplina?');
 
                 if (confirmacao == true) {
@@ -33,7 +33,6 @@ if ($disciplina != "") {
         } else if ($id_tipo_usuario == 3) {
         ?>
             <script>
-
                 var confirmacao = confirm('Deseja cadastrar outra disciplina?');
 
                 if (confirmacao == true) {
@@ -44,11 +43,21 @@ if ($disciplina != "") {
             </script>
 <?php
         }
+    } else {
+        echo "
+                <script>
+                    alert('Erro ao cadastrar!!');
+                    history.back();;
+                </script>
+            ";
     }
 } else {
-    echo "<script>alert('Erro: Disciplina não cadastrada, Preencha os campos.');
-				history.back();;
-				 </script>";
+    echo "
+            <script>
+                alert('Erro, Por Favor Preencha os campos.');
+                history.back();;
+            </script>
+        ";
 }
 
 ?>

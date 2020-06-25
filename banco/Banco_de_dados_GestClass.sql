@@ -14,11 +14,6 @@ CREATE TABLE tipo_usuario(
     nome_usuario VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE disciplina(
-	ID_disciplina INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
-    nome_disciplina VARCHAR(50) NOT NULL
-);
-
 CREATE TABLE dia_semana (
 	ID_dia_semana INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     nome_dia VARCHAR(40) NOT NULL UNIQUE
@@ -41,6 +36,12 @@ CREATE TABLE escola (
     turma_medio BOOLEAN,
     media_min DECIMAL (4,2) NOT NULL,
     media_max DECIMAL (4,2) NOT NULL
+);
+
+CREATE TABLE disciplina(
+	ID_disciplina INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    nome_disciplina VARCHAR(50) NOT NULL,
+    fk_id_escola_disciplina INTEGER NOT NULL
 );
 
 CREATE TABLE turma (
@@ -266,6 +267,11 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 
+/*	-	FOREIGN KEYs TABLE DISCIPLINA	-	*/
+
+ALTER TABLE disciplina ADD CONSTRAINT fk_id_escola_disciplina FOREIGN KEY (fk_id_escola_disciplina) REFERENCES escola (ID_escola);
+
+
 /*	-	FOREIGN KEYs TABLE TURMA	-	*/
 ALTER TABLE turma ADD CONSTRAINT fk_id_escola_turma FOREIGN KEY (fk_id_escola_turma) REFERENCES escola (ID_escola);
 ALTER TABLE turma ADD CONSTRAINT fk_id_turno_turma FOREIGN KEY (fk_id_turno_turma) REFERENCES turno (ID_turno);
@@ -408,24 +414,26 @@ INSERT INTO tipo_usuario (nome_usuario) VALUES ('professor');
 INSERT INTO tipo_usuario (nome_usuario) VALUES ('aluno');
 INSERT INTO tipo_usuario (nome_usuario) VALUES ('responsavel');
 
-/*	-	INSERTS INTO TABLE DISCIPLINA 	-	*/
-
-INSERT INTO disciplina (nome_disciplina) VALUES ('Português');
-INSERT INTO disciplina (nome_disciplina) VALUES ('Inglês');
-INSERT INTO disciplina (nome_disciplina) VALUES ('Matemática');
-INSERT INTO disciplina (nome_disciplina) VALUES ('Biologia');
-INSERT INTO disciplina (nome_disciplina) VALUES ('Ciências');
-INSERT INTO disciplina (nome_disciplina) VALUES ('Quimíca');
-INSERT INTO disciplina (nome_disciplina) VALUES ('Física');
-INSERT INTO disciplina (nome_disciplina) VALUES ('Filosofia');
-INSERT INTO disciplina (nome_disciplina) VALUES ('História');
-INSERT INTO disciplina (nome_disciplina) VALUES ('Geografia');
-INSERT INTO disciplina (nome_disciplina) VALUES ('Sociologia');
-INSERT INTO disciplina (nome_disciplina) VALUES ('Ed. Física');
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
 INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min, media_max) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', true, true, true, true, true, 5.00, 10.00);
+
+
+/*	-	INSERTS INTO TABLE DISCIPLINA 	-	*/
+
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Português', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Inglês', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Matemática', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Biologia', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Ciências', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Quimíca', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Física', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Filosofia', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('História', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Geografia', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Sociologia', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Ed. Física', 1);
 
 
 /*	-	INSERTS INTO TABLE DIRETOR	-	*/
@@ -616,7 +624,7 @@ INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuar
 INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Hector Lima', 'hector.jpg', 'hector@gestclass.com', '1234', '1994.09.27', 1);
 INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Monique Correia', 'monique.jpg', 'monique@gestclass.com', '1234', '2002.08.24', 1);
 
-/*	-	SELECTs 	-	*/
+/*	-	SELECTs 	-	
 
 SELECT * FROM turno;
 
@@ -654,4 +662,4 @@ SELECT * FROM `admin`;
 
 SELECT * FROM contato;
 
-/*DROP DATABASE GestClass;*/
+DROP DATABASE GestClass;*/
