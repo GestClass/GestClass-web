@@ -80,7 +80,6 @@
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Diretor</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
-                                    <td><?php echo $mensagens["assunto"] ?></td>
                                     <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_diretor ?>&u=<?php echo 2 ?>">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
