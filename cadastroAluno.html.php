@@ -106,19 +106,17 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col s12 m6 l4">
                     <i class="material-icons prefix blue-icon">smartphone</i>
                     <input name="celular" id="celular" placeholder="(11) 97765-3360" type="tel" data-mask="(00) 00000-0000" class="validate ">
                     <label id="lbl" for="first_name">Celular</label>
                 </div>
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col s12 m6 l4">
                     <i class="material-icons prefix blue-icon">call</i>
                     <input name="telefone" id="telefone" placeholder="(11) 4002-8922" type="tel" data-mask="(00) 0000-0000" class="validate">
                     <label id="lbl" for="first_name">Telefone</label>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 m12 l12 validate">
+                <div class="input-field col s12 m12 l4 validate">
                     <i class="material-icons prefix blue-icon">school</i>
                     <select id="selectTurma" name="turma">
                         <option value="" disabled selected>Selecione a Turma</option>
@@ -180,8 +178,6 @@
         }
     </script>
 
-    <script src="js/query-3.3.1.min.js"></script>
-    <script src="js/default.js"></script>
     <script src="js/validarCpf.js"></script>
 
     <?php require_once 'reqFooter.php' ?>

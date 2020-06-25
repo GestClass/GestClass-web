@@ -43,10 +43,10 @@
     ?>
 
 
-    <div class="container col s12 m12 l12 ">
+    <div class="container col s12 m12 l12 "><br>
         <form id="responsavel" method="POST" action="php/cadastroContas/cadastrarResponsavel.php" enctype="multipart/form-data">
             <div class="col s12 m12 l12">
-                <H5>Responsável</H5>
+                <H5>Responsável</H5><br>
                 <div class="row">
                     <div class="file-field input-field col s12 m3 l3">
                         <div id="btnfoto" class="btn col s6">
@@ -65,44 +65,44 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6 m4 l4">
-                        <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="rg_respon" id="rg" type="text" maxlength="12" placeholder="84.514.751-1" class="validate">
-                        <label id="lbl" for="icon_telephone">RG</label>
-                    </div>
-                    <div class="input-field col s6 m4 l4">
-                        <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="cpf_respon" id="cpf" type="tel" placeholder="154.258.963-22" data-mask="000.000.000-00" class="validate" onblur="TestaCPF(this)">
-                        <label id="lbl" for="icon_telephone">CPF</label>
-                    </div>
-                    <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">cake</i>
                         <input name="nascimento_respon" id="data_nascimento" placeholder="05/09/2000" type="tel" data-mask="00/00/0000" class="validate">
                         <label id="lbl">Data Nascimento</label>
                     </div>
+                    <div class="input-field col s6 m4 l4">
+                        <i class="material-icons prefix blue-icon">ballot</i>
+                        <input name="rg_respon" id="rg" type="text" maxlength="12" placeholder="84.514.751-1" class="validate">
+                        <label id="lbl" for="icon_telephone">RG</label>
+                    </div>
+                    <div class="input-field col s12 m4 l4">
+                        <i class="material-icons prefix blue-icon">ballot</i>
+                        <input name="cpf_respon" id="cpf" type="tel" placeholder="154.258.963-22" data-mask="000.000.000-00" class="validate" onblur="TestaCPF(this)">
+                        <label id="lbl" for="icon_telephone">CPF</label>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12 m3 l2">
+                    <div class="input-field col s5 m3 l2">
                         <i class="material-icons prefix blue-icon">location_on</i>
                         <input name="cep" id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
                         <label id="lbl" for="first_name">CEP</label>
                     </div>
-                    <div id="a" class="input-field col s10 m2 l2">
+                    <div  class="input-field col s7 m2 l2">
                         <input id="cidade" placeholder="Cidade" type="text" class="validate">
                         <label id="lbl" for="first_name">Cidade</label>
                     </div>
-                    <div id="a" class="input-field col s10 m2 l2">
+                    <div class="input-field col s6 m2 l2">
                         <input id="bairro" placeholder="Bairro" type="text" class="validate">
                         <label id="lbl" for="first_name">Bairro</label>
                     </div>
-                    <div id="a" class="input-field col s10 m2 l3">
+                    <div class="input-field col s6 m2 l3">
                         <input id="rua" placeholder="Rua" type="text" class="validate">
                         <label id="lbl" for="first_name">Rua</label>
                     </div>
-                    <div id="a" class="input-field col s10 m1 l1">
+                    <div class="input-field col s4 m1 l1">
                         <input name="numero" id="numero" placeholder="Nª" type="tel" class="validate ">
                         <label id="lbl" for="first_name">Nº</label>
                     </div>
-                    <div id="a" class="input-field col s10 m2 l2">
+                    <div class="input-field col s8 m2 l2">
                         <input name="complemento" id="complemento" placeholder="Complemento" type="text" class="validate ">
                         <label id="lbl" for="first_name">Complemento</label>
                     </div>
@@ -130,24 +130,22 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12 m4 l4">
+                    <div class="input-field col s6 m4 l3">
                         <i class="material-icons prefix blue-icon">smartphone</i>
                         <input name="celular_respon" id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
                         <label id="lbl" for="icon_telephone">Celular</label>
                     </div>
-                    <div class="input-field col s12 m4 l4">
+                    <div class="input-field col s6 m4 l3">
                         <i class="material-icons prefix blue-icon">call</i>
                         <input name="telefone_respon" id="telefone" type="tel" placeholder="(11) 4651-3030" data-mask="(00) 0000-0000" class="validate">
                         <label id="lbl" for="icon_telephone">Telefone</label>
                     </div>
-                    <div class="input-field col s12 m4 l4">
+                    <div class="input-field col s12 m4 l3">
                         <i class="material-icons prefix blue-icon">call</i>
                         <input name="tel_comercial" id="telefone_comercial" type="tel" placeholder="(11) 7765-3360" data-mask="(00) 0000-0000" class="validate">
                         <label id="lbl" for="icon_telephone">Telefone Comercial</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m4 l4">
+                    <div class="input-field col s12 m4 l3">
                         <i class="material-icons prefix blue-icon">monetization_on</i>
                         <select name="data_pagamento" id="data_pagamento">
                             <option value="" disabled selected>Escolha uma data</option>
@@ -183,9 +181,7 @@
         }
     </script>
 
-    <script src="js/query-3.3.1.min.js"></script>
     <script src="js/cep.js"></script>
     <script src="js/validarCpf.js"></script>
-    <script src="js/default.js"></script>
 
     <?php require_once 'reqFooter.php' ?>

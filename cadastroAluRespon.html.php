@@ -174,9 +174,7 @@
         }
     </script>
 
-    <script src="js/query-3.3.1.min.js"></script>
     <script src="js/cep.js"></script>
     <script src="js/validarCpf.js"></script>
-    <script src="js/default.js"></script>
 
     <?php require_once 'reqFooter.php' ?>
