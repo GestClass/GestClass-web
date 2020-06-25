@@ -14,7 +14,9 @@
     $id_usuario = $_SESSION["id_usuario"];
     $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
     $id_escola = $_SESSION["id_escola"];
-    
+
+    //Resgatando valor do select
+    $id_disciplina = $_POST['disciplinas'];
 
     if ($id_tipo_usuario == 2) {
         require_once 'reqDiretor.php';
@@ -24,6 +26,8 @@
         require_once 'reqProfessor.php';
     }
 
+    // Resgatando valor do input hidden
+    $id_turma = $_POST['idTurma'];
 
     ?>
 
@@ -44,13 +48,13 @@
         <div id="cadastro" class="col s12 m12 l12">
             <h4 class="center">Cadastro de Notas</h4>
             <br>
-            <?php 
-                $id_turma= $_SESSION['id_turma'];
-                $id_disciplina=$_POST['disciplinas'];
+            <?php
+
+
             ?>
             <form action="php/cadastroNotas.php" method="POST">
-                <input type="hidden" value="<?php echo $id_disciplina ?>" name="id_disciplina" />
-                <input type="hidden" value="<?php echo $id_turma ?>" name="id_turma" />
+                <input type="hidden" value="<?php echo $id_disciplina ?>" name="idDisciplina" />
+                <input type="hidden" value="<?php echo $id_turma ?>" name="idTurma" />
                 <div class="row">
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">border_color</i>
@@ -82,8 +86,6 @@
                         </th>
                     </thead>
                     <tbody>
-
-
 
                         <?php
                         // Seleciona o nome e ra do aluno para a lista de atribuições de notas  
@@ -175,7 +177,7 @@
                                         </button>
                                         <!--    Enviar o id la listagem da atividade    -->
                                         <input type="hidden" value="<?php echo $id_listagem_boletim ?>" name="id_listagem_boletim" />
-                                        <input type="hidden" value="<?php echo $nome_atividade ?>" name="nome_atividade" />                                        
+                                        <input type="hidden" value="<?php echo $nome_atividade ?>" name="nome_atividade" />
                                     </form>
                                 </div>
                             </td>

@@ -58,8 +58,9 @@ if ($nome_atividade != "") {
             $ra = $alunos2['RA'];
             // Armazenando id do boletim
             $id_boletim = $_POST[$ra . 'id_boletim'];
-
+            // Resgatar nota
             $nota = $_POST[$ra . 'nota'];
+            // resgatar observação
             $observacao = $_POST[$ra . 'observacao'];
 
             if ($nota == "") {

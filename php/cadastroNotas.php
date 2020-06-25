@@ -22,9 +22,14 @@ $id = null;
 $status = 0;
 $status2 = 0;
 
-$id_turma= $_SESSION['id_turma'];
-$id_disciplina=$_SESSION['id_disciplinas'];
-$idProfessor = $id_usuario;
+$id_turma = $_POST['idTurma'];
+$id_disciplina = $_POST['idDisciplina'];
+
+if ($id_usuario == 4) {
+    $idProfessor = $id_usuario;
+} else {
+    // para a utilização na diretoria
+}
 
 $query_listagem = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno =  $id_escola AND fk_id_turma_aluno = $id_turma");
 $query_listagem->execute();
@@ -64,7 +69,7 @@ if (($status == 0) && ($status2 == 0)) {
         $array_id_listagem = $query_select_id_listagem->fetch(PDO::FETCH_ASSOC);
         $id_listagem = $array_id_listagem['id_listagem'];
 
-        // Listr alunos
+        // Listar alunos
         $query_listagem2 = $conn->prepare("SELECT RA, nome_aluno FROM aluno WHERE fk_id_escola_aluno =  $id_escola AND fk_id_turma_aluno = $id_turma");
         $query_listagem2->execute();
 
