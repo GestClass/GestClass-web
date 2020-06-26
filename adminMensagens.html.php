@@ -70,7 +70,7 @@
                 </div>
             </form>
             <div class="input-field right">
-                <button btn="btnResposta" data-target="modal1" type="submit" class="btn-flat btnAdmin modal-trigger"><i class="material-icons">chat</i> Responder</button>
+                <button btn="btnResposta" data-target="modal1" type="submit" class="btn-flat btnAdmin modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
             </div>
             <div class="input-field left">
                 <button btn="btnResposta" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnAdmin"><i class="material-icons">arrow_back</i> Voltar</button>
@@ -113,7 +113,7 @@
                     </div>
             </form>
             <div class="input-field right">
-                <button btn="btnResposta" data-target="modal1" type="submit" class="btn-flat btnAdmin modal-trigger"><i class="material-icons">chat</i> Responder</button>
+                <button btn="btnResposta" data-target="modal1" type="submit" class="btn-flat btnAdmin modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
             </div>
             <div class="input-field left">
                 <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnAdmin"><i class="material-icons">arrow_back</i> Voltar</button>
@@ -290,7 +290,7 @@
 
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <h4>Responder Mensagem</h4><br>
+            <h4 class="center">Responder Mensagem</h4><br>
             <div id="novaMensagem">
                 <form action="php/enviarMensagem/respostaAdmin.php" method="POST">
                     <div class="row">

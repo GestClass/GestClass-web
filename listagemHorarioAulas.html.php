@@ -48,7 +48,7 @@ $nome_padrao = $array_nome_padrao['nome_padrao'];
                     <input name="nome_padrao[]" id="nome_padrao[]" value="<?php echo $nome_padrao ?>" type="text" class="validate ">
                     <label id="lbl" for="first_name">Nome do Horário</label>
                 </div>
-                <a href="php/deletarPadrao.php?nome_padrao=<?php echo $nome_padrao?>"><i class="material-icons center tooltipped" data-tooltip="Excluir Padrão" style="color:red;">delete</i></a>
+                <a href="php/deletarPadrao.php?nome_padrao=<?php echo $nome_padrao?>"><i class="material-icons center tooltipped" data-tooltip="Excluir Padrão" style="color:red;">delete_sweep</i></a>
             </div>
         </div>
         <?php

@@ -155,43 +155,24 @@
 
     <div id="modalEnviarAluno" class="modal">
         <div class="modal-content">
-            <h4>Selecione a turma do aluno</h4>
+            <h4 class="center">Selecione a turma do aluno</h4>
             <div class="input-field col s12">
                 <form action="listaAlunosMensagens.html.php" method="POST">
                     <select name="turmas">
                         <option value="" disabled selected>Selecione a Turma</option>
                         <?php
 
-                        $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
-                        $query_select_id_turma->execute();
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola ORDER BY id_turma ASC");
+                        $query_select_turma->execute();
 
-                        while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
-                            $id_turma = $dados_turma_id['ID_turma'];
-
-                            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
-                            $query_select_turma->execute();
-
-                            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
-                                $nome_turma = $dados_turma_nome['nome_turma'];
-
-                                $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
-                                $query_turno->execute();
-
-                                while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_turno = $dados_turno['fk_id_turno_turma'];
-
-                                    $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
-                                    $query_turno_nome->execute();
-
-                                    while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_turno = $dados_nome_turno['nome_turno'];
+                        while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma['id_turma'];
+                            $nome_turma = $dados_turma['nome_turma'];
+                            $nome_turno = $dados_turma['nome_turno'];
 
                         ?>
-                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                         <?php
-                                    }
-                                }
-                            }
                         }
                         ?>
                     </select>
@@ -208,7 +189,7 @@
 
     <div id="modalEnviarTurma" class="modal">
         <div class="modal-content">
-            <h4>Nova Mensagem</h4><br>
+            <h4 class="center">Nova Mensagem</h4><br>
             <div id="novaMensagem">
                 <form action="php/enviarMensagem/enviarTurmas.php" method="POST">
                     <div class="row">
@@ -218,36 +199,17 @@
 
                                 <?php
 
-                                $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
-                                $query_select_id_turma->execute();
+                                $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola ORDER BY id_turma ASC");
+                                $query_select_turma->execute();
 
-                                while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_turma = $dados_turma_id['ID_turma'];
-
-                                    $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
-                                    $query_select_turma->execute();
-
-                                    while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_turma = $dados_turma_nome['nome_turma'];
-
-                                        $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
-                                        $query_turno->execute();
-
-                                        while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
-                                            $id_turno = $dados_turno['fk_id_turno_turma'];
-
-                                            $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
-                                            $query_turno_nome->execute();
-
-                                            while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
-                                                $nome_turno = $dados_nome_turno['nome_turno'];
+                                while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                                    $id_turma = $dados_turma['id_turma'];
+                                    $nome_turma = $dados_turma['nome_turma'];
+                                    $nome_turno = $dados_turma['nome_turno'];
 
                                 ?>
-                                                <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                                    <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                                 <?php
-                                            }
-                                        }
-                                    }
                                 }
                                 ?>
                             </select>
@@ -277,7 +239,7 @@
 
     <div id="modalEnviarProfessor" class="modal">
         <div class="modal-content">
-            <h4>Nova Mensagem</h4><br>
+            <h4 class="center">Nova Mensagem</h4><br>
             <div id="novaMensagem">
                 <form action="php/enviarMensagem/profSecreDiretor.php" method="POST">
                     <div class="row">
@@ -287,23 +249,18 @@
 
                                 <?php
 
-                                $query_select_professor = $conn->prepare("SELECT ID_professor FROM professor WHERE fk_id_escola_professor = $id_escola");
-                                $query_select_professor->execute();
+                                $query_select = $conn->prepare("SELECT ID_professor,nome_professor FROM professor WHERE fk_id_escola_professor = $id_escola");
+                                $query_select->execute();
 
-                                while ($dados_professor = $query_select_professor->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_professor = $dados_professor["ID_professor"];
-
-                                    $query_select_professor = $conn->prepare("SELECT nome_professor FROM professor WHERE ID_professor = $id_professor");
-                                    $query_select_professor->execute();
-
-                                    while ($dados_professor_nome = $query_select_professor->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_professor = $dados_professor_nome["nome_professor"];
+                                while ($dados = $query_select->fetch(PDO::FETCH_ASSOC)) {
+                                    $id_professor = $dados["ID_professor"];
+                                    $nome_professor = $dados["nome_professor"];
 
                                 ?>
-                                        <option value="<?php echo $id_professor ?>"><?php echo $nome_professor; ?></option>
+                                    <option value="<?php echo $id_professor ?>"><?php echo $nome_professor; ?></option>
                                 <?php
-                                    }
-                                } ?>
+                                }
+                                ?>
                             </select>
                             <label id="lbl" for="first_name">Escolha a turma para que deseja enviar a mensagem</label>
                         </div>
@@ -331,43 +288,23 @@
 
     <div id="modalEnviarResponsavel" class="modal">
         <div class="modal-content">
-            <h4>Selecione a turma do aluno</h4>
+            <h4 class="center">Selecione a turma do aluno</h4>
             <div class="input-field col s12">
                 <form action="listaResponMensagens.html.php" method="POST">
                     <select name="turmas">
                         <option value="" disabled selected>Selecione a Turma</option>
                         <?php
 
-                        $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
-                        $query_select_id_turma->execute();
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                        $query_select_turma->execute();
 
-                        while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
-                            $id_turma = $dados_turma_id['ID_turma'];
-
-                            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
-                            $query_select_turma->execute();
-
-                            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
-                                $nome_turma = $dados_turma_nome['nome_turma'];
-
-                                $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
-                                $query_turno->execute();
-
-                                while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_turno = $dados_turno['fk_id_turno_turma'];
-
-                                    $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
-                                    $query_turno_nome->execute();
-
-                                    while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_turno = $dados_nome_turno['nome_turno'];
-
+                        while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma['id_turma'];
+                            $nome_turma = $dados_turma['nome_turma'];
+                            $nome_turno = $dados_turma['nome_turno'];
                         ?>
-                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                         <?php
-                                    }
-                                }
-                            }
                         }
                         ?>
                     </select>
@@ -384,7 +321,7 @@
 
     <div id="modalSecretaria" class="modal">
         <div class="modal-content">
-            <h4>Nova Mensagem</h4><br>
+            <h4 class="center">Nova Mensagem</h4><br>
             <div id="novaMensagem">
                 <form action="php/enviarMensagem/enviarDiretor.php" method="POST">
                     <div class="row">
@@ -409,7 +346,7 @@
 
     <div id="modalEncaminharMensagem" class="modal">
         <div class="modal-content">
-            <h4>Encaminhar Mensagem Para Todos</h4><br>
+            <h4 class="center">Encaminhar Mensagem Para Todos</h4><br>
             <div id="novaMensagem">
                 <form action="php/enviarMensagem/encaminharDiretor.php" method="POST">
                     <div class="row">
@@ -418,22 +355,16 @@
                                 <option value="" disabled selected>Selecione uma Opção</option>
                                 <?php
 
-                                $query_select_id_usuario = $conn->prepare("SELECT ID_tipo_usuario FROM tipo_usuario WHERE $id_escola ORDER BY `ID_tipo_usuario` DESC LIMIT 4");
-                                $query_select_id_usuario->execute();
+                                $query_select = $conn->prepare("SELECT ID_tipo_usuario,nome_usuario FROM tipo_usuario WHERE $id_escola ORDER BY `ID_tipo_usuario` DESC LIMIT 4");
+                                $query_select->execute();
 
-                                while ($dados_id_usuario = $query_select_id_usuario->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_usuario = $dados_id_usuario['ID_tipo_usuario'];
-
-                                    $query_select_nome_usuario = $conn->prepare("SELECT nome_usuario FROM tipo_usuario WHERE ID_tipo_usuario = $id_usuario");
-                                    $query_select_nome_usuario->execute();
-
-                                    while ($dados_nome_usuario = $query_select_nome_usuario->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_usuario = $dados_nome_usuario['nome_usuario'];
+                                while ($dados = $query_select->fetch(PDO::FETCH_ASSOC)) {
+                                    $id_usuario = $dados['ID_tipo_usuario'];
+                                    $nome_usuario = $dados['nome_usuario'];
 
                                 ?>
-                                        <option value="<?php echo $id_usuario ?>"><?php echo $nome_usuario; ?></option>
+                                    <option value="<?php echo $id_usuario ?>"><?php echo $nome_usuario; ?></option>
                                 <?php
-                                    }
                                 }
                                 ?>
                             </select>
@@ -464,7 +395,7 @@
 
     <div id="modalGestClass" class="modal">
         <div class="modal-content">
-            <h4>Mensagem Para GestClass</h4><br>
+            <h4 class="center">Mensagem Para GestClass</h4><br>
             <div id="novaMensagem">
                 <form action="php/enviarMensagem/enviarGestClass.php" method="POST">
                     <div class="row">

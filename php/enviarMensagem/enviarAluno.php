@@ -6,7 +6,7 @@ $id_usuario = $_SESSION["id_usuario"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $assunto = $_POST["assunto"];
 $mensagem = $_POST["mensagem"];
-$ra = $_SESSION["ra"];
+$ra = $_POST["ra"];
 
 //4 PROFESSOR
 //3 SECRETARIA

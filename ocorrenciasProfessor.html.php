@@ -20,10 +20,24 @@
     }
 
     $turma = $_POST['turmas'];
+
+    $query = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $turma");
+    $query->execute();
+    $dados = $query->fetch(PDO::FETCH_ASSOC);
+    $nome = $dados["nome_turma"];
+
+    if ($turma == null) {
+    ?>
+        <script>
+            alert('Por favor, escolha uma Turma!!');
+            history.back();
+        </script>
+    <?php
+    }
     ?>
 
     <div class="container col s12 m12 l12">
-    <h4>Selecione o Aluno</h4><br>
+        <h4 class="center">Turma <?php echo $nome ?></h4><br>
         <table class="striped">
             <thead>
                 <th>
@@ -57,7 +71,7 @@
                             </td>
 
                             <td>
-                                <a href="enviarOcorrencias.html.php?id=<?php echo $alunos['fk_id_responsavel_aluno']?>"><?php echo $alunos['nome_aluno']; ?></a>
+                                <a href="enviarOcorrencias.html.php?id=<?php echo $alunos['fk_id_responsavel_aluno'] ?>"><?php echo $alunos['nome_aluno']; ?></a>
                             </td>
                             <td>
                                 <?php echo $alunos['celular']; ?>

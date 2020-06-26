@@ -42,6 +42,12 @@
     }
 
     $turma = $_POST['turmas'];
+
+    $query = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $turma");
+    $query->execute();
+    $dados = $query->fetch(PDO::FETCH_ASSOC);
+    $nome = $dados["nome_turma"];
+
     if ($turma == null) {
     ?>
         <script>
@@ -54,7 +60,7 @@
     ?>
 
         <div class="container col s12 m12 l12" id="container_boletimCadastro">
-            <h3 class="center">Selecione o Aluno</h3><br><br>
+            <h4 class="center">Turma <?php echo $nome ?></h4><br>
             <table class="striped centered">
                 <thead>
                     <th>

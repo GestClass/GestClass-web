@@ -5,7 +5,7 @@ include_once '../conexao.php';
 $id_escola = $_SESSION["id_escola"];
 $id_usuario = $_SESSION["id_usuario"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
-$id_responsavel = $_SESSION["id"];
+$id_responsavel = $_SPOST["id_respon"];
 $ocorrencia = $_POST["ocorrencia"];
 $assunto = $_POST["assunto"];
 

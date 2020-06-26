@@ -136,7 +136,7 @@
 
     <div id="modalMensagem" class="modal">
         <div class="modal-content">
-            <h4>Nova Mensagem</h4><br>
+            <h4 class="center">Nova Mensagem</h4><br>
             <div id="novaMensagem">
                 <form action="php/enviarMensagem/enviarResponsavel.php" method="post">
                     <div class="row">
