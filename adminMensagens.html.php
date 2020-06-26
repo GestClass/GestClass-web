@@ -38,12 +38,12 @@
             <h4>Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">date_range</i>
                         <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="GestClass" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
@@ -53,7 +53,9 @@
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Rementente</label>
                     </div>
-                    <div class="input-field col s12 m4 l4">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
                         <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                         <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Assunto</label>
@@ -80,12 +82,12 @@
             <h4>Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">date_range</i>
                         <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="Diretor" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
@@ -95,19 +97,20 @@
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
-                    <div class="input-field col s12 m4 l4">
-                        <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
-                        <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
-                        <label id="lbl_admin" for="first_name">Assunto</label>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
+                            <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
+                            <label id="lbl_admin" for="first_name">Assunto</label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m12 l12">
-                        <i class="material-icons prefix blue-icon">mail_outline</i>
-                        <textarea name="mensagem" id="icon_prefix2" readonly class="materialize-textarea"><?php echo $dados["mensagem"] ?></textarea>
-                        <label id="lbl_admin" for="icon_prefix2">Mensagem</label>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix blue-icon">mail_outline</i>
+                            <textarea name="mensagem" id="icon_prefix2" readonly class="materialize-textarea"><?php echo $dados["mensagem"] ?></textarea>
+                            <label id="lbl_admin" for="icon_prefix2">Mensagem</label>
+                        </div>
                     </div>
-                </div>
             </form>
             <div class="input-field right">
                 <button btn="btnResposta" data-target="modal1" type="submit" class="btn-flat btnAdmin modal-trigger"><i class="material-icons">chat</i> Responder</button>
@@ -122,12 +125,12 @@
             <h4>Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">date_range</i>
                         <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="Secretario" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
@@ -137,7 +140,9 @@
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
-                    <div class="input-field col s12 m4 l4">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
                         <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                         <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Assunto</label>
@@ -161,12 +166,12 @@
             <h4>Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">date_range</i>
                         <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="Professor" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
@@ -176,7 +181,9 @@
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
-                    <div class="input-field col s12 m4 l4">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
                         <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                         <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Assunto</label>
@@ -200,12 +207,12 @@
             <h4>Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">date_range</i>
                         <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="Responsavel" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
@@ -215,7 +222,9 @@
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
-                    <div class="input-field col s12 m4 l4">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
                         <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                         <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Assunto</label>
@@ -239,12 +248,12 @@
             <h4>Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">date_range</i>
                         <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Data Mensagem</label>
                     </div>
-                    <div class="input-field col s12 m2 l2">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">assignment_ind</i>
                         <input name="assunto" id="assunto" value="Aluno" readonly type="text">
                         <label id="lbl_admin" for="first_name">Usuário</label>
@@ -254,23 +263,25 @@
                         <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
-                    <div class="input-field col s12 m4 l4">
+                </div>
+                <dic class="row ">
+                    <div class="input-field col s12 m12 l12">
                         <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                         <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Assunto</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m12 l12">
-                        <i class="material-icons prefix blue-icon">mail_outline</i>
-                        <textarea name="mensagem" id="icon_prefix2" readonly class="materialize-textarea"><?php echo $dados["mensagem"] ?></textarea>
-                        <label id="lbl_admin" for="icon_prefix2">Mensagem</label>
-                    </div>
-                </div>
-            </form>
-            <div class="input-field left">
-                <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnAdmin"><i class="material-icons">arrow_back</i> Voltar</button>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m12 l12">
+                <i class="material-icons prefix blue-icon">mail_outline</i>
+                <textarea name="mensagem" id="icon_prefix2" readonly class="materialize-textarea"><?php echo $dados["mensagem"] ?></textarea>
+                <label id="lbl_admin" for="icon_prefix2">Mensagem</label>
             </div>
+        </div>
+        </form>
+        <div class="input-field left">
+            <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnAdmin"><i class="material-icons">arrow_back</i> Voltar</button>
+        </div>
         </div>
     <?php
     }

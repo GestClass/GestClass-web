@@ -20,10 +20,10 @@ window.onload = () => {
 }
 
 // izimodal
-$("#modalLogin").iziModal({
-    transitionIn: 'comingIn',
-    transitionOut: 'fadeOut'
-})
+// $("#modalLogin").iziModal({
+//     transitionIn: 'comingIn',
+//     transitionOut: 'fadeOut'
+// })
 
 // collapsible
 $(document).ready(() => {

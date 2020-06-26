@@ -14,11 +14,11 @@ $id = $query_select->fetch(PDO::FETCH_ASSOC);
 
 // $id = implode($id_aulas);
 
-$result = count($id);
-for ($cont = 0; $cont < ($result); $cont++) {
-    echo $nome_padrao . "<br><br>";
-    echo $id[$cont] . "<br><br>";
-}
+// $result = count($id);
+// for ($cont = 0; $cont < ($result); $cont++) {
+//     echo $nome_padrao . "<br><br>";
+//     echo $id[$cont] . "<br><br>";
+// }
 
 // $id_da_grade = implode($id_grade);
 

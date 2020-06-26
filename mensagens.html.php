@@ -59,12 +59,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="GestClass" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -74,7 +74,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -103,12 +105,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Diretor" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -118,7 +120,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -147,12 +151,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Secretario" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -162,7 +166,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -191,12 +197,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Professor" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -206,7 +212,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -235,12 +243,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Responsavel" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -250,7 +258,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -279,12 +289,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Aluno" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -294,7 +304,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -324,12 +336,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="GestClass" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -339,7 +351,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -365,12 +379,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Diretor" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -380,7 +394,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -409,12 +425,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Secretario" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -424,7 +440,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -453,12 +471,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Professor" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -468,7 +486,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -497,12 +517,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Responsavel" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -512,7 +532,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -541,12 +563,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Aluno" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -556,7 +578,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -586,12 +610,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="GestClass" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -601,7 +625,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -627,12 +653,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Diretor" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -642,7 +668,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -671,12 +699,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Secretario" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -686,7 +714,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -715,12 +745,12 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Professor" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
@@ -730,7 +760,9 @@
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
-                            <div class="input-field col s12 m4 l4">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -759,24 +791,24 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Responsavel" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
                             </div>
-                            <div class="input-field col s12 m6 l6">
+                            <div class="input-field col s12 m4 l4">
                                 <i class="material-icons prefix blue-icon">perm_identity</i>
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s12 m4 l4">
+                            <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                                 <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Assunto</label>
@@ -890,17 +922,17 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Diretor" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
                             </div>
-                            <div class="input-field col s12 m6 l6">
+                            <div class="input-field col s12 m12 l4">
                                 <i class="material-icons prefix blue-icon">perm_identity</i>
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
@@ -933,17 +965,17 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Secretario" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
                             </div>
-                            <div class="input-field col s12 m6 l6">
+                            <div class="input-field col s12 m12 l4">
                                 <i class="material-icons prefix blue-icon">perm_identity</i>
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
@@ -976,17 +1008,17 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Professor" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
                             </div>
-                            <div class="input-field col s12 m6 l6">
+                            <div class="input-field col s12 m12 l4">
                                 <i class="material-icons prefix blue-icon">perm_identity</i>
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
@@ -1150,17 +1182,17 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Diretor" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
                             </div>
-                            <div class="input-field col s12 m6 l6">
+                            <div class="input-field col s12 m12 l4">
                                 <i class="material-icons prefix blue-icon">perm_identity</i>
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
@@ -1196,17 +1228,17 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Secretario" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
                             </div>
-                            <div class="input-field col s12 m6 l6">
+                            <div class="input-field col s12 m12 l4">
                                 <i class="material-icons prefix blue-icon">perm_identity</i>
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>
@@ -1242,17 +1274,17 @@
                 <form action="" method="POST">
                     <div class="modal-content">
                         <div class="row">
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Data Mensagem</label>
                             </div>
-                            <div class="input-field col s12 m2 l2">
+                            <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
                                 <input name="assunto" id="assunto" value="Professor" readonly type="text">
                                 <label id="lbl" for="first_name">Usuário</label>
                             </div>
-                            <div class="input-field col s12 m6 l6">
+                            <div class="input-field col s12 m12 l4">
                                 <i class="material-icons prefix blue-icon">perm_identity</i>
                                 <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                                 <label id="lbl" for="first_name">Rementente</label>

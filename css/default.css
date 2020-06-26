@@ -196,10 +196,12 @@ body {
     overflow: visible;
 }
 
+/*Modal mensalidades*/
 #modalMensalidades {
     max-height: 100%;
     overflow: visible;
 }
+/*fim*/
 
 #modalTurmas {
     max-height: 100%;
@@ -240,6 +242,10 @@ body {
 
 /*Modals Mensagens*/
 
+#modalGestClass {
+    max-height: 100%;
+    overflow: visible;
+}
 #modalEnviarAluno {
     max-height: 100%;
     overflow: visible;
