@@ -45,7 +45,7 @@
     ?>
 
     <div class="container">
-        <h4>Enviar mensagem ao Aluno</h4><br>
+        <h4 class="center">Enviar mensagem ao Aluno</h4><br>
         <form action="php/enviarMensagem/enviarAluno.php" method="POST">
             <div class="modal-content">
                 <div class="row">
