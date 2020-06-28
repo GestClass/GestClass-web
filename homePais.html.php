@@ -176,8 +176,8 @@ $id_escola = $_SESSION["id_escola"];
 <?php
 
 $query_mensagem = $conn->prepare("SELECT *
-  FROM responsavel AS R 
-  JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario}  ORDER BY data_mensagem DESC");
+FROM responsavel AS R 
+JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
 $query_mensagem->execute();
 $notificacao = $query_mensagem->rowCount();
 
@@ -283,7 +283,7 @@ $notificacao = $query_mensagem->rowCount();
             <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
             <li><a href="#modalFilhosGrafico" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
             <li><a href="#modalFilhosGrade" class="modal-trigger btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
-            <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
+            <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a><?php echo $notificacao?></li>
             <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
         </ul>

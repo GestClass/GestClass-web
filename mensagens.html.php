@@ -44,11 +44,14 @@
     $nome = $_GET["n"];
     $usuario_tipo = $_GET["u"];
     $id_envio = $_GET["i"];
+    $notificacao = $_GET["notificacao"];
 
     $query = $conn->prepare("SELECT `ID_mensagem`, `mensagem`, `assunto`, `data_mensagem` FROM `contato` WHERE id_mensagem = $id_mensagem");
     $query->execute();
     $dados = $query->fetch(PDO::FETCH_ASSOC);
-
+    
+    $query_update_notifi = $conn->prepare("UPDATE contato SET notificacao = {$notificacao} WHERE contato.ID_mensagem = {$id_mensagem}");
+    $query_update_notifi->execute();
 
     ?>
 
