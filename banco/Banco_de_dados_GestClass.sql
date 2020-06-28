@@ -223,6 +223,7 @@ CREATE TABLE contato (
     mensagem TEXT NOT NULL,
     assunto VARCHAR(50) NOT NULL,
     data_mensagem DATETIME NOT NULL,
+    notificacao INT NOT NULL DEFAULT '0',
     fk_envio_aluno_ra_aluno INTEGER,
     fk_envio_responsavel_id_responsavel INTEGER,
     fk_envio_professor_id_professor INTEGER,
