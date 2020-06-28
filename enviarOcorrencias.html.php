@@ -45,7 +45,7 @@
     ?>
 
     <div class="container">
-        <h4>Escreva a Ocorrência</h4><br>
+        <h4 class="center">Escreva a Ocorrência</h4><br>
         <form action="php/enviarOcorrencias/enviarOcorrencia.php" method="POST">
             <div class="modal-content">
                 <div class="row">

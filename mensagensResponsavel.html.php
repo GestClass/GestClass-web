@@ -160,6 +160,15 @@
                     } ?>
                 </tbody>
             </table>
+            <ul class="pagination center">
+                <li class="disabled"><a href="#!"><i class="material-icons" style="color: #64b5f6;">chevron_left</i></a></li>
+                <li class="active grey"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!">2</a></li>
+                <li class="waves-effect"><a href="#!">3</a></li>
+                <li class="waves-effect"><a href="#!">4</a></li>
+                <li class="waves-effect"><a href="#!">5</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons" style="color: #64b5f6;">chevron_right</i></a></li>
+            </ul>
         </div>
     </div>
 
