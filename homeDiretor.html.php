@@ -66,7 +66,7 @@ $id_escola = $_SESSION["id_escola"];
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-envelope fa-6x blue-icon"></i>
                         <h5>Mensagens</h5>
-                        <p>Envio e recebebimento de mensagens de professores, secretaria e diretores</p>
+                        <p>Envio e recebebimento de mensagens de professores, secretaria, responsáveis, alunos, turmas e admins</p>
                     </div>
                 </a>
             </div>

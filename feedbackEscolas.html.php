@@ -190,7 +190,7 @@
                                 <tr>
                                     <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
-                                    <td>Responsvel</td>
+                                    <td>Responsável</td>
                                     <td><?php echo $mensagens["assunto"]?></td>
                                     <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_responsavel ?>&u=<?php echo 6 ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">

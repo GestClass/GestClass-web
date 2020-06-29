@@ -54,9 +54,9 @@ $id_escola = $_SESSION["id_escola"];
             <div class="col s12 m4">
                 <a class="modal-trigger" href="#modalChat">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                        <i class="fas fa-comment-dots fa-6x blue-icon"></i>
+                        <i class="fas fa-envelope fa-6x blue-icon"></i>
                         <h5>Mensagens</h5>
-                        <p>Envio e recebebimento de mensagens de professores, secretaria e diretores</p>
+                        <p>Envio e recebebimento de mensagens para diretores e secretaria, e recebimento de ocorrências dos professores</p>
                     </div>
                 </a>
             </div>
@@ -162,13 +162,13 @@ $id_escola = $_SESSION["id_escola"];
                     <?php
                     }
                     ?>
-                 </select>
-                 <div class="center">
+                </select>
+                <div class="center">
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                         <i class="material-icons left">search</i>Pesquisar
                     </button>
-                </div>                
-            </form>            
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -223,8 +223,8 @@ $id_escola = $_SESSION["id_escola"];
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                         <i class="material-icons left">search</i>Pesquisar
                     </button>
-                </div>                
-            </form>            
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -259,8 +259,8 @@ $id_escola = $_SESSION["id_escola"];
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                         <i class="material-icons left">search</i>Pesquisar
                     </button>
-                </div>                
-            </form>            
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -286,7 +286,7 @@ $notificacao = $query_mensagem->rowCount();
             <li><a href="#modalFilhosGrafico" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
             <li><a href="#modalFilhosGrade" class="modal-trigger btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
             <!-- <li><a href="paginaManutencao.php" class="btn-floating yellow darken-4 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li> -->
-            <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a><?php echo $notificacao?></li>
+            <!-- <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a><?php echo $notificacao ?></li> -->
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
         </ul>
     </div>

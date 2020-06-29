@@ -39,7 +39,7 @@ $id_escola = $_SESSION["id_escola"];
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-clipboard fa-6x blue-icon"></i>
             <h5>Ocorrências</h5>
-            <p>Realização de ocorrências relatando aos pais problemas com alunos</p>
+            <p>Realização de ocorrências relatando aos responsáveis problemas com alunos</p>
           </div>
         </a>
       </div>
@@ -69,7 +69,7 @@ $id_escola = $_SESSION["id_escola"];
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-envelope fa-6x blue-icon"></i>
             <h5>Mensagens</h5>
-            <p>Envio e recebebimento de mensagens de professores, secretaria e diretores</p>
+            <p>Envio e recebebimento de mensagens de secretaria, diretores, alunos ou turmas</p>
           </div>
         </a>
       </div>

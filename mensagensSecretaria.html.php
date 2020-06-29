@@ -48,11 +48,9 @@
     $query_mensagem->execute();
     $notificacao = 1;
 
-
-
     ?>
 
-    <div class="container"><br><br><br>
+    <div class="container"><br>
         <h3 class="center">Caixa de Mensagens</h3>
         <br><br>
         <div id="mensagens">
@@ -84,11 +82,11 @@
                     ?>
                                 <tr>
                                     <td>
-                                    <?php if($notifi["notificacao"] == 0){?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php }else{?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
-                                    <?php }?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Diretor</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
@@ -114,11 +112,11 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if($notifi["notificacao"] == 0){?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php }else{?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
-                                    <?php }?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Secretario</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
@@ -144,11 +142,11 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if($notifi["notificacao"] == 0){?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php }else{?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
-                                    <?php }?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Professor</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
@@ -175,11 +173,11 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if($notifi["notificacao"] == 0){?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php }else{?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
-                                    <?php }?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Responsável</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
@@ -193,15 +191,6 @@
                     } ?>
                 </tbody>
             </table>
-            <ul class="pagination center">
-                <li class="disabled"><a href="#!"><i class="material-icons" style="color: #64b5f6;">chevron_left</i></a></li>
-                <li class="active grey"><a href="#!">1</a></li>
-                <li class="waves-effect"><a href="#!">2</a></li>
-                <li class="waves-effect"><a href="#!">3</a></li>
-                <li class="waves-effect"><a href="#!">4</a></li>
-                <li class="waves-effect"><a href="#!">5</a></li>
-                <li class="waves-effect"><a href="#!"><i class="material-icons" style="color: #64b5f6;">chevron_right</i></a></li>
-            </ul>
         </div>
     </div>
 
