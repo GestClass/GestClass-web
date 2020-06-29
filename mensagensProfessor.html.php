@@ -52,7 +52,9 @@
 
     ?>
 
-    <div class="container"><br><br><br>
+    <div class="container"><br>
+        <h3 class="center">Caixa de Mensagens</h3>
+        <br><br>
         <div id="mensagens">
             <table class="highlight centered col s12 m12 l12">
                 <thead>
