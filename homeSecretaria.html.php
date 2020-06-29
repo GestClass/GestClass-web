@@ -84,6 +84,17 @@ require_once 'reqHeader.php';
   </div>
 </div>
 
+<?php
+
+$query_mensagem = $conn->prepare("SELECT *
+FROM responsavel AS R 
+JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
+$query_mensagem->execute();
+$notificacao = $query_mensagem->rowCount();
+
+
+?>
+
 <section class="floating-buttons">
   <div class="fixed-action-btn">
     <a class="btn-floating btn-large light-blue lighten-1">
@@ -96,8 +107,9 @@ require_once 'reqHeader.php';
       <li><a href="#modalHorarioAulas" class="modal-trigger btn-floating grey tooltipped" data-position="left" data-tooltip="Cadastro Horário Aulas"><i class="material-icons">access_time</i></a></li>
       <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
       <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
-      <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-      <li><a href="mensagensSecretaria.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
+      <!-- <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li> -->
+      <li><a href="mensagensSecretaria.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a><?php echo $notificacao?></li>
+      <!-- <li><a href="" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li> -->
       <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
     </ul>
   </div>

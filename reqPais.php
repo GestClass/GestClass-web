@@ -102,11 +102,12 @@ $nome_pais = $nome[0];
                 </li>
                 <li><a href="#modalFilhosRendimento" class="modal-trigger"><i class="material-icons">trending_up</i>Rendimento Disciplinar</a></li>
                 <li><a href="#modalFilhosBoletim" class="modal-trigger"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
-                <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario
-                        Escolar</a>
                 <li><a href="emissaoBoletos.php"><i class="material-icons">attach_money</i>Financeiro</a>
                 </li>
-                <li><a href="mensagensResponsavel.html.php"><i class="material-icons">email</i>Caixa de Mensagens</a>
+                <li><a href="mensagensResponsavel.html.php"><i class="material-icons">event</i>Calendario
+                       Escolar</a>
+                </li>
+                <li><a href="calendario.html.php"><i class="material-icons">event</i>Financeiro</a>
                 </li>
                 <li>
                     <div class="divider"></div>
