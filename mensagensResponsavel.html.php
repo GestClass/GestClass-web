@@ -10,7 +10,6 @@
     <link rel="icon" href="assets/icon/logo.png" />
 
     <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/mensagensResponsavel.css" />
@@ -85,7 +84,7 @@
                                     <?php if($notifi["notificacao"] == 0){?>
                                         <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
                                     <?php }else{?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
                                     <?php }?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Diretor</td>
@@ -115,7 +114,7 @@
                                     <?php if($notifi["notificacao"] == 0){?>
                                         <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
                                     <?php }else{?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
                                     <?php }?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Secretario</td>
@@ -145,7 +144,7 @@
                                     <?php if($notifi["notificacao"] == 0){?>
                                         <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
                                     <?php }else{?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
                                     <?php }?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Professor</td>

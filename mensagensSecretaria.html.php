@@ -85,7 +85,7 @@
                                         <?php if ($notifi["notificacao"] == 0) { ?>
                                             <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
                                         <?php } else { ?>
-                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
                                         <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Diretor</td>
@@ -115,7 +115,7 @@
                                         <?php if ($notifi["notificacao"] == 0) { ?>
                                             <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
                                         <?php } else { ?>
-                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
                                         <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Secretario</td>
@@ -145,7 +145,7 @@
                                         <?php if ($notifi["notificacao"] == 0) { ?>
                                             <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
                                         <?php } else { ?>
-                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
                                         <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Professor</td>
@@ -176,7 +176,7 @@
                                         <?php if ($notifi["notificacao"] == 0) { ?>
                                             <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
                                         <?php } else { ?>
-                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_read</i>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
                                         <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Responsável</td>

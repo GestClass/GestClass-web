@@ -391,9 +391,9 @@ $id_escola = $_SESSION["id_escola"];
     </div>
 </div>
 
-<script>
+<!-- <script>
     $('#modalCadastroContas').on('shown.bs.modal', function() {
         $(window).trigger('resize');
     });
-</script>
+</script> -->
 <?php require_once 'reqFooter.php' ?>
