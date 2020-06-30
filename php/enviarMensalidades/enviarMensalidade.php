@@ -16,7 +16,7 @@ if ($boleto != "") {
     if ($id_tipo_usuario == 2) {
 
         $query_envio = $conn->prepare("INSERT INTO envio_boleto (fk_id_diretor_envio_boleto, fk_id_secretario_envio_boleto, fk_id_responsavel_recebimento_boleto, data_envio, boleto) 
-    VALUES (:id_usuario, NULL, :id_responsavel, NOW(), :boleto)");
+        VALUES (:id_usuario, NULL, :id_responsavel, NOW(), :boleto)");
 
         $query_envio->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
         $query_envio->bindParam(':id_responsavel', $id_responsavel, PDO::PARAM_INT);

@@ -11,11 +11,11 @@ $assunto = $_POST["assunto"];
 
 if (($ocorrencia != "") && ($assunto != "")) {
 
-    $inserirOcorrencia = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,fk_id_tipo_usuario_envio, 
+    $inserirOcorrencia = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
     fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
-    fk_envio_admin_id_admin, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-    fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin) 
-    VALUES (:ocorrencia, :assunto,  NOW(),:tipo_usuario, NULL,NULL,:id_usuario,NULL, NULL, NULL, NULL,:id_responsavel,NULL,NULL,NULL, NULL)");
+    fk_envio_admin_id_admin,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
+    fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin)
+    VALUES (:mensagem, :assunto,  NOW(),'0', NULL,NULL,:id_usuario,NULL, NULL, NULL,:tipo_usuario, NULL,:id_responsavel,NULL,NULL,NULL, NULL)");
 
     $inserirOcorrencia->bindParam(':ocorrencia', $ocorrencia, PDO::PARAM_STR);
     $inserirOcorrencia->bindParam(':assunto', $assunto, PDO::PARAM_STR);

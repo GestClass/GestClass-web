@@ -13,11 +13,11 @@ if (($assunto != "") && ($mensagem != "")) {
 
     if ($usuario_tipo == 1) {
         //respondendo para admin
-        $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,fk_id_tipo_usuario_envio, 
-            fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
-            fk_envio_admin_id_admin, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-            fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin) 
-            VALUES (:mensagem, :assunto,  NOW(),:tipo_usuario, NULL, NULL, NULL,NULL, NULL, :id_usuario, NULL, NULL,NULL,NULL,NULL, :destinatario)");
+        $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
+        fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
+        fk_envio_admin_id_admin,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
+        fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin) 
+        VALUES (:mensagem, :assunto,  NOW(),'0', NULL, NULL, NULL,NULL, NULL, :id_usuario, :tipo_usuario,NULL, NULL,NULL,NULL,NULL, :destinatario)");
 
         $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
         $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
@@ -37,11 +37,11 @@ if (($assunto != "") && ($mensagem != "")) {
     if ($usuario_tipo == 2) {
         //respondendo diretor
 
-        $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,fk_id_tipo_usuario_envio, 
-            fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
-            fk_envio_admin_id_admin, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-            fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin) 
-            VALUES (:mensagem, :assunto,  NOW(),:tipo_usuario, NULL, NULL, NULL,NULL, NULL, :id_usuario, NULL, NULL,NULL,:destinatario,NULL, NULL)");
+        $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
+        fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
+        fk_envio_admin_id_admin,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
+        fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin) 
+        VALUES (:mensagem, :assunto,  NOW(),'0', NULL, NULL, NULL,NULL, NULL, :id_usuario, :tipo_usuario,NULL, NULL,NULL,:destinatario,NULL, NULL)");
 
         $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
         $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
