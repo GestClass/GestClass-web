@@ -169,30 +169,29 @@
             <h4 class="center">Nova Mensagem</h4><br>
             <div id="novaMensagem">
                 <form action="php/enviarMensagem/enviarResponsavel.php" method="post">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <select name="destinatario" id="mensagemRespon">
-                                <option value="" disabled selected>Selecione uma Opção</option>
-                                <option value="1">Secretaria</option>
-                                <option value="2">Diretor</option>
-                            </select>
-                            <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
-                        </div>
+
+                    <div class="input-field col s12 m12 l12">
+                        <select name="destinatario" id="mensagemRespon">
+                            <option value="" disabled selected>Selecione uma Opção</option>
+                            <option value="1">Secretaria</option>
+                            <option value="2">Diretor</option>
+                        </select>
+                        <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
-                            <label id="lbl" for="first_name">Assunto</label>
-                        </div>
+                    <br>
+                    <div class="input-field col s12 m12 l12">
+                        <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
+                        <label id="lbl" for="first_name">Assunto</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem aqui" class="materialize-textarea"></textarea>
-                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-                        </div>
+                    <br>
+                    <div class="input-field col s12">
+                        <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem aqui" class="materialize-textarea"></textarea>
+                        <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                     </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">send</i>Enviar
+                        </button>
                     </div>
                 </form>
             </div>

@@ -34,20 +34,20 @@ $id_escola = $_SESSION["id_escola"];
                 </a>
             </div>
             <div class="col s12 m4">
-                <a href="calendario.html.php">
-                    <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                        <i class="fas fa-calendar-check fa-6x blue-icon"></i>
-                        <h5>Calendário Escolar</h5>
-                        <p>Calendário de atividades acadêmicas</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col s12 m4">
                 <a href="emissaoBoletos.html.php">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-file-invoice-dollar fa-6x blue-icon"></i>
                         <h5>Financeiro</h5>
                         <p>Emissão de segunda via de boleto</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m4">
+                <a href="calendario.html.php">
+                    <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+                        <i class="fas fa-calendar-check fa-6x blue-icon"></i>
+                        <h5>Calendário Escolar</h5>
+                        <p>Calendário de atividades acadêmicas</p>
                     </div>
                 </a>
             </div>
@@ -248,8 +248,8 @@ $notificacao = $query_mensagem->rowCount();
             <li><a href="#modalFilhosGrade" class="modal-trigger btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
             <li><a href="#modalFilhosGrafico" class="modal-trigger btn-floating gray tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
             <li><a href="boletimVisualizacao.html.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered</i></a></li>
+            <li><a href="emissaoBoletos.html.php" class="btn-floating green accent-3 tooltipped" data-position="left" data-tooltip="Financeiro"><i class="material-icons">monetization_on</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
-            <li><a href="calendario.html.php" class="btn-floating green accent-3 tooltipped" data-position="left" data-tooltip="Financeiro"><i class="material-icons">monetization_on</i></a></li>
             <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a><?php echo $notificacao ?></li>
             <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
         </ul>
