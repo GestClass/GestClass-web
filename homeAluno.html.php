@@ -39,7 +39,7 @@ $id_usuario = $_SESSION["id_usuario"];
                 </a>
             </div>
             <div class="col s12 m4">
-                <a href="paginaManutencao.php">
+                <a href="gradeCurricularExibicao.html.php">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-list-alt fa-6x blue-icon"></i>
                         <h5>Grade Escolar</h5>
@@ -57,12 +57,11 @@ $id_usuario = $_SESSION["id_usuario"];
                 </a>
             </div>
             <div class="col s12 m4">
-                <a href="paginaManutencao.php">
+                <a class="modal-trigger" href="#modalFeedback">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                        <i class="fas fa-bell fa-6x blue-icon"></i>
-                        <h5>Notificações</h5>
-                        <p>Recebimento de notificações, como a dispensa antes do horário, advertências, ocorrências,
-                            suspensões, etc..</p>
+                        <i class="fas fa-headset fa-6x blue-icon"></i>
+                        <h5>Feedback</h5>
+                        <p>Relate problemas encontrados no sistema</p>
                     </div>
                 </a>
             </div>
@@ -86,12 +85,12 @@ $notificacao = $query_mensagem->rowCount();
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
-            <li><a href="graficoRendimento.html.php" class="btn-floating gray tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">insert_chart</i></a></li>
-            <li><a href="gradeCurricularExibicao.html.php" class="btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
-            <li><a href="mensagensAluno.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a><?php echo $notificacao?></li>
+            <li><a href="graficoRendimento.html.php" class="btn-floating gray tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
             <li><a href="boletimVisualizacao.html.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
+            <li><a href="gradeCurricularExibicao.html.php" class="btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
+            <li><a href="mensagensAluno.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a><?php echo $notificacao ?></li>
+            <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
         </ul>
     </div>
 </section>
@@ -107,80 +106,14 @@ $notificacao = $query_mensagem->rowCount();
                         <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                     </div>
                 </div>
-                <div class="input-field right">
-                    <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-<div id="modalGraficos" class="modal ">
-    <div class="modal-content">
-        <h4 class="center"><i class="material-icons right">school</i>Rendimento Escolar</h4>
-        <div class="input-field col s12 validate">
-            <form action="graficoRendimento.html.php" method="POST">
-                <h5 class="center">Seleciona a matéria desejada para acompanhar o rendimento:</h5>
-                <select name="disciplinas">
-                <?php
-                     // Selecionar a turma do aluno
-                    $sql_select_id_turma = $conn->prepare("SELECT fk_id_turma_aluno FROM aluno WHERE RA = $id_usuario");
-                    // Executando
-                    $sql_select_id_turma->execute();
-                    // Armazenando array da informação
-                    $array_turma = $sql_select_id_turma->fetch(PDO::FETCH_ASSOC);
-                    // Armazenar ID turma
-                    $id_turma = $array_turma['fk_id_turma_aluno'];
-
-                    // Resgatando a turma do aluno
-                    $sql_select_turma_aluno = $conn->prepare("SELECT nome_turma, fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
-                    // Executando comando 
-                    $sql_select_turma_aluno->execute();
-                    // Armazenando nome da turma
-                    $turma_array = $sql_select_turma_aluno->fetch(PDO::FETCH_ASSOC);
-                    // Variável nome turma
-                    $nome_turma_aluno = $turma_array['nome_turma'];
-                    $id_turno = $turma_array['fk_id_turno_turma'];
-
-
-                    
-                    // Resgatar nome do turno
-                    $sql_select_nome_turno = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
-                    // Executando o comando
-                    $sql_select_nome_turno->execute();
-                    // Armazenando nome do turno
-                    $turno = $sql_select_nome_turno->fetch(PDO::FETCH_ASSOC);
-                    // Armazenando o nome em variável
-                    $nome_turno = $turno['nome_turno'];
-                    $_SESSION['nome_turno']=$nome_turno;
-                    $query_select_disciplinas = $conn->prepare("SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor AS id_disciplina, disciplina.nome_disciplina AS nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor = disciplina.ID_disciplina) WHERE disciplinas_professor.fk_id_turma_professor_disciplinas_professor = $id_turma");
-                    // Executar
-                     $query_select_disciplinas->execute();
-                        // Armazenar em um array
-                        while ($array_disciplinas = $query_select_disciplinas->fetch(PDO::FETCH_ASSOC)) {
-                            // Armazenando o nome e o id da disciplina
-                            $nome_disciplina = $array_disciplinas['nome_disciplina'];
-                            $id_disciplina = $array_disciplinas['id_disciplina'];
-                        ?>
-                            <option value="<?php echo $id_disciplina ?>"><?php echo $nome_disciplina; ?></option>
-                    <?php
-                        }
-                    
-                    ?>
-                </select>
-
-
-                <input type="hidden" name="id_disciplina" value="<?php $id_disciplina ?>" />
                 <div class="center">
                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-                        <i class="material-icons left">check</i>Acessar
+                        <i class="material-icons left">send</i>Enviar
                     </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 
 <?php require_once 'reqFooter.php' ?>

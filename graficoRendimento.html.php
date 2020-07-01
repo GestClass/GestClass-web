@@ -178,10 +178,7 @@ $bimestre4 = $array_fim_semestre['bimestre4'];
       </tbody>
     </table>
   </div>
-
-
-
-
+<br><br>
   <?php
   include_once 'reqFooter.php';
   ?>
