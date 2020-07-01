@@ -115,7 +115,7 @@
 
 
     <section class="floating-buttons">
-        <div class="fixed-action-btn">
+        <!-- <div class="fixed-action-btn">
             <a class="btn-floating btn-large indigo darken-4">
                 <i class="large material-icons">add</i>
             </a>
@@ -128,7 +128,7 @@
                 <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
                         data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
             </ul>
-        </div>
+        </div> -->
     </section>
     
 

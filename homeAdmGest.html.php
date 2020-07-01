@@ -20,7 +20,7 @@
 <body>
 
     <?php
- 
+
     require_once 'reqMenuAdm.php';
 
 
@@ -30,8 +30,8 @@
 
     <section class="section center">
         <div class="container">
-            <div class="row">
-                <div class="col s12 m4">
+            <div class="row"><br><br>
+                <div class="col s12 m3">
                     <a href="admins.html.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="far fa-user fa-6x blue-icon"></i>
@@ -40,7 +40,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col s12 m4">
+                <div class="col s12 m3">
                     <a class="modal-trigger" href="cadastroEscola.html.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="fas fa-school fa-6x blue-icon"></i>
@@ -49,7 +49,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col s12 m4">
+                <div class="col s12 m3">
                     <a href="paginaManutencao.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="fas fa-compass fa-6x blue-icon"></i>
@@ -58,7 +58,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col s12 m4">
+                <div class="col s12 m3">
                     <a href="feedbackEscolas.html.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="fas fa-envelope fa-6x blue-icon"></i>
@@ -67,7 +67,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col s12 m4">
+                <!-- <div class="col s12 m4">
                     <a href="paginaManutencao.php">
                         <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                             <i class="fas fa-bell fa-6x blue-icon"></i>
@@ -85,7 +85,7 @@
                             <p>Configurações da conta</p>
                         </div>
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -97,14 +97,10 @@
                 <i class="large material-icons">add</i>
             </a>
             <ul>
-                <li><a href="cadastroEscola.html.php" class="btn-floating black tooltipped" data-position="left"
-                        data-tooltip="Cadastro Escolas"><i class="material-icons">account_balance</i></a></li>
-                <li><a href="paginaManutencao.html" class="btn-floating yellow darken-1 tooltipped" data-position="left"
-                        data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
-                <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey darken-4 tooltipped"
-                        data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li>
-                <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left"
-                        data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
+                <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li>
+                <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
+                <li><a href="cadastroEscola.html.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Cadastro Escolas"><i class="material-icons">account_balance</i></a></li>
+                <li><a href="admins.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Admins"><i class="material-icons">perm_identity</i></a></li>
             </ul>
         </div>
     </section>

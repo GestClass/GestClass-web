@@ -52,14 +52,14 @@
                             </li>
                             <?php if(empty($dados['foto'])){?>
                             <li>
-                                <a href="perfil.html.php" class="transparent hide-on-small-only">
+                                <a href="#" class="transparent hide-on-small-only">
                                     <img class="circle icon-user" width="50px" height="50px"
                                         src="assets/imagensBanco/usuario.png">
                                 </a>
                             </li>
                             <?php }else{?>
                             <li>
-                                <a href="perfil.html.php" class="transparent hide-on-small-only">
+                                <a href="#" class="transparent hide-on-small-only">
                                     <img class="circle icon-user" width="50px" height="50px"
                                         src="assets/imagensBanco/<?php echo $dados['foto']?>">
                                 </a>
@@ -84,28 +84,28 @@
                         <!-- <img src="assets/img/slide2.png"> -->
                     </div>
                     <?php if(empty($dados['foto'])){?>
-                        <a href="perfil.html.php"><img class="circle" src="assets/imagensBanco/usuario.png"></a>
+                        <a href="#"><img class="circle" src="assets/imagensBanco/usuario.png"></a>
                     <?php }else{?>   
-                        <a href="perfil.html.php"><img class="circle" src="assets/imagensBanco/<?php echo $dados['foto']?>"></a> 
+                        <a href="#"><img class="circle" src="assets/imagensBanco/<?php echo $dados['foto']?>"></a> 
                     <?php }?>
-                    <a href="perfil.html.php"><span class="white-text name"><?php echo $nome_admin?></span></a>
-                    <a href="perfil.html.php"><span class="white-text email"><?php echo $dados['email']?></span></a>
+                    <a href="#"><span class="white-text name"><?php echo $nome_admin?></span></a>
+                    <a href="#"><span class="white-text email"><?php echo $dados['email']?></span></a>
                 </div>
             </li>
             <li><a href="homeAdmGest.html.php"><i class="material-icons">home</i>Início</a></li>
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="admins.html.php"><i class="material-icons">person</i>Admins</a></li>
+            <li><a href="admins.html.php"><i class="material-icons">perm_identity</i>Admins</a></li>
             <li><a href="cadastroEscola.html.php"><i class="material-icons">account_balance</i>Cadastro Escolas</a></li>
-            <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">explore</i>Visão Geral</a></li>
-            <li><a class="waves-effect" href="feedbackEscolas.html.php"><i class="material-icons">email</i>Intermedio</a></li>
+            <li><a class="waves-effect" href="paginaManutencao.php"><i class="material-icons">explore</i>Visão Geral</a></li>
+            <li><a class="waves-effect" href="feedbackEscolas.html.php"><i class="material-icons">mail_outline</i>Feedback Usuários</a></li>
             <li>
                 <div class="divider"></div>
             </li>
             <!-- <li><a class="subheader">Submenu</a></li> -->
-            <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
-            <li><a href="perfil.html.php"><i class="material-icons">settings</i>Configurações</a></li>
+            <!-- <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li> -->
+            <!-- <li><a href="perfil.html.php"><i class="material-icons">settings</i>Configurações</a></li> -->
             <li><a href="php/logout.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
 

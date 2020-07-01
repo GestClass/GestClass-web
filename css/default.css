@@ -196,11 +196,15 @@ body {
     overflow: visible;
 }
 
+
 /*Modal mensalidades*/
+
 #modalMensalidades {
     max-height: 100%;
     overflow: visible;
 }
+
+
 /*fim*/
 
 #modalTurmas {
@@ -246,6 +250,7 @@ body {
     max-height: 100%;
     overflow: visible;
 }
+
 #modalEnviarAluno {
     max-height: 100%;
     overflow: visible;
@@ -294,8 +299,15 @@ body {
     overflow: visible;
 }
 
-td {
+
+/* td {
     word-break: break-all;
+} */
+
+@media (max-width: 500px) {
+    td {
+        font-size: 12px;
+    }
 }
 
 

@@ -28,7 +28,9 @@
 
     ?>
 
-    <div class="container"><br><br><br>
+    <div class="container">
+    <h3 class="center">Caixa de Mensagens</h3>
+        <br>
         <div id="mensagens">
             <table class="highlight centered col s12 m12 l12">
                 <thead>
@@ -210,8 +212,8 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="enviarAdminEscola.html.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Escola"><i class="material-icons">account_balance</i></a></li>
-            <li><a href="encaminharTodasEscolas.html.php" class=" btn-floating indigo lighten-2 tooltipped" data-position="left" data-tooltip="Todas Escolas"><i class="material-icons">record_voice_over</i></a></li>
+            <li><a href="enviarAdminEscola.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Escola"><i class="material-icons">account_balance</i></a></li>
+            <li><a href="encaminharTodasEscolas.html.php" class=" btn-floating black tooltipped" data-position="left" data-tooltip="Todas Escolas"><i class="material-icons">record_voice_over</i></a></li>
             <li><a href="enviarAdmin.html.php" class="btn-floating red darken-1 tooltipped" data-position="left" data-tooltip="Admin"><i class="material-icons">perm_identity</i></a></li>
         </ul>
     </div>
