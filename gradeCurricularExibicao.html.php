@@ -24,7 +24,7 @@ if ($id_tipo_usuario == 6) {
     if ($ra == null) {
         ?>
         <script>
-            alert('aa');
+            alert('Por favor, Selecione um Filho!!');
             history.back();
         </script>
         <?php
@@ -360,4 +360,7 @@ $nome_turno = $turno['nome_turno'];
 <script src="js/default.js"></script>
 <script src="js/boletimVisualizacao.js"></script>
 
-<?php require_once 'reqFooter.php' ?>
+<?php 
+require_once 'reqFooter.php';
+
+?>

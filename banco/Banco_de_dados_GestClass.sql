@@ -625,7 +625,7 @@ INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuar
 INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Hector Lima', 'hector.jpg', 'hector@gestclass.com', '1234', '1994.09.27', 1);
 INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Monique Correia', 'monique.jpg', 'monique@gestclass.com', '1234', '2002.08.24', 1);
 
-/*	-	SELECTs 	-	
+/*	-	SELECTs 	-	*/
 
 SELECT * FROM turno;
 

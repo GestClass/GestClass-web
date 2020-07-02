@@ -49,7 +49,7 @@
     $query = $conn->prepare("SELECT `ID_mensagem`, `mensagem`, `assunto`, `data_mensagem` FROM `contato` WHERE id_mensagem = $id_mensagem");
     $query->execute();
     $dados = $query->fetch(PDO::FETCH_ASSOC);
-    
+
     $query_update_notifi = $conn->prepare("UPDATE contato SET notificacao = {$notificacao} WHERE contato.ID_mensagem = {$id_mensagem}");
     $query_update_notifi->execute();
 
@@ -94,11 +94,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -140,11 +145,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -186,11 +196,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -232,11 +247,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -278,11 +298,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -325,7 +350,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -372,7 +399,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -414,11 +443,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -460,11 +494,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -506,11 +545,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -552,11 +596,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -599,7 +648,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -646,7 +697,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -688,11 +741,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -734,11 +792,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -780,11 +843,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -827,7 +895,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -870,7 +940,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -917,7 +989,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -960,7 +1034,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1003,7 +1079,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1046,7 +1124,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1089,7 +1169,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1130,7 +1212,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1177,7 +1261,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1219,11 +1305,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1265,11 +1356,16 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">question_answer</i> Responder</button>
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1312,7 +1408,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1354,11 +1452,15 @@
                         </div>
                     </div>
                 </form>
-                <div class="input-field right">
-                    <button btn="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger"><i class="material-icons">chat</i> Responder</button>
+                <div class="input-field left">
+                    <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
+                        <i class="material-icons left">question_answer</i>Responder
+                    </button>
                 </div>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1399,7 +1501,9 @@
                     </div>
                 </form>
                 <div class="input-field left">
-                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
+                        <i class="material-icons left">arrow_back</i>Voltar
+                    </button>
                 </div>
             </div>
         <?php
@@ -1432,8 +1536,10 @@
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    <div class="input-field left">
+                        <button id="formMensagem" type="submit" class="btn-flat btnLightBlue">
+                            <i class="material-icons left">send</i>Enviar
+                        </button>
                     </div>
                 </form>
             </div>

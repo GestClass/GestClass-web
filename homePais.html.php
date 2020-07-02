@@ -38,7 +38,7 @@ $id_escola = $_SESSION["id_escola"];
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-file-invoice-dollar fa-6x blue-icon"></i>
                         <h5>Financeiro</h5>
-                        <p>Emissão de segunda via de boleto</p>
+                        <p>Baixar boletos de mensalidades disponibilizados pela escola</p>
                     </div>
                 </a>
             </div>
@@ -56,7 +56,7 @@ $id_escola = $_SESSION["id_escola"];
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-envelope fa-6x blue-icon"></i>
                         <h5>Mensagens</h5>
-                        <p>Envio e recebebimento de mensagens para diretores e secretaria, e recebimento de ocorrências dos professores</p>
+                        <p>Caixa e envio de mensagens</p>
                     </div>
                 </a>
             </div>
@@ -71,21 +71,6 @@ $id_escola = $_SESSION["id_escola"];
             </div>
         </div>
 
-    </div>
-
-    <div id="modalCadastroContas" class="modal">
-        <div class="modal-content">
-            <h4>Selecione o tipo de conta</h4>
-            <div class="input-field col s12">
-                <select id="selectConta" onchange="habilitaForm()">
-                    <option value="" disabled selected>Contas</option>
-                    <option value="1">Responsável/Aluno</option>
-                    <option value="2">Aluno</option>
-                    <option value="3">Professor</option>
-                    <option value="4">Secretaria</option>
-                </select>
-            </div>
-        </div>
     </div>
 </section>
 <div id="modalChat" class="modal ">
@@ -247,10 +232,10 @@ $notificacao = $query_mensagem->rowCount();
         <ul>
             <li><a href="#modalFilhosGrade" class="modal-trigger btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
             <li><a href="#modalFilhosGrafico" class="modal-trigger btn-floating gray tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
-            <li><a href="boletimVisualizacao.html.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered</i></a></li>
+            <li><a href="#modalFilhosBoletim" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered</i></a></li>
             <li><a href="emissaoBoletos.html.php" class="btn-floating green accent-3 tooltipped" data-position="left" data-tooltip="Financeiro"><i class="material-icons">monetization_on</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
-            <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a><?php echo $notificacao ?></li>
+            <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
             <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
         </ul>
     </div>

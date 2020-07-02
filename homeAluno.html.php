@@ -16,7 +16,7 @@ $id_usuario = $_SESSION["id_usuario"];
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-chart-line fa-6x blue-icon"></i>
                         <h5>Rendimento Disciplinar</h5>
-                        <p>Acesso presença do aluno, atividades desempenhadas e gráficos de rendimentos .</p>
+                        <p>Acesso as atividades desempenhadas em cada disciplina</p>
                     </div>
                 </a>
             </div>
@@ -42,8 +42,8 @@ $id_usuario = $_SESSION["id_usuario"];
                 <a href="gradeCurricularExibicao.html.php">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-list-alt fa-6x blue-icon"></i>
-                        <h5>Grade Escolar</h5>
-                        <p>Visualização dos horários de aulas, nome dos professores, lista de chamada</p>
+                        <h5>Grade Curricular</h5>
+                        <p>Visualização da grade de horários de aulas</p>
                     </div>
                 </a>
             </div>
@@ -52,7 +52,7 @@ $id_usuario = $_SESSION["id_usuario"];
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
                         <i class="fas fa-envelope fa-6x blue-icon"></i>
                         <h5>Mensagens</h5>
-                        <p>Recebebimento de mensagens de professores, secretaria e diretores</p>
+                        <p>Caixa de mensagens recebidas</p>
                     </div>
                 </a>
             </div>
@@ -68,17 +68,6 @@ $id_usuario = $_SESSION["id_usuario"];
         </div>
     </div>
 </section>
-
-<?php
-
-$query_mensagem = $conn->prepare("SELECT *
-FROM aluno AS A 
-JOIN contato AS C ON A.RA = C.fk_recebimento_aluno_id_aluno and A.RA = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
-$query_mensagem->execute();
-$notificacao = $query_mensagem->rowCount();
-
-?>
-
 <section class="floating-buttons">
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large light-blue lighten-1">
@@ -89,7 +78,7 @@ $notificacao = $query_mensagem->rowCount();
             <li><a href="boletimVisualizacao.html.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
             <li><a href="gradeCurricularExibicao.html.php" class="btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
-            <li><a href="mensagensAluno.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a><?php echo $notificacao ?></li>
+            <li><a href="mensagensAluno.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
             <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
         </ul>
     </div>
@@ -97,7 +86,7 @@ $notificacao = $query_mensagem->rowCount();
 
 <div id="modalFeedback" class="modal">
     <div class="modal-content">
-        <h4>Digite o Problema que occoreu</h4><br>
+        <h4 class="center">Digite o Problema que Occoreu</h4><br>
         <div id="novaMensagem">
             <form action="php/enviarMensagem/enviarFeedback.php" method="POST">
                 <div class="row">

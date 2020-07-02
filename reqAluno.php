@@ -99,16 +99,16 @@ $nome_alu = $nome[0];
                 <div class="divider"></div>
             </li>
             <li><a href="#modalGraficos" class="modal-trigger"><i class=" material-icons">trending_up</i>Rendimento Disciplinar</a></li>
-            <li><a href="boletimVisualizacao.html.php"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
-            <li><a class="waves-effect" href="calendario.html.php"><i class="material-icons">event</i>Calendario
-                    Escolar</a>
-            <li><a href="paginaManutencao.php"><i class="material-icons">list_alt</i>Grade Escolar</a>
+            <li><a href="boletimVisualizacao.html.php"><i class="material-icons">format_list_numbered_ltr</i>Boletim Escolar</a></li>
+            <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a>
+            <li><a href="paginaManutencao.php"><i class="material-icons">toc</i>Grade Curricular</a>
+            <li><a href="mensagensAluno.html.php"><i class="material-icons">email</i>Mensagens</a>
+            <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relate um Problema</a>
             </li>
 
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a href="paginaManutencao.php"><i class="material-icons">notifications</i>Notificações</a></li>
             <li><a href="php/logout.php"><i class="material-icons">input</i>Sair</a></li>
         </ul>
         <div id="modalGraficos" class="modal ">
@@ -155,4 +155,5 @@ $nome_alu = $nome[0];
                 </div>
             </div>
         </div>
+        
     </header>
