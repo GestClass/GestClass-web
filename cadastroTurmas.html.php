@@ -37,7 +37,7 @@
                 <div class="row">
                     <div class="input-field col s12 m6 l6">
                         <select name="turno">
-                            <option value="" disabled selected>Selecione o Turno</option>
+                            <option value="" disabled selected>Selecionar Turno</option>
                             <?php
 
                             $query_select_id_turno = $conn->prepare("SELECT ID_turno FROM turno WHERE $id_escola");

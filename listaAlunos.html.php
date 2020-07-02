@@ -21,12 +21,12 @@
 
     $turma = $_POST['turmas'];
     if ($turma == null) {
-        ?>
+    ?>
         <script>
-            alert('Por favor, selecione uma turma!!');
+            alert('Por Favor, Selecione uma Turma!!');
             history.back();
         </script>
-        <?php
+    <?php
     } else {
 
         $sql_select_nome_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $turma");
@@ -59,9 +59,6 @@
                     </th>
                 </thead>
                 <tbody>
-
-
-
                     <?php
                     $query_listagem = $conn->prepare('SELECT RA, nome_aluno, celular, telefone, email, cpf,fk_id_tipo_usuario_aluno FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = ' . $turma . '');
                     $query_listagem->execute();
@@ -94,7 +91,7 @@
                     } else {
                         ?>
                         <script>
-                            alert('Nenhum aluno encontrado!!')
+                            alert('Nenhum Aluno Encontrado!!')
                             //history.back()
                         </script>
                     <?php

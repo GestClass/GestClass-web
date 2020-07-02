@@ -71,7 +71,7 @@
                     </div>
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="rg_respon" id="rg" type="text" maxlength="12" placeholder="84.514.751-1" class="validate">
+                        <input name="rg_respon" id="rg" type="text" data-mask="00.000.000-0" maxlength="12" placeholder="84.514.751-1" class="validate">
                         <label id="lbl" for="icon_telephone">RG</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
@@ -86,7 +86,7 @@
                         <input name="cep" id="cep" placeholder="08574-150" type="tel" data-mask="00000-000" class="validate" onblur="pesquisacep(this.value);">
                         <label id="lbl" for="first_name">CEP</label>
                     </div>
-                    <div  class="input-field col s7 m2 l2">
+                    <div class="input-field col s7 m2 l2">
                         <input id="cidade" placeholder="Cidade" type="text" class="validate">
                         <label id="lbl" for="first_name">Cidade</label>
                     </div>
@@ -160,8 +160,9 @@
                     </div>
                 </div>
                 <div class="input-field right">
-                    <button name="btncadastrar" value="formResposavel" id="formResposavel" type="submit" class="btn-flat btnLightBlue">
-                        <i class="material-icons">send</i> Cadastrar</button>
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">send</i>Cadastrar
+                    </button>
                 </div>
             </div>
         </form>

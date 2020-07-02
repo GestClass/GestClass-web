@@ -51,7 +51,7 @@
     if ($turma == null) {
     ?>
         <script>
-            alert('Por favor, escolha uma Turma!!');
+            alert('Por Favor, Escolha uma Turma!!');
             history.back();
         </script>
     <?php
@@ -109,7 +109,7 @@
                     } else {
                         ?>
                         <script>
-                            alert('Nenhum registro encontrado!!')
+                            alert('Nenhum Registro Encontrado!!')
                             history.back()
                         </script>
                     <?php

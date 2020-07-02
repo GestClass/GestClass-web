@@ -34,72 +34,62 @@
     <h4 class="center-align">Escolas Cadastradas</h4>
 
     <?php
-        include_once 'php/conexao.php';
+    include_once 'php/conexao.php';
 
-        $query = $conn->prepare("select id_escola,nome_escola,cnpj,email from escola");
-        $query->execute();
+    $query = $conn->prepare("select id_escola,nome_escola,cnpj,email from escola");
+    $query->execute();
 
 
     ?>
 
     <section class="escolas">
-        <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) {?>
-        <div class="col s12">
-            <div class="container">
-                <ul class="collection">
-                    <li class="collection-item avatar">
-                        <img src="assets/img/atheneu.jpeg" alt="" class="circle">
-                        <span class="title"><?php echo $dados["nome_escola"] ?></span>
-                        <p><?php echo $dados["email"] ?> <br>
-                            <?php echo $dados["cnpj"] ?>
-                        </p>
-                        <?php
-            
+        <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) { ?>
+            <div class="col s12">
+                <div class="container">
+                    <ul class="collection">
+                        <li class="collection-item avatar">
+                            <img src="assets/img/atheneu.jpeg" alt="" class="circle">
+                            <span class="title"><?php echo $dados["nome_escola"] ?></span>
+                            <p><?php echo $dados["email"] ?> <br>
+                                <?php echo $dados["cnpj"] ?>
+                            </p>
+                            <?php
+
                             $id_escola = $dados["id_escola"];
                             $query_diretor = $conn->prepare("select * from diretor where fk_id_escola_diretor=$id_escola");
                             $query_diretor->execute();
                             $dados_diretor = $query_diretor->fetch(PDO::FETCH_ASSOC);
-                        ?>
-                        <?php if ($id_escola == $dados_diretor['fk_id_escola_diretor']) {?>
-                        <div class="row">
-                            <div class="col s12">
-                                <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola'];?>"
-                                    class="secondary-content" title="Dados da Escola"><i
-                                        class="material-icons blue-icon">visibility</i></a>
-                            </div>
-                            <div class="col s12">
-                                <a style="right:50px" class="secondary-content" title="Diretor cadastrado"><i
-                                        class="material-icons green-icon">done</i></a>
-                            </div>
-                            <div class="col s12">
-                                <a href="php/deletarEscola.php?id_escola=<?php echo $dados['id_escola'];?>"
-                                    style="right:80px" class="secondary-content" title="Excluir escola"><i
-                                        class="material-icons red-icon">delete</i></a>
-                            </div>
-                        </div>
-                        <?php }else{?>
-                        <div class="row">
-                            <div class="col s12">
-                                <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola'];?>"
-                                    class="secondary-content" title="Dados da Escola"><i
-                                        class="material-icons blue-icon">visibility</i></a>
-                            </div>
-                            <div class="col s12">
-                                <a style="right:50px" class="secondary-content" title="Diretor não cadastrado"><i
-                                        class="material-icons red-icon">done</i></a>
-                            </div>
-                            <div class="col s12">
-                                <a href="php/deletarEscola.php?id_escola=<?php echo $dados['id_escola'];?>"
-                                    style="right:80px" class="secondary-content" title="Excluir escola"><i
-                                        class="material-icons red-icon">delete</i></a>
-                            </div>
-                        </div>
-                        <?php }?>
-                    </li>
-                </ul>
+                            ?>
+                            <?php if ($id_escola == $dados_diretor['fk_id_escola_diretor']) { ?>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola']; ?>" class="secondary-content" title="Dados da Escola"><i class="material-icons blue-icon">visibility</i></a>
+                                    </div>
+                                    <div class="col s12">
+                                        <a style="right:50px" class="secondary-content" title="Diretor cadastrado"><i class="material-icons green-icon">done</i></a>
+                                    </div>
+                                    <div class="col s12">
+                                        <a href="php/deletarEscola.php?id_escola=<?php echo $dados['id_escola']; ?>" style="right:80px" class="secondary-content" title="Excluir escola"><i class="material-icons red-icon">delete</i></a>
+                                    </div>
+                                </div>
+                            <?php } else { ?>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola']; ?>" class="secondary-content" title="Dados da Escola"><i class="material-icons blue-icon">visibility</i></a>
+                                    </div>
+                                    <div class="col s12">
+                                        <a style="right:50px" class="secondary-content" title="Diretor não cadastrado"><i class="material-icons red-icon">done</i></a>
+                                    </div>
+                                    <div class="col s12">
+                                        <a href="php/deletarEscola.php?id_escola=<?php echo $dados['id_escola']; ?>" style="right:80px" class="secondary-content" title="Excluir escola"><i class="material-icons red-icon">delete</i></a>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <?php }?>
+        <?php } ?>
         <!-- <div class="center-align">
             <ul class="pagination">
                 <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
@@ -130,7 +120,7 @@
             </ul>
         </div> -->
     </section>
-    
+
 
 
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>

@@ -155,7 +155,8 @@
         <div class="container">
             <div class="input-field right">
                 <button id="btnFormCadEscola" type="submit" class="btn-flat btnLightDark">
-                    <i class="material-icons left">send</i>Enviar</button>
+                    <i class="material-icons left">send</i>Cadastrar
+                </button>
             </div>
         </div>
     </form>

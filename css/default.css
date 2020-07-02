@@ -357,6 +357,30 @@ body {
 }
 
 
+/* modalAlunoSelect Pais */
+
+#modalAlunoSelect {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
+/*  modalFilhosGrafico  Pais    */
+
+#modalFilhosGrafico {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
+/*  modalFilhosBoletim  Pais    */
+
+#modalFilhosBoletim {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
 /* default */
 
 

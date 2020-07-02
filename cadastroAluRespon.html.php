@@ -69,7 +69,7 @@
                 </div>
                 <div class="input-field col s6 m3 l3">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="rg" id="RG" placeholder="65.745.984-6" type="text" maxlength="12" class="validate ">
+                    <input name="rg" id="RG" placeholder="65.745.984-6" data-mask="00.000.000-0" type="text" maxlength="12" class="validate ">
                     <label id="lbl" for="first_name">RG</label>
                 </div>
                 <div class="input-field col s6 m3 l3">
@@ -155,7 +155,9 @@
                 </div>
             </div>
             <div class="input-field right">
-                <button name="btncadastrar" value="formAluno" id="formAluno" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Cadastrar</button>
+                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                    <i class="material-icons left">send</i>Cadastrar
+                </button>
             </div>
         </form>
     </div>

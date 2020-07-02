@@ -74,7 +74,7 @@
                 </div>
                 <div class="input-field col s6 m4 l2">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="rg" id="RG" placeholder="65.745.984-6" maxlength="12" type="text" class="validate ">
+                    <input name="rg" id="RG" placeholder="65.745.984-6" data-mask="00.000.000-0" maxlength="12" type="text" class="validate ">
                     <label id="lbl" for="first_name">RG</label>
                 </div>
                 <div class="input-field col s6 m6 l3">
@@ -118,49 +118,29 @@
                 </div>
                 <div class="input-field col s12 m12 l4 validate">
                     <i class="material-icons prefix blue-icon">school</i>
-                    <select id="selectTurma" name="turma">
-                        <option value="" disabled selected>Selecione a Turma</option>
+                    <select name="turma">
+                        <option value="" disabled selected>Selecionar Turma</option>
                         <?php
 
-                        $query_select_id_turma = $conn->prepare("SELECT ID_turma FROM turma WHERE $id_escola");
-                        $query_select_id_turma->execute();
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola ORDER BY id_turma ASC");
+                        $query_select_turma->execute();
 
-                        while ($dados_turma_id = $query_select_id_turma->fetch(PDO::FETCH_ASSOC)) {
-                            $id_turma = $dados_turma_id['ID_turma'];
-
-                            $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
-                            $query_select_turma->execute();
-
-                            while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
-                                $nome_turma = $dados_turma_nome['nome_turma'];
-
-                                $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
-                                $query_turno->execute();
-
-                                while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_turno = $dados_turno['fk_id_turno_turma'];
-
-                                    $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
-                                    $query_turno_nome->execute();
-
-                                    while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_turno = $dados_nome_turno['nome_turno'];
+                        while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma['id_turma'];
+                            $nome_turma = $dados_turma['nome_turma'];
+                            $nome_turno = $dados_turma['nome_turno'];
 
                         ?>
-                                        <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                         <?php
-                                    }
-                                }
-                            }
                         }
                         ?>
                     </select>
-                    <label id="lbl">Turma</label>
-                </div>
-            </div>
-            <div class="input-field right">
-                <button name="btncadastrar" value="formAluno" id="formAluno" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Cadastrar</button>
-            </div>
+                    <br><br>
+
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">send</i>Cadastrar
+                    </button>
         </form>
     </div>
 

@@ -35,9 +35,6 @@
                     Celular
                 </th>
                 <th>
-                    Telefone
-                </th>
-                <th>
                     Email
                 </th>
                 <th>
@@ -49,7 +46,7 @@
 
 
                 <?php
-                $query_listagem = $conn->prepare('SELECT  nome_professor, celular, telefone, email, cpf,fk_id_tipo_usuario_professor,ID_professor FROM professor WHERE fk_id_escola_professor = ' . $id_escola . '');
+                $query_listagem = $conn->prepare('SELECT  nome_professor, celular, email, cpf,fk_id_tipo_usuario_professor,ID_professor FROM professor WHERE fk_id_escola_professor = ' . $id_escola . '');
                 $query_listagem->execute();
 
                 if ($query_listagem->rowCount()) {
@@ -65,10 +62,6 @@
 
                             <td>
                                 <?php echo $professor['celular']; ?>
-                            </td>
-
-                            <td>
-                                <?php echo $professor['telefone']; ?>
                             </td>
 
                             <td>

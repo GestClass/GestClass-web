@@ -50,7 +50,7 @@
             <div class="modal-content">
                 <div class="row">
                     <div class="input-field col s12 m12 l12">
-                        <input type="text" name="ra" value="<?php echo $ra_aluno?>" hidden>
+                        <input type="text" name="ra" value="<?php echo $ra_aluno ?>" hidden>
                         <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
                         <label id="lbl" for="first_name">Assunto</label>
                     </div>
@@ -62,7 +62,9 @@
                     </div>
                 </div>
                 <div class="input-field right">
-                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">send</i>Enviar
+                    </button>
                 </div>
             </div>
         </form>

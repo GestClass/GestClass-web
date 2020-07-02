@@ -213,6 +213,41 @@ $id_escola = $_SESSION["id_escola"];
     </div>
 </div>
 
+<div id="modalFilhosBoletim" class="modal">
+    <div class="modal-content">
+        <div class="input-field col s12 validate">
+            <form action="boletimVisualizacao.html.php" method="POST">
+                <h4 class="center">Selecione o Filho Desejado</h4>
+                <select name="filhos">
+                    <option value="" disabled selected>Selecionar Filho</option>
+                    <?php
+
+                    $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+                    $query_select_filhos_responsavel->execute();
+                    print_r($query_select_filhos_responsavel);
+
+                    while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
+
+                        $nome_aluno = $filhos["nome_aluno"];
+                        $ra = $filhos["RA"];
+
+                    ?>
+                        <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <div class="center">
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 <?php
 
 $query_mensagem = $conn->prepare("SELECT *

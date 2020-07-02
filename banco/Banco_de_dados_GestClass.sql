@@ -134,12 +134,12 @@ CREATE TABLE secretario (
 );
 
 CREATE TABLE aluno (
-	RA INTEGER PRIMARY KEY UNIQUE,    
+	RA INTEGER PRIMARY KEY,    
     nome_aluno VARCHAR (70) NOT NULL,
     foto VARCHAR(255),
-    RG VARCHAR (12) NOT NULL UNIQUE,
-    cpf VARCHAR (14) NOT NULL UNIQUE,  
-    email VARCHAR(65) NOT NULL UNIQUE,
+    RG VARCHAR (12) NOT NULL,
+    cpf VARCHAR (14) NOT NULL,  
+    email VARCHAR(65) NOT NULL,
     senha VARCHAR(50) NOT NULL,
     celular VARCHAR(15) NOT NULL,
     telefone VARCHAR(14),
@@ -149,6 +149,9 @@ CREATE TABLE aluno (
     fk_id_tipo_usuario_aluno INTEGER NOT NULL,
     fk_id_escola_aluno INTEGER NOT NULL
 );
+
+INSERT INTO aluno (RA,nome_aluno, foto, RG, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno)
+            VALUES ('12345678', 'Eric Veludo', '', '505881238', '46535275809', 'ericveludo@hotmailc.om', '1234', '(11) 97322-3651', '(11) 4652-1596', '2002-04-07', 16, 1, '5', 1);
 
 CREATE TABLE responsavel (
 	ID_responsavel INTEGER PRIMARY KEY AUTO_INCREMENT UNIQUE,
@@ -625,7 +628,7 @@ INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuar
 INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Hector Lima', 'hector.jpg', 'hector@gestclass.com', '1234', '1994.09.27', 1);
 INSERT INTO `admin` (nome, foto, email, senha, data_nascimento, fk_id_tipo_usuario_admin) VALUES ('Monique Correia', 'monique.jpg', 'monique@gestclass.com', '1234', '2002.08.24', 1);
 
-/*	-	SELECTs 	-	*/
+/*	-	SELECTs 	-	
 
 SELECT * FROM turno;
 
