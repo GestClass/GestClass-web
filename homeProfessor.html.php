@@ -63,11 +63,21 @@ $id_escola = $_SESSION["id_escola"];
           </div>
         </a>
       </div>
+      <?php
+
+      $query_mensagem = $conn->prepare("SELECT *
+      FROM responsavel AS R 
+      JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
+      $query_mensagem->execute();
+      $notificacao = $query_mensagem->rowCount();
+
+
+      ?>
 
       <div class="col s12 m4">
         <a href="mensagensProfessor.html.php">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-            <i class="fas fa-envelope fa-6x blue-icon"></i>
+            <i class="fas fa-envelope fa-6x blue-icon"></i><span class="notifi center-align"><?php echo $notificacao ?></span>
             <h5>Mensagens</h5>
             <p>Envio e recebebimento de mensagens de secretaria, diretores, alunos ou turmas</p>
           </div>
@@ -153,16 +163,7 @@ $id_escola = $_SESSION["id_escola"];
   </div>
   </div>
 
-  <?php
 
-$query_mensagem = $conn->prepare("SELECT *
-FROM responsavel AS R 
-JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
-$query_mensagem->execute();
-$notificacao = $query_mensagem->rowCount();
-
-
-?>
 
   <section class="floating-buttons">
     <div class="fixed-action-btn">
@@ -174,6 +175,7 @@ $notificacao = $query_mensagem->rowCount();
         <li><a href="#modalTurma" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Chamada"><i class="material-icons">assignment</i></a></li>
         <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
         <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
+        <!-- <li><a href="mensagensDiretor.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li> -->
       </ul>
     </div>
   </section>

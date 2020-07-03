@@ -47,10 +47,20 @@ $id_usuario = $_SESSION["id_usuario"];
                     </div>
                 </a>
             </div>
+            <?php
+
+                $query_mensagem = $conn->prepare("SELECT *
+                FROM responsavel AS R 
+                JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
+                $query_mensagem->execute();
+                $notificacao = $query_mensagem->rowCount();
+
+
+            ?>
             <div class="col s12 m4">
                 <a href="mensagensAluno.html.php">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                        <i class="fas fa-envelope fa-6x blue-icon"></i>
+                        <i class="fas fa-envelope fa-6x blue-icon"></i><span class="notifi center-align"><?php echo $notificacao ?></span>
                         <h5>Mensagens</h5>
                         <p>Caixa de mensagens recebidas</p>
                     </div>
@@ -68,6 +78,8 @@ $id_usuario = $_SESSION["id_usuario"];
         </div>
     </div>
 </section>
+
+
 <section class="floating-buttons">
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large light-blue lighten-1">
@@ -78,7 +90,7 @@ $id_usuario = $_SESSION["id_usuario"];
             <li><a href="boletimVisualizacao.html.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
             <li><a href="gradeCurricularExibicao.html.php" class="btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
-            <li><a href="mensagensAluno.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
+            <!-- <li><a href="mensagensAluno.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li> -->
             <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
         </ul>
     </div>
