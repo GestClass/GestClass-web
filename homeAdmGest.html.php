@@ -31,36 +31,38 @@
     <section class="section center">
         <div class="container">
             <div class="row"><br><br>
-                <div class="col s12 m3">
+                <div class="col s12 m6 l6">
                     <a href="admins.html.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+                        <div class="card-panel z-depth-3 grey-text text-darken-4 hoverable card small">
                             <i class="far fa-user fa-6x blue-icon"></i>
                             <h5>Admins</h5>
                             <p>Acesso aos dados dos admins, efetuação e remoção de cadastros</p>
                         </div>
                     </a>
                 </div>
-                <div class="col s12 m3">
+                <div class="col s12 m6 l6">
                     <a class="modal-trigger" href="cadastroEscola.html.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+                        <div class="card-panel z-depth-3 grey-text text-darken-4 hoverable card small">
                             <i class="fas fa-school fa-6x blue-icon"></i>
                             <h5>Cadastro Escolas</h5>
                             <p>Cadastro de novos acessos de escolas ao aplicativo e remoção das mesmas</p>
                         </div>
                     </a>
                 </div>
-                <div class="col s12 m3">
+            </div>
+            <div class="row">
+                <div class="col s12 m6 l6">
                     <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+                        <div class="card-panel z-depth-3 grey-text text-darken-4 hoverable card small">
                             <i class="fas fa-compass fa-6x blue-icon"></i>
                             <h5>Visão geral</h5>
                             <p>Visão geral do sistema para testes</p>
                         </div>
                     </a>
                 </div>
-                <div class="col s12 m3">
+                <div class="col s12 m6 l6">
                     <a href="feedbackEscolas.html.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+                        <div class="card-panel z-depth-3 grey-text text-darken-4 hoverable card small">
                             <i class="fas fa-envelope fa-6x blue-icon"></i>
                             <h5>Feedback dos Usuários</h5>
                             <p>Intermediario entre os usuários do sistema e os administradores do sistema</p>
@@ -97,7 +99,7 @@
                 <i class="large material-icons">add</i>
             </a>
             <ul>
-                <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li>
+                <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey tooltipped" data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li>
                 <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
                 <li><a href="cadastroEscola.html.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Cadastro Escolas"><i class="material-icons">account_balance</i></a></li>
                 <li><a href="admins.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Admins"><i class="material-icons">perm_identity</i></a></li>

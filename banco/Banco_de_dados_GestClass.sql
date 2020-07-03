@@ -28,7 +28,7 @@ CREATE TABLE escola (
     CNPJ VARCHAR(18) NOT NULL UNIQUE,
     telefone VARCHAR(14) NOT NULL,
     email VARCHAR(65) NOT NULL UNIQUE,
-	data_pagamento_escola DATE NOT NULL,
+	data_pagamento_escola INTEGER NOT NULL,
     turma_bercario BOOLEAN, 
     turma_pre_escola BOOLEAN,
     turma_fundamental_I BOOLEAN,
@@ -270,135 +270,135 @@ CREATE TABLE `events` (
 
 /*	-	FOREIGN KEYs TABLE DISCIPLINA	-	*/
 
-ALTER TABLE disciplina ADD CONSTRAINT fk_id_escola_disciplina FOREIGN KEY (fk_id_escola_disciplina) REFERENCES escola (ID_escola);
+ALTER TABLE disciplina ADD CONSTRAINT fk_id_escola_disciplina FOREIGN KEY (fk_id_escola_disciplina) REFERENCES escola (ID_escola) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE TURMA	-	*/
-ALTER TABLE turma ADD CONSTRAINT fk_id_escola_turma FOREIGN KEY (fk_id_escola_turma) REFERENCES escola (ID_escola);
-ALTER TABLE turma ADD CONSTRAINT fk_id_turno_turma FOREIGN KEY (fk_id_turno_turma) REFERENCES turno (ID_turno);
+ALTER TABLE turma ADD CONSTRAINT fk_id_escola_turma FOREIGN KEY (fk_id_escola_turma) REFERENCES escola (ID_escola) ON DELETE CASCADE;
+ALTER TABLE turma ADD CONSTRAINT fk_id_turno_turma FOREIGN KEY (fk_id_turno_turma) REFERENCES turno (ID_turno) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE AULA_ESCOLA	-	*/
 
-ALTER TABLE aula_escola ADD CONSTRAINT fk_id_turno_aula_escola FOREIGN KEY (fk_id_turno_aula_escola) REFERENCES turno (ID_turno);
-ALTER TABLE aula_escola ADD CONSTRAINT fk_id_escola_aula_escola FOREIGN KEY (fk_id_escola_aula_escola) REFERENCES escola (ID_escola);
+ALTER TABLE aula_escola ADD CONSTRAINT fk_id_turno_aula_escola FOREIGN KEY (fk_id_turno_aula_escola) REFERENCES turno (ID_turno) ON DELETE CASCADE;
+ALTER TABLE aula_escola ADD CONSTRAINT fk_id_escola_aula_escola FOREIGN KEY (fk_id_escola_aula_escola) REFERENCES escola (ID_escola) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE GRADE_CURRICULAR 	-	*/
 
-ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_dia_semana_grade_curricular FOREIGN KEY (fk_id_dia_semana_grade_curricular) REFERENCES dia_semana (ID_dia_semana);
-ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_aula_escola_grade_curricular FOREIGN KEY (fk_id_aula_escola_grade_curricular) REFERENCES aula_escola (ID_aula_escola);
-ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_disciplina_grade_curricular FOREIGN KEY (fk_id_disciplina_grade_curricular) REFERENCES disciplina (ID_disciplina);
-ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_turma_grade_curricular FOREIGN KEY (fk_id_turma_grade_curricular) REFERENCES turma (ID_turma);
+ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_dia_semana_grade_curricular FOREIGN KEY (fk_id_dia_semana_grade_curricular) REFERENCES dia_semana (ID_dia_semana) ON DELETE CASCADE;
+ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_aula_escola_grade_curricular FOREIGN KEY (fk_id_aula_escola_grade_curricular) REFERENCES aula_escola (ID_aula_escola) ON DELETE CASCADE;
+ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_disciplina_grade_curricular FOREIGN KEY (fk_id_disciplina_grade_curricular) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
+ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_turma_grade_curricular FOREIGN KEY (fk_id_turma_grade_curricular) REFERENCES turma (ID_turma) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE PROFESSOR	-	*/
 
-ALTER TABLE professor ADD CONSTRAINT fk_id_tipo_usuario_professor FOREIGN KEY (fk_id_tipo_usuario_professor) REFERENCES tipo_usuario (ID_tipo_usuario);
-ALTER TABLE professor ADD CONSTRAINT fk_id_escola_professor FOREIGN KEY (fk_id_escola_professor) REFERENCES escola (ID_escola);
+ALTER TABLE professor ADD CONSTRAINT fk_id_tipo_usuario_professor FOREIGN KEY (fk_id_tipo_usuario_professor) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
+ALTER TABLE professor ADD CONSTRAINT fk_id_escola_professor FOREIGN KEY (fk_id_escola_professor) REFERENCES escola (ID_escola) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE TURMAS_PROFESSOR	-	*/
 
-ALTER TABLE turmas_professor ADD CONSTRAINT fk_id_professor_turmas_professor FOREIGN KEY (fk_id_professor_turmas_professor) REFERENCES professor (ID_professor);
-ALTER TABLE turmas_professor ADD CONSTRAINT fk_id_turma_professor_turmas_professor FOREIGN KEY (fk_id_turma_professor_turmas_professor) REFERENCES turma (ID_turma);
+ALTER TABLE turmas_professor ADD CONSTRAINT fk_id_professor_turmas_professor FOREIGN KEY (fk_id_professor_turmas_professor) REFERENCES professor (ID_professor) ON DELETE CASCADE;
+ALTER TABLE turmas_professor ADD CONSTRAINT fk_id_turma_professor_turmas_professor FOREIGN KEY (fk_id_turma_professor_turmas_professor) REFERENCES turma (ID_turma) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE DISCPLINAS_PROFESSOR	-	*/
 
-ALTER TABLE disciplinas_professor ADD CONSTRAINT fk_id_professor_disciplinas_professor FOREIGN KEY (fk_id_professor_disciplinas_professor) REFERENCES professor (ID_professor);
-ALTER TABLE disciplinas_professor ADD CONSTRAINT fk_id_disciplina_professor_disciplinas_professor FOREIGN KEY (fk_id_disciplina_professor_disciplinas_professor) REFERENCES disciplina (ID_disciplina);
-ALTER TABLE disciplinas_professor ADD CONSTRAINT fk_id_turma_professor_disciplinas_professor FOREIGN KEY (fk_id_turma_professor_disciplinas_professor) REFERENCES turma (ID_turma);
+ALTER TABLE disciplinas_professor ADD CONSTRAINT fk_id_professor_disciplinas_professor FOREIGN KEY (fk_id_professor_disciplinas_professor) REFERENCES professor (ID_professor) ON DELETE CASCADE;
+ALTER TABLE disciplinas_professor ADD CONSTRAINT fk_id_disciplina_professor_disciplinas_professor FOREIGN KEY (fk_id_disciplina_professor_disciplinas_professor) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
+ALTER TABLE disciplinas_professor ADD CONSTRAINT fk_id_turma_professor_disciplinas_professor FOREIGN KEY (fk_id_turma_professor_disciplinas_professor) REFERENCES turma (ID_turma) ON DELETE CASCADE;
 
 
 
 /*	-	FOREIGN KEYs TABLE DIRETOR	-	*/
 
-ALTER TABLE diretor ADD CONSTRAINT fk_id_tipo_usuario_diretor FOREIGN KEY (fk_id_tipo_usuario_diretor) REFERENCES tipo_usuario (ID_tipo_usuario);
-ALTER TABLE diretor ADD CONSTRAINT fk_id_escola_diretor FOREIGN KEY (fk_id_escola_diretor) REFERENCES escola (ID_escola);
+ALTER TABLE diretor ADD CONSTRAINT fk_id_tipo_usuario_diretor FOREIGN KEY (fk_id_tipo_usuario_diretor) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
+ALTER TABLE diretor ADD CONSTRAINT fk_id_escola_diretor FOREIGN KEY (fk_id_escola_diretor) REFERENCES escola (ID_escola) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE SECRETARIO	-	*/
 
-ALTER TABLE secretario ADD CONSTRAINT fk_id_tipo_usuario_secretario FOREIGN KEY (fk_id_tipo_usuario_secretario) REFERENCES tipo_usuario (ID_tipo_usuario);
-ALTER TABLE secretario ADD CONSTRAINT fk_id_escola_secretario FOREIGN KEY (fk_id_escola_secretario) REFERENCES escola (ID_escola);
+ALTER TABLE secretario ADD CONSTRAINT fk_id_tipo_usuario_secretario FOREIGN KEY (fk_id_tipo_usuario_secretario) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
+ALTER TABLE secretario ADD CONSTRAINT fk_id_escola_secretario FOREIGN KEY (fk_id_escola_secretario) REFERENCES escola (ID_escola) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE ALUNO	-	*/
 
-ALTER TABLE aluno ADD CONSTRAINT fk_id_turma_aluno FOREIGN KEY (fk_id_turma_aluno) REFERENCES turma (ID_turma);
-ALTER TABLE aluno ADD CONSTRAINT fk_id_responsavel_aluno FOREIGN KEY (fk_id_responsavel_aluno) REFERENCES responsavel (ID_responsavel);
-ALTER TABLE aluno ADD CONSTRAINT fk_id_tipo_usuario_aluno FOREIGN KEY (fk_id_tipo_usuario_aluno) REFERENCES tipo_usuario (ID_tipo_usuario);
-ALTER TABLE aluno ADD CONSTRAINT fk_id_escola_aluno FOREIGN KEY (fk_id_escola_aluno) REFERENCES escola (ID_escola);
+ALTER TABLE aluno ADD CONSTRAINT fk_id_turma_aluno FOREIGN KEY (fk_id_turma_aluno) REFERENCES turma (ID_turma) ON DELETE CASCADE;
+ALTER TABLE aluno ADD CONSTRAINT fk_id_responsavel_aluno FOREIGN KEY (fk_id_responsavel_aluno) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
+ALTER TABLE aluno ADD CONSTRAINT fk_id_tipo_usuario_aluno FOREIGN KEY (fk_id_tipo_usuario_aluno) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
+ALTER TABLE aluno ADD CONSTRAINT fk_id_escola_aluno FOREIGN KEY (fk_id_escola_aluno) REFERENCES escola (ID_escola) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE RESPONSAVEL	-	*/
 
-ALTER TABLE responsavel ADD CONSTRAINT fk_id_tipo_usuario_responsavel FOREIGN KEY (fk_id_tipo_usuario_responsavel) REFERENCES tipo_usuario (ID_tipo_usuario);
-ALTER TABLE responsavel ADD CONSTRAINT fk_id_escola_responsavel FOREIGN KEY (fk_id_escola_responsavel) REFERENCES escola (ID_escola);
+ALTER TABLE responsavel ADD CONSTRAINT fk_id_tipo_usuario_responsavel FOREIGN KEY (fk_id_tipo_usuario_responsavel) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
+ALTER TABLE responsavel ADD CONSTRAINT fk_id_escola_responsavel FOREIGN KEY (fk_id_escola_responsavel) REFERENCES escola (ID_escola) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE BOLETIM_LISTAGEM 	-	*/
 
-ALTER TABLE boletim_listagem ADD CONSTRAINT fk_id_escola_boletim_listagem FOREIGN KEY (fk_id_escola_boletim_listagem) REFERENCES escola (ID_escola);
-ALTER TABLE boletim_listagem ADD CONSTRAINT fk_id_disciplina_boletim_listagem FOREIGN KEY (fk_id_disciplina_boletim_listagem) REFERENCES disciplina (ID_disciplina);
+ALTER TABLE boletim_listagem ADD CONSTRAINT fk_id_escola_boletim_listagem FOREIGN KEY (fk_id_escola_boletim_listagem) REFERENCES escola (ID_escola) ON DELETE CASCADE;
+ALTER TABLE boletim_listagem ADD CONSTRAINT fk_id_disciplina_boletim_listagem FOREIGN KEY (fk_id_disciplina_boletim_listagem) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE BOLETIM_ALUNO	-	*/
 
-ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_disciplina_boletim_aluno FOREIGN KEY (fk_id_disciplina_boletim_aluno) REFERENCES disciplina (ID_disciplina);
-ALTER TABLE boletim_aluno ADD CONSTRAINT fk_ra_aluno_boletim_aluno FOREIGN KEY (fk_ra_aluno_boletim_aluno) REFERENCES aluno (RA);
-ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_boletim_listagem_boletim_aluno FOREIGN KEY (fk_id_boletim_listagem_boletim_aluno) REFERENCES boletim_listagem (ID_boletim_listagem);
-ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_turma_boletim_aluno FOREIGN KEY (fk_id_turma_boletim_aluno) REFERENCES turma (ID_turma);
+ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_disciplina_boletim_aluno FOREIGN KEY (fk_id_disciplina_boletim_aluno) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
+ALTER TABLE boletim_aluno ADD CONSTRAINT fk_ra_aluno_boletim_aluno FOREIGN KEY (fk_ra_aluno_boletim_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
+ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_boletim_listagem_boletim_aluno FOREIGN KEY (fk_id_boletim_listagem_boletim_aluno) REFERENCES boletim_listagem (ID_boletim_listagem) ON DELETE CASCADE;
+ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_turma_boletim_aluno FOREIGN KEY (fk_id_turma_boletim_aluno) REFERENCES turma (ID_turma) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE CHAMADA_ALUNO	-	*/
 
-ALTER TABLE chamada_aluno ADD CONSTRAINT fk_ra_aluno_chamada_aluno FOREIGN KEY (fk_ra_aluno_chamada_aluno) REFERENCES aluno (RA);
-ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_disciplina_chamada_aluno FOREIGN KEY (fk_id_disciplina_chamada_aluno) REFERENCES disciplina (ID_disciplina);
-ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_professor_chamada_aluno FOREIGN KEY (fk_id_professor_chamada_aluno) REFERENCES professor (ID_professor);
-ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_listagem_chamada_aluno FOREIGN KEY (fk_id_listagem_chamada_aluno) REFERENCES listagem_chamada(ID_listagem);
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_ra_aluno_chamada_aluno FOREIGN KEY (fk_ra_aluno_chamada_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_disciplina_chamada_aluno FOREIGN KEY (fk_id_disciplina_chamada_aluno) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_professor_chamada_aluno FOREIGN KEY (fk_id_professor_chamada_aluno) REFERENCES professor (ID_professor) ON DELETE CASCADE;
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_listagem_chamada_aluno FOREIGN KEY (fk_id_listagem_chamada_aluno) REFERENCES listagem_chamada(ID_listagem) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE LISTAGEM_CHAMADA	-	*/
 
-ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_escola_listagem_chamada FOREIGN KEY(fk_id_escola_listagem_chamada) REFERENCES escola (ID_escola);
-ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_disciplina_listagem_chamada FOREIGN KEY(fk_id_disciplina_listagem_chamada) REFERENCES disciplina (ID_disciplina);
-ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_professor_listagem_chamada FOREIGN KEY(fk_id_professor_listagem_chamada) REFERENCES professor (ID_professor);
+ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_escola_listagem_chamada FOREIGN KEY(fk_id_escola_listagem_chamada) REFERENCES escola (ID_escola) ON DELETE CASCADE;
+ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_disciplina_listagem_chamada FOREIGN KEY(fk_id_disciplina_listagem_chamada) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
+ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_professor_listagem_chamada FOREIGN KEY(fk_id_professor_listagem_chamada) REFERENCES professor (ID_professor) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE ENVIO_BOLETO	 -	*/
 
-ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_diretor_envio_boleto FOREIGN KEY (fk_id_diretor_envio_boleto) REFERENCES diretor (ID_diretor);
-ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_secretario_envio_boleto FOREIGN KEY (fk_id_secretario_envio_boleto) REFERENCES secretario (ID_secretario);
-ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOREIGN KEY (fk_id_responsavel_recebimento_boleto) REFERENCES responsavel (ID_responsavel);
+ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_diretor_envio_boleto FOREIGN KEY (fk_id_diretor_envio_boleto) REFERENCES diretor (ID_diretor) ON DELETE CASCADE;
+ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_secretario_envio_boleto FOREIGN KEY (fk_id_secretario_envio_boleto) REFERENCES secretario (ID_secretario) ON DELETE CASCADE;
+ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOREIGN KEY (fk_id_responsavel_recebimento_boleto) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE CONTATO	-	*/
 
-ALTER TABLE contato ADD CONSTRAINT fk_id_tipo_usuario_envio FOREIGN KEY (fk_id_tipo_usuario_envio) REFERENCES tipo_usuario (ID_tipo_usuario);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_aluno_ra_aluno FOREIGN KEY (fk_envio_aluno_ra_aluno) REFERENCES aluno (RA);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_responsavel_id_responsavel FOREIGN KEY (fk_envio_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_professor_id_professor FOREIGN KEY (fk_envio_professor_id_professor) REFERENCES professor (ID_professor);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_diretor_id_diretor FOREIGN KEY (fk_envio_diretor_id_diretor) REFERENCES diretor (ID_diretor);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_secretario_id_secretario FOREIGN KEY (fk_envio_secretario_id_secretario) REFERENCES secretario (ID_secretario);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_admin_id_admin FOREIGN KEY (fk_envio_admin_id_admin) REFERENCES `admin` (ID_admin);
-ALTER TABLE contato ADD CONSTRAINT fk_recebimento_aluno_ra_aluno FOREIGN KEY (fk_recebimento_aluno_ra_aluno) REFERENCES aluno (RA);
-ALTER TABLE contato ADD CONSTRAINT fk_recebimento_responsavel_id_responsavel FOREIGN KEY (fk_recebimento_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel);
-ALTER TABLE contato ADD CONSTRAINT fk_recebimento_professor_id_professor FOREIGN KEY (fk_recebimento_professor_id_professor) REFERENCES professor (ID_professor);
-ALTER TABLE contato ADD CONSTRAINT fk_recebimento_diretor_id_diretor FOREIGN KEY (fk_recebimento_diretor_id_diretor) REFERENCES diretor (ID_diretor);
-ALTER TABLE contato ADD CONSTRAINT fk_recebimento_secretario_id_secretario FOREIGN KEY (fk_recebimento_secretario_id_secretario) REFERENCES secretario (ID_secretario);
-ALTER TABLE contato ADD CONSTRAINT fk_recebimento_admin_id_admin FOREIGN KEY (fk_recebimento_admin_id_admin) REFERENCES `admin` (ID_admin);
+ALTER TABLE contato ADD CONSTRAINT fk_id_tipo_usuario_envio FOREIGN KEY (fk_id_tipo_usuario_envio) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_aluno_ra_aluno FOREIGN KEY (fk_envio_aluno_ra_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_responsavel_id_responsavel FOREIGN KEY (fk_envio_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_professor_id_professor FOREIGN KEY (fk_envio_professor_id_professor) REFERENCES professor (ID_professor) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_diretor_id_diretor FOREIGN KEY (fk_envio_diretor_id_diretor) REFERENCES diretor (ID_diretor) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_secretario_id_secretario FOREIGN KEY (fk_envio_secretario_id_secretario) REFERENCES secretario (ID_secretario) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_admin_id_admin FOREIGN KEY (fk_envio_admin_id_admin) REFERENCES `admin` (ID_admin) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_recebimento_aluno_ra_aluno FOREIGN KEY (fk_recebimento_aluno_ra_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_recebimento_responsavel_id_responsavel FOREIGN KEY (fk_recebimento_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_recebimento_professor_id_professor FOREIGN KEY (fk_recebimento_professor_id_professor) REFERENCES professor (ID_professor) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_recebimento_diretor_id_diretor FOREIGN KEY (fk_recebimento_diretor_id_diretor) REFERENCES diretor (ID_diretor) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_recebimento_secretario_id_secretario FOREIGN KEY (fk_recebimento_secretario_id_secretario) REFERENCES secretario (ID_secretario) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_recebimento_admin_id_admin FOREIGN KEY (fk_recebimento_admin_id_admin) REFERENCES `admin` (ID_admin) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE DATAS_FIM_BIMESTRES	- 	*/
 
-ALTER TABLE datas_fim_bimestres ADD CONSTRAINT fk_id_escola_datas_fim_bimestres FOREIGN KEY (fk_id_escola_datas_fim_bimestres) REFERENCES escola (ID_escola);
+ALTER TABLE datas_fim_bimestres ADD CONSTRAINT fk_id_escola_datas_fim_bimestres FOREIGN KEY (fk_id_escola_datas_fim_bimestres) REFERENCES escola (ID_escola) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE ADMIN	-	*/
 
-ALTER TABLE `admin` ADD CONSTRAINT fk_id_tipo_usuario_admin FOREIGN KEY (fk_id_tipo_usuario_admin) REFERENCES tipo_usuario (ID_tipo_usuario);
+ALTER TABLE `admin` ADD CONSTRAINT fk_id_tipo_usuario_admin FOREIGN KEY (fk_id_tipo_usuario_admin) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
 
 /*	-	INSERTS INTO TABLE TIPO_TURMA 	-	*/
     
@@ -418,7 +418,7 @@ INSERT INTO tipo_usuario (nome_usuario) VALUES ('responsavel');
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
-INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min, media_max) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '2020-03-22', true, true, true, true, true, 5.00, 10.00);
+INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min, media_max) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '05', true, true, true, true, true, 5.00, 10.00);
 
 
 /*	-	INSERTS INTO TABLE DISCIPLINA 	-	*/

@@ -25,7 +25,7 @@
     <form id="adicionarEscola" class="col s12" method="POST" action="php/cadastrarEscola.php">
         <div class="col s12 m12 l12">
             <div class="container">
-                <h5>Formulario de atualização de dados</h5><br>
+                <h4 class="center">Formulario de atualização de dados</h4><br><br><br>
                 <div class="row">
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">account_balance</i>

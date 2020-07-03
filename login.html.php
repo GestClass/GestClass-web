@@ -31,7 +31,7 @@
           <form action="php/login.php" method="post" autocomplete="off">
             <h4>Faça seu login</h4>
             <div class="input-field">
-              <input name="emailLogin" type="email" placeholder="Email" class="inputDark">
+              <input name="emailLogin" type="email" placeholder="Email" class="inputDark" autofocus="true">
             </div>
             <div class="input-field right-align">
               <input name="senhaLogin" type="password" placeholder="Senha" class="inputDark">

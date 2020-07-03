@@ -100,10 +100,11 @@
                                 <div class="input-field col s12 m12 l12 ">
                                     <div class="col s4 m4 l3 ">
                                         <label for="first_name">Tipo de turma</label>
+                                        <br><br>
                                     </div>
                                     <div class="col s8 m8 l12 ">
                                         <div class="row">
-                                            <div class="col l4">
+                                            <div class="col l3">
                                                 <!-- TURMA BERÇARIO CONDIÇÃO -->
                                                 <?php if ($dados['turma_bercario'] == 1) { ?>
                                                     <label class="left">
@@ -113,11 +114,12 @@
                                                 <?php } else { ?>
                                                     <label class="left">
                                                         <input id="fk_id_tipos_turma_bercario" type="checkbox" class="filled-in checkbox-blue-grey" name="chk1" value="1" />
-                                                        <span>Berçario&nbsp;&nbsp;</span>
+                                                        <span>Berçario</span>
                                                     </label>
                                                 <?php } ?>
                                                 <!-- FIM CONDIÇÃO -->
-
+                                            </div>
+                                            <div class="col l3">
                                                 <!-- TURMA PRÉ ESCOLA CONDIÇÃO -->
                                                 <?php if ($dados['turma_pre_escola'] == 1) { ?>
                                                     <label class="left">
@@ -132,7 +134,7 @@
                                                 <?php } ?>
                                                 <!-- FIM CONDIÇÃO -->
                                             </div>
-                                            <div class="col  l4">
+                                            <div class="col  l3">
                                                 <!-- TURMA FUNDAMENTAL I CONDIÇÃO -->
                                                 <?php if ($dados['turma_fundamental_I'] == 1) { ?>
                                                     <label class="left">
@@ -146,22 +148,22 @@
                                                     </label>
                                                 <?php } ?>
                                                 <!-- FIM CONDIÇÃO -->
-
+                                            
                                                 <!-- TURMA FUNDAMENTAL II CONDIÇÃO -->
                                                 <?php if ($dados['turma_fundamental_II'] == 1) { ?>
                                                     <label class="left">
                                                         <input id="fk_id_tipos_turma_fundamental_II" type="checkbox" class="filled-in checkbox-blue-grey" name="chk4" value="1" checked />
-                                                        <span>FundamentalII</span>
+                                                        <span>Fundamental II</span>
                                                     </label>
                                                 <?php } else { ?>
                                                     <label class="left">
                                                         <input id="fk_id_tipos_turma_fundamental_II" type="checkbox" class="filled-in checkbox-blue-grey" name="chk4" value="1" />
-                                                        <span>FundamentalII</span>
+                                                        <span>Fundamental II</span>
                                                     </label>
                                                 <?php } ?>
                                                 <!-- FIM CONDIÇÃO -->
                                             </div>
-                                            <div class="col l4">
+                                            <div class="col l3">
                                                 <!-- TURMA ENSINO MEDIO CONDIÇÃO -->
                                                 <?php if ($dados['turma_medio'] == 1) { ?>
                                                     <label class="left">
@@ -198,7 +200,7 @@
                     </div>
                     <div class="input-field right">
                         <button id="btnFormCadEscola" type="submit" class="btn-flat btnLightDark">
-                            <i class="material-icons left">send</i>Enviar</button>
+                            <i class="material-icons left">send</i>Alterar</button>
                     </div>
                 </div>
             </form>
