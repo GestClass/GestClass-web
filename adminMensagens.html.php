@@ -268,24 +268,24 @@
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
                 </div>
-                <dic class="row ">
+                <div class="row">
                     <div class="input-field col s12 m12 l12">
                         <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                         <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Assunto</label>
                     </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12 m12 l12">
-                <i class="material-icons prefix blue-icon">mail_outline</i>
-                <textarea name="mensagem" id="icon_prefix2" readonly class="materialize-textarea"><?php echo $dados["mensagem"] ?></textarea>
-                <label id="lbl_admin" for="icon_prefix2">Mensagem</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix blue-icon">mail_outline</i>
+                        <textarea name="mensagem" id="icon_prefix2" readonly class="materialize-textarea"><?php echo $dados["mensagem"] ?></textarea>
+                        <label id="lbl_admin" for="icon_prefix2">Mensagem</label>
+                    </div>
+                </div>
+            </form>
+            <div class="input-field left">
+                <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnAdmin"><i class="material-icons">arrow_back</i> Voltar</button>
             </div>
-        </div>
-        </form>
-        <div class="input-field left">
-            <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnAdmin"><i class="material-icons">arrow_back</i> Voltar</button>
-        </div>
         </div>
     <?php
     }
