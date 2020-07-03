@@ -59,24 +59,24 @@
                     </div>
                     <div class="input-field col s12 m9 l9">
                         <i class="material-icons prefix blue-icon">account_circle</i>
-                        <input name="nome_respon" id="nome_responsavel" type="tel" placeholder="Nome Responsável" class="validate">
+                        <input name="nome" id="nome" type="tel" placeholder="Nome Responsável" class="validate">
                         <label id="lbl" for="icon_telephone">Nome</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">cake</i>
-                        <input name="nascimento_respon" id="data_nascimento" placeholder="05/09/2000" type="tel" data-mask="00/00/0000" class="validate">
+                        <input name="nascimento" id="data" placeholder="05/09/2000" type="tel" data-mask="00/00/0000" class="validate">
                         <label id="lbl">Data Nascimento</label>
                     </div>
                     <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="rg_respon" id="rg" type="text" data-mask="00.000.000-0" maxlength="12" placeholder="84.514.751-1" class="validate">
+                        <input name="rg" id="rg" type="text" maxlength="12" placeholder="84.514.751-1" class="validate">
                         <label id="lbl" for="icon_telephone">RG</label>
                     </div>
                     <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="cpf_respon" id="cpf" type="tel" placeholder="154.258.963-22" data-mask="000.000.000-00" class="validate" onblur="TestaCPF(this)">
+                        <input name="cpf" id="cpf" type="tel" placeholder="154.258.963-22" data-mask="000.000.000-00" class="validate" onblur="TestaCPF(this)">
                         <label id="lbl" for="icon_telephone">CPF</label>
                     </div>
                 </div>
@@ -110,17 +110,17 @@
                 <div class="row">
                     <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">alternate_email</i>
-                        <input name="email_respon" id="email" type="email" placeholder="gestclass@enterprise.com" class="validate">
+                        <input name="email" id="email" type="email" placeholder="gestclass@enterprise.com" class="validate">
                         <label id="lbl" for="icon_telephone">Email</label>
                         <span class="helper-text" data-error="Ex: gestclass@enterprise.com" data-success="right"></span>
                     </div>
                     <div class="input-field col s12 m3 l3">
                         <i class="material-icons prefix blue-icon">security</i>
-                        <input name="senha_respon" id="senha" type="password" placeholder="******" class="validate">
+                        <input name="senha" id="senha" type="password" placeholder="******" class="validate">
                         <label id="lbl" for="icon_telephone">Senha</label>
                     </div>
                     <div id="a" class="input-field col s10 m3 l3">
-                        <input name="confsenha_respon" id="confsenha" type="password" placeholder="******" class="validate" onblur="validarSenha()">
+                        <input name="confsenha" id="confsenha" type="password" placeholder="******" class="validate" onblur="validarSenha()">
                         <label id="lbl" for="icon_telephone">Confirma Senha</label>
                     </div>
                     <div class="input-field col s12 m2 l2">
@@ -132,12 +132,12 @@
                 <div class="row">
                     <div class="input-field col s6 m4 l3">
                         <i class="material-icons prefix blue-icon">smartphone</i>
-                        <input name="celular_respon" id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
+                        <input name="celular" id="celular" type="tel" placeholder="(11) 97765-3360" data-mask="(00) 00000-0000" class="validate">
                         <label id="lbl" for="icon_telephone">Celular</label>
                     </div>
                     <div class="input-field col s6 m4 l3">
                         <i class="material-icons prefix blue-icon">call</i>
-                        <input name="telefone_respon" id="telefone" type="tel" placeholder="(11) 4651-3030" data-mask="(00) 0000-0000" class="validate">
+                        <input name="telefone" id="telefone" type="tel" placeholder="(11) 4651-3030" data-mask="(00) 0000-0000" class="validate">
                         <label id="lbl" for="icon_telephone">Telefone</label>
                     </div>
                     <div class="input-field col s12 m4 l3">

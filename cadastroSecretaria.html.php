@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="rg" id="rg" type="text" placeholder="62.548.678-7" data-mask="00.000.000-0" maxlength="12" class="validate">
+                    <input name="rg" id="rg" type="text" placeholder="62.548.678-7" maxlength="12" class="validate">
                     <label id="lbl" for="icon_telephone">RG</label>
                 </div>
                 <div class="input-field col s6 m6 l6">
@@ -105,7 +105,7 @@
                     <i class="material-icons prefix blue-icon">alternate_email</i>
                     <input name="email" id="email" type="email" placeholder="gestclass@enterprise.com" class="validate">
                     <label id="lbl" for="icon_telephone">Email</label>
-                    <span class="helper-text" data-error="Ex: gestclass@enterprise.com" data-success="right"></span>
+                    <span class="helper-text" data-error="Ex: gestclass@enterprise.com" data-success=""></span>
                 </div>
                 <div class="input-field col s12 m4 l4">
                     <i class="material-icons prefix blue-icon">security</i>

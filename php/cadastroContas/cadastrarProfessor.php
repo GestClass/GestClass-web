@@ -84,7 +84,6 @@ if (($nome != "") && ($rg != "") && ($cpf != "") && ($cep != "") && ($numero != 
       $query_insert->bindParam(':celular', $celular, PDO::PARAM_STR);
       $query_insert->bindParam(':telefone', $telefone, PDO::PARAM_STR);
       $query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
-
       $query_insert->execute();
 
       if ($query_insert->rowCount()) {

@@ -31,7 +31,7 @@ function TestaCPF(elemento) {
         rev = 0;
     if (rev != parseInt(cpf.charAt(9)))
         return M.toast({
-                html: 'Formato de CEP inválido',
+                html: 'Formato de CPF inválido',
                 classes: 'rounded'
             })
             // Valida 2o digito 

@@ -96,6 +96,7 @@ if (($rastro != "") && ($nome != "") && ($rg != "") && ($cpf != "") && ($nascime
 			$query_insert->bindParam(':turma', $turma, PDO::PARAM_INT);
 			$query_insert->bindParam(':id_responsavel', $id_responsavel, PDO::PARAM_INT);
 			$query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
+			$query_insert->execute();
 
 			if ($query_insert->rowCount()) {
 
