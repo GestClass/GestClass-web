@@ -100,11 +100,6 @@
                         <i class="material-icons left">question_answer</i>Responder
                     </button>
                 </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
-                    </button>
-                </div>
             </div>
         <?php
         } elseif ($usuario_tipo == 2) { ?>
@@ -151,11 +146,7 @@
                         <i class="material-icons left">question_answer</i>Responder
                     </button>
                 </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
-                    </button>
-                </div>
+
             </div>
         <?php
         } elseif ($usuario_tipo == 3) { ?>
@@ -200,11 +191,6 @@
                 <div class="input-field right">
                     <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
                         <i class="material-icons left">question_answer</i>Responder
-                    </button>
-                </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
                     </button>
                 </div>
             </div>
@@ -253,11 +239,7 @@
                         <i class="material-icons left">question_answer</i>Responder
                     </button>
                 </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
-                    </button>
-                </div>
+
             </div>
         <?php
         } elseif ($usuario_tipo == 6) { ?>
@@ -302,11 +284,6 @@
                 <div class="input-field right">
                     <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
                         <i class="material-icons left">question_answer</i>Responder
-                    </button>
-                </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
                     </button>
                 </div>
             </div>
@@ -449,11 +426,6 @@
                         <i class="material-icons left">question_answer</i>Responder
                     </button>
                 </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
-                    </button>
-                </div>
             </div>
         <?php
         } elseif ($usuario_tipo == 3) { ?>
@@ -498,11 +470,6 @@
                 <div class="input-field right">
                     <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
                         <i class="material-icons left">question_answer</i>Responder
-                    </button>
-                </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
                     </button>
                 </div>
             </div>
@@ -551,11 +518,6 @@
                         <i class="material-icons left">question_answer</i>Responder
                     </button>
                 </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
-                    </button>
-                </div>
             </div>
         <?php
         } elseif ($usuario_tipo == 6) { ?>
@@ -600,11 +562,6 @@
                 <div class="input-field right">
                     <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
                         <i class="material-icons left">question_answer</i>Responder
-                    </button>
-                </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
                     </button>
                 </div>
             </div>
@@ -747,11 +704,6 @@
                         <i class="material-icons left">question_answer</i>Responder
                     </button>
                 </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
-                    </button>
-                </div>
             </div>
         <?php
         } elseif ($usuario_tipo == 3) { ?>
@@ -798,11 +750,6 @@
                         <i class="material-icons left">question_answer</i>Responder
                     </button>
                 </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
-                    </button>
-                </div>
             </div>
         <?php
         } elseif ($usuario_tipo == 4) { ?>
@@ -847,11 +794,6 @@
                 <div class="input-field right">
                     <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
                         <i class="material-icons left">question_answer</i>Responder
-                    </button>
-                </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
                     </button>
                 </div>
             </div>
@@ -1311,11 +1253,6 @@
                         <i class="material-icons left">question_answer</i>Responder
                     </button>
                 </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
-                    </button>
-                </div>
             </div>
         <?php
         } elseif ($usuario_tipo == 3) { ?>
@@ -1360,11 +1297,6 @@
                 <div class="input-field right">
                     <button id="btncadastrar" data-target="modal1" type="submit" class="btn-flat btnLightBlue modal-trigger">
                         <i class="material-icons left">question_answer</i>Responder
-                    </button>
-                </div>
-                <div class="input-field left">
-                    <button id="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" class="btn-flat btnLightBlue center" onclick="history.go(-1)">
-                        <i class="material-icons left">arrow_back</i>Voltar
                     </button>
                 </div>
             </div>
