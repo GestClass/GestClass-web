@@ -25,6 +25,7 @@
     FROM `admin` AS R 
     JOIN contato AS C ON R.ID_admin = C.fk_recebimento_admin_id_admin and R.ID_admin = {$id_usuario}  ORDER BY data_mensagem DESC");
     $query_mensagem->execute();
+    $notificacao = 1;
 
     ?>
 
@@ -49,16 +50,25 @@
 
                             $query_admin = $conn->prepare("SELECT nome,ID_admin FROM `admin` WHERE ID_admin = $dados_admin");
                             $query_admin->execute();
+                            
+                            $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
+                            $query_notificacao->execute();
+                            $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
 
                             while ($admin = $query_admin->fetch(PDO::FETCH_ASSOC)) {
                                 $nome = $admin["nome"];
                     ?>
                                 <tr>
-                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                    <td>
+                                    <?php if ($notifi["notificacao"] == 0) { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                    <?php } else { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                    <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td><?php echo $nome?></td>
                                     <td><?php echo $mensagens["assunto"]?></td>
-                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_admin ?>&u=<?php echo 1 ?>" class="modal-trigger">
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_admin ?>&u=<?php echo 1 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
@@ -69,6 +79,10 @@
 
                             $query_diretor = $conn->prepare("SELECT ID_diretor,nome_diretor,fk_id_escola_diretor FROM diretor WHERE ID_diretor = $dados_diretor");
                             $query_diretor->execute();
+
+                            $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
+                            $query_notificacao->execute();
+                            $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
 
                             while ($diretor_dados = $query_diretor->fetch(PDO::FETCH_ASSOC)) {
                                 $id_escola = $diretor_dados["fk_id_escola_diretor"];
@@ -81,11 +95,16 @@
                                 }
                             ?>
                                 <tr>
-                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                    <td>
+                                    <?php if ($notifi["notificacao"] == 0) { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                    <?php } else { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                    <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Diretor</td>
                                     <td><?php echo $mensagens["assunto"]?></td>
-                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_diretor ?>&u=<?php echo 2 ?>" class="modal-trigger">
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_diretor ?>&u=<?php echo 2 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
@@ -96,6 +115,10 @@
 
                             $query_secretario = $conn->prepare("SELECT ID_secretario,nome_secretario,fk_id_escola_secretario FROM secretario WHERE ID_secretario = $dados_secretario");
                             $query_secretario->execute();
+
+                            $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
+                            $query_notificacao->execute();
+                            $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
 
                             while ($secretario_dados = $query_secretario->fetch(PDO::FETCH_ASSOC)) {
                                 $id_escola = $secretario_dados["fk_id_escola_secretario"];
@@ -108,11 +131,16 @@
                                 }
                             ?>
                                 <tr>
-                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                    <td>
+                                    <?php if ($notifi["notificacao"] == 0) { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                    <?php } else { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                    <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Secretario</td>
                                     <td><?php echo $mensagens["assunto"]?></td>
-                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_secretario ?>&u=<?php echo 3 ?>" class="modal-trigger">
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_secretario ?>&u=<?php echo 3 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
@@ -123,6 +151,10 @@
 
                             $query_professor = $conn->prepare("SELECT ID_professor,nome_professor,fk_id_escola_professor FROM professor WHERE ID_professor = $dados_professor");
                             $query_professor->execute();
+
+                            $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
+                            $query_notificacao->execute();
+                            $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
 
                             while ($professor_dados = $query_professor->fetch(PDO::FETCH_ASSOC)) {
                                 $id_escola = $professor_dados["fk_id_escola_professor"];
@@ -135,11 +167,16 @@
                                 }
                             ?>
                                 <tr>
-                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                    <td>
+                                    <?php if ($notifi["notificacao"] == 0) { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                    <?php } else { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                    <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Professor</td>
                                     <td><?php echo $mensagens["assunto"]?></td>
-                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_professor ?>&u=<?php echo 4 ?>" class="modal-trigger">
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_professor ?>&u=<?php echo 4 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
@@ -150,6 +187,10 @@
 
                             $query_aluno = $conn->prepare("SELECT RA,nome_aluno,fk_id_escola_aluno FROM aluno WHERE RA = $dados_aluno");
                             $query_aluno->execute();
+
+                            $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
+                            $query_notificacao->execute();
+                            $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
 
                             while ($aluno_dados = $query_aluno->fetch(PDO::FETCH_ASSOC)) {
                                 $id_escola = $aluno_dados["fk_id_escola_aluno"];
@@ -162,11 +203,16 @@
                                 }
                             ?>
                                 <tr>
-                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                    <td>
+                                    <?php if ($notifi["notificacao"] == 0) { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                    <?php } else { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                    <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Aluno</td>
                                     <td><?php echo $mensagens["assunto"]?></td>
-                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_aluno ?>&u=<?php echo 5 ?>" class="modal-trigger">
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_aluno ?>&u=<?php echo 5 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
@@ -179,6 +225,10 @@
                             $query_responsavel = $conn->prepare("SELECT ID_responsavel,nome_responsavel,fk_id_escola_responsavel FROM responsavel WHERE ID_responsavel = $dados_responsavel");
                             $query_responsavel->execute();
 
+                            $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
+                            $query_notificacao->execute();
+                            $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
+
                             while ($responsavel_dados = $query_responsavel->fetch(PDO::FETCH_ASSOC)) {
                                 $id_escola = $responsavel_dados["fk_id_escola_responsavel"];
 
@@ -190,11 +240,16 @@
                                 }
                             ?>
                                 <tr>
-                                    <td><i class="small left material-icons blue-icon hide-on-small-only">email</i>
+                                    <td>
+                                    <?php if ($notifi["notificacao"] == 0) { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                    <?php } else { ?>
+                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                    <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Responsável</td>
                                     <td><?php echo $mensagens["assunto"]?></td>
-                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_responsavel ?>&u=<?php echo 6 ?>" class="modal-trigger">
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_responsavel ?>&u=<?php echo 6 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>

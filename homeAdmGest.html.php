@@ -92,6 +92,17 @@
         </div>
     </section>
 
+<?php
+
+$query_mensagem = $conn->prepare("SELECT *
+FROM responsavel AS R 
+JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
+$query_mensagem->execute();
+$notificacao = $query_mensagem->rowCount();
+
+
+?>
+
 
     <section class="floating-buttons">
         <div class="fixed-action-btn">
