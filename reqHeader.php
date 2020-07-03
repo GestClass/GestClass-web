@@ -43,6 +43,248 @@ $nome_sec = $nome[0];
 
 <body>
 
+    <div id="modalCadastroContas" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Selecionar Tipo de Conta</h4>
+            <div class="input-field col s12">
+                <select id="selectConta" onchange="habilitaForm()">
+                    <option value="" disabled selected>Selecionar Conta</option>
+                    <option value="1">Responsável/Aluno</option>
+                    <option value="2">Aluno</option>
+                    <option value="3">Professor</option>
+                    <option value="4">Secretaria</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalAlterarTurmas" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Selecione a turma para a alteração</h4>
+            <div class="input-field col s12">
+                <form action="alteracaoTurmas.html.php" method="POST">
+                    <select name="turma">
+                        <option value="" disabled selected>Selecionar Turma</option>
+                        <?php
+
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola ORDER BY id_turma ASC");
+                        $query_select_turma->execute();
+
+                        while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma['id_turma'];
+                            $nome_turma = $dados_turma['nome_turma'];
+                            $nome_turno = $dados_turma['nome_turno'];
+
+                        ?>
+                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <br><br>
+
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">search</i>Pesquisar
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalHorarioAulas" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Informe os Dados Solicitados</h4>
+            <form action="cadastroHorarioAulas.html.php" method="POST"><br>
+                <div class="row">
+                    <div class="input-field col s12 m6 l6">
+                        <label id="lbl" for="first_name">Nome do Padrão de Horários</label>
+                        <input name="nome" id="nome" placeholder="Ex: Padrão 1" type="text" class="validate">
+                    </div>
+                    <div class="input-field col s12 m6 l6">
+                        <select name="turno">
+                            <option value="" disabled selected>Selecionar Turno</option>
+                            <?php
+
+                            $query_select_turno = $conn->prepare("SELECT * FROM turno");
+                            $query_select_turno->execute();;
+
+                            while ($dados_turno = $query_select_turno->fetch(PDO::FETCH_ASSOC)) {
+                                $id_turno = $dados_turno["ID_turno"];
+                                $nome_turno = $dados_turno['nome_turno'];
+                            ?>
+                                <option value="<?php echo $id_turno ?>"><?php echo $nome_turno; ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">send</i> Continuar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalFeedback" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Digite o Problema que Ocoreu</h4><br>
+            <div id="novaMensagem">
+                <form action="php/enviarMensagem/enviarFeedback.php" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="input-field right">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">send</i>Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalListaAlunos" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Selecione a turma</h4>
+            <div class="input-field col s12">
+                <form action="listaAlunos.html.php" method="POST">
+                    <select name="turmas">
+                        <option value="" disabled selected>Selecionar Turma</option>
+                        <?php
+
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola ORDER BY id_turma ASC");
+                        $query_select_turma->execute();
+
+                        while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma['id_turma'];
+                            $nome_turma = $dados_turma['nome_turma'];
+                            $nome_turno = $dados_turma['nome_turno'];
+
+                        ?>
+                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <br>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalMensalidades" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Selecione a turma</h4>
+            <div class="input-field col s12">
+                <form action="mensalidades.html.php" method="POST">
+                    <select name="turmas">
+                        <option value="" disabled selected>Selecionar Turma</option>
+                        <?php
+
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola ORDER BY id_turma ASC");
+                        $query_select_turma->execute();
+
+                        while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma['id_turma'];
+                            $nome_turma = $dados_turma['nome_turma'];
+                            $nome_turno = $dados_turma['nome_turno'];
+
+                        ?>
+                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <br>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalGradeCurricular" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Selecione os Dados</h4>
+            <div class="input-field col s12">
+                <form action="cadastroGradeCurricular.html.php" method="POST">
+                    <select name="turmas">
+                        <option value="" disabled selected>Selecionar Turma</option>
+                        <?php
+
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                        $query_select_turma->execute();
+
+                        while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma['id_turma'];
+                            $nome_turma = $dados_turma['nome_turma'];
+                            $nome_turno = $dados_turma['nome_turno'];
+                        ?>
+                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <br><br>
+                    <select name="padroes">
+                        <option value="" disabled selected>Selecionar Padrão de Horários</option>
+                        <?php
+
+                        $query_select_padroes = $conn->prepare("SELECT ID_aula_escola, nome_padrao FROM aula_escola WHERE fk_id_escola_aula_escola = $id_escola GROUP BY nome_padrao");
+                        $query_select_padroes->execute();
+
+                        while ($dados_padroes = $query_select_padroes->fetch(PDO::FETCH_ASSOC)) {
+                            $id_padrao = $dados_padroes['ID_aula_escola'];
+                            $nome_padrao = $dados_padroes['nome_padrao'];
+                        ?>
+                            <option value="<?php echo $id_padrao; ?>"><?php echo $nome_padrao; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <br><br>
+                    <select name="dia">
+                        <option value="" disabled selected>Selecionar Dia da Semana</option>
+                        <?php
+
+                        $query_select_dias = $conn->prepare("SELECT ID_dia_semana, nome_dia FROM dia_semana ORDER BY ID_dia_semana ASC");
+                        $query_select_dias->execute();
+
+                        while ($dados_dias = $query_select_dias->fetch(PDO::FETCH_ASSOC)) {
+                            $id_dia = $dados_dias['ID_dia_semana'];
+                            $nome_dia = $dados_dias['nome_dia'];
+                        ?>
+                            <option value="<?php echo $id_dia; ?>"><?php echo $nome_dia; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <br><br>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">send</i>Continuar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="navbar-fixed">
             <nav class="light-blue lighten-1">
@@ -99,16 +341,12 @@ $nome_sec = $nome[0];
             <li>
                 <div class="divider"></div>
             </li>
-            <li>
-                <a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i class="material-icons">group_add</i>Cadastro de contas
-                    <i class="material-icons right" id="drop">arrow_drop_down</i>
-                </a>
-            </li>
+            <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i class="material-icons">group_add</i>Cadastro de contas<i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="cadastroResponsavel.html.php"><i class="material-icons">wc</i>Pais</a></li>
                 <li><a href="cadastroAluno.html.php"><i class="material-icons">person</i>Alunos</a></li>
                 <li><a href="cadastroProfessor.html.php"><i class="material-icons">people_alt</i>Professores</a></li>
-                <li><a href="cadastroSecretaria.html.php"><i class="material-icons">school</i>Secretaria</a></li>                
+                <li><a href="cadastroSecretaria.html.php"><i class="material-icons">school</i>Secretaria</a></li>
             </ul>
             <li><a href="listarProfessores.html.php"><i class="material-icons">people_alt</i>Professores</a></li>
             <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">format_list_bulleted</i>Lista de Alunos</a></li>

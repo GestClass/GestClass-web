@@ -155,5 +155,25 @@ $nome_alu = $nome[0];
                 </div>
             </div>
         </div>
-        
+        <div id="modalFeedback" class="modal">
+            <div class="modal-content">
+                <h4 class="center">Digite o Problema que Occoreu</h4><br>
+                <div id="novaMensagem">
+                    <form action="php/enviarMensagem/enviarFeedback.php" method="POST">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
+                                <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                                <i class="material-icons left">send</i>Enviar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </header>

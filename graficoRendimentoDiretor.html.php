@@ -26,9 +26,7 @@ include_once 'php/conexao.php';
   $id_usuario = $_SESSION["id_usuario"];
   $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
   $id_escola = $_SESSION["id_escola"];
-  $id_turma = $_SESSION['id_turma'];
-  $nome_turma = $_SESSION['nome_turma'];
-  $nome_turno = $_SESSION['nome_turno'];
+
   $id_disciplina = $_POST['disciplinas'];
 
   if ($id_tipo_usuario == 1) {
@@ -45,23 +43,37 @@ include_once 'php/conexao.php';
     require_once 'reqPais.php';
   }
 
-  // Selecionando o id do professor
-  $sql_select_id_professor = $conn->prepare("SELECT fk_id_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_turma_professor_disciplinas_professor = $id_turma AND fk_id_disciplina_professor_disciplinas_professor = $id_disciplina");
-  // Executar
-  $sql_select_id_professor->execute();
-  // Armazenar no array
-  $array_id_professor = $sql_select_id_professor->fetch(PDO::FETCH_ASSOC);
-  // Armazenar na variavel o id do professor
-  $id_professor = $array_id_professor['fk_id_professor_disciplinas_professor'];
+  $id_turma = $_POST['idTurma'];
 
-  // Selecionar o nome do professor
-  $sql_select_nome_professor = $conn->prepare("SELECT nome_professor FROM professor WHERE ID_professor = $id_professor");
+  if ($id_disciplina == null) {
+    ?>
+    <script>
+      alert ('Erro, É Necessário Selecionar uma Disciplina!!');
+      window.location = 'homeDiretor.html.php';
+    </script>
+    <?php
+  }
+
+  // Selecionar nome e turno da turma
+  $sql_select_turma= $conn->prepare("SELECT turma.nome_turma AS nome_turma, turno.nome_turno AS turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = turno.ID_turno) WHERE ID_turma = $id_turma");
   // Executar
-  $sql_select_nome_professor->execute();
+  $sql_select_turma->execute();
   // Armazenar no array
-  $array_nome_professor = $sql_select_nome_professor->fetch(PDO::FETCH_ASSOC);
-  // Armazenando nome professor na variável
-  $nome_professor = $array_nome_professor['nome_professor'];
+  $array_turma = $sql_select_turma->fetch(PDO::FETCH_ASSOC);
+  // Armazenar nome e turno
+  $nome_turma = $array_turma['nome_turma'];
+  $nome_turno = $array_turma['turno'];
+
+  // Selecionando dados do professor
+  $sql_select_professor = $conn->prepare("SELECT disciplinas_professor.fk_id_professor_disciplinas_professor AS id_professor, professor.nome_professor AS nome_professor FROM disciplinas_professor INNER JOIN professor ON (disciplinas_professor.fk_id_professor_disciplinas_professor = professor.ID_professor) WHERE disciplinas_professor.fk_id_turma_professor_disciplinas_professor = $id_turma AND disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor = $id_disciplina");
+  // Executar
+  $sql_select_professor->execute();
+  // Armazenar no array
+  $array_professor = $sql_select_professor->fetch(PDO::FETCH_ASSOC);
+  // Armazenar na variavel o id do professor
+  $id_professor = $array_professor['id_professor'];
+  $nome_professor = $array_professor['nome_professor'];
+  
 
   //selecionar nome disciplina
   $query_select_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");

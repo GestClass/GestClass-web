@@ -42,6 +42,177 @@ $nome_pais = $nome[0];
 </head>
 
 <body>
+    <div id="modalChat" class="modal ">
+        <div class="modal-content">
+            <h4 class="center"> <i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
+            <div class="input-field col s12 validate">
+                <form action="php/pinNotif.php" method="POST">
+                    <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="password" data-mask="000000" class="validate" />
+                    <div class="center">
+                        <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">verified_user</i>Entrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="modalNotif" class="modal ">
+        <div class="modal-content">
+            <h4 class="center"> <i class="material-icons right">vpn_key</i>Validação de Segurança</h4>
+            <div class="input-field col s12 validate">
+                <form action="php/pinChat.php" method="POST">
+                    <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate" />
+                    <div class="center">
+                        <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">verified_user</i>Entrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="modalPin" class="modal ">
+        <div class="modal-content">
+            <h4 class="center"><i class="material-icons right">vpn_key</i>Esqueceu o seu PIN?</h4>
+            <div class="input-field col s12 validate">
+                <form action="php/esqPin.php" method="POST">
+                    <h5 class="center">Não se preocupe, estamos aqui para te ajudar! Digite o seu email para recupera-lo:
+                    </h5>
+                    <input placeholder="Digite o seu email" id="first_name" name="email" type="text" class="validate" />
+                    <input type="hidden" name="recuperarPin" value="Recuperar Pin" />
+                    <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Enviar
+                        <i class="material-icons right">lock_open</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="modalFilhosGrafico" class="modal">
+        <div class="modal-content">
+            <div class="input-field col s12 validate">
+                <form action="selectDisciplinaRendimento.html.php" method="POST">
+                    <h4 class="center">Selecione o Filho Desejado</h4>
+                    <select name="filhos">
+                        <option value="" disabled selected>Selecionar Filho</option>
+                        <?php
+
+                        $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+                        $query_select_filhos_responsavel->execute();
+                        print_r($query_select_filhos_responsavel);
+                        while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
+
+                            $nome_aluno = $filhos["nome_aluno"];
+                            $ra = $filhos["RA"];
+
+                        ?>
+                            <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalFeedback" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Digite o Problema que Occoreu</h4><br>
+            <div id="novaMensagem">
+                <form action="php/enviarMensagem/enviarFeedback.php" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">send</i>Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalFilhosGrade" class="modal">
+        <div class="modal-content">
+            <div class="input-field col s12 validate">
+                <form action="gradeCurricularExibicao.html.php" method="POST">
+                    <h4 class="center">Selecione o Filho Desejado</h4>
+                    <select name="filhos">
+                        <option value="" disabled selected>Selecionar Filho</option>
+                        <?php
+
+                        $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+                        $query_select_filhos_responsavel->execute();
+                        print_r($query_select_filhos_responsavel);
+
+                        while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
+
+                            $nome_aluno = $filhos["nome_aluno"];
+                            $ra = $filhos["RA"];
+
+                        ?>
+                            <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalFilhosBoletim" class="modal">
+        <div class="modal-content">
+            <div class="input-field col s12 validate">
+                <form action="boletimVisualizacao.html.php" method="POST">
+                    <h4 class="center">Selecione o Filho Desejado</h4>
+                    <select name="filhos">
+                        <option value="" disabled selected>Selecionar Filho</option>
+                        <?php
+
+                        $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+                        $query_select_filhos_responsavel->execute();
+                        print_r($query_select_filhos_responsavel);
+
+                        while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {
+
+                            $nome_aluno = $filhos["nome_aluno"];
+                            $ra = $filhos["RA"];
+
+                        ?>
+                            <option value="<?php echo $ra; ?>"><?php echo $nome_aluno; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <header>
         <div class="navbar-fixed">
@@ -109,8 +280,8 @@ $nome_pais = $nome[0];
             <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relate um Problema</a></li>
             <li>
                 <div class="divider"></div>
-            </li>           
+            </li>
             <li><a href="php/logout.php"><i class="material-icons">input</i>Sair</a></li>
-        </ul>                
+        </ul>
     </header>
 </body>

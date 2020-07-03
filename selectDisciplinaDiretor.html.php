@@ -5,11 +5,17 @@ include_once 'php/conexao.php';
 $id_usuario = $_SESSION["id_usuario"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
-$id_turma = $_SESSION['id_turma'];
-$id_usuario = $_SESSION["id_usuario"];
-$id_tipo_usuario = $_SESSION["id_tipo_usuario"];
-$id_escola = $_SESSION["id_escola"];
 
+$id_turma = $_POST['turmas'];
+
+if ($id_turma == null) {
+?>
+    <script>
+        alert('Erro, É Necessário Selecionar uma Turma!!');
+        window.location = 'homeDiretor.html.php';
+    </script>
+<?php
+}
 
 // echo "id usuario ->".$id_usuario."</br>";
 // echo "id tipo usuario ->".$id_tipo_usuario."</br>";
@@ -42,7 +48,7 @@ $id_escola = $_SESSION["id_escola"];
     <button id="btnTable" type="submit" href='#modalFilhosPuts' class=" btnDisciplina modal-trigger  btn-flat btnLightBlue center">
         Selecionar Disciplina
     </button>
-    
+
     <div id="modalAlunoSelect" class="modal" data-backdrop="static">
         <div class="modal-content">
             <div class="input-field col s12 validate">
@@ -50,30 +56,10 @@ $id_escola = $_SESSION["id_escola"];
                     <h5 class="center">Seleciona a matéria desejada para acompanhar o rendimento da sala:</h5>
                     <div class='select'>
                         <select name="disciplinas">
-                            <option value="" disabled selected>Selecione a Disciplina</option>
+                            <option value="" disabled selected>Selecionar Disciplina</option>
                     </div>
                     <?php
 
-                    //resgatar turno da turma
-                    $sql_select_turma_aluno = $conn->prepare("SELECT nome_turma, fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
-                    // Executando comando 
-                    $sql_select_turma_aluno->execute();
-                    // Armazenando nome da turma
-                    $turma_array = $sql_select_turma_aluno->fetch(PDO::FETCH_ASSOC);
-                    // Variável nome turma
-                    $nome_turma_aluno = $turma_array['nome_turma'];
-                    $id_turno = $turma_array['fk_id_turno_turma'];
-
-
-                    // Resgatar nome do turno
-                    $sql_select_nome_turno = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
-                    // Executando o comando
-                    $sql_select_nome_turno->execute();
-                    // Armazenando nome do turno
-                    $turno = $sql_select_nome_turno->fetch(PDO::FETCH_ASSOC);
-                    // Armazenando o nome em variável
-                    $nome_turno = $turno['nome_turno'];
-                    $_SESSION['nome_turno'] = $nome_turno;
                     $query_select_disciplinas = $conn->prepare("SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor AS id_disciplina, disciplina.nome_disciplina AS nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor = disciplina.ID_disciplina) WHERE disciplinas_professor.fk_id_turma_professor_disciplinas_professor = $id_turma");
                     // Executar
                     $query_select_disciplinas->execute();
@@ -88,11 +74,10 @@ $id_escola = $_SESSION["id_escola"];
                     }
                     ?>
                     </select>
-
-                    <input type="hidden" name="id_disciplina" value="">
-                    <div class="button">
-                        <button id="btnTableChamada" type="submit" class=" btn-flat btnLightBlue ">
-                            Pesquisar
+                    <input type="hidden" name="idTurma" value="<?php echo $id_turma; ?>">
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
                         </button>
                     </div>
                 </form>

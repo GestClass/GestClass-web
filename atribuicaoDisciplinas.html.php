@@ -8,7 +8,6 @@
 
     <?php
     include_once 'php/conexao.php';
-    require_once './reqHeader.php';
 
     $id_usuario = $_SESSION["id_usuario"];
     $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
@@ -37,7 +36,7 @@
             <div class="input-field col s12 m6 l6">
                 <i class="material-icons prefix blue-icon">account_circle</i>
                 <select name="professor">
-                    <option value="" disabled selected>Selecione Professor</option>
+                    <option value="" disabled selected>Selecionar Professor</option>
                     <?php
 
                     $query_select_professor = $conn->prepare("SELECT ID_professor, nome_professor FROM professor WHERE fk_id_escola_professor = $id_escola ORDER BY nome_professor ASC");
@@ -62,7 +61,7 @@
             <div class="input-field col s12 m6 l6">
                 <i class="material-icons prefix blue-icon">school</i>
                 <select name="turma">
-                    <option value="" disabled selected>Selecione a Turma</option>
+                    <option value="" disabled selected>Selecionar Turma</option>
                     <?php
 
                     $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola ORDER BY id_turma ASC");
@@ -86,7 +85,7 @@
                 <div class="input-field col s12 m6 l6">
                     <i class="material-icons prefix blue-icon">school</i>
                     <select name="disciplinas">
-                        <option value="" disabled selected>Selecione a Disciplina</option>
+                        <option value="" disabled selected>Selecionar Disciplina</option>
                         <?php
 
                         $query_select_disciplina = $conn->prepare("SELECT ID_disciplina, nome_disciplina FROM disciplina WHERE fk_id_escola_disciplina = $id_escola ORDER BY nome_disciplina ASC ");
