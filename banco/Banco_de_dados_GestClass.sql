@@ -150,9 +150,6 @@ CREATE TABLE aluno (
     fk_id_escola_aluno INTEGER NOT NULL
 );
 
-INSERT INTO aluno (RA,nome_aluno, foto, RG, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno)
-            VALUES ('12345678', 'Eric Veludo', '', '505881238', '46535275809', 'ericveludo@hotmailc.om', '1234', '(11) 97322-3651', '(11) 4652-1596', '2002-04-07', 16, 1, '5', 1);
-
 CREATE TABLE responsavel (
 	ID_responsavel INTEGER PRIMARY KEY AUTO_INCREMENT UNIQUE,
     nome_responsavel VARCHAR (70) NOT NULL,
