@@ -108,7 +108,7 @@ $nome_prof = $nome[0];
       <li><a href="#modalTurmaBoletim" class="modal-trigger"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
       <li><a class="waves-effect modal-trigger" href="#modalOcorrencias"><i class="material-icons">assignment_late</i>Ocorrências</a></li>
       <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">list_alt</i>Lista de alunos</a>
-      <li><a href="calendario.php.html"><i class="material-icons">event</i>Calendário Escolar</a></li>
+      <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendário Escolar</a></li>
       <li><a href="mensagensProfessor.html.php"><i class="material-icons">email</i>Caixa de Mensagens</a></li>
       <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relte um Problema</a></li>
       <li>
