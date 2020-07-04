@@ -39,7 +39,7 @@
 
     <?php if ($usuario_tipo == 1) { ?>
         <div class="container"><br><br>
-            <h4>Mensagem</h4><br><br>
+            <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
                     <div class="input-field col s12 m4 l4">
@@ -80,7 +80,7 @@
     <?php
     } elseif ($usuario_tipo == 2) { ?>
         <div class="container"><br><br>
-            <h4>Mensagem</h4><br><br>
+            <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
                     <div class="input-field col s12 m4 l4">
@@ -120,7 +120,7 @@
     <?php
     } elseif ($usuario_tipo == 3) { ?>
         <div class="container"><br><br>
-            <h4>Mensagem</h4><br><br>
+            <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
                     <div class="input-field col s12 m4 l4">
@@ -161,7 +161,7 @@
     <?php
     } elseif ($usuario_tipo == 4) { ?>
         <div class="container"><br><br>
-            <h4>Mensagem</h4><br><br>
+            <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
                     <div class="input-field col s12 m4 l4">
@@ -199,10 +199,65 @@
                 <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.back()" class="btn-flat btnAdmin"><i class="material-icons">arrow_back</i> Voltar</button>
             </div>
         </div>
-    <?php
+        <?php
+    } elseif ($usuario_tipo == 7) {
+        $query_solicitante = $conn->prepare("SELECT nome, email FROM contato WHERE ID_mensagem = $id_mensagem AND fk_id_tipo_usuario_envio = 7");
+        $query_solicitante->execute();
+
+        while ($dados_solicitante = $query_solicitante->fetch(PDO::FETCH_ASSOC)) {
+
+        ?>
+            <div class="container"><br><br>
+                <h4 class="center">Mensagem</h4><br><br>
+                <form action="" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6">
+                            <i class="material-icons prefix blue-icon">date_range</i>
+                            <input name="data" id="data" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
+                            <label id="lbl_admin" for="first_name">Data Mensagem</label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <i class="material-icons prefix blue-icon">assignment_ind</i>
+                            <input name="usuario" id="usuario" value="Solicitante" readonly type="text">
+                            <label id="lbl_admin" for="first_name">Usuário</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6">
+                            <i class="material-icons prefix blue-icon">account_balance</i>
+                            <input name="nome" id="nome" value="<?php echo $dados_solicitante["nome"] ?>" readonly type="text">
+                            <label id="lbl_admin" for="first_name">Escola ou Diretor</label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <i class="material-icons prefix blue-icon">account_balance</i>
+                            <input name="email" id="email" value="<?php echo $dados_solicitante["email"] ?>" readonly type="text">
+                            <label id="lbl_admin" for="first_name">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
+                            <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
+                            <label id="lbl_admin" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix blue-icon">mail_outline</i>
+                            <textarea name="mensagem" id="icon_prefix2" readonly class="materialize-textarea"><?php echo $dados["mensagem"] ?></textarea>
+                            <label id="lbl_admin" for="icon_prefix2">Mensagem</label>
+                        </div>
+                    </div>
+                </form>
+                <div class="input-field left">
+                    <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.back()" class="btn-flat btnAdmin"><i class="material-icons">arrow_back</i> Voltar</button>
+                </div>
+            </div>
+        <?php
+        }
     } elseif ($usuario_tipo == 6) { ?>
         <div class="container"><br><br>
-            <h4>Mensagem</h4><br><br>
+            <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
                     <div class="input-field col s12 m4 l4">
@@ -243,7 +298,7 @@
     <?php
     } else { ?>
         <div class="container"><br><br>
-            <h4>Mensagem</h4><br><br>
+            <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
                 <div class="row">
                     <div class="input-field col s12 m4 l4">

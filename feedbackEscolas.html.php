@@ -30,7 +30,7 @@
     ?>
 
     <div class="container">
-    <h3 class="center">Caixa de Mensagens</h3>
+        <h3 class="center">Caixa de Mensagens</h3>
         <br>
         <div id="mensagens">
             <table class="highlight centered col s12 m12 l12">
@@ -50,7 +50,7 @@
 
                             $query_admin = $conn->prepare("SELECT nome,ID_admin FROM `admin` WHERE ID_admin = $dados_admin");
                             $query_admin->execute();
-                            
+
                             $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
                             $query_notificacao->execute();
                             $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
@@ -60,14 +60,14 @@
                     ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
-                                    <td><?php echo $nome?></td>
-                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><?php echo $nome ?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
                                     <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_admin ?>&u=<?php echo 1 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
@@ -96,14 +96,14 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Diretor</td>
-                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
                                     <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_diretor ?>&u=<?php echo 2 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
@@ -132,14 +132,14 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Secretario</td>
-                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
                                     <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_secretario ?>&u=<?php echo 3 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
@@ -168,14 +168,14 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Professor</td>
-                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
                                     <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_professor ?>&u=<?php echo 4 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
@@ -183,41 +183,32 @@
                             <?php
                             }
                         } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 5) {
-                            $dados_aluno = $mensagens["fk_envio_aluno_ra_aluno"];
+                        } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 7) {
 
-                            $query_aluno = $conn->prepare("SELECT RA,nome_aluno,fk_id_escola_aluno FROM aluno WHERE RA = $dados_aluno");
-                            $query_aluno->execute();
+                            $query_select_solicitante = $conn->prepare("SELECT nome FROM contato WHERE fk_id_tipo_usuario_envio = 7");
+                            $query_select_solicitante->execute();
+                            // $nome = $query_select_solicitante->fetch(PDO::FETCH_ASSOC);
 
                             $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
                             $query_notificacao->execute();
                             $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
 
-                            while ($aluno_dados = $query_aluno->fetch(PDO::FETCH_ASSOC)) {
-                                $id_escola = $aluno_dados["fk_id_escola_aluno"];
-
-                                $query_id_escola = $conn->prepare("SELECT ID_escola,nome_escola FROM escola WHERE ID_escola = $id_escola");
-                                $query_id_escola->execute();
-
-                                while ($dados_escola  = $query_id_escola->fetch(PDO::FETCH_ASSOC)) {
-                                    $nome_escola = $dados_escola["nome_escola"];
-                                }
                             ?>
-                                <tr>
-                                    <td>
+                            <tr>
+                                <td>
                                     <?php if ($notifi["notificacao"] == 0) { ?>
                                         <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
                                     <?php } else { ?>
                                         <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
                                     <?php } ?>
-                                        <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
-                                    <td>Aluno</td>
-                                    <td><?php echo $mensagens["assunto"]?></td>
-                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_aluno ?>&u=<?php echo 5 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
-                                            <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
-                                                <i class="small material-icons center">email</i></button></a></td>
-                                </tr>
+                                    <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
+                                <td>Solicitante</td>
+                                <td><?php echo $mensagens["assunto"] ?></td>
+                                <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo ""?>&i=<?php echo ""?>&u=<?php echo 7 ?>&notificacao=<?php echo $notificacao ?>">
+                                        <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
+                                            <i class="small material-icons center">email</i></button></a></td>
+                            </tr>
                             <?php
-                            }
                         } else {
 
                             $dados_responsavel = $mensagens["fk_envio_responsavel_id_responsavel"];
@@ -241,14 +232,14 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Responsável</td>
-                                    <td><?php echo $mensagens["assunto"]?></td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
                                     <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_responsavel ?>&u=<?php echo 6 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
