@@ -254,21 +254,19 @@
                         <form class="" action="php/enviarMensagem/solicitacao.php" method="post">
                             <h4>Por favor preencha este formulário</h4>
                             <div class="input-field">
-                                <input type="text" name="nome" placeholder="Nome" class="inputDark" />
-                            </div>
-                            <div class="input-field">
-                                <input type="text" name="assunto" placeholder="Assunto" class="inputDark" />
+                                <input type="text" name="nome" placeholder="Nome Escola ou Diretor" class="inputDark" />
                             </div>
                             <div class="input-field">
                                 <input type="text" name="email" placeholder="Email" class="inputDark" />
                             </div>
                             <div class="input-field">
-                                <textarea class="materialize-textarea inputDark" id="mensagemContato"
-                                    placeholder="Escreva sua mensagem" maxlength="120" name="mensagem"></textarea>
+                                <input type="text" name="assunto" placeholder="Assunto" class="inputDark" />
+                            </div>
+                            <div class="input-field">
+                                <textarea class="materialize-textarea inputDark" id="mensagemContato" placeholder="Escreva sua mensagem" maxlength="120" name="mensagem"></textarea>
                             </div>
                             <div class="right-align">
-                                <button class="btn btn-flat waves-effect waves-light btnDark" type="submit"
-                                    name="action">
+                                <button class="btn btn-flat waves-effect waves-light btnDark" type="submit" name="action">
                                     Enviar
                                 </button>
                             </div>

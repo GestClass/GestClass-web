@@ -64,7 +64,7 @@
 
                 $query_mensagem = $conn->prepare("SELECT *
                 FROM admin AS A 
-                JOIN contato AS C ON A.id_admin = C.fk_recebimento_admin_id_admin and A.id_admin = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
+                JOIN contato AS C ON A.id_admin = C.fk_recebimento_admin_id_admin and A.id_admin = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC");
                 $query_mensagem->execute();
                 $notificacao = $query_mensagem->rowCount();
 
