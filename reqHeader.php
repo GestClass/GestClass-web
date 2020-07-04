@@ -183,6 +183,27 @@ $nome_sec = $nome[0];
             </div>
         </div>
     </div>
+    <div id="modalListaFuncionarios" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Selecione a área desejada</h4>
+            <div class="input-field col s12">
+                <form action="listarFuncionarios.html.php" method="POST">
+                    <select name="funcionarios">
+                        <option value="" disabled selected>Selecionar Área</option>
+                        <option value="Diretores">Diretores</option>
+                        <option value="Secretarios">Secretários</option>
+                        <option value="Professores">Professores</option>
+                    </select>
+                    <br>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">search</i>Pesquisar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <div id="modalMensalidades" class="modal">
         <div class="modal-content">

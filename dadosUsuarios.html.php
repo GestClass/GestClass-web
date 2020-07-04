@@ -122,8 +122,8 @@
                         <label id="lbl">Turma</label>
                     </div>
                     <div>
-                        <input type="text" name="tipo_conta" value="<?php echo $_GET['tipo'] ?>" hidden>
-                        <input type="text" name="id" value="<?php echo $_GET['id'] ?>" hidden>
+                        <input type="text" name="tipo_conta" value="<?php echo $tipo_usuario ?>" hidden>
+                        <input type="text" name="id" value="<?php echo $id ?>" hidden>
                     </div>
                 </div>
 
@@ -396,6 +396,7 @@
                     </div>
                     <div>
                         <input type="text" name="tipo_conta" value="3" hidden>
+                        <input type="text" name="id" value="<?php echo $id ?>" hidden>
                     </div>
                 </div>
 
@@ -417,84 +418,83 @@
         <div class="container col s12 m12 l12 ">
             <div class="container ">
                 <form id="adicionarEscola" class="col s12" method="POST" action="alteracaoDados.html.php" enctype="multipart/form-data">
-                    <div class="col s12 m12 l12">
-                        <div class="row">
-                            <div class="input-field col s12 m9 l2">
-                                <?php if (empty($dados_sec['foto'])) { ?>
+                <div class="row">
+                    <div class="input-field col s12 m9 l2">
+                        <?php if (empty($dados_dir['foto'])) { ?>
 
-                                    <img class="responsive-img" width="90px" height="100px" src="assets/imagensBanco/usuario.png">
+                            <img class="responsive-img" width="90px" height="100px" src="assets/imagensBanco/usuario.png">
 
-                                <?php } else { ?>
+                        <?php } else { ?>
 
-                                    <img class="responsive-img" width="90px" height="100px" src="assets/imagensBanco/<?php echo $dados_sec['foto'] ?>">
+                            <img class="responsive-img" width="90px" height="100px" src="assets/imagensBanco/<?php echo $dados_dir['foto'] ?>">
 
-                                <?php } ?>
-                            </div>
-                            <br><br>
-                        </div>
-                        <div class="input-field col s12 m9 l9">
-                            <i class="material-icons prefix blue-icon">account_circle</i>
-                            <input id="icon_titulo" type="text" name="nome_diretor" id="nome_diretor" value="<?php echo $dados_dir['nome_diretor'] ?>" readonly class="">
-                            <label for="icon_titulo">Nome Diretor</label>
-                        </div>
+                        <?php } ?>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s6 m4 l4">
-                            <i class="material-icons prefix blue-icon">ballot</i>
-                            <input name="rg" id="rg" value="<?php echo $dados_dir['rg'] ?>" readonly type="tel" class="">
-                            <label id="lbl" for="icon_telephone">RG</label>
-                        </div>
-                        <div class="input-field col s6 m4 l4">
-                            <i class="material-icons prefix blue-icon">ballot</i>
-                            <input name="cpf" id="cpf" value="<?php echo $dados_dir['cpf'] ?>" readonly type="tel" class="">
-                            <label id="lbl" for="icon_telephone">CPF</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m3 l3">
-                            <i class="material-icons prefix blue-icon">location_on</i>
-                            <input name="cep" id="cep" value="<?php echo $dados_dir['cep'] ?>" readonly type="text" class="">
-                            <label id="lbl" for="first_name">CEP</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m1 l1">
-                            <input name="numero" id="numero" value="<?php echo $dados_dir['numero'] ?>" readonly type="tel" class=" ">
-                            <label id="lbl" for="first_name">Nº</label>
-                        </div>
-                        <div id="a" class="input-field col s10 m2 l3">
-                            <input name="complemento" id="complemento" value="<?php echo $dados_dor['complemento'] ?>" readonly type="tel" class=" ">
-                            <label id="lbl" for="first_name">Complemento</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m4 l4">
-                            <i class="material-icons prefix blue-icon">alternate_email</i>
-                            <input name="email" id="email" value="<?php echo $dados_dir['email'] ?>" readonly type="tel" class="">
-                            <label id="lbl" for="icon_telephone">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix blue-icon">smartphone</i>
-                            <input name="celular" id="celular" value="<?php echo $dados_dir['celular'] ?>" readonly type="tel" data-mask="(00) 00000-0000" class="">
-                            <label id="lbl" for="icon_telephone">Celular</label>
-                        </div>
-                        <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix blue-icon">call</i>
-                            <input name="telefone" id="telefone" value="<?php echo $dados_dir['telefone'] ?>" readonly type="tel" data-mask="(00) 0000-0000" class="">
-                            <label id="lbl" for="icon_telephone">Telefone</label>
-                        </div>
-                        <div>
-                            <input type="text" name="tipo_conta" value="2" hidden>
-                        </div>
-                    </div>
+                    <br><br>
+                    <div class="input-field col s12 m9 l9">
 
+                        <input name="nome_diretor" id="nome_diretor" type="text" value="<?php echo $dados_dir['nome_diretor'] ?>" readonly class="">
+                        <label id="lbl" for="icon_prefix">Nome</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 m4 l4">
+                        <i class="material-icons prefix blue-icon">ballot</i>
+                        <input name="rg" id="rg" value="<?php echo $dados_dir['rg'] ?>" readonly type="tel" class="">
+                        <label id="lbl" for="icon_telephone">RG</label>
+                    </div>
+                    <div class="input-field col s6 m4 l4">
+                        <i class="material-icons prefix blue-icon">ballot</i>
+                        <input name="cpf" id="cpf" value="<?php echo $dados_dir['cpf'] ?>" readonly type="tel" class="">
+                        <label id="lbl" for="icon_telephone">CPF</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m3 l3">
+                        <i class="material-icons prefix blue-icon">location_on</i>
+                        <input name="cep" id="cep" value="<?php echo $dados_dir['cep'] ?>" readonly type="text" class="">
+                        <label id="lbl" for="first_name">CEP</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m1 l1">
+                        <input name="numero" id="numero" value="<?php echo $dados_dir['numero'] ?>" readonly type="tel" class=" ">
+                        <label id="lbl" for="first_name">Nº</label>
+                    </div>
+                    <div id="a" class="input-field col s10 m2 l3">
+                        <input name="complemento" id="complemento" value="<?php echo $dados_dir['complemento'] ?>" readonly type="tel" class=" ">
+                        <label id="lbl" for="first_name">Complemento</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m4 l4">
+                        <i class="material-icons prefix blue-icon">alternate_email</i>
+                        <input name="email" id="email" value="<?php echo $dados_dir['email'] ?>" readonly type="tel" class="">
+                        <label id="lbl" for="icon_telephone">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6 l4">
+                        <i class="material-icons prefix blue-icon">smartphone</i>
+                        <input name="celular" id="celular" value="<?php echo $dados_dir['celular'] ?>" readonly type="tel" data-mask="(00) 00000-0000" class="">
+                        <label id="lbl" for="icon_telephone">Celular</label>
+                    </div>
+                    <div class="input-field col s12 m6 l4">
+                        <i class="material-icons prefix blue-icon">call</i>
+                        <input name="telefone" id="telefone" value="<?php echo $dados_dir['telefone'] ?>" readonly type="tel" data-mask="(00) 0000-0000" class="">
+                        <label id="lbl" for="icon_telephone">Telefone</label>
+                    </div>
+                    <div>
+                        <input type="text" name="tipo_conta" value="2" hidden>
+                        <input type="text" name="id" value="<?php echo $id ?>" hidden>
+                    </div>
+                </div>
+
+                <div class="row">
                     <?php
                     if ($id_tipo_usuario == 2 || $id_tipo_usuario == 3) { ?>
                         <input type="submit" class="btn-flat btnLightBlue center" value="Alterar dados">
                     <?php } ?>
-            </div>
-
-            </form>
+                </div>
+        </div>
         </div>
 
 
