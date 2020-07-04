@@ -69,6 +69,9 @@ if (($nome != "") && ($rg != "") && ($cpf != "") && ($cep != "") && ($numero != 
 
       move_uploaded_file($temp, $caminho);
 
+    }
+  }
+
       $query_insert = $conn->prepare("INSERT INTO professor(nome_professor, foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_professor, fk_id_escola_professor) 
         VALUES (:nome,:nome_imagem,:cep,:numero,:complemento,:rg,:cpf_professor,:email,:senha,:celular,:telefone,'4',:id_escola)");
 
@@ -106,8 +109,7 @@ if (($nome != "") && ($rg != "") && ($cpf != "") && ($cep != "") && ($numero != 
                 history.back();;
                 </script>";
       }
-    }
-  }
+  
 } else {
   echo "<script>alert('Preencha os Campos');
           history.back();</script>";

@@ -78,6 +78,9 @@ if (($nome != "") && ($rg != "") && ($cpf_r != "") && ($nascimento != "") && ($c
 
 			move_uploaded_file($temp, $caminho);
 
+		}
+	}
+
 			$query_responsavel = $conn->prepare("INSERT INTO responsavel(nome_responsavel, foto, cep, numero, complemento, RG, cpf, email, senha, pin, celular, telefone, telefone_comercial, data_nascimento, data_pagamento_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel)
 		   	VALUES (:nome,:nome_imagem,:cep,:numero,:complemento,:rg,:cpf_respon,:email,:senha,:pin,:celular,:telefone,:tel_comercial,:nascimento_r,:data_pagamento,'6',:id_escola)");
 
@@ -120,8 +123,7 @@ if (($nome != "") && ($rg != "") && ($cpf_r != "") && ($nascimento != "") && ($c
 				history.back();;
 				</script>";
 			}
-		}
-	}
+		
 } else {
 	echo "<script>alert('Preencha os Campos');
 	history.back();</script>";

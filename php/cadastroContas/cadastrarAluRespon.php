@@ -80,6 +80,9 @@ if (($rastro != "") && ($nome != "") && ($rg != "") && ($cpf != "") && ($nascime
 
 			move_uploaded_file($temp, $caminho);
 
+		}
+	}
+
 			$query_insert = $conn->prepare("INSERT INTO aluno (RA,nome_aluno, foto, RG, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno)
             VALUES (:ra, :nome, :nome_imagem, :rg, :cpf_aluno, :email, :senha, :celular, :telefone, :data_nascimento, :turma, :id_responsavel, '5', :id_escola)");
 
@@ -119,8 +122,7 @@ if (($rastro != "") && ($nome != "") && ($rg != "") && ($cpf != "") && ($nascime
 				history.back();;
 				</script>";
 			}
-		}
-	}
+		
 } else {
 	echo "<script>alert('Preencha os Campos');
 			history.back();</script>";

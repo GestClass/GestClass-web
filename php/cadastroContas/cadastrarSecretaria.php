@@ -69,6 +69,9 @@ if (($nome != "") && ($rg != "") && ($cpf != "") && ($cep != "") && ($numero != 
 
 			move_uploaded_file($temp, $caminho);
 
+		}
+	}
+
 			$query_secretario = $conn->prepare("INSERT INTO secretario (nome_secretario, foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_secretario, fk_id_escola_secretario)
             VALUES (:nome,:nome_imagem,:cep,:numero,:complemento,:rg,:cpf_secretario,:email,:senha,:celular,:telefone,'3' ,:id_escola)");
 
@@ -105,10 +108,9 @@ if (($nome != "") && ($rg != "") && ($cpf != "") && ($cep != "") && ($numero != 
 				// echo "<script>alert('Erro: Secretario não foi cadastrado');
 				// 	history.back();;
 				//  </script>";
-				print_r($query_secretario);
+				// print_r($query_secretario);
 			}
-		}
-	}
+		
 } else {
 	echo "<script>alert('Preencha os Campos');
 	history.back();</script>";

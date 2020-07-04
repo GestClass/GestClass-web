@@ -324,7 +324,7 @@
                 </form>
             <?php
             } elseif ($tipo_usuario == "3") {
-                $query_sec = $conn->prepare("SELECT * FROM secretario WHERE ID_secretario = 1");
+                $query_sec = $conn->prepare("SELECT * FROM secretario WHERE ID_secretario =" . $id_usuario . "");
                 $query_sec->execute();
                 $dados_sec = $query_sec->fetch(PDO::FETCH_ASSOC) ?>
 
@@ -407,7 +407,7 @@
                 </form>
             <?php
             } elseif ($tipo_usuario == "2") {
-                $query_dir = $conn->prepare("SELECT * FROM diretor WHERE ID_diretor = 1");
+                $query_dir = $conn->prepare("SELECT * FROM diretor WHERE ID_diretor = " . $id_usuario . "");
                 $query_dir->execute();
                 $dados_dir = $query_dir->fetch(PDO::FETCH_ASSOC) ?>
 
