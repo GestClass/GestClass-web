@@ -14,12 +14,10 @@ $query_alunos->execute();
 
 
 while ($dados_alunos = $query_alunos->fetch(PDO::FETCH_ASSOC)) {
-
     if (isset($_POST[$dados_alunos['RA']])) {
-
         $turma =  $_POST['turma'];
 
-        $turno = $_POST['turno'];
+        // $turno = $_POST['turno'];
 
         $ra = intval(($_POST[$dados_alunos['RA']]));
 
@@ -29,33 +27,36 @@ while ($dados_alunos = $query_alunos->fetch(PDO::FETCH_ASSOC)) {
 
         $query_turma->execute();
 
-        // var_dump($query_turma->rowCount());
-
-
-
-
+    // var_dump($query_turma->rowCount());
     } else {
-
-        
+        ?><script> Alert('Dados não alterado') </script><?php
     }
-
-
-
-    
 }
 
-if($id_tipo_usuario == 2){?>
+//  var_dump($id_tipo_usuario);exit;
 
-    <script>
-    alert('Alterado com Sucesso!!')
-    window.location = '../homeDiretor.html.php'
-    </script>
-<?
+if ($id_tipo_usuario == "3") {?>
 
- } else {?>
-
-        <script>
+<script>
         alert('Alterado com Sucesso!!')
         window.location = '../homeSecretaria.html.php'
+        </script>
+<?php
+
+ } elseif($id_tipo_usuario == "2") {?>
+
+        
+        <script>
+    alert('Alterado com Sucesso!!')
+    window.location = '../homeDiretor.html.php'
+    </script> 
+        
+        <?php
+    } else { ?>
+
+        <script>
+        alert('Usuário sem permissão!!')
+        window.location = '../homeSecretaria.html.php'
         </script> <?php
+
     }

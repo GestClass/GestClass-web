@@ -76,6 +76,7 @@
                                 <option value="<?php echo $turma_nome['ID_turma'] ?>">
                                     <?php echo $turma_nome['nome_turma'] . '  -  ' . $turma_turno['nome_turno'] ?>
                                 </option>
+                                
                             <?php
                             }
 
