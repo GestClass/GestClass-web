@@ -52,11 +52,11 @@
             </div>
             <div class="row">
                 <div class="col s12 m6 l6">
-                    <a href="paginaManutencao.php">
+                    <a href="visaoGeral.html.php">
                         <div class="card-panel z-depth-3 grey-text text-darken-4 hoverable card small">
                             <i class="fas fa-compass fa-6x blue-icon"></i>
                             <h5>Visão geral</h5>
-                            <p>Visão geral do sistema para testes</p>
+                            <p>Visualisação de dados da escola para fechamento de mensalidades</p>
                         </div>
                     </a>
                 </div>
@@ -110,8 +110,13 @@ $notificacao = $query_mensagem->rowCount();
                 <i class="large material-icons">add</i>
             </a>
             <ul>
+<<<<<<< HEAD
                 <li><span class="notifiadm center-align"><?php echo $notificacao ?></span><a href="feedbackEscolas.html.php" class="btn-floating blue-grey tooltipped" data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li>
                 <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
+=======
+                <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey tooltipped" data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li>
+                <li><a href="visaoGeral.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
+>>>>>>> a6b8579e4665140313194e511564c67f2e5e791f
                 <li><a href="cadastroEscola.html.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Cadastro Escolas"><i class="material-icons">account_balance</i></a></li>
                 <li><a href="admins.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Admins"><i class="material-icons">perm_identity</i></a></li>
             </ul>

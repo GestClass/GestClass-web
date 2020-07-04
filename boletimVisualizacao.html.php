@@ -116,6 +116,7 @@
 
         <div class="col s12 m12 l12 " id="1bimestre">
           <h4 class="center">1° Bimestre</h4>
+          
           <table class="striped">
             <thead>
               <tr>
