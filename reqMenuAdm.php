@@ -98,7 +98,8 @@
             </li>
             <li><a href="admins.html.php"><i class="material-icons">perm_identity</i>Admins</a></li>
             <li><a href="cadastroEscola.html.php"><i class="material-icons">account_balance</i>Cadastro Escolas</a></li>
-            <li><a class="waves-effect" href="paginaManutencao.php"><i class="material-icons">explore</i>Visão Geral</a></li>
+            <li><a class="waves-effect" href="visaoGeral.html.php"><i class="material-icons">explore</i>Visão Geral</a></li>
+            <li><a class="waves-effect" href="solicitacoesadm.html.php"><i class="material-icons">add_alert</i>Solicitações de cadastro</a></li>
             <li><a class="waves-effect" href="feedbackEscolas.html.php"><i class="material-icons">mail_outline</i>Feedback Usuários</a></li>
             <li>
                 <div class="divider"></div>

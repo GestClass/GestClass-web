@@ -218,8 +218,11 @@ CREATE TABLE envio_boleto (
     boleto VARCHAR(255) NOT NULL
 );
 
+
 CREATE TABLE contato (
 	ID_mensagem INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    nome varchar(50),
+    email varchar(50),
     mensagem TEXT NOT NULL,
     assunto VARCHAR(50) NOT NULL,
     data_mensagem DATETIME NOT NULL,
@@ -230,6 +233,7 @@ CREATE TABLE contato (
     fk_envio_diretor_id_diretor INTEGER,
     fk_envio_secretario_id_secretario INTEGER,
     fk_envio_admin_id_admin INTEGER,
+    fk_id_envio_solicitante INTEGER,
     fk_id_tipo_usuario_envio INTEGER NOT NULL,
 	fk_recebimento_aluno_ra_aluno INTEGER,
     fk_recebimento_responsavel_id_responsavel INTEGER,
@@ -377,6 +381,7 @@ ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOR
 /*	-	FOREIGN KEYs TABLE CONTATO	-	*/
 
 ALTER TABLE contato ADD CONSTRAINT fk_id_tipo_usuario_envio FOREIGN KEY (fk_id_tipo_usuario_envio) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_id_envio_solicitante FOREIGN KEY (fk_id_envio_solicitante) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_envio_aluno_ra_aluno FOREIGN KEY (fk_envio_aluno_ra_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_envio_responsavel_id_responsavel FOREIGN KEY (fk_envio_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_envio_professor_id_professor FOREIGN KEY (fk_envio_professor_id_professor) REFERENCES professor (ID_professor) ON DELETE CASCADE;
@@ -414,6 +419,7 @@ INSERT INTO tipo_usuario (nome_usuario) VALUES ('secretaria');
 INSERT INTO tipo_usuario (nome_usuario) VALUES ('professor');
 INSERT INTO tipo_usuario (nome_usuario) VALUES ('aluno');
 INSERT INTO tipo_usuario (nome_usuario) VALUES ('responsavel');
+INSERT INTO tipo_usuario (nome_usuario) VALUES ('solicitante');
 
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
