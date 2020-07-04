@@ -60,10 +60,20 @@
                         </div>
                     </a>
                 </div>
+                <?php
+
+                $query_mensagem = $conn->prepare("SELECT *
+                FROM responsavel AS R 
+                JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
+                $query_mensagem->execute();
+                $notificacao = $query_mensagem->rowCount();
+
+
+                ?>
                 <div class="col s12 m6 l6">
                     <a href="feedbackEscolas.html.php">
                         <div class="card-panel z-depth-3 grey-text text-darken-4 hoverable card small">
-                            <i class="fas fa-envelope fa-6x blue-icon"></i>
+                            <i class="fas fa-envelope fa-6x blue-icon"></i><span class="notifiadm center-align"><?php echo $notificacao ?></span>
                             <h5>Feedback dos Usuários</h5>
                             <p>Intermediario entre os usuários do sistema e os administradores do sistema</p>
                         </div>
@@ -92,16 +102,7 @@
         </div>
     </section>
 
-<?php
 
-$query_mensagem = $conn->prepare("SELECT *
-FROM responsavel AS R 
-JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
-$query_mensagem->execute();
-$notificacao = $query_mensagem->rowCount();
-
-
-?>
 
 
     <section class="floating-buttons">
@@ -110,6 +111,9 @@ $notificacao = $query_mensagem->rowCount();
                 <i class="large material-icons">add</i>
             </a>
             <ul>
+
+                <!-- <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey tooltipped" data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li> -->
+                <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
                 <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey tooltipped" data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li>
                 <li><a href="visaoGeral.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
                 <li><a href="cadastroEscola.html.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Cadastro Escolas"><i class="material-icons">account_balance</i></a></li>

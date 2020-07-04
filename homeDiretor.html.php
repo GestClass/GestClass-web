@@ -97,7 +97,7 @@ $notificacao = $query_mensagem->rowCount();
             <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de Disciplinas para Turma"><i class="material-icons">import_contacts</i></a></li>
             <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
             <li><a href="cadastroDatasFinaisBimestres.html.php" class="btn-floating tooltipped" data-position="left" data-tooltip="Atribuir Datas de Final de Bimestre"><i class="material-icons">event_available</i></a></li>
-            <li><a href="mensagensDiretor.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
+            <li><span class="notifi center-align"><?php echo $notificacao ?></span><a href="mensagensDiretor.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
         </ul>
     </div>
 </section>

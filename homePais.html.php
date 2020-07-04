@@ -51,10 +51,20 @@ $id_escola = $_SESSION["id_escola"];
                     </div>
                 </a>
             </div>
+            <?php
+
+            $query_mensagem = $conn->prepare("SELECT *
+            FROM responsavel AS R 
+            JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
+            $query_mensagem->execute();
+            $notificacao = $query_mensagem->rowCount();
+
+
+            ?>
             <div class="col s12 m4">
                 <a class="modal-trigger" href="#modalChat">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                        <i class="fas fa-envelope fa-6x blue-icon"></i>
+                        <i class="fas fa-envelope fa-6x blue-icon"></i><span class="notifi center-align"><?php echo $notificacao ?></span>
                         <h5>Mensagens</h5>
                         <p>Caixa e envio de mensagens</p>
                     </div>
@@ -74,16 +84,7 @@ $id_escola = $_SESSION["id_escola"];
     </div>
 </section>
 
-<?php
 
-$query_mensagem = $conn->prepare("SELECT *
-FROM responsavel AS R 
-JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
-$query_mensagem->execute();
-$notificacao = $query_mensagem->rowCount();
-
-
-?>
 
 <section class="floating-buttons">
     <div class="fixed-action-btn">
@@ -96,7 +97,7 @@ $notificacao = $query_mensagem->rowCount();
             <li><a href="#modalFilhosBoletim" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered</i></a></li>
             <li><a href="emissaoBoletos.html.php" class="btn-floating green accent-3 tooltipped" data-position="left" data-tooltip="Financeiro"><i class="material-icons">monetization_on</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
-            <li><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
+            <!-- <li><span class="notifi center-align"><?php// echo $notificacao ?></span><a href="mensagensResponsavel.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li> -->
             <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
         </ul>
     </div>
