@@ -180,18 +180,7 @@
                             <input name="cep" id="cep" value="<?php echo $dados_resp['cep'] ?>" type="text" class="validate" data-mask="00000-000" onblur="pesquisacep(this.value);">
                             <label id="lbl" for="first_name">CEP</label>
                         </div>
-                        <div id="a" class="input-field col s12 m2 l2">
-                            <input id="cidade" placeholder="Cidade" type="text" class="validate">
-                            <label id="lbl" for="first_name">Cidade</label>
-                        </div>
-                        <div id="a" class="input-field col s12 m2 l2">
-                            <input id="bairro" placeholder="Bairro" type="text" class="validate">
-                            <label id="lbl" for="first_name">Bairro</label>
-                        </div>
-                        <div id="a" class="input-field col s12 m2 l2">
-                            <input id="rua" placeholder="Rua" type="text" class="validate">
-                            <label id="lbl" for="first_name">Rua</label>
-                        </div>
+                    
                         <div id="a" class="input-field col s6 m1 l1">
                             <input name="numero" id="numero" value="<?php echo $dados_resp['numero'] ?>" type="tel" class="validate ">
                             <label id="lbl" for="first_name">Nº</label>
