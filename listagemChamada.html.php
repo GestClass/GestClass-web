@@ -67,7 +67,7 @@
                                 <tr>
                                     <td>
                                         <?php
-                                        echo $dataChamada;
+                                        echo $dataChamadaOriginal;
                                         ?>
                                     </td>
 
