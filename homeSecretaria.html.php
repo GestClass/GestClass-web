@@ -71,8 +71,8 @@ require_once 'reqHeader.php';
 <?php
 
 $query_mensagem = $conn->prepare("SELECT *
-FROM responsavel AS R 
-JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
+FROM secretario AS S 
+JOIN contato AS C ON S.id_secretario = C.fk_recebimento_secretario_id_secretario and S.id_secretario = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
 $query_mensagem->execute();
 $notificacao = $query_mensagem->rowCount();
 

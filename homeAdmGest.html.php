@@ -63,8 +63,8 @@
                 <?php
 
                 $query_mensagem = $conn->prepare("SELECT *
-                FROM responsavel AS R 
-                JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
+                FROM admin AS A 
+                JOIN contato AS C ON A.id_admin = C.fk_recebimento_admin_id_admin and A.id_admin = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
                 $query_mensagem->execute();
                 $notificacao = $query_mensagem->rowCount();
 

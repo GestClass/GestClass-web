@@ -75,8 +75,8 @@ $id_escola = $_SESSION["id_escola"];
 <?php
 
 $query_mensagem = $conn->prepare("SELECT *
-FROM responsavel AS R 
-JOIN contato AS C ON R.id_responsavel = C.fk_recebimento_responsavel_id_responsavel and R.id_responsavel = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
+FROM diretor AS D 
+JOIN contato AS C ON D.id_diretor = C.fk_recebimento_diretor_id_diretor and D.id_diretor = {$id_usuario} WHERE notificacao = 0 ORDER BY data_mensagem DESC;");
 $query_mensagem->execute();
 $notificacao = $query_mensagem->rowCount();
 
