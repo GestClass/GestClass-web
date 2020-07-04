@@ -5,6 +5,7 @@ require_once 'conexao.php';
 $tipo_usuario = $_POST['tipo_conta'];
 
 
+
 if ($tipo_usuario == '5') {
     $nome_aluno = $_POST['nome'];
     $dataNasc = $_POST['data_nascimento'];
@@ -17,6 +18,10 @@ if ($tipo_usuario == '5') {
     $telefone = $_POST['telefone'];
     $id_turma = $_POST['id_turma'];
     $ra = $_POST['ra'];
+
+    
+
+    //  var_dump($nome_aluno, $data_nascimento, $RG, $cpf, $email, $celular, $telefone);exit;
 
     $image_file = $_FILES["foto_file"]["name"];
     $type  = $_FILES["foto_file"]["type"];
@@ -61,22 +66,22 @@ if ($tipo_usuario == '5') {
             $caminho = "../assets/imagensBanco/" . $nome_imagem;
 
             move_uploaded_file($temp, $caminho);
-
+        }
+    }
     
-            if (($nome_aluno != "")&&($data_nascimento != "")&&($RG != "")&&($cpf != "")&&($email != "")&&
-    ($celular != "")&&($telefone != "")) {
+             if (($nome_aluno != "")&&($data_nascimento != "")&&($RG != "")||($cpf != "")&&($email != "")&&
+     ($celular != "")&&($telefone != "")) {
 
 
-        
-         
-        //  var_dump($nome_aluno, $data_nascimento, $RG, $cpf, $email, $celular, $telefone);exit;
 
-                            
+                 
                                                 
                 $query_up = 'UPDATE aluno SET foto = :foto, nome_aluno = :nome_aluno, data_nascimento = :data_nascimento,
                                         RG = :RG, cpf = :cpf, email = :email, celular = :celular, telefone = :telefone, 
                                         fk_id_turma_aluno = :fk_id_turma_aluno 
                                         WHERE RA = ' . $ra . '';
+
+                
 
                 $query_update = $conn->prepare($query_up);
                 $query_update->bindParam(':foto', $nome_imagem);
@@ -91,6 +96,8 @@ if ($tipo_usuario == '5') {
 
                 $query_update->execute();
 
+
+                           
 
                 if ($query_update->rowCount()) {
                     ?>
@@ -111,12 +118,12 @@ if ($tipo_usuario == '5') {
 
                                         <?php
                 }
-            }
-        }
+            
+        
     }else {
                         ?>
                     <script>
-                    alert("Erro ao tentar alterar, confira os campos!")
+                    alert("Erro ao tentar alterar, confira os campos!!")
                     window.location = '../dadosUsuarios.html.php?id=<?php echo $ra?>&tipo=<?php echo $tipo_usuario?>'
                     </script>
                     <?php
@@ -182,6 +189,8 @@ if ($tipo_usuario == '5') {
                 $caminho = "../assets/imagensBanco/" . $nome_imagem;
 
                 move_uploaded_file($temp, $caminho);
+            }
+        }
 
         
                 if (($nome_responsavel != "")&&($data_nascimento != "")&&($RG != "")&&($cpf != "")&&($cep != "")&&
@@ -234,8 +243,8 @@ if ($tipo_usuario == '5') {
 
                             <?php
                     }
-                }
-            }
+                
+            
         }
         else {
         ?>
@@ -302,6 +311,8 @@ if ($tipo_usuario == '5') {
                     $caminho = "../assets/imagensBanco/" . $nome_imagem;
     
                     move_uploaded_file($temp, $caminho);
+                }
+            }
     
                     // var_dump($nome_secretario, $RG, $cpf, $email, $celular, $telefone, $ID_secretario);exit;
     
@@ -346,13 +357,13 @@ if ($tipo_usuario == '5') {
 
                     <?php
                         }
-                    }
-                }
+                    
+                        
             }
                 else {
             ?>
     <script>
-    alert("Erro ao tentar alterar, confira os campos!")
+    alert("Erro ao tentar alterar, confira os campos!!!!!!")
     window.location = '../dadosUsuarios.html.php?id=<?php echo $ID_professor?>&tipo=<?php echo $tipo_usuario?>'
     </script>
     <?php
@@ -374,12 +385,59 @@ if ($tipo_usuario == '5') {
 
     // var_dump($nome_secretario, $RG, $cpf, $email, $celular, $telefone, $ID_secretario);exit;
 
+    $image_file = $_FILES["foto_file"]["name"];
+        $type  = $_FILES["foto_file"]["type"];
+        $size  = $_FILES["foto_file"]["size"];
+        $temp  = $_FILES["foto_file"]["tmp_name"];
+        $error  = $_FILES["foto_file"]["error"];
+    
+            if ($error == 1) {
+                echo "<script>alert('O arquivo no upload é maior do que o limite definido em upload_max_filesize no php.ini');
+                        history.back();
+                        </script>";
+            }
+            //print_r($imagem);exit;
+            if ($image_file) {
+                $largura = 2000;
+                $altura = 3000;
+                $tamanho = 2000000;
+    
+                if (!preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $image_file, $ext)) {
+                    echo "<script>alert('Ops! Isso não é uma imagem.');
+                    history.back();
+                        </script>";
+                }
+    
+                $dimensoes = getimagesize($temp);
+                //print_r($dimensoes);exit;
+                if ($dimensoes[0] > $largura) {
+                    echo "A largura da imagem não deve ultrapassar " . $largura . " pixels";
+                }
+    
+                if ($dimensoes[1] > $altura) {
+                    echo "Altura da imagem não deve ultrapassar " . $altura . " pixels";
+                }
+    
+                if ($size > $tamanho) {
+                    echo "A imagem deve ter no máximo " . $tamanho . " bytes";
+                } else {
+                    preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $image_file, $ext);
+    
+                    $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
+    
+                    $caminho = "../assets/imagensBanco/" . $nome_imagem;
+    
+                    move_uploaded_file($temp, $caminho);
+                }
+            }
+
     if (($nome_secretario != "")&&($RG != "")&&($cpf != "")&&($email != "")&&($celular != "")&&
     ($telefone != "")) {
-        $query_up = 'UPDATE secretario SET nome_secretario = :nome_secretario, RG = :RG, cpf = :cpf, 
+        $query_up = 'UPDATE secretario SET foto = :foto, nome_secretario = :nome_secretario, RG = :RG, cpf = :cpf, 
     cep = :cep, numero = :numero, complemento = :complemento,email = :email, celular = :celular, telefone = :telefone WHERE ID_secretario = ' . $ID_secretario . '';
 
         $query_update = $conn->prepare($query_up);
+        $query_update->bindParam(':foto', $nome_imagem);
         $query_update->bindParam(':nome_secretario', $nome_secretario);
         $query_update->bindParam(':RG', $RG);
         $query_update->bindParam(':cpf', $cpf);
@@ -400,7 +458,7 @@ if ($tipo_usuario == '5') {
 
 <script>
 alert('Dados alterados com sucesso')
-window.location = '../dadosUsuarios.html.php'
+window.location = '../dadosUsuarios.html.php?id=<?php echo $ID_secretario?>&tipo=<?php echo $tipo_usuario?>'
 </script>
 
 <?php
@@ -409,7 +467,7 @@ window.location = '../dadosUsuarios.html.php'
 
 <script>
 alert('Erro, confira os campos e tente novamente')
-window.location = '../dadosUsuarios.html.php'
+window.location = '../dadosUsuarios.html.php?id=<?php echo $ID_secretario?>&tipo=<?php echo $tipo_usuario?>'
 </script>
 
 <?php
@@ -436,12 +494,59 @@ window.location = '../dadosUsuarios.html.php?id=<?php echo $ra?>&tipo=<?php echo
 
     //  var_dump($nome_diretor, $RG, $cpf, $email, $celular, $telefone, $ID_diretor);exit;
 
+    $image_file = $_FILES["foto_file"]["name"];
+        $type  = $_FILES["foto_file"]["type"];
+        $size  = $_FILES["foto_file"]["size"];
+        $temp  = $_FILES["foto_file"]["tmp_name"];
+        $error  = $_FILES["foto_file"]["error"];
+    
+            if ($error == 1) {
+                echo "<script>alert('O arquivo no upload é maior do que o limite definido em upload_max_filesize no php.ini');
+                        history.back();
+                        </script>";
+            }
+            //print_r($imagem);exit;
+            if ($image_file) {
+                $largura = 2000;
+                $altura = 3000;
+                $tamanho = 2000000;
+    
+                if (!preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $image_file, $ext)) {
+                    echo "<script>alert('Ops! Isso não é uma imagem.');
+                    history.back();
+                        </script>";
+                }
+    
+                $dimensoes = getimagesize($temp);
+                //print_r($dimensoes);exit;
+                if ($dimensoes[0] > $largura) {
+                    echo "A largura da imagem não deve ultrapassar " . $largura . " pixels";
+                }
+    
+                if ($dimensoes[1] > $altura) {
+                    echo "Altura da imagem não deve ultrapassar " . $altura . " pixels";
+                }
+    
+                if ($size > $tamanho) {
+                    echo "A imagem deve ter no máximo " . $tamanho . " bytes";
+                } else {
+                    preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $image_file, $ext);
+    
+                    $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
+    
+                    $caminho = "../assets/imagensBanco/" . $nome_imagem;
+    
+                    move_uploaded_file($temp, $caminho);
+                }
+            }
+
     if (($nome_diretor != "")&&($RG != "")&&($cpf != "")&&($email != "")&&($celular != "")&&
     ($telefone != "")) {
-        $query_up = 'UPDATE diretor SET nome_diretor = :nome_diretor, RG = :RG, cpf = :cpf, 
+        $query_up = 'UPDATE diretor SET foto = :foto, nome_diretor = :nome_diretor, RG = :RG, cpf = :cpf, 
     cep = :cep, numero = :numero, complemento = :complemento,email = :email, celular = :celular, telefone = :telefone WHERE ID_diretor = ' . $ID_diretor . '';
 
         $query_update = $conn->prepare($query_up);
+        $query_update->bindParam(':foto', $nome_imagem);
         $query_update->bindParam(':nome_diretor', $nome_diretor);
         $query_update->bindParam(':RG', $RG);
         $query_update->bindParam(':cpf', $cpf);
@@ -462,7 +567,7 @@ window.location = '../dadosUsuarios.html.php?id=<?php echo $ra?>&tipo=<?php echo
 
 <script>
 alert('Dados alterados com sucesso')
-window.location = '../dadosUsuarios.html.php'
+window.location = '../dadosUsuarios.html.php?id=<?php echo $ID_diretor?>&tipo=<?php echo $tipo_usuario?>'
 </script>
 
 <?php
@@ -471,7 +576,7 @@ window.location = '../dadosUsuarios.html.php'
 
 <script>
 alert('Erro, confira os campos e tente novamente')
-window.location = '../dadosUsuarios.html.php'
+window.location = '../dadosUsuarios.html.php?id=<?php echo $ID_diretor?>&tipo=<?php echo $tipo_usuario?>'
 </script>
 
 <?php
