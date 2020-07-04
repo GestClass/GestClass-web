@@ -48,10 +48,6 @@
     $query_mensagem->execute();
     $notificacao = 1;
 
-
-
-
-
     ?>
 
     <div class="container"><br>
@@ -85,11 +81,11 @@
                     ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Diretor</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
@@ -115,11 +111,11 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Secretario</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
@@ -145,17 +141,21 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>aluno</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
-                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_aluno ?>&u=<?php echo 5 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
+                                    <td>
+                                        <a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_aluno ?>&u=<?php echo 5 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
-                                                <i class="small material-icons center">email</i></button></a></td>
+                                                <i class="small material-icons center">email</i>
+                                            </button>
+                                        </a>
+                                    </td>
                                 </tr>
                     <?php
                             }
@@ -172,7 +172,7 @@
             <div class="input-field col s12">
                 <form action="listaAlunosMensagens.html.php" method="POST">
                     <select name="turmas">
-                        <option value="" disabled selected>Selecione a Turma</option>
+                        <option value="" disabled selected>Selecionar Turma</option>
                         <?php
                         $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
                         $query_select_turmas_professor->execute();
@@ -263,8 +263,10 @@
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">send</i>Enviar
+                        </button>
                     </div>
                 </form>
             </div>
@@ -298,10 +300,11 @@
                             <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
                         </div>
                     </div>
-                    <div class="input-field right">
-                        <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">send</i>Enviar
+                        </button>
                     </div>
-
                 </form>
             </div>
         </div>

@@ -37,8 +37,12 @@
     ?>
 
     <div class="container col s12 m12 l12">
-        <h4 class="center">Turma <?php echo $nome ?></h4><br>
-        <table class="striped">
+        <h3 class="center">Lista de Alunos</h3>
+        <br>
+        <hr>
+        <h4 class="center">Turma: <?php echo $nome ?></h4><br>
+        <hr><br>
+        <table class="striped centered">
             <thead>
                 <th>
                     RA

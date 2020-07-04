@@ -19,16 +19,16 @@
         require_once 'reqProfessor.php';
     }
 
-    $id_usuario = $_SESSION["id_usuario"];
-    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
-    $id_escola = $_SESSION["id_escola"];
-
     // Alterar abaixo para o valor quando vier do <select>
-    $id_disciplina = 5;
-    $dataChamada = $_POST['dataChamada'];
+    $id_disciplina = $_POST['idDisciplina'];
+    $id_turma = $_POST['idTurma'];
+    $dataChamadaOriginal = $_POST['dataChamada'];
     //echo $dataChamada;
 
-    if ($dataChamada != "") {
+    if ($dataChamadaOriginal != "") {
+        $data = str_replace('/', '-', $dataChamadaOriginal);
+        $dataChamada = date('Y-m-d', strtotime($data));
+
     ?>
 
         <div class="container col s12 m12 l12" id="container_boletimCadastro">
@@ -50,7 +50,7 @@
                     <?php
                     $query_listagem = $conn->prepare('SELECT * FROM listagem_chamada WHERE fk_id_escola_listagem_chamada = ' . $id_escola . ' AND fk_id_professor_listagem_chamada = ' . $id_usuario . ' AND fk_id_disciplina_listagem_chamada = ' . $id_disciplina . ' AND data_chamada = "' . $dataChamada . '"');
                     $query_listagem->execute();
-                    
+
                     if ($query_listagem->rowCount()) {
 
                         while ($chamadas = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
@@ -81,6 +81,7 @@
                                         <form action="alteracaoChamada.html.php" method="POST">
                                             <input type="hidden" name="idChamada" value="<?php echo $id_chamada; ?>">
                                             <input type="hidden" name="dataChamada" value="<?php echo $dataChamada; ?>">
+                                            <input type="hidden" name="idTurma" value="<?php echo $id_turma; ?>">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                                                 <i class="material-icons left">edit</i>Editar
                                             </button>
@@ -94,7 +95,7 @@
                         ?>
                         <script>
                             alert('Nenhum registro encontrado!!')
-                            history.back()
+                            window.location = 'homeProfessor.html.php';
                         </script>
                     <?php
                     }

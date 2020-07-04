@@ -5,15 +5,17 @@ $id_usuario = $_SESSION["id_usuario"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
 
-$dataChamada_original = $_POST['dataChamada'];
-$data = str_replace('/', '-', $dataChamada_original);
-$dataChamada = date('Y-m-d', strtotime($data));
-// Alterar abaixo para o valor quando vier do <select>
-$id_professor = $id_usuario;
-$id_disciplina=$_SESSION["id_disciplinas"];
-$id_turma=$_SESSION['id_turma'];
+$id_turma = $_POST['idTurma'];
+$id_disciplina = $_POST['idDisciplina'];
 
-if ($dataChamada != "") {
+$dataChamada_original = $_POST['dataChamada'];
+
+if ($dataChamada_original != "") {
+
+    $data = str_replace('/', '-', $dataChamada_original);
+    $dataChamada = date('Y-m-d', strtotime($data));
+
+    $id_professor = $id_usuario;
 
     $query_insert_listagem_chamada = $conn->prepare('INSERT INTO listagem_chamada (data_chamada, fk_id_escola_listagem_chamada, fk_id_disciplina_listagem_chamada, fk_id_professor_listagem_chamada)
                                      VALUES (:data_chamada, :id_escola, :id_disciplina, :id_professor)');
@@ -33,7 +35,7 @@ if ($dataChamada != "") {
     while ($id_listagem = $query_id_listagem->fetch(PDO::FETCH_ASSOC)) {
 
         $id = $id_listagem['MAX(ID_listagem)'];
-        
+
         $query_select_alunos = $conn->prepare("SELECT nome_aluno, RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = $id_turma");
         $query_select_alunos->execute();
 
@@ -78,10 +80,9 @@ if ($dataChamada != "") {
     ?>
     <script>
         alert('Por favor, selecione a Data!')
-        history.back();
+        window.location = '../homeProfessor.html.php';
     </script>
 <?php
 }
 
 ?>
-

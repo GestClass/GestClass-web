@@ -43,12 +43,9 @@
     }
 
     $idChamada = $_POST['idChamada'];
-    //echo $idChamada;
-    echo '<br><br><br>';
     $dataChamada = $_POST['dataChamada'];
-
-    // Substituir abaixo pelo valor do <select>
-    $idTurma = 16;
+    $idTurma = $_POST['idTurma'];
+    
 
     ?>
 

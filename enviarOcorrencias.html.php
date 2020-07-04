@@ -50,21 +50,23 @@
             <div class="modal-content">
                 <div class="row">
                     <div class="input-field col s12 m12 l12">
-                        <input type="text" name="id_respon" value="<?php echo $id_responsavel?>" hidden>
+                        <input type="text" name="id_respon" value="<?php echo $id_responsavel ?>" hidden>
                         <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
                         <label id="lbl" for="first_name">Assunto</label>
                     </div>
-                </>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea name="ocorrencia" id="ocorrencia" placeholder="Digite a sua Ocorrência" class="materialize-textarea"></textarea>
-                        <label id="lbl" for="textarea1">Digite a sua Ocorrência</label>
+                    </>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="ocorrencia" id="ocorrencia" placeholder="Digite a sua Ocorrência" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Ocorrência</label>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">send</i>Enviar
+                        </button>
                     </div>
                 </div>
-                <div class="input-field right">
-                    <button btn="btncadastrar" value="formProfessor" id="btnFormContas" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-                </div>
-            </div>
         </form>
     </div>
 

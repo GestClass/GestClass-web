@@ -160,142 +160,23 @@ $id_escola = $_SESSION["id_escola"];
   </div>
   </div>
 
-
-
   <section class="floating-buttons">
     <div class="fixed-action-btn">
       <a class="btn-floating btn-large light-blue lighten-1">
         <i class="large material-icons">add</i>
       </a>
       <ul>
-        <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
         <li><a href="#modalTurma" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Chamada"><i class="material-icons">assignment</i></a></li>
-        <li><a href="paginaManutencao.php" class="btn-floating yellow darken-1 tooltipped" data-position="left" data-tooltip="Notificações"><i class="material-icons">notifications_active</i></a></li>
+        <li><a href="#modalTurmaBoletim" class="modal-trigger btn-floating tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered_rtl</i></a></li>
+        <li><a href="#modalOcorrencias" class="modal-trigger btn-floating red tooltipped" data-position="left" data-tooltip="Ocorrências"><i class="material-icons">assignment_late</i></a></li>
+        <li><a href="#modalListaAlunos" class="modal-trigger btn-floating brown tooltipped" data-position="left" data-tooltip="Lista de alunos"><i class="material-icons">list_alt</i></a></li>
         <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
+        <li><span class="notifi center-align"><?php echo $notificacao ?></span><a href="mensagensProfessor.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
+        <li><a href="#modalFeedback" class="modal-trigger btn-floating light-blue lighten-2 tooltipped" data-position="left" data-tooltip="Relate um Problema"><i class="material-icons">support_agent</i></a></li>
         <!-- <li><a href="mensagensDiretor.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li> -->
       </ul>
     </div>
   </section>
-
-  <div id="modalFeedback" class="modal">
-    <div class="modal-content">
-      <h4>Digite o Problema que occoreu</h4><br>
-      <div id="novaMensagem">
-        <form action="php/enviarMensagem/enviarFeedback.php" method="POST">
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem" class="materialize-textarea"></textarea>
-              <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
-            </div>
-          </div>
-          <div class="input-field right">
-            <button btn="btncadastrar" value="formMensagem" id="formMensagem" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Enviar</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div id="modalListaAlunos" class="modal">
-    <div class="modal-content">
-      <h4>Selecione a turma</h4>
-      <div class="input-field col s12">
-        <form action="listaAlunos.html.php" method="POST">
-          <select name="turmas">
-            <option value="" disabled selected>Selecione a Turma</option>
-            <?php
-
-            $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
-            $query_select_turmas_professor->execute();
-
-            while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
-
-              $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
-
-              $query_select_turma = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $id_turma");
-              $query_select_turma->execute();
-
-              while ($dados_turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
-                $nome_turma = $dados_turma_nome["nome_turma"];
-
-                $query_turno = $conn->prepare("SELECT fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
-                $query_turno->execute();
-
-                while ($dados_turno = $query_turno->fetch(PDO::FETCH_ASSOC)) {
-                  $id_turno = $dados_turno['fk_id_turno_turma'];
-
-                  $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
-                  $query_turno_nome->execute();
-
-                  while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
-                    $nome_turno = $dados_nome_turno['nome_turno'];
-
-            ?>
-                    <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
-            <?php
-                  }
-                }
-              }
-            } ?>
-          </select>
-          <br>
-          <div class="center">
-            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-              <i class="material-icons left">search</i>Pesquisar
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-
-  <div id="modalOcorrencias" class="modal">
-    <div class="modal-content">
-      <h4>Selecione a turma</h4>
-      <div class="input-field col s12">
-        <form action="ocorrenciasProfessor.html.php" method="POST">
-          <select name="turmas">
-            <option value="" disabled selected>Selecione a Turma</option>
-            <?php
-
-            $query_select_turmas_professor = $conn->prepare("SELECT fk_id_turma_professor_turmas_professor FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id_usuario");
-            $query_select_turmas_professor->execute();
-
-            while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
-
-              $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
-
-              $query_select_turma = $conn->prepare("SELECT nome_turma,fk_id_turno_turma FROM turma WHERE ID_turma = $id_turma");
-              $query_select_turma->execute();
-
-              while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
-                $nome_turma = $dados_turma["nome_turma"];
-                $id_turno = $dados_turma['fk_id_turno_turma'];
-
-                $query_turno_nome = $conn->prepare("SELECT nome_turno FROM turno WHERE ID_turno = $id_turno");
-                $query_turno_nome->execute();
-
-                while ($dados_nome_turno = $query_turno_nome->fetch(PDO::FETCH_ASSOC)) {
-                  $nome_turno = $dados_nome_turno['nome_turno'];
-
-            ?>
-                  <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
-            <?php
-                }
-              }
-            } ?>
-          </select>
-          <br>
-          <div class="center">
-            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-              <i class="material-icons left">search</i>Pesquisar
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <script src="js/boletimCadastro.js"></script>
 

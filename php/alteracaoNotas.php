@@ -91,7 +91,7 @@ if ($nome_atividade != "") {
         ?>
         <script>
             alert('Por favor, insira notas dentro do permitido pela escola\n e observação para alunos abaixo da média!!');
-            history.back();
+            window.location = '../homeprofessor.html.php'
         </script>
     <?php
     }
@@ -99,7 +99,7 @@ if ($nome_atividade != "") {
     ?>
     <script>
         alert('Desculpe, você precisa inserir um nome para a atividade!!');
-        window.location = "../boletimCadastro.html.php";
+        window.location = '../homeprofessor.html.php'
     </script>
 <?php
 }

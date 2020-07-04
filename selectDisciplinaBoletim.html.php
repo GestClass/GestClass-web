@@ -9,8 +9,7 @@ $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
 
 
-$id_turma = $_POST['turma'];
-echo $id_turma;
+$id_turma = $_POST['turmas'];
 
 if ($id_turma == null) {
 ?>
@@ -38,7 +37,7 @@ if ($id_turma == null) {
                 <div class="input-field col s12 validate">
                     <form action="boletimCadastro.html.php" method="POST">
                         <input type="hidden" name="idTurma" value="<?php echo $id_turma; ?>">
-                        <h5 class="center">Seleciona a disciplina:</h5>
+                        <h4 class="center">Selecione a Disciplina</h4>
                         <div class='select'>
                             <select name="disciplinas">
                                 <option value="" disabled selected>Selecione a Disciplina</option>
@@ -58,9 +57,10 @@ if ($id_turma == null) {
                                 }
                                 ?>
                             </select>
-                            <div class="button">
-                                <button id="btnTableChamada" type="submit" class=" btn-flat btnLightBlue ">
-                                    Pesquisar
+                            <br>
+                            <div class="center">
+                                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                                    <i class="material-icons left">search</i>Pesquisar
                                 </button>
                             </div>
                         </div>
