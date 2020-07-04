@@ -135,7 +135,7 @@
             </div>
 
             <div id="alteracao" class="col s12 m12 l12">
-                <h4 class="center">Lista de Atividades Dadas</h4>
+                <h4 class="center">Lista de Atividades Aplicadas</h4>
                 <br>
 
                 <br><br>
