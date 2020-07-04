@@ -52,19 +52,13 @@
                         <input type="text" placeholder="Nome do(a) diretor(a)" class="inputDark" />
                     </div>
                     <div class="input-field col s12 m6">
-                        <select class="selectPlanos">
-                            <option value="" disabled selected>Selecione um plano</option>
-                            <option value="1">Plano primário - R$ 1000 00</option>
-                            <option value="2">Plano fundamental - R$ 1750 00</option>
-                            <option value="3">Plano colegial - R$ 3000 00</option>
-                        </select>
+                        <input type="number" placeholder="Quantidade de alunos" class="inputDark" />
                     </div>
                     <div class="input-field col s12 m6">
                         <input type="text" placeholder="Nome do(a) diretor(a)" class="inputDark" />
                     </div>
                     <div class="input-field col s12">
-                        <textarea class="materialize-textarea inputDark" id="mensagemContato"
-                            placeholder="Escreva sua mensagem" maxlength="120"></textarea>
+                        <textarea class="materialize-textarea inputDark" id="mensagemContato" placeholder="Escreva sua mensagem" maxlength="120"></textarea>
                         <span class="helper-text red-text" id="spanMensagemContato"></span>
                     </div>
                     <div class="input-field right-align col s12">
@@ -76,8 +70,8 @@
             </div>
         </div>
     </div>
-
-    <footer class="light-blue lighten-1 white-text center section">
+    <br><br>
+    <footer class="light-blue lighten-1 white-text center section" style="margin-top: 0.62%;">
         <div class="container">
             <div class="row">
                 <div class="col s12">
@@ -132,7 +126,7 @@
         M.Modal.init(modal, {})
 
         // select
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('select').formSelect()
         })
     </script>

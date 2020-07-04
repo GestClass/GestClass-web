@@ -21,9 +21,6 @@ $id_escola = $_SESSION["id_escola"];
           </div>
         </a>
       </div>
-
-
-
       <div class="col s12 m4">
         <a class="modal-trigger" href="#modalTurmaBoletim">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
