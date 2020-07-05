@@ -84,7 +84,7 @@ $nome_pais = $nome[0];
                         <option value="" disabled selected>Selecionar Filho</option>
                         <?php
 
-                        $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario");
+                        $query_select_filhos_responsavel = $conn->prepare("SELECT nome_aluno, RA, fk_id_turma_aluno FROM aluno WHERE fk_id_responsavel_aluno = $id_usuario ");
                         $query_select_filhos_responsavel->execute();
                         print_r($query_select_filhos_responsavel);
                         while ($filhos = $query_select_filhos_responsavel->fetch(PDO::FETCH_ASSOC)) {

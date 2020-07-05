@@ -119,7 +119,7 @@ $nome_prof = $nome[0];
 
     <div id="modalFeedback" class="modal">
       <div class="modal-content">
-        <h4 class="center">Digite o Problema que Occoreu</h4><br>
+        <h4 class="center">Digite o Problema que Ocorreu</h4><br>
         <div id="novaMensagem">
           <form action="php/enviarMensagem/enviarFeedback.php" method="POST">
             <div class="row">
