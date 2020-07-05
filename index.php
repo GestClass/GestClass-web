@@ -41,7 +41,7 @@
                                 <a href="#planos" class="btnIndexMenu">Planos</a>
                             </li>
                             <li>
-                                <a href="#app" class="btnIndexMenu">App</a>
+                                <a href="#sobre" class="btnIndexMenu">Sobre</a>
                             </li>
                             <li>
                                 <a href="#contato" class="btnIndexMenu">Contato</a>
@@ -64,7 +64,7 @@
                 <a href="#planos" class="waves-effect waves-light">Planos</a>
             </li>
             <li>
-                <a href="#app" class="waves-effect waves-light">App</a>
+                <a href="#sobre" class="waves-effect waves-light">Sobre</a>
             </li>
             <li>
                 <a href="#contato" class="waves-effect waves-light">Contato</a>
