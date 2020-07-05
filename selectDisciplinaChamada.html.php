@@ -60,22 +60,16 @@ if ($id_turma == null) {
                                 <h4>Selecione a matéria desejada</h4>
                                 <i class="material-icons prefix blue-icon">library_books</i>
                                 <?php
-                                $query_select_disciplina_turma_professor = $conn->prepare("SELECT fk_id_disciplina_professor_disciplinas_professor FROM disciplinas_professor WHERE fk_id_professor_disciplinas_professor = $id_usuario AND fk_id_turma_professor_disciplinas_professor= $id_turma");
+                                $query_select_disciplina_turma_professor = $conn->prepare("SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor, disciplina.nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor = ID_disciplina) WHERE disciplinas_professor.fk_id_professor_disciplinas_professor = $id_usuario AND disciplinas_professor.fk_id_turma_professor_disciplinas_professor = $id_turma GROUP BY disciplina.nome_disciplina");
                                 $query_select_disciplina_turma_professor->execute();
 
                                 while ($dados_disciplina_turma_professor = $query_select_disciplina_turma_professor->fetch(PDO::FETCH_ASSOC)) {
 
-                                    $id_disciplina = $dados_disciplina_turma_professor["fk_id_disciplina_professor_disciplinas_professor"];
-
-                                    $query_select_nome_disciplina = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina;");
-                                    $query_select_nome_disciplina->execute();
-
-                                    while ($dados_nome_disciplina = $query_select_nome_disciplina->fetch(PDO::FETCH_ASSOC)) {
-                                        $nome_disciplina = $dados_nome_disciplina["nome_disciplina"];
+                                    $id_disciplina = $dados_disciplina_turma_professor["fk_id_disciplina_professor_disciplinas_professor"];                                    
+                                    $nome_disciplina = $dados_disciplina_turma_professor["nome_disciplina"];
                                 ?>
                                         <option value="<?php echo $id_disciplina ?>"><?php echo $nome_disciplina ?></option>
                                 <?php
-                                    }
                                 }
                                 ?>
                             </select>

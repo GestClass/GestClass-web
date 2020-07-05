@@ -44,13 +44,13 @@ if ($id_turma == null) {
                                 <h4>Selecione a matéria desejada</h4>
                                 <i class="material-icons prefix blue-icon">library_books</i>
                                 <?php
-                                $query_select_disciplina_turma_professor = $conn->prepare("SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor AS id_disciplina, disciplina.nome_disciplina AS nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (fk_id_disciplina_professor_disciplinas_professor = ID_disciplina) WHERE fk_id_professor_disciplinas_professor = $id_usuario AND fk_id_turma_professor_disciplinas_professor= $id_turma");
+                                $query_select_disciplina_turma_professor = $conn->prepare("SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor, disciplina.nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor = ID_disciplina) WHERE disciplinas_professor.fk_id_professor_disciplinas_professor = $id_usuario AND disciplinas_professor.fk_id_turma_professor_disciplinas_professor = $id_turma GROUP BY disciplina.nome_disciplina");
                                 $query_select_disciplina_turma_professor->execute();
 
                                 while ($dados_disciplina_turma_professor = $query_select_disciplina_turma_professor->fetch(PDO::FETCH_ASSOC)) {
 
-                                    $id_disciplina = $dados_disciplina_turma_professor["id_disciplina"];
-                                    $nome_disciplina = $dados_disciplina_turma_professor['nome_disciplina'];
+                                    $id_disciplina = $dados_disciplina_turma_professor["fk_id_disciplina_professor_disciplinas_professor"];
+                                    $nome_disciplina = $dados_disciplina_turma_professor["nome_disciplina"];
                                 ?>
                                     <option value="<?php echo $id_disciplina ?>"><?php echo $nome_disciplina ?></option>
                                 <?php
