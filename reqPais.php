@@ -49,7 +49,7 @@ $nome_pais = $nome[0];
                 <form action="php/pinNotif.php" method="POST">
                     <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="password" data-mask="000000" class="validate" />
                     <div class="center">
-                        <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
+                        <a class="btn-flat btnLightBlue1 centerr" href="esqPin.html.php">Esqueceu o PIN?</a>
                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                             <i class="material-icons left">verified_user</i>Entrar
                         </button>
@@ -65,7 +65,7 @@ $nome_pais = $nome[0];
                 <form action="php/pinChat.php" method="POST">
                     <input placeholder="Digite o seu pin de acesso" id="first_name" name="pin" value="pin" type="number" class="validate" />
                     <div class="center">
-                        <a class="btn-flat btnLightBlue1 centerr" href="#modalPin">Esqueceu o PIN?</a>
+                        <a class="btn-flat btnLightBlue1 centerr" href="esqPin.html.php">Esqueceu o PIN?</a>
                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                             <i class="material-icons left">verified_user</i>Entrar
                         </button>
@@ -74,23 +74,6 @@ $nome_pais = $nome[0];
             </div>
         </div>
     </div>
-    <div id="modalPin" class="modal ">
-        <div class="modal-content">
-            <h4 class="center"><i class="material-icons right">vpn_key</i>Esqueceu o seu PIN?</h4>
-            <div class="input-field col s12 validate">
-                <form action="php/esqPin.php" method="POST">
-                    <h5 class="center">Não se preocupe, estamos aqui para te ajudar! Digite o seu email para recupera-lo:
-                    </h5>
-                    <input placeholder="Digite o seu email" id="first_name" name="email" type="text" class="validate" />
-                    <input type="hidden" name="recuperarPin" value="Recuperar Pin" />
-                    <button class="btn waves-effect blue lighten-1" type="Enviar" name="action">Enviar
-                        <i class="material-icons right">lock_open</i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
 
     <div id="modalFilhosGrafico" class="modal">
         <div class="modal-content">

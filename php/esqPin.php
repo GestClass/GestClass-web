@@ -7,7 +7,7 @@ include_once 'conexao.php';
    use PHPMailer\PHPMailer\Exception;
 
    $email = $_POST['email'];
-   $assunto = $_POST['recuperarPin'];
+   $assunto = $_POST['assunto'];
    
    require_once 'Mail/src/PHPMailer.php';
    require_once 'Mail/src/SMTP.php';
@@ -45,7 +45,7 @@ include_once 'conexao.php';
   
       // Content
       $mail->isHTML(true);                                  // Set email format to HTML
-      $mail->Subject = $assunto;
+      $mail->Subject = "Recuperar Código de Acesso";
       $mail->Body= "
       <tr>
          <p> Olá, estamos aqui para te ajudar!</p>

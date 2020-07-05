@@ -1,64 +1,80 @@
-body{
+body {
     overflow-x: hidden;
 }
-.sectionHome{
+
+.sectionHome {
     display: block;
     position: relative;
     padding: 70px 0;
 }
-.btnIndexMenu{
+
+.btnIndexMenu {
     color: #fff;
     margin-left: -5px !important;
     transition: 0.2s;
     outline: none !important;
 }
-.btnIndexMenu:hover{
+
+.btnIndexMenu:hover {
     color: #212121;
     background-color: transparent;
 }
-.btnHome{
+
+.btnHome {
     margin: 20px 20px 0 0 !important;
 }
-blockquote{
+
+blockquote {
     border-color: #212121;
     font-size: 18px;
 }
-.cardHover{
+
+.cardHover {
     margin: 45px 0 20px 0;
 }
+
 .iconSocial {
-  transition: 0.2s;
-  margin: 5px 25px;
-  color: #212121;
+    transition: 0.2s;
+    margin: 5px 25px;
+    color: #212121;
 }
+
 .fa-facebook:hover {
-  transform: scale(1.09);
-  color: #3C5A99;
+    transform: scale(1.09);
+    color: #3C5A99;
 }
+
 .fa-linkedin:hover {
-  transform: scale(1.09);
-  color: #0077B5;
+    transform: scale(1.09);
+    color: #0077B5;
 }
+
 .fa-instagram:hover {
-  transform: scale(1.09);
-  color: #405DE6;
+    transform: scale(1.09);
+    color: #405DE6;
 }
-.iconDescPlano{
+
+.iconDescPlano {
     margin: 0 10px 0 0;
 }
-.textoSobre{
+
+.textoSobre {
     text-align: justify;
 }
-.cardPlano{
+
+.cardPlano {
     border: 2px solid #212121;
 }
-.collapsible-header{
+
+.collapsible-header {
     display: flex;
     align-items: center;
 }
-.titleCollapsible{
+
+.titleCollapsible {
     margin-left: 20px;
 }
+
 .iconVerSenha {
     margin-right: 15px;
     position: relative;
@@ -69,16 +85,17 @@ blockquote{
 
 
 /* ==== CSS PAGINA DE LOGIN E RECUPERAR SENHA ===== */
-.containerLoginGlobal{
+
+.containerLoginGlobal {
     height: 100vh;
     width: 100vw;
     display: block;
     position: relative;
 }
-.containerLoginGlobal::after{
+
+.containerLoginGlobal::after {
     background: url(../assets/img/s.png);
-    background-position: center center;  
-    background-repeat: no-repeat ;
+    background-position: center center;
     content: "";
     opacity: 0.5;
     top: 0;
@@ -86,19 +103,48 @@ blockquote{
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;   
+    z-index: -1;
 }
 
-.formLogin{
+.formLogin {
     margin-top: 18vh;
     transition: 0.2s !important;
 }
 
-.formRecuperarSenha{
+.formRecuperarSenha {
     margin-top: 15vh;
     transition: 0.2s !important;
 }
 
-.linkAzul:hover{
+.linkAzul:hover {
     cursor: pointer;
+}
+
+ul:not(.browser-default)>li>.planos {
+    list-style-type: none;
+    margin-top: 20px !important;
+}
+
+.disponivel {
+    font-weight: bold;
+    margin-top: 18px;
+    font-size: 15px;
+}
+
+.funcoe {
+    font-weight: bold;
+    margin-top: 18px;
+    font-size: 15px;
+}
+
+.material-icons {
+    font-size: 20px !important;
+}
+
+.plano {
+    height: 350px;
+}
+
+.preco {
+    margin-top: 25px;
 }

@@ -168,30 +168,38 @@
         <div class="container">
             <div class="row">
                 <h2>Planos</h2>
-                <div class="col s12 m8 l4 offset-m2 light-blue lighten-5 z-depth-4">
-                    <h4>Primário</h4>
+                <div class="plano col s12 m8 l4 offset-m2 light-blue lighten-5 z-depth-4">
+                    <h4>Ambientação</h4>
                     <ul>
                         <li>
                         </li>
-                        <li>R$ <span class="flow-text">1000</span> 00</li>
-                        <li>
-                            até 250 alunos
+                  
+                        <li class="planos">
+                            <i class="material-icons">check</i>Funções Exclusivas para pais <br/>
+                            <i class="material-icons">check</i>Funções Exclusivas para aluno<br/>
+                            <i class="material-icons">check</i>Funções Exclusivas para professor<br/> 
+                            <i class="material-icons">check</i>Funções Exclusivas para diretor <br/> 
+                            <i class="material-icons">check</i>Funções Exclusivas para secretaria <br/></br>
+                            <h6 class="disponivel"> Dísponivel por 3 meses </h6>
                         </li>
                         <li class="center">
                             <a href="contratacao.html.php?plano=primario" class="btn-flat btnDark btnBlock btnPlano">
-                                Quero contratar
+                               Experimente
                             </a>
                         </li>
                     </ul>
                 </div>
-                <div class="col s12 m8 l4 offset-m2 light-blue lighten-4 z-depth-4">
+                <div class="plano col s12 m8 l4 offset-m2 light-blue lighten-4 z-depth-4">
+                    <h4>Clássico</h4>
                     <ul>
-                        <li>
-                            <h4>Fundamental</h4>
-                        </li>
-                        <li>R$ <span class="flow-text">1750</span> 00</li>
-                        <li>
-                            até 500 alunos
+                        <li class="planos">
+                            <i class="material-icons">check</i>Funções Exclusivas para pais <br/>
+                            <i class="material-icons">check</i>Funções Exclusivas para aluno<br/>
+                            <i class="material-icons">check</i>Funções Exclusivas para professor<br/> 
+                            <i class="material-icons">check</i>Funções Exclusivas para diretor <br/> 
+                            <i class="material-icons">check</i>Funções Exclusivas para secretaria </br>
+                            <li><h5 class="preco"> R$ 0,85 por aluno</h5></li> 
+                          
                         </li>
                         <li class="center">
                             <a href="contratacao.html.php?plano=fundamental" class="btn-flat btnDark btnBlock btnPlano">
@@ -201,18 +209,20 @@
                     </ul>
 
                 </div>
-                <div class="col s12 m8 l4 offset-m2 light-blue lighten-3 z-depth-4">
+                <div class="plano  col s12 m8 l4 offset-m2 light-blue lighten-3 z-depth-4">
                     <ul>
-                        <li>
-                            <h4>Colegial</h4>
+                        <li class="planos">
+                            <h4>Personalizado</h4>
                         </li>
-                        <li>R$ <span class="flow-text">3000</span> 00</li>
-                        <li>
-                            mais de 500 alunos
-                        </li>
+                        <i class="material-icons">check</i>Funções Exclusivas para pais <br/>
+                            <i class="material-icons">check</i>Funções Exclusivas para aluno<br/>
+                            <i class="material-icons">check</i>Funções Exclusivas para professor<br/> 
+                            <i class="material-icons">check</i>Funções Exclusivas para diretor <br/> 
+                            <i class="material-icons">check</i>Funções Exclusivas para secretaria <br/> 
+                            <h6 class="funcoe"> <i class="material-icons">add</i>Funções personalizadas exigidas pelo contratante</h6>
                         <li class="center">
                             <a href="contratacao.html.php?plano=colegial" class="btn-flat btnDark btnBlock btnPlano">
-                                Quero contratar
+                                Fazer orçamento
                             </a>
                         </li>
                     </ul>
@@ -224,7 +234,7 @@
     <div class="scrollspy light-blue lighten-4 section" id="app">
         <div class="container">
             <div class="row">
-                <h2 class="">App</h2>
+                <h2 class="">Contato</h2>
             </div>
         </div>
     </div>
