@@ -164,7 +164,6 @@ if (($id_disciplina == null) && ($id_tipo_usuario == 6)) {
               $bimestre = "4º Bimestre";
             }
 
-            $bimestre = "3º Bimestre";
           ?>
           
             <tr>
