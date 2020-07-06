@@ -29,7 +29,7 @@
         <div class="card-panel z-depth-5 formLogin animated fadeIn">
           <a href="homePais.html.php"><i class="fas fa-chevron-left"></i> Voltar</a>
           <form action="php/esqPin.php" method="post">
-            <h4>Esqueceu sua senha?</h4>
+            <h4>Esqueceu seu Código de Validação?</h4>
             <p>
               Não se preocupe! Insira o seu email de cadastro e enviaremos instruções para você.
             </p>

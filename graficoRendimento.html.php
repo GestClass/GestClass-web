@@ -164,7 +164,9 @@ if (($id_disciplina == null) && ($id_tipo_usuario == 6)) {
               $bimestre = "4º Bimestre";
             }
 
+            $bimestre = "3º Bimestre";
           ?>
+          
             <tr>
               <td><?php echo date('d/m/Y ', strtotime($data_atividade)) ?></td>
               <td><?php echo $nome_atividade ?></td>
