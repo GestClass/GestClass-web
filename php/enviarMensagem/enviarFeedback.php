@@ -24,10 +24,8 @@ if (($mensagem != "")) {
                 $id_admin = $dados_admin["ID_admin"];
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
-                fk_envio_admin_id_admin,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin)
-                VALUES (:mensagem, 'Feedback Usuários',  NOW(), '0', NULL, NULL, NULL,:id_usuario, NULL, NULL,:tipo_usuario,NULL, NULL,NULL,NULL,NULL, :id_admin)");
+                fk_envio_diretor_id_diretor,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
+                VALUES (:mensagem, 'Feedback Usuários',  NOW(), '0',:id_usuario,:tipo_usuario, :id_admin)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
@@ -56,10 +54,9 @@ if (($mensagem != "")) {
                 $id_admin = $dados_admin["ID_admin"];
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
-                fk_envio_admin_id_admin,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin)
-                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0', NULL, NULL, NULL,NULL, :id_usuario, NULL,:tipo_usuario, NULL, NULL,NULL,NULL,NULL, :id_admin)");
+                fk_envio_secretario_id_secretario, 
+                fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
+                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0', :id_usuario,:tipo_usuario, :id_admin)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
@@ -89,10 +86,8 @@ if (($mensagem != "")) {
 
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
-                fk_envio_admin_id_admin,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin)
-                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0', NULL,NULL,:id_usuario,NULL, NULL, NULL,:tipo_usuario, NULL, NULL,NULL,NULL,NULL,:id_admin)");
+                fk_envio_professor_id_professor,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
+                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0',:id_usuario,:tipo_usuario,:id_admin)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
@@ -121,10 +116,8 @@ if (($mensagem != "")) {
                 $id_admin = $dados_admin["ID_admin"];
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
-                fk_envio_admin_id_admin,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin)
-                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0',:id_usuario, NULL,NULL, NULL, NULL,NULL, :tipo_usuario, NULL, NULL,NULL,NULL,NULL, :id_admin)");
+                fk_envio_aluno_ra_aluno,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
+                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0',:id_usuario,:tipo_usuario,:id_admin)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
@@ -153,10 +146,9 @@ if (($mensagem != "")) {
                 $id_admin = $dados_admin["ID_admin"];
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_aluno_ra_aluno, fk_envio_responsavel_id_responsavel, fk_envio_professor_id_professor, fk_envio_diretor_id_diretor, fk_envio_secretario_id_secretario, 
-                fk_envio_admin_id_admin,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno, fk_recebimento_responsavel_id_responsavel, 
-                fk_recebimento_professor_id_professor, fk_recebimento_diretor_id_diretor, fk_recebimento_secretario_id_secretario,fk_recebimento_admin_id_admin)
-                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0', NULL,:id_usuario, NULL,NULL, NULL, NULL, :tipo_usuario, NULL, NULL,NULL,NULL,NULL,:id_admin)");
+                fk_envio_responsavel_id_responsavel,
+                fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
+                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0',:id_usuario, :tipo_usuario,:id_admin)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);

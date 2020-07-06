@@ -395,20 +395,9 @@
                         <div class="input-field col s12 m4 l12">
                             <select name="EncaminharMensagens" id="mensagemProf">
                                 <option value="" disabled selected>Selecione Uma opção</option>
-                                <?php
-
-                                $query_select = $conn->prepare("SELECT ID_tipo_usuario,nome_usuario FROM tipo_usuario WHERE $id_escola ORDER BY `ID_tipo_usuario` DESC LIMIT 3");
-                                $query_select->execute();
-
-                                while ($dados = $query_select->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_usuario = $dados['ID_tipo_usuario'];
-                                    $nome_usuario = $dados['nome_usuario'];
-
-                                ?>
-                                    <option value="<?php echo $id_usuario ?>"><?php echo $nome_usuario; ?></option>
-                                <?php
-                                }
-                                ?>
+                                <option value="5">Aluno</option>
+                                <option value="4">Professor</option>
+                                <option value="4">Responsável</option>
                             </select>
                             <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                         </div>

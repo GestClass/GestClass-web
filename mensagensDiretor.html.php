@@ -84,11 +84,11 @@
                     ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>GestClass</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
@@ -114,11 +114,11 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Secretario</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
@@ -144,11 +144,11 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Professor</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
@@ -173,11 +173,11 @@
                             ?>
                                 <tr>
                                     <td>
-                                    <?php if ($notifi["notificacao"] == 0) { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
-                                    <?php } else { ?>
-                                        <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
-                                    <?php } ?>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Responsável</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
@@ -398,20 +398,9 @@
                         <div class="input-field col s12 m4 l12">
                             <select name="EncaminharMensagens" id="mensagemDiretor">
                                 <option value="" disabled selected>Selecione uma Opção</option>
-                                <?php
-
-                                $query_select = $conn->prepare("SELECT ID_tipo_usuario,nome_usuario FROM tipo_usuario WHERE $id_escola ORDER BY `ID_tipo_usuario` DESC LIMIT 4");
-                                $query_select->execute();
-
-                                while ($dados = $query_select->fetch(PDO::FETCH_ASSOC)) {
-                                    $id_usuario = $dados['ID_tipo_usuario'];
-                                    $nome_usuario = $dados['nome_usuario'];
-
-                                ?>
-                                    <option value="<?php echo $id_usuario ?>"><?php echo $nome_usuario; ?></option>
-                                <?php
-                                }
-                                ?>
+                                <option value="5">Aluno</option>
+                                <option value="4">Professor</option>
+                                <option value="6">Responsável</option>
                             </select>
                             <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                         </div>
