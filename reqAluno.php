@@ -137,15 +137,15 @@ $nome_alu = $nome[0];
                             while ($array_disciplinas = $query_select_disciplinas->fetch(PDO::FETCH_ASSOC)) {
                                 // Armazenando o nome e o id da disciplina
                                 $nome_disciplina = $array_disciplinas['nome_disciplina'];
-                                $id_disciplina = $array_disciplinas['id_disciplina'];
+                                $disciplina = $array_disciplinas['id_disciplina'];
                             ?>
-                                <option value="<?php echo $id_disciplina ?>"><?php echo $nome_disciplina; ?></option>
+                                <option value="<?php echo $disciplina ?>"><?php echo $nome_disciplina; ?></option>
                             <?php
                             }
 
                             ?>
                         </select>
-                        <input type="hidden" name="id_disciplina" value="<?php $id_disciplina ?>" />
+                        <input type="hidden" name="id_disciplina" value="<?php $disciplina ?>" />
                         <div class="center">
                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                                 <i class="material-icons left">check</i>Acessar

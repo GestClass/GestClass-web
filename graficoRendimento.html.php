@@ -4,7 +4,6 @@ include_once 'php/conexao.php';
 $id_usuario = $_SESSION["id_usuario"];
 $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
-
 $id_disciplina =  $_POST['disciplinas'];
 
 if (($id_disciplina == null) && ($id_tipo_usuario == 6)) {
@@ -22,31 +21,20 @@ if (($id_disciplina == null) && ($id_tipo_usuario == 6)) {
   </script>
 <?php
 } else {
-
-  if ($id_tipo_usuario == 1) {
-    require_once 'reqMenuAdm.php';
-  } else if ($id_tipo_usuario == 2) {
-    require_once 'reqDiretor.php';
-  } else if ($id_tipo_usuario == 3) {
-    require_once 'reqHeader.php';
-  } elseif ($id_tipo_usuario == 4) {
-    require_once 'reqProfessor.php';
-  } elseif ($id_tipo_usuario  == 5) {
-    require_once 'reqAluno.php';
-  } else {
-    require_once 'reqPais.php';
-  }
+ 
   if ($id_tipo_usuario == 6) {
     $ra = $_SESSION["RA_filho"];
+    require_once 'reqPais.php';
   } else {
     $ra = $id_usuario;
+    require_once 'reqAluno.php';
+  
   }
 
   $select_boletim_aluno = $conn->prepare("select nota,nome_atividade, data_atividade from boletim_aluno where fk_id_disciplina_boletim_aluno=:id and fk_ra_aluno_boletim_aluno=:ra");
   $select_boletim_aluno->bindValue(":id", $id_disciplina);
   $select_boletim_aluno->bindValue(":ra", $ra);
   $select_boletim_aluno->execute();
-
 
 
 
