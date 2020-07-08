@@ -229,6 +229,7 @@
                                     <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
                                 <?php
                                 }
+                                
                                 ?>
                             </select>
                             <label id="lbl" for="first_name">Escolha a turma para que deseja enviar a mensagem</label>
