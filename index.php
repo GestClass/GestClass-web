@@ -154,7 +154,7 @@
         <div class="container">
             <div class="row" data-aos="fade-right" data-aos-duration="1000">
                 <div class="col s12">
-                    <h3>Siga a GestClass</h3>
+                    <h3>Siga o GestClass</h3>
                     <p>Siga - nos em nossas redes sociais para ficar por dentro de todas atualizações e notícias</p>
                     <a href="#"><i class="fab iconSocial fa-facebook fa-3x"></i></a>
                     <a href="#"><i class="fab iconSocial fa-linkedin fa-3x"></i></a>
