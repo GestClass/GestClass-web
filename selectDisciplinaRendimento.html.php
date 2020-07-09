@@ -17,7 +17,6 @@ if ($ra_filho == null) {
 <?php
 } else {
 
-    $_SESSION['RA_filho'] = $ra_filho;
     $id_usuario = $_SESSION["id_usuario"];
     $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
     $id_escola = $_SESSION["id_escola"];
@@ -58,6 +57,7 @@ if ($ra_filho == null) {
             <div class="modal-content">
                 <div class="input-field col s12 validate">
                     <form action="graficoRendimento.html.php" method="POST">
+                        <input type="hidden" name="ra" value="<?php echo $ra_filho; ?>">
                         <h4 class="center">Selecione a Disciplina</h4>
                         <div class="select">
                             <select name="disciplinas">
