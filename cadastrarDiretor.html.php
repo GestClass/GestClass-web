@@ -54,12 +54,12 @@
                 <div class="row">
                     <div class="input-field col s6 m6 l6">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="rg" id="rg" type="tel" placeholder="62.548.678-7" maxlength="12" data-mask="00.000.000-0" class="validate">
+                        <input name="rg" id="rg" type="tel" placeholder="62.548.678-7" maxlength="12" class="validate">
                         <label id="lbl" for="icon_telephone">RG</label>
                     </div>
                     <div class="input-field col s6 m6 l6">
                         <i class="material-icons prefix blue-icon">ballot</i>
-                        <input name="cpf" id="cpf" type="tel" placeholder="785.958.651-88" maxlength="12" class="validate" onblur="TestaCPF(this)">
+                        <input name="cpf" id="cpf" type="tel" placeholder="785.958.651-88" data-mask="000.000.000-00" class="validate" onblur="TestaCPF(this)">
                         <label id="lbl" for="icon_telephone">CPF</label>
                     </div>
                     <div class="row">
