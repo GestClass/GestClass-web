@@ -49,6 +49,12 @@
         <form action="php/enviarOcorrencias/enviarOcorrencia.php" method="POST">
             <div class="modal-content"><br><br>
                 <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                        <input value="Ocorrência" type="text" readonly>
+                        <label id="lbl" for="first_name">Assunto</label>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="input-field col s12">
                         <input type="text" name="id_respon" value="<?php echo $id_responsavel ?>" hidden>
                         <textarea name="ocorrencia" id="ocorrencia" placeholder="Digite a sua Ocorrência" class="materialize-textarea"></textarea>

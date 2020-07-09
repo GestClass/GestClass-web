@@ -8,7 +8,6 @@ $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 
 $id_responsavel = $_POST["id_respon"];
 $ocorrencia = $_POST["ocorrencia"];
-// $assunto = $_POST["assunto"];
 
 if ($ocorrencia != "") {
 
@@ -17,7 +16,6 @@ if ($ocorrencia != "") {
     VALUES (:mensagem, 'Ocorrência',  NOW(),'0', :id_usuario, :tipo_usuario, :id_responsavel)");
 
     $inserirOcorrencia->bindParam(':mensagem', $ocorrencia, PDO::PARAM_STR);
-    // $inserirOcorrencia->bindParam(':assunto', $assunto, PDO::PARAM_STR);
     $inserirOcorrencia->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_STR);
     $inserirOcorrencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_STR);
     $inserirOcorrencia->bindParam(':id_responsavel', $id_responsavel, PDO::PARAM_STR);
