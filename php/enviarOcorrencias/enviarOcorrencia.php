@@ -10,7 +10,7 @@ $id_responsavel = $_POST["id_respon"];
 $ocorrencia = $_POST["ocorrencia"];
 // $assunto = $_POST["assunto"];
 
-if (($ocorrencia != "") && ($assunto != "")) {
+if ($ocorrencia != "") {
 
     $inserirOcorrencia = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
     fk_envio_professor_id_professor,fk_id_tipo_usuario_envio, fk_recebimento_responsavel_id_responsavel)
