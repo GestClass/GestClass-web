@@ -84,8 +84,10 @@
                 </div>
             </div>
         </form>
-        <div class="input-field left">
-            <button btn="btncadastrar" value="formMensagens" id="btnFormContas" type="submit" onclick="history.go(-1)" class="btn-flat btnLightBlue"><i class="material-icons">arrow_back</i> Voltar</button>
+        <div class="center">
+            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                <i class="material-icons left">arrow_back</i>Voltar
+            </button>
         </div>
     </div>
 
