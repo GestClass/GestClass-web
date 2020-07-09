@@ -946,7 +946,7 @@
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
-                                <label id="lbl" for="first_name">Data Mensagem</label>
+                                <label id="lbl" for="first_name">Data</label>
                             </div>
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
@@ -991,7 +991,7 @@
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
-                                <label id="lbl" for="first_name">Data Mensagem</label>
+                                <label id="lbl" for="first_name">Data</label>
                             </div>
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
@@ -1036,7 +1036,7 @@
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
-                                <label id="lbl" for="first_name">Data Mensagem</label>
+                                <label id="lbl" for="first_name">Data</label>
                             </div>
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
@@ -1218,7 +1218,7 @@
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
-                                <label id="lbl" for="first_name">Data Mensagem</label>
+                                <label id="lbl" for="first_name">Data</label>
                             </div>
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
@@ -1264,7 +1264,7 @@
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
-                                <label id="lbl" for="first_name">Data Mensagem</label>
+                                <label id="lbl" for="first_name">Data</label>
                             </div>
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
@@ -1310,7 +1310,7 @@
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
-                                <label id="lbl" for="first_name">Data Mensagem</label>
+                                <label id="lbl" for="first_name">Data</label>
                             </div>
                             <div class="input-field col s12 m5 l3">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
@@ -1355,7 +1355,7 @@
                             <div class="input-field col s12 m2 l2">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
-                                <label id="lbl" for="first_name">Data Mensagem</label>
+                                <label id="lbl" for="first_name">Data</label>
                             </div>
                             <div class="input-field col s12 m2 l2">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>
@@ -1405,7 +1405,7 @@
                             <div class="input-field col s12 m2 l2">
                                 <i class="material-icons prefix blue-icon">date_range</i>
                                 <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
-                                <label id="lbl" for="first_name">Data Mensagem</label>
+                                <label id="lbl" for="first_name">Data</label>
                             </div>
                             <div class="input-field col s12 m2 l2">
                                 <i class="material-icons prefix blue-icon">assignment_ind</i>

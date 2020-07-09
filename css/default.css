@@ -137,9 +137,10 @@ body {
     width: 0;
 }
 
+
 /* notificação */
 
-.notifi{
+.notifi {
     border-radius: 50%;
     display: inline-block;
     height: 25px;
@@ -150,8 +151,9 @@ body {
     color: white;
     margin-right: -9px;
     margin-bottom: -55px;
-
 }
+
+
 /* .notifi{
     border-radius: 50%;
     display: inline-block;
@@ -164,7 +166,7 @@ body {
     /* margin-top:-10px; *
 } */
 
-.notifiadm{
+.notifiadm {
     background-color: #1a237e;
     border-radius: 50%;
     display: inline-block;
@@ -177,7 +179,7 @@ body {
     /* margin-top:-10px; */
 }
 
-.fixed-action-btn ul{
+.fixed-action-btn ul {
     left: -19px;
 }
 
@@ -420,6 +422,14 @@ body {
 /*  modalFilhosBoletim  Pais    */
 
 #modalFilhosBoletim {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
+/*modal listar funcionarios*/
+
+#modalListaFuncionarios {
     max-height: 100%;
     overflow: visible;
 }
