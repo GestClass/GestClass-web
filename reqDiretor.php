@@ -208,7 +208,7 @@ $nome_dir = $nome[0];
                         <option value="" disabled selected>Selecionar Turma</option>
                         <?php
 
-                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola");
                         $query_select_turma->execute();
 
                         while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
