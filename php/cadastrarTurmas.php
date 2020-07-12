@@ -16,47 +16,23 @@ if (($nome_turma != "") && ($id_turno != null)) {
     $query_insert->bindParam(':turma', $nome_turma, PDO::PARAM_STR);
     $query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
     $query_insert->bindParam(':turno', $id_turno, PDO::PARAM_STR);
+    $query_insert->execute();
 
-    if ($query_insert->execute()) {
+    if ($query_insert->rowCount()) {
 
         if ($id_tipo_usuario == 2) {
-?>
-            <script>
-                // alert('Diciplina inserida com sucesso');
-
-                var confirmacao = confirm('Deseja cadastrar outra turma?');
-
-                if (confirmacao == true) {
-                    window.location = '../cadastroTurmas.html.php';
-                } else {
-                    window.location = '../homeDiretor.html.php';
-                }
-            </script>
-        <?php
-
+            echo "<script>alert('Turma cadastrada com sucesso')
+                   window.location = '../homeDiretor.html.php'</script>";
         } else if ($id_tipo_usuario == 3) {
-        ?>
-            <script>
-                // alert('Diciplina inserida com sucesso');
 
-                var confirmacao = confirm('Deseja cadastrar outra turma?');
-
-                if (confirmacao == true) {
-                    window.location = '../cadastroTurmas.html.php';
-                } else {
-                    window.location = '../homeSecretaria.html.php';
-                }
-            </script>
-<?php
+            echo "<script>alert('Turma cadastrada com sucesso')
+                   window.location = '../homeSecretaria.html.php'</script>";
         }
+    } else {
+        echo "<script>alert('OPS! Turma não cadastrada)
+        history.back()</script>";
     }
 } else {
-    echo "
-            <script>
-                alert('Por favor, informe os dados solicitados!!');
-				history.back();;
-            </script>
-        ";
+    echo "<script>alert('Por favor, informe os dados solicitados!!');
+		history.back()</script>";
 }
-
-?>

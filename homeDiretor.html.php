@@ -95,12 +95,14 @@ $notificacao = $query_mensagem->rowCount();
             <li><a href="#modalHorarioAulas" class="modal-trigger btn-floating grey tooltipped" data-position="left" data-tooltip="Cadastro de Padrões de Horários Aulas"><i class="material-icons">access_time</i></a></li>
             <li><a href="#modalGradeCurricular" class="modal-trigger btn-floating brown accent-2 tooltipped" data-position="left" data-tooltip="Atribuir Grade Curricular para Turmas"><i class="material-icons">toc</i></a></li>
             <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de Disciplinas para Turma"><i class="material-icons">import_contacts</i></a></li>
-            <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
+            <li><a href="#modalCadastroTurmas" class="modal-trigger btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
             <li><a href="cadastroDatasFinaisBimestres.html.php" class="btn-floating tooltipped" data-position="left" data-tooltip="Atribuir Datas de Final de Bimestre"><i class="material-icons">event_available</i></a></li>
             <li><span class="notifi center-align"><?php echo $notificacao ?></span><a href="mensagensDiretor.html.php" class="btn-floating teal lighten-4 tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
         </ul>
     </div>
 </section>
+
+
 
 <!-- <script>
     $('#modalCadastroContas').on('shown.bs.modal', function() {

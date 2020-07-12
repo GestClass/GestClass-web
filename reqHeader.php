@@ -183,6 +183,7 @@ $nome_sec = $nome[0];
             </div>
         </div>
     </div>
+
     <div id="modalListaFuncionarios" class="modal">
         <div class="modal-content">
             <h4 class="center">Selecione a área desejada</h4>
@@ -306,6 +307,66 @@ $nome_sec = $nome[0];
         </div>
     </div>
 
+    <div id="modalCadastroTurmas" class="modal">
+        <div class="modal-content">
+            <form id="cadastro_turmas" method="POST" action="php/cadastrarTurmas.php">
+                <h3 class="center">Cadastrar Turmas</h5><br><br>
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6">
+                            <select name="turno">
+                                <option value="" disabled selected>Selecionar Turno</option>
+                                <?php
+
+                                $query_select_turno = $conn->prepare("SELECT ID_turno,nome_turno FROM turno WHERE $id_escola");
+                                $query_select_turno->execute();
+
+                                while ($dados_turno = $query_select_turno->fetch(PDO::FETCH_ASSOC)) {
+                                    $nome_turno = $dados_turno['nome_turno'];
+                                    $id_turno = $dados_turno['ID_turno'];
+
+                                ?>
+                                    <option value="<?php echo $id_turno ?>"><?php echo $nome_turno; ?></option>
+                                <?php
+                                }
+                                ?>
+
+                            </select>
+                            <label id="lbl" for="first_name">Turno</label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <input name="turma" id="nome_turma" placeholder="Ex: 3ºano A . . ." type="text" class="validate">
+                            <label id="lbl" for="first_name">Turma</label>
+                        </div>
+                    </div>
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">send</i>Cadastrar
+                    </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalCadastroDisciplinas" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Cadastro de Disciplinas</h4><br>
+            <div id="novaMensagem">
+                <form action="php/cadastrarNovasDisciplinas.php" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="disciplina" id="disciplina" placeholder="Digite o nome da disciplina" type="text" class="validate ">
+                            <label id="lbl" for="first_name">Nome Disciplina</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field right">
+                        <button id="formMensagem" type="submit" class="btn-flat btnLightBlue">
+                            <i class="material-icons left">send</i>Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="navbar-fixed">
             <nav class="light-blue lighten-1">
@@ -373,7 +434,8 @@ $nome_sec = $nome[0];
             <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">format_list_bulleted</i>Lista de Alunos</a></li>
             <li><a href="#modalMensalidades" class="modal-trigger"><i class="material-icons">monetization_on</i>Mensalidade</a></li>
             <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a></li>
-            <li><a href="cadastroTurmas.html.php"><i class="material-icons">book</i>Cadastro de Turmas</a></li>
+            <li><a href="#modalCadastroTurmas" class="modal-trigger"><i class="material-icons">book</i>Cadastro de Turmas</a></li>
+            <li><a href="#modalCadastroDisciplinas" class="modal-trigger"><i class="material-icons">description</i>Cadastrar Disciplinas</a></li>
             <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relate um Problema</a></li>
             <li><a href="#modalAlterarTurmas" class="modal-trigger"><i class="material-icons">create</i>Alterar turmas dos alunos</a></li>
             <li><a href="#modalGradeCurricular" class="modal-trigger"><i class="material-icons">toc</i>Atribuir grade curricular de turmas</a></li>

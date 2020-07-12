@@ -43,7 +43,7 @@ $nome_dir = $nome[0];
 
 <body>
 
-<div id="modalListaFuncionarios" class="modal">
+    <div id="modalListaFuncionarios" class="modal">
         <div class="modal-content">
             <h4 class="center">Selecione a área desejada</h4>
             <div class="input-field col s12">
@@ -80,8 +80,6 @@ $nome_dir = $nome[0];
         </div>
     </div>
 
-    
-
     <div id="modalAlterarTurmas" class="modal">
         <div class="modal-content">
             <h4 class="center">Selecione a turma para alterar</h4>
@@ -109,7 +107,6 @@ $nome_dir = $nome[0];
             </div>
         </div>
     </div>
-
 
     <div id="modalAlterarHorario" class="modal">
         <div class="modal-content">
@@ -335,8 +332,6 @@ $nome_dir = $nome[0];
         </div>
     </div>
 
-    
-
     <div id="modalTurmas" class="modal">
         <div class="modal-content">
             <h4 class="center">Selecione a Turma</h4>
@@ -370,6 +365,67 @@ $nome_dir = $nome[0];
             </div>
         </div>
     </div>
+
+    <div id="modalCadastroTurmas" class="modal">
+        <div class="modal-content">
+            <form id="cadastro_turmas" method="POST" action="php/cadastrarTurmas.php">
+                <h3 class="center">Cadastrar Turmas</h5><br><br>
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6">
+                            <select name="turno">
+                                <option value="" disabled selected>Selecionar Turno</option>
+                                <?php
+
+                                $query_select_turno = $conn->prepare("SELECT ID_turno,nome_turno FROM turno WHERE $id_escola");
+                                $query_select_turno->execute();
+
+                                while ($dados_turno = $query_select_turno->fetch(PDO::FETCH_ASSOC)) {
+                                    $nome_turno = $dados_turno['nome_turno'];
+                                    $id_turno = $dados_turno['ID_turno'];
+
+                                ?>
+                                    <option value="<?php echo $id_turno ?>"><?php echo $nome_turno; ?></option>
+                                <?php
+                                }
+                                ?>
+
+                            </select>
+                            <label id="lbl" for="first_name">Turno</label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <input name="turma" id="nome_turma" placeholder="Ex: 3ºano A . . ." type="text" class="validate">
+                            <label id="lbl" for="first_name">Turma</label>
+                        </div>
+                    </div>
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">send</i>Cadastrar
+                    </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalCadastroDisciplinas" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Cadastro de Disciplinas</h4><br>
+            <div id="novaMensagem">
+                <form action="php/cadastrarNovasDisciplinas.php" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="disciplina" id="disciplina" placeholder="Digite o nome da disciplina" type="text" class="validate ">
+                            <label id="lbl" for="first_name">Nome Disciplina</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field right">
+                        <button id="formMensagem" type="submit" class="btn-flat btnLightBlue">
+                            <i class="material-icons left">send</i>Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="navbar-fixed">
             <nav class="light-blue lighten-1">
@@ -445,7 +501,8 @@ $nome_dir = $nome[0];
             <li><a href="#modalHorarioAulas" class="modal-trigge"><i class="material-icons">access_time</i>Cadastro de Padrões de Horários Aulas</a></li>
             <li><a href="#modalGradeCurricular" class="modal-trigger"><i class="material-icons">toc</i>Atribuir Grade Curricular para Turmas</a></li>
             <li><a href="atribuicaoDisciplinas.html.php"><i class="material-icons">import_contacts</i>Atribuição de Disciplinas para Turma</a></li>
-            <li><a href="cadastroTurmas.html.php"><i class="material-icons">book</i>Cadastrar Turmas</a></li>
+            <li><a href="#modalCadastroTurmas" class="modal-trigger"><i class="material-icons">book</i>Cadastrar Turmas</a></li>
+            <li><a href="#modalCadastroDisciplinas" class="modal-trigger"><i class="material-icons">description</i>Cadastrar Disciplinas</a></li>
             <li><a href="cadastroDatasFinaisBimestres.html.php"><i class="material-icons">event_available</i>Atribuir Datas de Final de Bimestre</a></li>
             <li><a href="mensagensDiretor.html.php"><i class="material-icons">email</i>Caixa de Mensagens</a></li>
             <li>
