@@ -139,9 +139,8 @@
             <div class="row">
                 <h2>Sobre nós</h2>
                 <p class="flow-text textoSobre">
-                    A nossa proposta é disponibilizar a escola um sistema web junto com um aplicativo onde
-                    venderíamos uma licença de um ano à instituição e se os mesmos quisessem mais funções,
-                    essas funções seriam cobradas.
+                    A nossa proposta é disponibilizar a escola um sistema web junto onde
+                    venderíamos uma licença de um ano à instituição através do plano escolhido pelo contratante.
                     O sistema teria as funções básicas que a escola necessita e o diferencial seria a facilidade no
                     acompanhamento da vida escolar dos filhos, a facilidade na comunicação entre pais e escola, e
                     a facilidade do acompanhamento do rendimento dos filhos na escola.
