@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <head>
+    <title>GestClass - Is Cool Manage</title>
+    <link rel="icon" href="assets/icon/logo.png" />
     <link rel="stylesheet" type="text/css" href="css/cadastroContas.css" />
 </head>
 
@@ -129,7 +131,7 @@
                             <label id="lbl" for="first_name">Nome Disciplina</label>
                         </div>
                     </div>
-                    
+
                     <div class="input-field right">
                         <button id="formMensagem" type="submit" class="btn-flat btnLightBlue">
                             <i class="material-icons left">send</i>Enviar

@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+
+<head>
+    <title>GestClass - Is Cool Manage</title>
+    <link rel="icon" href="assets/icon/logo.png" />
+</head>
 <?php
 
 require_once './reqProfessor.php';

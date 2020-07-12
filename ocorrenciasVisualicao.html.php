@@ -9,10 +9,10 @@
     <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
 
-    <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/default.css" /> -->
 
 
 </head>
@@ -42,28 +42,31 @@
 
     $id_mensagem = $_GET["id"];
     $nome = $_GET["n"];
+    $notificacao = $_GET["notificacao"];
 
     $query = $conn->prepare("SELECT `ID_mensagem`, `mensagem`, `assunto`, `data_mensagem` FROM `contato` WHERE id_mensagem = $id_mensagem");
     $query->execute();
     $dados = $query->fetch(PDO::FETCH_ASSOC);
 
+    $query_update_notifi = $conn->prepare("UPDATE contato SET notificacao = {$notificacao} WHERE contato.ID_mensagem = {$id_mensagem}");
+    $query_update_notifi->execute();
     ?>
 
     <div class="container"><br><br><br>
         <h4>Mensagem</h4><br>
         <form action="" method="POST">
             <div class="row">
-                <div class="input-field col s12 m2 l2">
+                <div class="input-field col s12 m5 l5">
                     <i class="material-icons prefix blue-icon">date_range</i>
                     <input name="assunto" id="assunto" value="<?php echo date('d/m/Y H:i:s', strtotime($dados["data_mensagem"])); ?>" readonly type="text">
-                    <label id="lbl" for="first_name">Data Mensagem</label>
+                    <label id="lbl" for="first_name">Data</label>
                 </div>
-                <div class="input-field col s12 m2 l2">
+                <div class="input-field col s12 m6 l6">
                     <i class="material-icons prefix blue-icon">assignment_ind</i>
                     <input name="assunto" id="assunto" value="Professor" readonly type="text">
                     <label id="lbl" for="first_name">Usuário</label>
                 </div>
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col s12 m6 l12">
                     <i class="material-icons prefix blue-icon">perm_identity</i>
                     <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
                     <label id="lbl" for="first_name">Rementente</label>

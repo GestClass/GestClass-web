@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 
+<head>
+    <title>GestClass - Is Cool Manage</title>
+    <link rel="icon" href="assets/icon/logo.png" />
+</head>
+
 <body>
     <?php
 

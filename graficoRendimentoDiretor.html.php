@@ -7,7 +7,7 @@ include_once 'php/conexao.php';
 <head>
 
   <meta charset='utf-8' />
-  <title>GestClass - A gestão na palma da sua mão</title>
+  <title>GestClass - Is Cool Manage</title>
   <link rel="icon" href="assets/icon/logo.png" />
   <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -46,16 +46,16 @@ include_once 'php/conexao.php';
   $id_turma = $_POST['idTurma'];
 
   if ($id_disciplina == null) {
-    ?>
+  ?>
     <script>
-      alert ('Erro, É Necessário Selecionar uma Disciplina!!');
+      alert('Erro, É Necessário Selecionar uma Disciplina!!');
       window.location = 'homeDiretor.html.php';
     </script>
-    <?php
+  <?php
   }
 
   // Selecionar nome e turno da turma
-  $sql_select_turma= $conn->prepare("SELECT turma.nome_turma AS nome_turma, turno.nome_turno AS turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = turno.ID_turno) WHERE ID_turma = $id_turma");
+  $sql_select_turma = $conn->prepare("SELECT turma.nome_turma AS nome_turma, turno.nome_turno AS turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = turno.ID_turno) WHERE ID_turma = $id_turma");
   // Executar
   $sql_select_turma->execute();
   // Armazenar no array
@@ -73,7 +73,7 @@ include_once 'php/conexao.php';
   // Armazenar na variavel o id do professor
   $id_professor = $array_professor['id_professor'];
   $nome_professor = $array_professor['nome_professor'];
-  
+
 
   //selecionar nome disciplina
   $query_select_nome = $conn->prepare("SELECT nome_disciplina FROM disciplina WHERE ID_disciplina = $id_disciplina");

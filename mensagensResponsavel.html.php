@@ -56,7 +56,7 @@
         <h3 class="center">Caixa de Mensagens</h3>
         <br><br>
         <div id="mensagens">
-            <table class="highlight centered col s12 m12 l12">
+            <table class="centered col s12 m12 l12">
                 <thead>
                     <tr>
                         <th>Data</th>

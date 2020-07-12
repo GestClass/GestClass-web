@@ -2,7 +2,8 @@
 <html lang="pt-br">
 
 <head>
-
+    <title>GestClass - Is Cool Manage</title>
+    <link rel="icon" href="assets/icon/logo.png" />
     <link rel="stylesheet" type="text/css" href="css/cadastroTurmas.css" />
 
 </head>

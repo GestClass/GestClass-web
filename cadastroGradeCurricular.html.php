@@ -2,6 +2,8 @@
 <html lang="pt-br">
 
 <head>
+    <title>GestClass - Is Cool Manage</title>
+    <link rel="icon" href="assets/icon/logo.png" />
     <link rel="stylesheet" type="text/css" href="css/boletimCadastro.css" />
 </head>
 
@@ -26,7 +28,7 @@
     // Resgatando valores do select do modal
     $id_turma = $_POST['turmas'];
     $id_padrao = $_POST['padroes'];
-    $id_dia = $_POST['dia'];    
+    $id_dia = $_POST['dia'];
 
     if (($id_turma == null) || ($id_padrao == null) || ($id_dia == null)) {
     ?>
