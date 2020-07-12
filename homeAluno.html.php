@@ -86,7 +86,7 @@ $id_usuario = $_SESSION["id_usuario"];
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="graficoRendimento.html.php" class="btn-floating gray tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
+            <li><a href="#modalGraficos" class="modal-trigger btn-floating gray tooltipped" data-position="left" data-tooltip="Rendimento Disciplinar"><i class="material-icons">trending_up</i></a></li>
             <li><a href="boletimVisualizacao.html.php" class="btn-floating blue-grey darken-4 tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered</i></a></li>
             <li><a href="calendario.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Calendario Escolar"><i class="material-icons">event</i></a></li>
             <li><a href="gradeCurricularExibicao.html.php" class="btn-floating brown tooltipped" data-position="left" data-tooltip="Grade Curricular"><i class="material-icons">toc</i></a></li>
@@ -95,5 +95,6 @@ $id_usuario = $_SESSION["id_usuario"];
         </ul>
     </div>
 </section>
+
 
 <?php require_once 'reqFooter.php' ?>

@@ -100,7 +100,7 @@ if (($id_disciplina == null) && ($id_tipo_usuario == 6)) {
     <body>
 
       <div class="container">
-        <table class="center responsive-table">
+        <table class="centered responsive-table">
           <thead>
             <tr>
               <th>Professor(a)</th>
@@ -121,7 +121,7 @@ if (($id_disciplina == null) && ($id_tipo_usuario == 6)) {
       </div>
       <div class="container">
         <h4 class="tit center">Atividades Realizadas </h4>
-        <table class="atividades center striped">
+        <table class="atividades centered striped">
           <thead>
             <th>
               Data

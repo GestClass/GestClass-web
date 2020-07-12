@@ -49,7 +49,7 @@
     <div class="container"><br>
         <h3 class="center">Emissão de Boletos</h4><br>
         <div id="boletos">
-            <table class="highlight col s12 m12 l12">
+            <table class="highlight centered col s12 m12 l12">
                 <thead>
                     <tr>
                         <th>Data</th>

@@ -126,7 +126,7 @@ include_once 'php/conexao.php';
       echo $nomeDisciplina;
       ?><i class="Small material-icons">trending_up </i></h4>
     <div class="container">
-      <table class="center responsive-table">
+      <table class="centered responsive-table">
         <thead>
           <tr>
             <th>Turma</th>
@@ -149,7 +149,7 @@ include_once 'php/conexao.php';
     </div>
     <h4 class="tit center">Atividades Realizadas </h4>
     <div class="container">
-      <table class="atividades center striped ">
+      <table class="atividades centered striped ">
         <thead>
           <tr>
             <th>Data</th>

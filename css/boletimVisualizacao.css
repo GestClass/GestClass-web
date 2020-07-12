@@ -45,16 +45,6 @@ table.info {
     padding-left: 50px;
 }*/
 
-.centered {
-    width: 700px;
-    border-collapse: collapse;
-    border-spacing: 0;
-    display: block;
-    position: relative;
-    padding-left: 30px;
-    padding-top: 30px;
-}
-
 td,
 th {
     padding: 60px 20px 60px 20px;

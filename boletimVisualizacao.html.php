@@ -97,7 +97,7 @@
       $bimestre3 = $array_datas["bimestre3"];
       $bimestre4 = $array_datas["bimestre4"];
 
-
+    
     ?>
 
 
@@ -108,7 +108,7 @@
             <br>
             <h5 class="center"><?php echo $nome_escola ?></h5>
             <br>
-            <table class="info highlight">
+            <table class="center info highlight">
               <thead>
                 <tr>
                   <th>Nome</th>
@@ -139,12 +139,12 @@
           <div class="col s12 m12 l12 " id="1bimestre">
             <h4 class="center">1° Bimestre</h4>
 
-            <table class="striped">
+            <table class="striped centered ">
               <thead>
                 <tr>
                   <th>Componente Curricular</th>
-                  <th>Notas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                  <th>Faltas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                  <th>Notas</th>
+                  <th>Faltas</th>
                   <th>Frequência</th>
                 </tr>
               </thead>
@@ -249,7 +249,7 @@
 
           <div class="col s12 m12 l12" id="2bimestre">
             <h4 class="center">2° Bimestre</h4>
-            <table class="striped">
+            <table class="striped centered">
               <thead>
                 <tr>
                   <th>Componente Curricular</th>
@@ -359,7 +359,7 @@
 
           <div class="col s12 m12 l12" id="3bimestre">
             <h4 class="center">3° Bimestre</h4>
-            <table class="striped">
+            <table class="striped centered">
               <thead>
                 <tr>
                   <th>Componente Curricular</th>
@@ -468,7 +468,7 @@
 
           <div class="col s12 m12 l12" id="4bimestre">
             <h4 class="center">4° Bimestre</h4>
-            <table class="striped">
+            <table class="striped centered">
               <thead>
                 <tr>
                   <th>Componente Curricular</th>
@@ -578,7 +578,7 @@
 
           <div class="col s12 m12 l12 " id="mf">
             <h4 class="center">Média</h4>
-            <table class="striped">
+            <table class="striped centered">
               <thead>
                 <tr>
                   <th>Componente Curricular</th>
