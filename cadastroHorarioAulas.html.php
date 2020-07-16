@@ -81,7 +81,9 @@
                 <input type="text" name="nomeHorario" value="<?php echo $nomeHorario; ?>" hidden>
                 <input type="text" name="turno" value="<?php echo $turno; ?>" hidden>
                 <div class="input-field right">
-                    <button name="btncadastrar" value="formAluno" id="formAluno" type="submit" class="btn-flat btnLightBlue"><i class="material-icons">send</i> Cadastrar</button>
+                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                        <i class="material-icons left">send</i>Cadastrar
+                    </button>
                 </div>
             </div>
         </form>

@@ -3,56 +3,58 @@
 require_once  'conexao.php';
 
 // $id_usuario = $_SESSION["id_usuario"];
-// $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+$id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_escola = $_SESSION["id_escola"];
-$nome_padrao = $_GET["nome_padrao"];
+$id_padrao = $_GET["id_padrao"];
+
+if ($id_tipo_usuario == 2) {
+    $location = "../homeDiretor.html.php";
+} elseif ($id_tipo_usuario == 3) {
+    $location = "../homeSecretaria.html.php";
+}
 
 
-$query_select = $conn->prepare("SELECT ID_aula_escola FROM aula_escola WHERE fk_id_escola_aula_escola = $id_escola AND nome_padrao = $nome_padrao");
-$query_select->execute();
-$id = $query_select->fetch(PDO::FETCH_ASSOC);
+// Resgatando nome do padrão
+$query_select_nome_padrao = $conn->prepare("SELECT nome_padrao FROM aula_escola WHERE ID_aula_escola = $id_padrao AND fk_id_escola_aula_escola = $id_escola");
+$query_select_nome_padrao->execute();
+$array_aula_escola = $query_select_nome_padrao->fetch(PDO::FETCH_ASSOC);
 
-// $id = implode($id_aulas);
+// Verificar sucesso
+if ($query_select_nome_padrao->rowCount()) {
 
-// $result = count($id);
-// for ($cont = 0; $cont < ($result); $cont++) {
-//     echo $nome_padrao . "<br><br>";
-//     echo $id[$cont] . "<br><br>";
-// }
 
-// $id_da_grade = implode($id_grade);
+    // Armazenando o nome do padrão
+    $nome_padrao = $array_aula_escola['nome_padrao'];
 
-// $query_delete_grade = $conn->prepare("DELETE FROM grade_curricular WHERE ID_grade_curricular = $id_da_grade");
-// $query_delete_grade->execute();
+    // Deletando padrão e suas aulas
+    $query_delete_padrao = $conn->prepare("DELETE FROM aula_escola WHERE nome_padrao = :nomePadrao AND fk_id_escola_aula_escola = :idEscola");
+    $query_delete_padrao->bindParam(':nomePadrao', $nome_padrao, PDO::PARAM_STR);
+    $query_delete_padrao->bindParam(':idEscola', $id_escola, PDO::PARAM_STR);
 
-// $query_delete_aula = $conn->prepare("DELETE FROM aula_escola WHERE ID_aula_escola = :id_aula AND fk_id_escola_aula_escola = $id_escola");
-// $query_delete_aula->bindParam(':id_aula', $id_aula);
+    $query_delete_padrao->execute();
 
-// if ($query_delete_grade->execute() && $query_delete_aula->execute()) {
-//     if ($id_tipo_usuario == 2) {
-//         echo "<script>alert('Aula excluida com sucesso');
-//         window.location='../homeDiretor.html.php';
-//         </script>";
-//     } elseif ($id_tipo_usuario == 3) {
-//         echo "<script>alert('Aula excluida com sucesso');
-//         window.location='../homeSecretaria.html.php';
-//         </script>";
-//     } else {
-//         echo "<script>alert('Usuario sem permissão');
-//         window.location='../index.php'</script>";
-//     }
-// } else {
-//     if ($id_tipo_usuario == 2) {
-//         echo "<script>alert('Aula nao excluida');
-//         window.location='../homeDiretor.html.php';
-//         </script>";
-//     } elseif ($id_tipo_usuario == 3) {
-//         echo "<script>alert('Aula nao excluida');
-//         window.location='../homeSecretaria.html.php';
-//         </script>";
-//     } else {
-//         echo "<script>alert('Usuario sem permissão');
-//         window.location='../index.php'</script>";
-//     }
-// }
-// 
+    // Verificando sucesso
+    if ($query_delete_padrao->rowCount()) {
+?>
+        <script>
+            alert('Apagado com Sucesso!!');
+            window.location = '<?php echo $location ?>';
+        </script>
+    <?php
+    } else {
+    ?>
+        <script>
+            alert('Erro ao Apagar!!');
+            window.location = '<?php echo $location ?>';
+        </script>
+    <?php
+    }
+} else {
+    ?>
+    <script>
+        alert('Erro ao Apagar, tente novamente!!');
+        window.location = '<?php echo $location ?>';
+    </script>
+<?php
+}
+?>

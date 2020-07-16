@@ -45,10 +45,10 @@ $nome_padrao = $array_nome_padrao['nome_padrao'];
         <div class="container">
             <div class="row">
                 <div class="input-field col s12 m11 l11">
-                    <input name="nome_padrao[]" id="nome_padrao[]" value="<?php echo $nome_padrao ?>" type="text" class="validate ">
+                    <input name="nomePadrao" value="<?php echo $nome_padrao ?>" type="text" class="validate ">
                     <label id="lbl" for="first_name">Nome do Horário</label>
                 </div>
-                <a href="php/deletarPadrao.php?nome_padrao=<?php echo $nome_padrao?>"><i class="material-icons center tooltipped" data-tooltip="Excluir Padrão" style="color:red;">delete_sweep</i></a>
+                <a href="php/deletarPadrao.php?id_padrao=<?php echo $id_padrao?>"><i class="material-icons center tooltipped" data-tooltip="Excluir Padrão" style="color:red;">delete_sweep</i></a>
             </div>
         </div>
         <?php
@@ -65,24 +65,21 @@ $nome_padrao = $array_nome_padrao['nome_padrao'];
             <div class="container">
                 <div class="row">
                     <div class="input-field col s12 m4 l4">
-                        <input name="teste[]" id="nome_padrao[]" value="<?php echo $nome_padrao ?>" hidden>
-                        <input name="aula[]" id="aula[]" value="<?php echo $nome_aula ?>" type="text" class="validate ">
+                        <input name="aula<?php echo $id_aula?>" value="<?php echo $nome_aula ?>" type="text" class="validate ">
                         <label id="lbl" for="first_name">Aula</label>
                     </div>
                     <div class="input-field col s6 m4 l4">
-                        <input name="inicio[]" id="inicio[]" value="<?php echo $aula_start ?>" type="tel" class="validate">
+                        <input name="inicio<?php echo $id_aula?>" value="<?php echo $aula_start ?>" type="tel" class="validate">
                         <label id="lbl" for="first_name">Início</label>
                     </div>
                     <div class="input-field col s6 m3 l3">
-                        <input name="termino[]" id="termino[]" value="<?php echo $aula_end ?>" type="tel" class="validate">
+                        <input name="termino<?php echo $id_aula?>" value="<?php echo $aula_end ?>" type="tel" class="validate">
                         <label id="lbl" for="first_name">Término</label>
                     </div>
                     <a href="php/deletarAula.php?id_aula=<?php echo $id_aula ?>"><i class="material-icons center tooltipped" data-tooltip="Excluir" style="color:red;">delete</i></a>
                 </div>
             </div>
-
-            <input name="id_aula[]" id="id_aula[]" value="<?php echo $id_aula; ?>" hidden>
-            <input name="id_padrao" id="id_padrao[]" value="<?php echo $id_padrao; ?>" hidden>
+            <input name="idPadrao" value="<?php echo $id_padrao; ?>" hidden>
         <?php
         }
         ?>

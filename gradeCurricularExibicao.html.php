@@ -138,7 +138,7 @@ $nome_turno = $turno['nome_turno'];
                         $aula_end = $array_dados_grade['aula_end'];
 
                         if ($nome_disciplina == null) {
-                            $nome_disciplina = '&nbsp;&nbsp;&nbsp;&nbsp;-';
+                            $nome_disciplina = '-';
                         }
                     ?>
                         <tr>
@@ -178,7 +178,7 @@ $nome_turno = $turno['nome_turno'];
                         $aula_end = $array_dados_grade['aula_end'];
 
                         if ($nome_disciplina == null) {
-                            $nome_disciplina = '&nbsp;&nbsp;&nbsp;&nbsp;-';
+                            $nome_disciplina = '-';
                         }
                     ?>
                         <tr>
@@ -218,7 +218,7 @@ $nome_turno = $turno['nome_turno'];
                         $aula_end = $array_dados_grade['aula_end'];
 
                         if ($nome_disciplina == null) {
-                            $nome_disciplina = '&nbsp;&nbsp;&nbsp;&nbsp;-';
+                            $nome_disciplina = '-';
                         }
                     ?>
                         <tr>
@@ -258,7 +258,7 @@ $nome_turno = $turno['nome_turno'];
                         $aula_end = $array_dados_grade['aula_end'];
 
                         if ($nome_disciplina == null) {
-                            $nome_disciplina = '&nbsp;&nbsp;&nbsp;&nbsp;-';
+                            $nome_disciplina = '-';
                         }
                     ?>
                         <tr>
@@ -298,7 +298,7 @@ $nome_turno = $turno['nome_turno'];
                         $aula_end = $array_dados_grade['aula_end'];
 
                         if ($nome_disciplina == null) {
-                            $nome_disciplina = '&nbsp;&nbsp;&nbsp;&nbsp;-';
+                            $nome_disciplina = '-';
                         }
                     ?>
                         <tr>
@@ -338,7 +338,7 @@ $nome_turno = $turno['nome_turno'];
                         $aula_end = $array_dados_grade['aula_end'];
 
                         if ($nome_disciplina == null) {
-                            $nome_disciplina = '&nbsp;&nbsp;&nbsp;&nbsp;-';
+                            $nome_disciplina = '-';
                         }
                     ?>
                         <tr>
