@@ -359,7 +359,7 @@ $nome_sec = $nome[0];
 
                     <div class="input-field right">
                         <button id="formMensagem" type="submit" class="btn-flat btnLightBlue">
-                            <i class="material-icons left">send</i>Enviar
+                            <i class="material-icons left">send</i>Cadastrar
                         </button>
                     </div>
                 </form>

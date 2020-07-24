@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix blue-icon">ballot</i>
-                    <input name="rg" id="rg" placeholder="68.124.586-8" data-mask="00.000.000-0" maxlength="12" type="text" class="validate">
+                    <input name="rg" id="rg" placeholder="68.124.586-8" data-mask="99.999.999-A" type="text" class="validate">
                     <label id="lbl" for="icon_telephone">RG</label>
                 </div>
                 <div class="input-field col s6 m6 l6">

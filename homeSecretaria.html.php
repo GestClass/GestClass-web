@@ -20,14 +20,14 @@ require_once 'reqHeader.php';
         </a>
       </div>
       <div class="col s12 m4">
-                <a class="modal-trigger" href="#modalListaFuncionarios">
-                    <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                        <i class="fas fa-chalkboard-teacher fa-6x blue-icon"></i>
-                        <h5>Funcionários</h5>
-                        <p>Lista de funcionários e acesso aos dados dos mesmos</p>
-                    </div>
-                </a>
-            </div>
+        <a class="modal-trigger" href="#modalListaFuncionarios">
+          <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
+            <i class="fas fa-chalkboard-teacher fa-6x blue-icon"></i>
+            <h5>Funcionários</h5>
+            <p>Lista de funcionários e acesso aos dados dos mesmos</p>
+          </div>
+        </a>
+      </div>
       <div class="col s12 m4">
         <a class="modal-trigger" href="#modalListaAlunos">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
@@ -47,7 +47,7 @@ require_once 'reqHeader.php';
         </a>
       </div>
       <div class="col s12 m4">
-        <a href="cadastroTurmas.html.php">
+        <a class="modal-trigger" href="#modalCadastroTurmas">
           <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
             <i class="fas fa-book fa-6x blue-icon"></i>
             <h5>Cadastro de Turmas</h5>
@@ -94,5 +94,5 @@ $notificacao = $query_mensagem->rowCount();
     </ul>
   </div>
 </section>
-    
+
 <?php require_once 'reqFooter.php' ?>
