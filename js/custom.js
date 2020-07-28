@@ -109,7 +109,7 @@ function habilitaForm() {
 
 //Fim
 
-//modal boletim
+//modal envio material prof e diretor
 $(document).ready(function() {
     $('select').opcProf();
 });
@@ -128,6 +128,27 @@ function formMaterialApoio() {
     } else {
         $('#formAluno').show(500);
         $(".formTurma").hide();
+    }
+}
+
+$(document).ready(function() {
+    $('select').opcDiretor();
+});
+
+$(".formAlunoDiretor").hide();
+$(".formTurmaDiretor").hide();
+
+function formMaterialApoioDiretor() {
+
+    $(".formAlunoDiretor").hide();
+    $(".formTurmaDiretor").hide();
+
+    if ($("#opcDiretor")[0].selectedIndex === 1) {
+        $('#formTurmaDiretor').show(500);
+        $(".formAlunoDiretor").hide();
+    } else {
+        $('#formAlunoDiretor').show(500);
+        $(".formTurmaDiretor").hide();
     }
 }
 
