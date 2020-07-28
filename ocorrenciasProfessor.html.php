@@ -80,7 +80,7 @@
                             </td>
 
                             <td>
-                                <a href="enviarOcorrencias.html.php?id=<?php echo $alunos['fk_id_responsavel_aluno'] ?>"><?php echo $alunos['nome_aluno']; ?></a>
+                                <a href="enviarOcorrencias.html.php?id=<?php echo $alunos['fk_id_responsavel_aluno'] ?>&n=<?php echo $alunos['nome_aluno']; ?>"><?php echo $alunos['nome_aluno']; ?></a>
                             </td>
                             <td>
                                 <?php echo $alunos['celular']; ?>

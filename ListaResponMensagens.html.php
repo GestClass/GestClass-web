@@ -92,7 +92,7 @@
                             </td>
 
                             <td>
-                                <a href="enviarRespon.html.php?id_responsavel=<?php echo $alunos['fk_id_responsavel_aluno'] ?>"><?php echo $alunos['nome_aluno']; ?></a>
+                                <a href="enviarRespon.html.php?id_responsavel=<?php echo $alunos['fk_id_responsavel_aluno'] ?>&n=<?php echo $alunos['nome_aluno']; ?>"><?php echo $alunos['nome_aluno']; ?></a>
                             </td>
 
                             <td>

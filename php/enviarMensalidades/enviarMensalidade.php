@@ -7,7 +7,7 @@ $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 
 // //usuarios
 $id_usuario = $_SESSION["id_usuario"];
-$id_responsavel = $_SESSION["id_respon"];
+$id_responsavel = $_POST["id_respon"];
 
 $boleto = $_FILES["boleto"]['name'];
 move_uploaded_file($_FILES["boleto"]["tmp_name"], "../../assets/boletos/" . $boleto);

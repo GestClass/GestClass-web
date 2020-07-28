@@ -41,6 +41,12 @@
     }
 
     $id_responsavel = $_GET["id_responsavel"];
+    $nome_aluno = $_GET["n"];
+
+    $query = $conn->prepare("SELECT nome_responsavel FROM responsavel WHERE ID_responsavel = $id_responsavel AND fk_id_escola_responsavel = $id_escola");
+    $query->execute();
+    $dados = $query->fetch(PDO::FETCH_ASSOC);
+    $nome_respon = $dados["nome_responsavel"];
 
     ?>
 
@@ -49,8 +55,18 @@
         <form action="php/enviarMensagem/enviarRespon.php" method="POST">
             <div class="modal-content">
                 <div class="row">
+                    <div class="input-field col s12 m6 l6">
+                        <input name="nome" value="<?php echo $nome_aluno; ?>" type="text" readonly>
+                        <label id="lbl" for="first_name">Nome Aluno</label>
+                    </div>
+                    <div class="input-field col s12 m6 l6">
+                        <input type="text" name="id_respon" value="<?php echo $id_responsavel; ?>" hidden>
+                        <input name="nome" value="<?php echo $nome_respon; ?>" type="text" readonly>
+                        <label id="lbl" for="first_name">Nome Responsável</label>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="input-field col s12 m12 l12">
-                        <input type="text" name="id_respon" value="<?php echo $id_responsavel ?>" hidden>
                         <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
                         <label id="lbl" for="first_name">Assunto</label>
                     </div>
