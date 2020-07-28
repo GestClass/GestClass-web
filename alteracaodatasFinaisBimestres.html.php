@@ -27,9 +27,11 @@
     }
 
     // Preparar select para buscar as datas de fim de bimestre
-    $sql_select_datas = $conn->prepare("SELECT * FROM datas_fim_bimestres WHERE fk_id_escola_datas_fim_bimestres = $id_escola");
+    $sql_select_datas = $conn->prepare("SELECT * FROM datas_fim_bimestres WHERE fk_id_escola_datas_fim_bimestres = $id_escola AND ano_datas = YEAR(NOW())");
     // Executar comando
     $sql_select_datas->execute();
+    // verificar dados encontrados
+    if ($sql_select_datas->rowCount()) {
     // Armazenar retorno
     $datas_fim_bimestres = $sql_select_datas->fetch(PDO::FETCH_ASSOC);
 
@@ -114,4 +116,14 @@
 
 
     <script src="js/default.js"></script>
-    <?php require_once 'reqFooter.php' ?>
+    <?php 
+    } else {
+        ?>
+        <script>
+            alert('Ainda não existem dados cadastrados para o ano atual!!');
+            history.back();            
+        </script>
+        <?php
+    }
+    require_once 'reqFooter.php' 
+    ?>

@@ -11,11 +11,14 @@ $id_turno = $_POST['turno'];
 
 if (($nome_turma != "") && ($id_turno != null)) {
 
-    $query_insert = $conn->prepare("INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES (:turma, :id_escola, :turno)");
+    $situacao = true;
+
+    $query_insert = $conn->prepare("INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES (:turma, :id_escola, :turno, :situacao)");
 
     $query_insert->bindParam(':turma', $nome_turma, PDO::PARAM_STR);
     $query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
     $query_insert->bindParam(':turno', $id_turno, PDO::PARAM_STR);
+    $query_insert->bindParam(':situacao', $situacao, PDO::PARAM_STR);
     $query_insert->execute();
 
     if ($query_insert->rowCount()) {

@@ -9,15 +9,18 @@ CREATE TABLE turno (
     nome_turno VARCHAR(20) NOT NULL
 );
 
+
 CREATE TABLE tipo_usuario(
 	ID_tipo_usuario INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     nome_usuario VARCHAR(50) NOT NULL
 );
 
+
 CREATE TABLE dia_semana (
 	ID_dia_semana INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     nome_dia VARCHAR(40) NOT NULL UNIQUE
 );
+
 
 CREATE TABLE escola (
 	ID_escola INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
@@ -29,27 +32,27 @@ CREATE TABLE escola (
     telefone VARCHAR(14) NOT NULL,
     email VARCHAR(65) NOT NULL UNIQUE,
 	data_pagamento_escola INTEGER NOT NULL,
-    turma_bercario BOOLEAN, 
-    turma_pre_escola BOOLEAN,
-    turma_fundamental_I BOOLEAN,
-    turma_fundamental_II BOOLEAN,
-    turma_medio BOOLEAN,
     media_min DECIMAL (4,2) NOT NULL,
     media_max DECIMAL (4,2) NOT NULL
 );
 
+
 CREATE TABLE disciplina(
 	ID_disciplina INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     nome_disciplina VARCHAR(50) NOT NULL,
-    fk_id_escola_disciplina INTEGER NOT NULL
+    fk_id_escola_disciplina INTEGER NOT NULL,
+    situacao BOOLEAN NOT NULL
 );
+
 
 CREATE TABLE turma (
 	ID_turma INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     nome_turma VARCHAR(50) NOT NULL,
     fk_id_escola_turma INTEGER NOT NULL,
-    fk_id_turno_turma INTEGER NOT NULL
+    fk_id_turno_turma INTEGER NOT NULL,
+    situacao BOOLEAN NOT NULL
 );
+
 
 CREATE TABLE aula_escola(
 	ID_aula_escola INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
@@ -61,6 +64,7 @@ CREATE TABLE aula_escola(
     fk_id_escola_aula_escola INTEGER NOT NULL
 );
 
+
 CREATE TABLE grade_curricular (
 	ID_grade_curricular INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
     fk_id_dia_semana_grade_curricular INTEGER NOT NULL,
@@ -68,6 +72,7 @@ CREATE TABLE grade_curricular (
     fk_id_disciplina_grade_curricular INTEGER NULL,
     fk_id_turma_grade_curricular INTEGER NOT NULL
 );
+
 
 CREATE TABLE professor (
 	ID_professor INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
@@ -86,11 +91,13 @@ CREATE TABLE professor (
     fk_id_escola_professor INTEGER NOT NULL
 );
 
+
 CREATE TABLE turmas_professor (
 	ID_turmas_professor INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
     fk_id_professor_turmas_professor INTEGER NOT NULL,	
     fk_id_turma_professor_turmas_professor INTEGER 
 );
+
 
 CREATE TABLE disciplinas_professor (
 	ID_disciplinas_professor INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
@@ -98,6 +105,7 @@ CREATE TABLE disciplinas_professor (
     fk_id_disciplina_professor_disciplinas_professor INTEGER, 
     fk_id_turma_professor_disciplinas_professor INTEGER
 );
+
 
 CREATE TABLE diretor (
 	ID_diretor INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
@@ -116,6 +124,7 @@ CREATE TABLE diretor (
     fk_id_escola_diretor INTEGER NOT NULL
 );
 
+
 CREATE TABLE secretario (
 	ID_secretario INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
 	nome_secretario VARCHAR (50) NOT NULL,
@@ -133,6 +142,7 @@ CREATE TABLE secretario (
     fk_id_escola_secretario INTEGER NOT NULL
 );
 
+
 CREATE TABLE aluno (
 	RA INTEGER PRIMARY KEY,    
     nome_aluno VARCHAR (70) NOT NULL,
@@ -147,8 +157,13 @@ CREATE TABLE aluno (
     fk_id_turma_aluno INTEGER,
     fk_id_responsavel_aluno INTEGER,
     fk_id_tipo_usuario_aluno INTEGER NOT NULL,
-    fk_id_escola_aluno INTEGER NOT NULL
+    fk_id_escola_aluno INTEGER NOT NULL,
+    situacao BOOLEAN NULL,
+	id_tipo_usuario_exclusor INTEGER NULL,
+    id_usuario_exclusor INTEGER NULL,
+    data_exclusao DATE NULL
 );
+
 
 CREATE TABLE responsavel (
 	ID_responsavel INTEGER PRIMARY KEY AUTO_INCREMENT UNIQUE,
@@ -171,11 +186,13 @@ CREATE TABLE responsavel (
     fk_id_escola_responsavel INTEGER NOT NULL
 );
 
+
 CREATE TABLE boletim_listagem (
 	ID_boletim_listagem INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
     fk_id_escola_boletim_listagem INTEGER NOT NULL,
     fk_id_disciplina_boletim_listagem INTEGER NOT NULL
 );
+
 
 CREATE TABLE boletim_aluno (
 	ID_boletim_aluno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
@@ -209,6 +226,7 @@ CREATE TABLE chamada_aluno (
     fk_id_listagem_chamada_aluno INTEGER NOT NULL
 );
 
+
 CREATE TABLE envio_boleto (
 	ID_envio_boleto INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
     fk_id_diretor_envio_boleto INTEGER NULL,
@@ -216,6 +234,19 @@ CREATE TABLE envio_boleto (
     fk_id_responsavel_recebimento_boleto INTEGER NOT NULL,
     data_envio DATETIME NOT NULL,
     boleto VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE envio_material_apoio (
+	ID_envio_material INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+    fk_id_disciplina_material INTEGER NULL,
+    fk_id_tipo_usuario_envio_material INTEGER NOT NULL,
+    fk_id_diretor_envio_material INTEGER NULL,
+    fk_id_professor_envio_material INTEGER NULL,
+    fk_id_aluno_recebimento_material INTEGER NOT NULL,
+    assunto_material VARCHAR(75) NOT NULL,
+    data_envio DATETIME NOT NULL,
+    material VARCHAR(255) NOT NULL
 );
 
 
@@ -243,14 +274,17 @@ CREATE TABLE contato (
     fk_recebimento_admin_id_admin INTEGER
 );
 
+
 CREATE TABLE datas_fim_bimestres (
 	ID_datas_fim_bimestres INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
     bimestre1 DATE NOT NULL,
     bimestre2 DATE NOT NULL,
     bimestre3 DATE NOT NULL,
     bimestre4 DATE NOT NULL,
-    fk_id_escola_datas_fim_bimestres INTEGER NOT NULL UNIQUE
+    ano_datas INTEGER NOT NULL,
+    fk_id_escola_datas_fim_bimestres INTEGER NOT NULL    
 );
+
 
 CREATE TABLE `admin` (
 	ID_admin INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
@@ -261,6 +295,7 @@ CREATE TABLE `admin` (
     data_nascimento DATE NOT NULL,
     fk_id_tipo_usuario_admin INTEGER NOT NULL
 );
+
 
 CREATE TABLE `events` (
   `id` INTEGER(11) NOT NULL AUTO_INCREMENT,
@@ -279,20 +314,20 @@ ALTER TABLE disciplina ADD CONSTRAINT fk_id_escola_disciplina FOREIGN KEY (fk_id
 
 /*	-	FOREIGN KEYs TABLE TURMA	-	*/
 ALTER TABLE turma ADD CONSTRAINT fk_id_escola_turma FOREIGN KEY (fk_id_escola_turma) REFERENCES escola (ID_escola) ON DELETE CASCADE;
-ALTER TABLE turma ADD CONSTRAINT fk_id_turno_turma FOREIGN KEY (fk_id_turno_turma) REFERENCES turno (ID_turno) ON DELETE CASCADE;
+ALTER TABLE turma ADD CONSTRAINT fk_id_turno_turma FOREIGN KEY (fk_id_turno_turma) REFERENCES turno (ID_turno);
 
 
 /*	-	FOREIGN KEYs TABLE AULA_ESCOLA	-	*/
 
-ALTER TABLE aula_escola ADD CONSTRAINT fk_id_turno_aula_escola FOREIGN KEY (fk_id_turno_aula_escola) REFERENCES turno (ID_turno) ON DELETE CASCADE;
+ALTER TABLE aula_escola ADD CONSTRAINT fk_id_turno_aula_escola FOREIGN KEY (fk_id_turno_aula_escola) REFERENCES turno (ID_turno);
 ALTER TABLE aula_escola ADD CONSTRAINT fk_id_escola_aula_escola FOREIGN KEY (fk_id_escola_aula_escola) REFERENCES escola (ID_escola) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE GRADE_CURRICULAR 	-	*/
 
-ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_dia_semana_grade_curricular FOREIGN KEY (fk_id_dia_semana_grade_curricular) REFERENCES dia_semana (ID_dia_semana) ON DELETE CASCADE;
+ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_dia_semana_grade_curricular FOREIGN KEY (fk_id_dia_semana_grade_curricular) REFERENCES dia_semana (ID_dia_semana);
 ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_aula_escola_grade_curricular FOREIGN KEY (fk_id_aula_escola_grade_curricular) REFERENCES aula_escola (ID_aula_escola) ON DELETE CASCADE;
-ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_disciplina_grade_curricular FOREIGN KEY (fk_id_disciplina_grade_curricular) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
+ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_disciplina_grade_curricular FOREIGN KEY (fk_id_disciplina_grade_curricular) REFERENCES disciplina (ID_disciplina); /*Averiguar*/
 ALTER TABLE grade_curricular ADD CONSTRAINT fk_id_turma_grade_curricular FOREIGN KEY (fk_id_turma_grade_curricular) REFERENCES turma (ID_turma) ON DELETE CASCADE;
 
 
@@ -330,8 +365,8 @@ ALTER TABLE secretario ADD CONSTRAINT fk_id_escola_secretario FOREIGN KEY (fk_id
 
 /*	-	FOREIGN KEYs TABLE ALUNO	-	*/
 
-ALTER TABLE aluno ADD CONSTRAINT fk_id_turma_aluno FOREIGN KEY (fk_id_turma_aluno) REFERENCES turma (ID_turma) ON DELETE CASCADE;
-ALTER TABLE aluno ADD CONSTRAINT fk_id_responsavel_aluno FOREIGN KEY (fk_id_responsavel_aluno) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
+ALTER TABLE aluno ADD CONSTRAINT fk_id_turma_aluno FOREIGN KEY (fk_id_turma_aluno) REFERENCES turma (ID_turma);
+ALTER TABLE aluno ADD CONSTRAINT fk_id_responsavel_aluno FOREIGN KEY (fk_id_responsavel_aluno) REFERENCES responsavel (ID_responsavel);
 ALTER TABLE aluno ADD CONSTRAINT fk_id_tipo_usuario_aluno FOREIGN KEY (fk_id_tipo_usuario_aluno) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
 ALTER TABLE aluno ADD CONSTRAINT fk_id_escola_aluno FOREIGN KEY (fk_id_escola_aluno) REFERENCES escola (ID_escola) ON DELETE CASCADE;
 
@@ -345,36 +380,36 @@ ALTER TABLE responsavel ADD CONSTRAINT fk_id_escola_responsavel FOREIGN KEY (fk_
 /*	-	FOREIGN KEYs TABLE BOLETIM_LISTAGEM 	-	*/
 
 ALTER TABLE boletim_listagem ADD CONSTRAINT fk_id_escola_boletim_listagem FOREIGN KEY (fk_id_escola_boletim_listagem) REFERENCES escola (ID_escola) ON DELETE CASCADE;
-ALTER TABLE boletim_listagem ADD CONSTRAINT fk_id_disciplina_boletim_listagem FOREIGN KEY (fk_id_disciplina_boletim_listagem) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
+ALTER TABLE boletim_listagem ADD CONSTRAINT fk_id_disciplina_boletim_listagem FOREIGN KEY (fk_id_disciplina_boletim_listagem) REFERENCES disciplina (ID_disciplina);
 
 
 /*	-	FOREIGN KEYs TABLE BOLETIM_ALUNO	-	*/
 
-ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_disciplina_boletim_aluno FOREIGN KEY (fk_id_disciplina_boletim_aluno) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
+ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_disciplina_boletim_aluno FOREIGN KEY (fk_id_disciplina_boletim_aluno) REFERENCES disciplina (ID_disciplina);
 ALTER TABLE boletim_aluno ADD CONSTRAINT fk_ra_aluno_boletim_aluno FOREIGN KEY (fk_ra_aluno_boletim_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
 ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_boletim_listagem_boletim_aluno FOREIGN KEY (fk_id_boletim_listagem_boletim_aluno) REFERENCES boletim_listagem (ID_boletim_listagem) ON DELETE CASCADE;
-ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_turma_boletim_aluno FOREIGN KEY (fk_id_turma_boletim_aluno) REFERENCES turma (ID_turma) ON DELETE CASCADE;
+ALTER TABLE boletim_aluno ADD CONSTRAINT fk_id_turma_boletim_aluno FOREIGN KEY (fk_id_turma_boletim_aluno) REFERENCES turma (ID_turma);
 
 
 /*	-	FOREIGN KEYs TABLE CHAMADA_ALUNO	-	*/
 
 ALTER TABLE chamada_aluno ADD CONSTRAINT fk_ra_aluno_chamada_aluno FOREIGN KEY (fk_ra_aluno_chamada_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
-ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_disciplina_chamada_aluno FOREIGN KEY (fk_id_disciplina_chamada_aluno) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
-ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_professor_chamada_aluno FOREIGN KEY (fk_id_professor_chamada_aluno) REFERENCES professor (ID_professor) ON DELETE CASCADE;
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_disciplina_chamada_aluno FOREIGN KEY (fk_id_disciplina_chamada_aluno) REFERENCES disciplina (ID_disciplina);
+ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_professor_chamada_aluno FOREIGN KEY (fk_id_professor_chamada_aluno) REFERENCES professor (ID_professor);
 ALTER TABLE chamada_aluno ADD CONSTRAINT fk_id_listagem_chamada_aluno FOREIGN KEY (fk_id_listagem_chamada_aluno) REFERENCES listagem_chamada(ID_listagem) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE LISTAGEM_CHAMADA	-	*/
 
 ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_escola_listagem_chamada FOREIGN KEY(fk_id_escola_listagem_chamada) REFERENCES escola (ID_escola) ON DELETE CASCADE;
-ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_disciplina_listagem_chamada FOREIGN KEY(fk_id_disciplina_listagem_chamada) REFERENCES disciplina (ID_disciplina) ON DELETE CASCADE;
-ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_professor_listagem_chamada FOREIGN KEY(fk_id_professor_listagem_chamada) REFERENCES professor (ID_professor) ON DELETE CASCADE;
+ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_disciplina_listagem_chamada FOREIGN KEY(fk_id_disciplina_listagem_chamada) REFERENCES disciplina (ID_disciplina);
+ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_professor_listagem_chamada FOREIGN KEY(fk_id_professor_listagem_chamada) REFERENCES professor (ID_professor);
 
 
 /*	-	FOREIGN KEYs TABLE ENVIO_BOLETO	 -	*/
 
-ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_diretor_envio_boleto FOREIGN KEY (fk_id_diretor_envio_boleto) REFERENCES diretor (ID_diretor) ON DELETE CASCADE;
-ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_secretario_envio_boleto FOREIGN KEY (fk_id_secretario_envio_boleto) REFERENCES secretario (ID_secretario) ON DELETE CASCADE;
+ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_diretor_envio_boleto FOREIGN KEY (fk_id_diretor_envio_boleto) REFERENCES diretor (ID_diretor);
+ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_secretario_envio_boleto FOREIGN KEY (fk_id_secretario_envio_boleto) REFERENCES secretario (ID_secretario);
 ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOREIGN KEY (fk_id_responsavel_recebimento_boleto) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
 
 
@@ -382,12 +417,12 @@ ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOR
 
 ALTER TABLE contato ADD CONSTRAINT fk_id_tipo_usuario_envio FOREIGN KEY (fk_id_tipo_usuario_envio) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_id_envio_solicitante FOREIGN KEY (fk_id_envio_solicitante) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
-ALTER TABLE contato ADD CONSTRAINT fk_envio_aluno_ra_aluno FOREIGN KEY (fk_envio_aluno_ra_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
-ALTER TABLE contato ADD CONSTRAINT fk_envio_responsavel_id_responsavel FOREIGN KEY (fk_envio_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
-ALTER TABLE contato ADD CONSTRAINT fk_envio_professor_id_professor FOREIGN KEY (fk_envio_professor_id_professor) REFERENCES professor (ID_professor) ON DELETE CASCADE;
-ALTER TABLE contato ADD CONSTRAINT fk_envio_diretor_id_diretor FOREIGN KEY (fk_envio_diretor_id_diretor) REFERENCES diretor (ID_diretor) ON DELETE CASCADE;
-ALTER TABLE contato ADD CONSTRAINT fk_envio_secretario_id_secretario FOREIGN KEY (fk_envio_secretario_id_secretario) REFERENCES secretario (ID_secretario) ON DELETE CASCADE;
-ALTER TABLE contato ADD CONSTRAINT fk_envio_admin_id_admin FOREIGN KEY (fk_envio_admin_id_admin) REFERENCES `admin` (ID_admin) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_aluno_ra_aluno FOREIGN KEY (fk_envio_aluno_ra_aluno) REFERENCES aluno (RA);
+ALTER TABLE contato ADD CONSTRAINT fk_envio_responsavel_id_responsavel FOREIGN KEY (fk_envio_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel);
+ALTER TABLE contato ADD CONSTRAINT fk_envio_professor_id_professor FOREIGN KEY (fk_envio_professor_id_professor) REFERENCES professor (ID_professor);
+ALTER TABLE contato ADD CONSTRAINT fk_envio_diretor_id_diretor FOREIGN KEY (fk_envio_diretor_id_diretor) REFERENCES diretor (ID_diretor);
+ALTER TABLE contato ADD CONSTRAINT fk_envio_secretario_id_secretario FOREIGN KEY (fk_envio_secretario_id_secretario) REFERENCES secretario (ID_secretario);
+ALTER TABLE contato ADD CONSTRAINT fk_envio_admin_id_admin FOREIGN KEY (fk_envio_admin_id_admin) REFERENCES `admin` (ID_admin);
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_aluno_ra_aluno FOREIGN KEY (fk_recebimento_aluno_ra_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_responsavel_id_responsavel FOREIGN KEY (fk_recebimento_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_professor_id_professor FOREIGN KEY (fk_recebimento_professor_id_professor) REFERENCES professor (ID_professor) ON DELETE CASCADE;
@@ -424,23 +459,23 @@ INSERT INTO tipo_usuario (nome_usuario) VALUES ('solicitante');
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
-INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min, media_max) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '05', true, true, true, true, true, 5.00, 10.00);
+INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, media_min, media_max) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '05', 5.00, 10.00);
 
 
 /*	-	INSERTS INTO TABLE DISCIPLINA 	-	*/
 
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Português', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Inglês', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Matemática', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Biologia', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Ciências', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Quimíca', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Física', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Filosofia', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('História', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Geografia', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Sociologia', 1);
-INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES ('Ed. Física', 1);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Português', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Inglês', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Matemática', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Biologia', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Ciências', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Quimíca', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Física', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Filosofia', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('História', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Geografia', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Sociologia', 1, true);
+INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES ('Ed. Física', 1, true);
 
 
 /*	-	INSERTS INTO TABLE DIRETOR	-	*/
@@ -455,22 +490,22 @@ INSERT INTO dia_semana (nome_dia) VALUES ("Sábado");
 
 /*	-	INSERTS INTO TABLE TURMA 	-	*/
 
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('berçario A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('pre 1 A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('pre 2 A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('1º ano A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('2º ano A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('3º ano A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('3º ano A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('4º ano A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('5º ano A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('6º ano A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('7º ano A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('8º ano A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('9º ano A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('1º ano medio A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('2º ano medio A', 1, 1);
-INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma) VALUES ('3º ano medio A', 1, 1);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('berçario A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('pre 1 A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('pre 2 A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('1º ano A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('2º ano A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('3º ano A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('3º ano A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('4º ano A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('5º ano A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('6º ano A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('7º ano A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('8º ano A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('9º ano A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('1º ano medio A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('2º ano medio A', 1, 1, true);
+INSERT INTO turma (nome_turma, fk_id_escola_turma, fk_id_turno_turma, situacao) VALUES ('3º ano medio A', 1, 1, true);
 
 
 /*	-	INSERTs INTO TABLE AULA_ESCOLA	-	*/
@@ -609,7 +644,7 @@ INSERT INTO chamada_aluno (presenca, data_aula, fk_ra_aluno_chamada_aluno, fk_id
 
 /*	-	INSERTS INTO TABLE datas_fim_bimestres	-	*/
 
-INSERT INTO datas_fim_bimestres (bimestre1, bimestre2, bimestre3, bimestre4, fk_id_escola_datas_fim_bimestres) VALUES ('2020-04-15', '2020-06-30', '2020-10-03', '2020-12-10', 1);
+INSERT INTO datas_fim_bimestres (bimestre1, bimestre2, bimestre3, bimestre4, ano_datas, fk_id_escola_datas_fim_bimestres) VALUES ('2020-04-15', '2020-06-30', '2020-10-03', '2020-12-10', 2019, 1);
 
 
 /*	-	INSERTs INTO TABLE ENVIO_BOLETO 	-	*/
