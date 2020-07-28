@@ -111,36 +111,25 @@ function habilitaForm() {
 
 //modal boletim
 $(document).ready(function() {
-    $('.sidenav').sidenav();
+    $('select').opcProf();
 });
 
-$('.dropdown-trigger').dropdown();
+$(".formAluno").hide();
+$(".formTurma").hide();
 
-$(document).ready(function() {
-    $('.modal').modal();
-});
+function formMaterialApoio() {
 
-$(document).ready(function() {
-    $('select').formSelect();
-});
+    $(".formAluno").hide();
+    $(".formTurma").hide();
 
-$(".formTurmas").hide();
-
-// function pegarId() {
-
-//     $(".formTurmas").hide();
-
-//     $("#selectTurma").on("change", function pegarId() {
-//         var idTurma = $("#selectTurma").val();
-//         //alert(idTurma);
-
-//         if ($("#selectTurma")[0].selectedIndex === 0) {
-//             //   $('#turminha').show(500)
-//             $(".formTurmas").hide();
-//         } else {
-//             $('#turminha').show(500)
-//         }
-//     });
+    if ($("#opcProf")[0].selectedIndex === 1) {
+        $('#formTurma').show(500);
+        $(".formAluno").hide();
+    } else {
+        $('#formAluno').show(500);
+        $(".formTurma").hide();
+    }
+}
 
 //     $.ajax({
 //         url: 'homeProfessor.html.php',

@@ -173,8 +173,6 @@ $nome_prof = $nome[0];
       </div>
     </div>
 
-
-
     <div id="modalOcorrencias" class="modal">
       <div class="modal-content">
         <h4 class="center">Selecione a Turma</h4>
@@ -282,6 +280,118 @@ $nome_prof = $nome[0];
         </div>
       </div>
     </div>
+
+    <div id="modalMaterialApoio" class="modal">
+      <div class="modal-content">
+        <h4 class="center">Envio de Material de Apoio</h4>
+        <div class="input-field col s12">
+          <select id="opcProf" class="opcProf" onchange="formMaterialApoio()">
+            <option value="" disabled selected>Selecionar Uma Opção</option>
+            <option value="2">Turma</option>
+            <option value="1">Aluno</option>
+          </select>
+
+          <form class="formTurma" id="formTurma" enctype="multipart/form-data" method="POST" action="php/enviarMaterial/enviarMaterialTurma.php">
+            <div class="center">
+              <div class="row">
+                <div class="input-field col s12 m6 l6">
+                  <select name="turma">
+                    <option value="" disabled selected>Selecionar Turma</option>
+                    <?php
+
+                    $query_select_turmas_professor = $conn->prepare("SELECT turmas_professor.fk_id_turma_professor_turmas_professor, turma.nome_turma, turno.nome_turno FROM turmas_professor INNER JOIN turma ON (fk_id_turma_professor_turmas_professor = ID_turma) INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_professor_turmas_professor = $id_usuario GROUP BY turma.nome_turma");
+                    $query_select_turmas_professor->execute();
+
+                    while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
+
+                      $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+                      $nome_turma = $dados_turmas_professor["nome_turma"];
+                      $id_turno = $dados_turmas_professor['fk_id_turno_turma'];
+                      $nome_turno = $dados_turmas_professor['nome_turno'];
+
+                    ?>
+                      <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                    <?php
+                    }
+                    ?>
+                  </select>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                  <select name="disciplina">
+                    <option value="" disabled selected>Selecione a Disciplina</option>
+                    <?php
+                    $query_select_disciplina_turma_professor = $conn->prepare("SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor, disciplina.nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor = ID_disciplina) WHERE disciplinas_professor.fk_id_professor_disciplinas_professor = $id_usuario AND disciplinas_professor.fk_id_turma_professor_disciplinas_professor = $id_turma GROUP BY disciplina.nome_disciplina");
+                    $query_select_disciplina_turma_professor->execute();
+
+                    while ($dados_disciplina_turma_professor = $query_select_disciplina_turma_professor->fetch(PDO::FETCH_ASSOC)) {
+
+                      $id_disciplina = $dados_disciplina_turma_professor["fk_id_disciplina_professor_disciplinas_professor"];
+                      $nome_disciplina = $dados_disciplina_turma_professor["nome_disciplina"];
+                    ?>
+                      <option value="<?php echo $id_disciplina ?>"><?php echo $nome_disciplina ?></option>
+                    <?php
+                    }
+                    ?>
+                  </select>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                  <input name="assunto" placeholder="Digite o assunto" type="text" class="validate">
+                  <label id="lbl" for="first_name">Assunto</label>
+                </div>
+                <div class="file-field input-field col s12 m12 l12">
+                  <div id="btnMensalidade" class="btn col s6 m6 l6">
+                    <span>Escolha o arquivo &nbsp;&nbsp;&nbsp;<i class="material-icons">picture_as_pdf</i></span>
+                    <input type="file" name="material" />
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input id="material" class="file-path validate" type="text" name="material">
+                  </div>
+                </div>
+                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                  <i class="material-icons left">send</i>Enviar
+                </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+        <form class="formAluno" id="formAluno" method="POST" action="listarMaterialApoio.html.php">
+          <div class="center">
+            <div class="input-field col s12 m12 l12">
+              <select name="turma">
+                <option value="" disabled selected>Selecionar Turma do Aluno</option>
+                <?php
+
+                $query_select_turmas_professor = $conn->prepare("SELECT turmas_professor.fk_id_turma_professor_turmas_professor, turma.nome_turma, turno.nome_turno FROM turmas_professor INNER JOIN turma ON (fk_id_turma_professor_turmas_professor = ID_turma) INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_professor_turmas_professor = $id_usuario GROUP BY turma.nome_turma");
+                $query_select_turmas_professor->execute();
+
+                while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
+
+                  $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+                  $nome_turma = $dados_turmas_professor["nome_turma"];
+                  $id_turno = $dados_turmas_professor['fk_id_turno_turma'];
+                  $nome_turno = $dados_turmas_professor['nome_turno'];
+
+                ?>
+                  <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                <?php
+                }
+                ?>
+              </select>
+            </div>
+            <br>
+            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+              <i class="material-icons left">search</i>Pesquisar
+            </button>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+
+
 
 
   </header>

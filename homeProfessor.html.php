@@ -166,6 +166,7 @@ $id_escola = $_SESSION["id_escola"];
         <i class="large material-icons">add</i>
       </a>
       <ul>
+        <li><a href="#modalMaterialApoio" class="modal-trigger btn-floating green tooltipped" data-position="left" data-tooltip="Enviar material de apoio"><i class="material-icons">picture_as_pdf</i></a></li>
         <li><a href="#modalTurma" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Chamada"><i class="material-icons">assignment</i></a></li>
         <li><a href="#modalTurmaBoletim" class="modal-trigger btn-floating tooltipped" data-position="left" data-tooltip="Boletim Escolar"><i class="material-icons">format_list_numbered_rtl</i></a></li>
         <li><a href="#modalOcorrencias" class="modal-trigger btn-floating red tooltipped" data-position="left" data-tooltip="Ocorrências"><i class="material-icons">assignment_late</i></a></li>

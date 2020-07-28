@@ -41,6 +41,7 @@
     }
 
     $ra_aluno = $_GET["ra"];
+    $nome_aluno = $_GET["n"];
 
     ?>
 
@@ -49,8 +50,20 @@
         <form action="php/enviarMensagem/enviarAluno.php" method="POST">
             <div class="modal-content">
                 <div class="row">
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6">
+                            <input type="text" name="ra" value="<?php echo $ra_aluno ?>" hidden>
+                            <input name="assunto" value="<?php echo $ra_aluno; ?>" type="text" readonly>
+                            <label id="lbl" for="first_name">RA Aluno</label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <input name="assunto" value="<?php echo $nome_aluno; ?>" type="text" readonly>
+                            <label id="lbl" for="first_name">Nome Aluno</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="input-field col s12 m12 l12">
-                        <input type="text" name="ra" value="<?php echo $ra_aluno ?>" hidden>
                         <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
                         <label id="lbl" for="first_name">Assunto</label>
                     </div>

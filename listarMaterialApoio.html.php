@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/mensagensDiretor.css" />
 
 
 </head>
@@ -41,7 +40,7 @@
         require_once 'reqPais.php';
     }
 
-    $turma = $_POST['turmas'];
+    $turma = $_POST['turma'];
 
     $query = $conn->prepare("SELECT nome_turma FROM turma WHERE ID_turma = $turma");
     $query->execute();
@@ -92,7 +91,7 @@
                             </td>
 
                             <td>
-                                <a href="enviarAluno.html.php?ra=<?php echo $alunos['RA'] ?>&n=<?php echo $alunos['nome_aluno'];?>"><?php echo $alunos['nome_aluno']; ?></a>
+                                <a href="enviarMaterialApoio.html.php?ra=<?php echo $alunos['RA'] ?>&n=<?php echo $alunos['nome_aluno'];?>"><?php echo $alunos['nome_aluno']; ?></a>
                             </td>
 
                             <td>

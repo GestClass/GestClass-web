@@ -243,6 +243,14 @@ body {
 }
 
 
+/* modal material de apoio*/
+
+#modalMaterialApoio {
+    max-height: 100%;
+    overflow: visible;
+}
+
+
 /*Modal mensalidades*/
 
 #modalMensalidades {
