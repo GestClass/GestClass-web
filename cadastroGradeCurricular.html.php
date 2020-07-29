@@ -104,7 +104,7 @@
                                 <option value="-1">Intervalo</option>
                                 <?php
                                 // Selecionar as disciplinas da turma
-                                $sql_select_disciplinas = $conn->prepare("SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor AS id_disciplina, disciplina.nome_disciplina AS nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (fk_id_disciplina_professor_disciplinas_professor = ID_disciplina) WHERE fk_id_turma_professor_disciplinas_professor = $id_turma GROUP BY nome_disciplina ORDER BY disciplina.nome_disciplina ASC");
+                                $sql_select_disciplinas = $conn->prepare("SELECT disciplinas_professor.fk_id_disciplina_professor_disciplinas_professor AS id_disciplina, disciplina.nome_disciplina AS nome_disciplina FROM disciplinas_professor INNER JOIN disciplina ON (fk_id_disciplina_professor_disciplinas_professor = ID_disciplina) WHERE fk_id_turma_professor_disciplinas_professor = $id_turma AND disciplina.situacao = true GROUP BY nome_disciplina ORDER BY disciplina.nome_disciplina ASC");
                                 $sql_select_disciplinas->execute();
 
                                 while ($array_disciplinas = $sql_select_disciplinas->fetch(PDO::FETCH_ASSOC)) {
@@ -139,6 +139,17 @@
                 </button>
             </form>
         </div>
+
+        <section class="floating-buttons">
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large light-blue lighten-1">
+                    <i class="large material-icons">add</i>
+                </a>
+                <ul>                    
+                    <li><a href="#modalCadastroDisciplinas" class="modal-trigger btn-floating light-blue darken-2 tooltipped" data-position="left" data-tooltip="Nova Disciplina"><i class="material-icons">import_contacts</i></a></li>
+                </ul>
+            </div>
+        </section>
 
     </div>
 

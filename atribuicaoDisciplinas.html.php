@@ -66,7 +66,7 @@
                         <option value="" disabled selected>Selecionar Turma</option>
                         <?php
 
-                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola ORDER BY id_turma ASC");
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                         $query_select_turma->execute();
 
                         while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
@@ -82,65 +82,51 @@
                     </select>
                     <label id="lbl" for="first_name">Turmas</label>
                 </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix blue-icon">school</i>
+                    <select name="disciplinas">
+                        <option value="" disabled selected>Selecionar Disciplina</option>
+                        <?php
 
-                <div class="row">
-                    <div class="input-field col s12 m6 l6">
-                        <i class="material-icons prefix blue-icon">school</i>
-                        <select name="disciplinas">
-                            <option value="" disabled selected>Selecionar Disciplina</option>
-                            <?php
+                        $query_select_disciplina = $conn->prepare("SELECT ID_disciplina, nome_disciplina FROM disciplina WHERE fk_id_escola_disciplina = $id_escola AND situacao = true ORDER BY nome_disciplina ASC ");
+                        $query_select_disciplina->execute();
 
-                            $query_select_disciplina = $conn->prepare("SELECT ID_disciplina, nome_disciplina FROM disciplina WHERE fk_id_escola_disciplina = $id_escola ORDER BY nome_disciplina ASC ");
-                            $query_select_disciplina->execute();
+                        while ($dados_disciplina = $query_select_disciplina->fetch(PDO::FETCH_ASSOC)) {
+                            $id_disciplina = $dados_disciplina['ID_disciplina'];
+                            $nome = $dados_disciplina['nome_disciplina'];
 
-                            while ($dados_disciplina = $query_select_disciplina->fetch(PDO::FETCH_ASSOC)) {
-                                $id_disciplina = $dados_disciplina['ID_disciplina'];
-                                $nome = $dados_disciplina['nome_disciplina'];
+                        ?>
+                            <option value="<?php echo $id_disciplina ?>"><?php echo $nome; ?></option>
+                        <?php
+                        }
+                        ?>
 
-                            ?>
-                                <option value="<?php echo $id_disciplina ?>"><?php echo $nome; ?></option>
-                            <?php
-                            }
-                            ?>
-
-                        </select>
-                        <label id="lbl" for="first_name">Disciplinas</label>
-                    </div>
-                    <div class="input-field left">
-                        <button id="btncadastrar" data-target="modalDisciplina" type="submit" class="btn-flat btnLightBlue modal-trigger">
-                            <i class="material-icons left">import_contacts</i>Nova Disciplina
-                        </button>
-                    </div>
+                    </select>
+                    <label id="lbl" for="first_name">Disciplinas</label>
                 </div>
-                <div class="input-field right">
-                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-                        <i class="material-icons left">send</i>Cadastrar
-                    </button>
-                </div>
+            </div>
+            <div class="input-field right">
+                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                    <i class="material-icons left">send</i>Cadastrar
+                </button>
+            </div>
         </form>
     </div>
 
-    <div id="modalDisciplina" class="modal">
-        <div class="modal-content">
-            <h4 class="center">Nova Disciplina</h4><br>
-            <div id="novaMensagem">
-                <form action="php/disciplinas.php" method="POST">
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input name="disciplina" id="disciplina" placeholder="Digite o nome da disciplina" type="text" class="validate ">
-                            <label id="lbl" for="first_name">Nome Disciplina</label>
-                        </div>
-                    </div>
-
-                    <div class="input-field right">
-                        <button id="formMensagem" type="submit" class="btn-flat btnLightBlue">
-                            <i class="material-icons left">send</i>Enviar
-                        </button>
-                    </div>
-                </form>
-            </div>
+    <section class="floating-buttons">
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large light-blue lighten-1">
+                <i class="large material-icons">add</i>
+            </a>
+            <ul>
+                <li><a href="#modalCadastroTurmas" class="modal-trigger btn-floating light-blue darken-4 tooltipped" data-position="left" data-tooltip="Nova Turma"><i class="material-icons">book</i></a></li>
+                <li><a href="#modalCadastroDisciplinas" class="modal-trigger btn-floating light-blue darken-2 tooltipped" data-position="left" data-tooltip="Nova Disciplina"><i class="material-icons">import_contacts</i></a></li>
+            </ul>
         </div>
-    </div>
+    </section>
 
     <script src="js/query-3.3.1.min.js"></script>
     <script src="js/default.js"></script>

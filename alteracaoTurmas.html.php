@@ -41,14 +41,15 @@
         require_once 'reqPais.php';
     }
 
-    $id_turma = $_POST['turma'];
+    $id_turma = $_POST['turmas'];
+
     if ($id_turma == null) {
-        ?>
+    ?>
         <script>
             alert('Por favor, selecione uma Turma!!');
             history.back();
         </script>
-        <?php
+    <?php
     } else {
 
     ?>
@@ -65,7 +66,7 @@
                         <select name="turma">
                             <option value="" disabled selected>Selecione a nova turma</option>
                             <?php
-                            $query_select_turma = $conn->prepare("SELECT * FROM turma WHERE fk_id_escola_turma = $id_escola");
+                            $query_select_turma = $conn->prepare("SELECT * FROM turma WHERE fk_id_escola_turma = $id_escola AND situacao = true");
                             $query_select_turma->execute();
 
                             while ($turma_nome = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
@@ -76,19 +77,14 @@
                                 <option value="<?php echo $turma_nome['ID_turma'] ?>">
                                     <?php echo $turma_nome['nome_turma'] . '  -  ' . $turma_turno['nome_turno'] ?>
                                 </option>
-                                
+
                             <?php
                             }
 
                             ?>
                         </select>
                         <label id="lbl">Selecione a turma</label>
-                        <div class="row">
-                            <div class="input-field col s12 m6 l6 offset-l12">
-
-                                <a href="cadastroTurmas.html.php" id="disciplinas" class="btn-flat btnLightBlue center">Nova Turma</a>
-                            </div>
-                        </div>
+                        <br><br>
                     </div>
                     <table class="striped centered">
 
@@ -150,6 +146,18 @@
 
             </form>
         </div>
+
+        <section class="floating-buttons">
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large light-blue lighten-1">
+                    <i class="large material-icons">add</i>
+                </a>
+                <ul>
+                    <li><a href="#modalCadastroTurmas" class="modal-trigger btn-floating light-blue darken-4 tooltipped" data-position="left" data-tooltip="Nova Turma"><i class="material-icons">book</i></a></li>
+                </ul>
+            </div>
+        </section>
+
 
         <script src="js/query-3.3.1.min.js"></script>
         <script src="js/default.js"></script>

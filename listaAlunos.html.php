@@ -65,7 +65,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $query_listagem = $conn->prepare('SELECT RA, nome_aluno, celular, telefone, email, cpf,fk_id_tipo_usuario_aluno FROM aluno WHERE fk_id_escola_aluno = ' . $id_escola . ' AND fk_id_turma_aluno = ' . $turma . '');
+                    $query_listagem = $conn->prepare("SELECT RA, nome_aluno, celular, telefone, email, cpf,fk_id_tipo_usuario_aluno FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = $turma AND situacao = true");
                     $query_listagem->execute();
 
                     if ($query_listagem->rowCount()) {

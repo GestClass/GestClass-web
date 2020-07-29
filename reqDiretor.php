@@ -85,17 +85,23 @@ $nome_dir = $nome[0];
             <h4 class="center">Selecione a turma para alterar</h4>
             <div class="input-field col s12">
                 <form action="alteracaoTurmas.html.php" method="POST">
-                    <select name='turma'>
+                    <select name="turmas">
                         <option value="" disabled selected>Selecionar Turma</option>
-                        <?php $query_turmas = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
-                        $query_turmas->execute();
-                        while ($dados_turmas = $query_turmas->fetch(PDO::FETCH_ASSOC)) {
+                        <?php
+
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
+                        $query_select_turma->execute();
+
+                        while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
+                            $id_turma = $dados_turma['id_turma'];
+                            $nome_turma = $dados_turma['nome_turma'];
+                            $nome_turno = $dados_turma['nome_turno'];
                         ?>
-                            <option value="<?php echo $dados_turmas['ID_turma'] ?>"><?php echo $dados_turmas['nome_turma'] . ' - ' . $dados_turmas['nome_turno'] ?></option>
+                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?>
+                            </option>
                         <?php
                         }
                         ?>
-
                     </select>
                     <br>
 
@@ -444,20 +450,8 @@ $nome_dir = $nome[0];
                                     <option value="" disabled selected>Selecionar Turma</option>
                                     <?php
 
-<<<<<<< Updated upstream
-                                    $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                                    $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                                     $query_select_turma->execute();
-=======
-                                    $query_select_turmas_professor = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
-                                    $query_select_turmas_professor->execute();
-
-                                    while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
-
-                                        $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
-                                        $nome_turma = $dados_turmas_professor["nome_turma"];
-                                        $id_turno = $dados_turmas_professor['fk_id_turno_turma'];
-                                        $nome_turno = $dados_turmas_professor['nome_turno'];
->>>>>>> Stashed changes
 
                                     while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
                                         $id_turma = $dados_turma['id_turma'];
@@ -499,21 +493,8 @@ $nome_dir = $nome[0];
                         <select name="turma">
                             <option value="" disabled selected>Selecionar Turma do Aluno</option>
                             <?php
-
-<<<<<<< Updated upstream
-                            $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                            $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                             $query_select_turma->execute();
-=======
-                            $query_select_turmas_professor = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
-                            $query_select_turmas_professor->execute();
-
-                            while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
-
-                                $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
-                                $nome_turma = $dados_turmas_professor["nome_turma"];
-                                $id_turno = $dados_turmas_professor['fk_id_turno_turma'];
-                                $nome_turno = $dados_turmas_professor['nome_turno'];
->>>>>>> Stashed changes
 
                             while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
                                 $id_turma = $dados_turma['id_turma'];
@@ -533,6 +514,28 @@ $nome_dir = $nome[0];
                     </button>
                 </div>
             </form>
+        </div>
+
+        <div id="modalCadastroDisciplinas" class="modal">
+            <div class="modal-content">
+                <h4 class="center">Nova Disciplina</h4><br>
+                <div id="novaMensagem">
+                    <form action="php/disciplinas.php" method="POST">
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <input name="disciplina" id="disciplina" placeholder="Digite o nome da disciplina" type="text" class="validate ">
+                                <label id="lbl" for="first_name">Nome Disciplina</label>
+                            </div>
+                        </div>
+
+                        <div class="input-field right">
+                            <button id="formMensagem" type="submit" class="btn-flat btnLightBlue">
+                                <i class="material-icons left">send</i>Enviar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
 
@@ -603,7 +606,7 @@ $nome_dir = $nome[0];
             <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i class="material-icons">group_add</i>Cadastro de contas<i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
             <li><a href="listarProfessores.html.php"><i class="material-icons">people_alt</i>Professores</a></li>
             <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">format_list_bulleted</i>Lista de Alunos</a></li>
-            <li><a href="#modalMaterialApoio" class="modal-trigger"><i class="material-icons">picture_as_pdf</i>Enviar Material</a></li>
+            <li><a href="#modalMaterialApoio" class="modal-trigger"><i class="material-icons">picture_as_pdf</i>Enviar Material de Apoio</a></li>
             <li><a href="#modalMensalidades" class="modal-trigger"><i class="material-icons">monetization_on</i>Mensalidade</a>
             <li><a href="graficoRendimentoDiretor.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a>
             </li>

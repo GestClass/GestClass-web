@@ -25,7 +25,8 @@ $error  = $_FILES["foto_file"]["error"];
 // print_r($imagem);exit;
 
 if (($rastro != "") && ($nome != "") && ($rg != "") && ($cpf != "") && ($nascimento != "") && ($email != "") && ($senha != "") && ($celular != "")) {
-
+	// criando variavel situacao
+	$situacao = true;
 	//limpando RA
 	$ra = str_replace('-', '', $rastro);
 	//limpando CPF aluno
@@ -94,8 +95,8 @@ if (($rastro != "") && ($nome != "") && ($rg != "") && ($cpf != "") && ($nascime
 		$nome_imagem = null;
 	}
 
-	$query_insert = $conn->prepare("INSERT INTO aluno (RA,nome_aluno, foto, RG, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno)
-            VALUES (:ra, :nome, :nome_imagem, :rg, :cpf_aluno, :email, :senha, :celular, :telefone, :data_nascimento, :turma, :id_responsavel, '5', :id_escola)");
+	$query_insert = $conn->prepare("INSERT INTO aluno (RA,nome_aluno, foto, RG, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno, situacao)
+            VALUES (:ra, :nome, :nome_imagem, :rg, :cpf_aluno, :email, :senha, :celular, :telefone, :data_nascimento, :turma, :id_responsavel, '5', :id_escola, :situacao)");
 
 	$query_insert->bindParam(':ra', $ra, PDO::PARAM_STR);
 	$query_insert->bindParam(':nome', $nome, PDO::PARAM_STR);
@@ -110,6 +111,7 @@ if (($rastro != "") && ($nome != "") && ($rg != "") && ($cpf != "") && ($nascime
 	$query_insert->bindParam(':turma', $turma, PDO::PARAM_INT);
 	$query_insert->bindParam(':id_responsavel', $id_responsavel, PDO::PARAM_INT);
 	$query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
+	$query_insert->bindParam(':situacao', $situacao, PDO::PARAM_INT);
 
 	$query_insert->execute();
 

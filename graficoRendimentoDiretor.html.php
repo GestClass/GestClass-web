@@ -191,7 +191,9 @@ include_once 'php/conexao.php';
                 <td><?php echo $media ?></td>
                 <td><?php echo $notas_qntd ?></td>
                 <td><?php echo $bimestre ?></td>
-            <?php }
+            <?php
+
+            }
           }
             ?>
               </tr>

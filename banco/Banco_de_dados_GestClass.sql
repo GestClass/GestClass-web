@@ -158,7 +158,7 @@ CREATE TABLE aluno (
     fk_id_responsavel_aluno INTEGER,
     fk_id_tipo_usuario_aluno INTEGER NOT NULL,
     fk_id_escola_aluno INTEGER NOT NULL,
-    situacao BOOLEAN NULL,
+    situacao BOOLEAN NOT NULL,
 	id_tipo_usuario_exclusor INTEGER NULL,
     id_usuario_exclusor INTEGER NULL,
     data_exclusao DATE NULL
@@ -568,8 +568,8 @@ INSERT INTO responsavel (nome_responsavel, cep, numero, complemento, rg, cpf, em
 
 /*	-	INSERTS INTO TABLE ALUNO	-	*/
               
-INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000000, 'aluno_exemplo','00.000.000-0', '000.000.000-00', 'aluno_exemplo@exemplo.com', '1234', '(11) 00000-0000', '(11) 0000-0000', '2020-03-22', 16, 1, 5, 1);
-INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno) VALUES (00000001, 'aluno_dois', '00.000.000-1', '000.000.000-01', 'aluno2_exemplo@exemplo.com', '1234', '(11) 00000-0000', '(11) 0000-0000', '2020-03-22', 16, 1, 5, 1);
+INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno, situacao) VALUES (00000000, 'aluno_exemplo','00.000.000-0', '000.000.000-00', 'aluno_exemplo@exemplo.com', '1234', '(11) 00000-0000', '(11) 0000-0000', '2020-03-22', 16, 1, 5, 1, true);
+INSERT INTO aluno (RA, nome_aluno, rg, cpf, email, senha, celular, telefone, data_nascimento, fk_id_turma_aluno, fk_id_responsavel_aluno, fk_id_tipo_usuario_aluno, fk_id_escola_aluno, situacao) VALUES (00000001, 'aluno_dois', '00.000.000-1', '000.000.000-01', 'aluno2_exemplo@exemplo.com', '1234', '(11) 00000-0000', '(11) 0000-0000', '2020-03-22', 16, 1, 5, 1, true);
 
 
 /*	-	INSERTs INTO TABLE BOLETIM_LISTAGEM 	-	*/
