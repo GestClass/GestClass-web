@@ -9,10 +9,13 @@ $disciplina = $_POST["disciplina"];
 
 if ($disciplina != "") {
 
-  $query_insert = $conn->prepare("INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina) VALUES (:disciplina, :id_escola)");
-  $query_insert->bindParam(':disciplina', $disciplina, PDO::PARAM_STR);
-  $query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
-  $query_insert->execute();
+    $situacao = true;
+
+    $query_insert = $conn->prepare("INSERT INTO disciplina (nome_disciplina, fk_id_escola_disciplina, situacao) VALUES (:disciplina, :id_escola, :situacao)");
+    $query_insert->bindParam(':disciplina', $disciplina, PDO::PARAM_STR);
+    $query_insert->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
+    $query_insert->bindParam(':situacao', $situacao, PDO::PARAM_STR);
+    $query_insert->execute();
 
   if ($query_insert->rowCount()) {
 

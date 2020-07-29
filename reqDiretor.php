@@ -87,7 +87,7 @@ $nome_dir = $nome[0];
                 <form action="alteracaoTurmas.html.php" method="POST">
                     <select name='turma'>
                         <option value="" disabled selected>Selecionar Turma</option>
-                        <?php $query_turmas = $conn->prepare("SELECT turma.ID_turma AS ID_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma =  $id_escola");
+                        <?php $query_turmas = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                         $query_turmas->execute();
                         while ($dados_turmas = $query_turmas->fetch(PDO::FETCH_ASSOC)) {
                         ?>
@@ -205,7 +205,7 @@ $nome_dir = $nome[0];
                         <option value="" disabled selected>Selecionar Turma</option>
                         <?php
 
-                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola");
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                         $query_select_turma->execute();
 
                         while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
@@ -232,14 +232,14 @@ $nome_dir = $nome[0];
 
     <div id="modalMensalidades" class="modal">
         <div class="modal-content">
-            <h4 class="center">Selecione a turma</h4>
+            <h4 class="center">Selecione a turma do aluno</h4>
             <div class="input-field col s12">
                 <form action="mensalidades.html.php" method="POST">
                     <select name="turmas">
                         <option value="" disabled selected>Selecionar Turma</option>
                         <?php
 
-                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                         $query_select_turma->execute();
 
                         while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
@@ -273,7 +273,7 @@ $nome_dir = $nome[0];
                         <option value="" disabled selected>Selecionar Turma</option>
                         <?php
 
-                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola");
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                         $query_select_turma->execute();
 
                         while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
@@ -341,7 +341,7 @@ $nome_dir = $nome[0];
                         <option value="" disabled selected>Selecionar Turma</option>
                         <?php
 
-                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                         $query_select_turma->execute();
 
                         while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
@@ -376,7 +376,7 @@ $nome_dir = $nome[0];
                                 <option value="" disabled selected>Selecionar Turno</option>
                                 <?php
 
-                                $query_select_turno = $conn->prepare("SELECT ID_turno,nome_turno FROM turno WHERE $id_escola");
+                                $query_select_turno = $conn->prepare("SELECT ID_turno,nome_turno FROM turno");
                                 $query_select_turno->execute();
 
                                 while ($dados_turno = $query_select_turno->fetch(PDO::FETCH_ASSOC)) {
@@ -440,12 +440,24 @@ $nome_dir = $nome[0];
                     <div class="center">
                         <div class="row">
                             <div class="input-field col s12 m6 l6">
-                                <select name="turma">
+                                <select name="turma" id="teste1">
                                     <option value="" disabled selected>Selecionar Turma</option>
                                     <?php
 
+<<<<<<< Updated upstream
                                     $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
                                     $query_select_turma->execute();
+=======
+                                    $query_select_turmas_professor = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
+                                    $query_select_turmas_professor->execute();
+
+                                    while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
+
+                                        $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+                                        $nome_turma = $dados_turmas_professor["nome_turma"];
+                                        $id_turno = $dados_turmas_professor['fk_id_turno_turma'];
+                                        $nome_turno = $dados_turmas_professor['nome_turno'];
+>>>>>>> Stashed changes
 
                                     while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
                                         $id_turma = $dados_turma['id_turma'];
@@ -488,8 +500,20 @@ $nome_dir = $nome[0];
                             <option value="" disabled selected>Selecionar Turma do Aluno</option>
                             <?php
 
+<<<<<<< Updated upstream
                             $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
                             $query_select_turma->execute();
+=======
+                            $query_select_turmas_professor = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
+                            $query_select_turmas_professor->execute();
+
+                            while ($dados_turmas_professor = $query_select_turmas_professor->fetch(PDO::FETCH_ASSOC)) {
+
+                                $id_turma = $dados_turmas_professor["fk_id_turma_professor_turmas_professor"];
+                                $nome_turma = $dados_turmas_professor["nome_turma"];
+                                $id_turno = $dados_turmas_professor['fk_id_turno_turma'];
+                                $nome_turno = $dados_turmas_professor['nome_turno'];
+>>>>>>> Stashed changes
 
                             while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
                                 $id_turma = $dados_turma['id_turma'];

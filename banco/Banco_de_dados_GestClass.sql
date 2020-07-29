@@ -6,7 +6,7 @@ USE GestClass;
 
 CREATE TABLE turno (
 	ID_turno INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
-    nome_turno VARCHAR(20) NOT NULL
+    nome_turno VARCHAR(20) NOT NULL    
 );
 
 
