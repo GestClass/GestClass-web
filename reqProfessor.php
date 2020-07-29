@@ -297,7 +297,7 @@ $nome_prof = $nome[0];
               <div class="row">
                 <div class="input-field col s12 m6 l6">
                   <select name="turma">
-                    <option value="" disabled selected>Selecionar Turma</option>
+                    <option value="" disabled selected>Selecionar a Turma</option>
                     <?php
 
                     $query_select_turmas_professor = $conn->prepare("SELECT turmas_professor.fk_id_turma_professor_turmas_professor, turma.nome_turma, turno.nome_turno FROM turmas_professor INNER JOIN turma ON (fk_id_turma_professor_turmas_professor = ID_turma) INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_professor_turmas_professor = $id_usuario GROUP BY turma.nome_turma");
@@ -339,14 +339,17 @@ $nome_prof = $nome[0];
                   <input name="assunto" placeholder="Digite o assunto" type="text" class="validate">
                   <label id="lbl" for="first_name">Assunto</label>
                 </div>
-                <div class="file-field input-field col s12 m12 l12">
-                  <div id="btnMensalidade" class="btn col s6 m6 l6">
-                    <span>Escolha o arquivo &nbsp;&nbsp;&nbsp;<i class="material-icons">picture_as_pdf</i></span>
-                    <input type="file" name="material" />
+                <div class="row">
+                  <div class="file-field input-field col s11 m11 l11">
+                    <div id="btnMaterial" class="btn col s6 m6 l6">
+                      <span>Escolha o arquivo &nbsp;&nbsp;&nbsp;<i class="material-icons">picture_as_pdf</i></span>
+                      <input type="file" name="material" />
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input id="material" class="file-path validate" type="text" name="material">
+                    </div>
                   </div>
-                  <div class="file-path-wrapper">
-                    <input id="material" class="file-path validate" type="text" name="material">
-                  </div>
+                  &nbsp;&nbsp;&nbsp;<i class="material-icons small tooltipped" data-tooltip="Arquivos Permitidos: <br> .pdf | .doc | .docx | .jpg <br> .jpeg | .png | .gif | .txt <br> .ppt | .pptx | .xls | .xlsx" style="margin-top: 20px; color: #64b5f6; margin-left: 10px;">info_outline</i>
                 </div>
                 <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
                   <i class="material-icons left">send</i>Enviar

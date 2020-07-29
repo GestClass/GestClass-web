@@ -67,15 +67,16 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="file-field input-field col s12 m12 l12">
+                        <div class="file-field input-field col s11 m11 l11">
                             <div id="btnMaterial" class="btn col s6 m6 l6">
                                 <span>Escolha o arquivo &nbsp;&nbsp;&nbsp;<i class="material-icons">picture_as_pdf</i></span>
                                 <input type="file" name="material" />
                             </div>
                             <div class="file-path-wrapper">
-                                <input id="material" class="file-path validate" type="text" name="material">
+                                <input id="material" class="file-path validate" type="text">
                             </div>
                         </div>
+                        &nbsp;&nbsp;&nbsp;<i class="material-icons small tooltipped" data-tooltip="Arquivos Permitidos: <br> .pdf | .doc | .docx | .jpg <br> .jpeg | .png | .gif | .txt <br> .ppt | .pptx | .xls | .xlsx" style="margin-top: 20px; color: #64b5f6; margin-left: 10px;">info_outline</i>
                     </div>
                     <div class="input-field right">
                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
@@ -128,7 +129,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="file-field input-field col s12 m12 l12">
+                        <div class="file-field input-field col s11 m11 l11">
                             <div id="btnMaterial" class="btn col s6 m6 l6">
                                 <span>Escolha o arquivo &nbsp;&nbsp;&nbsp;<i class="material-icons">picture_as_pdf</i></span>
                                 <input type="file" name="material" />
@@ -137,6 +138,7 @@
                                 <input id="material" class="file-path validate" type="text" name="material">
                             </div>
                         </div>
+                        &nbsp;&nbsp;&nbsp;<i class="material-icons small tooltipped" data-tooltip="Arquivos Permitidos: <br> .pdf | .doc | .docx | .jpg <br> .jpeg | .png | .gif | .txt <br> .ppt | .pptx | .xls | .xlsx" style="margin-top: 20px; color: #64b5f6; margin-left: 10px;">info_outline</i>
                     </div>
                     <div class="input-field right">
                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
