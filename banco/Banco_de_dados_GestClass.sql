@@ -243,7 +243,8 @@ CREATE TABLE envio_material_apoio (
     fk_id_tipo_usuario_envio_material INTEGER NOT NULL,
     fk_id_diretor_envio_material INTEGER NULL,
     fk_id_professor_envio_material INTEGER NULL,
-    fk_id_aluno_recebimento_material INTEGER NOT NULL,
+    fk_id_aluno_recebimento_material INTEGER NULL,
+    fk_id_turma_recebimento_material INTEGER NULL,
     assunto_material VARCHAR(75) NOT NULL,
     data_envio DATETIME NOT NULL,
     material VARCHAR(255) NOT NULL
@@ -411,6 +412,16 @@ ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_professor_listagem_chamada FOR
 ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_diretor_envio_boleto FOREIGN KEY (fk_id_diretor_envio_boleto) REFERENCES diretor (ID_diretor);
 ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_secretario_envio_boleto FOREIGN KEY (fk_id_secretario_envio_boleto) REFERENCES secretario (ID_secretario);
 ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOREIGN KEY (fk_id_responsavel_recebimento_boleto) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
+
+
+/*	-	FOREIGN KEYs TABLE ENVIO_BOLETO	 -	*/
+
+ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_disciplina_material FOREIGN KEY (fk_id_disciplina_material) REFERENCES disciplina (ID_disciplina);
+ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_tipo_usuario_envio_material FOREIGN KEY (fk_id_tipo_usuario_envio_material) REFERENCES tipo_usuario (ID_tipo_usuario);
+ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_diretor_envio_material FOREIGN KEY (fk_id_diretor_envio_material) REFERENCES diretor (ID_diretor);
+ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_professor_envio_material FOREIGN KEY (fk_id_professor_envio_material) REFERENCES professor (ID_professor);
+ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_aluno_recebimento_material FOREIGN KEY (fk_id_aluno_recebimento_material) REFERENCES aluno (RA);
+ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_turma_recebimento_material FOREIGN KEY (fk_id_turma_recebimento_material) REFERENCES turma (ID_turma) ON DELETE CASCADE;
 
 
 /*	-	FOREIGN KEYs TABLE CONTATO	-	*/
