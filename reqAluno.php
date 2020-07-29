@@ -104,6 +104,7 @@ $nome_alu = $nome[0];
             <li><a href="paginaManutencao.php"><i class="material-icons">toc</i>Grade Curricular</a>
             <li><a href="mensagensAluno.html.php"><i class="material-icons">email</i>Mensagens</a>
             <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relate um Problema</a>
+            <li><a href="materialAluno.html.php"><i class="material-icons">picture_as_pdf</i>Materiais de Apoio</a>
             </li>
 
             <li>
