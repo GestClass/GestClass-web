@@ -92,7 +92,7 @@
                                     <td>Diretor</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
                                     <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_diretor ?>&u=<?php echo 2 ?>&notificacao=<?php echo $notificacao ?>">
-                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem" style="margin-top: 5px;">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
@@ -122,7 +122,7 @@
                                     <td>Secretario</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
                                     <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_secretario ?>&u=<?php echo 3 ?>&notificacao=<?php echo $notificacao ?>">
-                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem" style="margin-top: 5px;">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
@@ -152,7 +152,7 @@
                                     <td>Professor</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
                                     <td><a href="ocorrenciasVisualicao.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&notificacao=<?php echo $notificacao ?>">
-                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem" style="margin-top: 5px;">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                     <?php

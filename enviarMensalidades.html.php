@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="file-field input-field col s12 m12 l12">
+                <div class="file-field input-field col s11 m11 l11">
                     <div id="btnMensalidade" class="btn col s6 m4 l4">
                         <span>Escolha o arquivo &nbsp;&nbsp;&nbsp;<i class="material-icons">picture_as_pdf</i></span>
                         <input type="file" name="boleto" />
@@ -78,11 +78,12 @@
                         <input id="boleto" class="file-path validate" type="text">
                     </div>
                 </div>
-                <div class="input-field right">
-                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
-                        <i class="material-icons left">send</i>Enviar
-                    </button>
-                </div>
+                &nbsp;&nbsp;&nbsp;<i class="material-icons small tooltipped" data-tooltip="Arquivos Permitidos: | .pdf" style="margin-top: 20px; color: #64b5f6; margin-left: 10px;">info_outline</i>
+            </div>
+            <div class="input-field right">
+                <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                    <i class="material-icons left">send</i>Enviar
+                </button>
             </div>
         </form>
     </div>

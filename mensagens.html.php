@@ -9,10 +9,10 @@
     <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
 
-    <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/default.css" /> -->
 
 
 </head>
@@ -1479,7 +1479,7 @@
     </div>
 
 
-    <script src="js/custom.js"></script>
+    <!-- <script src="js/custom.js"></script> -->
 
 
     <?php require_once 'reqFooter.php' ?>
