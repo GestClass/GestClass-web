@@ -46,28 +46,31 @@
 
     ?>
 
-    <div class="container"><br>
-        <h3 class="center">Emissão de Boletos</h4><br>
-        <div id="boletos">
-            <table class="highlight centered col s12 m12 l12">
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Boletos</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php while ($listar = $query_boleto->fetch(PDO::FETCH_ASSOC)) { ?>
+    <div class="container">
+        <h3 class="center">Lista de Boletos</h4><br>
+            <div id="boletos">
+                <table class="highlight centered col s12 m12 l12">
+                    <thead>
                         <tr>
-                            <td><i class="small left material-icons blue-icon hide-on-small-only">picture_as_pdf</i>
-                                <?php echo date('d/m/Y H:i:s', strtotime($listar["data_envio"])); ?></td>
-                            <td><a download="assets/boletos/<?php echo $listar["boleto"] ?>" href="assets/boletos/<?php echo $listar["boleto"] ?>"><?php echo $listar["boleto"] ?></a></td>
+                            <th>Data</th>
+                            <th>Assunto</th>
+                            <th></th>
                         </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+
+                    <tbody>
+                        <?php while ($listar = $query_boleto->fetch(PDO::FETCH_ASSOC)) { ?>
+                            <tr>
+                                <td><?php echo date('d/m/Y H:i:s', strtotime($listar["data_envio"])); ?></td>
+                                <td>Boleto</td>
+                                <td><a href="emissaoBoleto.html.php?id=<?php echo $listar["ID_envio_boleto"]; ?>">
+                                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Boleto" style="margin-top: 5px;">
+                                        <i class="small material-icons center">picture_as_pdf</i></button></a></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
     </div>
 
 
