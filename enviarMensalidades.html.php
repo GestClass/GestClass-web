@@ -75,7 +75,7 @@
                         <input type="file" name="boleto" />
                     </div>
                     <div class="file-path-wrapper">
-                        <input id="boleto" class="file-path validate" type="text" name="boleto">
+                        <input id="boleto" class="file-path validate" type="text">
                     </div>
                 </div>
                 <div class="input-field right">
