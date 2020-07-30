@@ -395,9 +395,9 @@
                         <div class="input-field col s12 m4 l12">
                             <select name="EncaminharMensagens" id="mensagemProf">
                                 <option value="" disabled selected>Selecione Uma opção</option>
-                                <option value="5">Aluno</option>
-                                <option value="4">Professor</option>
-                                <option value="4">Responsável</option>
+                                <option value="5">Alunos</option>
+                                <option value="4">Professores</option>
+                                <option value="4">Responsáveis</option>
                             </select>
                             <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                         </div>

@@ -398,9 +398,9 @@
                         <div class="input-field col s12 m4 l12">
                             <select name="EncaminharMensagens" id="mensagemDiretor">
                                 <option value="" disabled selected>Selecione uma Opção</option>
-                                <option value="5">Aluno</option>
-                                <option value="4">Professor</option>
-                                <option value="6">Responsável</option>
+                                <option value="5">Alunos</option>
+                                <option value="4">Professores</option>
+                                <option value="6">Responsáveis</option>
                             </select>
                             <label id="lbl" for="first_name">Escolha para quem deseja enviar a mensagem</label>
                         </div>
@@ -455,16 +455,44 @@
         </div>
     </div>
 
+    <div id="modalCorpoDocente" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Mensagem Para Corpo Docente</h4><br>
+            <div id="novaMensagem">
+                <form action="php/enviarMensagem/enviarCorpoDocente.php" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input name="assunto" id="assunto" placeholder="Digite o assunto" type="text" class="validate ">
+                            <label id="lbl" for="first_name">Assunto</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="mensagem" id="mensagem" placeholder="Digite a mensagem aqui" class="materialize-textarea"></textarea>
+                            <label id="lbl" for="textarea1">Digite a sua Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">
+                            <i class="material-icons left">send</i>Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large light-blue lighten-1">
             <i class="large material-icons">add</i>
         </a>
         <ul>
             <li><a href="#modalGestClass" class="modal-trigger btn-floating indigo darken-4 tooltipped" data-position="left" data-tooltip="GestClass"><i class="Small material-icons">architecture</i></a></li>
+            <li><a href="#modalCorpoDocente" class="modal-trigger btn-floating amber lighten-3 tooltipped" data-position="left" data-tooltip="Corpo Docente"><i class="Small material-icons" style="color: black;">account_balance</i></a></li>
             <li><a href="#modalEncaminharMensagem" class="modal-trigger btn-floating indigo lighten-2 tooltipped" data-position="left" data-tooltip="Encaminhar para Todos"><i class="material-icons">record_voice_over</i></a></li>
             <li><a href="#modalSecretaria" class="modal-trigger btn-floating grey darken-1 tooltipped" data-position="left" data-tooltip="Secretaria"><i class="material-icons">perm_identity</i></a></li>
             <li><a href="#modalEnviarResponsavel" class="modal-trigger btn-floating black tooltipped" data-position="left" data-tooltip="Responsável"><i class="material-icons">supervisor_account</i></a></li>
-            <li><a href="#modalEnviarProfessor" class="modal-trigger btn-floating  yellow accent-2 tooltipped" data-position="left" data-tooltip="Professor"><i class="material-icons">portrait</i></a></li>
+            <li><a href="#modalEnviarProfessor" class="modal-trigger btn-floating  yellow accent-2 tooltipped" data-position="left" data-tooltip="Professor"><i class="material-icons" style="color: grey;">portrait</i></a></li>
             <li><a href="#modalEnviarTurma" class="modal-trigger btn-floating blue tooltipped" data-position="left" data-tooltip="Turmas"><i class="material-icons">school</i></a></li>
             <li><a href="#modalEnviarAluno" class="modal-trigger btn-floating red lighten-2 tooltipped" data-position="left" data-tooltip="Aluno"><i class="material-icons">face</i></a></li>
         </ul>

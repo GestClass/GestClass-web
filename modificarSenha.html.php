@@ -64,7 +64,7 @@
         <div class="card-panel z-depth-5 formSenha animated fadeIn">
           <form action="php/alterarSenha.php" method="post" autocomplete="off">
             <h4 class="center">Alterar Senha</h4>
-            <a href="perfil.html.php" class="">
+            <a href="#" class="">
                 <img class="foto circle icon-user" width="120px" height="120px" src="assets/imagensBanco/<?php echo $dados['foto'] ?>">
             </a>
             <div class="input-field">
