@@ -100,11 +100,12 @@ $nome_alu = $nome[0];
             </li>
             <li><a href="#modalGraficos" class="modal-trigger"><i class=" material-icons">trending_up</i>Rendimento Disciplinar</a></li>
             <li><a href="boletimVisualizacao.html.php"><i class="material-icons">format_list_numbered_ltr</i>Boletim Escolar</a></li>
-            <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a>
-            <li><a href="paginaManutencao.php"><i class="material-icons">toc</i>Grade Curricular</a>
-            <li><a href="mensagensAluno.html.php"><i class="material-icons">email</i>Mensagens</a>
-            <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relate um Problema</a>
-            <li><a href="materialAluno.html.php"><i class="material-icons">picture_as_pdf</i>Materiais de Apoio</a>
+            <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a></li>
+            <li><a href="paginaManutencao.php"><i class="material-icons">toc</i>Grade Curricular</a></li>
+            <li><a href="mensagensAluno.html.php"><i class="material-icons">email</i>Mensagens</a></li>
+            <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relate um Problema</a></li>
+            <li><a href="materialAluno.html.php"><i class="material-icons">picture_as_pdf</i>Materiais de Apoio</a></li>
+            <li><a href="modificarSenha.html.php"><i class="material-icons">lock_outline</i>Alterar Senha</a></li>
             </li>
 
             <li>

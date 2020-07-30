@@ -617,13 +617,14 @@ $nome_dir = $nome[0];
             <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relate um Problema</a></li>
             <li><a href="#modalAlterarTurmas" class="modal-trigger"><i class="material-icons">create</i>Alterar turma dos alunos</a></li>
             <li><a href="#modalAlterarHorario" class="modal-trigger"><i class="material-icons">access_time</i>Alterar Padrão de Horários de Aulas</a></li>
-            <li><a href="#modalHorarioAulas" class="modal-trigge"><i class="material-icons">access_time</i>Cadastro de Padrões de Horários Aulas</a></li>
-            <li><a href="#modalGradeCurricular" class="modal-trigger"><i class="material-icons">toc</i>Atribuir Grade Curricular para Turmas</a></li>
-            <li><a href="atribuicaoDisciplinas.html.php"><i class="material-icons">import_contacts</i>Atribuição de Disciplinas para Turma</a></li>
+            <li><a href="#modalHorarioAulas" class="modal-trigge"><i class="material-icons">access_time</i>Cadastro Padrões de Horário Aulas</a></li>
+            <li><a href="#modalGradeCurricular" class="modal-trigger"><i class="material-icons">toc</i>Atribuir Grade Curricular Turmas</a></li>
+            <li><a href="atribuicaoDisciplinas.html.php"><i class="material-icons">import_contacts</i>Atribuição de Disciplinas Turma</a></li>
             <li><a href="#modalCadastroTurmas" class="modal-trigger"><i class="material-icons">book</i>Cadastrar Turmas</a></li>
             <li><a href="#modalCadastroDisciplinas" class="modal-trigger"><i class="material-icons">description</i>Cadastrar Disciplinas</a></li>
             <li><a href="cadastroDatasFinaisBimestres.html.php"><i class="material-icons">event_available</i>Atribuir Datas de Final de Bimestre</a></li>
             <li><a href="mensagensDiretor.html.php"><i class="material-icons">email</i>Caixa de Mensagens</a></li>
+            <li><a href="modificarSenha.html.php"><i class="material-icons">lock_outline</i>Alterar Senha</a></li>
             <li>
                 <div class="divider"></div>
             </li>

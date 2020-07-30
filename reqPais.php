@@ -261,6 +261,7 @@ $nome_pais = $nome[0];
             <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a></li>
             <li><a href="mensagensResponsavel.html.php"><i class="material-icons">email</i>Mensagens</a>
             <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relate um Problema</a></li>
+            <li><a href="modificarSenha.html.php"><i class="material-icons">lock_outline</i>Alterar Senha</a></li>
             <li>
                 <div class="divider"></div>
             </li>

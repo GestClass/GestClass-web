@@ -442,6 +442,7 @@ $nome_sec = $nome[0];
             <li><a href="#modalHorarioAulas" class="modal-trigger"><i class="material-icons">access_time</i>Cadastro de horário de aulas </a></li>
             <li><a href="atribuicaoDisciplinas.html.php"><i class="material-icons">import_contacts</i>Atribuição de turmas e disciplinas</a></li>
             <li><a href="mensagensSecretaria.html.php"><i class="material-icons">email</i>Caixa de mensagens</a></li>
+            <li><a href="modificarSenha.html.php"><i class="material-icons">lock_outline</i>Alterar Senha</a></li>
             <li>
                 <div class="divider"></div>
             </li>

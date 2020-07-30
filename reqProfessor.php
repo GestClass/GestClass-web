@@ -112,6 +112,7 @@ $nome_prof = $nome[0];
       <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendário Escolar</a></li>
       <li><a href="mensagensProfessor.html.php"><i class="material-icons">email</i>Caixa de Mensagens</a></li>
       <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relte um Problema</a></li>
+      <li><a href="modificarSenha.html.php"><i class="material-icons">lock_outline</i>Alterar Senha</a></li>
       <li>
         <div class="divider"></div>
       </li>
