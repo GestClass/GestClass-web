@@ -16,7 +16,7 @@
     $query = $conn->prepare("select email,senha,ID_diretor,fk_id_tipo_usuario_diretor,fk_id_escola_diretor from diretor where email=:email and senha=:senha");
 
     $query->bindValue(":email",$email);
-    $query->bindValue(":senha",$senha);
+    $query->bindValue(":senha",md5($senha));
     $query->execute();
     $dados = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -31,7 +31,7 @@
     else{
       $query = $conn->prepare("select email,senha, ID_secretario, fk_id_tipo_usuario_secretario, fk_id_escola_secretario from secretario where email=:email and senha=:senha");
       $query->bindValue(":email",$email);
-      $query->bindValue(":senha",$senha);
+      $query->bindValue(":senha",md5($senha));
       $query->execute();
       $dados = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -46,7 +46,7 @@
       else {
         $query = $conn->prepare("select email,senha, ID_professor,fk_id_tipo_usuario_professor, fk_id_escola_professor from professor where email=:email and senha=:senha");
         $query->bindValue(":email",$email);
-        $query->bindValue(":senha",$senha);
+        $query->bindValue(":senha",md5($senha));
         $query->execute();
         $dados = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -61,7 +61,7 @@
         else {
           $query = $conn->prepare("select email,senha, RA,fk_id_tipo_usuario_aluno, fk_id_escola_aluno from aluno where email=:email and senha=:senha");
           $query->bindValue(":email",$email);
-          $query->bindValue(":senha",$senha);
+          $query->bindValue(":senha",md5($senha));
           $query->execute();
           $dados = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -77,7 +77,7 @@
           else {
               $query = $conn->prepare("select email,senha, ID_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel from responsavel where email=:email and senha=:senha");
               $query->bindValue(":email",$email);
-              $query->bindValue(":senha",$senha);
+              $query->bindValue(":senha",md5($senha));
               $query->execute();
               $dados = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -92,7 +92,7 @@
               else {
                 $query = $conn->prepare("select email,senha, ID_admin, fk_id_tipo_usuario_admin from admin where email=:email and senha=:senha");
                 $query->bindValue(":email",$email);
-                $query->bindValue(":senha",$senha);
+                $query->bindValue(":senha",md5($senha));
                 $query->execute();
                 $dados = $query->fetch(PDO::FETCH_ASSOC);
 

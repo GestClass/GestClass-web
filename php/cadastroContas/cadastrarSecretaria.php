@@ -13,7 +13,7 @@ $cep = $_POST["cep"];
 $numero = $_POST["numero"];
 $complemento = $_POST["complemento"];
 $email = $_POST["email"];
-$senha = $_POST["senha"];
+$senha = md5($_POST["senha"]);
 $celular = $_POST["celular"];
 $telefone = $_POST["telefone"];
 

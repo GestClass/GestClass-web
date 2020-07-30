@@ -31,7 +31,7 @@ if (empty($email)) {
     if($query->rowCount()>0){
         $query1 = $conn->prepare("update diretor set senha=:novaSenha where email=:mEmail");
         $query1->bindValue(":mEmail",$email);
-        $query1->bindValue(":novaSenha",$novaSenha);
+        $query1->bindValue(":novaSenha",md5($novaSenha));
         $executa = $query1->execute();
     }
     else{
@@ -43,7 +43,7 @@ if (empty($email)) {
       if($query->rowCount()>0){
             $query1 = $conn->prepare("update secretario set senha=:novaSenha where email=:mEmail");
             $query1->bindValue(":mEmail",$email);
-            $query1->bindValue(":novaSenha",$novaSenha);
+            $query1->bindValue(":novaSenha",md5($novaSenha));
             $executa = $query1->execute();
       }
       else {
@@ -55,7 +55,7 @@ if (empty($email)) {
         if($query->rowCount()>0){
                 $query1 = $conn->prepare("update professor set senha=:novaSenha where email=:mEmail");
                 $query1->bindValue(":mEmail",$email);
-                $query1->bindValue(":novaSenha",$novaSenha);
+                $query1->bindValue(":novaSenha",md5($novaSenha));
                 $executa = $query1->execute();
         }
         else {
@@ -67,7 +67,7 @@ if (empty($email)) {
           if($query->rowCount()>0){
                 $query1 = $conn->prepare("update aluno set senha=:novaSenha where email=:mEmail");
                 $query1->bindValue(":mEmail",$email);
-                $query1->bindValue(":novaSenha",$novaSenha);
+                $query1->bindValue(":novaSenha",md5($novaSenha));
                 $executa = $query1->execute();
           }
 
@@ -80,7 +80,7 @@ if (empty($email)) {
               if($query->rowCount()>0){
                     $query1 = $conn->prepare("update responsavel set senha=:novaSenha where email=:mEmail");
                     $query1->bindValue(":mEmail",$email);
-                    $query1->bindValue(":novaSenha",$novaSenha);
+                    $query1->bindValue(":novaSenha",md5($novaSenha));
                     $executa = $query1->execute();
               }
               else {
@@ -92,7 +92,7 @@ if (empty($email)) {
                 if($query->rowCount()>0){
                         $query1 = $conn->prepare("update admin set senha=:novaSenha where email=:mEmail");
                         $query1->bindValue(":mEmail",$email);
-                        $query1->bindValue(":novaSenha",$novaSenha);
+                        $query1->bindValue(":novaSenha",md5($novaSenha));
                         $executa = $query1->execute();
                 }else if (($dados["email"] != $email)) {
                   echo "<script>alert('O email digitado não pertence a nenhuma conta, tente novamente');
