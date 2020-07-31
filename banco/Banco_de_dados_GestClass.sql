@@ -407,14 +407,14 @@ ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_disciplina_listagem_chamada FO
 ALTER TABLE listagem_chamada ADD CONSTRAINT fk_id_professor_listagem_chamada FOREIGN KEY(fk_id_professor_listagem_chamada) REFERENCES professor (ID_professor);
 
 
-/*	-	FOREIGN KEYs TABLE ENVIO_BOLETO	 -	*/
+/*	-	FOREIGN KEYs TABLE ENVIO_BOLETO	 -	
 
 ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_diretor_envio_boleto FOREIGN KEY (fk_id_diretor_envio_boleto) REFERENCES diretor (ID_diretor);
 ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_secretario_envio_boleto FOREIGN KEY (fk_id_secretario_envio_boleto) REFERENCES secretario (ID_secretario);
 ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOREIGN KEY (fk_id_responsavel_recebimento_boleto) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
+*/
 
-
-/*	-	FOREIGN KEYs TABLE ENVIO_BOLETO	 -	*/
+/*	-	FOREIGN KEYs TABLE ENVIO_MATERIAL_APOIO	 -	
 
 ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_disciplina_material FOREIGN KEY (fk_id_disciplina_material) REFERENCES disciplina (ID_disciplina);
 ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_tipo_usuario_envio_material FOREIGN KEY (fk_id_tipo_usuario_envio_material) REFERENCES tipo_usuario (ID_tipo_usuario);
@@ -422,9 +422,9 @@ ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_diretor_envio_material FOR
 ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_professor_envio_material FOREIGN KEY (fk_id_professor_envio_material) REFERENCES professor (ID_professor);
 ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_aluno_recebimento_material FOREIGN KEY (fk_id_aluno_recebimento_material) REFERENCES aluno (RA);
 ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_turma_recebimento_material FOREIGN KEY (fk_id_turma_recebimento_material) REFERENCES turma (ID_turma) ON DELETE CASCADE;
+*/
 
-
-/*	-	FOREIGN KEYs TABLE CONTATO	-	*/
+/*	-	FOREIGN KEYs TABLE CONTATO	-	
 
 ALTER TABLE contato ADD CONSTRAINT fk_id_tipo_usuario_envio FOREIGN KEY (fk_id_tipo_usuario_envio) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_id_envio_solicitante FOREIGN KEY (fk_id_envio_solicitante) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
@@ -440,7 +440,7 @@ ALTER TABLE contato ADD CONSTRAINT fk_recebimento_professor_id_professor FOREIGN
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_diretor_id_diretor FOREIGN KEY (fk_recebimento_diretor_id_diretor) REFERENCES diretor (ID_diretor) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_secretario_id_secretario FOREIGN KEY (fk_recebimento_secretario_id_secretario) REFERENCES secretario (ID_secretario) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_admin_id_admin FOREIGN KEY (fk_recebimento_admin_id_admin) REFERENCES `admin` (ID_admin) ON DELETE CASCADE;
-
+*/
 
 /*	-	FOREIGN KEYs TABLE DATAS_FIM_BIMESTRES	- 	*/
 
