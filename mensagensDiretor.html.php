@@ -203,16 +203,16 @@
                         <option value="" disabled selected>Selecione a Turma</option>
                         <?php
 
-                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola ORDER BY id_turma ASC");
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                         $query_select_turma->execute();
 
                         while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
                             $id_turma = $dados_turma['id_turma'];
                             $nome_turma = $dados_turma['nome_turma'];
                             $nome_turno = $dados_turma['nome_turno'];
-
                         ?>
-                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?>
+                            </option>
                         <?php
                         }
                         ?>
@@ -237,19 +237,18 @@
                         <div class="input-field col s12 m4 l12">
                             <select name="destinatario">
                                 <option value="" disabled selected>Selecione uma Turma</option>
-
                                 <?php
 
-                                $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE fk_id_escola_turma = $id_escola ORDER BY id_turma ASC");
+                                $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                                 $query_select_turma->execute();
 
                                 while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
                                     $id_turma = $dados_turma['id_turma'];
                                     $nome_turma = $dados_turma['nome_turma'];
                                     $nome_turno = $dados_turma['nome_turno'];
-
                                 ?>
-                                    <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                                    <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?>
+                                    </option>
                                 <?php
                                 }
                                 ?>
@@ -338,7 +337,7 @@
                         <option value="" disabled selected>Selecione a Turma</option>
                         <?php
 
-                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (fk_id_turno_turma = ID_turno) WHERE $id_escola");
+                        $query_select_turma = $conn->prepare("SELECT turma.ID_turma AS id_turma, turma.nome_turma AS nome_turma, turno.nome_turno AS nome_turno FROM turma INNER JOIN turno ON (turma.fk_id_turno_turma = ID_turno) WHERE turma.fk_id_escola_turma = $id_escola AND turma.situacao = true ORDER BY id_turma ASC");
                         $query_select_turma->execute();
 
                         while ($dados_turma = $query_select_turma->fetch(PDO::FETCH_ASSOC)) {
@@ -346,7 +345,8 @@
                             $nome_turma = $dados_turma['nome_turma'];
                             $nome_turno = $dados_turma['nome_turno'];
                         ?>
-                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?></option>
+                            <option value="<?php echo $id_turma ?>"><?php echo $nome_turma . ' - ' . $nome_turno; ?>
+                            </option>
                         <?php
                         }
                         ?>
