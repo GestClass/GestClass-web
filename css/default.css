@@ -25,6 +25,15 @@ body {
     color: #29b6f6;
 }
 
+.btnLightRed {
+    text-transform: inherit;
+    border: 0.5px solid #d40707;
+    color: #d40707;
+    float: right;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
 .btnLightBlue {
     text-transform: inherit;
     border: 0.5px solid #29b6f6;

@@ -14,10 +14,7 @@ if (($assunto != "") && ($mensagem != "")) {
     $query_select_professor = $conn->prepare("SELECT ID_professor FROM professor WHERE fk_id_escola_professor = $id_escola");
     $query_select_professor->execute();
 
-    //buscando id secretario
-    $query_select_secretaria = $conn->prepare("SELECT ID_secretario FROM secretario WHERE fk_id_escola_secretario = $id_escola");
-    $query_select_secretaria->execute();
-
+    // Envio mensagens professor
     while ($dados_professor = $query_select_professor->fetch(PDO::FETCH_ASSOC)) {
         if (isset($dados_professor["ID_professor"])) {
             $id_professor = $dados_professor["ID_professor"];
@@ -36,6 +33,12 @@ if (($assunto != "") && ($mensagem != "")) {
             $inserirMensagem->execute();
         }
     }
+
+    //buscando id secretario
+    $query_select_secretaria = $conn->prepare("SELECT ID_secretario FROM secretario WHERE fk_id_escola_secretario = $id_escola");
+    $query_select_secretaria->execute();
+
+    // Envio mensagens secretaria
     while ($dados_secretaria = $query_select_secretaria->fetch(PDO::FETCH_ASSOC)) {
         if (isset($dados_secretaria["ID_secretario"])) {
             $id_secretario = $dados_secretaria["ID_secretario"];

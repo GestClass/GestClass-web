@@ -574,7 +574,7 @@ INSERT INTO secretario (nome_secretario, cep, numero, complemento, rg, cpf, emai
 
 /*	-	INSERTS INTO TABLE RESPONSAVEL	-	*/
               
-INSERT INTO responsavel (nome_responsavel, cep, numero, complemento, rg, cpf, email, senha, pin, celular, telefone, telefone_comercial, data_nascimento, data_pagamento_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel) VALUES ('responsavel_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'responsavel_exemplo@exemplo.com', MD5('1234'), 123456, '(11) 00000-0000', '(11) 0000-0000', '(11) 0000-0000', '2020-03-22', '2020-03-22', 6, 1);
+INSERT INTO responsavel (nome_responsavel, cep, numero, complemento, rg, cpf, email, senha, pin, celular, telefone, telefone_comercial, data_nascimento, data_pagamento_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel) VALUES ('responsavel_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'responsavel_exemplo@exemplo.com', MD5('1234'), MD5(123456), '(11) 00000-0000', '(11) 0000-0000', '(11) 0000-0000', '2020-03-22', '2020-03-22', 6, 1);
 
 
 /*	-	INSERTS INTO TABLE ALUNO	-	*/

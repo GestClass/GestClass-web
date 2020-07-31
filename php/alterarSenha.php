@@ -19,7 +19,7 @@ if (empty($antigaSenha)) {
     $dados = $query->fetch(PDO::FETCH_ASSOC);
 
     if($query->rowCount()>0){
-        $query1 = $conn->prepare("update diretor set senha=:novaSenha where senha=:nSenha ");
+        $query1 = $conn->prepare("update diretor set senha = MD5(:novaSenha) where senha = MD5(:nSenha) ");
         $query1->bindValue(":nSenha",$antigaSenha);
         $query1->bindValue(":novaSenha",$novaSenha);
         $executa = $query1->execute();
@@ -32,7 +32,7 @@ if (empty($antigaSenha)) {
       $dados = $query->fetch(PDO::FETCH_ASSOC);
 
       if($query->rowCount()>0){
-            $query1 = $conn->prepare("update secretario set senha=:novaSenha where senha=:nSenha");
+            $query1 = $conn->prepare("update secretario set senha = MD5(:novaSenha) where senha = MD5(:nSenha)");
             $query1->bindValue(":nSenha",$antigaSenha);
             $query1->bindValue(":novaSenha",$novaSenha);
             $executa = $query1->execute();
@@ -45,7 +45,7 @@ if (empty($antigaSenha)) {
         $dados = $query->fetch(PDO::FETCH_ASSOC);
 
         if($query->rowCount()>0){
-                $query1 = $conn->prepare("update professor set senha=:novaSenha where senha=:nSenha");
+                $query1 = $conn->prepare("update professor set senha = MD5(:novaSenha) where senha = MD5(:nSenha)");
                 $query1->bindValue(":nSenha",$antigaSenha);
                 $query1->bindValue(":novaSenha",$novaSenha);
                 $executa = $query1->execute();
@@ -58,7 +58,7 @@ if (empty($antigaSenha)) {
           $dados = $query->fetch(PDO::FETCH_ASSOC);
 
           if($query->rowCount()>0){
-                $query1 = $conn->prepare("update aluno set senha=:novaSenha where senha=:nSenha");
+                $query1 = $conn->prepare("update aluno set senha = MD5(:novaSenha) where senha = MD5(:nSenha)");
                 $query1->bindValue(":nSenha",$antigaSenha);
                 $query1->bindValue(":novaSenha",$novaSenha);
                 $executa = $query1->execute();
@@ -72,7 +72,7 @@ if (empty($antigaSenha)) {
               $dados = $query->fetch(PDO::FETCH_ASSOC);
 
               if($query->rowCount()>0){
-                    $query1 = $conn->prepare("update responsavel set senha=:novaSenha where senha=:nSenha");
+                    $query1 = $conn->prepare("update responsavel set senha = MD5(:novaSenha) where senha = MD5(nSenha)");
                     $query1->bindValue(":nSenha",$antigaSenha);
                     $query1->bindValue(":novaSenha",$novaSenha);
                     $executa = $query1->execute();
@@ -85,7 +85,7 @@ if (empty($antigaSenha)) {
                 $dados = $query->fetch(PDO::FETCH_ASSOC);
 
                 if($query->rowCount()>0){
-                        $query1 = $conn->prepare("update admin set senha=:novaSenha where senha=:nSenha");
+                        $query1 = $conn->prepare("update admin set senha = MD5(:novaSenha) where senha = MD5(nSenha)");
                         $query1->bindValue(":nSenha",$antigaSenha);
                         $query1->bindValue(":novaSenha",$novaSenha);
                         $executa = $query1->execute();

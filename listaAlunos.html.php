@@ -62,6 +62,9 @@
                     <th>
                         Email
                     </th>
+                    <th>
+
+                    </th>
                 </thead>
                 <tbody>
                     <?php
@@ -87,6 +90,14 @@
 
                                 <td>
                                     <?php echo $alunos['email']; ?>
+                                </td>
+                                <td>
+                                    <form action="php/confirmDeleteAluno.php" method="POST">
+                                        <input type="hidden" name="raAluno" value="<?php echo $alunos['RA']; ?>">
+                                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed center" style="float: center;">
+                                            <i class="material-icons left">delete</i>Desativar
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
 
