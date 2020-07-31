@@ -10,7 +10,7 @@
     if($pin == ""){
         echo "<script>alert('Digite seu PIN de segurança, por favor:)');
         window.location='../homePais.html.php'</script>";
-    }else if($pin==$dados['pin']){
+    }else if($pin==md5($dados['pin'])){
         echo "<script>alert('Validação efetuada com sucesso;)');
         window.location='../mensagensResponsavel.html.php'
         </script>";

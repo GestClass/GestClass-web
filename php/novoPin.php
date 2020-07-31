@@ -27,7 +27,7 @@ $confirmarPin=$_POST['confirmarPin'];
                         //uptade do novo PIN
                         $query1 = $conn->prepare("update responsavel set pin=:novoPin where email=:email");
                         $query1->bindValue(":email",$email);
-                        $query1->bindValue(":novoPin",$novoPin);
+                        $query1->bindValue(":novoPin",md5($novoPin));
                         $executa = $query1->execute();
                         //caso o executa não receba valor
                         }if($executa == 0){
