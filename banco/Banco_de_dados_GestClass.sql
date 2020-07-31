@@ -543,7 +543,7 @@ INSERT INTO grade_curricular (fk_id_dia_semana_grade_curricular, fk_id_aula_esco
 
 /*	-	INSERTS INTO TABLE PROFESSOR	-	*/
 
-INSERT INTO professor (nome_professor, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_professor, fk_id_escola_professor) VALUES ('professor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'professor_exemplo@exemplo.com', '1234', '(11)00000-0000', '(11)0000-0000', 4, 1);
+INSERT INTO professor (nome_professor, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_professor, fk_id_escola_professor) VALUES ('professor_exemplo', '000.00-000', '000', 'predio A', '00.000.000-0', '000.000.000-00', 'professor_exemplo@exemplo.com', MD5('1234'), '(11)00000-0000', '(11)0000-0000', 4, 1);
 
               
 /*	-	INSERTS INTO TABLE TURMAS_PROFESSOR	-	*/
