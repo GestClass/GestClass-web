@@ -122,7 +122,7 @@
                         Email
                     </th>
                     <th>
-                        CPF
+
                     </th>
                 </thead>
                 <tbody>
@@ -153,7 +153,12 @@
                                 </td>
 
                                 <td>
-                                    <?php echo $secretario['cpf']; ?>
+                                    <form action="php/confirmDeleteSecretario.php" method="POST">
+                                        <input type="hidden" name="raAluno" value="<?php echo $alunos['RA']; ?>">
+                                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed center" style="float: center;">
+                                            <i class="material-icons left">delete</i>Desativar
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
 

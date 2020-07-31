@@ -191,7 +191,6 @@ $nome_sec = $nome[0];
                 <form action="listarFuncionarios.html.php" method="POST">
                     <select name="funcionarios">
                         <option value="" disabled selected>Selecionar Área</option>
-                        <option value="Diretores">Diretores</option>
                         <option value="Secretarios">Secretários</option>
                         <option value="Professores">Professores</option>
                     </select>
@@ -430,7 +429,7 @@ $nome_sec = $nome[0];
                 <li><a href="cadastroProfessor.html.php"><i class="material-icons">people_alt</i>Professores</a></li>
                 <li><a href="cadastroSecretaria.html.php"><i class="material-icons">school</i>Secretaria</a></li>
             </ul>
-            <li><a href="listarProfessores.html.php"><i class="material-icons">people_alt</i>Professores</a></li>
+            <li><a href="#modalListaFuncionarios" class="modal-trigger"><i class="material-icons">people_alt</i>Lista de Funcionários</a></li>
             <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">format_list_bulleted</i>Lista de Alunos</a></li>
             <li><a href="#modalMensalidades" class="modal-trigger"><i class="material-icons">monetization_on</i>Mensalidade</a></li>
             <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a></li>

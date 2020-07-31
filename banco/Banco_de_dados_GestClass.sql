@@ -176,7 +176,7 @@ CREATE TABLE responsavel (
     cpf VARCHAR (14) NOT NULL UNIQUE, 
     email VARCHAR(65) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
-    pin INTEGER(6) NOT NULL,
+    pin VARCHAR(50) NOT NULL,
     celular VARCHAR(15) NOT NULL,
     telefone VARCHAR(14),
     telefone_comercial VARCHAR(14),
@@ -428,12 +428,12 @@ ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_turma_recebimento_material
 
 ALTER TABLE contato ADD CONSTRAINT fk_id_tipo_usuario_envio FOREIGN KEY (fk_id_tipo_usuario_envio) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_id_envio_solicitante FOREIGN KEY (fk_id_envio_solicitante) REFERENCES tipo_usuario (ID_tipo_usuario) ON DELETE CASCADE;
-ALTER TABLE contato ADD CONSTRAINT fk_envio_aluno_ra_aluno FOREIGN KEY (fk_envio_aluno_ra_aluno) REFERENCES aluno (RA);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_responsavel_id_responsavel FOREIGN KEY (fk_envio_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_professor_id_professor FOREIGN KEY (fk_envio_professor_id_professor) REFERENCES professor (ID_professor);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_diretor_id_diretor FOREIGN KEY (fk_envio_diretor_id_diretor) REFERENCES diretor (ID_diretor);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_secretario_id_secretario FOREIGN KEY (fk_envio_secretario_id_secretario) REFERENCES secretario (ID_secretario);
-ALTER TABLE contato ADD CONSTRAINT fk_envio_admin_id_admin FOREIGN KEY (fk_envio_admin_id_admin) REFERENCES `admin` (ID_admin);
+ALTER TABLE contato ADD CONSTRAINT fk_envio_aluno_ra_aluno FOREIGN KEY (fk_envio_aluno_ra_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_responsavel_id_responsavel FOREIGN KEY (fk_envio_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_professor_id_professor FOREIGN KEY (fk_envio_professor_id_professor) REFERENCES professor (ID_professor) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_diretor_id_diretor FOREIGN KEY (fk_envio_diretor_id_diretor) REFERENCES diretor (ID_diretor) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_secretario_id_secretario FOREIGN KEY (fk_envio_secretario_id_secretario) REFERENCES secretario (ID_secretario) ON DELETE CASCADE;
+ALTER TABLE contato ADD CONSTRAINT fk_envio_admin_id_admin FOREIGN KEY (fk_envio_admin_id_admin) REFERENCES `admin` (ID_admin) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_aluno_ra_aluno FOREIGN KEY (fk_recebimento_aluno_ra_aluno) REFERENCES aluno (RA) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_responsavel_id_responsavel FOREIGN KEY (fk_recebimento_responsavel_id_responsavel) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_professor_id_professor FOREIGN KEY (fk_recebimento_professor_id_professor) REFERENCES professor (ID_professor) ON DELETE CASCADE;
