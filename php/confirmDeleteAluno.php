@@ -27,5 +27,3 @@ $id_escola = $_SESSION["id_escola"];
         ?>
     }
 </script>
-<?php
-?>

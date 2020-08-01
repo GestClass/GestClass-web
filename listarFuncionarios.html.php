@@ -45,7 +45,7 @@
                         Email
                     </th>
                     <th>
-                        CPF
+
                     </th>
                 </thead>
                 <tbody>
@@ -53,7 +53,7 @@
 
 
                     <?php
-                    $query_listagem = $conn->prepare('SELECT  nome_professor, celular, email, cpf,fk_id_tipo_usuario_professor,ID_professor FROM professor WHERE fk_id_escola_professor = ' . $id_escola . '');
+                    $query_listagem = $conn->prepare("SELECT  nome_professor, celular, email, cpf,fk_id_tipo_usuario_professor,ID_professor FROM professor WHERE fk_id_escola_professor = $id_escola");
                     $query_listagem->execute();
 
                     if ($query_listagem->rowCount()) {
@@ -76,7 +76,12 @@
                                 </td>
 
                                 <td>
-                                    <?php echo $professor['cpf']; ?>
+                                    <form action="php/confirmDeleteProfessor.php" method="POST">
+                                        <input type="hidden" name="idProfessor" value="<?php echo $professor['ID_professor']; ?>">
+                                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed center" style="float: center;">
+                                            <i class="material-icons left">delete</i>Excluir
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
 
@@ -94,15 +99,6 @@
                     ?>
                 </tbody>
             </table>
-            <div class="fixed-action-btn">
-                <a class="btn-floating btn-large light-blue lighten-1">
-                    <i class="large material-icons">add</i>
-                </a>
-                <ul>
-                    <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
-                    <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
-                </ul>
-            </div>
         </div>
     <?php } elseif ($tipo_funcionario == "Secretarios") { ?>
 
@@ -130,7 +126,11 @@
 
 
                     <?php
-                    $query_listagem = $conn->prepare('SELECT  nome_secretario, celular, email, cpf,fk_id_tipo_usuario_secretario,ID_secretario FROM secretario WHERE fk_id_escola_secretario = ' . $id_escola . '');
+                    if ($id_tipo_usuario == 2) {
+                        $query_listagem = $conn->prepare("SELECT  nome_secretario, celular, email, cpf,fk_id_tipo_usuario_secretario,ID_secretario FROM secretario WHERE fk_id_escola_secretario = $id_escola ");
+                    } else {
+                        $query_listagem = $conn->prepare("SELECT  nome_secretario, celular, email, cpf,fk_id_tipo_usuario_secretario,ID_secretario FROM secretario WHERE fk_id_escola_secretario = $id_escola AND ID_secretario != $id_usuario");
+                    }
                     $query_listagem->execute();
 
                     if ($query_listagem->rowCount()) {
@@ -154,9 +154,9 @@
 
                                 <td>
                                     <form action="php/confirmDeleteSecretario.php" method="POST">
-                                        <input type="hidden" name="raAluno" value="<?php echo $alunos['RA']; ?>">
+                                        <input type="hidden" name="idSecretario" value="<?php echo $secretario['ID_secretario']; ?>">
                                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed center" style="float: center;">
-                                            <i class="material-icons left">delete</i>Desativar
+                                            <i class="material-icons left">delete</i>Excluir
                                         </button>
                                     </form>
                                 </td>
@@ -176,15 +176,6 @@
                     ?>
                 </tbody>
             </table>
-            <div class="fixed-action-btn">
-                <a class="btn-floating btn-large light-blue lighten-1">
-                    <i class="large material-icons">add</i>
-                </a>
-                <ul>
-                    <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
-                    <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
-                </ul>
-            </div>
         </div>
     <?php } elseif ($tipo_funcionario == "Diretores") { ?>
 
@@ -212,7 +203,11 @@
 
 
                     <?php
-                    $query_listagem = $conn->prepare('SELECT  nome_diretor, celular, email, cpf,fk_id_tipo_usuario_diretor,ID_diretor FROM diretor WHERE fk_id_escola_diretor = ' . $id_escola . '');
+                    if ($id_tipo_usuario == 2) {
+                        $query_listagem = $conn->prepare("SELECT  nome_diretor, celular, email, cpf,fk_id_tipo_usuario_diretor,ID_diretor FROM diretor WHERE fk_id_escola_diretor = $id_escola AND ID_diretor != $id_usuario");
+                    } elseif ($id_tipo_usuario == 3) {
+                        $query_listagem = $conn->prepare("SELECT  nome_diretor, celular, email, cpf,fk_id_tipo_usuario_diretor,ID_diretor FROM diretor WHERE fk_id_escola_diretor = $id_escola");
+                    }
                     $query_listagem->execute();
 
                     if ($query_listagem->rowCount()) {
@@ -253,92 +248,8 @@
                     ?>
                 </tbody>
             </table>
-            <div class="fixed-action-btn">
-                <a class="btn-floating btn-large light-blue lighten-1">
-                    <i class="large material-icons">add</i>
-                </a>
-                <ul>
-                    <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
-                    <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
-                </ul>
-            </div>
         </div>
-    <?php } elseif ($tipo_funcionario == "Secretarios") { ?>
-
-        <div class="container col s12 m12 l12" id="container_boletimCadastro">
-            <h3 class="center">Lista de Secretários</h3>
-            <br><br>
-            <table class="striped centered">
-                <thead>
-
-                    <th>
-                        Nome
-                    </th>
-                    <th>
-                        Celular
-                    </th>
-                    <th>
-                        Email
-                    </th>
-                    <th>
-                        CPF
-                    </th>
-                </thead>
-                <tbody>
-
-
-
-                    <?php
-                    $query_listagem = $conn->prepare('SELECT  nome_secretario, celular, email, cpf,fk_id_tipo_usuario_secretario,ID_secretario FROM secretario WHERE fk_id_escola_secretario = ' . $id_escola . '');
-                    $query_listagem->execute();
-
-                    if ($query_listagem->rowCount()) {
-
-                        while ($secretario = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
-                    ?>
-                            <tr>
-
-
-                                <td>
-                                    <a href="dadosUsuarios.html.php?id=<?php echo $secretario['ID_secretario'] ?>&tipo=<?php echo $secretario['fk_id_tipo_usuario_secretario'] ?> "><?php echo $secretario['nome_secretario']; ?></a>
-                                </td>
-
-                                <td>
-                                    <?php echo $secretario['celular']; ?>
-                                </td>
-
-                                <td>
-                                    <?php echo $secretario['email']; ?>
-                                </td>
-
-                                <td>
-                                    <?php echo $secretario['cpf']; ?>
-                                </td>
-                            </tr>
-
-
-                        <?php
-                        }
-                    } else {
-                        ?>
-                        <script>
-                            alert('Nenhum registro encontrado!!')
-                            history.back()
-                        </script>
-                    <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
-            <div class="fixed-action-btn">
-                <a class="btn-floating btn-large light-blue lighten-1">
-                    <i class="large material-icons">add</i>
-                </a>
-                <ul>
-                    <li><a href="cadastroTurmas.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Cadastrar Turmas"><i class="material-icons">book</i></a></li>
-                    <li><a href="atribuicaoDisciplinas.html.php" class="btn-floating green tooltipped" data-position="left" data-tooltip="Atribuição de turmas e disciplinas"><i class="material-icons">import_contacts</i></a></li>
-                </ul>
-            </div>
-        </div><?php }
-            include_once 'reqFooter.php';
-                ?>
+    <?php
+    }
+    include_once 'reqFooter.php';
+    ?>

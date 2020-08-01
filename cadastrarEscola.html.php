@@ -38,6 +38,7 @@
                         <label for="first_name">CNPJ</label>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="input-field col s12 m6 l6 ">
                         <i class="material-icons prefix blue-icon">alternate_email</i>
@@ -79,52 +80,7 @@
                         <label for="first_name">Complemento</label>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12 m12 l12 ">
-                        <div class="col s4 m4 l3 ">
-                            <label for="first_name">Tipo de turma</label>
-                        </div>
-                        <div class="col s8 m8 l12 ">
-                            <div class="row">
-                                <div class="col l4">
-
-                                    <label class="left">
-                                        <input id="fk_id_tipos_turma_bercario" type="checkbox" class="filled-in checkbox-blue-grey" name="chk1" value="1" />
-                                        <span>Berçario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                    </label>
-
-                                    <label class="left">
-                                        <input id="fk_id_tipos_turma_pre_escola" type="checkbox" class="filled-in checkbox-blue-grey" name="chk2" value="1" />
-                                        <span>Pré-Escola</span>
-                                    </label>
-
-                                </div>
-                                <div class="col  l4">
-
-                                    <label class="left">
-                                        <input id="fk_id_tipos_turma_fundamental_I" type="checkbox" class="filled-in checkbox-blue-grey" name="chk3" value="1" />
-                                        <span>Fundamental I&nbsp;&nbsp;&nbsp;</span>
-                                    </label>
-
-
-                                    <label class="left">
-                                        <input id="fk_id_tipos_turma_fundamental_II" type="checkbox" class="filled-in checkbox-blue-grey" name="chk4" value="1" />
-                                        <span>Fundamental II</span>
-                                    </label>
-
-                                </div>
-                                <div class="col l4">
-
-                                    <label class="left">
-                                        <input id="fk_id_tipos_turma_medio" type="checkbox" class="filled-in checkbox-blue-grey" name="chk5" value="1" />
-                                        <span>Ensino Médio</span>
-                                    </label>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <br>
                 <div class="row">
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix blue-icon">attach_money</i>

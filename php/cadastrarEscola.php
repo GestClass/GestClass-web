@@ -18,16 +18,10 @@
     $notaMaxima = $_POST["nota_maxima"];
     // $assunto = $_POST['cadastrarDiretor'];
     
-    $chk1 = isset($_POST['chk1']) ? $_POST['chk1'] : 0;
-    $chk2 = isset($_POST['chk2']) ? $_POST['chk2'] : 0;
-    $chk3 = isset($_POST['chk3']) ? $_POST['chk3'] : 0;
-    $chk4 = isset($_POST['chk4']) ? $_POST['chk4'] : 0;
-    $chk5 = isset($_POST['chk5']) ? $_POST['chk5'] : 0;
-    
     if (($nome_escola != "") && ($cep != "") && ($numero != "") && ($cnpj != "") && ($telefone != "") && ($email != "") && ($mediaEscola != "") && ($notaMaxima != "")) {
 
-    $query = $conn->prepare("INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, turma_bercario, turma_pre_escola, turma_fundamental_I, turma_fundamental_II, turma_medio, media_min, media_max) 
-    VALUES (:nome_escola, :cep, :numero, :complemento, :cnpj, :telefone, :email, :dataPag, '0', '0', '0', '0', '0', :mediaEscola, :notaMaxima);");
+    $query = $conn->prepare("INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, media_min, media_max) 
+    VALUES (:nome_escola, :cep, :numero, :complemento, :cnpj, :telefone, :email, :dataPag, :mediaEscola, :notaMaxima);");
 
     $query->bindParam(':nome_escola', $nome_escola, PDO::PARAM_STR);
     $query->bindParam(':cep', $cep, PDO::PARAM_STR);
