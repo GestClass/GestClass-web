@@ -29,6 +29,7 @@ $nome_dir = $nome[0];
     <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
 
+    <link rel="stylesheet" type="text/css" href="css/homeProfessor.css" />
     <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
     <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.min.css" />
@@ -36,8 +37,7 @@ $nome_dir = $nome[0];
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/menu.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />
-
+    <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />    
 
 </head>
 
@@ -607,8 +607,9 @@ $nome_dir = $nome[0];
                 <li><a href="cadastroAluno.html.php"><i class="material-icons">person</i>Aluno</a></li>
             </ul>
             <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i class="material-icons">group_add</i>Cadastro de contas<i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
-            <li><a href="#modalListaFuncionarios" class="modal-trigger"><i class="material-icons">people_alt</i>Lista de Funcionários</a></li>
             <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">format_list_bulleted</i>Lista de Alunos</a></li>
+            <li><a href="#modalListaFuncionarios" class="modal-trigger"><i class="material-icons">people_alt</i>Lista de Funcionários</a></li>            
+            <li><a href="listaTurmas.html.php"><i class="material-icons">reorder</i>Lista de Turmas</a></li>
             <li><a href="#modalMaterialApoio" class="modal-trigger"><i class="material-icons">picture_as_pdf</i>Enviar Material de Apoio</a></li>
             <li><a href="#modalMensalidades" class="modal-trigger"><i class="material-icons">monetization_on</i>Mensalidade</a>
             <li><a href="graficoRendimentoDiretor.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a>
