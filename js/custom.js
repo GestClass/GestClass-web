@@ -173,12 +173,12 @@ function formMaterialApoioDiretor() {
 //fim
 
 //Ativa o auto-complete
-$(document).ready(function() {
-    $('input.autocomplete').autocomplete({
-        data: {
-            "Apple": null,
-            "Microsoft": null,
-            "Google": 'https://placehold.it/250x250'
-        },
-    });
-});
+// $(document).ready(function() {
+//     $('input.autocomplete').autocomplete({
+//         data: {
+//             "Apple": null,
+//             "Microsoft": null,
+//             "Google": 'https://placehold.it/250x250'
+//         },
+//     });
+// });

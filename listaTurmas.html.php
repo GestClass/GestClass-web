@@ -2,6 +2,8 @@
 <html lang="pt-br">
 
 <head>
+    <title>GestClass - Is Cool Manage</title>
+    <link rel="icon" href="assets/icon/logo.png" />
     <link rel="stylesheet" type="text/css" href="css/boletimCadastro.css" />
 </head>
 
@@ -23,12 +25,13 @@
     }
 
     ?>
+
     <br>
     <div class="container col s12 m12 l12" id="container_boletimCadastro">
         <div class="row">
             <div class="col s12 m12 l12">
                 <ul id="tabs-swipe-demo" class="tabs blue lighten-3">
-                    <li class="tab col s3 m4 l4 "><a href="#matutinnno">Matutino</a></li>
+                    <li class="tab col s3 m4 l4 "><a href="#matutino">Matutino</a></li>
                     <li class="tab col s3 m4 l4 "><a href="#vespertino">Vespertino</a></li>
                     <li class="tab col s3 m4 l4 "><a href="#noturno">Noturno</a></li>
                 </ul>
