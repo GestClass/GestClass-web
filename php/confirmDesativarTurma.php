@@ -11,7 +11,7 @@ $id_turma = $_POST['idTurma'];
 ?>
 
 <script>
-    var resp = confirm("Deseja realmente desativar os aluno dessa turma?");
+    var resp = confirm("Deseja realmente desativar essa turma?");
     if (resp) {
         window.location = 'deleteUsuarios/desativarTurma.php?idTurma=<?php echo $id_turma; ?>';
     } else {
