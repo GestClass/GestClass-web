@@ -1,43 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
     <title>GestClass - Is Cool Manage</title>
     <link rel="icon" href="assets/icon/logo.png" />
-
-    <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="css/cadastroEscola.css" /> -->
-
-
+    <link rel="stylesheet" type="text/css" href="css/boletimCadastro.css" />
 </head>
 
-<body>
+
+<body class="body_estilizado">
 
     <?php
-    require_once 'reqNoLog.php';
     include_once 'php/conexao.php';
 
-    $id = $_GET["id_escola"];
+    $id_usuario = $_SESSION["id_usuario"];
+    $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
+    $id_escola = $_SESSION["id_escola"];
 
-    $_SESSION["id_da_escola"] = $id;
-
-
+    if ($id_tipo_usuario == 2) {
+        require_once 'reqDiretor.php';
+    } else if ($id_tipo_usuario == 3) {
+        require_once 'reqHeader.php';
+    } elseif ($id_tipo_usuario == 4) {
+        require_once 'reqProfessor.php';
+    }
     ?>
 
     <div class="container ">
-        <form id="adicionarEscola" class="col s12" method="POST" action="php/cadastroContas/cadastrarDiretor.php" enctype="multipart/form-data">
+        <form id="adicionarEscola" class="col s12" method="POST" action="php/cadastroContas/cadastrarNovoDiretor.php" enctype="multipart/form-data">
             <h4>Cadastro Diretor</h4><br>
             <div class="col s12 m12 l12">
                 <div class="row">
                     <div class="file-field input-field col s12 m3 l3">
-                        <div id="btnfoto" class="btn col s6">
+                        <div id="btnfoto" class="btn col s6 tooltipped" data-tooltip="Arquivos Permitidos: <br> .gif | .bmp | .png <br> .jpg | .jpeg">
                             <span><i class="material-icons">add_a_photo</i></span>
                             <input type="file" name="txt_file" />
                         </div>
@@ -45,9 +40,9 @@
                             <input id="foto" class="file-path validate" type="text">
                         </div>
                     </div>
-                    <div class="input-field col s12 m9 l9">
+                    <div class="input-field col s12 m8 l8">
                         <i class="material-icons prefix blue-icon">account_circle</i>
-                        <input id="icon_titulo" type="text" name="nome_diretor" id="nome_diretor" class="validate">
+                        <input id="icon_titulo" type="text" name="nome_diretor" placeholder="Nome Diretor" id="nome_diretor" class="validate">
                         <label for="icon_titulo">Nome Diretor</label>
                     </div>
                 </div>
@@ -103,7 +98,7 @@
                         </div>
                         <div id="a" class="input-field col s10 m4 l4">
                             <input name="confsenha" id="confsenha" type="password" placeholder="******" class="validate" onblur="validarSenha()">
-                            <label id="lbl" for="icon_telephone">Confirma Senha</label>
+                            <label id="lbl" for="icon_telephone">Confirmar Senha</label>
                         </div>
                     </div>
                     <div class="row">
@@ -140,14 +135,7 @@
             } else {}
         }
     </script>
-
-    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-    <script src="node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-    <script src="js/default.js"></script>
     <script src="js/cep.js"></script>
     <script src="js/validarCpf.js"></script>
 
-</body>
-
-</html>
+    <?php require_once 'reqFooter.php' ?>

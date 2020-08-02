@@ -47,7 +47,7 @@
             <h5>Secretaria</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
-                    <div id="btnfoto" class="btn col s6">
+                <div id="btnfoto" class="btn col s6 tooltipped" data-tooltip="Arquivos Permitidos: <br> .gif | .bmp | .png <br> .jpg | .jpeg">
                         <span><i class="material-icons">add_a_photo</i></span>
                         <input type="file" name="foto_file" />
                     </div>

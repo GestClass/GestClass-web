@@ -1,6 +1,6 @@
 <?php
 
-include_once 'conexao.php';
+include_once '../conexao.php';
 
 // session_start();
 
@@ -15,6 +15,8 @@ $email = $_POST["email"];
 $senha = md5($_POST["senha"]);
 $celular = $_POST["celular"];
 $telefone = $_POST["telefone"];
+
+// var_dump($id_tipo_usuario);
 
 $image_file = $_FILES["txt_file"]["name"];
 $type  = $_FILES["txt_file"]["type"]; //file name "txt_file" 
@@ -61,13 +63,13 @@ if (($nome_diretor != "") && ($cep != "") && ($numero != "") && ($rg != "") && (
 
 			$nome_imagem = md5(uniqid(time())) . "." . $ext[1];
 
-			$caminho = "../assets/imagensBanco/" . $nome_imagem;
+			$caminho = "../../assets/imagensBanco/" . $nome_imagem;
 
 			move_uploaded_file($temp, $caminho);
 
 			$query = $conn->prepare("INSERT INTO diretor (nome_diretor,foto, cep, numero, complemento, rg, cpf, email, senha, celular, telefone, fk_id_tipo_usuario_diretor, fk_id_escola_diretor)
 			VALUES (:nome_diretor, :nome_imagem, :cep, :numero, :complemento, :rg, :cpf, :email, :senha, :celular,:telefone,'2' ,:id_escola)");
-			
+
 			$query->bindParam(':nome_diretor', $nome_diretor, PDO::PARAM_STR);
 			$query->bindParam(':nome_imagem', $nome_imagem, PDO::PARAM_STR);
 			$query->bindParam(':cep', $cep, PDO::PARAM_STR);
@@ -83,19 +85,15 @@ if (($nome_diretor != "") && ($cep != "") && ($numero != "") && ($rg != "") && (
 			$query->execute();
 
 			if ($query->rowCount()) {
-
 				echo "<script>alert('Diretor cadastrado com sucesso');
-                        window.location='../login.html.php';
-                     </script>";
+				window.location='../../login.html.php';</script>";
 			} else {
 				echo "<script>alert('Erro: Diretor não cadastrado');
-					history.back();
-				</script>";
+				history.back();</script>";
 			}
 		}
 	}
 } else {
 	echo "<script>alert('Erro: Preencha os Campos');
-	history.back();
-	</script>";
+	history.back();</script>";
 }

@@ -101,15 +101,18 @@ function habilitaForm() {
         window.location.href = ('cadastroAluno.html.php')
     } else if ($("#selectConta")[0].selectedIndex === 3) {
         window.location.href = ('cadastroProfessor.html.php')
-    } else {
-        $(".formContas").hide();
+    } else if ($("#selectConta")[0].selectedIndex === 4) {
         window.location.href = ('cadastroSecretaria.html.php')
+    } else if ($("#selectConta")[0].selectedIndex === 5) {
+        window.location.href = ('cadastroNovoDiretor.html.php')
+        $(".formContas").hide();
     }
 }
 
 //Fim
 
 //modal envio material prof e diretor
+
 $(document).ready(function() {
     $('select').opcProf();
 });

@@ -31,14 +31,13 @@
         </div>
     </section>
 
-    <h4 class="center-align">Escolas Cadastradas</h4>
+    <h4 class="center-align">Escolas Cadastradas</h4><br>
 
     <?php
     include_once 'php/conexao.php';
 
-    $query = $conn->prepare("select id_escola,nome_escola,cnpj,email from escola");
+    $query = $conn->prepare("SELECT id_escola,nome_escola,cnpj,email FROM escola");
     $query->execute();
-
 
     ?>
 
@@ -56,7 +55,7 @@
                             <?php
 
                             $id_escola = $dados["id_escola"];
-                            $query_diretor = $conn->prepare("select * from diretor where fk_id_escola_diretor=$id_escola");
+                            $query_diretor = $conn->prepare("SELECT fk_id_escola_diretor FROM diretor WHERE fk_id_escola_diretor = $id_escola");
                             $query_diretor->execute();
                             $dados_diretor = $query_diretor->fetch(PDO::FETCH_ASSOC);
                             ?>

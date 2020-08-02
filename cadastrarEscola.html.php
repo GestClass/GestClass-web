@@ -82,7 +82,7 @@
                 </div>
                 <br>
                 <div class="row">
-                    <div class="input-field col s12 m6 l6">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">attach_money</i>
                         <select name="data_pagamento" id="data_pagamento">
                             <option value="" disabled selected>Escolha a data do pagamento
@@ -96,12 +96,12 @@
                         </select>
                         <label for="first_name">Data de pagamento</label>
                     </div>
-                    <div class="input-field col s6 m2 l2">
+                    <div class="input-field col s6 m4 l4">
                         <i class="material-icons prefix blue-icon">style</i>
                         <input id="media" name="media" placeholder="6.00" step="0.00" type="number" class="validate ">
                         <label for="first_name">Média Escolar</label>
                     </div>
-                    <div class="input-field col s6 m2 l2">
+                    <div class="input-field col s6 m4 l4">
                         <input id="nota_maxima" name="nota_maxima" placeholder="10.00" step="0.00" type="number" class="validate ">
                         <label for="first_name">Nota Máxima</label>
                     </div>

@@ -71,10 +71,11 @@ $nome_dir = $nome[0];
             <div class="input-field col s12">
                 <select id="selectConta" onchange="habilitaForm()">
                     <option value="" disabled selected>Contas</option>
-                    <option value="1">Responsável/Aluno</option>
+                    <option value="1">Responsável e Aluno</option>
                     <option value="2">Aluno</option>
                     <option value="3">Professor</option>
                     <option value="4">Secretaria</option>
+                    <option value="5">Diretor</option>
                 </select>
             </div>
         </div>
@@ -603,8 +604,9 @@ $nome_dir = $nome[0];
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="cadastroProfessor.html.php"><i class="material-icons">people_alt</i>Professores</a></li>
                 <li><a href="cadastroSecretaria.html.php"><i class="material-icons">school</i>Secretaria</a></li>
+                <li><a href="cadastroNovoDiretor.html.php"><i class="material-icons">person</i>Diretor</a></li>
                 <li><a href="cadastroResponsavel.html.php"><i class="material-icons">wc</i>Responsável e Aluno</a></li>
-                <li><a href="cadastroAluno.html.php"><i class="material-icons">person</i>Aluno</a></li>
+                <li><a href="cadastroAluno.html.php"><i class="material-icons">face</i>Aluno</a></li>
             </ul>
             <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i class="material-icons">group_add</i>Cadastro de contas<i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
             <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">list_alt</i>Lista de Alunos</a></li>

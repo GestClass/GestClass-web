@@ -47,7 +47,7 @@
             <h5>Aluno</h5>
             <div class="row">
                 <div class="file-field input-field col s12 m3 l3">
-                    <div id="btnfoto" class="btn col s6">
+                    <div id="btnfoto" class="btn col s6 tooltipped" data-tooltip="Arquivos Permitidos: <br> .gif | .bmp | .png <br> .jpg | .jpeg">
                         <span><i class="material-icons">add_a_photo</i></span>
                         <input type="file" name="foto_file" />
                     </div>
@@ -76,7 +76,7 @@
                     <i class="material-icons prefix blue-icon">ballot</i>
                     <input name="rg" id="RG" placeholder="65.745.984-6" data-mask="99.999.999-AA" type="text" class="validate ">
                     <label id="lbl" for="first_name">RG</label>
-                </div>  
+                </div>
                 <div class="input-field col s6 m6 l3">
                     <i class="material-icons prefix blue-icon">ballot</i>
                     <input name="cpf" id="cpf" placeholder="614.755.014-16" type="tel" data-mask="000.000.000-00" class="validate" onblur="TestaCPF(this)">
