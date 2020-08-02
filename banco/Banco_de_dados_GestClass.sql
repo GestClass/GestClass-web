@@ -33,7 +33,8 @@ CREATE TABLE escola (
     email VARCHAR(65) NOT NULL UNIQUE,
 	data_pagamento_escola INTEGER NOT NULL,
     media_min DECIMAL (4,2) NOT NULL,
-    media_max DECIMAL (4,2) NOT NULL
+    media_max DECIMAL (4,2) NOT NULL,
+    situacao BOOLEAN NOT NULL
 );
 
 

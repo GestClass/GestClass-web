@@ -16,12 +16,13 @@
     $dataPag = $_POST["data_pagamento"];   
     $mediaEscola = $_POST["media"];
     $notaMaxima = $_POST["nota_maxima"];
+    $situacao = true;
     // $assunto = $_POST['cadastrarDiretor'];
     
     if (($nome_escola != "") && ($cep != "") && ($numero != "") && ($cnpj != "") && ($telefone != "") && ($email != "") && ($mediaEscola != "") && ($notaMaxima != "")) {
 
     $query = $conn->prepare("INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, media_min, media_max) 
-    VALUES (:nome_escola, :cep, :numero, :complemento, :cnpj, :telefone, :email, :dataPag, :mediaEscola, :notaMaxima);");
+    VALUES (:nome_escola, :cep, :numero, :complemento, :cnpj, :telefone, :email, :dataPag, :mediaEscola, :notaMaxima, :true);");
 
     $query->bindParam(':nome_escola', $nome_escola, PDO::PARAM_STR);
     $query->bindParam(':cep', $cep, PDO::PARAM_STR);
@@ -33,6 +34,7 @@
     $query->bindParam(':dataPag', $dataPag, PDO::PARAM_STR);
     $query->bindParam(':mediaEscola', $mediaEscola, PDO::PARAM_STR);
     $query->bindParam(':notaMaxima', $notaMaxima, PDO::PARAM_STR);
+    $query->bindParam(':true', $situacao, PDO::PARAM_STR);
     $query->execute();
 
     if ($query->rowCount()) {
