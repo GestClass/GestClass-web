@@ -430,7 +430,7 @@ $nome_sec = $nome[0];
                 <li><a href="cadastroSecretaria.html.php"><i class="material-icons">school</i>Secretaria</a></li>
             </ul>
             <li><a href="#modalListaFuncionarios" class="modal-trigger"><i class="material-icons">people_alt</i>Lista de Funcionários</a></li>
-            <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">format_list_bulleted</i>Lista de Alunos</a></li>
+            <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">people_alt</i>Lista de Alunos</a></li>
             <li><a href="#modalMensalidades" class="modal-trigger"><i class="material-icons">monetization_on</i>Mensalidade</a></li>
             <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a></li>
             <li><a href="#modalCadastroTurmas" class="modal-trigger"><i class="material-icons">book</i>Cadastro de Turmas</a></li>

@@ -34,6 +34,15 @@ body {
     margin-left: 5px;
 }
 
+.btnLightGreen {
+    text-transform: inherit;
+    border: 0.5px solid #07c02f;
+    color: #07c02f;
+    float: right;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
 .btnLightBlue {
     text-transform: inherit;
     border: 0.5px solid #29b6f6;
