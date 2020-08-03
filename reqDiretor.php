@@ -37,7 +37,7 @@ $nome_dir = $nome[0];
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/menu.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
-    <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />    
+    <link rel="stylesheet" type="text/css" href="css/homeSecretaria.css" />
 
 </head>
 
@@ -608,13 +608,16 @@ $nome_dir = $nome[0];
                 <li><a href="cadastroResponsavel.html.php"><i class="material-icons">wc</i>Responsável e Aluno</a></li>
                 <li><a href="cadastroAluno.html.php"><i class="material-icons">face</i>Aluno</a></li>
             </ul>
+
             <li><a class="dropdown-trigger" href="paginaManutencao.php" data-target="dropdown1"><i class="material-icons">group_add</i>Cadastro de contas<i class="material-icons right" id="drop">arrow_drop_down</i></a></li>
             <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">list_alt</i>Lista de Alunos</a></li>
-            <li><a href="#modalListaFuncionarios" class="modal-trigger"><i class="material-icons">people_alt</i>Lista de Funcionários</a></li>            
+            <li><a href="#modalListaFuncionarios" class="modal-trigger"><i class="material-icons">people_alt</i>Lista de Funcionários</a></li>
             <li><a href="listaTurmas.html.php"><i class="material-icons">format_list_bulleted</i>Lista de Turmas</a></li>
+            <li><a href="listaDisciplinas.html.php"><i class="material-icons">content_paste</i>Lista de Disciplinas</a></li>
             <li><a href="#modalMaterialApoio" class="modal-trigger"><i class="material-icons">picture_as_pdf</i>Enviar Material de Apoio</a></li>
             <li><a href="#modalMensalidades" class="modal-trigger"><i class="material-icons">description</i>Enviar Arquivos Responsáveis</a>
             <li><a href="graficoRendimentoDiretor.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a>
+
             </li>
             <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a></li>
             <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relate um Problema</a></li>

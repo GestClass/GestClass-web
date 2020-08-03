@@ -132,6 +132,7 @@
                                     ?>
 
                                 </td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             </tr>
                         <?php
                         }
@@ -241,6 +242,7 @@
                                     ?>
 
                                 </td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             </tr>
                         <?php
                         }
@@ -350,6 +352,7 @@
                                     ?>
 
                                 </td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             </tr>
                         <?php
                         }
