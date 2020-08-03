@@ -234,7 +234,8 @@ CREATE TABLE envio_boleto (
     fk_id_secretario_envio_boleto INTEGER NULL,
     fk_id_responsavel_recebimento_boleto INTEGER NOT NULL,
     data_envio DATETIME NOT NULL,
-    boleto VARCHAR(255) NOT NULL
+    boleto VARCHAR(255) NOT NULL,
+    fk_id_escola_boleto INTEGER
 );
 
 
@@ -248,7 +249,8 @@ CREATE TABLE envio_material_apoio (
     fk_id_turma_recebimento_material INTEGER NULL,
     assunto_material VARCHAR(75) NOT NULL,
     data_envio DATETIME NOT NULL,
-    material VARCHAR(255) NOT NULL
+    material VARCHAR(255) NOT NULL,
+    fk_id_escola_material INTEGER
 );
 
 
@@ -273,7 +275,8 @@ CREATE TABLE contato (
 	fk_recebimento_professor_id_professor INTEGER,
     fk_recebimento_diretor_id_diretor INTEGER,
     fk_recebimento_secretario_id_secretario INTEGER,
-    fk_recebimento_admin_id_admin INTEGER
+    fk_recebimento_admin_id_admin INTEGER,
+    fk_id_escola_contato INTEGER
 );
 
 
@@ -414,6 +417,8 @@ ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_diretor_envio_boleto FOREIGN KEY (
 ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_secretario_envio_boleto FOREIGN KEY (fk_id_secretario_envio_boleto) REFERENCES secretario (ID_secretario);
 ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_responsavel_recebimento_boleto FOREIGN KEY (fk_id_responsavel_recebimento_boleto) REFERENCES responsavel (ID_responsavel) ON DELETE CASCADE;
 */
+ALTER TABLE envio_boleto ADD CONSTRAINT fk_id_escola_boleto FOREIGN KEY (fk_id_escola_boleto) REFERENCES escola (ID_escola) ON DELETE CASCADE;
+
 
 /*	-	FOREIGN KEYs TABLE ENVIO_MATERIAL_APOIO	 -	
 
@@ -424,6 +429,8 @@ ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_professor_envio_material F
 ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_aluno_recebimento_material FOREIGN KEY (fk_id_aluno_recebimento_material) REFERENCES aluno (RA);
 ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_turma_recebimento_material FOREIGN KEY (fk_id_turma_recebimento_material) REFERENCES turma (ID_turma) ON DELETE CASCADE;
 */
+ALTER TABLE envio_material_apoio ADD CONSTRAINT fk_id_escola_material FOREIGN KEY (fk_id_escola_material) REFERENCES escola (ID_escola) ON DELETE CASCADE;
+
 
 /*	-	FOREIGN KEYs TABLE CONTATO	-	
 
@@ -442,6 +449,8 @@ ALTER TABLE contato ADD CONSTRAINT fk_recebimento_diretor_id_diretor FOREIGN KEY
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_secretario_id_secretario FOREIGN KEY (fk_recebimento_secretario_id_secretario) REFERENCES secretario (ID_secretario) ON DELETE CASCADE;
 ALTER TABLE contato ADD CONSTRAINT fk_recebimento_admin_id_admin FOREIGN KEY (fk_recebimento_admin_id_admin) REFERENCES `admin` (ID_admin) ON DELETE CASCADE;
 */
+ALTER TABLE contato ADD CONSTRAINT fk_id_escola_contato FOREIGN KEY (fk_id_escola_contato) REFERENCES escola (ID_escola) ON DELETE CASCADE;
+
 
 /*	-	FOREIGN KEYs TABLE DATAS_FIM_BIMESTRES	- 	*/
 
@@ -471,7 +480,7 @@ INSERT INTO tipo_usuario (nome_usuario) VALUES ('solicitante');
 
 /*	-	INSERTS INTO TABLE ESCOLA	-	*/
 
-INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, media_min, media_max) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '05', 5.00, 10.00);
+INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, media_min, media_max, situacao) VALUES ('escola_exemplo', '000.00-000', 000, 'predio a', '00.000.000/0000-00', '(11) 0000-0000', 'escola_exemplo@exemplo.com', '05', 5.00, 10.00, true);
 
 
 /*	-	INSERTS INTO TABLE DISCIPLINA 	-	*/

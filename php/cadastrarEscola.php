@@ -21,7 +21,7 @@
     
     if (($nome_escola != "") && ($cep != "") && ($numero != "") && ($cnpj != "") && ($telefone != "") && ($email != "") && ($mediaEscola != "") && ($notaMaxima != "")) {
 
-    $query = $conn->prepare("INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, media_min, media_max) 
+    $query = $conn->prepare("INSERT INTO escola (nome_escola, cep, numero, complemento, CNPJ, telefone, email, data_pagamento_escola, media_min, media_max, situacao) 
     VALUES (:nome_escola, :cep, :numero, :complemento, :cnpj, :telefone, :email, :dataPag, :mediaEscola, :notaMaxima, :true);");
 
     $query->bindParam(':nome_escola', $nome_escola, PDO::PARAM_STR);
