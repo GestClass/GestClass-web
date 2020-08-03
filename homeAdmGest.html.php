@@ -79,30 +79,9 @@
                         </div>
                     </a>
                 </div>
-                <!-- <div class="col s12 m4">
-                    <a href="paginaManutencao.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-bell fa-6x blue-icon"></i>
-                            <h5>Notificações</h5>
-                            <p>Envio de notificações para as escolas, avisos sobre atraso de mensalidade ou manutenção
-                                no sistema</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col s12 m4">
-                    <a href="perfil.html.php">
-                        <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                            <i class="fas fa-cog fa-6x blue-icon"></i>
-                            <h5>Configurações</h5>
-                            <p>Configurações da conta</p>
-                        </div>
-                    </a>
-                </div> -->
             </div>
         </div>
     </section>
-
-
 
 
     <section class="floating-buttons">
@@ -111,13 +90,13 @@
                 <i class="large material-icons">add</i>
             </a>
             <ul>
-
                 <!-- <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey tooltipped" data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li> -->
                 <!-- <li><a href="solicitacoesadm.html.php" class="btn-floating tooltipped" data-position="left" data-tooltip="Admins"><i class="material-icons">add_alert</i></a></li> -->
+                <li><a href="dadosEscolasArquivos.html.php" class="btn-floating teal lighten-3 tooltipped" data-position="left" data-tooltip="Dados das Escolas"><i class="material-icons">description</i></a></li>
                 <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
                 <li><a href="visaoGeral.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
                 <li><a href="cadastroEscola.html.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Cadastro Escolas"><i class="material-icons">account_balance</i></a></li>
-                <li><a href="admins.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Admins"><i class="material-icons">perm_identity</i></a></li>                
+                <li><a href="admins.html.php" class="btn-floating red tooltipped" data-position="left" data-tooltip="Admins"><i class="material-icons">perm_identity</i></a></li>
             </ul>
         </div>
     </section>
