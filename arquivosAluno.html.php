@@ -92,7 +92,7 @@
                                 </td>
 
                                 <td>
-                                    <a href="enviarMensalidades.html.php?id_respon=<?php echo $alunos['fk_id_responsavel_aluno'] ?>&ra=<?php echo $alunos['RA'];?>&n=<?php echo $alunos['nome_aluno']; ?>"><?php echo $alunos['nome_aluno']; ?></a>
+                                    <a href="enviarArquivoRespon.html.php?id_respon=<?php echo $alunos['fk_id_responsavel_aluno'] ?>&ra=<?php echo $alunos['RA'];?>&n=<?php echo $alunos['nome_aluno']; ?>"><?php echo $alunos['nome_aluno']; ?></a>
                                 </td>
 
                                 <td>

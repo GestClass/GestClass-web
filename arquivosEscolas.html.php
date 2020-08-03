@@ -41,8 +41,7 @@ $id_escola = $_GET["id"];
                     <td>Mensagens trocada pelos usuários</td>
                     <td><a href="php/excluirArquivosEscolas.php?id=<?php echo $id_escola ?>&opc=<?php echo '1'?>">
                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed center">
-                                <i class="material-icons left">delete</i>Excluir Arquivo
-                            </button></a></td>
+                                <i class="material-icons left">delete</i>Excluir Arquivo</button></a></td>
                 </tbody>
 
                 <tbody>
@@ -50,8 +49,7 @@ $id_escola = $_GET["id"];
                     <td>Materiais enviado aos alunos</td>
                     <td><a href="php/excluirArquivosEscolas.php?id=<?php echo $id_escola ?>&opc=<?php echo '2'?>">
                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed center">
-                                <i class="material-icons left">delete</i>Excluir Arquivo
-                            </button></a></td>
+                                <i class="material-icons left">delete</i>Excluir Arquivo</button></a></td>
                 </tbody>
 
                 <tbody>
@@ -59,8 +57,7 @@ $id_escola = $_GET["id"];
                     <td>Arquivos enviado aos responsáveis</td>
                     <td><a href="php/excluirArquivosEscolas.php?id=<?php echo $id_escola ?>&opc=<?php echo '3'?>">
                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed center">
-                                <i class="material-icons left">delete</i>Excluir Arquivo
-                            </button></a></td>
+                                <i class="material-icons left">delete</i>Excluir Arquivo</button></a></td>
                 </tbody>
 
             </table>

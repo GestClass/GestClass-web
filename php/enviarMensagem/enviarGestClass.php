@@ -18,14 +18,15 @@ if (($mensagem != "") && ($assunto != "")) {
             $id_admin = $dados_admin["ID_admin"];
 
             $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-            fk_envio_diretor_id_diretor,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
-            VALUES (:mensagem, :assunto,  NOW(), '0',:id_usuario,:tipo_usuario :id_admin)");
+            fk_envio_diretor_id_diretor,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin,fk_id_escola_contato)
+            VALUES (:mensagem, :assunto,  NOW(), '0',:id_usuario,:tipo_usuario :id_admin,:id_escola)");
 
             $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
             $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
             $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
             $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
             $inserirMensagem->bindParam(':id_admin', $id_admin, PDO::PARAM_INT);
+            $inserirMensagem->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
             $inserirMensagem->execute();
 
             if ($inserirMensagem->rowCount()) {

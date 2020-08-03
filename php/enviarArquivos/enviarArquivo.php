@@ -9,12 +9,12 @@ $id_tipo_usuario = $_SESSION["id_tipo_usuario"];
 $id_usuario = $_SESSION["id_usuario"];
 $id_responsavel = $_POST["id_respon"];
 
-$arquivo = $_FILES["boleto"]['name'];
+$arquivo = $_FILES["arquivo"]['name'];
 
-$type  = $_FILES["boleto"]["type"]; //file name "foto_file" 
-$size  = $_FILES["boleto"]["size"];
-$temp  = $_FILES["boleto"]["tmp_name"];
-$error  = $_FILES["boleto"]["error"];
+$type  = $_FILES["arquivo"]["type"]; //file name "foto_file" 
+$size  = $_FILES["arquivo"]["size"];
+$temp  = $_FILES["arquivo"]["tmp_name"];
+$error  = $_FILES["arquivo"]["error"];
 
 if ($arquivo != "") {
 
@@ -27,25 +27,26 @@ if ($arquivo != "") {
         //print_r($imagem);exit;
         $tamanho = 3000000;
 
-        if ((!preg_match("/\.(pdf){1}$/i", $arquivo, $ext))) {
-            echo "<script>alert('Ops! Isso não é um PDF');
-            history.back();</script>";
+        if ((!preg_match("/\.(pdf|doc|docx|jpg|jpeg|png|gif|txt|ppt|pptx|xls|xlsx){1}$/i", $arquivo, $ext)) || ($size > $tamanho)) {
+            echo "<script>alert('Ops! Isso não é um arquivo permitido, ou o tamanho do arquivo é maior que o permitido.');
+            history.back()</script>";
         } else {
             preg_match("/\.(pdf){1}$/i", $arquivo, $ext);
 
-            $boleto = $arquivo;
+            $arquivo_certo = $arquivo;
 
-            $caminho = "../../assets/boletos/" . $boleto;
+            $caminho = "../../assets/arquivos/" . $arquivo_certo;
 
             move_uploaded_file($temp, $caminho);
 
             if ($caminho) {
-                $query_envio = $conn->prepare("INSERT INTO envio_boleto (fk_id_diretor_envio_boleto, fk_id_secretario_envio_boleto, fk_id_responsavel_recebimento_boleto, data_envio, boleto) 
-                VALUES (:id_usuario, NULL, :id_responsavel, NOW(), :boleto)");
+                $query_envio = $conn->prepare("INSERT INTO envio_boleto (fk_id_diretor_envio_boleto, fk_id_responsavel_recebimento_boleto, data_envio, boleto,fk_id_escola_boleto) 
+                VALUES (:id_usuario, :id_responsavel, NOW(), :arquivo_certo,:id_escola)");
 
                 $query_envio->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $query_envio->bindParam(':id_responsavel', $id_responsavel, PDO::PARAM_INT);
-                $query_envio->bindParam(':boleto', $boleto, PDO::PARAM_STR);
+                $query_envio->bindParam(':arquivo_certo', $arquivo_certo, PDO::PARAM_STR);
+                $query_envio->bindParam(':id_escola', $id_escola, PDO::PARAM_STR);
                 $query_envio->execute();
 
                 if ($query_envio->rowCount()) {
@@ -65,25 +66,26 @@ if ($arquivo != "") {
         //print_r($imagem);exit;
         $tamanho = 3000000;
 
-        if ((!preg_match("/\.(pdf){1}$/i", $arquivo, $ext))) {
-            echo "<script>alert('Ops! Isso não é um pdf.');
-            history.back();</script>";
+        if ((!preg_match("/\.(pdf|doc|docx|jpg|jpeg|png|gif|txt|ppt|pptx|xls|xlsx){1}$/i", $arquivo, $ext)) || ($size > $tamanho)) {
+            echo "<script>alert('Ops! Isso não é um arquivo permitido, ou o tamanho do arquivo é maior que o permitido.');
+            history.back()</script>";
         } else {
             preg_match("/\.(pdf){1}$/i", $arquivo, $ext);
 
-            $boleto = md5(uniqid(time())) . "." . $ext[1];
+            $arquivo_certo = md5(uniqid(time())) . "." . $ext[1];
 
-            $caminho = "../../assets/boletos/" . $boleto;
+            $caminho = "../../assets/arquivos/" . $arquivo_certo;
 
             move_uploaded_file($temp, $caminho);
 
             if ($caminho) {
-                $query_envio = $conn->prepare("INSERT INTO envio_boleto (fk_id_diretor_envio_boleto, fk_id_secretario_envio_boleto, fk_id_responsavel_recebimento_boleto, data_envio, boleto) 
-            VALUES (NULL, :id_usuario, :id_responsavel, NOW(), :boleto)");
+                $query_envio = $conn->prepare("INSERT INTO envio_boleto (fk_id_secretario_envio_boleto, fk_id_responsavel_recebimento_boleto, data_envio, boleto, fk_id_escola_boleto) 
+                VALUES (:id_usuario, :id_responsavel, NOW(), :arquivo_certo,:id_escola)");
 
                 $query_envio->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $query_envio->bindParam(':id_responsavel', $id_responsavel, PDO::PARAM_INT);
-                $query_envio->bindParam(':boleto', $boleto, PDO::PARAM_STR);
+                $query_envio->bindParam(':arquivo_certo', $arquivo_certo, PDO::PARAM_STR);
+                $query_envio->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
                 $query_envio->execute();
 
                 if ($query_envio->rowCount()) {

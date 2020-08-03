@@ -44,9 +44,9 @@ $id_escola = $_SESSION["id_escola"];
             <div class="col s12 m4">
                 <a class="modal-trigger" href="#modalMensalidades">
                     <div class="card-panel z-depth-3 cardZoom grey-text text-darken-4 hoverable">
-                        <i class="fas fa-file-invoice-dollar fa-6x blue-icon"></i>
-                        <h5>Mensalidade</h5>
-                        <p>Acesso total aos dados da mensalidade dos alunos. </p>
+                    <i class="far fa-copy fa-6x blue-icon"></i>
+                        <h5>Enviar Arquivos</h5>
+                        <p>Area voltada para serem enviados arquivos aos responsáveis dos alunos</p>
                     </div>
                 </a>
             </div>

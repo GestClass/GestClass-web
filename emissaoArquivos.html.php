@@ -50,7 +50,7 @@
             </div>
             <div class="input-field col s12 m6 l6">
                 <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
-                <input name="assunto" id="assunto" value="Boleto" readonly type="text">
+                <input name="assunto" id="assunto" value="Arquivo" readonly type="text">
                 <label id="lbl" for="first_name">Assunto</label>
             </div>
         </div>
@@ -58,7 +58,7 @@
             <div class="input-field col s11 m11 l11">
                 <i class="material-icons prefix blue-icon">picture_as_pdf</i>
                 <input name="assunto" id="assunto" value="<?php echo $dados["boleto"] ?>" readonly type="text">
-                <label id="lbl" for="icon_prefix2">Material de Apoio</label>
+                <label id="lbl" for="icon_prefix2">Nome Arquivo</label>
             </div>
             <a download="assets/boletos/<?php echo $dados["boleto"] ?>" href="assets/boletos/<?php echo $dados["boleto"] ?>"><i class="material-icons small blue-icon tooltipped" data-tooltip="Fazer Download" style="margin-top: 20px; margin-left: -25px;">get_app</i></a>
         </div>

@@ -51,8 +51,8 @@
     ?>
 
     <div class="container"><br>
-        <h3 class="center">Enviar Mensalidades</h3><br><br>
-        <form action="php/enviarMensalidades/enviarMensalidade.php" enctype="multipart/form-data" method="POST">
+        <h3 class="center">Enviar Arquivos</h3><br><br>
+        <form action="php/enviarArquivos/enviarArquivo.php" enctype="multipart/form-data" method="POST">
             <div class="row">
                 <div class="input-field col s12 m4 l4">
                     <input name="ra" value="<?php echo $ra_aluno; ?>" type="text" readonly>
@@ -72,13 +72,13 @@
                 <div class="file-field input-field col s11 m11 l11">
                     <div id="btnMensalidade" class="btn col s6 m4 l4">
                         <span>Escolha o arquivo &nbsp;&nbsp;&nbsp;<i class="material-icons">picture_as_pdf</i></span>
-                        <input type="file" name="boleto" />
+                        <input type="file" name="arquivo" />
                     </div>
                     <div class="file-path-wrapper">
                         <input id="boleto" class="file-path validate" type="text">
                     </div>
                 </div>
-                &nbsp;&nbsp;&nbsp;<i class="material-icons small tooltipped" data-tooltip="Arquivos Permitidos: | .pdf" style="margin-top: 20px; color: #64b5f6; margin-left: 10px;">info_outline</i>
+                &nbsp;&nbsp;&nbsp;<i class="material-icons small tooltipped" data-tooltip="Arquivos Permitidos: <br> .pdf | .doc | .docx | .jpg <br> .jpeg | .png | .gif | .txt <br> .ppt | .pptx | .xls | .xlsx" style="margin-top: 20px; color: #64b5f6; margin-left: 10px;">info_outline</i>
             </div>
             <div class="input-field right">
                 <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue center">

@@ -12,13 +12,14 @@ $ocorrencia = $_POST["ocorrencia"];
 if ($ocorrencia != "") {
 
     $inserirOcorrencia = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-    fk_envio_professor_id_professor,fk_id_tipo_usuario_envio, fk_recebimento_responsavel_id_responsavel)
-    VALUES (:mensagem, 'Ocorrência',  NOW(),'0', :id_usuario, :tipo_usuario, :id_responsavel)");
+    fk_envio_professor_id_professor,fk_id_tipo_usuario_envio, fk_recebimento_responsavel_id_responsavel,fk_id_escola_contato)
+    VALUES (:mensagem, 'Ocorrência',  NOW(),'0', :id_usuario, :tipo_usuario, :id_responsavel,:id_escola)");
 
     $inserirOcorrencia->bindParam(':mensagem', $ocorrencia, PDO::PARAM_STR);
-    $inserirOcorrencia->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_STR);
-    $inserirOcorrencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_STR);
-    $inserirOcorrencia->bindParam(':id_responsavel', $id_responsavel, PDO::PARAM_STR);
+    $inserirOcorrencia->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
+    $inserirOcorrencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+    $inserirOcorrencia->bindParam(':id_responsavel', $id_responsavel, PDO::PARAM_INT);
+    $inserirOcorrencia->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
     $inserirOcorrencia->execute();
 
     if ($inserirOcorrencia->rowCount()) {

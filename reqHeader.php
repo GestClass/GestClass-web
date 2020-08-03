@@ -208,7 +208,7 @@ $nome_sec = $nome[0];
         <div class="modal-content">
             <h4 class="center">Selecione a turma</h4>
             <div class="input-field col s12">
-                <form action="mensalidades.html.php" method="POST">
+                <form action="arquivosAluno.html.php" method="POST">
                     <select name="turmas">
                         <option value="" disabled selected>Selecionar Turma</option>
                         <?php
@@ -432,7 +432,7 @@ $nome_sec = $nome[0];
             <li><a href="#modalListaFuncionarios" class="modal-trigger"><i class="material-icons">people_alt</i>Lista de Funcionários</a></li>
             <li><a href="#modalListaAlunos" class="modal-trigger"><i class="material-icons">list_alt</i>Lista de Alunos</a></li>
             <li><a href="listaTurmas.html.php"><i class="material-icons">format_list_bulleted</i>Lista de Turmas</a></li>
-            <li><a href="#modalMensalidades" class="modal-trigger"><i class="material-icons">monetization_on</i>Mensalidade</a></li>
+            <li><a href="#modalMensalidades" class="modal-trigger"><i class="material-icons">description</i>Enviar Arquivos Responsáveis</a>
             <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a></li>
             <li><a href="#modalCadastroTurmas" class="modal-trigger"><i class="material-icons">book</i>Cadastro de Turmas</a></li>
             <li><a href="#modalCadastroDisciplinas" class="modal-trigger"><i class="material-icons">description</i>Cadastrar Disciplinas</a></li>

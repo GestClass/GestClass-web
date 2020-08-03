@@ -257,7 +257,7 @@ $nome_pais = $nome[0];
             <li><a href="#modalFilhosGrade" class="modal-trigger"><i class="material-icons">toc</i>Grade Curricular</a>
             <li><a href="#modalFilhosGrafico" class="modal-trigger"><i class="material-icons">trending_up</i>Rendimento Disciplinar</a></li>
             <li><a href="#modalFilhosBoletim" class="modal-trigger"><i class="material-icons">format_list_numbered_rtl</i>Boletim Escolar</a></li>
-            <li><a href="listaBoletos.html.php"><i class="material-icons">attach_money</i>Financeiro</a></li>
+            <li><a href="listaBoletos.html.php"><i class="material-icons">description</i>Arquivos</a></li>
             <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a></li>
             <li><a href="mensagensResponsavel.html.php"><i class="material-icons">email</i>Mensagens</a>
             <li><a href="#modalFeedback" class="modal-trigger"><i class="material-icons">support_agent</i>Relate um Problema</a></li>

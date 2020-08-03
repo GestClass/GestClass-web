@@ -4,7 +4,7 @@ include_once '../conexao.php';
 
 // session_start();
 
-$id_escola = $_SESSION["id_da_escola"];
+$id_escola = $_POST["id_escola"];
 $nome_diretor = $_POST["nome_diretor"];
 $cep = $_POST["cep"];
 $numero = $_POST["numero"];

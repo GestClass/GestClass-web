@@ -92,7 +92,7 @@
             <ul>
                 <!-- <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey tooltipped" data-position="left" data-tooltip="Feedback dos Usuários"><i class="material-icons">email</i></a></li> -->
                 <!-- <li><a href="solicitacoesadm.html.php" class="btn-floating tooltipped" data-position="left" data-tooltip="Admins"><i class="material-icons">add_alert</i></a></li> -->
-                <li><a href="dadosEscolasArquivos.html.php" class="btn-floating teal lighten-3 tooltipped" data-position="left" data-tooltip="Dados das Escolas"><i class="material-icons">description</i></a></li>
+                <li><a href="dadosEscolasArquivos.html.php" class="btn-floating teal lighten-3 tooltipped" data-position="left" data-tooltip="Excluir Arquivos Escolas"><i class="material-icons">description</i></a></li>
                 <li><a href="feedbackEscolas.html.php" class="btn-floating blue-grey tooltipped" data-position="left" data-tooltip="Caixa de Mensagens"><i class="material-icons">email</i></a></li>
                 <li><a href="visaoGeral.html.php" class="btn-floating blue tooltipped" data-position="left" data-tooltip="Visão Geral"><i class="material-icons">explore</i></a></li>
                 <li><a href="cadastroEscola.html.php" class="btn-floating black tooltipped" data-position="left" data-tooltip="Cadastro Escolas"><i class="material-icons">account_balance</i></a></li>

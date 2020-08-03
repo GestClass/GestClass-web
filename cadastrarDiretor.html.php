@@ -26,7 +26,7 @@
 
     $id = $_GET["id_escola"];
 
-    $_SESSION["id_da_escola"] = $id;
+    // $_SESSION["id_da_escola"] = $id;
 
 
     ?>
@@ -35,6 +35,7 @@
         <form id="adicionarEscola" class="col s12" method="POST" action="php/cadastroContas/cadastrarDiretor.php" enctype="multipart/form-data">
             <h4>Cadastro Diretor</h4><br>
             <div class="col s12 m12 l12">
+                <input type="text" name="id_escola" value="<?php echo $id?>">
                 <div class="row">
                     <div class="file-field input-field col s12 m3 l3">
                         <div id="btnfoto" class="btn col s6">

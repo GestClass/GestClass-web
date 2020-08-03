@@ -24,13 +24,14 @@ if (($mensagem != "")) {
                 $id_admin = $dados_admin["ID_admin"];
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_diretor_id_diretor,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
-                VALUES (:mensagem, 'Feedback Usuários',  NOW(), '0',:id_usuario,:tipo_usuario, :id_admin)");
+                fk_envio_diretor_id_diretor,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin,fk_id_escola_contato)
+                VALUES (:mensagem, 'Feedback Usuários',  NOW(), '0',:id_usuario,:tipo_usuario, :id_admin,:id_escola)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_admin', $id_admin, PDO::PARAM_INT);
+                $inserirMensagem->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
                 $inserirMensagem->execute();
 
                 if ($inserirMensagem->rowCount()) {
@@ -54,14 +55,14 @@ if (($mensagem != "")) {
                 $id_admin = $dados_admin["ID_admin"];
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_secretario_id_secretario, 
-                fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
-                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0', :id_usuario,:tipo_usuario, :id_admin)");
+                fk_envio_secretario_id_secretario,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin,fk_id_escola_contato)
+                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0', :id_usuario,:tipo_usuario, :id_admin,:id_escola)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_admin', $id_admin, PDO::PARAM_INT);
+                $inserirMensagem->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
                 $inserirMensagem->execute();
 
                 if ($inserirMensagem->rowCount()) {
@@ -86,13 +87,14 @@ if (($mensagem != "")) {
 
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_professor_id_professor,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
-                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0',:id_usuario,:tipo_usuario,:id_admin)");
+                fk_envio_professor_id_professor,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin,fk_id_escola_contato)
+                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0',:id_usuario,:tipo_usuario,:id_admin,:id_escola)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_admin', $id_admin, PDO::PARAM_INT);
+                $inserirMensagem->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
                 $inserirMensagem->execute();
 
                 if ($inserirMensagem->rowCount()) {
@@ -116,13 +118,14 @@ if (($mensagem != "")) {
                 $id_admin = $dados_admin["ID_admin"];
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_aluno_ra_aluno,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
-                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0',:id_usuario,:tipo_usuario,:id_admin)");
+                fk_envio_aluno_ra_aluno,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin,fk_id_escola_contato)
+                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0',:id_usuario,:tipo_usuario,:id_admin,:id_escola)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_admin', $id_admin, PDO::PARAM_INT);
+                $inserirMensagem->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
                 $inserirMensagem->execute();
 
                 if ($inserirMensagem->rowCount()) {
@@ -146,14 +149,14 @@ if (($mensagem != "")) {
                 $id_admin = $dados_admin["ID_admin"];
 
                 $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_responsavel_id_responsavel,
-                fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin)
-                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0',:id_usuario, :tipo_usuario,:id_admin)");
+                fk_envio_responsavel_id_responsavel,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin,fk_id_escola_contato)
+                VALUES (:mensagem, 'Feedback Usuários',  NOW(),'0',:id_usuario, :tipo_usuario,:id_admin,:id_escola)");
 
                 $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
                 $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $inserirMensagem->bindParam(':id_admin', $id_admin, PDO::PARAM_INT);
+                $inserirMensagem->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
                 $inserirMensagem->execute();
 
                 if ($inserirMensagem->rowCount()) {

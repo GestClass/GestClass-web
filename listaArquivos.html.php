@@ -47,7 +47,7 @@
     ?>
 
     <div class="container">
-        <h3 class="center">Lista de Boletos</h4><br>
+        <h3 class="center">Lista de Arquivos</h4><br>
             <div id="boletos">
                 <table class="highlight centered col s12 m12 l12">
                     <thead>
@@ -62,8 +62,8 @@
                         <?php while ($listar = $query_boleto->fetch(PDO::FETCH_ASSOC)) { ?>
                             <tr>
                                 <td><?php echo date('d/m/Y H:i:s', strtotime($listar["data_envio"])); ?></td>
-                                <td>Boleto</td>
-                                <td><a href="emissaoBoleto.html.php?id=<?php echo $listar["ID_envio_boleto"]; ?>">
+                                <td>Arquivo</td>
+                                <td><a href="emissaoArquivos.html.php?id=<?php echo $listar["ID_envio_boleto"]; ?>">
                                     <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Boleto" style="margin-top: 5px;">
                                         <i class="small material-icons center">picture_as_pdf</i></button></a></td>
                             </tr>

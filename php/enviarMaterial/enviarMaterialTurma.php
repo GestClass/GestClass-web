@@ -46,14 +46,15 @@ if (($assunto != "") && ($arquivo != "")) {
                     if (isset($dados["RA"])) {
                         $ra_aluno = $dados["RA"];
 
-                        $query_envio = $conn->prepare("INSERT INTO envio_material_apoio (fk_id_tipo_usuario_envio_material, fk_id_diretor_envio_material, fk_id_aluno_recebimento_material, assunto_material, data_envio, material)
-                        VALUES (:id_tipo_usuario, :id_usuario, :ra_aluno, :assunto, NOW(), :material)");
+                        $query_envio = $conn->prepare("INSERT INTO envio_material_apoio (fk_id_tipo_usuario_envio_material, fk_id_diretor_envio_material, fk_id_aluno_recebimento_material, assunto_material, data_envio, material, fk_id_escola_material)
+                        VALUES (:id_tipo_usuario, :id_usuario, :ra_aluno, :assunto, NOW(), :material, :id_escola)");
 
                         $query_envio->bindParam(':id_tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
                         $query_envio->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                         $query_envio->bindParam(':ra_aluno', $ra_aluno, PDO::PARAM_INT);
                         $query_envio->bindParam(':assunto', $assunto, PDO::PARAM_STR);
                         $query_envio->bindParam(':material', $material, PDO::PARAM_STR);
+                        $query_envio->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
                         $query_envio->execute();
 
                         if ($query_envio->rowCount()) {
@@ -102,8 +103,8 @@ if (($assunto != "") && ($arquivo != "")) {
                     if (isset($dados["RA"])) {
                         $ra_aluno = $dados["RA"];
 
-                        $query_envio = $conn->prepare("INSERT INTO envio_material_apoio (fk_id_disciplina_material,fk_id_tipo_usuario_envio_material, fk_id_professor_envio_material, fk_id_aluno_recebimento_material, assunto_material, data_envio, material)
-                        VALUES (:disciplina,:id_tipo_usuario, :id_usuario, :ra_aluno, :assunto, NOW(), :material)");
+                        $query_envio = $conn->prepare("INSERT INTO envio_material_apoio (fk_id_disciplina_material,fk_id_tipo_usuario_envio_material, fk_id_professor_envio_material, fk_id_aluno_recebimento_material, assunto_material, data_envio, material, fk_id_escola_material)
+                        VALUES (:disciplina,:id_tipo_usuario, :id_usuario, :ra_aluno, :assunto, NOW(), :material, :id_escola)");
 
                         $query_envio->bindParam(':disciplina', $disciplina, PDO::PARAM_INT);
                         $query_envio->bindParam(':id_tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
@@ -111,6 +112,7 @@ if (($assunto != "") && ($arquivo != "")) {
                         $query_envio->bindParam(':ra_aluno', $ra_aluno, PDO::PARAM_INT);
                         $query_envio->bindParam(':assunto', $assunto, PDO::PARAM_STR);
                         $query_envio->bindParam(':material', $material, PDO::PARAM_STR);
+                        $query_envio->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
                         $query_envio->execute();
 
                         if ($query_envio->rowCount()) {
