@@ -42,9 +42,9 @@
     ?>
 
     <section class="escolas">
-        <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) { 
-            $id_escola = $dados["id_escola"]; 
-            ?>
+        <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) {
+            $id_escola = $dados["id_escola"];
+        ?>
             <div class="col s12">
                 <div class="container">
                     <ul class="collection">
@@ -53,35 +53,35 @@
                             <span class="title"><?php echo $dados["nome_escola"] ?></span>
                             <p><?php echo $dados["email"] ?> <br>
                                 <?php echo $dados["cnpj"] ?><br>
-                                <?php 
-                                    if($dados['situacao']){
-                                        echo "Situação: Ativada </br>";
-                                    }else{
-                                        echo "Situação: Desativada <br/>";
-                                    }
-
-
-                                ?>
                                 <?php
-                                if($dados['situacao']){
-                                    ?>
-                                    <form action="php/confirmdesativarEscola.php" method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $id_escola  ?>">
-                                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed left" style="float: left;">
-                                        <i class="material-icons left">delete</i>Desativar Escola 
-                                    </button>
-                                </form>
-                                <?php
-                                }else{
-                                   ?>
-                                    <form action="php/AtivarEscola.php" method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $id_escola; ?>">
-                                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightGreen left" style="float: left;">
-                                        <i class="material-icons left">check</i>Ativar Escola
-                                    </button>
-                                <?php
+                                if ($dados['situacao']) {
+                                    echo "Situação: Ativada </br>";
+                                } else {
+                                    echo "Situação: Desativada <br/>";
                                 }
+
+
                                 ?>
+                                <?php
+                                if ($dados['situacao']) {
+                                ?>
+                                    <form action="php/confirmdesativarEscola.php" method="POST">
+                                        <input type="hidden" name="id" value="<?php echo $id_escola  ?>">
+                                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed left" style="float: left;">
+                                            <i class="material-icons left">delete</i>Desativar Escola
+                                        </button>
+                                    </form>
+                                <?php
+                                } else {
+                                ?>
+                                    <form action="php/AtivarEscola.php" method="POST">
+                                        <input type="hidden" name="id" value="<?php echo $id_escola; ?>">
+                                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightGreen left" style="float: left;">
+                                            <i class="material-icons left">check</i>Ativar Escola
+                                        </button>
+                                    <?php
+                                }
+                                    ?>
                             </p>
                             <?php
 
@@ -90,20 +90,22 @@
                             $query_diretor->execute();
                             $dados_diretor = $query_diretor->fetch(PDO::FETCH_ASSOC);
                             ?>
-                            <?php if ($id_escola == $dados_diretor['fk_id_escola_diretor']) { ?>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola']; ?>" class="secondary-content" title="Dados da Escola"><i class="material-icons blue-icon">visibility</i></a>
+                            <?php if ($query_diretor->rowCount() > 0) {
+                                if ($dados_diretor["fk_id_escola_diretor"] == $id_escola) { ?>
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola']; ?>" class="secondary-content" title="Dados da Escola"><i class="material-icons blue-icon">visibility</i></a>
+                                        </div>
+                                        <div class="col s12">
+                                            <a style="right:50px" class="secondary-content" title="Diretor cadastrado"><i class="material-icons green-icon">done</i></a>
+                                        </div>
+                                        <div class="col s12">
+                                            <a href="php/deletarEscola.php?id_escola=<?php echo $dados['id_escola']; ?>" style="right:80px" class="secondary-content" title="Excluir escola"><i class="material-icons red-icon">delete</i></a>
+                                        </div>
+
                                     </div>
-                                    <div class="col s12">
-                                        <a style="right:50px" class="secondary-content" title="Diretor cadastrado"><i class="material-icons green-icon">done</i></a>
-                                    </div>
-                                    <div class="col s12">
-                                        <a href="php/deletarEscola.php?id_escola=<?php echo $dados['id_escola']; ?>" style="right:80px" class="secondary-content" title="Excluir escola"><i class="material-icons red-icon">delete</i></a>
-                                    </div>
-                                      
-                                </div>
-                            <?php } else { ?>
+                                <?php }
+                            } else { ?>
                                 <div class="row">
                                     <div class="col s12">
                                         <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola']; ?>" class="secondary-content" title="Dados da Escola"><i class="material-icons blue-icon">visibility</i></a>
@@ -132,7 +134,7 @@
                 <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
             </ul>
         </div> -->
-        
+
     </section>
 
 

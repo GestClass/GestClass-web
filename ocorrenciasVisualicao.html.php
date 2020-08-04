@@ -41,12 +41,15 @@
     }
 
     $id_mensagem = $_GET["id"];
-    $nome = $_GET["n"];
     $notificacao = $_GET["notificacao"];
 
-    $query = $conn->prepare("SELECT `ID_mensagem`, `mensagem`, `assunto`, `data_mensagem` FROM `contato` WHERE id_mensagem = $id_mensagem");
+    $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem");
     $query->execute();
     $dados = $query->fetch(PDO::FETCH_ASSOC);
+
+    $query_select_remetente = $conn->prepare("SELECT nome_professor FROM professor WHERE ID_professor = {$dados["fk_envio_professor_id_professor"]} ");
+    $query_select_remetente->execute();
+    $dados_remetente = $query_select_remetente->fetch(PDO::FETCH_ASSOC);
 
     $query_update_notifi = $conn->prepare("UPDATE contato SET notificacao = {$notificacao} WHERE contato.ID_mensagem = {$id_mensagem}");
     $query_update_notifi->execute();
@@ -66,14 +69,18 @@
                     <input name="assunto" id="assunto" value="Professor" readonly type="text">
                     <label id="lbl" for="first_name">Usuário</label>
                 </div>
-                <div class="input-field col s12 m6 l12">
-                    <i class="material-icons prefix blue-icon">perm_identity</i>
-                    <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
-                    <label id="lbl" for="first_name">Rementente</label>
-                </div>
             </div>
             <div class="row">
-                <div class="input-field col s12 m12 l12">
+                <div class="input-field col s12 m5 l5">
+                    <i class="material-icons prefix blue-icon">perm_identity</i>
+                    <?php if ($dados_remetente) { ?>
+                        <input name="assunto" id="assunto" value="<?php echo $dados_remetente["nome_professor"] ?>" readonly type="text">
+                    <?php } else { ?>
+                        <input name="assunto" id="assunto" readonly type="text">
+                    <?php } ?>
+                    <label id="lbl" for="first_name">Rementente</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
                     <i class="material-icons prefix blue-icon">chat_bubble_outline</i>
                     <input name="assunto" id="assunto" value="<?php echo $dados["assunto"] ?>" readonly type="text">
                     <label id="lbl" for="first_name">Assunto</label>

@@ -67,17 +67,11 @@
                 <tbody>
                     <?php while ($mensagens = $query_mensagem->fetch(PDO::FETCH_ASSOC)) {
                         if ($mensagens["fk_id_tipo_usuario_envio"] == 2) {
-                            $dados_diretor = $mensagens["fk_envio_diretor_id_diretor"];
-
-                            $query_diretor = $conn->prepare("SELECT ID_diretor,nome_diretor FROM diretor WHERE ID_diretor = $dados_diretor");
-                            $query_diretor->execute();
 
                             $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
                             $query_notificacao->execute();
                             $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
 
-                            while ($diretor_dados = $query_diretor->fetch(PDO::FETCH_ASSOC)) {
-                                $nome = $diretor_dados["nome_diretor"];
                     ?>
                                 <tr>
                                     <td>
@@ -89,24 +83,16 @@
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Diretor</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
-                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_diretor ?>&u=<?php echo 2 ?>&notificacao=<?php echo $notificacao ?>">
+                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 2 ?>&notificacao=<?php echo $notificacao ?>">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
-                            }
                         } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 3) {
-                            $dados_secretario = $mensagens["fk_envio_secretario_id_secretario"];
-
-                            $query_secretario = $conn->prepare("SELECT ID_secretario,nome_secretario FROM secretario WHERE ID_secretario = $dados_secretario");
-                            $query_secretario->execute();
 
                             $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
                             $query_notificacao->execute();
                             $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
-
-                            while ($secretario_dados = $query_secretario->fetch(PDO::FETCH_ASSOC)) {
-                                $nome = $secretario_dados["nome_secretario"];
 
                             ?>
                                 <tr>
@@ -119,24 +105,16 @@
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Secretario</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
-                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_secretario ?>&u=<?php echo 3 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
+                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 3 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>
                             <?php
-                            }
                         } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 5) {
-                            $dados_aluno = $mensagens["fk_envio_aluno_ra_aluno"];
-
-                            $query_aluno = $conn->prepare("SELECT RA,nome_aluno FROM aluno WHERE RA = $dados_aluno");
-                            $query_aluno->execute();
 
                             $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
                             $query_notificacao->execute();
                             $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
-
-                            while ($aluno_dados = $query_aluno->fetch(PDO::FETCH_ASSOC)) {
-                                $nome = $aluno_dados["nome_aluno"];
 
                             ?>
                                 <tr>
@@ -150,7 +128,7 @@
                                     <td>aluno</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
                                     <td>
-                                        <a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_aluno ?>&u=<?php echo 5 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
+                                        <a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 5 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i>
                                             </button>
@@ -158,7 +136,6 @@
                                     </td>
                                 </tr>
                     <?php
-                            }
                         }
                     } ?>
                 </tbody>

@@ -16,66 +16,80 @@ if (($assunto != "") && ($mensagem != "")) {
         $query_select_alunos = $conn->prepare("SELECT RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = $id_turma");
         $query_select_alunos->execute();
 
-        while ($dados = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
-            if (isset($dados["RA"])) {
+        if ($query_select_alunos->rowCount() > 0) {
 
-                $ra = $dados["RA"];
+            while ($dados = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
 
-                $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_diretor_id_diretor,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno,fk_id_escola_contato)
-                VALUES (:mensagem, :assunto,  NOW(), '0',:id_usuario,:tipo_usuario,:ra,:id_escola)");
+                if (isset($dados["RA"])) {
 
-                $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
-                $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
-                $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
-                $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
-                $inserirMensagem->bindParam(':ra', $ra, PDO::PARAM_INT);
-                $inserirMensagem->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
-                $inserirMensagem->execute();
+                    $ra = $dados["RA"];
 
-                if ($inserirMensagem->rowCount()) {
-                    echo "<script>alert('Mensagem enviada com Sucesso!!');
-                window.location = '../../mensagensDiretor.html.php';</script>";
+                    $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
+                    fk_envio_diretor_id_diretor,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno,fk_id_escola_contato)
+                    VALUES (:mensagem, :assunto,  NOW(), '0',:id_usuario,:tipo_usuario,:ra,:id_escola)");
+
+                    $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
+                    $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
+                    $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
+                    $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                    $inserirMensagem->bindParam(':ra', $ra, PDO::PARAM_INT);
+                    $inserirMensagem->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
+                    $inserirMensagem->execute();
+
+                    if ($inserirMensagem->rowCount()) {
+                        echo "<script>alert('Mensagem enviada com Sucesso!!');
+                        window.location = '../../mensagensDiretor.html.php';</script>";
+                    } else {
+                        echo "<script>alert('Erro ao enviar a mensagem')
+                        history.back();</script>";
+                    }
                 } else {
-                    echo "<script>alert('Erro ao enviar a mensagem')
-            history.back();</script>";
+                    echo "<script>alert('Houve algum erro')
+                    history.back()</script>";
                 }
-            } else {
-                echo "<script>alert('Houve algum erro')</script>";
             }
+        } else {
+            echo "<script>alert('Houve algum erro, não existem alunos nesta turma')
+            history.back()</script>";
         }
     } elseif ($id_tipo_usuario == 3) {
 
         $query_select_alunos = $conn->prepare("SELECT RA FROM aluno WHERE fk_id_escola_aluno = $id_escola AND fk_id_turma_aluno = $id_turma");
         $query_select_alunos->execute();
 
-        while ($dados = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
-            if (isset($dados["RA"])) {
+        if ($query_select_alunos->rowCount() > 0) {
+            while ($dados = $query_select_alunos->fetch(PDO::FETCH_ASSOC)) {
+                if (isset($dados["RA"])) {
 
-                $ra = $dados["RA"];
+                    $ra = $dados["RA"];
 
-                $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
-                fk_envio_secretario_id_secretario,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno,fk_id_escola_contato)
-                VALUES (:mensagem, :assunto,  NOW(),'0', :id_usuario,:tipo_usuario,:ra,:id_escola)");
+                    $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
+                    fk_envio_secretario_id_secretario,fk_id_tipo_usuario_envio, fk_recebimento_aluno_ra_aluno,fk_id_escola_contato)
+                    VALUES (:mensagem, :assunto,  NOW(),'0', :id_usuario,:tipo_usuario,:ra,:id_escola)");
 
-                $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
-                $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
-                $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
-                $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
-                $inserirMensagem->bindParam(':ra', $ra, PDO::PARAM_INT);
-                $inserirMensagem->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
-                $inserirMensagem->execute();
+                    $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
+                    $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
+                    $inserirMensagem->bindParam(':tipo_usuario', $id_tipo_usuario, PDO::PARAM_INT);
+                    $inserirMensagem->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                    $inserirMensagem->bindParam(':ra', $ra, PDO::PARAM_INT);
+                    $inserirMensagem->bindParam(':id_escola', $id_escola, PDO::PARAM_INT);
+                    $inserirMensagem->execute();
 
-                if ($inserirMensagem->rowCount()) {
-                    echo "<script>alert('Mensagem enviada com Sucesso!!');
-    window.location = '../../mensagensSecretaria.html.php';</script>";
+                    if ($inserirMensagem->rowCount()) {
+                        echo "<script>alert('Mensagem enviada com Sucesso!!');
+                        window.location = '../../mensagensSecretaria.html.php';</script>";
+                    } else {
+                        echo "<script>alert('Erro ao enviar a mensagem')
+                        history.back();</script>";
+                    }
                 } else {
-                    echo "<script>alert('Erro ao enviar a mensagem')
-            history.back();</script>";
+                    echo "<script>alert('Houve Algum Erro')
+                    history.back();</script>";
                 }
-            } else {
-                echo "<script>alert('Houve Algum Erro')</script>";
             }
+        } else {
+            echo "<script>alert('Houve algum erro, não existem alunos nesta turma')
+            history.back()</script>";
         }
     } else {
         echo "<script>alert('Usuario sem permissão')
