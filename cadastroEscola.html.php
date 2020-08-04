@@ -36,13 +36,15 @@
     <?php
     include_once 'php/conexao.php';
 
-    $query = $conn->prepare("SELECT id_escola,nome_escola,cnpj,email FROM escola");
+    $query = $conn->prepare("SELECT id_escola,nome_escola,cnpj,email,situacao FROM escola");
     $query->execute();
 
     ?>
 
     <section class="escolas">
-        <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) { ?>
+        <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) { 
+            $id_escola = $dados["id_escola"]; 
+            ?>
             <div class="col s12">
                 <div class="container">
                     <ul class="collection">
@@ -50,7 +52,36 @@
                             <img src="assets/img/atheneu.jpeg" alt="" class="circle">
                             <span class="title"><?php echo $dados["nome_escola"] ?></span>
                             <p><?php echo $dados["email"] ?> <br>
-                                <?php echo $dados["cnpj"] ?>
+                                <?php echo $dados["cnpj"] ?><br>
+                                <?php 
+                                    if($dados['situacao']){
+                                        echo "Situação: Ativada </br>";
+                                    }else{
+                                        echo "Situação: Desativada <br/>";
+                                    }
+
+
+                                ?>
+                                <?php
+                                if($dados['situacao']){
+                                    ?>
+                                    <form action="php/confirmdesativarEscola.php" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $id_escola  ?>">
+                                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed left" style="float: left;">
+                                        <i class="material-icons left">delete</i>Desativar Escola 
+                                    </button>
+                                </form>
+                                <?php
+                                }else{
+                                   ?>
+                                    <form action="php/AtivarEscola.php" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $id_escola; ?>">
+                                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightGreen left" style="float: left;">
+                                        <i class="material-icons left">check</i>Ativar Escola
+                                    </button>
+                                <?php
+                                }
+                                ?>
                             </p>
                             <?php
 
@@ -70,6 +101,7 @@
                                     <div class="col s12">
                                         <a href="php/deletarEscola.php?id_escola=<?php echo $dados['id_escola']; ?>" style="right:80px" class="secondary-content" title="Excluir escola"><i class="material-icons red-icon">delete</i></a>
                                     </div>
+                                      
                                 </div>
                             <?php } else { ?>
                                 <div class="row">
@@ -100,6 +132,7 @@
                 <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
             </ul>
         </div> -->
+        
     </section>
 
 
