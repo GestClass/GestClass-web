@@ -21,9 +21,7 @@
     <?php
     require_once 'reqMenuAdm.php';
 
-    $query_mensagem = $conn->prepare("SELECT *
-    FROM `admin` AS R 
-    JOIN contato AS C ON R.ID_admin = C.fk_recebimento_admin_id_admin and R.ID_admin = {$id_usuario}  ORDER BY data_mensagem DESC");
+    $query_mensagem = $conn->prepare("SELECT * FROM contato WHERE fk_recebimento_admin_id_admin = $id_usuario ORDER BY data_mensagem DESC");
     $query_mensagem->execute();
     $notificacao = 1;
 
@@ -183,6 +181,41 @@
                             <?php
                             }
                         } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 5) {
+                            $dados_aluno = $mensagens["fk_envio_aluno_ra_aluno"];
+
+                            $query_aluno = $conn->prepare("SELECT RA,nome_aluno,fk_id_escola_aluno FROM aluno WHERE RA = $dados_aluno");
+                            $query_aluno->execute();
+
+                            $query_notificacao = $conn->prepare("SELECT id_mensagem,notificacao FROM contato where id_mensagem = {$mensagens["ID_mensagem"]}");
+                            $query_notificacao->execute();
+                            $notifi = $query_notificacao->fetch(PDO::FETCH_ASSOC);
+
+                            while ($aluno_dados = $query_aluno->fetch(PDO::FETCH_ASSOC)) {
+                                $id_escola = $aluno_dados["fk_id_escola_aluno"];
+
+                                $query_id_escola = $conn->prepare("SELECT ID_escola,nome_escola FROM escola WHERE ID_escola = $id_escola");
+                                $query_id_escola->execute();
+
+                                while ($dados_escola  = $query_id_escola->fetch(PDO::FETCH_ASSOC)) {
+                                    $nome_escola = $dados_escola["nome_escola"];
+                                }
+                            ?>
+                                <tr>
+                                    <td>
+                                        <?php if ($notifi["notificacao"] == 0) { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only">mark_email_unread</i>
+                                        <?php } else { ?>
+                                            <i class="small left material-icons blue-icon hide-on-small-only" style="color: grey;">mark_email_read</i>
+                                        <?php } ?>
+                                        <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
+                                    <td>Aluno</td>
+                                    <td><?php echo $mensagens["assunto"] ?></td>
+                                    <td><a href="adminMensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome_escola ?>&i=<?php echo $dados_aluno ?>&u=<?php echo 5 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnAdmin tooltipped" data-tooltip="Ver Mensagem">
+                                                <i class="small material-icons center">email</i></button></a></td>
+                                </tr>
+                            <?php
+                            }
                         } elseif ($mensagens["fk_id_tipo_usuario_envio"] == 7) {
 
                             $query_select_solicitante = $conn->prepare("SELECT nome FROM contato WHERE fk_id_tipo_usuario_envio = 7");
