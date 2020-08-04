@@ -616,7 +616,7 @@ $nome_dir = $nome[0];
             <li><a href="listaDisciplinas.html.php"><i class="material-icons">content_paste</i>Lista de Disciplinas</a></li>
             <li><a href="#modalMaterialApoio" class="modal-trigger"><i class="material-icons">picture_as_pdf</i>Enviar Material de Apoio</a></li>
             <li><a href="#modalMensalidades" class="modal-trigger"><i class="material-icons">description</i>Enviar Arquivos Responsáveis</a>
-            <li><a href="graficoRendimentoDiretor.php"><i class="material-icons">trending_up</i>Rendimento Escolar</a>
+            <li><a href="#modalTurmas" class="modal-trigger"><i class="material-icons">trending_up</i>Rendimento Disciplinar</a>
 
             </li>
             <li><a href="calendario.html.php"><i class="material-icons">event</i>Calendario Escolar</a></li>
