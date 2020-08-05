@@ -61,7 +61,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $query_materias = $conn->prepare("SELECT disciplina.nome_disciplina AS nome_disciplina, dia_semana.nome_dia AS dia_semana, aula_escola.aula_start AS horario_inicio, aula_escola.aula_end AS horario_termino, turma.nome_turma  FROM grade_curricular LEFT JOIN disciplina ON (grade_curricular.fk_id_disciplina_grade_curricular = disciplina.ID_disciplina) INNER JOIN dia_semana ON (grade_curricular.fk_id_dia_semana_grade_curricular = dia_semana.ID_dia_semana) INNER JOIN  aula_escola ON (grade_curricular.fk_id_aula_escola_grade_curricular = aula_escola.ID_aula_escola) LEFT JOIN turma ON (grade_curricular.fk_id_turma_grade_curricular = turma.ID_turma) WHERE grade_curricular.fk_id_turma_grade_curricular = $id_turma_professor ");
+                    $query_materias = $conn->prepare("SELECT disciplina.nome_disciplina AS nome_disciplina, dia_semana.nome_dia AS dia_semana, aula_escola.aula_start AS horario_inicio, aula_escola.aula_end AS horario_termino, turma.nome_turma  FROM grade_curricular LEFT JOIN disciplina ON (grade_curricular.fk_id_disciplina_grade_curricular = disciplina.ID_disciplina) INNER JOIN dia_semana ON (grade_curricular.fk_id_dia_semana_grade_curricular = dia_semana.ID_dia_semana) INNER JOIN  aula_escola ON (grade_curricular.fk_id_aula_escola_grade_curricular = aula_escola.ID_aula_escola) LEFT JOIN turma ON (grade_curricular.fk_id_turma_grade_curricular = turma.ID_turma) WHERE grade_curricular.fk_id_turma_grade_curricular = $id_turma_professor AND aula_escola.ID_aula_escola != 4");
                     $query_materias->execute();
 
                     if ($query_materias->rowCount()) {
