@@ -13,22 +13,6 @@
   }
   else if($email != "" || $senha != ""){
 
-    $query = $conn->prepare("select email,senha,ID_diretor,fk_id_tipo_usuario_diretor,fk_id_escola_diretor from diretor where email=:email and senha=:senha");
-
-    $query->bindValue(":email",$email);
-    $query->bindValue(":senha",md5($senha));
-    $query->execute();
-    $dados = $query->fetch(PDO::FETCH_ASSOC);
-
-    if($query->rowCount()>0){
-      echo "<script>alert('Diretor logado com sucesso :)');
-            window.location = '../homeDiretor.html.php'
-            </script>";
-      $_SESSION["id_usuario"] = $dados["ID_diretor"];
-      $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_diretor"];
-      $_SESSION["id_escola"] = $dados["fk_id_escola_diretor"];
-    }
-    else{
       $query = $conn->prepare("select email,senha, ID_secretario, fk_id_tipo_usuario_secretario, fk_id_escola_secretario from secretario where email=:email and senha=:senha");
       $query->bindValue(":email",$email);
       $query->bindValue(":senha",md5($senha));
