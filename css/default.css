@@ -501,6 +501,36 @@ body {
 }
 
 
+/*Mensagem de alerta escola desativada */
+
+.avisoEscolaContainer {
+    margin-top: 30%;
+    border-radius: 10px;
+}
+
+.mensagem {
+    margin-top: 20px;
+}
+
+.btnDarkAviso {
+    text-transform: inherit;
+    border: 0.5px solid #212121;
+    color: #212121;
+    margin-top: 50px;
+    width: 100px;
+}
+
+.btnDarkAviso:hover {
+    background-color: #111;
+    color: white;
+}
+
+.img {
+    width: 50px;
+    margin-left: 42%;
+}
+
+
 /* default */
 
 
