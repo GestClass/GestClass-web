@@ -13,7 +13,9 @@ if (($assunto != "") && ($mensagem != "")) {
     $select_id_diretor->execute();
 
     while ($dados_diretor = $select_id_diretor->fetch(PDO::FETCH_ASSOC)) {
+
         if (isset($dados_diretor["ID_diretor"])) {
+
             $id_diretor = $dados_diretor["ID_diretor"];
 
             $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao,  
@@ -29,10 +31,10 @@ if (($assunto != "") && ($mensagem != "")) {
 
             if ($inserirMensagem->rowCount()) {
                 echo "<script>alert('Mensagem enviada com Sucesso!!');
-            window.location = '../../feedbackEscolas.html.php';</script>";
+                window.location = '../../feedbackEscolas.html.php';</script>";
             } else {
                 echo "<script>alert('Erro ao enviar a mensagem')
-            history.back();</script>";
+                history.back();</script>";
             }
         }else {
             echo "<script>alert('Houve algum erro')

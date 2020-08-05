@@ -124,6 +124,7 @@
             <ul>
                 <li><a href="#modalCadastroTurmas" class="modal-trigger btn-floating light-blue darken-4 tooltipped" data-position="left" data-tooltip="Nova Turma"><i class="material-icons">book</i></a></li>
                 <li><a href="#modalCadastroDisciplinas" class="modal-trigger btn-floating light-blue darken-2 tooltipped" data-position="left" data-tooltip="Nova Disciplina"><i class="material-icons">import_contacts</i></a></li>
+                <li><a href="listaProfessores.html.php" class="modal-trigger btn-floating indigo darken-4 tooltipped" data-position="left" data-tooltip="Desatribuir professor de turma"><i class="material-icons">person_remove</i></a></li>
             </ul>
         </div>
     </section>

@@ -22,22 +22,21 @@
     require_once 'reqMenuAdm.php';
 
     $id_mensagem = $_GET["id"];
-    $nome = $_GET["n"];
     $usuario_tipo = $_GET["u"];
-    $id_envio = $_GET["i"];
     $notificacao = $_GET["notificacao"];
 
-    $query = $conn->prepare("SELECT `ID_mensagem`, `mensagem`, `assunto`, `data_mensagem` FROM `contato` WHERE id_mensagem = $id_mensagem");
-    $query->execute();
-    $dados = $query->fetch(PDO::FETCH_ASSOC);
-
-    $query_update_notifi = $conn->prepare("UPDATE contato SET notificacao = {$notificacao} WHERE contato.ID_mensagem = {$id_mensagem}");
+    $query_update_notifi = $conn->prepare("UPDATE contato SET notificacao = $notificacao WHERE contato.ID_mensagem = $id_mensagem");
     $query_update_notifi->execute();
 
     ?>
 
 
-    <?php if ($usuario_tipo == 1) { ?>
+    <?php if ($usuario_tipo == 1) {
+        $nome = $_GET["n"];
+        $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem AND fk_id_tipo_usuario_envio = 1");
+        $query->execute();
+        $dados = $query->fetch(PDO::FETCH_ASSOC);
+    ?>
         <div class="container"><br><br>
             <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
@@ -78,7 +77,12 @@
             </div>
         </div>
     <?php
-    } elseif ($usuario_tipo == 2) { ?>
+    } elseif ($usuario_tipo == 2) { 
+        $nome_escola = $_GET["n"];
+        $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem AND fk_id_tipo_usuario_envio = 2");
+        $query->execute();
+        $dados = $query->fetch(PDO::FETCH_ASSOC);
+        ?>
         <div class="container"><br><br>
             <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
@@ -95,7 +99,7 @@
                     </div>
                     <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">account_balance</i>
-                        <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
+                        <input name="assunto" id="assunto" value="<?php echo $nome_escola ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
                     <div class="row">
@@ -118,7 +122,12 @@
             </div>
         </div>
     <?php
-    } elseif ($usuario_tipo == 3) { ?>
+    } elseif ($usuario_tipo == 3) { 
+        $nome_escola = $_GET["n"];
+        $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem AND fk_id_tipo_usuario_envio = 3");
+        $query->execute();
+        $dados = $query->fetch(PDO::FETCH_ASSOC);
+        ?>
         <div class="container"><br><br>
             <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
@@ -135,7 +144,7 @@
                     </div>
                     <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">account_balance</i>
-                        <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
+                        <input name="assunto" id="assunto" value="<?php echo $nome_escola ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
                 </div>
@@ -159,7 +168,12 @@
             </div>
         </div>
     <?php
-    } elseif ($usuario_tipo == 4) { ?>
+    } elseif ($usuario_tipo == 4) { 
+        $nome_escola = $_GET["n"];
+        $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem");
+        $query->execute();
+        $dados = $query->fetch(PDO::FETCH_ASSOC);
+        ?>
         <div class="container"><br><br>
             <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
@@ -176,7 +190,7 @@
                     </div>
                     <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">account_balance</i>
-                        <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
+                        <input name="assunto" id="assunto" value="<?php echo $nome_escola ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
                 </div>
@@ -255,7 +269,12 @@
             </div>
         <?php
         }
-    } elseif ($usuario_tipo == 6) { ?>
+    } elseif ($usuario_tipo == 6) { 
+        $nome_escola = $_GET["n"];
+        $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem");
+        $query->execute();
+        $dados = $query->fetch(PDO::FETCH_ASSOC);
+        ?>
         <div class="container"><br><br>
             <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
@@ -272,7 +291,7 @@
                     </div>
                     <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">account_balance</i>
-                        <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
+                        <input name="assunto" id="assunto" value="<?php echo $nome_escola?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
                 </div>
@@ -296,7 +315,12 @@
             </div>
         </div>
     <?php
-    } else { ?>
+    } else { 
+        $nome_escola = $_GET["n"];
+        $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem");
+        $query->execute();
+        $dados = $query->fetch(PDO::FETCH_ASSOC);
+        ?>
         <div class="container"><br><br>
             <h4 class="center">Mensagem</h4><br><br>
             <form action="" method="POST">
@@ -313,7 +337,7 @@
                     </div>
                     <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix blue-icon">account_balance</i>
-                        <input name="assunto" id="assunto" value="<?php echo $nome ?>" readonly type="text">
+                        <input name="assunto" id="assunto" value="<?php echo $nome_escola ?>" readonly type="text">
                         <label id="lbl_admin" for="first_name">Escola</label>
                     </div>
                 </div>
