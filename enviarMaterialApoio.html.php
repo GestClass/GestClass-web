@@ -41,7 +41,7 @@
     }
 
     $ra_aluno = $_GET["ra"];
-    $nome_aluno = $_GET["n"];
+    $nome_aluno = $_GET["nome"];
 
     if ($id_tipo_usuario == 2) {
     ?>

@@ -83,7 +83,7 @@
                                     <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                 <td>Diretor</td>
                                 <td><?php echo $mensagens["assunto"] ?></td>
-                                <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 2 ?>&notificacao=<?php echo $notificacao ?>">
+                                <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&usuario=<?php echo 2 ?>&notificacao=<?php echo $notificacao ?>">
                                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem" style="margin-top: 5px;">
                                             <i class="small material-icons center">email</i></button></a></td>
                             </tr>
@@ -105,7 +105,7 @@
                                     <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                 <td>Secretario</td>
                                 <td><?php echo $mensagens["assunto"] ?></td>
-                                <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 3 ?>&notificacao=<?php echo $notificacao ?>">
+                                <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&usuario=<?php echo 3 ?>&notificacao=<?php echo $notificacao ?>">
                                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem" style="margin-top: 5px;">
                                             <i class="small material-icons center">email</i></button></a></td>
                             </tr>
@@ -127,7 +127,7 @@
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>Professor</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
-                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 4 ?>&notificacao=<?php echo $notificacao ?>">
+                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&usuario=<?php echo 4 ?>&notificacao=<?php echo $notificacao ?>">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem" style="margin-top: 5px;">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                 </tr>

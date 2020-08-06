@@ -91,7 +91,7 @@
                             </td>
 
                             <td>
-                                <a href="enviarMaterialApoio.html.php?ra=<?php echo $alunos['RA'] ?>&n=<?php echo $alunos['nome_aluno'];?>"><?php echo $alunos['nome_aluno']; ?></a>
+                                <a href="enviarMaterialApoio.html.php?ra=<?php echo $alunos['RA'] ?>&nome=<?php echo $alunos['nome_aluno'];?>"><?php echo $alunos['nome_aluno']; ?></a>
                             </td>
 
                             <td>

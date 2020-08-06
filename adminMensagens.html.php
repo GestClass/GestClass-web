@@ -22,7 +22,7 @@
     require_once 'reqMenuAdm.php';
 
     $id_mensagem = $_GET["id"];
-    $usuario_tipo = $_GET["u"];
+    $usuario_tipo = $_GET["usuario"];
     $notificacao = $_GET["notificacao"];
 
     $query_update_notifi = $conn->prepare("UPDATE contato SET notificacao = $notificacao WHERE contato.ID_mensagem = $id_mensagem");
@@ -32,7 +32,6 @@
 
 
     <?php if ($usuario_tipo == 1) {
-        $nome = $_GET["n"];
         $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem AND fk_id_tipo_usuario_envio = 1");
         $query->execute();
         $dados = $query->fetch(PDO::FETCH_ASSOC);
@@ -78,7 +77,7 @@
         </div>
     <?php
     } elseif ($usuario_tipo == 2) { 
-        $nome_escola = $_GET["n"];
+        $nome_escola = $_GET["escola"];
         $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem AND fk_id_tipo_usuario_envio = 2");
         $query->execute();
         $dados = $query->fetch(PDO::FETCH_ASSOC);
@@ -123,7 +122,7 @@
         </div>
     <?php
     } elseif ($usuario_tipo == 3) { 
-        $nome_escola = $_GET["n"];
+        $nome_escola = $_GET["escola"];
         $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem AND fk_id_tipo_usuario_envio = 3");
         $query->execute();
         $dados = $query->fetch(PDO::FETCH_ASSOC);
@@ -169,7 +168,7 @@
         </div>
     <?php
     } elseif ($usuario_tipo == 4) { 
-        $nome_escola = $_GET["n"];
+        $nome_escola = $_GET["escola"];
         $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem");
         $query->execute();
         $dados = $query->fetch(PDO::FETCH_ASSOC);
@@ -219,7 +218,6 @@
         $query_solicitante->execute();
 
         while ($dados_solicitante = $query_solicitante->fetch(PDO::FETCH_ASSOC)) {
-
         ?>
             <div class="container"><br><br>
                 <h4 class="center">Mensagem</h4><br><br>
@@ -270,7 +268,7 @@
         <?php
         }
     } elseif ($usuario_tipo == 6) { 
-        $nome_escola = $_GET["n"];
+        $nome_escola = $_GET["escola"];
         $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem");
         $query->execute();
         $dados = $query->fetch(PDO::FETCH_ASSOC);
@@ -316,7 +314,7 @@
         </div>
     <?php
     } else { 
-        $nome_escola = $_GET["n"];
+        $nome_escola = $_GET["escola"];
         $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem");
         $query->execute();
         $dados = $query->fetch(PDO::FETCH_ASSOC);

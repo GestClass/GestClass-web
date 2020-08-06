@@ -41,7 +41,7 @@
     }
 
     $id_responsavel = $_GET["id"];
-    $nome_aluno = $_GET["n"];
+    $nome_aluno = $_GET["nome"];
 
     $query = $conn->prepare("SELECT nome_responsavel FROM responsavel WHERE ID_responsavel = $id_responsavel AND fk_id_escola_responsavel = $id_escola");
     $query->execute();

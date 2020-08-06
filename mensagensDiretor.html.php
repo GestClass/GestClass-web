@@ -92,7 +92,7 @@
                                         <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                     <td>GestClass</td>
                                     <td><?php echo $mensagens["assunto"] ?></td>
-                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_admin ?>&u=<?php echo 1 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
+                                    <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&nome=<?php echo $nome ?>&dados=<?php echo $dados_admin ?>&usuario=<?php echo 1 ?>&notificacao=<?php echo $notificacao ?>" class="modal-trigger">
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                                 <!-- ARQUIVAR EM DESENVOLVIMENTO -->
@@ -123,7 +123,7 @@
                                     <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                 <td>Secretario</td>
                                 <td><?php echo $mensagens["assunto"] ?></td>
-                                <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 3 ?>&notificacao=<?php echo $notificacao ?>">
+                                <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&usuario=<?php echo 3 ?>&notificacao=<?php echo $notificacao ?>">
                                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
                                             <i class="small material-icons center">email</i></button></a></td>
                             </tr>
@@ -145,7 +145,7 @@
                                     <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                 <td>Professor</td>
                                 <td><?php echo $mensagens["assunto"] ?></td>
-                                <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 4 ?>&notificacao=<?php echo $notificacao ?>">
+                                <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&usuario=<?php echo 4 ?>&notificacao=<?php echo $notificacao ?>">
                                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
                                             <i class="small material-icons center">email</i></button></a></td>
                             </tr>
@@ -167,7 +167,7 @@
                                     <?php echo date('d/m/Y H:i:s', strtotime($mensagens["data_mensagem"])); ?></td>
                                 <td>Responsável</td>
                                 <td><?php echo $mensagens["assunto"] ?></td>
-                                <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 6 ?>&notificacao=<?php echo $notificacao ?>">
+                                <td><a href="mensagens.html.php?id=<?php echo $mensagens["ID_mensagem"] ?>&usuario=<?php echo 6 ?>&notificacao=<?php echo $notificacao ?>">
                                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
                                             <i class="small material-icons center">email</i></button></a></td>
                             </tr>

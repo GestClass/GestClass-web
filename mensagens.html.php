@@ -41,7 +41,7 @@
     }
 
     $id_mensagem = $_GET["id"];
-    $usuario_tipo = $_GET["u"];
+    $usuario_tipo = $_GET["usuario"];
     $notificacao = $_GET["notificacao"];
 
     $query_update_notifi = $conn->prepare("UPDATE contato SET notificacao = $notificacao WHERE contato.ID_mensagem = $id_mensagem");
@@ -51,8 +51,8 @@
 
     <?php if ($id_tipo_usuario == 2) { ?>
         <?php if ($usuario_tipo == 1) {
-            $nome = $_GET["n"];
-            $id_admin = $_GET["i"];
+            $nome = $_GET["nome"];
+            $id_admin = $_GET["dados"];
 
             $query = $conn->prepare("SELECT * FROM contato WHERE id_mensagem = $id_mensagem");
             $query->execute();
