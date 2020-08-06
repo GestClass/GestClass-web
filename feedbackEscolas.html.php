@@ -234,6 +234,11 @@
             </table>
         </div>
     </div>
+                
+    <div class="center-align">
+        <hr class="arquivar">Arquivadas(0)</hr>
+    </div>
+
 
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large indigo darken-4">

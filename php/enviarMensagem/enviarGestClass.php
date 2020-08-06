@@ -19,7 +19,7 @@ if (($mensagem != "") && ($assunto != "")) {
 
             $inserirMensagem = $conn->prepare("INSERT INTO contato (mensagem, assunto, data_mensagem,notificacao, 
             fk_envio_diretor_id_diretor,fk_id_tipo_usuario_envio,fk_recebimento_admin_id_admin,fk_id_escola_contato)
-            VALUES (:mensagem, :assunto,  NOW(), '0',:id_usuario,:tipo_usuario :id_admin,:id_escola)");
+            VALUES (:mensagem, :assunto,  NOW(), '0',:id_usuario,:tipo_usuario,:id_admin,:id_escola)");
 
             $inserirMensagem->bindParam(':mensagem', $mensagem, PDO::PARAM_STR);
             $inserirMensagem->bindParam(':assunto', $assunto, PDO::PARAM_STR);
@@ -33,6 +33,7 @@ if (($mensagem != "") && ($assunto != "")) {
                 echo "<script>alert('Mensagem enviada com Sucesso!!');
             window.location = '../../homeDiretor.html.php';</script>";
             } else {
+                // print_r($inserirMensagem);
                 echo "<script>alert('Erro ao enviar a mensagem')
             window.location = '../../homeDiretor.html.php'</script>";
             }
