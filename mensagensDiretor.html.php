@@ -96,9 +96,12 @@
                                             <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
                                                 <i class="small material-icons center">email</i></button></a></td>
                                                 <!-- ARQUIVAR EM DESENVOLVIMENTO -->
-                                    <td><a href="arquivarMensagens.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 6 ?>&notificacao=<?php echo $arquivar ?>">
+                                    <!-- <td><a href="php/enviarMensagem/arquivarMensagens.php?id=<?php echo $mensagens["ID_mensagem"] ?>&u=<?php echo 6 ?>&arquivar=<?php echo $arquivar ?>">
                                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
-                                        <i class="small material-icons center">move_to_inbox</i></button></a></td>
+                                        <i class="small material-icons center">move_to_inbox</i></button></a></td> -->
+                                        <td><a href="php/enviarMensagem/arquivarMensagens.php?id=<?php echo $mensagens["ID_mensagem"] ?>&n=<?php echo $nome ?>&i=<?php echo $dados_admin ?>&u=<?php echo 1 ?>&notificacao=<?php echo $arquivar ?>" class="modal-trigger">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightBlue tooltipped" data-tooltip="Ver Mensagem">
+                                            <i class="small material-icons center">move_to_inbox</i></button></a></td>
                                 </tr>
                             <?php
                             }
