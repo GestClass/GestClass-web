@@ -7,8 +7,7 @@
 
   if($senha == "" || $email == "") {
     echo "<script>alert('Prencha os campos, por favor');
-    history.back();
-    </script>";
+    history.back();</script>";
     // exit();
   }
   else if($email != "" || $senha != ""){
@@ -29,16 +28,14 @@
     if($query->rowCount()>0){
         if($dados_escola['situacao']){
         echo "<script>alert('Diretor logado com sucessoo :)');
-              window.location = '../homeDiretor.html.php'
-              </script>";
+        window.location = '../homeDiretor.html.php'</script>";
+
         $_SESSION["id_usuario"] = $dados["ID_diretor"];
         $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_diretor"];
         $_SESSION["id_escola"] = $dados["fk_id_escola_diretor"];
+
         }else if ($dados_escola['situacao'] == false){
-        echo "<script>
-          window.location = '../escolaDesativadaMensagem.html.php'
-        </script>
-        ";
+        echo "<script>window.location = '../escolaDesativadaMensagem.html.php'</script>";
       }
   }else{
       $query = $conn->prepare("select email,senha, ID_secretario, fk_id_tipo_usuario_secretario, fk_id_escola_secretario from secretario where email=:email and senha=:senha");
@@ -56,16 +53,14 @@
       if($query->rowCount()>0){
           if($dados_escola['situacao']){
           echo "<script>alert('Secretario logado com sucessoo :)');
-                window.location = '../homeSecretaria.html.php'
-                </script>";
+          window.location = '../homeSecretaria.html.php'</script>";
+
           $_SESSION["id_usuario"] = $dados["ID_secretario"];
-          $_SESSION["id_tipo_usuario"] = $dados[" fk_id_tipo_usuario_secretario"];
+          $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_secretario"];
           $_SESSION["id_escola"] = $dados["fk_id_escola_secretario"];
+
           }else if ($dados_escola['situacao'] == false){
-          echo "<script>
-            window.location = '../escolaDesativadaMensagem.html.php'
-          </script>
-          ";
+          echo "<script>window.location = '../escolaDesativadaMensagem.html.php'</script>";
           }
         }else {
           $query = $conn->prepare("select email,senha, ID_professor,fk_id_tipo_usuario_professor, fk_id_escola_professor from professor where email=:email and senha=:senha");
@@ -83,16 +78,14 @@
           if($query->rowCount()>0){
             if($dados_escola['situacao']){
               echo "<script>alert('Professor logado com sucesso :)');
-                    window.location = '../homeProfessor.html.php'
-                    </script>";
+              window.location = '../homeProfessor.html.php'</script>";
+
               $_SESSION["id_usuario"] = $dados["ID_professor"];
               $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_professor"];
               $_SESSION["id_escola"] = $dados["fk_id_escola_professor"];
+
           }else if ($dados_escola['situacao'] == false){
-            echo "<script>
-              window.location = '../escolaDesativadaMensagem.html.php'
-            </script>
-            ";
+            echo "<script>window.location = '../escolaDesativadaMensagem.html.php'</script>";
           }
         }
         else {
@@ -112,16 +105,14 @@
           if($query->rowCount()>0){
             if($dados_escola['situacao']){
             echo "<script>alert('Aluno logado com sucesso :)');
-                  window.location = '../homeAluno.html.php'
-                  </script>";
+            window.location = '../homeAluno.html.php'</script>";
+
             $_SESSION["id_usuario"] = $dados["RA"];
             $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_aluno"];
             $_SESSION["id_escola"] = $dados["fk_id_escola_aluno"];
+
           }else if ($dados_escola['situacao'] == false){
-            echo "<script>
-              window.location = '../escolaDesativadaMensagem.html.php'
-            </script>
-            ";
+            echo "<script>window.location = '../escolaDesativadaMensagem.html.php'</script>";
           }
         }else{
               $query = $conn->prepare("select email,senha, ID_responsavel, fk_id_tipo_usuario_responsavel, fk_id_escola_responsavel from responsavel where email=:email and senha=:senha");
@@ -139,16 +130,14 @@
               if($query->rowCount()>0){
                 if($dados_escola['situacao']){
                 echo "<script>alert('Responsável logado com sucesso :)');
-                      window.location = '../homePais.html.php'
-                      </script>";
+                window.location = '../homePais.html.php'</script>";
+
                 $_SESSION["id_usuario"] = $dados["ID_responsavel"];
                 $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_responsavel"];
                 $_SESSION["id_escola"] = $dados["fk_id_escola_responsavel"];
+
               }else if ($dados_escola['situacao'] == false){
-                echo "<script>
-                  window.location = '../escolaDesativadaMensagem.html.php'
-                </script>
-                ";
+                echo "<script>window.location = '../escolaDesativadaMensagem.html.php'</script>";
               }
               }else {
                 $query = $conn->prepare("select email,senha, ID_admin, fk_id_tipo_usuario_admin from admin where email=:email and senha=:senha");
@@ -159,14 +148,14 @@
 
                 if($query->rowCount()>0){
                   echo "<script>alert('Admin logado com sucesso :)');
-                        window.location = '../homeAdmGest.html.php'
-                        </script>";
+                  window.location = '../homeAdmGest.html.php'</script>";
+
                   $_SESSION["id_usuario"] = $dados["ID_admin"];
                   $_SESSION["id_tipo_usuario"] = $dados["fk_id_tipo_usuario_admin"];
+
                 }else if (($dados["email"] == $email) || ($dados["senha"] != $senha)) {
                   echo "<script>alert('Email ou senha está incorreto');
-                  history.back();
-                  </script>";
+                  history.back();</script>";
                   exit();
               }
             }
@@ -175,7 +164,3 @@
       }
     }
   }
-
-
-
-?>
