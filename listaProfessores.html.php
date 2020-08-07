@@ -56,15 +56,13 @@
                         while ($professor = $query_listagem->fetch(PDO::FETCH_ASSOC)) {
 
                             $id = $professor['ID_professor'];
-                            $query_turmas_professor = $conn->prepare("SELECT * FROM turmas_professor WHERE fk_id_professor_turmas_professor = $id ");
-                            $query_turmas_professor->execute();
-                            $turmas_professor = $query_turmas_professor->fetch(PDO::FETCH_ASSOC)
+                            
                     ?>
                             <tr>
 
 
                                 <td>
-                                    <a href="retirarDisciplinas.html.php?id=<?php echo $turmas_professor['fk_id_professor_turmas_professor'] ?>&turma=<?php echo $turmas_professor['fk_id_turma_professor_turmas_professor'] ?> "><?php echo $professor['nome_professor']; ?></a>
+                                    <a href="retirarDisciplinas.html.php?id=<?php echo $id ?>"><?php echo $professor['nome_professor']; ?></a>
                                 </td>
 
                                 <td>
