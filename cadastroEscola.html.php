@@ -42,16 +42,9 @@
     ?>
 
     <section class="escolas">
-<<<<<<< Updated upstream
         <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) {
             $id_escola = $dados["id_escola"];
         ?>
-=======
-        <?php while ($dados = $query->fetch(PDO::FETCH_ASSOC)) { 
-            $id_escola = $dados["id_escola"];
-            $situacao = $dados['situacao'];
-            ?>
->>>>>>> Stashed changes
             <div class="col s12">
                 <div class="container">
                     <ul class="collection">
@@ -60,15 +53,12 @@
                             <span class="title"><?php echo $dados["nome_escola"] ?></span>
                             <p><?php echo $dados["email"] ?> <br>
                                 <?php echo $dados["cnpj"] ?><br>
-<<<<<<< Updated upstream
                                 <?php
                                 if ($dados['situacao']) {
                                     echo "Situação: Ativada </br>";
                                 } else {
                                     echo "Situação: Desativada <br/>";
                                 }
-
-
                                 ?>
                                 <?php
                                 if ($dados['situacao']) {
@@ -91,21 +81,9 @@
                                 }
                                     ?>
                             </p>
-=======
-                                <?php 
-                                    if($situacao){
-                                        echo "Situação: Ativada </br>";
-                                    }else{
-                                        echo "Situação: Desativada <br/>";
-                                    }
-
-
-                                ?>
-                              
->>>>>>> Stashed changes
                             <?php
 
-                            
+
                             $query_diretor = $conn->prepare("SELECT fk_id_escola_diretor FROM diretor WHERE fk_id_escola_diretor = $id_escola");
                             $query_diretor->execute();
                             $dados_diretor = $query_diretor->fetch(PDO::FETCH_ASSOC);
@@ -124,15 +102,8 @@
                                         </div>
 
                                     </div>
-<<<<<<< Updated upstream
                                 <?php }
                             } else { ?>
-=======
-                                 
-                    
-                                </div>
-                            <?php } else { ?>
->>>>>>> Stashed changes
                                 <div class="row">
                                     <div class="col s12">
                                         <a href="dadosEscola.html.php?id_escola=<?php echo $dados['id_escola']; ?>" class="secondary-content" title="Dados da Escola"><i class="material-icons blue-icon">visibility</i></a>
@@ -144,25 +115,25 @@
                                         <a href="php/deletarEscola.php?id_escola=<?php echo $dados['id_escola']; ?>" style="right:80px" class="secondary-content" title="Excluir escola"><i class="material-icons red-icon">delete</i></a>
                                     </div>
                                     <?php
-                                if($situacao){
+                                    if ($situacao) {
                                     ?>
-                                    <form action="php/confirmdesativarEscola.php" method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $id_escola  ?>">
-                                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed center" style="float: center;">
-                                        <i class="material-icons left">delete</i>Desativar Escola 
-                                    </button>
-                                </form>
-                                <?php
-                                }else{
-                                   ?>
-                                    <form action="php/AtivarEscola.php" method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $id_escola; ?>">
-                                    <button id="btnTableChamada" type="submit" class="btn-flat btnLightGreen center" style="float: center;">
-                                        <i class="material-icons left">check</i>Ativar Escola
-                                    </button>
-                                <?php
-                                }
-                                ?>
+                                        <form action="php/confirmdesativarEscola.php" method="POST">
+                                            <input type="hidden" name="id" value="<?php echo $id_escola  ?>">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed center" style="float: center;">
+                                                <i class="material-icons left">delete</i>Desativar Escola
+                                            </button>
+                                        </form>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <form action="php/AtivarEscola.php" method="POST">
+                                            <input type="hidden" name="id" value="<?php echo $id_escola; ?>">
+                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightGreen center" style="float: center;">
+                                                <i class="material-icons left">check</i>Ativar Escola
+                                            </button>
+                                        <?php
+                                    }
+                                        ?>
                                 </div>
                             <?php } ?>
                         </li>
