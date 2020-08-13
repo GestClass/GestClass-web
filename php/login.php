@@ -43,13 +43,15 @@ if ($senha == "" || $email == "") {
     $query->execute();
     $dados = $query->fetch(PDO::FETCH_ASSOC);
 
-    $escola_secretario = $dados["fk_id_escola_secretario"];
-
-    $query_escola = $conn->prepare("select ID_escola, situacao from escola where ID_escola = $escola_secretario");
-    $query_escola->execute();
-    $dados_escola = $query_escola->fetch(PDO::FETCH_ASSOC);
 
     if ($query->rowCount() > 0) {
+
+      $escola_secretario = $dados["fk_id_escola_secretario"];
+
+      $query_escola = $conn->prepare("select ID_escola, situacao from escola where ID_escola = $escola_secretario");
+      $query_escola->execute();
+      $dados_escola = $query_escola->fetch(PDO::FETCH_ASSOC);
+
       if ($dados_escola['situacao']) {
         echo "<script>alert('Secretario logado com sucessoo :)');
           window.location = '../homeSecretaria.html.php'</script>";
@@ -67,13 +69,15 @@ if ($senha == "" || $email == "") {
       $query->execute();
       $dados = $query->fetch(PDO::FETCH_ASSOC);
 
-      $escola_professor = $dados["fk_id_escola_professor"];
-
-      $query_escola = $conn->prepare("select ID_escola, situacao from escola where ID_escola = $escola_secretario");
-      $query_escola->execute();
-      $dados_escola = $query_escola->fetch(PDO::FETCH_ASSOC);
 
       if ($query->rowCount() > 0) {
+
+        $escola_professor = $dados["fk_id_escola_professor"];
+
+        $query_escola = $conn->prepare("select ID_escola, situacao from escola where ID_escola = $escola_secretario");
+        $query_escola->execute();
+        $dados_escola = $query_escola->fetch(PDO::FETCH_ASSOC);
+
         if ($dados_escola['situacao']) {
           echo "<script>alert('Professor logado com sucesso :)');
               window.location = '../homeProfessor.html.php'</script>";
@@ -91,14 +95,16 @@ if ($senha == "" || $email == "") {
         $query->execute();
         $dados = $query->fetch(PDO::FETCH_ASSOC);
 
-        $escola_aluno = $dados["fk_id_escola_aluno"];
-
-        $query_escola = $conn->prepare("select ID_escola, situacao from escola where ID_escola = $escola_aluno");
-        $query_escola->execute();
-        $dados_escola = $query_escola->fetch(PDO::FETCH_ASSOC);
-
-
+        
+        
         if ($query->rowCount() > 0) {
+
+          $escola_aluno = $dados["fk_id_escola_aluno"];
+  
+          $query_escola = $conn->prepare("select ID_escola, situacao from escola where ID_escola = $escola_aluno");
+          $query_escola->execute();
+          $dados_escola = $query_escola->fetch(PDO::FETCH_ASSOC);
+
           if ($dados_escola['situacao']) {
             echo "<script>alert('Aluno logado com sucesso :)');
             window.location = '../homeAluno.html.php'</script>";
@@ -116,13 +122,15 @@ if ($senha == "" || $email == "") {
           $query->execute();
           $dados = $query->fetch(PDO::FETCH_ASSOC);
 
-          $escola_responsavel = $dados["fk_id_escola_responsavel"];
-
-          $query_escola = $conn->prepare("select ID_escola, situacao from escola where ID_escola = $escola_responsavel");
-          $query_escola->execute();
-          $dados_escola = $query_escola->fetch(PDO::FETCH_ASSOC);
-
+          
           if ($query->rowCount() > 0) {
+
+            $escola_responsavel = $dados["fk_id_escola_responsavel"];
+  
+            $query_escola = $conn->prepare("select ID_escola, situacao from escola where ID_escola = $escola_responsavel");
+            $query_escola->execute();
+            $dados_escola = $query_escola->fetch(PDO::FETCH_ASSOC);
+            
             if ($dados_escola['situacao']) {
               echo "<script>alert('Responsável logado com sucesso :)');
                 window.location = '../homePais.html.php'</script>";
