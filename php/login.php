@@ -9,7 +9,7 @@ if ($senha == "" || $email == "") {
   echo "<script>alert('Prencha os campos, por favor');
     history.back();</script>";
   // exit();
-} else if ($email != "" || $senha != "") {
+} else {
 
   $query = $conn->prepare("select email,senha,ID_diretor,fk_id_tipo_usuario_diretor,fk_id_escola_diretor from diretor where email=:email and senha=:senha");
 
@@ -74,7 +74,7 @@ if ($senha == "" || $email == "") {
 
         $escola_professor = $dados["fk_id_escola_professor"];
 
-        $query_escola = $conn->prepare("select ID_escola, situacao from escola where ID_escola = $escola_secretario");
+        $query_escola = $conn->prepare("select ID_escola, situacao from escola where ID_escola = $escola_professor");
         $query_escola->execute();
         $dados_escola = $query_escola->fetch(PDO::FETCH_ASSOC);
 
