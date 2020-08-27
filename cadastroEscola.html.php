@@ -68,7 +68,14 @@
                                         <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed left" style="float: left;">
                                             <i class="material-icons left">delete</i>Desativar Escola
                                         </button>
+
+
                                     </form>
+                                    
+                                    <div class="switch__container">
+                                        <input id="switch-shadow" class="switch switch--shadow" type="checkbox"/>
+                                        <label for="switch-shadow"></label>
+                                    </div>
                                 <?php
                                 } else {
                                 ?>
@@ -114,28 +121,7 @@
                                     <div class="col s12">
                                         <a href="php/deletarEscola.php?id_escola=<?php echo $dados['id_escola']; ?>" style="right:80px" class="secondary-content" title="Excluir escola"><i class="material-icons red-icon">delete</i></a>
                                     </div>
-                                    <?php
-                                    if ($situacao) {
-                                    ?>
-                                        <form action="php/confirmdesativarEscola.php" method="POST">
-                                            <input type="hidden" name="id" value="<?php echo $id_escola  ?>">
-                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed center" style="float: center;">
-                                                <i class="material-icons left">delete</i>Desativar Escola
-                                            </button>
-                                        </form>
-                                    <?php
-                                    } else {
-                                    ?>
-                                        <form action="php/AtivarEscola.php" method="POST">
-                                            <input type="hidden" name="id" value="<?php echo $id_escola; ?>">
-                                            <button id="btnTableChamada" type="submit" class="btn-flat btnLightGreen center" style="float: center;">
-                                                <i class="material-icons left">check</i>Ativar Escola
-                                            </button>
-                                        <?php
-                                    }
-                                        ?>
-                                </div>
-                            <?php } ?>
+                                    <?php } ?>
                         </li>
                     </ul>
                 </div>
