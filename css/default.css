@@ -617,3 +617,10 @@ body {
 .switch--shadow:checked+label:after {
     transform: translateX(60px);
 }
+
+#btnSituacao {
+    border-radius: 30px;
+    width: 55px;
+    margin-left: 0px;
+    margin-top: 15px;
+}

@@ -61,28 +61,28 @@
                                 }
                                 ?>
                                 <?php
-                                if ($dados['situacao']) {
+                               if ($dados['situacao']) {
                                 ?>
                                     <form action="php/confirmdesativarEscola.php" method="POST">
                                         <input type="hidden" name="id" value="<?php echo $id_escola  ?>">
-                                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightRed left" style="float: left;">
-                                            <i class="material-icons left">delete</i>Desativar Escola
+                                        <button id="btnSituacao" type="submit" title="Escola Desativa" class="btn-flat btnLightRed left" style="float: left;">
+                                            <i class="material-icons left">close</i>
                                         </button>
 
 
                                     </form>
                                     
-                                    <div class="switch__container">
+                                    <!--<div class="switch__container">
                                         <input id="switch-shadow" class="switch switch--shadow" type="checkbox"/>
                                         <label for="switch-shadow"></label>
-                                    </div>
+                                    </div>-->
                                 <?php
                                 } else {
                                 ?>
                                     <form action="php/AtivarEscola.php" method="POST">
                                         <input type="hidden" name="id" value="<?php echo $id_escola; ?>">
-                                        <button id="btnTableChamada" type="submit" class="btn-flat btnLightGreen left" style="float: left;">
-                                            <i class="material-icons left">check</i>Ativar Escola
+                                        <button id="btnSituacao" type="submit" title="Escola Ativa" class="btn-flat btnLightGreen left" style="float: left;">
+                                            <i class="material-icons left">check</i>
                                         </button>
                                     <?php
                                 }
